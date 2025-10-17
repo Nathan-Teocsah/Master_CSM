@@ -1,0 +1,60 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[francais]{babel}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+
+\author{Nathan HASCOËT} 
+\title{Rapport du TP1 en optimisation} 
+
+\begin{document}
+	
+\maketitle
+
+\section{Vérification des hypothèses}
+
+On définit les fonctions suivantes, définies sur $[0,3]$ à valeurs dans $\mathbb{R}$ :
+\begin{enumerate}
+	\item $f_1(x)=(x-1)^2$
+	\item $f_2(x) = \begin{cases}
+						(x-1)^2+2 & \text{si } x \leq 1,\\
+						1-x/2  & \text{si } 1 < x \leq 2,\\
+						0.5+(x-2)^2  & \text{si } x>2
+					\end{cases}$
+	\item $f_3(x) = |x-1|(1.1-sin(6x))$
+	\item $f_4(x) = x^2$
+	\item $f_5(x) = (x-3)^2$
+\end{enumerate}
+
+Il est clair que pour les fonctions, 1,4 et 5 sont unimodales en étudiant leur dérivé. De plus $f_2$ est elle aussi unimodale car sur $[0,2]$ les fonctions sont toutes décroissantes et se raccordent, puis sur $[2,3]$ il est clair que la fonction est croissante. Donc $f_2$ est unimodale. Cependant $f_3$ n'est \textbf{pas unimodale}, en effet il y a de nombreuses variations dans cette fonction.
+
+\section{Méthode de dichotomie}
+
+On note $(a_n)$ et $(b_n)$ la suite des éléments engendrés par l'algorithme décrit dans le TP1, où $a_0 = a$ et $b_0 = b$.
+
+On sait que le minimum se trouve entre $a_0$ et $b_0$ par hypothèse.\\
+Supposons que pour $n \in \mathbb{N}$, $x_min \in [a_n;b_n]$;\\
+On pose $\gamma_n = (a_n+b_n)/2$.\\
+\begin{enumerate}
+	\item[-] Si $f((a_n+\gamma_n)/2) < f(\gamma_n)$, alors d'après l'algorithme, $a_{n+1}=a_n$ et $b_{n+1}=\gamma_n$.\\
+	Supposons que $x_{min} > \gamma_n=b_{n+1}$. Alors $f$ est décroissante, en particulier, sur $[(a_n+\gamma_n)/2;\gamma_n]$, ce qui est absurde car cela conduit à écrire $f(\gamma_n)\leq f((a+\gamma_n)/2)$. Donc $x_{min} \leq b_{n+1}$. De plus, par hypothèse, $x_{min}\geq a_n=a_{n+1}$. Donc $x_{min} \in [a_{n+1};b_{n+1}]$.\\
+	De plus $b_{n+1}-a_{n+1} =  \frac{1}{2}(\gamma_n-a_n) = \frac{1}{2}(b_n-a_n)$ et $a_n \leq a_{n+1}$ et $b{n+1}\leq b_n$.
+	
+	\item[-] Si $f((\gamma_n+b_n)/2)<f(\gamma_n)$, alors, d'après l'algorithme $a_{n+1} = \gamma_n$ et $b_{n+1}=b_n$.\\ De plus, si $x_{min} < a_{n+1}$, on en déduit par unimodularité de $f$ que $f((a+\gamma_n)/2) \geq f(\gamma_n)$, ce qui est absurde. Donc $x_{min} \in [a_{n+1},b_{n+1}]$ car $x_{min} \leq b_n=b_{n+1}$.\\
+	De même, $b_{n+1}-a_{n+1} = \frac{1}{2}(b_n-\gamma_n)=\frac{1}{2}(b_n-a_n)$ et $a_n \leq a_{n+1}$ et $b{n+1}\leq b_n$.
+	
+	\item[-] Si $f(\gamma_n)\leq f((\gamma_n+b_n)/2), f((a_n+\gamma_n)/2)$, alors d'après l'algorithme, $a_{n+1}=(a_n+\gamma_n)/2$ \\ et $b_{n+1}=(\gamma_n+b_n)/2$.\\
+	Supposons que $x_{min} \not \in [a_{n+1};b_{n+1}]$. Donc sur cet intervalle, $f$ est soit décroissante, soit croissante, mais pas les deux. Or $f(\gamma_n) \leq f(a_{n+1})$, donc $f(\gamma_n) \geq f(b_{n+1})$, ce qui est absurde. Ainsi $x_{min}\in[a_{n+1};b_{n+1}]$.\\
+	Et de même $a_{n+1}-b_{n+1}=\frac{1}{2}(b_n-a_n)$ et $a_n \leq a_{n+1}$ et $b{n+1}\leq b_n$.
+\end{enumerate}
+
+Ainsi, pour tout entier $n$, $b_n - a_n = \frac{1}{2^n}(b-a)$ et $x_{min}\in [a_n,b_n]$. On en déduit que $(a_n)$ et $(b_n)$ convergent vers une même limite, car $(a_n)$ et $(b_n)$ sont respectivement croissante et décroissante, et la limite de leur différence est nul. De plus cette limite est $x_{min}$.\\
+
+De plus, on en déduit aussi que le nombre d'évaluation de la fonction pour un $\varepsilon$ fixé pour la méthode de la dichotomie (cela fonctionne aussi pour la méthode de la section dorée) sera toujours la même quelque soit la fonction choisie, ce qui s'observe sur les graphiques du nombres d'évaluation.\\
+
+On remarque que, pour $f_3$, l'algorithme de la dichotomie ne trouve pas le minimum et converge vers un autre minimum local. Ce qui est cohérent avec le fait que $f_3$ n'est pas unimodale. Cependant la méthode de la section dorée arrive à trouver le minimum globale de cette fonction
+
+
+\end{document}
