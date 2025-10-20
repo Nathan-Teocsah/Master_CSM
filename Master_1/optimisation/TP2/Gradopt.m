@@ -31,6 +31,7 @@ u0 =
 if (quadratique=='OUI')
   %
    while((difference > epsil) & (niter < nitermax))
+     niter += 1;
      wk = GJ(uk);
      alphak = wk'*wk/AJ(uk)'*wk;
      difference = norm(alphak*wk); % || u_{k+1}-u_{k} || = difference
@@ -44,10 +45,10 @@ elseif (quadratique=='NON')
   %
   nbevalinfmin = 0;
   while((difference > epsil) & (niter < nitermax))
-   niter = niter+1;
+   niter += 1;
    wk = GJ(uk) ;
    myfunction = @(x)J(uk - x * wk);
-   [alphak, fval, exitflag, output] = fminbnd(myfunction,0, ... CHOISIR ...);
+   [alphak, fval, exitflag, output] = fminbnd(myfunction,0, 100000); % il faut tester pour trouver les bonnes valeurs
    nbevalinfmin = nbevalinfmin + output.iterations; % on récupère le nombre d'itération effectuée par la fonction précédente
    difference = norm(alphak*wk); % || u_{k+1}-u_{k} || = difference
    uk = uk-alphak*wk; % calcul de u_{k+1}
