@@ -17,13 +17,14 @@ quadratique = 'NON'; %('OUI' ou 'NON') dépendant de la fonction test que l'on c
 %
 ........................ Initialisation des paramètres ....................
 %
-difference = 1;     % Servira pour le test d''arret.
+difference = 1;     % Servira pour le test d'arret.
+u0 = [0 ; 0];       %On initialise à 0/
 uk=u0               % uk contiendra les iteres successifs
 tslesuk = u0;       % stockera l''ensemble des iteres successifs
 niter = 0;          % Nombre d'itération par boucles
 nitermax = 100000;  % Nombre d'itération maximum
-epsil = 1e-;       % précision que l'on souhaite entre 2 itérés
-u0 =
+epsil = 1e-6;       % précision que l'on souhaite entre 2 itérés
+
 
 %
 ........................ Algorithme du gradient à pas optimal ....................
