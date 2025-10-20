@@ -16,11 +16,14 @@ int main()
   srand(time(NULL));
   for (int i=0;i<N;i++)
   {
+    /*printf("Valeur %d = ",i+1);
+    scanf("%f",M+i);*/
     *(M+i)= (float)rand();
   }
  float e=0, m=0;
  moyenne(M,N,&m);
  ecartype(M,N,&e,&m,0); //derier argument si = 1 alors pas besoin de calculer la moyenne, et si =0 on calcul la moyenne dans cette fonction, ici la moyenne est calculée par moyenne.
- printf("\nMoyenne = %f\n",m);
- printf("Ecart-type = %f\n\n",e);
+ printf("\nMoyenne = %e\n",m);
+ printf("Ecart-type = %e\n",e);
+ printf("RAND_MAX = %e\n\n",(float)RAND_MAX);
 }

@@ -12,6 +12,7 @@ void ecartype(float *M,int N,float *p_e,float *p_m,int b)
     if (b==1) //Il faut donc calculer la moyenne
     {
       printf("On calcul la moyenne !");
+      *p_m = 0;
       for (int i=0;i<N;i++)
       {
         *p_m = *p_m + *(M+i)/N;
@@ -19,7 +20,7 @@ void ecartype(float *M,int N,float *p_e,float *p_m,int b)
     }
     for (int i=0;i<N;i++) //Calcul de l'ecart-type au carré
     {
-      *p_e = *p_e + pow(2,*(M+i)-*p_m)/N;
+      *p_e = *p_e + powf(*(M+i)-*p_m,2)/N;
     }
     *p_e = sqrtf(*p_e); //ecart-type
   }
