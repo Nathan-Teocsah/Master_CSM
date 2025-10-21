@@ -35,7 +35,7 @@ int main()
  printf("Ecart-type = %e\n",e); //Ecart-type de la distribution générée par rand()
  printf("Ecart-type théorique = %e\n",ec_th);
  printf("Erreur = %e\n",fabs(e-ec_th));
-  printf("Pourcentage d'erreur = %f \n\n",100*fabs(e-ec_th)/ec_th);
+ printf("Pourcentage d'erreur = %f \n\n",100*fabs(e-ec_th)/ec_th);
  
  printf("RAND_MAX = %e\n\n",rand_max);
  

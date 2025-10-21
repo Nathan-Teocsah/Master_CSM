@@ -2,9 +2,8 @@
 
 void imptabP(int n, int *t)
 {
-  int i = 0;
-  for (int *p=t;p<n+t;p++)
+  for (int i=0;i<n;i++)
   {
-    printf("\n  *(t+%d) = %d\n",i++,*p);
+    printf("\n  *(t+%d) = %d\n",i,*(t++));
   }
 }

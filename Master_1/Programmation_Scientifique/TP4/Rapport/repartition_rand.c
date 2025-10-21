@@ -23,7 +23,8 @@ int main(){
     taille = q+1;
   }
 
-  int a, i, *p1, *p2, tab_rep[nbint], pourc_rep[nbint];
+  int a, *p1, tab_rep[nbint];
+  float *p2, pourc_rep[nbint];
   for (int i=0;i<nbint;i++){*(tab_rep + i)=0;} //Initialisation à 0 du tableau stockant le nombre de nombres généré aléatoirement se trouvant dans chacun des intervalles.
   
   srand(time(NULL));
@@ -32,8 +33,14 @@ int main(){
     a = rand();
     q = a/taille, r = a%taille;
     
-    p = tab_rep + q;
-    *p = *p+1;
+    p1 = tab_rep + q;
+    p2 = pourc_rep + q;
+    *p1 = *p1+1;
+    *p2 = *p2 + (float)100/N;
   }
+  printf("\n\n Répartition dans chacun des %d intervalles\n",N);
   imptabP(nbint,tab_rep);
+  
+  printf("\n\n Répartition en pourcentage dans chacun des %d intervalles\n",N);
+  imptabF(nbint,pourc_rep);
 }
