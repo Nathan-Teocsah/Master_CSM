@@ -25,14 +25,13 @@ int main(){
 
   int a, *p1, tab_rep[nbint];
   float *p2, pourc_rep[nbint];
-  for (int i=0;i<nbint;i++){*(tab_rep + i)=0;} //Initialisation à 0 du tableau stockant le nombre de nombres généré aléatoirement se trouvant dans chacun des intervalles.
+  for (int i=0;i<nbint;i++){*(tab_rep + i)=0, *(pourc_rep + i)=0;} //Initialisation à 0 du tableau stockant le nombre de nombres généré aléatoirement se trouvant dans chacun des intervalles.
   
   srand(time(NULL));
   for (int c=0;c<N;c++)
   {
     a = rand();
     q = a/taille, r = a%taille;
-    
     p1 = tab_rep + q;
     p2 = pourc_rep + q;
     *p1 = *p1+1;
