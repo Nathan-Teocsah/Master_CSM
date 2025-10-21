@@ -23,7 +23,7 @@ int main(){
     taille = q+1;
   }
 
-  int a, i, *p, tab_rep[nbint], tab_rep1[nbint];
+  int a, i, *p1, *p2, tab_rep[nbint], pourc_rep[nbint];
   for (int i=0;i<nbint;i++){*(tab_rep + i)=0;} //Initialisation à 0 du tableau stockant le nombre de nombres généré aléatoirement se trouvant dans chacun des intervalles.
   
   srand(time(NULL));

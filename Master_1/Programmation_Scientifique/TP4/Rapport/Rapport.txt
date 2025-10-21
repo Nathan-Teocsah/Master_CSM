@@ -1,3 +1,5 @@
 Pour compiler les fichiers relatifs à la question 7, il faut exécuter la commande "gcc repartition_rand.c imptabP.c"
-Pour compiler les fichiers relatifs à la question 8 il faut exécuter la commande "gcc stat.c moyenne.c ecartype.c"
+Pour compiler les fichiers relatifs à la question 8 il faut exécuter la commande "gcc stat.c moyenne.c ecartype.c -lm"
+
+On remarque
 
