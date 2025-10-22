@@ -1,7 +1,0 @@
-Pour compiler les fichiers relatifs à la question 7, il faut exécuter la commande "gcc repartition_rand.c imptabP.c imptabF.c -lm" (sur imptabF.c on fait exactement la même chose que pour imptabP.c pour au lieu de vouloir afficher un tableau de int on affiche un tableau de float)
-
-Pour compiler les fichiers relatifs à la question 8 il faut exécuter la commande "gcc stat.c moyenne.c ecartype.c -lm"
-
-On remarque que la répartition est globalement équi-répartie pour N=100 000 et nbint = 10, dès que l'on diminue le nombre d'entiers généré, la répartition devient de moins en moins équi-répartie.
-De même que pour la moyenne et pour l'écart-type, les pourcentage d'erreur par rapport à la moyenne et l'écart-type théorique sont très faible (strictement moins de 1%, et lorsque l'on augmente l'échantillon, on diminue encore l'erreur relative il semble que lon descende même en dessous de 0.1%).
-

@@ -12,14 +12,14 @@ a=4; b=4; c=10; p=10;
 ........................ Choix de la fonction test ....................
 %
 numex= 1;    % (1 2 3 4 5 ou 6) = choix e la fonction test sur laquelle on veut appliquer l'algorithme
-quadratique = 'NON'; %('OUI' ou 'NON') dépendant de la fonction test que l'on choisie
+quadratique = 'OUI'; %('OUI' ou 'NON') dépendant de la fonction test que l'on choisie
 
 %
 ........................ Initialisation des paramètres ....................
 %
 difference = 1;     % Servira pour le test d'arret.
 u0 = [0 ; 0];       %On initialise à 0/
-uk=u0               % uk contiendra les iteres successifs
+uk=u0;              % uk contiendra les iteres successifs
 tslesuk = u0;       % stockera l''ensemble des iteres successifs
 niter = 0;          % Nombre d'itération par boucles
 nitermax = 100000;  % Nombre d'itération maximum
@@ -31,7 +31,7 @@ epsil = 1e-6;       % précision que l'on souhaite entre 2 itérés
 %
 if (quadratique=='OUI')
   %
-   while((difference > epsil) & (niter < nitermax))
+   while((difference > epsil) && (niter < nitermax))
      niter += 1;
      wk = GJ(uk);
      alphak = wk'*wk/AJ(uk)'*wk;
@@ -45,7 +45,7 @@ if (quadratique=='OUI')
 elseif (quadratique=='NON')
   %
   nbevalinfmin = 0;
-  while((difference > epsil) & (niter < nitermax))
+  while((difference > epsil) && (niter < nitermax))
    niter += 1;
    wk = GJ(uk) ;
    myfunction = @(x)J(uk - x * wk);
@@ -78,7 +78,26 @@ ymin = ymin - 0.5*ydiff; ymax = ymax + 0.5*ydiff;
 figure(1)
 
 visiso(xmin, xmax, ymin, ymax); %contient les fonctions permettant l’affichage graphique des lignes de niveau
-visiter(uk,tslesuk,niter,nitermax); %caractéristiques de la méthode du gradient à pas optimal : suite des points (uk ) et directions dedescente
+visiter(uk, tslesuk, niter, nitermax); %caractéristiques de la méthode du gradient à pas optimal : suite des points (uk ) et directions dedescente
 
 axis equal
 
+%
+........................ Vérification de l'inégalité question 3 ....................
+%
+
+if (quadratique=='OUI')
+  I = [];
+  L = [];
+  M = [];
+  r = cond(A)
+  n0 = norm(u0-uk);
+  for i=1:1:niter
+    I = [I i];
+    L = [L log(norm(tslsuk(:,i)-uk))];
+    M = [M k*log((r-1)/(r+1)*n0)];
+    plot(I,L,I,M);
+    hold off;
+    pause(0.5);
+  end
+end

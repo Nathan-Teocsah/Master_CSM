@@ -15,13 +15,19 @@ int main()
   float M[N];
   
   srand(time(NULL)); //Pour réinitialiser "aléatoirement" le seed de la fonction rand
+  float e=0, m=0;
+  float a;
   for (int i=0;i<N;i++)
   {
-    *(M+i)= (float)rand();
+    //*(M+i)= (float)rand();
+    a = (float)rand();
+    m = m + a/N;
+    e = e + pow(a,2)/N;
   }
- float e=0, m=0;
- moyenne(M,N,&m);
- ecartype(M,N,&e,&m,0); //dernier argument si = 1 alors pas besoin de calculer la moyenne, et si =0 on calcul la moyenne dans cette fonction, ici la moyenne est calculée par moyenne.
+  e = sqrtf(e-pow(m,2));
+ 
+ //moyenne(M,N,&m);
+ //ecartype(M,N,&e,&m,0); //dernier argument si = 1 alors pas besoin de calculer la moyenne, et si =0 on calcul la moyenne dans cette fonction, ici la moyenne est calculée par moyenne.
  
  float rand_max = (float)RAND_MAX;
  float moy_th = (rand_max+1)/2; //Moyenne théorique
