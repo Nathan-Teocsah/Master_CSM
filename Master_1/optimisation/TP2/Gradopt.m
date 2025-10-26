@@ -34,7 +34,7 @@ if (quadratique=='OUI')
    while((difference > epsil) && (niter < nitermax))
      niter += 1;
      wk = GJ(uk);
-     alphak = wk'*wk/AJ(uk)'*wk;
+     alphak = wk'*wk/(AJ(wk)'*wk);
      difference = norm(alphak*wk); % || u_{k+1}-u_{k} || = difference
      uk = uk-alphak*wk;
      tslesuk = [tslesuk uk];
@@ -65,22 +65,49 @@ end
 %
 ........................ Affichage des itérés et du nombre d'itérations ....................
 %
-xmin = min(min(tslesuk(1,:)),-3.3);
-xmax = max(tslesuk(1,:));
-xdiff = xmax-xmin;
-ymin = min(tslesuk(2,:));
-ymax = max(tslesuk(2,:));
-ydiff = ymax-ymin;
-%xdiff = max(xdiff,ydiff); ydiff = xdiff;
-xmin = xmin - 0.5*xdiff; xmax = xmax + 0.5*xdiff;
-ymin = ymin - 0.5*ydiff; ymax = ymax + 0.5*ydiff;
 
-figure(1)
+fur_et_a_mesure = "NON";
 
-visiso(xmin, xmax, ymin, ymax); %contient les fonctions permettant l’affichage graphique des lignes de niveau
-visiter(uk, tslesuk, niter, nitermax); %caractéristiques de la méthode du gradient à pas optimal : suite des points (uk ) et directions dedescente
+if (fur_et_a_mesure == "NON")
+  xmin = min(min(tslesuk(1,:)),-3.3);
+  xmax = max(tslesuk(1,:));
+  xdiff = xmax-xmin;
+  ymin = min(tslesuk(2,:));
+  ymax = max(tslesuk(2,:));
+  ydiff = ymax-ymin;
+  %xdiff = max(xdiff,ydiff); ydiff = xdiff;
+  xmin = xmin - 0.5*xdiff; xmax = xmax + 0.5*xdiff;
+  ymin = ymin - 0.5*ydiff; ymax = ymax + 0.5*ydiff;
 
-axis equal
+  figure(1)
+
+  visiso(xmin, xmax, ymin, ymax); %contient les fonctions permettant l’affichage graphique des lignes de niveau
+  visiter(uk, tslesuk, niter, nitermax); %caractéristiques de la méthode du gradient à pas optimal : suite des points (uk ) et directions dedescente
+
+  axis equal
+else
+  for i=2:1:niter
+    xmin = min(min(tslesuk(1,1:i)),-3.3);
+    xmax = max(tslesuk(1,1:i));
+    xdiff = xmax-xmin;
+    ymin = min(tslesuk(2,1:i));
+    ymax = max(tslesuk(2,1:i));
+    ydiff = ymax-ymin;
+    %xdiff = max(xdiff,ydiff); ydiff = xdiff;
+    xmin = xmin - 0.5*xdiff; xmax = xmax + 0.5*xdiff;
+    ymin = ymin - 0.5*ydiff; ymax = ymax + 0.5*ydiff;
+
+    figure(1)
+
+    visiso(xmin, xmax, ymin, ymax); %contient les fonctions permettant l’affichage graphique des lignes de niveau
+    hold on
+    plot(tslesuk(1,1:i),tslesuk(2,1:i),'ko')
+    hold on
+    plot(tslesuk(1,1:i),tslesuk(2,1:i),'k-')
+    hold off
+    pause(0.5);
+  end
+end
 
 %
 ........................ Vérification de l'inégalité question 3 ....................
@@ -92,11 +119,14 @@ if (quadratique=='OUI')
   M = [];
   r = cond(A)
   n0 = norm(u0-uk);
+  figure (2)
   for i=1:1:niter
     I = [I i];
-    L = [L log(norm(tslsuk(:,i)-uk))];
-    M = [M k*log((r-1)/(r+1)*n0)];
+    L = [L log(norm(tslesuk(:,i)-uk))];
+    %M = [M i*log((r-1)/(r+1))+log(n0)];
+    M = [M log(((r-1)/(r+1))^i*n0)];
     plot(I,L,I,M);
+    legend("log(||uk-u*||)","k*log((r-1)/(r+1))+log(||u0-u*||)");
     hold off;
     pause(0.5);
   end

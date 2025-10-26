@@ -8,11 +8,11 @@ global a b c p
 %
 switch numex
  case 1
-   gu = [1  -2; 2 -2];
+   gu = [2  -2; -2  4];
  case 2
-   gu = [1  -2; 2 -2] ;
+   gu = [2  -2; -2  4];
  case 3
-   gu = [5 7; 7 5/2] ;
+   gu = [10 7; 7 5] ;
  case {4, 5, 6}
    error('Fonction non quadratique.')
  otherwise
