@@ -31,7 +31,7 @@ u0 = [x;y];      %On initialise u0
 epsil = 1e-6;             % précision que l'on souhaite entre 2 itérés
 tslesuk = u0;             % stockera l''ensemble des iteres successifs
 niter = 0;                % Nombre d'itération par boucles
-nitermax = 1000;        % Nombre d'itération maximum
+nitermax = 2000;        % Nombre d'itération maximum
 
 
 
@@ -81,7 +81,7 @@ elseif (quadratique=='n')
      nbevalinfmin = nbevalinfmin + output.iterations; % on récupère le nombre d'itération effectuée par la fonction précédente
      i=0;
      while ((borne_max-alphak)< prec_borne) % Tant qu'on est trop proche de la borne supérieur on continue à chercher le minimum
-       borne_max += borne_max*10^i;
+       borne_max += borne_max*10^i++;
        [alphak, fval, exitflag, output] = fminbnd(myfunction,0, borne_max);
        nbevalinfmin = nbevalinfmin + output.iterations;
      end
@@ -99,6 +99,8 @@ else
 end
 
 disp(blanks(2)')
+
+
 
 %
 ........................ Affichage des itérés et du nombre d'itérations ....................
@@ -164,7 +166,7 @@ if (numex<=3)
       legend("log(||uk-u*||)","log((r-1)/(r+1))^k*||u0-u*||)");
       title('Vérification de l''inégalité de la question 3');
       hold off;
-      pause(0.5);
+      pause(0.1);
     end
   end
   disp(blanks(2)');
