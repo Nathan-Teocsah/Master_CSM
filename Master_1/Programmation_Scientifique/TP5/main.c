@@ -26,4 +26,5 @@ mat_create(&Res,n,m);
 matsum(A,B,&Res);
 printf("A + B = \n");
 mat_print(Res);
+mat_free(Res); mat_free(A); mat_free(B);
 }
