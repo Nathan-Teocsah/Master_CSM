@@ -1,0 +1,115 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[francais]{babel}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+
+\author{Nathan HASCOËT} 
+\title{Rapport du TP2 en optimisation} 
+
+\begin{document}
+	
+\maketitle
+
+\section{Condition d'arrêt}
+	
+	La condition d'arrêt de l'algorithme du gradient à pas optimal porte sur $|\!|u_{n+1}-u_n|\!| = |\alpha_n|.|\!|\nabla J(u_n)|\!|$
+	
+\section{Méthode du gradient à pas optimal pour une fonctionnelle quadratique elliptique}
+
+	\textbf{\underline{Questions 1 et 2}}
+	
+	\vspace{.5cm}
+	
+	\underline{Pour l'exemple 1 :}
+	\begin{minipage}[t]{15cm}
+		$A_1 = \begin{bmatrix}
+			 2 & -2 \\
+			 -2 & 4
+			 \end{bmatrix}$  \hspace{2cm} \underline{Pour l'exemple 2 :}
+			 \begin{minipage}[t]{5cm}
+			 	$A_2 = \begin{bmatrix}
+			 		2 & -2 \\
+			 		-2 & 4
+			 	\end{bmatrix}$
+			 \end{minipage}
+	\end{minipage} 
+	
+	\vspace{.2cm}
+	
+	\underline{Pour l'exemple 3 :} \begin{minipage}[t]{15cm}
+		$A_3 = \begin{bmatrix}
+			10 & 7 \\
+			7 & 5
+		\end{bmatrix}$ 
+	\end{minipage}
+	
+	\vspace{.5cm}
+	
+	On observe sur le graphique MATLAB que les différentes directions de descentes semblent orthogonales.\\
+	
+	\underline{Démontrons cette affirmation :}\\
+	
+	$ $ \hspace{1cm} \begin{minipage}{18cm}
+		On a : $u_{n+1} = u_n-\alpha_n\nabla J(u_n)$, \hspace{.5cm} $\alpha_n = \frac{|\!|w_n|\!|^2}{Aw_n\cdot w_n}$ et \hspace{.5cm} $w_n = \nabla J(u_n) = Au_n-b$.\\
+		
+		Ainsi : $w_{n+1} \cdot w_n$ 
+		\begin{minipage}[t]{6cm}
+			$= \left(Au_{n+1}-b\right)\cdot w_n$\\
+			$= \left(Au_n-\frac{|\!|w_n|\!|^2}{Aw_n\cdot w_n}Aw_n-b\right)\cdot w_n$\\
+			$=\left( Au_n-b-\frac{|\!|w_n|\!|^2}{Aw_n \cdot w_n}Aw_n\right)\cdot w_n $\\
+			$= |\!|w_n|\!|^2-\frac{|\!|w_n|\!|^2}{Aw_n \cdot w_n}Aw_n\cdot w_n$\\
+			$= |\!|w_n|\!|^2-|\!|w_n|\!|^2 = 0$
+		\end{minipage}
+	\end{minipage}
+	
+	
+	
+\section{Incidence du conditionnement de la matrice A}
+
+	\textbf{\underline{Question 3}}
+
+	\vspace{.2cm}
+	
+	$\longrightarrow$ \begin{minipage}[t]{18 cm}Calculons les conditionnement de chacune des 3 matrices :\\
+	Pour cela, calculons d'abord les polynômes caractéristiques de chacun.\\
+	
+	$\chi_{A_1}=\chi_{A_2}=X^2-\text{tr}(A_2)X+\text{det}(A_2) = X^2-6X^2+4$ et $\chi_{A_3} = X^2-\text{tr}(A_3)X+\text{det}(A_3) = X^2-15X+1$.\\
+	
+	$\Delta_1 = 36-16 = 20$ donc les racines sont : $\frac{6+\sqrt{20}}{2} = 3+\sqrt{5}>0$ et $3-\sqrt{5}>0$.\\
+	Puisque $A_1$ et $A_2$ sont normales : $\text{cond}(A_1)=\text{cond}(A_2) = \frac{3+\sqrt{5}}{3-\sqrt{5}} \simeq 6.85$.\\
+	
+	$\Delta_3 = 225-4 = 221$ donc les racines sont : $\frac{15+\sqrt{221}}{2}>0$ et $\frac{15-\sqrt{221}}{2}>0$.\\
+	Puisque $A_3$ est normale : $\text{cond}(A_3)= \frac{15+\sqrt{221}}{15-\sqrt{221}} \simeq 223 $.
+	\end{minipage}
+	
+	\vspace{.5cm}
+	
+	$\longrightarrow$ \begin{minipage}[t]{18 cm}
+		L'inégalité donnée dans la question 3 semble être vrai pour tout k. De plus les 2 courbes semblent être asymptotiquement affines.
+	\end{minipage}
+	
+\section{Méthode du gradient à pas optimal pour une fonctionnelle quelconque}
+	
+\textbf{\underline{Question 5}}
+
+\vspace{.5cm}
+
+Le problème 4 converge assez vite (81 tours de boucles et 490 au total). Le problème 6 converge beaucoup plus lentement (529 tours de boucle et 4 460 au total) dû à la finesse de la vallée qui descend vers le minimum.\\
+
+Le problème 5, lui diverge, $(J(u_n))_n$ diverge vers $-\infty$ lorsque le point initiale est $u_0 = (1,1)$. En effet, $\nabla J(u_0) = (2x_1, -2x_2)$ où $u_0 = (x_1,x_2)$.\\ 
+Donc $J(u_0-t\nabla J(u_0)) = J((1,1)-t(2,-2))=J((1-2t,1+2t)) = (1+2t)^2-(1-2t)^2 = -8t$.\\
+ Donc $\text{argmin}\left( J(u_0-t\nabla J(u_0)) \right) = + \infty$.\\
+ 
+ De plus si $u_0 = (1,0)$, $J(u_0-t\nabla J(u_0)) = J((1,0) - t(2,0)) = J(1-2t,0) = (1-2t)^2$. Ainsi $\text{argmin}\left( J(u_0-t\nabla J(u_0)) \right) = 1/2$.\\
+ Donc $u_1 = (1,0)-0.5.(2,0)=(0,0)$.\\
+ Et : $\nabla J(u_1) = 0$. Donc $u_2 = u_1$. Et par suite, pour tout $k \geq 1$, $u_k = (0,0)$. Ce qui s'explique par le fait que $u_1$ est un point selle.\\
+ 
+ Ces deux phénomènes se constate informatiquement.
+	
+	
+	
+	
+\end{document}

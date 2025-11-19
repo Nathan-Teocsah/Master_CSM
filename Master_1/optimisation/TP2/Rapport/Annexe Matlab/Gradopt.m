@@ -64,7 +64,7 @@ if (quadratique=='o')
   %
 elseif (quadratique=='n')
   %
-  prec_borne = 1e-3; % précision choisie pour savoir si on est trop proche de la borne choisie pour trouver le minimum de myfunction
+  prec_borne = 1e-4; % précision choisie pour savoir si on est trop proche de la borne choisie pour trouver le minimum de myfunction
   borne_max = 1; % Le pas par lequel on incrémente la borne maximale
   %pas = input('Pas par lequel on incrémente la borne maximale pour trouver le minimum de myfunction : ');
   if (borne_max < prec_borne)
@@ -80,7 +80,7 @@ elseif (quadratique=='n')
      [alphak, fval, exitflag, output] = fminbnd(myfunction,0, borne_max);
      nbevalinfmin = nbevalinfmin + output.iterations; % on récupère le nombre d'itération effectuée par la fonction précédente
      i=0;
-     while (alphak/borne_max > 1- prec_borne) % Tant qu'on est trop proche de la borne supérieur on continue à chercher le minimum
+     while ((borne_max-alphak)< prec_borne) % Tant qu'on est trop proche de la borne supérieur on continue à chercher le minimum
        borne_max += borne_max*10^i++;
        [alphak, fval, exitflag, output] = fminbnd(myfunction,0, borne_max);
        nbevalinfmin = nbevalinfmin + output.iterations;
@@ -148,21 +148,19 @@ if (numex<=3)
     M = [];
     r = cond(A);
     q = (r-1)/(r+1);
-    uc = uk;
-    n0 = (A*(u0-uc))'*(u0-uc);
+    n0 = norm(u0-uk);
     rep = input (['Voulez vous afficher les log(||uk-u*||) et log((r-1)/(r+1))^k*||u0-u*||), il y en a ',num2str(niter),', (o/n) ? '],'s');
     figure (2)
     for i=1:1:niter
       I = [I i-1];
-      norme = (tslesuk(:,i)-uc)'*(tslesuk(:,i)-uc);
-      L = [L log(norme)];
+      L = [L log(norm(tslesuk(:,i)-uk))];
       M = [M log(q^(i-1)*n0)];
       if (rep == 'o')
         disp("")
         disp("-----------------------------------------------------")
         disp("k | log(||uk-u*||)  |   log((r-1)/(r+1))^k*||u0-u*||)")
         disp("-----------------------------------------------------")
-        printf("%d | %f       |     %f\n",i-1,log(norm(tslesuk(:,i)-uc)),log(q^(i-1)*n0));
+        printf("%d | %f       |     %f\n",i-1,log(norm(tslesuk(:,i)-uk)),log(q^(i-1)*n0));
       end
       plot(I,L,I,M);
       legend("log(||uk-u*||)","log((r-1)/(r+1))^k*||u0-u*||)");
