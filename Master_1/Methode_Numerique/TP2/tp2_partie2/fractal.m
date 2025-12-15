@@ -3,8 +3,15 @@
 %          de la methode de Newton pour resoudre f(x)=0 dans R^d.
 %x1min=0.8;x1max=1.2;x2min=0;x2max=0.4;pas=0.001;
 x1min=-1;x1max=2.5;x2min=-1.5;x2max=2.5;pas=0.001;
+
 cs1=num2str([1;1]);cs2=num2str([1;-1]);cs3=num2str([0.5;2]);cs4=num2str([-0.5;2]);
-x1=[x1min:pas:x1max];x2=[x2min:pas:x2max];n=length(x1);m=length(x2);c=zeros(m,n);
+
+x1=[x1min:pas:x1max];
+x2=[x2min:pas:x2max];
+
+n=length(x1);m=length(x2);
+c=zeros(m,n);
+
 disp([n,m]);
 nmax=7;eps=1e-7;
 %warning off all;
