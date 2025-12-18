@@ -9,8 +9,7 @@ function [x,nit,vecte]=IterRel(A,b,omega,x0,epsil,nitmax)
   nit = 0;
 
   for k = 1:nitmax
-      xnew = (D + omega*L) \ ...
-             (omega*b - ((omega-1)*D + omega*U)*x);
+      xnew = (D + omega*L) \ (omega*b - ((omega-1)*D + omega*U)*x);
 
       r = b - A*xnew;
       vecte(k) = norm(r,2);
