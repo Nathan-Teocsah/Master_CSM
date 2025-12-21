@@ -32,23 +32,25 @@ int main()
   //-----------------ALGORITHME-----------------------------
   
   int n_min = 5;
-  int n_pas = 10;
-  int n_max = 150;
+  int n_pas = 50;
+  int n_max = 705;
 
 
   //----------------Edition du début du fichier texte--------------
-  FILE *fp = fopen("resultat.txt", "w");
+  FILE *fp = fopen("resultat_m.txt", "w");
   fprintf(fp,"n");
   for (int i = 0; i<(log(n_max)/log(10)+3); i++) fprintf(fp," "); //On introduit dans le fichier autant d'espace qu'il faut entre n_max et l'erreur relative associé
   fprintf(fp,"Norme\n\n");
   
   
   //--------------Calcul de l'erreur pour différentes valeur de n------------------
-  double h = 1/((double)(n+1));
-  float *p_b = (float*)malloc(n*sizeof(*p_b));
+ 
+  
   
   for (int n = n_min; n<(n_max+1);n = n + n_pas )
   {
+    float *p_b = (float*)malloc(n*sizeof(*p_b));
+    double h = 1/((double)(n+1));
     float** pp_A = (float **)malloc(n*sizeof(*pp_A));
     float* p_A = (float *)calloc(n*n,sizeof(*p_A)); // Matrice A stockée sous-forme d'un vecteur ligne
     for (int i = 0; i<n;i++) pp_A[i] = p_A+i*n; // On définit pp_A* comme l'adresse de la ième ligne
@@ -88,14 +90,9 @@ int main()
     {
       for (int j=0;j<n;j++)
       {
-        if (i==j)
-        {
-          *(p_A+i*n+i) = 2;
-        }
-        else if ((j==(i+1))||(j==(i-1)))
-        {
-          *(p_A+i*n+j) = -1;
-        }
+        if (i==j) pp_A[i][i] = 2;
+        else if ((j==(i+1))||(j==(i-1))) pp_A[i][j] = -1;
+        else pp_A[i][j] = 0;
       }
     } 
 

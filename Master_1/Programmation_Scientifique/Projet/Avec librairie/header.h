@@ -19,3 +19,5 @@ void produit(Matrix, Matrix, Matrix_double*);
 void difference(Matrix_double* ,Matrix_double);
 
 double norme1(Matrix_double);
+
+void fonction(void);

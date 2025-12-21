@@ -55,3 +55,46 @@ void initiate_A_b(Matrix *A,  Matrix *A_copie,  Matrix* X,Matrix_double *b, Matr
     X->p[i] = (float) b->p[i];
   } 
 }
+
+
+
+
+
+
+void produit(Matrix A, Matrix X, Matrix_double *Res)
+{
+  int n = A.nrow;
+  
+  for (int i = 0;i<n;i++) 
+  {
+    for (int j = 0;j<n;j++) 
+    {
+      Res->p[i] += A.mat[i][j] * (double)X.p[j];
+    }
+  }
+}
+
+
+
+
+
+void difference(Matrix_double* v2,Matrix_double v1) 
+//Calcul v2-v1 que l'on stocke dans v2;
+{  
+  for (int i = 0; i<v1.nrow; i++) v2->p[i] = v2->p[i]- v1.p[i];
+}
+
+
+
+
+
+double norme1(Matrix_double v)
+{
+  double N = 0;
+  for (int i = 0; i<v.nrow; i++) N += fabs(v.p[i]);
+  return N;
+}
+
+
+
+

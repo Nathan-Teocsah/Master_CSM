@@ -1,0 +1,116 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}     % Typographie française
+\usepackage{lmodern}           % Police vectorielle unifiée et nette
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tcolorbox}         % Pour les boites bleues
+\usepackage{setspace}          % Pour l'interligne
+\usepackage{titlesec}          % Pour la couleur des titres
+\usepackage{hyperref}          % Pour les liens cliquables
+
+\usepackage{pgfplotstable}
+\usepackage{booktabs} % optionnel mais recommandé
+\pgfplotsset{compat=1.18}
+
+
+% Marges
+\geometry{
+	margin=2.5cm,
+	top=2.5cm,
+	bottom=2.5cm
+}
+
+% Interligne (1.5 pour une lecture aérée)
+\onehalfspacing
+\setlength{\parskip}{0.5em}
+
+\definecolor{bleuTitre}{RGB}{0,70,140}
+\definecolor{bleuCadre}{RGB}{220,235,250}
+
+\titleformat{\section}
+{\color{bleuTitre}\Large\bfseries}
+{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\color{bleuTitre}\large\bfseries}
+{\thesubsection}{1em}{}
+
+
+\tcbset{
+	colback=bleuCadre,
+	colframe=bleuTitre,
+	boxrule=0.8pt,
+	arc=3mm,
+	left=8pt, right=8pt, top=8pt, bottom=8pt
+}
+
+\begin{document}
+	
+	
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries RAPPORT Projet PSC} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large Erreur relative de la résolution de $Ax=b$ pour A tridiagonale}
+		
+		\vfill
+		
+		% Bloc Informations
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\section{Comment compiler le projet ?}
+	Il faut tout d'abord autoriser l'execution de \textit{projet.sh} (avec par exemple \textit{chmod +x projet.sh}) puis executer projet.sh. Les résultats (\textbf{$n$} et \textbf{$|\!|A\tilde x -b|\!|_1/|\!|b|\!|_1$}) sont stockés dans le fichier texte resultat.txt.	
+	
+	\section{Interpretation des Resultats}
+	
+	Les calculs de $|\!|A\tilde x -b|\!|_1/|\!|b|\!|_1$ ont été effectués pour $n$ entre 5 et 705 par pas de 50. Voici les résultats que l'on a obtenu :
+	
+	\pgfplotstableread{resultat.txt}\datatable
+	\pgfplotstabletypeset{\datatable}
+	
+	
+	
+	\section{Peut-on faire mieux ?}
+	
+	\subsection{Agir sur le format de la matrice}
+	
+	\subsection{Changer le type de la solution (simple au double)}
+	
+\end{document}
