@@ -1,7 +1,4 @@
 A FAIRE :
 
-makefile
 thomas
-en double précision ?
 
-Rapport

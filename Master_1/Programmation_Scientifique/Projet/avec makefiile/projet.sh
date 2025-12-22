@@ -5,9 +5,8 @@ then
 		gcc -c fonction.c
 		ar crs libfonction.a fonction.o
 	fi	
-fi
-
-if [ -e "libfonction.a" -a -f "fonction.o" ]
+	
+elif [ -e "libfonction.a" ]
 then
 	if [ -e "resultat.txt" ]
 	then

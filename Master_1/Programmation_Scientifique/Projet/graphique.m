@@ -32,6 +32,7 @@ set(gca, "ytick", min(logE):pas:max(logE)+5*pas);
 xlabel('Taille de la matrice A');
 ylabel("logarithme de l'erreur relative");
 text(mean(n), mean(logE), sprintf("R^2 = %.4f", R2));
+legend("Erreurs numériques", "Régréssion");
 grid on;
 hold off;
 
@@ -84,6 +85,7 @@ set(gca, "ytick", min(logE):pas:max(logE)+5*pas);
 xlabel('Taille de la matrice A');
 ylabel("logarithme de l'erreur relative");
 text(mean(n), mean(logE), sprintf("R^2 = %.4f", R2));
+legend("Erreurs numériques", "Régréssion");
 grid on;
 hold off;
 

@@ -12,17 +12,19 @@
 \usepackage{setspace}          % Pour l'interligne
 \usepackage{titlesec}          % Pour la couleur des titres
 \usepackage{hyperref}          % Pour les liens cliquables
+\usepackage{amsmath}
 
 \usepackage{pgfplotstable}
 \usepackage{booktabs} % optionnel mais recommandé
+\usepackage{caption}
 \pgfplotsset{compat=1.18}
 
 
 % Marges
 \geometry{
-	margin=2.5cm,
-	top=2.5cm,
-	bottom=2.5cm
+	margin=.5cm,
+	top=.5cm,
+	bottom=1.2cm
 }
 
 % Interligne (1.5 pour une lecture aérée)
@@ -95,22 +97,139 @@
 		
 	\end{titlepage}
 	
-	\section{Comment compiler le projet ?}
-	Il faut tout d'abord autoriser l'execution de \textit{projet.sh} (avec par exemple \textit{chmod +x projet.sh}) puis executer projet.sh. Les résultats (\textbf{$n$} et \textbf{$|\!|A\tilde x -b|\!|_1/|\!|b|\!|_1$}) sont stockés dans le fichier texte resultat.txt.	
+	\section{Comment compiler et exécuter le projet ?}
 	
-	\section{Interpretation des Resultats}
+	\vspace{-.5cm}
 	
-	Les calculs de $|\!|A\tilde x -b|\!|_1/|\!|b|\!|_1$ ont été effectués pour $n$ entre 5 et 705 par pas de 50. Voici les résultats que l'on a obtenu :
+	On ouvre un terminal dans le dossier concerné (le \texttt{Makefile} lorsque l'on ouvre le dossier \textit{Projet} après l'avoir dézippé est la résolution du problème ci-dessous en \textit{simple précision}).
+	\begin{enumerate}
+		\item Pour \textbf{construire} le projet  : \texttt{make}.
+		\item Pour \textbf{exécuter} le projet : \texttt{make run}.
+		\item Pour \textbf{supprimer} tous les fichiers engendrés par la compilation : \texttt{make clean}
+	\end{enumerate}
+	
+	\vspace{-.5cm}
+	
+	\section{Présentation rapide du problème}
+	
+	\vspace{-.5cm}	
+	
+	Étudier numériquement les solutions de l'équation différentielle $-u'' = f$ sur $[0,1]$ où $u(0) = u(1) = 0$, conduit à étudier le système linéaire :  $Ax = b$, où :\\
+	$
+	A_{i,j} =
+	\begin{cases}
+		2  & \text{si } i=j,\\
+		-1 & \text{si } |i-j|=1,\\
+		0  & \text{sinon.}
+	\end{cases}
+	$ \hspace{2cm} et, \hspace{1cm} $b_i = h_n^2$\\
+	Où $h_n = 1/(n+1)$ pour une discrétisation en $n+2$ points ($u(x_0)$ et $u(x_{n+1})$ sont totalement déterminés par les conditions aux limites, c'est pour cela que $A$ est de taille $n$).	
+	\begin{tcolorbox}[title=\textbf{Objectif}]
+		Dans la suite nous allons étudier, numériquement, l'erreur relative dans la résolution de l'équation $Ax = b$ :
+		
+		\centering $|\!|A\tilde x -b|\!|_1/|\!|b|\!|_1$
+	\end{tcolorbox}	
+	
+	\section{Interprétation des Résultats (en simple précision)}
+
+	\vspace{-.5cm}
+	
+	Les calculs de $|\!|A\tilde x -b|\!|_1/|\!|b|\!|_1$ ont été effectués pour $n$ entre 5 et 705 par pas de 50 en simple précision. Voici les résultats que l'on a obtenu :
 	
 	\pgfplotstableread{resultat.txt}\datatable
-	\pgfplotstabletypeset{\datatable}
 	
+
+	\begin{figure}[h]
+		\centering
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			
+			\pgfplotstabletypeset[columns={n,Erreur},
+			columns/n/.style={string type, column type=l|},
+			columns/Erreur/.style={column type=r},
+			every head row/.style={
+				before row=\toprule,
+				after row=\midrule
+			},
+			every last row/.style={
+				after row=\bottomrule
+			}]{\datatable}
+			
+			\captionof{table}{Erreurs numériques}
+		\end{minipage}\hfill\begin{minipage}{0.5\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{graphique_erreur.png}
+			\captionof{figure}{$|\!|A\tilde x -b|\!|_1/|\!|b|\!|_1$ \textit{en fonction de n}}
+		\end{minipage}
+	\end{figure}
 	
+	En regardant le graphique, il \textit{semble} que la progression soit exponentielle. Pour vérifier cela, regardons le logarithme de l'erreur en fonction de $n$.
+	
+	\newpage
+	
+	\begin{figure}[h]
+		\centering
+		\begin{minipage}{0.5\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{graphique_logE_A.png}
+			\captionof{figure}{$ln\left( |\!|A\tilde x -b|\!|_1/|\!|b|\!|_1\right)$\\ \textit{en fonction de n entre \textbf{5} et 705}}
+		\end{minipage}\hfill\begin{minipage}{0.5\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{graphique_logE_B.png}
+		\captionof{figure}{$ln\left( |\!|A\tilde x -b|\!|_1/|\!|b|\!|_1\right)$ \\\textit{en fonction de n entre \textbf{55} et 705}}
+		\end{minipage}
+	\end{figure}
+	
+	Pour faire apparaître ce phénomène il a naturellement été décidé de faire une régression linéaire (à l'aide de Octave et de l'outil \textit{polyfit}) à laquelle il été associé le coefficient de détermination (non ajusté) pour déterminer la qualité de la régression.
+	
+	\par Si l'on prend en compte les données dès n = 5 (\textbf{figure 2}) on constate que le coefficient de détermination est bas ($\simeq 0.68$), la régression semble donc être de mauvaise qualité. Cependant, visuellement, il semblait tout de même que la régression soit adaptée, et effectivement, en prenant les points à partir de n = 55 (\textbf{figure 3}), la régression devient de bonne qualité ($R^2 > 0.8$), dont voici l'équation : $y = 5.5824e-03 \cdot n + -9.7762$.
+	
+	\par \textbf{Donc} $n \rightarrow |\!|A\tilde x -b|\!|_1/|\!|b|\!|_1$ semble suivre la fonction exponentielle : $n \rightarrow C\cdot E^n$,\\\hspace*{1.7cm} où $C = \text{exp}(-9.7762)$ et $E = \text{exp}(5.5824e-03)$.
+	
+	\vspace{-.8cm}
 	
 	\section{Peut-on faire mieux ?}
+	$ $
 	
-	\subsection{Agir sur le format de la matrice}
-	
+	\vspace{-3cm}
+		
+	$ $
 	\subsection{Changer le type de la solution (simple au double)}
+	
+	\vspace{-.5cm}
+	
+	En double précision (on utilise \texttt{dgesv\_} au lieu de \texttt{sgesv\_}  pour résoudre $Ax=b$) et on change le type des matrices en double, on obtient des résultats bien meilleurs.
+		
+	$
+	\begin{tabular}{l|cccccc}
+		n       & 505 & 555 & 605 & 655 & 705 \\
+		\hline
+		Erreur & $2.118915\times10^{-12}$
+		& $2.555209\times10^{-12}$
+		& $2.841569\times10^{-12}$
+		& $3.258472\times10^{-12}$
+		& $3.846006\times10^{-12}$
+	\end{tabular}
+	$
+	
+	
+	\par Et toujours une progression de l'erreur suivant la fonction exponentielle et avec une bonne approximation à partir de n = 55 (par soucis de place les graphiques relatifs ne sont pas dans ce document) : 
+	
+	\vspace{-.5cm}
+	
+	\begin{center}
+		$y = 5.7044e-03 \cdot n + -29.950$\\ (régression linéaire pour $n \geq 55$).
+	\end{center}
+	
+	\vspace{-1.5cm}
+	
+	$ $
+	\subsection{Changer le format de la matrice}
+	
+	\vspace{-.5cm}
+	
+	Il est aussi intéressant de s'interroger sur le fait que jusque là nous n'avons pas pris en compte qu'il y avait énormément de 0 dans la matrice A (elle est tridiagonale).
+	\par Pour cela il a été choisi d'utiliser les routines \texttt{sgtv\_} et \texttt{dgtv\_} (simple et double précision) pour tenir compte de la nature tridiagonale de A (les éléments diagonaux, sur et sous diagonaux sont stockés dans des vecteurs différents pour la résolution).
+	\par \textbf{Aucune différence} significative (l'erreur garde le même ordre de grandeur pour un $n$ donné) n'a été constaté dans les résultats, que ce soit, en simple ou double précision.
 	
 \end{document}
