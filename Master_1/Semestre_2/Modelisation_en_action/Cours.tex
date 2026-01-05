@@ -1,0 +1,312 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}     % Typographie française
+\usepackage{lmodern}           % Police vectorielle unifiée et nette
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tcolorbox}         % Pour les boites bleues
+\usepackage{setspace}          % Pour l'interligne
+\usepackage{titlesec}          % Pour la couleur des titres
+\usepackage{hyperref}          % Pour les liens cliquables
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+
+\usepackage{pgfplotstable}
+\usepackage{booktabs} % optionnel mais recommandé
+\usepackage{caption}
+\pgfplotsset{compat=1.18}
+
+
+% Marges
+\geometry{
+	margin=1cm,
+	top=1cm,
+	bottom=1.2cm
+}
+
+% Interligne (1.5 pour une lecture aérée)
+\onehalfspacing
+\setlength{\parskip}{0.5em}
+
+\definecolor{bleuTitre}{RGB}{0,70,140}
+\definecolor{bleuCadre}{RGB}{220,235,250}
+
+\titleformat{\section}
+{\color{bleuTitre}\Large\bfseries}
+{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\color{bleuTitre}\large\bfseries}
+{\thesubsection}{1em}{}
+
+
+\tcbset{
+	colback=bleuCadre,
+	colframe=bleuTitre,
+	boxrule=0.8pt,
+	arc=3mm,
+	left=8pt, right=8pt, top=8pt, bottom=8pt
+}
+
+\begin{document}
+	
+	
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Modélisation en action} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large Cours}
+		
+		\vfill
+		
+		% Bloc Informations
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\section{Introduction à la théorie de Floquet-Bloch}
+	\subsection{Équation d'onde dans un milieu continu périodique}
+	
+	Considérons l'aquation d'ondes se propageant dans un milieu homogène où la vitesse $c$ est une fonction de la position x : $\frac{\partial^2 U}{\partial t^2} = \frac{\partial}{\partial x} \left(c(x)^2 \frac{\partial U}{\partial x}\right)$.
+	
+	\par On se place en \underline{régime harmonique} (stationnaire en temps).\\\\
+	En substituant dans l'équation (substituant), on obtient :
+	\begin{center}
+		$\frac{d}{dx}\left(c(x)^2 \frac{dU}{dx}\right) + \omega^2 u = 0$ que l'on note $\mathcal{L}_{\omega}u = 0$.
+	\end{center}
+	,où $\mathcal{L}_{\omega}u$ est l'opérateur (différentiel) qui reflète l'équilibre dynamique (ou équilibre des forces) en toute position $x$ à la fréquence $\omega$.\\ $\mathcal{L}_{\omega}u$ encode les lois physique : $\mathcal{L}_{\omega}u = \frac{d}{dx}\left(c(x) ^2\frac{d \cdot}{dx}\right) + \omega^2$.\\
+	
+	Considérons désormais que C est une fonction $P$-périodique, c'est à dire $c(x+P) = c(x)$.
+	
+	\begin{tikzpicture}[scale=1]
+		
+		% Rectangle (domaine périodique)
+		\draw[thick] (0,0) rectangle (8,1.5);
+		
+		% Axe x implicite
+		\draw[dashed] (0,0.75) -- (8,0.75);
+		
+		% Courbe périodique c(x)
+		\draw[thick,domain=0:8,samples=200]
+		plot (\x,{0.75 + 0.5*sin(180*\x/4)});
+		
+		% Indication de la période P
+		\draw[<->] (0,-0.5) -- (4,-0.5);
+		\node at (2,-0.8) {$P$};
+		
+		% Labels
+		\node at (4,1.9) {$c(x)$};
+		\node at (-0.3,0.75) {$0$};
+		
+	\end{tikzpicture}
+	
+	On note $\mathcal{T}\mathcal{}$ l'opérateur de translation de $p$ défini par, pour toute fonction $V$ : $\left(\mathcal{T} v\right) = x(x + P)$ ($v$ est suffisamment régulier).
+	
+	Nous allons montrer que $\mathcal{L}_\omega$ et $\mathcal T$ commutent, c'est-à-dire : $\left[\mathcal L_\omega, \mathcal T\right] := \mathcal L_\omega \mathcal T - \mathcal T \mathcal L_\omega = 0$.
+	
+	C'est à dire pour toute fonction $v$, $\mathcal L_\omega\left(\mathcal T v\right) = \mathcal T \left(\mathcal L_\omega v\right)$.
+	
+	\begin{enumerate}
+		\item[$(1)$] $\begin{aligned}
+						\mathcal L_\omega(\mathcal T v)(\lambda)
+						&= \mathcal L_\omega(v(\cdot + P))(\lambda) \\
+						&= \frac{d}{dx}(c(x)^2 v'(x+P)) + \omega^2 v(x+P) \\
+						&= 2c(x)c'(x)v'(x+P) + c(x)^2 v''(x+P) + \omega^2 v(x+P).
+					\end{aligned}$
+		\item[$(2)$]  $\begin{aligned}
+						\mathcal T \left(\mathcal L_\omega v\right)(x) = \left(\mathcal L_\omega v\right)(x+P)
+						&= \frac{d}{dy}\left(c(y)^2v'(y)\right) + \omega^2v(y)\\
+						&= 2c'(y)c(y)v'(y) + c(y)^2v''(y) + \omega^2v(y) = (2)
+					\end{aligned}$
+					, où $y = x + p$.
+	\end{enumerate} 
+	
+	Les deux expressions (1) et (2) sont identiques.
+	
+	\subsection{Invariance translationnelle et ondes de Bloch}
+	
+	Puisque $\mathcal L_\omega$ et $\mathcal T$ commutent, ils partagent une base de fonctions propres. (cf. théorème spectral pour les opérateurs commutants). Considérons l'espace des solutions $\ker\left(\mathcal L_\omega\right) = \left\{u, \mathcal L_\omega v = 0\right\}$. Il est invariant par $\mathcal T$ et par commutation on peut diagonaliser simultanément :\\
+	Il existe des solutions qui sont à la fois dans $\text{Ker}(\mathcal L_\omega)$, et qui sont fonctions propres de $\mathcal T$.\\
+	
+	\textit{\underline{Remarque :}} Fonction propre de $\mathcal T v = \lambda v, \lambda \in \mathbb{R}$\\
+	
+	\begin{minipage}{8cm}
+	Cela se traduit par : \fbox{$u(x+P) = \lambda u(x)$}.
+	\end{minipage}
+	\begin{minipage}{8cm}
+		Cette forme correspond à des ondes de Bloch (ondes planes modulées dans le milieu périodique).
+	\end{minipage}
+	
+	Les solutions sont prorogatives si $|\lambda| = 1$ et évanescentes si $|\lambda| \not =  1$.
+	
+	\subsection{Généralisation aux opérateurs différentiels en dimension N}
+	On considère l'opérateur de $\mathbb{R}$ sur $\mathbb{C}^N$ :
+	\[
+	\mathcal L v = \sum_{k = 0}^n [A]_k(x) \frac{d^k v}{dx^k}, \quad 
+	\text{où } 
+	\begin{cases}
+		\forall x, & [A]_k(x+P) = [A]_k(x),\\
+		& [A]_k \text{ : matrice } \mathbb{C}^{N\times N}.
+	\end{cases}
+	\]
+
+	
+	L'opérateur de translation est $\left(\mathcal T v\right)(x) = v(x+P)$. De nouveau, si$\mathcal L et \mathcal T$ commutent , alors ils admettent des fonctions propres (communes) et les solutions $u$ de $\mathcal L v = 0$ peuvent être choisi tels que : $\mathcal T v = \lambda v$ $\implies$ $c(x+P) = \lambda v(x)$ où $\lambda \in \mathbb{C}$ est une valeur propre scalaire de $\mathcal T$.
+	\begin{enumerate}
+		\item[$(i)$] $\begin{aligned}[t]
+						\mathcal L\left(\mathcal T v\right)(x) 
+						&= \sum_{k=0}^n [A]_k(x) \frac{d^k}{dx^k}\left(\mathcal T v\right)(x)\\
+						&= \sum_{k=0}^n [A]_k(x) \, v^{(k)}(x+P)
+					\end{aligned}$\\
+		
+		\item[$(ii)$] $\begin{aligned}[t]
+							\mathcal T\left(\mathcal L v\right)(x) 
+							&= \left(\mathcal L v\right)(x+P)\\
+							&= \displaystyle\sum_{k=0}^n [A]_k(x+P)v^{(k)}(x+P)\\
+							&= (i)
+						\end{aligned}$
+	\end{enumerate}
+	
+	Donc $\left[\mathcal L, \mathcal T\right] = 0$.\\
+	Les deux précédents opérateurs sont des EDP et concernent des systèmes périodiques continus. Nous allons considérer dans la suite des systèmes discrets.
+	
+	\subsection{Opérateurs périodiques continus vs. opérateur discrétisés}
+	
+	Pour simplifier, considérons le système d'ordre $n = 2$.
+	\[
+	A_2(x)u^{(2)}(x) + A_1(x)u^{(1)} + A_0(x)u(x) = 0
+	\]
+	où les $A_i$ sont des matrices $N\times N$..\\
+	On discrétise $x$ sur la grille \[\begin{cases}
+		u_n = u(x_n)\\
+		x_n = nh
+	\end{cases}\] 
+	On approxime $u^{(i)}$ par différences finies.
+	\[
+	u_n^{(1)} = \frac{u_{n+1} - u_{n-1}}{2h} \text { et } u_n^{(2)} = \frac{u_{n+1}-2u_n+u_{n-1}}{h^2}
+	\]
+	L'opérateur discrétisé devient :
+	\[
+	A_2(x_n)\left(\frac{u_{n+1}-2u_n+u_{n-1}}{h^2}\right) + A_1(x_n)\left(\frac{u_{n+1}-u_{n-1}}{2h}\right) + A_0(x_n)u_n = 0
+	\]
+	
+	On multiplie par $h^2$ et on regroupe les $u_{n+1}, u_n, u_{n-1}$ et on note $A_1(n) := A(x_n)$.
+	
+	\[
+	\left[A_2(n) + \frac{h}{2} A_1(n)\right]u_{n+1} + \left[h^2A_0(n) - 2A_2(n)\right] u_n + \left[A_2(n) - \frac{h}{2} A_1(n)\right]u_{n-1} = 0
+	\]
+	
+	On note : $B_1(n) = A_2(n) + \frac{h}{2} A_1(n)$, $B_0(n) = h^2A_0(n) - 2A_2(n)$ et $B_{-1}(n) = A_2(n) - \frac{h}{2} A_1(n)$.\\
+	
+	Puisque $A_k(x+P)  =A_k(x)$, nous avons $A_k(n+M) = A_k(n)$ et donc $B_k(n+M) = B_k(n)$ est $m$-périodique.\\
+	
+	$\longrightarrow$ \textit{\textbf{On supposera}} que $B_1$ est inversible pour que la récurence soit explicite.\\\\
+	Notons $\mathcal T$ l'opérateur de translation discret : $\left(\mathcal T u\right) = u(n-M) := u_{n+1}.$\\
+	
+	\underline{\textbf{Démontrons que} $\left[\mathcal L, \mathcal T\right] = 0$ :} $\left(\mathcal L v\right)(n) = B_1(n)u_{n+1} = B_0(n)u_n + B_{-1}(n)u_{n-1}$\\
+	
+	Calculons : $\begin{aligned}[t]
+		\mathcal T\left(\mathcal L v\right)(n) 
+		&= \left(\mathcal L u\right)(n+M)\\
+		&= B_1(n+M)u_{n+M+1} + B_0(n+M)u_{n+M} + B_{-1}(n+M)u_{n+M-1}\\
+		\textit{or } B \textit{ est périodique} &= B_1(n)u_{n+m-1} + B_0(n)u_{n+M} + B_{-1}(n)u_{n+M-1}\\
+		&= \mathcal L\left(\mathcal T v\right)(x) 
+	\end{aligned}$
+	
+	\fbox{
+	\begin{minipage}{15cm}
+		Les solutions sont donc des ondes de Bloch discrète, c'est-à-dire de la forme :
+		
+		$u_n = e^{\mu n}\phi(n)$, où :
+		\[
+		\begin{cases}
+			\phi \text{ est } M\text{-périodique }(\text{i.e.} \phi(n+M) = \phi(n))\\
+			\mu \in \mathbb{C} \text{ est l\'exposant de Floquet}
+		\end{cases}
+		\]
+	\end{minipage}
+	}
+	
+	Cela implique $\begin{aligned}[t]
+		\left(\mathcal T u\right)(n) 
+		&:= u_{n+M} &= e^{\mu(n+M)}\\
+		&u_{n+M} &=  e^{\mu n}e^{\mu M}\phi(n)\\
+		&u_{n+M} &= e^{\mu M}u_n
+	\end{aligned}$
+	On note $\lambda = e^{\mu M}$.\\
+	 
+	Ainsi $\left(\mathcal T u\right)(x) = \lambda u(n)$ ce qui revient à dire que c'est un vecteur propre de $\mathcal T$ et $\lambda$ est valeur propre, et dit "Multiplicateur de Floquet".
+	
+	\subsection{Interprétation des constantes de propagation}
+	
+	Notation pour le milieu périodique :
+	\[
+	\begin{cases}
+		P = M a\\
+		x_n = na
+	\end{cases}; u(x_n+P) = u(na+Ma) := u_{n+M}
+	\]
+	
+	\fbox{
+	\begin{minipage}{14.5cm}
+		\begin{tabular}{l|l}
+			\begin{minipage}{7cm}
+				\underline{En 'continue' :}\\
+				$u(x+P) = \lambda u(x)$ avec $\lambda = e^{ikP}$\\
+				$\iff$\\
+				$u(x) = e ^{ikx}\phi(x)$, avec $\phi(x+P) = \phi(x)$\\
+				
+				où $k\in \left[\frac{-\pi}{P},\frac{\pi}{P}\right] \left(\frac{2\pi}{P}\right)$ "Nombre d'onde"
+			\end{minipage}
+			& 
+			\begin{minipage}{7cm}
+				\underline{En 'discret' :}\\
+				$u_{n+1} = \lambda u_n$ avec $\lambda = e^{ikP}$\\
+				$\iff$\\
+				$u_n = e^{ikn}\phi(n)$, avec $\phi(n+M) = \phi(n)$\\
+				
+				où $k\in \left[\frac{-\pi}{M},\frac{\pi}{M}\right] \left(\frac{2\pi}{P}\right)$
+			\end{minipage}
+		\end{tabular}
+	\end{minipage}
+	} \begin{minipage}{2cm}
+	\textcolor{blue}{\textit{Forme des solutions}}
+	\end{minipage}
+	
+	
+\end{document}
