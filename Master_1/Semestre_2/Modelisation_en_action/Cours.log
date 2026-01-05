@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  5 JAN 2026 16:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  5 JAN 2026 19:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -887,7 +887,7 @@ Package caption Info: french babel package is loaded.
 \c@continuedfloat=\count355
 Package caption Info: hyperref package is loaded.
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 56
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 57
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
@@ -903,25 +903,25 @@ Package babel Info: 'french' activates 'french' shorthands.
 )
 \openout1 = `Cours.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Info: Redefining \degres on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Info: Redefining \degres on input line 57.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -932,14 +932,14 @@ LaTeX Info: Redefining \degres on input line 56.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
 * h-part:(L,W,R)=(28.45274pt, 540.60239pt, 28.45274pt)
-* v-part:(T,H,B)=(28.45274pt, 782.45088pt, 34.14322pt)
+* v-part:(T,H,B)=(14.22636pt, 796.67726pt, 34.14322pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=540.60239pt
-* \textheight=782.45088pt
+* \textheight=796.67726pt
 * \oddsidemargin=-43.81725pt
 * \evensidemargin=-43.81725pt
-* \topmargin=-80.81725pt
+* \topmargin=-95.04362pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=12.0pt
@@ -979,7 +979,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 56.
+Package hyperref Info: Link coloring OFF on input line 57.
 
 (./Cours.out) (./Cours.out)
 \@outlinefile=\write4
@@ -991,47 +991,47 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<logo.jpg, id=31, 1204.5pt x 612.2875pt>
+<logo.jpg, id=35, 1204.5pt x 612.2875pt>
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
-Package pdftex.def Info: logo.jpg  used on input line 66.
+Package pdftex.def Info: logo.jpg  used on input line 67.
 (pdftex.def)             Requested size: 270.3012pt x 137.40372pt.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 9
-3.
+4.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 9
-3.
+4.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-93.
+94.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-93.
+94.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 93.
+(Font)              <12> on input line 94.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 93.
+(Font)              <8> on input line 94.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 93.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 93.
+(Font)              <6> on input line 94.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 93.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1040,17 +1040,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./logo.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 107--109
+Underfull \hbox (badness 10000) in paragraph at lines 108--110
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--113
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--165
+Underfull \hbox (badness 10000) in paragraph at lines 164--166
 
  []
 
@@ -1059,82 +1059,87 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.166 	\textit{\underline{Remarque :}}
+l.167 	\textit{\underline{Remarque :}}
                                        Fonction propre de $\mathcal T v = \l...
 [1{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/lo
 cal/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/20
 25/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2025/texmf-d
 ist/fonts/enc/dvips/lm/lm-mathsy.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--196
+Underfull \hbox (badness 10000) in paragraph at lines 192--197
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 236--237
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--240
+Underfull \hbox (badness 10000) in paragraph at lines 239--241
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--240
+Underfull \hbox (badness 10000) in paragraph at lines 239--241
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 241--242
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--272
+Underfull \hbox (badness 10000) in paragraph at lines 266--273
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 307--307
+Underfull \hbox (badness 10000) in paragraph at lines 308--308
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--307
+Underfull \hbox (badness 10000) in paragraph at lines 308--308
 
  []
 
 
-Overfull \hbox (10.17363pt too wide) in paragraph at lines 307--307
+Overfull \hbox (10.17363pt too wide) in paragraph at lines 308--308
 [][] 
  []
 
-[4] (./Cours.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 376--381
+
+ []
+
+[4] [5] (./Cours.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `Cours.out' has not changed.
-(rerunfilecheck)             Checksum: D9763E90D79F7C2A589D7633844E9B44;1938.
+(rerunfilecheck)             Checksum: 17B70D27B501A07CFB6CA0050C7CEA44;2215.
  ) 
 Here is how much of TeX's memory you used:
- 37097 strings out of 467538
- 869180 string characters out of 5419551
- 1374490 words of memory out of 5000000
- 65432 multiletter control sequences out of 15000+600000
+ 37930 strings out of 467538
+ 886547 string characters out of 5419551
+ 1378490 words of memory out of 5000000
+ 66263 multiletter control sequences out of 15000+600000
  690903 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,14n,108p,752b,610s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,14n,108p,752b,675s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
 cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texli
 ve/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/t
@@ -1148,10 +1153,10 @@ texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025
 t/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
 pe1/public/lm/lmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/
 amsfonts/symbols/msbm10.pfb>
-Output written on Cours.pdf (5 pages, 268141 bytes).
+Output written on Cours.pdf (6 pages, 284272 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 100 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 151 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
+ 14 named destinations out of 1000 (max. 500000)
+ 74 words of extra memory for PDF output out of 10000 (max. 10000000)
 

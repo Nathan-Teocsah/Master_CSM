@@ -15,6 +15,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{tikz}
+\usepackage{tcolorbox}
 
 \usepackage{pgfplotstable}
 \usepackage{booktabs} % optionnel mais recommandé
@@ -25,7 +26,7 @@
 % Marges
 \geometry{
 	margin=1cm,
-	top=1cm,
+	top=.5cm,
 	bottom=1.2cm
 }
 
@@ -307,6 +308,78 @@
 	} \begin{minipage}{2cm}
 	\textcolor{blue}{\textit{Forme des solutions}}
 	\end{minipage}
+	
+	Ces formes de solutions caractérisent la propriété d'une onde se propageant dans un milieu périodique, continu ou discret.
+	
+	\textbf{\textit{Nous supposerons}} l'existence de cette forme de solution en invoquant le Principe de Floquet-Bloch.
+	
+	\subsection{Nombre d'onde et constante de propagation}
+	
+	\begin{enumerate}
+		\item[$\cdot$] Si $|\lambda| = 1$ les ondes sont propagatives 
+		\begin{tikzpicture}[scale=1]
+			
+			% Rectangle (domaine périodique)
+			\draw[thick] (0,0) rectangle (8,1.5);
+			
+			% Courbe périodique c(x)
+			\draw[thick,domain=0:8,samples=200]
+			plot (\x,{0.75 + 0.5*sin(180*\x)});
+						
+		\end{tikzpicture}
+		
+		\item[$\cdot$] Si $|\lambda| < 1$ les ondes sont évanescentes progressives
+		\begin{tikzpicture}[scale=1]
+			
+			% Rectangle (domaine périodique)
+			\draw[thick] (0,0) rectangle (8,2.5);
+			
+			% Courbe périodique c(x)
+			\draw[thick,domain=0.01:8,samples=200]
+			plot (\x,{0.75 + 0.5*sin(180*\x)/\x});
+			
+		\end{tikzpicture}
+		
+		\item[$\cdot$] Si $|\lambda| > 1$ les ondes sont évanescentes régressive
+		\begin{tikzpicture}[scale=1]
+			
+			% Rectangle (domaine périodique)
+			\draw[thick] (0,0) rectangle (8,2.1);
+			
+			% Courbe périodique c(x)
+			\draw[thick,domain=0.01:8,samples=200]
+			plot (\x,{0.75 + 0.1*\x*sin(200*\x)});
+			
+		\end{tikzpicture}
+	\end{enumerate}
+	
+	\[
+	\begin{aligned}
+		\text{Comme } u(x + nP) 
+		&= \lambda^nu(x) = e^{iknP}u(x) &\text{, or } k = \operatorname{Re}(k) + i\operatorname{Im}(k)\\
+		&= e^{-\operatorname{Im}(k)nP}e^{i\operatorname{Re}(k)nP}u(x)
+	\end{aligned}
+	\]
+	
+	
+	
+	\[
+	\underbrace{U(x+nP)}_{\textcolor{red}{\text{Translation spatial}}} =\quad
+	\underbrace{e^{-\operatorname{Im}(k)nP}}_{\textcolor{red}{\text{Décroissance spatiale}}}\cdot
+	\underbrace{e^{i\operatorname{Re}(k)nP}}_{\textcolor{red}{\text{Changement de phase}}}\cdot \quad u(x)
+	\]
+	
+	On utilisera les valeurs de $k \in \mathbb{C}$ pour classifier, tracer et interpréter les ondes.\\
+	En rappelant que $U(x,t) = \operatorname{Re}\left(u(x,t)e^{-i\omega t}\right)$, on peut donner la forme des solutions dans un milieu $P$-périodique infini comme :\\
+	$U(x,t) = U_n(x,t) = \operatorname{Re}\left(u_n(\omega)e^{-i\omega t}\right)$ qui s'écrit d'après le principe de Floquet-Bloch :
+	
+	\begin{minipage}{6cm}
+		\begin{tcolorbox}[colback=white, colframe=red, arc=1mm, boxrule=1pt]
+			$U_n(t) = \operatorname{Re}\left(u_n(\omega)e^{i(nkp-\omega t)}\right)$
+		\end{tcolorbox}
+	\end{minipage} , où $u_(\omega)$ 0est l'amplitude de l'onde.\\
+	
+	\textbf{$\longrightarrow$ Dans la suite}, nous chercherons à trouver les valeurs de $k$ (\textbf{relation de dispersion}) pour différents systèmes périodique (discrets ou continu/discrétisés par éléments finis)
 	
 	
 \end{document}
