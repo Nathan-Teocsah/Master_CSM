@@ -73,7 +73,23 @@
 \newtheorem{ex}{Exemple}
 \newtheorem{rmq}{Remarque}
 
-\newcommand{\theoremcolorbox}[2]{\def\theoremframecommand{\fcolorbox{#1}{#2}}}
+\newcommand{\theoremcolorbox}[2]{%
+	\def\theoremframecommand##1{%
+		\begin{tcolorbox}[
+			colframe=#1,
+			colback=#2,
+			arc=3mm,
+			boxrule=0.8pt,
+			left=6pt,
+			right=6pt,
+			top=6pt,
+			bottom=6pt
+			]
+			##1
+		\end{tcolorbox}
+	}%
+}
+
 
 \theoremcolorbox{red}{white}
 \newshadedtheorem{thm}[Theorem]{Théorème}
@@ -448,6 +464,10 @@
 	\end{minipage} , où $u_n(\omega)$ est l'amplitude de l'onde.\\
 	
 	\textbf{$\longrightarrow$ Dans la suite}, nous chercherons à trouver les valeurs de $k$ (\textbf{relation de dispersion}) pour différents systèmes périodique (discrets ou continu/discrétisés par éléments finis)
+	
+	\begin{thm}
+		ezr
+	\end{thm}
 	 
 	
 \end{document}
