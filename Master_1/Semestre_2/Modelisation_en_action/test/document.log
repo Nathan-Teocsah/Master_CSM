@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  6 JAN 2026 15:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  6 JAN 2026 15:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Cours.tex
-(./Cours.tex
+**document.tex
+(./document.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -1083,40 +1083,152 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \c@ex=\count408
 \c@rmq=\count409
+\c@dem=\count410
+
+! Undefined control sequence.
+l.82 \theoremcolorbox
+                     {red}{white}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.82 \theoremcolorbox{r
+                       ed}{white}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+\c@thm=\count411
+! Undefined control sequence.
+l.85 \theoremcolorbox
+                     {blue}{white}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.85 \theoremcolorbox{b
+                       lue}{white}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+\c@prop=\count412
+! Undefined control sequence.
+l.88 \theoremcolorbox
+                     {lime}{white}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 \theoremcolorbox{l
+                       ime}{white}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+\c@defi=\count413
+! Undefined control sequence.
+l.91 \theoremcolorbox
+                     {lime}{white}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.91 \theoremcolorbox{l
+                       ime}{white}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+\c@lm=\count414
+! Undefined control sequence.
+l.94 \theoremcolorbox
+                     {lime}{white}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.94 \theoremcolorbox{l
+                       ime}{white}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+\c@cor=\count415
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 10
-2.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
+4.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count410
+\l__color_backend_stack_int=\count416
 )
-(./Cours.aux
+(./document.aux
 Package babel Info: 'french' activates 'french' shorthands.
 (babel)             Reported on input line 11.
 )
-\openout1 = `Cours.aux'.
+\openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Info: Redefining \degres on input line 102.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Info: Redefining \degres on input line 104.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1154,16 +1266,16 @@ LaTeX Info: Redefining \degres on input line 102.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count411
+\scratchcounter=\count417
 \scratchdimen=\dimen366
 \scratchbox=\box82
-\nofMPsegments=\count412
-\nofMParguments=\count413
+\nofMPsegments=\count418
+\nofMParguments=\count419
 \everyMPshowfont=\toks73
-\MPscratchCnt=\count414
+\MPscratchCnt=\count420
 \MPscratchDim=\dimen367
-\MPnumerator=\count415
-\makeMPintoPDFobject=\count416
+\MPnumerator=\count421
+\makeMPintoPDFobject=\count422
 \everyMPtoPDFconversion=\toks74
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1180,64 +1292,12 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 102.
-(./Cours.out) (./Cours.out)
+Package hyperref Info: Link coloring OFF on input line 104.
+(./document.out) (./document.out)
 \@outlinefile=\write4
-\openout4 = `Cours.out'.
+\openout4 = `document.out'.
 
-<logo.jpg, id=35, 1204.5pt x 612.2875pt>
-File: logo.jpg Graphic file (type jpg)
-<use logo.jpg>
-Package pdftex.def Info: logo.jpg  used on input line 112.
-(pdftex.def)             Requested size: 270.3012pt x 137.40372pt.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-38.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-38.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-138.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-138.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 138.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 138.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 138.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 138
-.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 138
-.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 13
-8.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-) [1
+ [1
 Non-PDF special ignored!
 <special> header=pstricks.pro
 Non-PDF special ignored!
@@ -1254,116 +1314,328 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@refangle 0.  def grestore  e...
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
-al/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./logo.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 159--161
+al/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local
+/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
+39.
 
- []
+(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
+39.
 
+(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+139.
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--228
+(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+139.
 
- []
+(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 139.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 139.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 139.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 139
+.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 139
+.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 13
+9.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.153 	\end{titlepage}
+                       [1]
+! Undefined control sequence.
+\c@lor@to@ps ->\PSTricks 
+                         _Not_Configured_For_This_Format
+l.158 	\begin{thm}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\XC@usec@lor ...\expandafter \c@lor@to@ps #1#2\@@ 
+                                                  \else \expandafter \expand...
+l.158 	\begin{thm}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\c@lor@to@ps ->\PSTricks 
+                         _Not_Configured_For_This_Format
+l.158 	\begin{thm}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\XC@usec@lor ...\expandafter \c@lor@to@ps #1#2\@@ 
+                                                  \else \expandafter \expand...
+l.158 	\begin{thm}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\c@lor@to@ps ->\PSTricks 
+                         _Not_Configured_For_This_Format
+l.158 	\begin{thm}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\XC@usec@lor ...\expandafter \c@lor@to@ps #1#2\@@ 
+                                                  \else \expandafter \expand...
+l.158 	\begin{thm}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Package hyperref Info: bookmark level for unknown thm defaults to 0 on input li
+ne 159.
+! Undefined control sequence.
+\c@lor@to@ps ->\PSTricks 
+                         _Not_Configured_For_This_Format
+l.160 	\end{thm}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\XC@usec@lor ...\expandafter \c@lor@to@ps #1#2\@@ 
+                                                  \else \expandafter \expand...
+l.160 	\end{thm}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\c@lor@to@ps ->\PSTricks 
+                         _Not_Configured_For_This_Format
+l.160 	\end{thm}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\XC@usec@lor ...\expandafter \c@lor@to@ps #1#2\@@ 
+                                                  \else \expandafter \expand...
+l.160 	\end{thm}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\c@lor@to@ps ->\PSTricks 
+                         _Not_Configured_For_This_Format
+l.160 	\end{thm}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\XC@usec@lor ...\expandafter \c@lor@to@ps #1#2\@@ 
+                                                  \else \expandafter \expand...
+l.160 	\end{thm}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\c@lor@to@ps ->\PSTricks 
+                         _Not_Configured_For_This_Format
+l.160 	\end{thm}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\XC@usec@lor ...\expandafter \c@lor@to@ps #1#2\@@ 
+                                                  \else \expandafter \expand...
+l.160 	\end{thm}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\c@lor@to@ps ->\PSTricks 
+                         _Not_Configured_For_This_Format
+l.160 	\end{thm}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\XC@usec@lor ...\expandafter \c@lor@to@ps #1#2\@@ 
+                                                  \else \expandafter \expand...
+l.160 	\end{thm}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\c@lor@to@ps ->\PSTricks 
+                         _Not_Configured_For_This_Format
+l.160 	\end{thm}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\XC@usec@lor ...\expandafter \c@lor@to@ps #1#2\@@ 
+                                                  \else \expandafter \expand...
+l.160 	\end{thm}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Package hyperref Info: bookmark level for unknown dem defaults to 0 on input li
+ne 163.
+\tf@thm=\write5
+\openout5 = `document.thm'.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.228 	
-        [1{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}
-{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/te
-xlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2025
-/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 254--259
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 300--301
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 302--303
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 304--306
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 304--306
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 307--308
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 373--373
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 373--373
-
- []
-
-
-Overfull \hbox (10.17363pt too wide) in paragraph at lines 373--373
-[][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 444--449
-
- []
-
-[4]
-\tf@thm=\write5
-\openout5 = `Cours.thm'.
-
- [5] (./Cours.aux)
+l.166 \end{document}
+                     [1
+Non-PDF special ignored!
+<special> "  tx@Dict begin STP newpath /ArrowA { moveto } def /ArrowB { } d...
+] (./document.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
-Package rerunfilecheck Info: File `Cours.out' has not changed.
-(rerunfilecheck)             Checksum: 17B70D27B501A07CFB6CA0050C7CEA44;2215.
+
+
+Package rerunfilecheck Warning: File `document.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `document.out':
+(rerunfilecheck)             Before: 17B70D27B501A07CFB6CA0050C7CEA44;2215
+(rerunfilecheck)             After:  5CF35687A647A516D8EEBB7F9B08B913;600.
  ) 
 Here is how much of TeX's memory you used:
- 41334 strings out of 467538
- 936804 string characters out of 5419551
- 1449317 words of memory out of 5000000
- 69575 multiletter control sequences out of 15000+600000
- 695326 words of font info for 82 fonts, out of 8000000 for 9000
+ 40106 strings out of 467538
+ 910953 string characters out of 5419551
+ 1432614 words of memory out of 5000000
+ 68364 multiletter control sequences out of 15000+600000
+ 668176 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,14n,117p,866b,675s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
-cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/t
-exmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/
-fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type
-1/public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm
-/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb><
-/usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/t
-exlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/202
-5/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-di
-st/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
-pe1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Cours.pdf (6 pages, 264996 bytes).
+ 98i,5n,117p,869b,502s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{subsection.1.6} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.1.5} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.1.4} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.1.3} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.1.2} has been referenced but does not ex
+ist, replaced by a fixed one
+
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive
+/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf
+-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts
+/type1/public/cm-super/sfrm1200.pfb>
+Output written on document.pdf (3 pages, 111404 bytes).
 PDF statistics:
- 146 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
- 14 named destinations out of 1000 (max. 500000)
- 74 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 83 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
+ 12 named destinations out of 1000 (max. 500000)
+ 69 words of extra memory for PDF output out of 10000 (max. 10000000)
 
