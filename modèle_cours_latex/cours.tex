@@ -1,0 +1,265 @@
+\documentclass[12pt,a4paper]{article}
+
+% Encodage et typographie
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+
+% Mise en page
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+
+% Mathématiques
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[standard, framed]{ntheorem}
+\usepackage{framed}
+\usepackage{pstricks}
+
+% Tableaux et graphiques
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+\usepackage{caption}
+\pgfplotsset{compat=1.18}
+\usepackage{framed}
+\usepackage{pstricks}
+
+% Liens cliquables
+\usepackage{hyperref}
+
+% Marges
+\geometry{
+	margin=1cm,
+	top=.5cm,
+	bottom=1.2cm
+}
+
+% Interligne
+\onehalfspacing
+\setlength{\parskip}{0.5em}
+
+% Couleurs
+\definecolor{bleuTitre}{RGB}{0,70,140}
+\definecolor{bleuCadre}{RGB}{220,235,250}
+
+% Format des titres
+\titleformat{\section}
+{\color{bleuTitre}\Large\bfseries}
+{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\color{bleuTitre}\large\bfseries}
+{\thesubsection}{1em}{}
+
+% Configuration des boîtes
+\tcbset{
+	colback=bleuCadre,
+	colframe=bleuTitre,
+	boxrule=0.8pt,
+	arc=3mm,
+	left=8pt, right=8pt, top=8pt, bottom=8pt
+}
+
+% Raccourcis
+%% nThéorème
+\renewtheorem{Remark}{Remarque}
+
+\newtheorem{ex}{Exemple}
+\newtheorem{rmq}{Remarque}
+
+\newcommand{\theoremcolorbox}[2]{%
+	\def\theoremframecommand##1{%
+		\begin{tcolorbox}[
+			colframe=#1,
+			colback=#2,
+			arc=3mm,
+			boxrule=0.8pt,
+			left=6pt,
+			right=6pt,
+			top=6pt,
+			bottom=6pt
+			]
+			##1
+		\end{tcolorbox}
+	}%
+}
+
+
+\theoremcolorbox{red}{white}
+\newshadedtheorem{thm}[Theorem]{Théorème}
+
+\theoremcolorbox{blue}{white}
+\newshadedtheorem{prop}[Proposition]{Proposition}
+
+\theoremcolorbox{lime}{white}
+\newshadedtheorem{defi}[Definition]{Définition}
+
+\theoremcolorbox{lime}{white}
+\newshadedtheorem{lm}[Lemma]{Lemme}
+
+\theoremcolorbox{lime}{white}
+\newshadedtheorem{cor}[Corollary]{Corollaire}
+
+\theoremcolorbox{lightgray}{white}
+\newshadedtheorem{dem}[Proof]{Preuve}
+
+%% Autre
+\newcommand{\m}{\mathcal}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\tb}[1]{\begin{tcolorbox}[colback=white, colframe=red, arc=1mm, boxrule=1pt]#1\end{tcolorbox}}
+\newcommand{\rouge}[1]{\textcolor{red}{#1}}
+
+
+\begin{document}
+	
+	
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Cours} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large \textbf{Éléments finis}}
+		
+		\vfill
+		
+		% Bloc Informations
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft} \large
+				\textbf{Enseignant :} \\
+				M. Eric \textsc{DARRIGAND}
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\section{Introduction aux éléments finis}
+	
+	\subsection{Résolution informelles}
+	
+	Résoudre \begin{minipage}[t]{20cm}
+		des problèmes aux limites : EDP + conditions aux bords,\\
+		ou des problèmes de recherche de valeur propres d'opérateur différentiels.
+	\end{minipage}\\
+	
+	$\star$ EDP + conditions aux bords : $\Omega \subset \R^d$ , ouvert, avec $d = 2$ ou $3$.
+	
+	\[\begin{cases}
+		Du = f\\
+		\text{conditions sur } \Gamma_D \text{ et } \Gamma_N\\
+		\text{ex : } u = u_D \text{ sur } \Gamma_D
+	\end{cases}\] avec $\begin{cases}
+	f \text{ convexe}\\
+	u_D \text{ convexe}
+	\end{cases}$ et $D$ opérateur différentielle, exemple : $D = \Delta$.\\
+	
+	$\star$\begin{minipage}[t]{20cm}
+		 Valeur propres d'opérateur différentielle\\
+		 Chercher $(\lambda,u)$ tel que : \[\begin{cases}
+		 	Du = \lambda u \text{ dans } \Omega\\
+		 	\text{ avec conditions aux bord pour } u
+		 \end{cases}\]
+	\end{minipage}\\
+	
+	Résolution par éléments finis :
+	$\longrightarrow$ Écrire une forme faible du problème ou formulation variationnelle.
+	\begin{ex}
+		$\begin{cases}
+			Du = f & \star \forall v : \displaystyle\int_\Omega Du \cdot v = \int_\Omega f \cdot v\\
+			u = u_D \text{ sur } \partial\Omega & \star \text{ i.p.p } \displaystyle\int_\Omega D_1 u D_2 v + \underbrace{\int_{\partial\Omega} ...}_{\rouge{\text{prise en compte des cond de bord}}} = \int_\Omega f v \\
+			 & \text{ avec } D_1 \text{ et } D_2 \text{ opérateurs différentiels d\'ordre 1}
+		\end{cases}$
+	\end{ex}
+	
+	On arrive à un problème de la forme :
+	\tb{Chercher $u \in V$ tel que $\forall v \in V$ :
+	\begin{center}
+		$a(u,v) = l(v)$
+	\end{center}
+	}
+	avec \begin{minipage}[t]{15cm}
+		$(a(\cdot,\cdot)$ forme bilinéaire.\\
+		$l(\cdot)$ forme linéaire.
+	\end{minipage}
+	
+	\vspace{.5cm}
+	
+	$\longrightarrow$ \begin{minipage}[t]{20cm}
+		Discrétisation
+		\begin{enumerate}
+			\item[$\star$] géométrique $\Omega \to \Omega_h$ maillage.
+			\item[$\star$] de l'inconnue. $V$ espace fonctionnel de dimension infini et $V_h$ de dimension fini.
+		\end{enumerate}
+	\end{minipage}
+	
+	$V \to V_h$ dimension finie $V_h = Vect \{\phi_I, I = 1,\ldots,N\}$\\
+	$u_h$ dans $V_h$ s'exprime comme combinaison des $\phi_I$, $I = 1,\ldots,N$.
+	\[
+	u_h = \displaystyle\sum_{j+1}^N u_j \phi_J \text{ avec } U = (u_1, \ldots, u_N) \in \R^N
+	\]
+	
+	On écrit l'expression $(FV)$ pour $v = \phi_I$ :\\
+	$\begin{cases}
+		\forall I = 1,\ldots, N\\
+		a(u_h,\phi_I) = l(\phi_I)
+	\end{cases}$ c'est-à-dire $\begin{cases}
+	\forall I = 1,\ldots,N\\
+	\displaystyle\sum_{J=1}^N \underbrace{a(\phi_J,\phi_I)}_{A_{I,J}}u_J = \underbrace{l(\phi_I)}_{B_I}
+	\end{cases}$\\
+	On obtient donc \fbox{$AU = B$}.
+	
+	\subsection{Établissement de la formulation variationnelle}
+	\subsubsection{Les espaces fonctionnels}
+	Notation : $\m C^{0,\alpha}(\Omega) = $ l'ens. des fonctions $f \in \m C^0$ sur $\Omega$ tel que :
+	\hfill $\forall x,y \in \Omega, $ $\|f(x)-f(y)\| \leq \| x-y\|^\alpha$
+	
+	\begin{defi}
+		Soit $\Omega \subset \R^d$, un ouvert, $\Omega$ est dit $\m C ^k$ (resp. $\m C^{k,1}$).\\
+		Si $\forall m_0 \in \partial \Omega$, $\exists B(m_0,R)$ avec $R > 0$ et un système d'axes $\{0_0,x_1^0,\ldots,x_d^0\}$ et $q_0 \in \m C^k(\R^{d-1})$ (resp. $\m C^{k,1}$) tq :\\
+		$\partial\Omega\cap B(m_0,R) = \{x\in B(m_0,R); x_d^0 = a_0(x_1^0,\ldots,x_{d-1}^0)\}$\\
+		$\Omega\cap B(m_0,R) = \{x\in B(m_0,R); x_d^0 > a_0(x_1^0,\ldots,x_{d-1}^0)\}$
+	\end{defi}
+	
+	On va considérer des espaces de Sobolev.
+	\begin{ex}
+		$H^1(\Omega) = \left\{f \in \text{L}^2(\Omega); \dfrac{\partial}{\partial x_i} f \in \text{L}^2(\Omega), i=1,\ldots,d\right\}$
+	\end{ex}
+\end{document}

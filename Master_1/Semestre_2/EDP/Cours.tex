@@ -1,0 +1,243 @@
+\documentclass[12pt,a4paper]{article}
+
+% Encodage et typographie
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+
+% Mise en page
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+
+% Mathématiques
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[standard, framed]{ntheorem}
+\usepackage{framed}
+\usepackage{pstricks}
+
+% Tableaux et graphiques
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+\usepackage{caption}
+\pgfplotsset{compat=1.18}
+\usepackage{framed}
+\usepackage{pstricks}
+
+% Liens cliquables
+\usepackage{hyperref}
+
+% Marges
+\geometry{
+	margin=1cm,
+	top=.5cm,
+	bottom=1.2cm
+}
+
+% Interligne
+\onehalfspacing
+\setlength{\parskip}{0.5em}
+
+% Couleurs
+\definecolor{bleuTitre}{RGB}{0,70,140}
+\definecolor{bleuCadre}{RGB}{220,235,250}
+
+% Format des titres
+\titleformat{\section}
+{\color{bleuTitre}\Large\bfseries}
+{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\color{bleuTitre}\large\bfseries}
+{\thesubsection}{1em}{}
+
+% Configuration des boîtes
+\tcbset{
+	colback=bleuCadre,
+	colframe=bleuTitre,
+	boxrule=0.8pt,
+	arc=3mm,
+	left=8pt, right=8pt, top=8pt, bottom=8pt
+}
+
+% Raccourcis
+%% nThéorème
+\renewtheorem{Remark}{Remarque}
+
+\newtheorem{ex}{Exemple}
+\newtheorem{rmq}{Remarque}
+
+\newcommand{\theoremcolorbox}[2]{%
+	\def\theoremframecommand##1{%
+		\begin{tcolorbox}[
+			colframe=#1,
+			colback=#2,
+			arc=3mm,
+			boxrule=0.8pt,
+			left=6pt,
+			right=6pt,
+			top=6pt,
+			bottom=6pt
+			]
+			##1
+		\end{tcolorbox}
+	}%
+}
+
+
+\theoremcolorbox{red}{white}
+\newshadedtheorem{thm}[Theorem]{Théorème}
+
+\theoremcolorbox{blue}{white}
+\newshadedtheorem{prop}[Proposition]{Proposition}
+
+\theoremcolorbox{lime}{white}
+\newshadedtheorem{defi}[Definition]{Définition}
+
+\theoremcolorbox{lime}{white}
+\newshadedtheorem{lm}[Lemma]{Lemme}
+
+\theoremcolorbox{lime}{white}
+\newshadedtheorem{cor}[Corollary]{Corollaire}
+
+\theoremcolorbox{lightgray}{white}
+\newshadedtheorem{dem}[Proof]{Preuve}
+
+%% Autre
+\newcommand{\m}{\mathcal}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\tb}[1]{\begin{tcolorbox}[colback=white, colframe=red, arc=1mm, boxrule=1pt]#1\end{tcolorbox}}
+\newcommand{\rouge}[1]{\textcolor{red}{#1}}
+\newtcolorbox{doublebar}{
+	enhanced,
+	breakable,
+	colback=white,
+	frame hidden,
+	borderline west={1.2pt}{0pt}{black},
+	borderline west={1.2pt}{3pt}{black},
+	left=10pt,
+	before skip=0.8em,
+	after skip=0.8em
+}
+
+
+\begin{document}
+	
+	
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Cours} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large \textbf{Équation différentiels partiels}}
+		
+		\vfill
+		
+		% Bloc Informations
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft} \large
+				\textbf{Enseignant :} \\
+				M. Eric \textsc{CASTELLAN}
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\section{Dynamique de $N$ particules en interaction}
+	
+	\fbox{\red !} $N$ particules identiques, décrites classiquement par les équations de Newton \fbox{\red !}\\
+	On ne part pas des équations de Schrödinger. 
+	
+	Donnons nous la fonction $F(x)$ qui est la force d’interaction entre 2 particule, c'est-à-dire :
+	
+	\textbf{DESSIN A FAIRE (photo 1)}\\
+	
+	\begin{ex}
+		Attraction gravitationnelle\\
+		\textbf{Dessins à FAIRE (photo 2)} \\
+		Force subie par la terre du fait du Soleil : $-G\frac{Mm}{\|\!\|x\|\!\|^2}\frac{x}{\|\!x\|\!\|} = -\frac{GMm}{\|\!\|T-S\|\!\|^3}(T-S)$.\\
+		Force subie par le Soleil du fait de la Terre : $-G\frac{Mm}{\|\!\|x\|\!\|^2}\frac{x}{\|\!x\|\!\|} = -\frac{GMm}{\|\!\|T-S\|\!\|^3}(T-S)$.\\
+		\textbf{Dessin (ENCORE) (photo 3)}
+	\end{ex}
+	
+	On a (Newton) :$\underbrace{\text{masse}}_{\text{\rouge{= 1, par soucis de normalisation}}}$ $\times$ accélération = force pour toutes les particules
+	
+	particule 1 :  $\begin{cases}
+		\frac{d^2x}{dt^2}(t) = T(x_1(t)-x_2(t)) + F(x_1(t)-x_3(t)) + \ldots + F(x_1(t) - x_N(t))\\
+		\vdots \\
+		\frac{d^2x_N}{dt^2}(t) = F(x_N(t)-x_1(t)) + F(x_N(t)-x_2(t)) + \ldots + F(x_N(t)-x_{N-1}(t)) 
+	\end{cases}$
+	
+	
+	$
+	\begin{cases}
+		Soit :\\
+		\forall i = 1,...,N$, $\frac{d^2x_i(t)}{dt^2} = \displaystyle\sum_{\underbrace{j=1}_{j\not=i}}^N F(x_i(t) -x_j(t))\\
+		\underline{\textcircled{+} \text{ données initiales à } t = 0}\\
+		x_1(0) = x_1^0,\ldots,x_N^0(0) = x_N^0(0) \\
+		v_1(0) = v_1^0,\ldots,v_N^0(0) = v_N^0(0)
+	\end{cases}
+	$
+	
+	avec $x_1^0,\ldots, x_N^0,$ positions initiales, données, chacune dans $\R^3$\\
+	\hspace{1cm} $v_1^0,\ldots, v_N^0,$ vitesses initiales, données , chacune dans $\R^3$
+	
+	$\longrightarrow$ EDO d'ordre 2, en dimension $3N$ , avec typiquement, $N \simeq$ nombre d'Avogadro $\simeq 10^{23}$.\\
+	\textbf{Calcul effectif inatteignable}.
+	
+	\par Cauchy-Lipschitz affirme que ce système admet une solution unique : d'où, $x_1(t),v_1(t),$ etc. sont entièrement déterminés par les données initiales.\\
+	\underline{Question :} Que se passe t'il lorsque $N \to +\infty$ ?\\
+
+	\par On a ici 2 limites naturelles :\\
+	\hspace*{2cm}\begin{minipage}[t]{18cm}
+		\begin{enumerate}
+			\item limite faible couplage (weak coupling limit)\\
+			Cas où les valeurs physique font que $F$ est de l'ordre de $\dfrac{1}{N}$, dans les unités physiquement pertinentes.\\
+			On part alors de $\dfrac{d^2x_i}{dt^2}(t) = \dfrac1N \displaystyle\sum_{j\not = i} F(x_i(t)-x_j(t))$ et on passe à la limite $N \to \infty$
+			\item limite faible densité (low density limit) : \\
+			exemple typique de boule de billard de rayon $\epsilon$.\\
+			\textbf{DESSIN A FAIRE (photo 4)}
+		\end{enumerate}
+	\end{minipage}
+	
+	
+\end{document}
