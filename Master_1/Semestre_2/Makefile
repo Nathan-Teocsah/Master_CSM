@@ -7,4 +7,3 @@ cours.tex: logo.jpg
 logo.jpg:
 	cp "$(ADRESSE)/logo.jpg" "$(ADRESSE_COURS)/"
 	
-MAJ : faire un header et le modifier
