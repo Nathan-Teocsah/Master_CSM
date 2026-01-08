@@ -200,5 +200,22 @@
 	
 	\fbox{Nous faisons désormais l'hypothèse que $\dfrac{T^2\m F}{X_m}$ est de l'ordre de $\dfrac{1}{N}$.}
 	
+	\par Partons des équations de Newton adimensionnées (en laissant tomber les tildes).
+	\[
+	\dfrac{d^2X_N}{dt^2}(t) = \dfrac{1}{N}G(X_N(t))
+	\]
+	où $G : \alpha \in \R^{3 \times N} \mapsto G(\alpha) = \left(\displaystyle\sum_{\underset{j\not = 1}{j=1}}^N F(x_1-x_j),\ldots,\sum_{\underset{j\not = N}{j=1}}^N F(\alpha_N-\alpha_j)\right)$\\ 
+	et $F : \R^3 \to \R^3$ de classe $\m C^k$ avec $k \geq 1$.
+	
+	\par On souhaite procéder à la limite $N \to \infty$ dans ces équations (EDO en dimesion $3\times $ (gros problème topologiqueà, non linéaires)).\\
+	\underline{\textbf{Idée profonde :}} au lieu de se donner un jeu de données inutiles dons notre équation de Newton, on se donne une fonction $f^0(x_1^0,v_1^0,x_2^0,v_2^0,\ldots,x_N^0,v_N^0)$, dite fonction de répartition (ou fonction de densité) qui permet de dire :
+	
+	\[
+	\mathbb{P}\left(x_1^0\in \Omega_1,v_1^0 \in O_1,\ldots,x_N^0 \in Omega_N,v_N^0\in O_n \right) = \displaystyle\underset{\Omega_1\times O_1\times\cdots\times\Omega_N\times O_N}{\int}f^0(x_1^0,v_1^0,\ldots,x^0_N,v^0_N) dx_1^0dv_1^0\cdots dx_N^0dv_N^0
+	\]
+	
+	\underline{Affirmation :} La fonction de répartition $f(t,x_1,t_1,\ldots,x_N,t_N)$
+	
+	\textbf{ENCOPE A COPIER}
 	
 \end{document}
