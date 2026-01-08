@@ -211,11 +211,17 @@
 	\underline{\textbf{Idée profonde :}} au lieu de se donner un jeu de données inutiles dons notre équation de Newton, on se donne une fonction $f^0(x_1^0,v_1^0,x_2^0,v_2^0,\ldots,x_N^0,v_N^0)$, dite fonction de répartition (ou fonction de densité) qui permet de dire :
 	
 	\[
-	\mathbb{P}\left(x_1^0\in \Omega_1,v_1^0 \in O_1,\ldots,x_N^0 \in Omega_N,v_N^0\in O_n \right) = \displaystyle\underset{\Omega_1\times O_1\times\cdots\times\Omega_N\times O_N}{\int}f^0(x_1^0,v_1^0,\ldots,x^0_N,v^0_N) dx_1^0dv_1^0\cdots dx_N^0dv_N^0
+	\mathbb{P}\left(x_1^0\in \Omega_1,v_1^0 \in O_1,\ldots,x_N^0 \in \Omega_N,v_N^0\in O_n \right) = \displaystyle\underset{\Omega_1\times O_1\times\cdots\times\Omega_N\times O_N}{\int}f^0(x_1^0,v_1^0,\ldots,x^0_N,v^0_N) dx_1^0dv_1^0\cdots dx_N^0dv_N^0
 	\]
 	
-	\underline{Affirmation :} La fonction de répartition $f(t,x_1,t_1,\ldots,x_N,t_N)$
+	\underline{Affirmation :} \begin{minipage}[t]{16.5cm}
+		 La fonction de répartition $f(t,x_1,t_1,\ldots,x_N,t_N)$ et le flot des équations de Newton : $\left(X_1(t,t_0,x^0_1,\ldots,v^0_N),V_1(t,t_0,x^0_1,\ldots,v^0_N),\ldots,X_N(t,t_0,x^0_1,\ldots,v^0_N),V_N(t,t_0,x^0_1,\ldots,v^0_N)\right)	$\\
+		 Vérifie :
+		 \begin{center}
+		 	$f\left(t,X_1(t,t_0,x^0_1,\ldots,v^0_N),V_1(t,t_0,x^0_1,\ldots,v^0_N),\ldots,X_N(t,t_0,x^0_1,\ldots,v^0_N),V_N(t,t_0,x^0_1,\ldots,v^0_N)\right)$\\
+		 	$= f^0(x^0_1,v^0_1,\ldots,x^0_N,v^0_N)$
+		 \end{center}
+	\end{minipage}
 	
-	\textbf{ENCOPE A COPIER}
 	
 \end{document}
