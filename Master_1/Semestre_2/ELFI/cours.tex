@@ -157,11 +157,7 @@
 	
 	\newpage
 	
-	\subsubsection{Espace de Sobolev}
-	
-	\begin{minipage}{5cm}
-		\enc{blue}{Notion de distribution}
-	\end{minipage}
+	\subsubsection{Notion de distribution}
 	
 	\textbf{\underline{Notation :}} \begin{minipage}{15cm}
 		$\partial^\alpha u = \dfrac{\partial^{|\alpha|}u}{\partial_1^{\alpha_1}\ldots\partial_d^{\alpha_d}}$, avec $\alpha = (\alpha_1,\ldots,\alpha_d) \in \N^d$ et $|\alpha| = \alpha_1 + \ldots + \alpha_d$
@@ -231,11 +227,7 @@
 	
 	\newpage
 	
-	\begin{minipage}{10cm}
-		\enc{blue}{Convergence et dérivation au sens des distributions}
-	\end{minipage}
-	
-	\vspace{.5cm}
+	\subsubsection{Convergence et dérivation au sens des distributions}
 	
 	$\star$ \begin{minipage}[t]{20cm}
 				\underline{Convergence}\\
@@ -297,5 +289,25 @@
 			& & & = \left<\delta_1,\phi\right> \not \in \text{L}^2(\Omega)
 		\end{aligned}$.
 	\end{ex}
+	
+	\subsubsection{Espaces de Sobolev}
+	
+	\begin{defi}
+		$H^1(\Omega) = \left\{f \in  \text{L}^2(\Omega); \dfrac{\partial f}{\partial x_i} \in \text{L}^2(\Omega), i=1,\ldots,d \right\}$, 
+		
+		\vspace{.2cm}
+		
+		équipé du produit scalaire (sur $\m C^1$) :
+		\[
+		\left<u,v\right>_{H^1} = \displaystyle\int_\Omega uv + \int_\Omega \nabla u\cdot\nabla v
+		\]
+	\end{defi}
+	
+	\textbf{\underline{Remarque :}} $\displaystyle\int_\Omega \nabla u\cdot\nabla v = \sum_{i=1}^N \int_\Omega \dfrac{\partial u}{\partial x_i}\dfrac{\partial v}{\partial x_i}$
+	
+	\begin{prop}
+		$(H^1, \left<\cdot,\cdot\right>)$ est un espace de Hilbert.
+	\end{prop}
+	
 
 \end{document}
