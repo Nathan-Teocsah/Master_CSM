@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  7 JAN 2026 16:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  8 JAN 2026 15:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1088,8 +1088,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip67
 )
-\c@ex=\count408
-\c@rmq=\count409
+\c@rmq=\count408
 )
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 10
 .
@@ -1098,7 +1097,7 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count410
+\l__color_backend_stack_int=\count409
 )
 (./Cours.aux
 Package babel Info: 'french' activates 'french' shorthands.
@@ -1162,16 +1161,16 @@ LaTeX Info: Redefining \degres on input line 10.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count411
+\scratchcounter=\count410
 \scratchdimen=\dimen366
 \scratchbox=\box82
-\nofMPsegments=\count412
-\nofMParguments=\count413
+\nofMPsegments=\count411
+\nofMParguments=\count412
 \everyMPshowfont=\toks73
-\MPscratchCnt=\count414
+\MPscratchCnt=\count413
 \MPscratchDim=\dimen367
-\MPnumerator=\count415
-\makeMPintoPDFobject=\count416
+\MPnumerator=\count414
+\makeMPintoPDFobject=\count415
 \everyMPtoPDFconversion=\toks74
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1276,50 +1275,73 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 62.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 69--70
-
- []
-
+<photo1.png, id=21, 393.47pt x 136.51pt>
+File: photo1.png Graphic file (type png)
+<use photo1.png>
+Package pdftex.def Info: photo1.png  used on input line 69.
+(pdftex.def)             Requested size: 196.73451pt x 68.25482pt.
 Package hyperref Info: bookmark level for unknown ex defaults to 0 on input lin
-e 72.
+e 71.
+<photo2.png, id=23, 248.93pt x 132.495pt>
+File: photo2.png Graphic file (type png)
+<use photo2.png>
+Package pdftex.def Info: photo2.png  used on input line 74.
+(pdftex.def)             Requested size: 124.46469pt x 66.24733pt.
 
-LaTeX Warning: Command \textcircled invalid in math mode on input line 92.
-
-LaTeX Font Info:    Trying to load font information for OMS+lmr on input line 9
-2.
-(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmr.fd
-File: omslmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 92.
-
-
-LaTeX Warning: Command \textcircled invalid in math mode on input line 92.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 104--106
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
 
 
-Overfull \hbox (28.45271pt too wide) in paragraph at lines 107--118
-| [] 
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 77--82
+[]$[]$ 
  []
 
-\tf@thm=\write5
-\openout5 = `Cours.thm'.
-
+<photo3.png, id=24, 576.1525pt x 272.01625pt>
+File: photo3.png Graphic file (type png)
+<use photo3.png>
+Package pdftex.def Info: photo3.png  used on input line 83.
+(pdftex.def)             Requested size: 288.07553pt x 136.00778pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.120 \end{document}
-                     [1{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/l
-m-mathit.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{
-/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local
-/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] [2] (./Cours.aux)
+l.96 	\newpage
+               [1{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-math
+it.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/l
+ocal/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texli
+ve/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <./photo1.png> <./photo2.p
+ng> <./photo3.png>]
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 102.
+
+LaTeX Font Info:    Trying to load font information for OMS+lmr on input line 1
+02.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmr.fd
+File: omslmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 102.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 102.
+
+<photo4.png, id=42, 701.62125pt x 266.9975pt>
+File: photo4.png Graphic file (type png)
+<use photo4.png>
+Package pdftex.def Info: photo4.png  used on input line 126.
+(pdftex.def)             Requested size: 350.80975pt x 133.49841pt.
+
+Overfull \hbox (28.45271pt too wide) in paragraph at lines 117--132
+| [] 
+ []
+
+[2 <./photo4.png>]
+\tf@thm=\write5
+\openout5 = `Cours.thm'.
+
+ [3] [4] (./Cours.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
@@ -1328,31 +1350,30 @@ Package rerunfilecheck Info: File `Cours.out' has not changed.
 (rerunfilecheck)             Checksum: D9999AAE3ABAE74332AF4120B5B1CBA8;258.
  ) 
 Here is how much of TeX's memory you used:
- 40156 strings out of 467538
- 912314 string characters out of 5419551
- 1445414 words of memory out of 5000000
- 68400 multiletter control sequences out of 15000+600000
- 690946 words of font info for 86 fonts, out of 8000000 for 9000
+ 40239 strings out of 467538
+ 914192 string characters out of 5419551
+ 1452669 words of memory out of 5000000
+ 68482 multiletter control sequences out of 15000+600000
+ 686675 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 113i,16n,131p,866b,501s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,16n,131p,866b,716s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
-cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/t
-exmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/
-fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type
-1/public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm
-/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb>
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/
-texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025
-/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dis
-t/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
-pe1/public/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/
-lm/lmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/sy
-mbols/msbm10.pfb>
-Output written on Cours.pdf (3 pages, 249542 bytes).
+cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texli
+ve/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/f
+onts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/l
+mr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/tex
+live/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/
+texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist
+/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type
+1/public/lm/lmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msbm10.pfb>
+Output written on Cours.pdf (5 pages, 1017758 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
- 8 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 130 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
+ 10 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
