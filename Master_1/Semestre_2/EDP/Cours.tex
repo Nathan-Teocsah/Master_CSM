@@ -66,17 +66,26 @@
 	
 	Donnons nous la fonction $F(x)$ qui est la force d’interaction entre 2 particule, c'est-à-dire :
 	
-	\textbf{DESSIN A FAIRE (photo 1)}\\
+	\includegraphics[scale = .5]{photo1.png}
 	
-	\begin{ex}
-		Attraction gravitationnelle\\
-		\textbf{Dessins à FAIRE (photo 2)} \\
-		Force subie par la terre du fait du Soleil : $-G\frac{Mm}{\|\!\|x\|\!\|^2}\frac{x}{\|\!x\|\!\|} = -\frac{GMm}{\|\!\|T-S\|\!\|^3}(T-S)$.\\
-		Force subie par le Soleil du fait de la Terre : $-G\frac{Mm}{\|\!\|x\|\!\|^2}\frac{x}{\|\!x\|\!\|} = -\frac{GMm}{\|\!\|T-S\|\!\|^3}(T-S)$.\\
-		\textbf{Dessin (ENCORE) (photo 3)}
+	\begin{ex}[Attraction gravitationnelle]
+		$ $
+		\begin{center}
+			\includegraphics[scale = .5]{photo2.png}
+		\end{center}
+		
+		\begin{minipage}{18cm}
+			Force subie par la terre du fait du Soleil : $-G\dfrac{Mm}{\|x\\|^2}\dfrac{x}{\|x\|} = -\dfrac{GMm}{\|T-S\|^3}(T-S)$.\\
+			
+		Force subie par le Soleil du fait de la Terre : $-G\dfrac{Mm}{\|x\|^2}\dfrac{x}{\|x\|} = -\dfrac{GMm}{\|T-S\|^3}(T-S)$.
+		\end{minipage}
+		
+		\includegraphics[scale = .5]{photo3.png}
 	\end{ex}
 	
-	On a (Newton) :$\underbrace{\text{masse}}_{\text{\rouge{= 1, par soucis de normalisation}}}$ $\times$ accélération = force pour toutes les particules
+	On a (Newton) :$\underbrace{\text{masse}}_{%
+		\shortstack{\rouge{= 1, par soucis}\\\rouge{de normalisation}}%
+	}$ $\times$ accélération = force pour toutes les particules
 	
 	particule 1 :  $\begin{cases}
 		\frac{d^2x}{dt^2}(t) = T(x_1(t)-x_2(t)) + F(x_1(t)-x_3(t)) + \ldots + F(x_1(t) - x_N(t))\\
@@ -84,10 +93,11 @@
 		\frac{d^2x_N}{dt^2}(t) = F(x_N(t)-x_1(t)) + F(x_N(t)-x_2(t)) + \ldots + F(x_N(t)-x_{N-1}(t)) 
 	\end{cases}$
 	
+	\newpage
 	
+	Soit :\\
 	$
 	\begin{cases}
-		Soit :\\
 		\forall i = 1,...,N$, $\frac{d^2x_i(t)}{dt^2} = \displaystyle\sum_{\underbrace{j=1}_{j\not=i}}^N F(x_i(t) -x_j(t))\\
 		\underline{\textcircled{+} \text{ données initiales à } t = 0}\\
 		x_1(0) = x_1^0,\ldots,x_N^0(0) = x_N^0(0) \\
@@ -102,19 +112,93 @@
 	\textbf{Calcul effectif inatteignable}.
 	
 	\par Cauchy-Lipschitz affirme que ce système admet une solution unique : d'où, $x_1(t),v_1(t),$ etc. sont entièrement déterminés par les données initiales.\\
-	\underline{Question :} Que se passe t'il lorsque $N \to +\infty$ ?\\
+	\textbf{\underline{Question :}} Que se passe t'il lorsque $N \to +\infty$ ?
 
-	\par On a ici 2 limites naturelles :\\
+	\par \underline{On a ici 2 limites naturelles :}\\
 	\hspace*{2cm}\begin{minipage}[t]{18cm}
 		\begin{enumerate}
-			\item limite faible couplage (weak coupling limit)\\
+			\item limite faible couplage (weak coupling limit) : hard sphere (sphère dure)\\
 			Cas où les valeurs physique font que $F$ est de l'ordre de $\dfrac{1}{N}$, dans les unités physiquement pertinentes.\\
 			On part alors de $\dfrac{d^2x_i}{dt^2}(t) = \dfrac1N \displaystyle\sum_{j\not = i} F(x_i(t)-x_j(t))$ et on passe à la limite $N \to \infty$
 			\item limite faible densité (low density limit) : \\
-			exemple typique de boule de billard de rayon $\epsilon$.\\
-			\textbf{DESSIN A FAIRE (photo 4)}
+			exemple typique de boule de billard de rayon $\epsilon$.
+			
+			\includegraphics[scale = .5]{photo4.png}				
+		
+			On assure $N\epsilon^2 = 1$ ($N\epsilon^2 =$ sommes de valeurs explorés par chaque particule), ceci assure (à vue de nez au moins) que en temps 1 on a de l'ordre 1 collision.\\
+			$\rightarrow$ Dans ce régime de convergence, on a convergence, lorsque $N \to +\infty$ vers l'équation de Boltzmann.
 		\end{enumerate}
 	\end{minipage}
+	
+	\rouge{Limite faible couplage}
+	
+	\vspace{-.2cm}
+	
+	On part de Newton.\\
+	$\dfrac{d^2 x_i}{dt^2}(t) = \displaystyle\sum_{j=1}^F(x_i(t)-x_j(t))$ pour $i = 1,\ldots,N$ et $F$ connue, avec par exemple : $F(x) = -Gm^2\dfrac{x}{\|x\|^3}$,\\
+	avec \begin{minipage}[t]{4cm}
+			$x_i(0) = x_i^0$ connue.\\
+			$v_i(0) = v_i^0$ connue.
+		\end{minipage}
+		\begin{minipage}[t]{10cm}
+			\textbf{Soit $T$ l'ordre de grandeur de l'échelle temporelle}
+		\end{minipage}
+	
+	\textbf{$X$ l'ordre de grandeur de l'échelle spatiale} (si le travail a été bien fait).\\
+	les $v_i^0$ et les $v_i(t)$ vont demeurer de l'ordre de $\frac{X}{T}$.\\
+	\textbf{Soit $\m F$ l'ordre de grandeur} de $F$.
+	
+	\underline{Introduisons la notation suivante :}\\
+	\hspace{3cm} $X_N(t) = (x_1(t),\ldots,x_N(t)) \in \R^{3\times N}, X_N^0 = (x_1^0,\ldots,x_N^0)$.\\
+	$V_N(t) = (v_1(t),,\ldots,v_N(t)) \in \R^{3\times N}, V_N^0 = (v_1^0,\ldots,v_N^0)$.\\
+	$z_i(t) = (x_i(t),v_i(t)) \in \R^6$ (variable de l'espace des phases).\\
+	$z_i^0 = (x_i^0,v_i^0)$.\\
+	$Z_N(t) = (z_1(t),\ldots,z_N(t))\in\R^{6\times N}, Z_N^0 = (z_1^0,\ldots,z_N^0)$\\
+	Avec ces notations, les équations de Newton s'écrivent :
+	\begin{center}
+		
+	$\begin{cases}
+		m \dfrac{d^2 X_N}{dt^2}(t) = f(X_N(t)) \text{ où } f : \alpha \mapsto \left(\displaystyle\sum_{\underset{j\not = 1}{j=1}}^N F(\alpha_1-\alpha_j),\ldots,\sum_{\underset{j\not = N}{j=1}}^N F(\alpha_N-\alpha_j)\right)\\
+		X_N(0) = X_N^0, V_N(0) = V_N^0
+	\end{cases}$
+	\end{center}
+	
+	\underline{Adimensionnons ce système :}\\
+	Posons $t = T \overset{\sim}{t}$ \hspace{1cm} \begin{minipage}[t]{4 cm}
+														où $\overset{\sim}{t}$  est d'ordre $1$ et $\overset{\sim}{t}$  est sans dimension.
+													\end{minipage}\\		
+	$x_i(t) = X\overset{\sim}{t}\left(\frac{t}{T}\right)$
+	
+	De manière équivalente, on pose : $x_n(T) = x\overset{\sim}{X}_N\left(\frac{t}{T}\right)$.\\
+	$\overset{\sim}{X}_N(\m F) = \dfrac{X_N(T\m F)}{X}$\\
+	Soit $\overset{\sim}{V}_N(\m F) = \dfrac{d \overset{\sim}{X}_N(t)}{d\overset{\sim}{t}} = \dfrac{T}{X} V_N(T\m F)$
+	
+	\par Enfin, pour ce qui concerne le champ de force, on définit : $\begin{aligned}[t]
+		\overset{\sim}{f}(\overset{\sim}{\alpha}) 
+		&= \dfrac{f(X\overset{\sim}{\alpha})}{\m F} \\
+		&= \left(\displaystyle\sum_{\underset{i\not=1}{i=1}}^N \dfrac{F(X(\overset{\sim}{\alpha}_i-\overset{\sim}{\alpha}_j))}{\m F}, \cdots \right)
+	\end{aligned}$
+	
+	Ainsi partant de :
+	\[
+	m\dfrac{d^2X_N(t)}{dt^2} = f(X_N(t))
+	\]
+	
+	On obtient, pour $\overset{\sim}{X}(\overset{\sim}{t}) = \dfrac{X_N(T\m F)}{X}$, la relation :
+	\[
+	\begin{aligned}[t]
+		\dfrac{d^2\overset{\sim}{X}_N(t)}{d\overset{\sim}{t}^2} 
+		&= \dfrac{T^2}{X}\left(T\m F\right) \\
+		&= \dfrac{T^2}{X}\frac{1}{m}f(X_N(T\m F)) \\
+		&= \dfrac{T^2\m F}{Xm} \overset{\sim}{f}(\overset{\sim}{X}_N(\m F))
+	\end{aligned}
+	\]
+	
+	c'est-à-dire : $\dfrac{d^2\overset{\sim}{X}_N(\overset{\sim}{t})}{d\overset{\sim}{t}^2} = \dfrac{T^2\m F}{X_m} \overset{\sim}{f}(\overset{\sim}X_N)$
+	
+	\fbox{+} $\overset{\sim}X_N(0) = \overset{\sim}X_N^0$, $\overset{\sim}{V}_N(0) = \overset{\sim}V_N^0$ \hspace{1cm} \fbox{+} $\overset{\sim}f(\overset{\sim}\alpha) = \left(\displaystyle\sum_{\underset{j\not = 1}{j=1}} \frac{F(X(\overset{\sim}\alpha_1-\overset{\sim}\alpha_j))}{\m F}, \cdots\right)$
+	
+	\fbox{Nous faisons désormais l'hypothèse que $\dfrac{T^2\m F}{X_m}$ est de l'ordre de $\dfrac{1}{N}$.}
 	
 	
 \end{document}
