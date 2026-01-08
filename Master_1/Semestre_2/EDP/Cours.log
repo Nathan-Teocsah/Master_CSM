@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  8 JAN 2026 15:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  8 JAN 2026 16:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1337,11 +1337,17 @@ Overfull \hbox (28.45271pt too wide) in paragraph at lines 117--132
 | [] 
  []
 
-[2 <./photo4.png>]
+[2 <./photo4.png>] [3]
+Overfull \hbox (12.6475pt too wide) detected at line 215
+\U/msb/m/n/12 P [] \OT1/lmr/m/n/12 = []\OML/lmm/m/it/12 f[]\OT1/lmr/m/n/12 (\OM
+L/lmm/m/it/12 x[]; v[]; [] ; x[]; v[]\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 dx[]dv[]
+ [] dx[]dv[]
+ []
+
 \tf@thm=\write5
 \openout5 = `Cours.thm'.
 
- [3] [4] (./Cours.aux)
+[4] (./Cours.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
@@ -1370,7 +1376,7 @@ texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist
 /fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type
 1/public/lm/lmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb>
-Output written on Cours.pdf (5 pages, 1017758 bytes).
+Output written on Cours.pdf (5 pages, 1023379 bytes).
 PDF statistics:
  130 PDF objects out of 1000 (max. 8388607)
  84 compressed objects within 1 object stream

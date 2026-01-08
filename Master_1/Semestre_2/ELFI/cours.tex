@@ -107,7 +107,7 @@
 		$l(\cdot)$ forme linéaire.
 	\end{minipage}
 	
-	\vspace{.5cm}
+	\newpage
 	
 	$\longrightarrow$ \begin{minipage}[t]{20cm}
 		Discrétisation
@@ -117,7 +117,10 @@
 		\end{enumerate}
 	\end{minipage}
 	
-	$V \to V_h$ dimension finie $V_h = Vect \{\phi_I, I = 1,\ldots,N\}$\\
+	\vspace{.5cm}
+	
+	$V \to V_h$ dimension finie $V_h = Vect \{\phi_I, I = 1,\ldots,N\}$
+	
 	$u_h$ dans $V_h$ s'exprime comme combinaison des $\phi_I$, $I = 1,\ldots,N$.
 	\[
 	u_h = \displaystyle\sum_{j+1}^N u_j \phi_J \text{ avec } U = (u_1, \ldots, u_N) \in \R^N
@@ -132,6 +135,8 @@
 		\displaystyle\sum_{J=1}^N \underbrace{a(\phi_J,\phi_I)}_{A_{I,J}}u_J = \underbrace{l(\phi_I)}_{B_I}
 	\end{cases}$\\
 	On obtient donc \fbox{$AU = B$}.
+	
+	\vspace{5cm}
 	
 	\subsection{Établissement de la formulation variationnelle}
 	\subsubsection{Les espaces fonctionnels}
@@ -154,7 +159,7 @@
 	
 	\subsubsection{Espace de Sobolev}
 	
-	\begin{minipage}{6cm}
+	\begin{minipage}{5cm}
 		\enc{blue}{Notion de distribution}
 	\end{minipage}
 	
@@ -173,19 +178,17 @@
  \m C^\infty \text{ sur } \Omega
  			\end{aligned}$
 			\item[$\star$] $u$ est dit une distribution sur $\Omega$ :\\
-	
-			\hspace*{-1cm}\begin{minipage}{15cm}
-				Si $u$ est une forme linéaire sur $\m D (\Omega)$ et si $u$ vérifie une propriété de continuité :
+			Si $u$ est une forme linéaire sur $\m D (\Omega)$ et si $u$ vérifie une propriété de continuité :
+			
+			\begin{minipage}{7.5cm}
+				
+			$\forall K \text{ compact de } \Omega, \exists k \in \N \text{ et } \exists C_K \text{ tq : }$
 			\begin{center}
-				$
-			\forall K \text{ compact de } \Omega, \exists k \in \N \text{ et } \exists C_K \text{ tq : }
-			$
-			\hspace{3cm}$
-			\forall\phi\in \m D(\Omega) \text{ tq } \text{supp}(\phi) \subset K, |<u,\phi>| \leq C_K \max_{|\alpha| \leq k}\{\|\partial^\alpha\|\}
-		 	$
+			$\forall\phi\in \m D(\Omega) \text{ tq } \text{supp}(\phi) \subset K,$\\ $\abs{\left<u,\phi\right>} \leq C_K \max_{|\alpha| \leq k}\{\|\partial^\alpha\|\}$
 			\end{center}
-			\end{minipage}\hspace{-.5cm}\begin{minipage}{6.7cm}
-			\enc{red}{$u : \phi \in \m D(\Omega) \mapsto \underbrace{<u,\phi>}_{\text{produit dualité}} \in \R$}
+			
+			\end{minipage}\begin{minipage}{6.7cm}
+			$ $ \hspace*{2cm}\enc{red}{$u : \phi \in \m D(\Omega) \mapsto \underbrace{\left<u,\phi\right>}_{\text{produit dualité}} \in \R$}
 			\end{minipage}
 			
 			\item[$\star$] On note $\m D'(\Omega)$ l'ensemble des distributions sur $\Omega$.
@@ -243,14 +246,14 @@
 				\]
 			\end{minipage}
 	\par $\star$ \begin{minipage}[t]{20cm}
-					Dérivation : soit $u \in \m D'(\Omega)$, la dérivée de $u$ au sens des distribution, $\dfrac{\partial u}{\partial x_i}, i = 1,\ldots,d$ est définie par :
+					\underline{Dérivation :} soit $u \in \m D'(\Omega)$, la dérivée de $u$ au sens des distribution, $\dfrac{\partial u}{\partial x_i}, i = 1,\ldots,d$ est définie par :
 					\[
 					<\dfrac{\partial u}{\partial x_i},\phi> = - <u,\dfrac{\partial\phi}{\partial x_i}>, \forall \phi \in \m D (\Omega)
 					\]
 				\end{minipage}
 	
 	\par $\star$ \begin{minipage}[t]{20cm}		
-					$\alpha$ multi-indice.\\
+					\underline{$\alpha$ multi-indice}.\\
 					$<\partial^\alpha u,\phi> = (-1)^{|\alpha|}<u,\partial^\alpha\phi>, \forall\phi\in \m D(\Omega)$
 				\end{minipage}
 	
@@ -273,7 +276,26 @@
 								 	\end{minipage}
 								 	
 	\begin{ex}
-		A SUIVRE
+		\begin{minipage}[t]{15cm}
+			\begin{minipage}[t]{10cm}
+			$f$ dans $\text{L}^2(]0,2[)$ définie par $f(x) = \begin{cases}
+															0 \text{ sur } ]0,1]\\
+															1 \text{ sur } ]1, 2]
+														\end{cases}$.
+		\end{minipage} \begin{minipage}{2cm}
+														\includegraphics[scale = .4]{photo1.png}
+														\end{minipage}
+		\end{minipage}
+		
+		$\begin{aligned}
+			\left<\dfrac{\partial f}{\partial x_1},\phi\right> 
+			&= -\left<f,\dfrac{\partial\phi}{\partial x_1}\right> 
+			&= - \displaystyle\int f\dfrac{\partial\phi}{\partial x_1} 
+			&= -\int_1^2\dfrac{\partial\phi}{\partial x_1} \\
+			& & & = - \left[\phi\right]_1^2\\
+			& & & = \phi(1)\\
+			& & & = \left<\delta_1,\phi\right> \not \in \text{L}^2(\Omega)
+		\end{aligned}$.
 	\end{ex}
 
 \end{document}
