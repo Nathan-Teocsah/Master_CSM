@@ -101,16 +101,17 @@
 		\begin{center}
 			$a(u,v) = l(v)$
 		\end{center}
-	}
 	avec \begin{minipage}[t]{15cm}
-		$(a(\cdot,\cdot)$ forme bilinéaire.\\
+		$a(\cdot,\cdot)$ forme bilinéaire.\\
 		$l(\cdot)$ forme linéaire.
 	\end{minipage}
+	}
+	
 	
 	\newpage
 	
 	$\longrightarrow$ \begin{minipage}[t]{20cm}
-		Discrétisation
+		\textbf{\underline{Discrétisation}}
 		\begin{enumerate}
 			\item[$\star$] géométrique $\Omega \to \Omega_h$ maillage.
 			\item[$\star$] de l'inconnue. $V$ espace fonctionnel de dimension infini et $V_h$ de dimension fini.
@@ -119,21 +120,23 @@
 	
 	\vspace{.5cm}
 	
-	$V \to V_h$ dimension finie $V_h = Vect \{\phi_I, I = 1,\ldots,N\}$
+	\underline{\textit{On transforme le problème :}} $V \to V_h = \text{Vect} \{\phi_I, I = 1,\ldots,N\}$ en dimension finie.
 	
 	$u_h$ dans $V_h$ s'exprime comme combinaison des $\phi_I$, $I = 1,\ldots,N$.
 	\[
 	u_h = \displaystyle\sum_{j+1}^N u_j \phi_J \text{ avec } U = (u_1, \ldots, u_N) \in \R^N
 	\]
 	
-	On écrit l'expression $(FV)$ pour $v = \phi_I$ :\\
+	On écrit l'expression $(FV)$ (formulation variationnelle) pour $v = \phi_I$ :
+	
 	$\begin{cases}
 		\forall I = 1,\ldots, N\\
 		a(u_h,\phi_I) = l(\phi_I)
 	\end{cases}$ c'est-à-dire $\begin{cases}
 		\forall I = 1,\ldots,N\\
 		\displaystyle\sum_{J=1}^N \underbrace{a(\phi_J,\phi_I)}_{A_{I,J}}u_J = \underbrace{l(\phi_I)}_{B_I}
-	\end{cases}$\\
+	\end{cases}$
+	
 	On obtient donc \fbox{$AU = B$}.
 	
 	\vspace{5cm}
@@ -333,8 +336,8 @@
 		On note $\gamma_0$ l'opérateur trace sur le bord :
 		\[
 		\begin{aligned}
-			\gamma_0 \text{ : }& H^1(\Omega) & \rightarrow & L^2(\partial \Omega)\\
-			 & f & \mapsto & \gamma_0 f = f_{\partial \Omega}
+			\gamma_0 \text{ : }& H^1(\Omega) & \rightarrow & & L^2(\partial \Omega)\\
+			 & f & \mapsto & & \gamma_0 f = f_{\partial \Omega}
 		\end{aligned}
 		\]
 	\end{defi}
@@ -360,6 +363,141 @@
 	\end{minipage}
 	
 	
+	\subsubsection{Formule de Green}
 	
+	\begin{thm}[Formule de Green]
+		\begin{minipage}[t]{7cm}
+			Soit $\Omega$ est un ouvert de $\R^d$.\\
+		$\forall u,v \in H^1(\Omega)$, 
+		\end{minipage}\begin{minipage}{6cm}
+		\includegraphics[scale=.3]{photo2.png}
+		\end{minipage}
+		\[
+		\displaystyle\int_\Omega \dfrac{\partial u}{\partial x_i} v = - \int_\Omega u \dfrac{\partial v}{\partial x_i} + \int_\Omega\gamma_0 u .\gamma_0 v .\nu_i 
+		\]
+		pour $ i = 1, \ldots, d$.\\
+		
+		\begin{minipage}{16cm}
+			Avec $\nu_i$ $i$-ième composante de $\nu$ le vecteur unitaire normal à $\partial \Omega$ sortant par rapport à $\Omega$.
+		\end{minipage}
+	\end{thm}
+	
+	\begin{cor}
+		Soit $\Omega \subset \R^d$ est $\m C^{0,1}$, $u \in H^1(\Omega)$ et $v \in H^1(\Omega)$.
+		\[
+		\displaystyle\int_\Omega \Delta u v = - \int_\Omega \nabla u \cdot \nabla v + \int_{\partial\Omega} \dfrac{\partial u}{\partial\nu} v
+		\]
+		avec $\dfrac{\partial u}{\partial \nu} = \nabla \cdot \nu$.
+	\end{cor}
+	
+	\begin{rmq}
+		 $\nabla u = \left(\dfrac{\partial u}{\partial x_1},\ldots,\dfrac{\partial u}{\partial x_d}\right)$ et $\nabla \cdot \nu = \left(\gamma_0 \dfrac{\partial u}{\partial x_1},\ldots,\gamma_0 \dfrac{\partial u}{\partial x_1}\right)$.\\
+		 On omet le $\gamma_0$ à partir de maintenant, il est "sous-entendu".
+	\end{rmq}
+	
+	\subsubsection{EDP $\rightarrow$ Formulation variationnelle, caractère bien posé}
+	
+	\begin{minipage}[t]{5cm}
+		\begin{center}
+			EDP\\
+			+\\
+			condition aux bords
+		\end{center}
+	\end{minipage}\begin{minipage}[t]{16cm}
+	
+	\vspace{.2cm}
+	
+	$\xrightarrow[\text{EDP}\times v]{} $ $\cdots$ $\xrightarrow[\text{formule de Green}]{}$ $\cdots$ $\xrightarrow[\text{Prise en compte des conitions aux bords}]{}$ (FV)
+	\end{minipage}
+	
+	(FV) : \fbox{\begin{minipage}[t]{5cm}
+		Chercher $u \in V$, tq $\forall v \in V$,
+		\[
+		a(u,v) = l(v)
+		\]
+	\end{minipage}}
+	$a$ forme bilinéaire continue sur $V \times V$ et $l$ forme linéaire continue sur $V$.
+	
+	\begin{lm}[Lax-Milgram]
+		Si, de plus, $a$ est coercive : $\exists \alpha > 0 \text{ tq } \forall u \in V, a(u,v) \geq \alpha \|u\|^2$,\\
+		$\longrightarrow$ alors il existe un solution de la formulation variationnelle.
+	\end{lm}
+	
+	\subsubsection{Contexte générique, $d = 2$}
+	
+	\begin{minipage}{8cm}
+		On se donne $\Omega$ domaine polynomial
+	
+	$\partial \Omega = \Gamma_D \cup\Gamma_N$. $\left(\begin{minipage}{2cm}
+		$\Gamma_N$ ouvert\\
+		$\Gamma_D$ fermé
+	\end{minipage}\right)$
+	\end{minipage}\begin{minipage}{5cm}
+	\includegraphics[scale=.25]{photo3.png}
+	\end{minipage}
+	
+	\textbf{\underline{Notation :}} $x$ désignera un point de $\Omega$ et$\gamma$ un point de $\partial\Omega$.
+	
+	Données physique du problème :
+	\begin{enumerate}
+		\item[$\star$] $a_{\alpha,\beta}$ ($\alpha,\beta=1,2$), $a_\infty, f_\Omega$ définie sur $\Omega$
+		\item[$\star$] $b_N,g_N$ définies sur $\Gamma_N$
+		\item[$\star$] $u_D$ définie sur $\Gamma_D$.
+	\end{enumerate}
+	
+	\subsection{Formulation variationnelle}
+	\begin{enumerate}
+		\item[$\star$] On multiplie l'EDP par une fonction et on intègre sur $\Omega$, fonction test $v \in H^1(\Omega)$.
+		\[
+		\displaystyle -\int_\Omega \Delta u v + \int_\Omega uv = \int_\Omega f_\Omega v
+		\]
+		
+		\item[$\star$] Formule de Green\\
+		c'est-à-dire :$\displaystyle \int_\Omega \Delta u v = - \int_\Omega \nabla u \cdot \nabla v + \int_{\partial \Omega}\dfrac{\partial u}{\partial v} v$.\\
+		\begin{minipage}[t]{10cm}
+			Ainsi :
+		\[
+		\displaystyle \int_\Omega \nabla u \cdot \nabla v + \int_\Omega uv = \int_\Omega f_\Omega v + \int_{\partial\Omega} \dfrac{\partial u}{\partial \nu}v
+		\]
+		\end{minipage}
+		
+		\item[$\star$] Prise en compte des conditions aux bords : $u$ est donnée sur $\Gamma_D$.\\
+		On pose $v = 0$ sur $\Gamma_D$.\\
+		Ainsi : $\displaystyle\int_{\partial\Omega} \dfrac{\partial u}{\partial\nu} v \underbrace{=}_{v = 0 \text{ sur } \Gamma_D} \int_{\Gamma_N} \dfrac{\partial u}{\partial\nu} v = \int_{\Gamma_N} \rouge{g_N} v$, \scriptsize{\rouge{condition sur $\Gamma_N$}}
+	\end{enumerate}
+	
+	\begin{minipage}{20cm}
+		La formulation variationnelle s'écrit :\\
+		Chercher $u \in H^1(\Omega)$ tel que $u = u_D$ sur $\Gamma_D$ et tel que $\forall v \in H^1(\Omega), v = 0$ sur $\Gamma_D$.	
+	
+		\[
+		\underbrace{\int_\Omega \nabla u \cdot \nabla v}_{a(u,v)} + \int_\Omega uv = \int_\Omega f_\Omega v + \underbrace{\int_{\Gamma_N} g_N \gamma_0 v}_{l(v)}
+		\]
+		
+		$a$ est coercive : $|a(u,u)| = \|u\|_{H^1(\Omega)}^2$.
+	\end{minipage}
+	
+	\subsection{Triangulation $\mathbb{P}_1$ de Lagrange}
+	On considère un maillage constitué de triangles.\\
+	$\m c_h$ est la triangulation \hspace{1cm} $\m C_h$ est un ensemble de triangles.\\
+	$\m C_h$ doit vérifier les propriétés suivantes :
+	\begin{enumerate}
+		\item $\overline{\Omega}_h = \bigcup_{K \in \m C_h} K$ approximation polygonale de $\overline{\Omega}$, de bord $\Gamma_{N,h}$  et $\Gamma_{D,h}$ qui approchent $\Gamma_N$ et $\Gamma_D$.
+		\item $\forall K \in \m C_h, \text{ int}(K) \not = \emptyset$.
+		\item $\forall K_1,K_2 \in \m C_h$, \begin{minipage}[t]{10cm}
+			ou bien $\text{int}(K_1)\cap\text{int}(K_2)  = \emptyset$ \\
+		\end{minipage}
+		\item $\forall K'$ arrête de $K_1 \in \m C_h$, \begin{minipage}[t]{10cm}
+			ou bien $K' \subset \Gamma_D$\\
+			ou bien $K' \subset \overline{\Gamma_N}$\\
+			ou bien $\exists K_2 \in \m C_h$  tel que $K'$ est aussi une arrête de $K_2$
+		\end{minipage}
+	\end{enumerate}
+	
+	\begin{ex}
+		$ $\\
+		
+		\includegraphics[scale =.5]{photo4.png}
+	\end{ex}
 
 \end{document}
