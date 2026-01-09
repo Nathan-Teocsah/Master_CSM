@@ -306,8 +306,60 @@
 	\textbf{\underline{Remarque :}} $\displaystyle\int_\Omega \nabla u\cdot\nabla v = \sum_{i=1}^N \int_\Omega \dfrac{\partial u}{\partial x_i}\dfrac{\partial v}{\partial x_i}$
 	
 	\begin{prop}
-		$(H^1, \left<\cdot,\cdot\right>)$ est un espace de Hilbert.
+		$(H^1(\Omega), \left<\cdot,\cdot\right>_{H^1(\Omega)})$ est un espace de Hilbert.
 	\end{prop}
+	
+	\begin{defi}
+		Soit $m \in \N$.\\
+		\begin{enumerate}
+			\item[$\star$] $\underline{H^m(\Omega)} = \left\{f \in L^2(\Omega); \partial^\alpha f\in L^2(\Omega), \forall\alpha\in \N^d \text{ tq } |\alpha| \leq m\right\}$, équipé du produit scalaire : 
+			\[
+			\left< u,v \right>_{H^m(\Omega)} = \displaystyle\sum_{|\alpha|\leq m} \int_\Omega \partial^\alpha m . \partial^\alpha v
+			\]
+			et de la norme associée : $\|u\|_{H^m(\Omega)} = \left(\left< u,u \right>\right)^{1/2}$.
+			
+			\item[$\star$] \underline{$H_0^1(\Omega)$} est le complété de $\m D(\Omega)$ dans $(H^1(\Omega),\|\cdot\|_{H^1(\Omega)})$.\\
+			On note $\underbrace{H^{-1}(\Omega)}_{\text{sous ensemble de } \m D'(\Omega)} = \left(H_0^1(\Omega)\right)'$\\
+			c'est l'ensemble des formes linéaire définie sur $H^1_0(\Omega)$.
+		\end{enumerate}
+	\end{defi}
+	
+	\begin{prop}
+		$(H^m(\Omega),\left<\cdot,\cdot\right>_{H^m(\Omega)})$ est aussi un espace de Hilbert.
+	\end{prop}
+	
+	\begin{defi}[Opérateur trace]
+		Soit $\Omega$ un ouvert de $\R^d$.\\
+		On note $\gamma_0$ l'opérateur trace sur le bord :
+		\[
+		\begin{aligned}
+			\gamma_0 \text{ : }& H^1(\Omega) & \rightarrow & L^2(\partial \Omega)\\
+			 & f & \mapsto & \gamma_0 f = f_{\partial \Omega}
+		\end{aligned}
+		\]
+	\end{defi}
+	
+	\begin{thm} $ $
+		\begin{enumerate}
+			\item[$\star$] \begin{minipage}[t]{15cm}
+				$H^1_0(\Omega) = \left\{u\in H^1(\Omega); \overset{\sim}{u}\in H^1(\R^d)\right\}$, avec $\overset{\sim}{u}$ définie par $\overset{\sim}{u} = 0$ sur $\R^d\backslash\Omega$
+			\end{minipage}
+			
+			\vspace{.5cm}
+			
+			\item[$\star$] $H^1_0(\Omega) = \ker \gamma_0 = \left\{u\in H^1(\Omega); \gamma_0 u = 0 \text{ sur } \partial\Omega\right\}$
+		\end{enumerate}
+	\end{thm}
+	
+	\textbf{\underline{Notation :}} \begin{minipage}[t]{15cm}
+		$H^{3/2}(\partial\Omega) = \left\{\underline{u} \in L^2(\partial\Omega); \exists u \in H^2(\Omega)  \text{ avec } \underline{u} = \gamma_0 u\right\}$
+		
+		\vspace{.5cm}
+		
+		$H^{1/2}(\partial\Omega) = \left\{\underline{u} \in L^1(\partial\Omega); \exists u \in H^2(\Omega)  \text{ avec } \underline{u} = \gamma_0 u\right\}$
+	\end{minipage}
+	
+	
 	
 
 \end{document}
