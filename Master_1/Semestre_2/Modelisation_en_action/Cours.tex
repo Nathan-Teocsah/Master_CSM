@@ -211,6 +211,8 @@
 	$\longrightarrow$ \textit{\textbf{On supposera}} que $B_1$ est inversible pour que la récurence soit explicite.\\\\
 	Notons $\mathcal T$ l'opérateur de translation discret : $\left(\mathcal T u\right) = u(n-M) := u_{n+1}.$\\
 	
+	\vspace{-.5cm}
+		
 	\underline{\textbf{Démontrons que} $\left[\mathcal L, \mathcal T\right] = 0$ :} $\left(\mathcal L v\right)(n) = B_1(n)u_{n+1} = B_0(n)u_n + B_{-1}(n)u_{n-1}$\\
 	
 	Calculons : $\begin{aligned}[t]
@@ -237,13 +239,16 @@
 	
 	Cela implique $\begin{aligned}[t]
 		\left(\mathcal T u\right)(n) 
-		&:= u_{n+M} &= e^{\mu(n+M)}\\
-		&u_{n+M} &=  e^{\mu n}e^{\mu M}\phi(n)\\
-		&u_{n+M} &= e^{\mu M}u_n
+		&:= u_{n+M} \\
+		&= e^{\mu(n+M)}\\
+		&=  e^{\mu n}e^{\mu M}\phi(n)\\
+		&= e^{\mu M}u_n
 	\end{aligned}$
 	\hspace{1cm} On note \underline{$\lambda = e^{\mu M}$}.
 	 
-	Ainsi $\left(\mathcal T u\right)(x) = \lambda u(n)$ ce qui revient à dire que c'est un vecteur propre de $\mathcal T$ et $\lambda$ est valeur propre, est dit "Multiplicateur de Floquet".
+	\hspace{-1cm}\begin{minipage}[t]{20cm}
+		Ainsi $\left(\mathcal T u\right)(x) = \lambda u_n$ ce qui revient à dire que c'est un vecteur propre de $\mathcal T$ et $\lambda$ est valeur propre, est dit "Multiplicateur de Floquet".
+	\end{minipage}
 	
 	\subsection{Interprétation des constantes de propagation}
 	
@@ -255,7 +260,10 @@
 	\end{cases}; u(x_n+P) = u(na+Ma) := u_{n+M}
 	\]
 	
-	\fbox{
+	\begin{prop}$ $\\
+		
+		\begin{minipage}{20cm}
+		\fbox{
 	\begin{minipage}{14.5cm}
 		\begin{tabular}{l|l}
 			\begin{minipage}{7cm}
@@ -269,17 +277,44 @@
 			& 
 			\begin{minipage}{7cm}
 				\underline{En 'discret' :}\\
-				$u_{n+1} = \lambda u_n$ avec $\lambda = e^{ikP}$\\
+				$u_{n+1} = \lambda u_n$ avec $\lambda = e^{ikMa}$\\
 				$\iff$\\
-				$u_n = e^{ikn}\phi(n)$, avec $\phi(n+M) = \phi(n)$\\
+				$u_n = e^{ikna}\phi(n)$, avec $\phi(n+M) = \phi(n)$\\
 				
-				où $k\in \left[\frac{-\pi}{M},\frac{\pi}{M}\right] \left(\frac{2\pi}{P}\right)$
+				où $k\in \left[\frac{-\pi}{Ma},\frac{\pi}{Ma}\right] \left(\frac{2\pi}{Ma}\right)$
 			\end{minipage}
 		\end{tabular}
 	\end{minipage}
 	} \begin{minipage}{2cm}
 	\textcolor{blue}{\textit{Forme des solutions}}
 	\end{minipage}
+	\end{minipage}
+	\end{prop}
+	
+	\begin{dem}
+		\underline{En 'continue' :}\\
+		\begin{minipage}[t]{10cm}
+			Montrons que (1) $\implies$ (2).\\
+		$\begin{aligned}
+			u(x) = e^{-ikP}u(x+P) 
+			&= e^{ikx} \underbrace{e^{ik(x+P)}u(x+P)}_{\phi(x+P)}\\
+			&=e^{ikx} \underbrace{e^{-ikx}\phi(x)}_{\phi(x)}
+		\end{aligned}$
+		\end{minipage}\begin{minipage}[t]{12.5cm}
+			Montrons que $(2) \implies (1)$.\\
+		$\begin{aligned}
+			u(x+P) 
+			&= e^{ik(x+P)}\phi(x+P)\\
+			&= e^{ikP}e^{ikx}\phi(x) \text{ , car } \phi \text{ est périodique}\\
+			&= \fbox{$e^{ikP}u(x)$}
+		\end{aligned}
+		$
+		\end{minipage}
+		
+		\vspace{.5cm}
+		
+		Le cas 'discret' se fait de la même manière.
+	\end{dem}
 	
 	Ces formes de solutions caractérisent la propriété d'une onde se propageant dans un milieu périodique, continu ou discret.
 	
@@ -344,18 +379,278 @@
 	On utilisera les valeurs de $k \in \mathbb{C}$ pour classifier, tracer et interpréter les ondes.
 	
 	En rappelant que $U(x,t) = \operatorname{Re}\left(u(x,t)e^{-i\omega t}\right)$, on peut donner la forme des solutions dans un milieu $P$-périodique infini comme :\\
-	$U(x,t) = U_n(x,t) = \operatorname{Re}\left(u_n(\omega)e^{-i\omega t}\right)$ qui s'écrit d'après le principe de Floquet-Bloch :
+	$U(x,t) = U_n(x,t) = \operatorname{Re}\left(u_0(\omega)e^{-i\omega t}\right)$ qui s'écrit d'après le principe de Floquet-Bloch :
 	
 	\vspace{-.1cm}
 	
 	\begin{minipage}{6cm}
 		\begin{tcolorbox}[colback=white, colframe=red, arc=1mm, boxrule=1pt]
-			$U_n(t) = \operatorname{Re}\left(u_n(\omega)e^{i(nkp-\omega t)}\right)$
+			$U_n(t) = \operatorname{Re}\left(u_0(\omega)e^{i(nkp-\omega t)}\right)$
 		\end{tcolorbox}
-	\end{minipage} , où $u_n(\omega)$ est l'amplitude de l'onde.\\
+	\end{minipage} , où $u_0(\omega)$ est l'amplitude de l'onde.\\
 	
 	\textbf{$\longrightarrow$ Dans la suite}, nous chercherons à trouver les valeurs de $k$ (\textbf{relation de dispersion}) pour différents systèmes périodique (discrets ou continu/discrétisés par éléments finis)
-
+	
+	\section{Modélisation dynamique des systèmes périodique discrets}
+	
+	\subsection{Chaîne monoatomique}
+	
+	COnsidérons un système infini constitué d'atomes de masse $m$, espacés d'une distance $a$ et reliés par des raideurs linéaires (ressort, quoi) de constante $\beta$.\\
+	
+	\includegraphics[scale=.5]{photo1.png}
+	
+	Ecrivons l'équation d'équilibre d'u atome au point $x_n$ (en l'indice $n$)
+	\[
+	m\dfrac{d^2U_n}{dt^2} = \displaystyle\sum F_{\text{ext}} = -\beta(U_n-U_{n+1}) - \beta(U_n-U_{n-1}) = \beta(U_{n+1}-2U_n+U_{n-1})
+	\]
+	
+	\textbf{En régime stationnaire} $U_n(t) = u_n(\omega)e^{i\omega t}$.\\
+	Principe de Floquet-Bloch : $U_n(t) = u_0(\omega)e^{i(\omega t - kna)}$\\
+	
+	
+	L'équation d'équilibre devient : 
+	
+	\[
+	\begin{aligned}
+		m\omega^2 \cancel{U_0e^{i(\omega t - kna)}} 
+		&= \beta \left(e^{ika}-2 + e^{-ika}\right)\cancel{U_0e^{i(\omega t - kna)}}\\
+		m\omega^2 
+		&= \beta \left(e^{ika}-2 + e^{-ika}\right) = 2\beta\left(\frac{e^{ika}+e^ {-ika}}{2}-1\right) = 2\beta\left(\cos(ka)-1\right)\\
+		&= - 4\beta \sin^2\left(\frac{ka}{2}\right)
+	\end{aligned}
+	\]
+	
+	Donc$\omega^2 = \frac{4\beta}{m}\sin^2\left(\frac{ka}{2}\right)$, en notant $\omega_0 = 2 \sqrt{\frac{\beta}{m}}$, on obtient : \fbox{$\omega = \omega_0\left|\sin\left(\frac{ka}{2}\right)\right|$},\\
+	qui est la relation de dispersion, sous la forme $\omega(k)$.\\
+	
+	\fbox{
+	\begin{minipage}[t]{18.5cm}
+		\textbf{\underline{Représentation de la solution:}}\\
+	
+	\begin{minipage}{10cm}
+		\includegraphics[scale=.3]{photo2.png}
+	\end{minipage}\begin{minipage}[t]{8cm}
+	Comme $k$ est $\frac{2\pi}{a}$-périodique, on ne représente les solution que dans l'intervalle $\left[\frac{-\pi}{a},\frac{\pi}{a}\right]$.
+	\end{minipage}
+	
+	Connaissant le nombre d'onde $k$, on détermine $\begin{cases}
+		\text{la vitesse de phase } C_p = \frac{\omega}{k}\\
+		\text{la vitesse de groupe } c_z = \frac{\partial \omega}{\partial k}
+	\end{cases}$
+	
+	\includegraphics[scale=.5]{photo3.png}
+	
+	$\longrightarrow$ Paquet d'ondes : superposition d'ondes progressives dans un intervalle $k$.
+		\end{minipage}}
+	
+	\vspace{.5cm}
+	
+	\par \textbf{Cherchons} les solutions complexes $k(\omega)$.
+		
+	Reprenons : $-\omega^2m = \beta\left(e^{ika}+e^{-ika}-2\right) = 2\beta \left(\frac{e^{-ika}+e^{ika}}{2} - 1 \right)$
+	
+	$-2\omega^2 = \underbrace{\frac{4\beta}{m}}_{\omega_0^2}\left(\frac{e^{ika}+e^{ika}}{2} - 1\right)$, on introduit : $\begin{cases}[t]
+		\lambda = e^{ika}\\
+		\lambda^{-1} = e^{-ika}
+	\end{cases}$ 
+	
+	$\dfrac{\lambda+\lambda^{-1}}{2} - 1 + 2 \dfrac{\omega^2}{\omega_0^2} = 0 \implies \fbox{$\lambda^2 + \left(4\dfrac{\omega^2}{\omega_0^2}-2\right)\lambda + 1 = 0$}$
+	
+	$\Delta = \left(4\dfrac{\omega^2}{\omega_0^2}-2\right)^2-4 = 16\dfrac{\omega^4}{\omega_0^4} - 16 \dfrac{\omega^4}{\omega_0^2} = 16\dfrac{\omega^2}{\omega_0^2}\left[\dfrac{\omega^2}{\omega_0^2} - 1\right]$\\
+	
+	\begin{minipage}[t]{8cm}
+		On reconnais le cas où $\omega \leq \omega_0$ ($\Delta < 0$) :
+		
+		\[
+		\fbox{$
+		\lambda = 1 - 2 \dfrac{\omega^2}{\omega_0^2} \pm 2i \dfrac{\omega}{\omega_0}\sqrt{1-\dfrac{\omega^2}{\omega_0^2}}
+		$}	
+		\]
+	\end{minipage}\hspace{1cm}\begin{minipage}[t]{5cm}
+	\fbox{\rouge{!}} Si $\lambda_1$ est solution alors $\lambda_2 = \frac{1}{\lambda_1}$ l'est aussi
+	\end{minipage}
+	
+	
+	On a 3 cas celons les valeur de $\omega$ et $\omega_0$.
+	\begin{enumerate}
+		\item Lorsque $\omega > \omega_0$, il n'y a pas de solution propagative, les ondes sont évanescentes :
+	\[
+	\fbox{
+	$
+	\lambda = 1 - 2 \dfrac{\omega^2}{\omega_0^2} \pm 2 \dfrac{\omega}{\omega_0} \sqrt{\dfrac{\omega^2}{\omega_0^2}-1}
+	$
+	}
+	\]
+	
+	Pour retrouver les solutions explicites $k(\omega)$ on peut utiliser : 
+	\[
+	\begin{aligned}
+		\lambda 
+		&= e^{ika} = e^{i\left(\re(k)+i\im(k)\right)a} = e^{i\re(k)a}e^{-\im(k)a}\\
+		&= e^{-k_I a }\cos(k_R a) + i e^{-ik_I a}\sin(k_R a)
+	\end{aligned}
+	\]
+	
+	\item Lorsque $\omega \leq \omega_0$, $\cos(k_Ra) = 1-2\frac{\omega^2}{\omega_0^2}$ et $\sin^2(\frac{k_R a}{2}) = \frac{\omega^2}{\omega_0^2}$.
+	
+	\item Lorsque $\omega > \omega_0$, on a $\lambda \in \R$, donc $k_R = \pm \frac{\pi}{a} \left[2\pi\right]$.
+	\end{enumerate}
+	
+	\vspace{.5cm}
+	
+	\par Donc $\lambda = \pm e^{-k_I a} = \pm \left[1-2\frac{\omega^2}{\omega_0^2} \pm2\frac{\omega^2}{\omega_0^2}\sqrt{\frac{\omega^2}{\omega_0^2}-1}\right]$
+	
+	Donc $k_I = \frac{1}{a}\log\left(-1+2\frac{\omega^2}{\omega_0^2} \pm \frac{2\omega}{\omega_0}\sqrt{\frac{\omega^2}{\omega_0^2}-1}\right)$\\
+	
+	\textbf{Calcul de :} $\begin{aligned}[t]
+		\left(\Omega+\sqrt{\Omega^2-1}\right)
+		&= \Omega^2 + 2\Omega\sqrt{\Omega^2 -1} + \Omega^2-1\\
+		&=-1 + 2\omega^2+2\Omega\sqrt{\Omega^2-1}
+	\end{aligned}$\\
+	
+	\textbf{Calcul de :} $\begin{aligned}[t]
+		\left(\Omega-\sqrt{\Omega^2-1}\right)
+		&= \Omega^2 - 2\Omega\sqrt{\Omega^2 -1} + \Omega^2-1\\
+		&=-1 + 2\omega^2-2\Omega\sqrt{\Omega^2-1}
+	\end{aligned}$
+	
+	\vspace{.2cm}
+	
+	\hrule
+	
+	\vspace{.5cm}
+	
+	$k_I = \frac{1}{a}\log\left[-1 + 2\frac{\omega^2}{\omega_0^2} - 2\frac{\omega}{\omega_0^2}\sqrt{\frac{\omega^2}{\omega_0^2}-1}\right]$
+	
+	\includegraphics[scale=.6]{photo4.png}
+	
+	\textbf{\underline{Conclusions :}}
+	\begin{enumerate}
+		\item[$\cdot$] $\omega(k)$ est plus facile à détermier, mais ne donne pas les solutions évanescentes (c'est-à-dire $\im(k)$).
+		\item[$\cdot$] $k(\omega)$est plus difficile à calculer mais donne la signification physque de l'évanescence à l'intérieur de la bande interdite.
+	\end{enumerate}
+	
+	\newpage
+	
+	\subsection{Chaîne di-atomique}
+	
+	Considérons le système discret périodique à deux atomes :
+	
+	\includegraphics[scale=.5]{photo5.png}
+	
+	Ecrivons l'équation d'équilibre de la cellule unitaire (i.e. l'élément qui, répété, permet de reconstituer toute la chaîne).
 	 
+	\[
+	\begin{aligned}
+		m_1\dfrac{d^2U_n}{dt^2} = -\beta\left(U_n-V_n\right) - \beta\left(U_n-V_{n-1}\right)\\
+		m_2\dfrac{d^2V_n}{dt^2} = -\beta\left(V_n-U_{n-1}\right) - \beta\left(V_n-U_n\right)
+	\end{aligned}
+	\]
+	
+	On considère le régie stationnaire et on applique le principe de Floquet-Bloch : 
+	\[
+	\begin{aligned}
+		u_n = u_0e^{i(\omega t - kna)} = u_0\lambda^n e^{i\omega t}\\
+		v_n = v_0 e^{i(\omega t-kna)} = v_0\lambda^ne^{i\omega t}
+	\end{aligned}
+	\]
+	En injectant dans les équations d'équilibre on obtient :
+	\[
+	\begin{aligned}
+		\text{(1) }\omega^2 m_1  U_0 
+		&= 2\beta\left(U_0-\frac{V_0}{2}-\frac{1}{\lambda}\frac{V_0}{2}\right)
+		\begin{cases}
+			u_{n+1} = \lambda u_n\\
+			u_{n-1} = \frac{1}{\lambda} u_n
+		\end{cases}
+		\text{ et }
+		\begin{cases}
+			v_{n+1} = \lambda v_n\\
+			v_{n-1} = \frac{1}{\lambda} v_n
+		\end{cases}\\
+		\text{(2) }\omega^2 m_2V_0 
+		&= 2\beta\left(V_0-U_0-\lambda \frac{U_0}{2}\right)
+	\end{aligned}
+	\]
+	
+	$(1)/m_1$ avec $\omega_1 = \sqrt{\frac{2\beta}{m_1}}$ et $(2)/m_2$ avec $\omega_2 = \sqrt{\frac{2\beta}{m_2}}$ :
+	$\begin{cases}
+		\omega^2U_0-\omega_1^2\left(U_0-\frac{V_2}{2}-\frac{1}{\lambda}\frac{V_0}{2}\right) = 0\\
+		\omega^2V_0-\omega_2^2(V_0-\frac{U_0}{2}-\frac{\lambda}{2}U_0) = 0
+	\end{cases}$
+	
+	Ce système  s'écrit sous forme matricielle :
+	\[
+	\left[\begin{matrix}
+		\omega^2 - \omega_1^2 & \frac{\omega_1^2}{2}(1+\frac{1}{\lambda}) \\
+		\frac{\omega_2^2}{2}(1+\lambda) & \omega^2-\omega_2^2
+	\end{matrix}\right]\left[\begin{matrix}
+	U_0\\
+	V_0
+	\end{matrix}\right] = \left[\begin{matrix}
+	0\\
+	0
+	\end{matrix}\right]
+	\]
+	
+	Les solutions sont non-triviales pour Det = 0 c'est-à-dire :
+	\[
+	\begin{aligned}
+		(\omega^2-\omega_1^2)(\omega^2-\omega_2^2) - \frac{\omega_1\omega_2}{4}(1+\frac{1}{\lambda})(1+\lambda) = 0\\
+		\omega^4 - \omega^2(\omega_1^2+\omega_2^2)-\frac{\omega_1^2\omega_2^2}{4}(2+\lambda+\frac{1}{\lambda}) + \omega_1^2\omega_2^2
+	\end{aligned}\]
+	
+	On remarque que $\lambda + \frac{1}{\lambda} = e^{-ika}+e^{ika} = 2 \cos(ka)$\\
+	$\omega^4-\omega^2(\omega_1^2+\omega_2^2) - \frac{\omega_1^2\omega_2^2}{4}(\lambda+\frac{1}{\lambda}-2) = 0$.\\
+	Donc $\lambda+\frac{1}{\lambda} = 2\cos(ka) - 2 = -4\sin^2(\frac{ka}{2})$.\\
+	Ainsi on peut écrire :
+	\[
+	\omega^4-\omega^2(\omega_1^2+\omega_2^2) - \omega_1^2\omega_2^2\sin^2(\frac{ka}{2}) = 0
+	\]
+	
+	Et $\Delta = (\omega_1^2+\omega_2^2)^2 - \omega_1^2\omega_2^2\sin^2(\frac{ka}{2})$ positif car $\sin ^2 \leq 1$ et $(\omega_1^2-\omega_2^2)^2 \geq 0$.\\
+	Les deux solutions s'écrivent :
+	\[
+	\omega^2(k) = \beta \left(\frac{1}{m_1}+\frac{1}{m_2}\right) \pm \beta \sqrt{\left(\frac{1}{m_1}+\frac{1}{m_2}\right)^2-\frac{4\sin^2(\frac{ka}{2})}{m_1m_2}}
+	\]
+	on introduit $\omega_3 = \sqrt{2\beta\left(\frac{1}{m_1}+\frac{1}{m_2}\right)} =: \omega_{max}$.\\
+	
+	\includegraphics[scale=.5]{photo6.png}
+	
+	Si on suppose que $m_1=m_2$, la relation de dispersion devient : $\omega^2(k) = \omega_1^2(1\pm\cos(\frac{ka}{2}))$.\\
+	Intéressons-nous désormais aux propriétés de l'ondes à l'intérieur de la bande interdite :\\
+	Reprenons la relation de dispersion :
+	\[
+	\begin{cases}
+		\omega^2U_0 = \omega_1^2\left(U_0-\frac{V_2}{2} -\frac{1}{\lambda}\frac{V_0}{2}\right) & /\omega_1 ^2 \text{ et } \Omega_1 ^2 = \frac{\omega^2}{\omega_1^2} \\
+		\omega^2V_0 = \omega_2^2(V_0-\frac{U_0}{2} -\frac{\lambda}{2}U_0) & /\omega_2^2 \text{ et } \Omega_2^2 = \frac{\omega^2}{\omega_2^2}
+	\end{cases}
+	\begin{cases}
+		(2\Omega_1^2-2)U_0 + (1+\frac{1}{\lambda})V_0 = 0 \\
+		(1+\lambda)U_0+(2\Omega_2^2-2)V_0 = 0
+	\end{cases}
+	\]
+	
+	On doit annuler le déterminant :
+	\[
+	\begin{aligned}
+		(2\Omega_1^2-2)(\Omega_2^2-2) - \underbrace{(1+\frac{1}{\lambda})(1+\lambda)}_{\rouge{4\sin^2(\frac{ka}{2})}} = 0\\
+		\lambda - \underbrace{\left[4(\Omega_1^2-1)(\Omega_2^2-1) +2\right]}_{2(1-2(\Omega_1^2-1)(\Omega_2^2-1))} + \frac{1}{\lambda} = 0\\
+		\Delta = 16(\Omega_1 ^2-1)(\Omega_2^2-1)\left[\underbrace{(\Omega_1^2-1)(\Omega_2^2-1)}_{\rouge\Gamma}-1\right]
+	\end{aligned}
+	\]
+	
+	Les solutions complexes sont alors :
+	\[
+	\lambda = (2\Gamma-1)\pm2\sqrt{(\Omega_1-1)(\Omega_2-1)(\Gamma-1)}
+	\]
+	
+	\fbox{
+	\begin{minipage}[t]{15cm}
+		Ce qui donne la solution $k(\omega)$ explicite :
+	\[
+	k(\omega) = \frac{i}{a}\log\left[\frac{1}{\omega_1^2\omega_2^2}\left(2\omega^4-2\omega^2\omega_3^2 + \omega_1 ^2\omega_2^2 + 2\omega\sqrt{(\omega^2-\omega_1^2)(\omega^2-\omega_2^2)(\omega^2-\omega_3^2)}\right)\right]
+	\]
+	\end{minipage}}
 	
 \end{document}
