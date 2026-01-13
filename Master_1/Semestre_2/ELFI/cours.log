@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  9 JAN 2026 13:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  13 JAN 2026 17:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -795,6 +795,9 @@ File: pstricks.tex 2025/06/11 v3.22 `PSTricks' (tvz,hv)
 `pst-fp' v0.06, 2020/11/20 (hv))
 File: pst-fp.tex 2020/11/20 v0.06 `PST-fp' (hv)
 )
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cancel/cancel.sty
+Package: cancel 2013/04/12 v2.2 Cancel math terms
+)
 (/usr/local/texlive/2025/texmf-dist/tex/latex/pgfplots/pgfplotstable.sty
 (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplotstable 2025/08/14 v1.18.2 Table typesetting and Pretty-printing
@@ -1509,10 +1512,10 @@ Package rerunfilecheck Info: File `cours.out' has not changed.
 (rerunfilecheck)             Checksum: 1BF5835B4A06C7A751C7B0F98CCF8D39;2683.
  ) 
 Here is how much of TeX's memory you used:
- 40461 strings out of 467538
- 917723 string characters out of 5419551
- 1451360 words of memory out of 5000000
- 68656 multiletter control sequences out of 15000+600000
+ 40502 strings out of 467538
+ 918479 string characters out of 5419551
+ 1453254 words of memory out of 5000000
+ 68693 multiletter control sequences out of 15000+600000
  707693 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,17n,131p,866b,945s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1531,7 +1534,7 @@ e1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/l
 m/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy6.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/loc
 al/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on cours.pdf (9 pages, 782452 bytes).
+Output written on cours.pdf (9 pages, 782584 bytes).
 PDF statistics:
  240 PDF objects out of 1000 (max. 8388607)
  182 compressed objects within 2 object streams
