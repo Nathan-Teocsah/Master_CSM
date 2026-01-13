@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  13 JAN 2026 17:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  13 JAN 2026 17:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1433,70 +1433,69 @@ Overfull \hbox (74.53029pt too wide) in paragraph at lines 400--412
 
 [6 <./photo2.png>]
 Package hyperref Info: bookmark level for unknown lm defaults to 0 on input lin
-e 421.
+e 422.
 
-Underfull \hbox (badness 1226) in paragraph at lines 422--424
-[][]\T1/lmr/m/it/12 Si, de plus, $\OML/lmm/m/it/12 a$ \T1/lmr/m/it/12 est coer-
-cive : $\OMS/lmsy/m/n/12 9\OML/lmm/m/it/12  >
+Overfull \hbox (221.37817pt too wide) in paragraph at lines 423--426
+[][][] 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 426.
+(hyperref)                removing `math shift' on input line 430.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 426.
+(hyperref)                removing `math shift' on input line 430.
 
 <photo3.png, id=127, 416.55624pt x 393.47pt>
 File: photo3.png Graphic file (type png)
 <use photo3.png>
-Package pdftex.def Info: photo3.png  used on input line 436.
+Package pdftex.def Info: photo3.png  used on input line 440.
 (pdftex.def)             Requested size: 104.1388pt x 98.36725pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 466.
+(Font)              <5> on input line 470.
 
-Overfull \hbox (46.07755pt too wide) in paragraph at lines 469--479
+Overfull \hbox (46.07755pt too wide) in paragraph at lines 473--483
 []$[]$ 
  []
 
 [7 <./photo3.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 480.
+(Font)              <14.4> on input line 484.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 480.
+(Font)              <10> on input line 484.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 480.
+(Font)              <7> on input line 484.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 480.
+(hyperref)                removing `math shift' on input line 484.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 480.
+(hyperref)                removing `subscript' on input line 484.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 480.
+(hyperref)                removing `math shift' on input line 484.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--489
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 498--499
+Underfull \hbox (badness 10000) in paragraph at lines 502--503
 
  []
 
 <photo4.png, id=134, 784.9325pt x 252.945pt>
 File: photo4.png Graphic file (type png)
 <use photo4.png>
-Package pdftex.def Info: photo4.png  used on input line 500.
+Package pdftex.def Info: photo4.png  used on input line 504.
 (pdftex.def)             Requested size: 392.46529pt x 126.47218pt.
 
-Overfull \hbox (52.9401pt too wide) in paragraph at lines 500--501
+Overfull \hbox (52.9401pt too wide) in paragraph at lines 504--505
 [][] 
  []
 
@@ -1534,7 +1533,7 @@ e1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/l
 m/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy6.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/loc
 al/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on cours.pdf (9 pages, 782584 bytes).
+Output written on cours.pdf (9 pages, 782278 bytes).
 PDF statistics:
  240 PDF objects out of 1000 (max. 8388607)
  182 compressed objects within 2 object streams
