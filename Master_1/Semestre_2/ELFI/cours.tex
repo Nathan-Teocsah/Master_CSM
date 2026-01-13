@@ -143,7 +143,7 @@
 	
 	\subsection{Établissement de la formulation variationnelle}
 	\subsubsection{Les espaces fonctionnels}
-	Notation : $\m C^{0,\alpha}(\Omega) = $ l'ens. des fonctions $f \in \m C^0$ sur $\Omega$ tel que :
+	\underline{\textbf{Notation :}} $\m C^{0,\alpha}(\Omega) = $ l'ens. des fonctions $f \in \m C^0$ sur $\Omega$ tel que :
 	\hfill $\forall x,y \in \Omega, $ $\|f(x)-f(y)\| \leq \| x-y\|^\alpha$
 	
 	\begin{defi}
@@ -204,7 +204,7 @@
 			$\delta_{x_0} : \phi \mapsto \phi(x_0)$, \textbf{linéaire en $\phi$}
 			
 			$\delta_{x_0} \in \m D'(\Omega)$, \begin{minipage}[t]{15cm}
-				$|<\delta_{x_0}, \phi>| =  |\phi(x_0)| \leq \|\phi\|_{\text{L}^infty(\Omega)}$\\
+				$\abs{\left<\delta_{x_0}, \phi\right>} =  \abs{\phi(x_0)} \leq \|\phi\|_{\text{L}^infty(\Omega)}$\\
 				\textbf{Propriété de continuité} avec $C_K = 1$ et $k = 0$, $\forall K$.
 				\end{minipage}
 				
@@ -214,7 +214,7 @@
 			Soit $u_f : \phi \mapsto \displaystyle\int_\Omega f\phi$, \begin{minipage}[t]{12cm}
 				\textbf{linéaire en $\phi$}\\
 				et $\begin{aligned}[t]
-					\abs{<u_f, \phi>} 
+					\abs{\left<u_f, \phi\right>} 
 					&= \abs{\int_\Omega f \phi} \\
 					&\leq \|f\|_{\text{L}^2(\Omega)}\|\phi\|_\text{L}^2(\Omega) \\
 					&\leq C\|f\|_{\text{L}^2(\Omega)}\|\phi\|_{\text{L}^2(\Omega)}
@@ -237,19 +237,19 @@
 				Soient $(u_n)_{n \i \N}$ une suite de distributions et $u$ une distribution.\\
 				On dit que $(u_n)_n$ tend vers $u$ au sens des distributions si :
 				\[
-				<u_n,\phi> \to <u,\phi>, \forall \phi \in \m D(\Omega)
+				\left<u_n,\phi\right> \to \left<u,\phi\right>, \forall \phi \in \m D(\Omega)
 				\]
 			\end{minipage}
 	\par $\star$ \begin{minipage}[t]{20cm}
 					\underline{Dérivation :} soit $u \in \m D'(\Omega)$, la dérivée de $u$ au sens des distribution, $\dfrac{\partial u}{\partial x_i}, i = 1,\ldots,d$ est définie par :
 					\[
-					<\dfrac{\partial u}{\partial x_i},\phi> = - <u,\dfrac{\partial\phi}{\partial x_i}>, \forall \phi \in \m D (\Omega)
+					\left<\dfrac{\partial u}{\partial x_i},\phi\right> = - \left<u,\dfrac{\partial\phi}{\partial x_i}\right>, \forall \phi \in \m D (\Omega)
 					\]
 				\end{minipage}
 	
 	\par $\star$ \begin{minipage}[t]{20cm}		
 					\underline{$\alpha$ multi-indice}.\\
-					$<\partial^\alpha u,\phi> = (-1)^{|\alpha|}<u,\partial^\alpha\phi>, \forall\phi\in \m D(\Omega)$
+					$\left<\partial^\alpha u,\phi\right> = (-1)^{|\alpha|}\left<u,\partial^\alpha\phi\right>, \forall\phi\in \m D(\Omega)$
 				\end{minipage}
 	
 	\begin{ex}
@@ -410,16 +410,20 @@
 	$\xrightarrow[\text{EDP}\times v]{} $ $\cdots$ $\xrightarrow[\text{formule de Green}]{}$ $\cdots$ $\xrightarrow[\text{Prise en compte des conitions aux bords}]{}$ (FV)
 	\end{minipage}
 	
-	(FV) : \fbox{\begin{minipage}[t]{5cm}
+	(FV) : \fbox{\begin{minipage}{5cm}
 		Chercher $u \in V$, tq $\forall v \in V$,
 		\[
 		a(u,v) = l(v)
 		\]
 	\end{minipage}}
-	$a$ forme bilinéaire continue sur $V \times V$ et $l$ forme linéaire continue sur $V$.
+
+	\hspace{1cm} $a$ forme bilinéaire continue sur $V \times V$ et $l$ forme linéaire continue sur $V$.
 	
 	\begin{lm}[Lax-Milgram]
-		Si, de plus, $a$ est coercive : $\exists \alpha > 0 \text{ tq } \forall u \in V, a(u,v) \geq \alpha \|u\|^2$,\\
+		\begin{minipage}[t]{15cm}
+			Si, de plus, $a$ est coercive : $\exists \alpha > 0 \text{ tq } \forall u \in V, a(u,v) \geq \alpha \|u\|^2$,
+		\end{minipage}
+		
 		$\longrightarrow$ alors il existe un solution de la formulation variationnelle.
 	\end{lm}
 	
@@ -479,8 +483,8 @@
 	
 	\subsection{Triangulation $\mathbb{P}_1$ de Lagrange}
 	On considère un maillage constitué de triangles.\\
-	$\m c_h$ est la triangulation \hspace{1cm} $\m C_h$ est un ensemble de triangles.\\
-	$\m C_h$ doit vérifier les propriétés suivantes :
+	- $\m C_h$ est la triangulation \hspace{1cm} - $\m C_h$ est un ensemble de triangles.\\
+	- $\m C_h$ doit vérifier les propriétés suivantes :
 	\begin{enumerate}
 		\item $\overline{\Omega}_h = \bigcup_{K \in \m C_h} K$ approximation polygonale de $\overline{\Omega}$, de bord $\Gamma_{N,h}$  et $\Gamma_{D,h}$ qui approchent $\Gamma_N$ et $\Gamma_D$.
 		\item $\forall K \in \m C_h, \text{ int}(K) \not = \emptyset$.
