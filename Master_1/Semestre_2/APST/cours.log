@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  14 JAN 2026 15:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  14 JAN 2026 17:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1237,54 +1237,54 @@ Package hyperref Info: Link coloring OFF on input line 9.
 \@outlinefile=\write4
 \openout4 = `cours.out'.
 
-<logo.jpg, id=15, 1204.5pt x 612.2875pt>
+<logo.jpg, id=7, 1204.5pt x 612.2875pt>
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
-Package pdftex.def Info: logo.jpg  used on input line 19.
+Package pdftex.def Info: logo.jpg  used on input line 18.
 (pdftex.def)             Requested size: 270.3012pt x 137.40372pt.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
-5.
+4.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
-5.
+4.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-45.
+44.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-45.
+44.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 45.
+(Font)              <12> on input line 44.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 45.
+(Font)              <8> on input line 44.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 45.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
+(Font)              <6> on input line 44.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 44.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 44.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 45
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 44
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ulasy.fd
@@ -1307,72 +1307,33 @@ Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@refangle 0.  def grestore  e...
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./logo.jpg>]
-<photo1.png, id=25, 618.31pt x 593.21625pt>
-File: photo1.png Graphic file (type png)
-<use photo1.png>
-Package pdftex.def Info: photo1.png  used on input line 65.
-(pdftex.def)             Requested size: 370.98886pt x 355.9325pt.
-<photo2.png, id=27, 506.89375pt x 491.8375pt>
-File: photo2.png Graphic file (type png)
-<use photo2.png>
-Package pdftex.def Info: photo2.png  used on input line 69.
-(pdftex.def)             Requested size: 354.82321pt x 344.28389pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
-
- []
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.73 	\textbf{\underline{Maillage :}}
-                                      [1 <./photo1.png> <./photo2.png>]
-<photo3.png, id=34, 170.6375pt x 218.8175pt>
-File: photo3.png Graphic file (type png)
-<use photo3.png>
-Package pdftex.def Info: photo3.png  used on input line 101.
-(pdftex.def)             Requested size: 119.44542pt x 153.17119pt.
-<photo4.png, id=35, 156.585pt x 169.63374pt>
-File: photo4.png Graphic file (type png)
-<use photo4.png>
-Package pdftex.def Info: photo4.png  used on input line 111.
-(pdftex.def)             Requested size: 187.90105pt x 203.55945pt.
-
-[2{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/lo
-cal/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc} <./photo3.png> <./pho
-to4.png>]
 \tf@thm=\write5
 \openout5 = `cours.thm'.
 
- [3] (./cours.aux)
+
+(./cours.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `cours.out' has not changed.
-(rerunfilecheck)             Checksum: C78A8CA5D8D54A5CC0C6ACE2BAC83032;247.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 41608 strings out of 467538
- 933960 string characters out of 5419551
- 1464556 words of memory out of 5000000
- 69838 multiletter control sequences out of 15000+600000
- 672438 words of font info for 71 fonts, out of 8000000 for 9000
+ 41551 strings out of 467538
+ 933108 string characters out of 5419551
+ 1460556 words of memory out of 5000000
+ 69793 multiletter control sequences out of 15000+600000
+ 665178 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 113i,7n,131p,866b,501s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,6n,131p,866b,501s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
 cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/te
-xmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fo
-nts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/p
-ublic/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr
-i12.pfb>
-Output written on cours.pdf (4 pages, 880187 bytes).
+ve/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb>
+Output written on cours.pdf (1 page, 116779 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
- 54 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 34 PDF objects out of 1000 (max. 8388607)
+ 23 compressed objects within 1 object stream
+ 3 named destinations out of 1000 (max. 500000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
