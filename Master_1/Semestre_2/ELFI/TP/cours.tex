@@ -1,0 +1,118 @@
+\documentclass[12pt,a4paper]{article}
+
+\makeatletter
+\def\input@path{{/home/maenwe/Master_CSM/modèle_cours_latex}}
+\makeatother
+
+\usepackage{prise_de_note}
+
+\begin{document}
+	
+	
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Traveaux Pratiques} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large \textbf{Éléments finis}}
+		
+		\vfill
+		
+		% Bloc Informations
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft} \large
+				\textbf{Enseignant :} \\
+				M. Eric \textsc{DARRIGAND}
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\includegraphics[scale=.6]{photo1.png}
+	
+	\hspace{-1cm}\textbf{\underline{On construit le maillage (ici des rectangles) :}}
+		
+	\includegraphics[scale=.7]{photo2.png}
+	
+	\textit{,pour des triangles, il suffit de rajouter les diagonales, voir sujet TP 1}\\
+	
+	\textbf{\underline{Maillage :}}
+	\begin{enumerate}
+		\item $n$ : nombre de nœuds
+		\item $x_1$ $y_1$ : coordonnées du nœud 1
+		\item \begin{minipage}[t]{10cm}
+			$x_2$ $y_2$ : coordonnées du nœud 2
+		
+			$\displaystyle\vdots$
+			
+			 $x_n$ $y_n$ : coordonnées du nœud $n$
+		\end{minipage}
+		\item \begin{minipage}[t]{10cm}
+			$m$ : nombre d'éléments\\
+			$t$ : type des éléments\\
+			$p$ : nombre de nœuds ($p.n$  éléments)
+		\end{minipage}
+		\item \begin{minipage}[t]{15cm}
+			$s_1^{(1)}, s_2^{(1)},\ldots,s_p^{(1)}$ : liste des numéraux globaux des nœuds de l'élément 1.
+		
+		$\displaystyle\vdots$
+		
+		$s_1^{(m)}, s_2^{(m)},\ldots,s_p^{(m)}$ : liste des numéraux globaux des nœuds de l'élément $m$.
+		\end{minipage}
+	\end{enumerate}
+	
+	\vspace{.5cm}
+	
+	\begin{minipage}{5cm}
+		\includegraphics[scale=.7]{photo3.png}
+	\end{minipage} \begin{minipage}{10cm}
+		\underline{6ème élément :} 5 7 8
+	\end{minipage}
+	
+	\vspace{.5cm}
+	
+	La \textbf{convention} que l'on adoptera pour la numérotation est la suivante : 
+	
+	\begin{center}
+		\includegraphics[scale=1.2]{photo4.png}
+		
+		\textit{le numéro local \fbox{3} est celui de l'\underline{angle droit}}\\
+		et\\
+		\textit{et ensuite nous \underline{tournons en sens direct}}
+	\end{center}
+	
+	
+	
+	
+
+\end{document}
