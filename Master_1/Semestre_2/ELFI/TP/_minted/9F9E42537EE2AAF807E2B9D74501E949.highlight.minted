@@ -1,0 +1,66 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{+w}{	}\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{+w}{	}\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdlib.h\PYGZgt{}}
+\PYG{+w}{	}
+\PYG{+w}{	}\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{Creer\PYGZus{}maillage}\PYG{p}{(}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n1}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n2}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{FILE}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{fp}\PYG{p}{)}
+\PYG{+w}{	}\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{c+cm}{/*}
+\PYG{c+cm}{		===== Cette ALGORITHME Créer un maillage sur un quadrangle =====}
+\PYG{c+cm}{		Omega = [a;b] x [c; d] avec a \PYGZlt{} b  et c \PYGZlt{} d}
+\PYG{c+cm}{		*/}
+\PYG{+w}{		}
+\PYG{+w}{		}
+\PYG{+w}{		}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{n1}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{n2}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// n = est le nombre de noeuds}
+\PYG{+w}{		}\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fp}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{n}\PYG{p}{);}
+\PYG{+w}{		}
+\PYG{+w}{		}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{h1}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{b}\PYG{o}{\PYGZhy{}}\PYG{n}{a}\PYG{p}{)}\PYG{o}{/}\PYG{p}{(}\PYG{n}{n1}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{);}
+\PYG{+w}{		}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{h2}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{d}\PYG{o}{\PYGZhy{}}\PYG{n}{c}\PYG{p}{)}\PYG{o}{/}\PYG{p}{(}\PYG{n}{n2}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{);}
+\PYG{+w}{		}
+\PYG{+w}{		}\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{;}
+\PYG{+w}{		}\PYG{c+c1}{// Boucle sur les lignes (ordonnée)}
+\PYG{+w}{		}\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i\PYGZus{}y}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i\PYGZus{}y}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{n1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i\PYGZus{}y}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{		}\PYG{p}{\PYGZob{}}
+\PYG{+w}{			}\PYG{c+c1}{// Boucle sur les colonnes (abscisse)}
+\PYG{+w}{			}\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i\PYGZus{}x}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i\PYGZus{}x}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{n2}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i\PYGZus{}x}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{			}\PYG{p}{\PYGZob{}}
+\PYG{+w}{				}\PYG{n}{x}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{a}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{h1}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{i\PYGZus{}x}\PYG{p}{;}
+\PYG{+w}{				}\PYG{n}{y}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{b}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{h2}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{i\PYGZus{}y}\PYG{p}{;}
+\PYG{+w}{				}\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fp}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}(\PYGZpc{}lf,\PYGZpc{}lf)}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{);}
+\PYG{+w}{			}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{		}
+\PYG{+w}{		}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{m}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{n1}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{n}{n2}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{// Nombre d\PYGZsq{}éléments (triangle ou quadrangle)}
+\PYG{+w}{		}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k}{switch}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{t}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{			}\PYG{k}{case}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{c+c1}{// t = 1 : quadrangle}
+\PYG{+w}{				}\PYG{n}{p}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{4}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// nombre de noeuds par éléments}
+\PYG{+w}{				}\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fp}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d \PYGZpc{}d \PYGZpc{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{m}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{p}\PYG{+w}{ }\PYG{p}{);}
+\PYG{+w}{				}\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{n1}\PYG{l+m+mi}{\PYGZhy{}2}\PYG{p}{);}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{c+c1}{// boucle sur les lignes}
+\PYG{+w}{				}\PYG{p}{\PYGZob{}}
+\PYG{+w}{					}\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{n2}\PYG{l+m+mi}{\PYGZhy{}2}\PYG{p}{);}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{c+c1}{// boucle sur les colonnes}
+\PYG{+w}{					}\PYG{p}{\PYGZob{}}
+\PYG{+w}{						}\PYG{c+c1}{//On récupère le numéro global du 1er sommet de l\PYGZsq{}élément (i+1)*(j+1)}
+\PYG{+w}{						}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{e0}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{n1}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{p}{;}
+\PYG{+w}{						}\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fp}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d \PYGZpc{}d \PYGZpc{}d \PYGZpc{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{e0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{e0}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{n1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{e0}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{n1}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{e0}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{+w}{					}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{				}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{			}
+\PYG{+w}{			}\PYG{k}{case}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{c+c1}{// t = 2: triangle}
+\PYG{+w}{				}\PYG{n}{m}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{m}\PYG{p}{;}
+\PYG{+w}{				}\PYG{n}{p}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{3}\PYG{p}{;}
+\PYG{+w}{				}\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fp}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d \PYGZpc{}d \PYGZpc{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{m}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{p}\PYG{+w}{ }\PYG{p}{);}
+\PYG{+w}{				}\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{n1}\PYG{l+m+mi}{\PYGZhy{}2}\PYG{p}{);}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{				}\PYG{p}{\PYGZob{}}
+\PYG{+w}{					}\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{n2}\PYG{l+m+mi}{\PYGZhy{}2}\PYG{p}{);}\PYG{+w}{ }\PYG{n}{j}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{					}\PYG{p}{\PYGZob{}}
+\PYG{+w}{						 }\PYG{c+c1}{//On récupère le numéro global du 1er sommet du triangle du bas}
+\PYG{+w}{						}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{e0}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{n1}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{p}{;}
+\PYG{+w}{						}\PYG{c+c1}{// Triangle du bas}
+\PYG{+w}{						}\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fp}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d \PYGZpc{}d \PYGZpc{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{e0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{e0}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{n1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{e0}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{+w}{						}\PYG{c+c1}{// Triangle du haut}
+\PYG{+w}{						}\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{fp}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d \PYGZpc{}d \PYGZpc{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{e0}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{n1}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{e0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{e0}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{n1}\PYG{p}{);}
+\PYG{+w}{					}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{				}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

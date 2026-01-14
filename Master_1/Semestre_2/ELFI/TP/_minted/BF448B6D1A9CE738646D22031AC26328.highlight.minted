@@ -1,8 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-		En LaTeX, on écrit des maths en ligne entre deux signes dollars.
-		Par exemple, \PYG{l+s}{\PYGZdl{}}\PYG{l+m}{1}\PYG{n+nb}{ }\PYG{o}{+}\PYG{n+nb}{ }\PYG{l+m}{3}\PYG{n+nb}{\PYGZca{}}\PYG{l+m}{2}\PYG{n+nb}{ }\PYG{o}{=}\PYG{n+nb}{ }\PYG{l+m}{10}\PYG{l+s}{\PYGZdl{}}.
-		Pour les maths hors\PYGZhy{}texte, voici un exemple.
-		\PYG{l+s+sb}{\PYGZbs{}[}
-\PYG{n+nb}{		}\PYG{l+m}{1}\PYG{n+nb}{ }\PYG{o}{+}\PYG{n+nb}{ }\PYG{l+m}{3}\PYG{n+nb}{\PYGZca{}}\PYG{l+m}{2}\PYG{n+nb}{.}
-\PYG{n+nb}{		}\PYG{l+s}{\PYGZbs{}]}
-\end{MintedVerbatim}

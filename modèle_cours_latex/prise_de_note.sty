@@ -7,7 +7,9 @@
 \usepackage[french]{babel}
 \usepackage{lmodern}
 \usepackage{bbold}
-\usepackage{listings}
+\usepackage{minted}
+\setminted{xleftmargin=-1cm,tabsize=3,gobble=1,framesep=10mm,baselinestretch=.85}
+
 
 % Mise en page
 \usepackage{geometry}
@@ -123,4 +125,3 @@
 \newcommand{\enc}[2]{\begin{tcolorbox}[colback=white, colframe=#1, arc=1mm, boxrule=1pt]#2\end{tcolorbox}}
 \newcommand{\rouge}[1]{\textcolor{red}{#1}}
 \newcommand*\abs[1]{\left\lvert #1 \right\rvert}
-
