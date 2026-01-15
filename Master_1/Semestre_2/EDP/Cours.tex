@@ -117,7 +117,7 @@
 	\textbf{\underline{Question :}} Que se passe t'il lorsque $N \to +\infty$ ?
 
 	\par \underline{On a ici 2 limites naturelles :}\\
-	\hspace*{2cm}\begin{minipage}[t]{18cm}
+	\hspace*{2cm}\begin{minipage}[t]{17.5cm}
 		\begin{enumerate}
 			\item limite faible couplage (weak coupling limit) : hard sphere (sphère dure)\\
 			Cas où les valeurs physique font que $F$ est de l'ordre de $\dfrac{1}{N}$, dans les unités physiquement pertinentes.\\
@@ -212,13 +212,16 @@
 	où $G : \alpha \in \R^{3 \times N} \mapsto G(\alpha) = \left(\displaystyle\sum_{\underset{j\not = 1}{j=1}}^N F(x_1-x_j),\ldots,\sum_{\underset{j\not = N}{j=1}}^N F(\alpha_N-\alpha_j)\right)$\\ 
 	et $F : \R^3 \to \R^3$ de classe $\m C^k$ avec $k \geq 1$.
 	
-	\par On souhaite procéder à la limite $N \to \infty$ dans ces équations (EDO en dimesion $3\times $ (gros problème topologiqueà, non linéaires)).\\
+	\par On souhaite procéder à la limite $N \to \infty$ dans ces équations (EDO en dimension $3\times $ (gros problème topologique, non linéaires)).\\
+	
+	\enc{red}{
 	\underline{\textbf{Idée profonde :}} au lieu de se donner un jeu de données inutiles dons notre équation de Newton, on se donne une fonction $f^0(x_1^0,v_1^0,x_2^0,v_2^0,\ldots,x_N^0,v_N^0)$, dite fonction de répartition (ou fonction de densité) qui permet de dire :
 	
 	\[
 	\mathbb{P}\left(x_1^0\in \Omega_1,v_1^0 \in O_1,\ldots,x_N^0 \in \Omega_N,v_N^0\in O_n \right) = \displaystyle\underset{\Omega_1\times O_1\times\cdots\times\Omega_N\times O_N}{\int}f^0(x_1^0,v_1^0,\ldots,x^0_N,v^0_N) dx_1^0dv_1^0\cdots dx_N^0dv_N^0
 	\]
-	
+}
+	\fbox{\begin{minipage}[t]{17cm}
 	\underline{Affirmation :} \enc{blue}{\begin{minipage}[t]{16.5cm}
 		 La fonction de répartition $f(t,x_1,t_1,\ldots,x_N,t_N)$ et le flot des équations de Newton : $\left(X_1(t,t_0,x^0_1,\ldots,v^0_N),V_1(t,t_0,x^0_1,\ldots,v^0_N),\ldots,X_N(t,t_0,x^0_1,\ldots,v^0_N),V_N(t,t_0,x^0_1,\ldots,v^0_N)\right)	$\\
 		 Vérifie :
@@ -228,6 +231,7 @@
 		 	$f^0(x^0_1,v^0_1,\ldots,x^0_N,v^0_N)$
 		 \end{center}
 	\end{minipage}}
+		\end{minipage}}
 
 	\underline{\textbf{Notation :}} \begin{minipage}[t]{15cm}
 										$N$ particules \begin{minipage}[t]{15cm}
@@ -255,10 +259,14 @@
 										 	\end{center}}
 									 	
 		En effet : $Z_N^0 \in \Omega \iff Z_N(t,0,Z_N^0) \in Z_N(t,0,\Omega)$ car le flot :\\
-		est, par exemple, $f^0(\alpha) = \mathbb{1}_\Omega(\alpha)$ pour un certain ouvert $\Omega \subset \R^{6N}$. \hspace{1cm} \begin{minipage}[t]{5cm}
-													$\alpha\mapsto Z_N(t,0,\alpha)$\\
-													est une bijection
-												\end{minipage}\\
+		est, par exemple, $f^0(\alpha) = \mathbb{1}_\Omega(\alpha)$ pour un certain ouvert $\Omega \subset \R^{6N}$. 
+		\begin{center}
+			$\alpha\mapsto Z_N(t,0,\alpha)$\\
+			est une bijection
+		\end{center}
+		
+		\vspace{-.4cm}
+		
 		et dire que le système, à l'instant $t$, est dans $\Omega_t$ est équivalent à dire que le système est dans $\Omega$ à l'instant $0$.\\
 		
 		\begin{minipage}{8.2cm}
@@ -294,16 +302,15 @@
 			\end{aligned}$
 	\end{minipage}
 	
-	\textbf{\underline{Conclusion :}} \begin{minipage}[t]{15cm}
+	\enc{red}{\textbf{\underline{Conclusion :}} \begin{minipage}[t]{15cm}
 		$\forall t, x_0$
-		\[\begin{aligned}
+		\[
 			\dfrac{\partial f}{\partial t}(t,x) + g(x)\dfrac{\partial f}{\partial x}(t,x) 
-			&= \left(\dfrac{\partial f}{\partial t} + g\dfrac{\partial f}{\partial x}\right)(t,\underbrace{X(t,0,\overbrace{X(0,t,x)}^{\overset{(det)}{=x_0}})}_{\text{(rel de groupe pour le flot)} })\\
-			&=0
-		\end{aligned}\]
-	\end{minipage}
+			= \left(\dfrac{\partial f}{\partial t} + g\dfrac{\partial f}{\partial x}\right)(t,\underbrace{X(t,0,\overbrace{X(0,t,x)}^{\overset{(det)}{=x_0}})}_{\text{(rel de groupe pour le flot)} })=0
+		\]
+	\end{minipage}}
 	
-	\textbf{\underline{Conclusion :}} \begin{minipage}[t]{15cm}
+	\enc{red}{\textbf{\underline{Conclusion :}} \begin{minipage}[t]{15cm}
 		l'EDO $x'(t) = g(x(t))$ se traduit, pour la fonction $f$, transposée par le flot grâce à :
 		\[
 		f(t,X(t,0,x_0)) = f^0(x_0) \text{ , par l'EDP}
@@ -316,9 +323,13 @@
 			f(t=0,x) = f^0(x)
 		\end{cases}
 		\]
-	\end{minipage}
+	\end{minipage}}
 	
-	\textbf{\underline{Exemple :}} \fbox{$g(\alpha) = 1$} $\begin{cases}
+	\vspace{-.4cm}
+	
+	\begin{ex}[$g(\alpha) = 1$]$ $\\
+		\begin{minipage}[t]{18cm}
+			\fbox{$g(\alpha) = 1$} $\begin{cases}
 		\text{EDO : } \begin{cases}
 			x'(t) = 1\\
 			x(0) = x_0
@@ -331,8 +342,149 @@
 	
 	\vspace{.5cm}
 	
-	\hspace{-.5cm}\includegraphics[scale=.35]{photo8.png}\hspace{.2cm}\includegraphics[scale=.45]{photo9.png}\hspace{.2cm}\includegraphics[scale=.5]{photo10.png}
+	\begin{minipage}[t]{18cm}
+		\includegraphics[scale=.3]{photo8.png}\hspace{.2cm}\includegraphics[scale=.4]{photo9.png}\hspace{.2cm}\includegraphics[scale=.45]{photo10.png}
+	\end{minipage}
+		\end{minipage}
+	\end{ex}
+	
+	\vspace*{-.9cm}
+	
+	\begin{ex}[$g(\alpha) = \alpha(1-\alpha)$] $ $\\
+		L'équation de transport :
+		\[\begin{cases}
+			\dfrac{\partial f}{\partial t}(t,x) + g(x) \dfrac{\partial f}{\partial x}(t,x) = 0\\
+			f(t=0,x) = f^0(x)
+		\end{cases}\]
+		ici, dans notre exemple on a donc l'EDO :
+		
+		\vspace{-.5cm}
+		
+		\[x'(t) = x(t)(1-x(t))\]
+		
+		se trouve transformée en l'EDP :
+		
+		\vspace{-.5cm}
+		
+		\[\dfrac{\partial f}{\partial t}(t,x) + x(1-x)\dfrac{\partial f}{\partial x}(t,x) = 0\]
+		
+		\vspace{-.6cm}
+		
+	\end{ex}
+	
+	Extension de ce propos en dimension supérieure.\\
+	Soit l'EDO dans $\R^d$ : $\begin{cases}
+		x'(t) = g(t,x(t)) \\
+		x(0) = x_0 \in \R^d
+	\end{cases}$, où $g : \begin{aligned}[t]
+							\R \times \R^d
+							& \to 
+							&\R^d\\
+							(t,\alpha)
+							& \mapsto
+							& g(t,\alpha)
+						\end{aligned}$ est donnée.
+	\begin{ex}[Newton] On considère :
+		
+		\[
+		\begin{cases}
+			X'(t) = V(t)\\
+			V'(t) = G(t,X(t))\\
+			X(0) = x_0, V(0) = v_0
+		\end{cases}
+		\]
+		
+		,où $G : \begin{aligned}[t]
+					\R \times \R^3
+					& \to \R^3\\
+					(t,\alpha) 
+					&\mapsto G(t,\alpha)
+				\end{aligned}$. Soit $f^0 :\R^d \to \R$ (ou $\R_ +$).
+	\end{ex}
+	
+	On définit $f(t,x)$ à travers :
+	\[
+	(2) f(t,X(t,0,x)) = f^0(x)
+	\]
+	Dérivons (2) par rapport à $t$ :
+	\[
+	\begin{aligned}
+		0 
+		&= \dfrac{d}{dt}(f^0(x)) = \dfrac{d}{dt}(f(t,\underbrace{X(t,0,x)}_{ = (X_1(t,0,x),\ldots,X_d(t,0,x))\in \R^d}))\\
+		&=1\left(\dfrac{\partial f}{\partial t}\right)(t,X(t,0,x)) + \dfrac{dX_1}{dt}\cdot \left(\dfrac{\partial f}{\partial x_1}\right)(t,X(t,0,x)) + \ldots + \dfrac{dX_d}{dt}(t,0,x)\cdot\left(\dfrac{\partial f}{\partial x_1}\right)(t,X(t,0,x))\\
+		&=\left(\dfrac{\partial f}{\partial t}\right)(t,X(t,0,x)) + g_1(t,X(t,0,x))\cdot\left(\dfrac{\partial f}{\partial x_1}\right)(t,X(t,0,x))+\ldots+g_d(t,X(t,0,x))\left(\dfrac{\partial f}{\partial x_d}\right)(t,X(t,0,x))\\
+		&=\left(\dfrac{\partial f}{\partial t}\right)(t,X(t,0,x)) + \displaystyle\underbrace{\sum_{i=1}^d g_i(t,X(t,0,x)) \cdot\left(\dfrac{\partial  f}{\partial x_i}\right)(t,X(t,0,x))}_{=g(t,X(t,0,x))\cdot\nabla_x f(t,X(,0,x(t,0,x)))}\\
+		&= \dfrac{\partial f}{\partial t}(t,X(t,0,x)) + g(t,X(t,0,x))\cdot\left(\nabla_x f\right)(t,X(t,0,x))
+	\end{aligned}
+	\]
+	
+	\enc{red}{\textbf{\underline{Conclusion :}} \begin{minipage}[t]{11cm}
+		$\forall t, \forall x$
+		\[
+		0 = \left(\dfrac{\partial f}{\partial t}(t,z) + g(t,z)\nabla_zf(t,z)\right)(t,z=X(t,0,x))
+		\]
+		Soit $(t,x)$ fixé. Posons : $z = X(t,0,x)$ ($\iff x = X(0,t,z)$)
+	\end{minipage}}
 
+	On a par (3) :
+	\[
+	\forall t,\forall z, \dfrac{\partial f}{\partial t}(t,z) + g(t,z) \cdot \left(\nabla_xf\right)(t,z) = 0
+	\]
+	
+	
+	\begin{ex}[Newton bis]
+		Dans le cas de Newton, tout cela donne : 
+		\[f^0(x,v) = f(t,X(t,0,v),V(t,0,x,v))\]
+		
+		$\implies \begin{aligned}
+			0
+			&= \dfrac{d}{dt}(f^0(x,v))\\
+			&= \left(\dfrac{\partial f}{\partial t}\right)(t,\ldots) + V(t,0,x,v)\cdot\left(\nabla_x f\right)(t,\ldots) + G(t,X(t,0,x,v))\cdot\left(\nabla_v f\right)(t,\ldots)
+		\end{aligned}$\\
+		A la fin on obtient :
+		\[
+		\forall t, \forall x, \forall v, \dfrac{\partial f}{\partial t}(t,x,v)+v\cdot\nabla_xf(t,x,v) + G(t,x)\cdot\nabla_v f(t,x,v) \text{ \hspace{.5cm} (4)}
+		\]
+		\rouge{Ici nous disons que l'EDP provient de l'EDO : $\begin{cases}
+																X'(t) = V(t) \\
+																V'(t) = G(t,X(t))
+															\end{cases}$}
+														
+		avec $z = (x_1,v_1,\ldots,x_N,v_N)$.\\
+		$X_i(t=0,0,z) = x_i$\\
+		$V_i(t=0,0,z) = v_i$\\
+		
+		\begin{minipage}[t]{17cm}
+			On a déjà vu que, si $f(t,x_1,v_1,\ldots,x_N,v_N)$ = \begin{minipage}[t]{7cm}
+			la densité de particule\\ à l'instant $t$ en $(x_1,v_1,\ldots,x_N,v_N)$
+		\end{minipage}
+		\end{minipage}
+		
+		qui $f(t,X_1(t,0,z),V_1(t,0,z),\ldots,X_d(t,0,z),V_d(t,0,z)) = f^0(z)$
+		
+		, où $f^0 = $ la densité de particules à l'instant 0.\\
+		Nous en déduisons que $f(z)$ vérifie l'EDP de transport :\\
+		$f(t=0,z) = f^0(z)$ (donnée de l'équation de transport)\\
+		\[
+		\dfrac{\partial f}{\partial t}(t,x_1,v_1,\ldots,v_N,v_N) + v_1 \cdot \nabla_{x_1} f + \displaystyle\sum_{k=1}^N \left(\frac{1}{N} \sum_{\underset{j\not=k}{j=1}}^N F(x_k-x_j)\right)\cdot\nabla_{v_k}f = 0
+		\]
+		
+	\end{ex}
+	
+	Pour recoller tout cela nous avons montrer :
+	\begin{thm}[Méthode des caractéristiques]$ $\\
+		Soit l'EDO $x'(t) = g(t,x(t))$ de flot $X(t,0,x)$.\\
+		Soit $f(t,x)$ satisfaisant  : $f(t,X(t,0,x)) = f^0(X)$.\\
+		On a :
+		\[
+		\begin{cases}
+			\forall t, \forall x, \dfrac{\partial f}{\partial t}(t,x)+f(t,x)\cdot\nabla_x f(t,x) = 0\\
+			\forall x, f(t=0,x) = f^0(x)
+		\end{cases}
+		\]
+	\end{thm}
+	
+	
 	
 	
 \end{document}
