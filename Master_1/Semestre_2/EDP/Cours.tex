@@ -431,47 +431,7 @@
 	\forall t,\forall z, \dfrac{\partial f}{\partial t}(t,z) + g(t,z) \cdot \left(\nabla_xf\right)(t,z) = 0
 	\]
 	
-	
-	\begin{ex}[Newton bis]
-		Dans le cas de Newton, tout cela donne : 
-		\[f^0(x,v) = f(t,X(t,0,v),V(t,0,x,v))\]
-		
-		$\implies \begin{aligned}
-			0
-			&= \dfrac{d}{dt}(f^0(x,v))\\
-			&= \left(\dfrac{\partial f}{\partial t}\right)(t,\ldots) + V(t,0,x,v)\cdot\left(\nabla_x f\right)(t,\ldots) + G(t,X(t,0,x,v))\cdot\left(\nabla_v f\right)(t,\ldots)
-		\end{aligned}$\\
-		A la fin on obtient :
-		\[
-		\forall t, \forall x, \forall v, \dfrac{\partial f}{\partial t}(t,x,v)+v\cdot\nabla_xf(t,x,v) + G(t,x)\cdot\nabla_v f(t,x,v) \text{ \hspace{.5cm} (4)}
-		\]
-		\rouge{Ici nous disons que l'EDP provient de l'EDO : $\begin{cases}
-																X'(t) = V(t) \\
-																V'(t) = G(t,X(t))
-															\end{cases}$}
-														
-		avec $z = (x_1,v_1,\ldots,x_N,v_N)$.\\
-		$X_i(t=0,0,z) = x_i$\\
-		$V_i(t=0,0,z) = v_i$\\
-		
-		\begin{minipage}[t]{17cm}
-			On a déjà vu que, si $f(t,x_1,v_1,\ldots,x_N,v_N)$ = \begin{minipage}[t]{7cm}
-			la densité de particule\\ à l'instant $t$ en $(x_1,v_1,\ldots,x_N,v_N)$
-		\end{minipage}
-		\end{minipage}
-		
-		qui $f(t,X_1(t,0,z),V_1(t,0,z),\ldots,X_d(t,0,z),V_d(t,0,z)) = f^0(z)$
-		
-		, où $f^0 = $ la densité de particules à l'instant 0.\\
-		Nous en déduisons que $f(z)$ vérifie l'EDP de transport :\\
-		$f(t=0,z) = f^0(z)$ (donnée de l'équation de transport)\\
-		\[
-		\dfrac{\partial f}{\partial t}(t,x_1,v_1,\ldots,v_N,v_N) + v_1 \cdot \nabla_{x_1} f + \displaystyle\sum_{k=1}^N \left(\frac{1}{N} \sum_{\underset{j\not=k}{j=1}}^N F(x_k-x_j)\right)\cdot\nabla_{v_k}f = 0
-		\]
-		
-	\end{ex}
-	
-	Pour recoller tout cela nous avons montrer :
+	Pour recoller tout cela nous avons montré :
 	\begin{thm}[Méthode des caractéristiques]$ $\\
 		Soit l'EDO $x'(t) = g(t,x(t))$ de flot $X(t,0,x)$.\\
 		Soit $f(t,x)$ satisfaisant  : $f(t,X(t,0,x)) = f^0(X)$.\\
@@ -485,6 +445,165 @@
 	\end{thm}
 	
 	
+	\textbf{\underline{Dans le cas de Newton, tout cela donne : }}
+	\[f^0(x,v) = f(t,X(t,0,v),V(t,0,x,v))\]
+	
+	$\implies \begin{aligned}[t]
+		0
+		&= \dfrac{d}{dt}(f^0(x,v))\\
+		&= \left(\dfrac{\partial f}{\partial t}\right)(t,\ldots) + V(t,0,x,v)\cdot\left(\nabla_x f\right)(t,\ldots) + G(t,X(t,0,x,v))\cdot\left(\nabla_v f\right)(t,\ldots)
+	\end{aligned}$\\
+	
+	A la fin on obtient :
+	\[
+	\forall t, \forall x, \forall v, \dfrac{\partial f}{\partial t}(t,x,v)+v\cdot\nabla_xf(t,x,v) + G(t,x)\cdot\nabla_v f(t,x,v) \text{ \hspace{.5cm} (4)}
+	\]
+	\rouge{Ici nous disons que l'EDP provient de l'EDO : $\begin{cases}
+			X'(t) = V(t) \\
+			V'(t) = G(t,X(t))
+		\end{cases}$}
+	
+	avec $z = (x_1,v_1,\ldots,x_N,v_N)$.
+
+	$X_i(t=0,0,z) = x_i$
+	
+	$V_i(t=0,0,z) = v_i$
+	
+	\begin{minipage}[t]{17cm}
+		On a déjà vu que, si $f(t,x_1,v_1,\ldots,x_N,v_N)$ = \begin{minipage}[t]{10cm}
+			la densité de particule à l'instant $t$ en $(x_1,v_1,\ldots,x_N,v_N)$
+		\end{minipage}
+	\end{minipage}
+	
+	qui $f(t,X_1(t,0,z),V_1(t,0,z),\ldots,X_d(t,0,z),V_d(t,0,z)) = f^0(z)$, où $f^0 = $ la densité de particules à l'instant 0. Nous en déduisons que $f(z)$ vérifie l'EDP de transport :
+	
+	$f(t=0,z) = f^0(z)$ (donnée de l'équation de transport)
+	
+	\[
+	\dfrac{\partial f}{\partial t}(t,x_1,v_1,\ldots,v_N,v_N) + \displaystyle\sum_{k=1}^N v_k \cdot \nabla_{x_k} f + \sum_{k=1}^N \left[\frac{1}{N} \sum_{\underset{j\not=k}{j=1}}^N F(x_k-x_j)\right]\cdot\nabla_{v_k}f = 0
+	\]
+	
+	$\rightarrow$ \begin{minipage}[t]{15cm}
+		EDP linéaire d'inconnue $f(t,z)$.\\
+		avec, typiquement, $f(t,z) \in C^1(t\in\R, L^1(\R^{6N}))$
+	\end{minipage}
+	
+	\newpage
+	
+	\underline{\underline{\textbf{Idée :}}} introduire les marginales de $f$, définies par :
+	
+	\[
+	f_N^1(t,x_1,v_1) = \displaystyle\int_{\R^6\times\R^6 \times \ldots \times \R^6} f(t,x_1,v_1,\ldots,x_N,v_N)dx_2dv_2\cdots dx_N dv_N 
+	\]
+	
+	\[\vdots\]
+	
+	\[
+	f_N^k(t,x_1,v_1,\ldots,x_k,v_k) = \displaystyle\int_{\R^{6(N-k)}} f(t,x_1,v_1,\ldots,x_N,v_N)dx_kdv_k\cdots dx_N dv_N
+	\]
+	
+	\[\vdots\]
+	
+	Il est naturel d'affirmer que chaque fonction $f_N^K$ possède une limite (faible) $f^k$ lorsque $N \to \infty$.
+	Pour calculer la limite de $f_N^k$ pour chaque $k = 1,\ldots,N$, écrivons l'EDP satisfaisant pour chacune de ces fonctions. Pour ce faire, supposons que pour toute \textit{permutation} $\sigma \in \m S_N$:
+	
+	\[
+	f^0(x_1,v_1,\ldots,x_N,v_N) = f^0(x_{\sigma(1)},v_{\sigma(1)},\ldots,x_{\sigma(N)},v_{\sigma(N)}) \text{\hspace{.5cm} (1)}
+	\]
+	
+	$\rightarrow$ les particules sont interchangeables.
+	
+	Les numéros des particules sont interchangeable initialement à $t = 0$.
+	
+	\[
+	f^0(x_1,v_1,\ldots,x_N,v_N) = g^0(x_1,v_1)\cdots g^0(x_N,v_N) \text{\hspace{.5cm} (2)}
+	\]
+	
+	pour une certaine fontion $g^0$ (on suppose que les particules sont initialement réparties indépendamment et selon la même loi).
+	
+	\begin{thm}[Admis à ce stade]
+		\begin{minipage}[t]{10cm}
+			Sous l'hypothèse de l'équation (1), $\forall t$:
+		\end{minipage}
+		
+		\[
+		f(t,x_1,v_1,\ldots,x_N,v_N) = f(t,x_{\sigma(1)},v_{\sigma(1)},\ldots,x_{\sigma(N)},v_{\sigma(N)})
+		\]
+		
+		La propriété d'interchangeabilité est conservée avec le temps.
+	\end{thm}
+	
+	Fort de cette information écrivons l'équation satisfaite par $f_N^1$, on part de :
+	
+	\[
+	\underbrace{\dfrac{\partial f}{\partial t}(t,x_1,v_1,\ldots,v_N,v_N)}_{(1)} + \underbrace{\displaystyle\sum_{k=1}^N v_k \cdot \nabla_{x_k} f}_{(2)} + \underbrace{\sum_{k=1}^N \left[\frac{1}{N} \sum_{\underset{j\not=k}{j=1}}^N F(x_k-x_j)\right]\cdot\nabla_{v_k}f}_{(3)} = 0
+	\]
+	
+	On observe que :
+	
+	\begin{enumerate}
+		\item $\begin{aligned}[t]
+			\dfrac{\partial}{\partial t} f_N^1(t,x_1,v_1) 
+			&= \dfrac{\partial}{\partial t} \int f(t,\ldots) dx_2dv_2 \cdots dx_N dv_N\\
+			&= \int \dfrac{\partial f}{\partial t}(t,\ldots) dx_2 dv_2 \ldots dx_N dv_N
+		\end{aligned}$
+		
+		\item $\displaystyle\int v_1 \cdot \nabla_{x_1} f(t,\ldots) dx_2 dv_2 \ldots dx_N dv_N = v_1 \nabla_{x_1}\left[\int f(t,\ldots)dx_1\ldots dv_N\right] = v_1 \cdot \nabla_{x_1} f_N^1$
+		
+		\vspace{-.8cm}
+		
+		\[
+		(k \not= 1)\text{ \hspace{.5cm}} \displaystyle\int v_k \cdot \nabla_{x_k} f(t,\ldots) dx_2dv_2 \ldots dx_N dv_N = -\int f(t,\ldots)\text{div}_{x_1}(v_k) dx_2 \cdots dv_N = 0
+		\]
+		
+		\rouge{\underline{Rappel :}} $\displaystyle \int_{\R^d} u(y) \cdot \nabla_y \phi(y) dy = - \int \phi(y)\text{div}_y(u(y)) dy$\\
+		
+		\item $(k=1)$, $\begin{aligned}[t]
+			&\displaystyle\int \frac{1}{N} \sum_{\underset{j\not=1}{j=1}}^N F(x_1-x_j)\cdot \nabla_{v_1} f dx_1 \cdots dv_N\\
+			=
+			&\frac{1}{N} \displaystyle\sum_{\underset{j\not=1}{j=1}}^N \int F(x_1-x_j) \cdot \nabla_{v_1} f(t,\ldots)\\
+			=
+			&\frac{1}{N}\displaystyle\sum_{\underset{j\not=1}{j=1}}^N\int F(x_1-x_j)\nabla_{v_1}f(t,x_1,v_1,x_{\rouge j},v_{\rouge j},\dots,x_{\rouge2},v_{\rouge2},\ldots,x_N,v_N) \\
+			=
+			&\frac{1}{N}\displaystyle\sum_{\underset{j\not= 1}{j=1}}^N\underbrace{\int F(x_1-x_j)\cdot \nabla_{v_1}f(t,x_1,v_1,\ldots)}_{\text{\rouge{pas d'indice j !}}}\\
+			=
+			& \frac{N-1}{N} \int F(x_1-x_2) \cdot \nabla_{v_1}f(t,\cdots) dx_2 \cdots dv_N\\
+			=
+			& \frac{N-1}{N} \int F(x_1-x_2)\nabla_{v_1} f(t,,\cdots) dx_3\cdots dv_N dx_2 dv_2\\
+			=
+			& \frac{N-1}{N} \int F(x_1-x_2) \cdot \nabla_{v_1} \int f_N^2(t,\ldots) dx_2 dv_2
+		\end{aligned}$\\
+		
+		($k\not = 1$), $\begin{aligned}[t]
+			&\displaystyle\frac{1}{N}  \sum_{\underset{j\not=k}{j=1}}^NF(x_k-x_j)\nabla_{v_k}f(t,x_1,\ldots,x_N)\\
+			\underset{IPP}{=}
+			& \frac{1}{N} \sum_{\underset{j\not= k}{j=1}}^N -\int \underbrace{\text{div}_{v_j}(F(x_k-x_j))}_{=0}.f(t,\cdots) dx_2 \cdots dv_N
+		\end{aligned}$		
+	\end{enumerate}
+	
+	C'est-à-dire, on a : $\dfrac{\partial}{\partial t} f_N^1(t,x_1,v_1) + v_1\cdot \nabla_{x_1} f_N^1 + \dfrac{N-1}{N} \displaystyle\int F(x_1-x_2)\cdot \nabla_{v_1} f_N^2(t,x_1,v_1,\ldots)dx_2 dv_2 = 0$.
+	
+	De même :
+	
+	$ \begin{aligned}[t]
+		0 = \dfrac{\partial}{\partial t} f_N^2(tx_1,v_1,x_2,v_2)
+		&+v_1 \cdot \nabla_{x_1}f_N^2 + v_2 \cdot\nabla_{x_2}f_N^2 \\
+		&+ \dfrac{N-2}{N}\displaystyle\int F(x_1-x_4)\nabla_{v_1}f_N^3(\cdots)dx_4 dv_3 + \dfrac{N-2}{N}\displaystyle\int F(x_2-x_3)\nabla_{v_2}f_N^3(\cdots)dx_4 dv_3 \\
+		&+ \frac{1}{N}F(x_1-x_2)\nabla_{v_2} f_N^2 + \frac{1}{N}F(x_2-x_1)\nabla_{v_1}f_N^2
+	\end{aligned}$
+	
+	On récupère ainsi une famille d'équation de transport de la forme : $\begin{aligned}[t]
+		\dfrac{\partial }{\partial t} f_N^1 
+		&= \cdots f_N^2 \cdots\\
+		\dfrac{\partial}{\partial t} f_N^2
+		&= \cdots f_N^3 \cdots\\
+		&\vdots\\
+		\dfrac{\partial}{\partial t} f_N^k
+		&= \cdots f_N^{k+1} \cdots
+	\end{aligned}$
+	
+	
+		
 	
 	
 \end{document}
