@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  15 JAN 2026 16:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  18 JAN 2026 16:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1210,7 +1210,7 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 )
 (./Cours.aux
 Package babel Info: 'french' activates 'french' shorthands.
-(babel)             Reported on input line 12.
+(babel)             Reported on input line 11.
 )
 \openout1 = `Cours.aux'.
 
@@ -1547,34 +1547,45 @@ Overfull \hbox (10.15588pt too wide) detected at line 419
 [][]
  []
 
-
-Overfull \hbox (99.42076pt too wide) in paragraph at lines 439--445
-[]$ \OT1/lmr/m/n/12 =[]\OMS/lmsy/m/n/12 )  [][]$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 453--456
-
- []
-
-
-Overfull \hbox (144.17165pt too wide) in paragraph at lines 457--462
-[][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 465--468
-
- []
-
 [7]
 Package hyperref Info: bookmark level for unknown thm defaults to 0 on input li
-ne 475.
+ne 435.
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--456
+
+ []
+
+
+Overfull \hbox (28.43794pt too wide) in paragraph at lines 473--476
+[]\T1/lmr/m/n/12 On a déjà vu que, si $\OML/lmm/m/it/12 f\OT1/lmr/m/n/12 (\OML/
+lmm/m/it/12 t; x[]; v[]; [] ; x[]; v[]\OT1/lmr/m/n/12 )$ \T1/lmr/m/n/12 = [] 
+ []
+
+[8]
+Overfull \hbox (119.04938pt too wide) in paragraph at lines 525--528
+[][][] 
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 559--560
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 561--576
+
+ []
+
+
+Overfull \hbox (18.73357pt too wide) in paragraph at lines 588--594
+[]$[][]$ 
+ []
+
 \tf@thm=\write6
 \openout6 = `Cours.thm'.
 
- [8]
-runsystem(latexminted cleantemp  --timestamp 20260115165530 33C1869ABDF6A46508C
+[10]
+runsystem(latexminted cleantemp  --timestamp 20260118162050 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -1586,10 +1597,10 @@ Package rerunfilecheck Info: File `Cours.out' has not changed.
 (rerunfilecheck)             Checksum: D9999AAE3ABAE74332AF4120B5B1CBA8;258.
  ) 
 Here is how much of TeX's memory you used:
- 44482 strings out of 467538
- 1030670 string characters out of 5419551
- 1673825 words of memory out of 5000000
- 72646 multiletter control sequences out of 15000+600000
+ 44485 strings out of 467538
+ 1030669 string characters out of 5419551
+ 1676827 words of memory out of 5000000
+ 72644 multiletter control sequences out of 15000+600000
  706666 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,19n,131p,866b,713s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1609,10 +1620,10 @@ t/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
 pe1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public
 /lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.p
 fb>
-Output written on Cours.pdf (9 pages, 2088084 bytes).
+Output written on Cours.pdf (11 pages, 2098462 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 118 compressed objects within 2 object streams
- 19 named destinations out of 1000 (max. 500000)
+ 200 PDF objects out of 1000 (max. 8388607)
+ 127 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
  76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
