@@ -534,123 +534,295 @@
 	
 	\subsection{Chaîne di-atomique}
 	
-	Considérons le système discret périodique à deux atomes :
-	
-	\includegraphics[scale=.5]{photo5.png}
-	
-	Ecrivons l'équation d'équilibre de la cellule unitaire (i.e. l'élément qui, répété, permet de reconstituer toute la chaîne).
-	 
-	\[
-	\begin{aligned}
-		m_1\dfrac{d^2U_n}{dt^2} = -\beta\left(U_n-V_n\right) - \beta\left(U_n-V_{n-1}\right)\\
-		m_2\dfrac{d^2V_n}{dt^2} = -\beta\left(V_n-U_{n-1}\right) - \beta\left(V_n-U_n\right)
-	\end{aligned}
-	\]
-	
-	On considère le régie stationnaire et on applique le principe de Floquet-Bloch : 
-	\[
-	\begin{aligned}
-		u_n = u_0e^{i(\omega t - kna)} = u_0\lambda^n e^{i\omega t}\\
-		v_n = v_0 e^{i(\omega t-kna)} = v_0\lambda^ne^{i\omega t}
-	\end{aligned}
-	\]
-	En injectant dans les équations d'équilibre on obtient :
-	\[
-	\begin{aligned}
-		\text{(1) }\omega^2 m_1  U_0 
-		&= 2\beta\left(U_0-\frac{V_0}{2}-\frac{1}{\lambda}\frac{V_0}{2}\right)
+		Considérons le système discret périodique à deux atomes :
+		
+		\includegraphics[scale=.5]{photo5.png}
+		
+		Ecrivons l'équation d'équilibre de la cellule unitaire (i.e. l'élément qui, répété, permet de reconstituer toute la chaîne).
+		 
+		\[
+		\begin{aligned}
+			m_1\dfrac{d^2U_n}{dt^2} = -\beta\left(U_n-V_n\right) - \beta\left(U_n-V_{n-1}\right)\\
+			m_2\dfrac{d^2V_n}{dt^2} = -\beta\left(V_n-U_{n-1}\right) - \beta\left(V_n-U_n\right)
+		\end{aligned}
+		\]
+		
+		On considère le régime stationnaire et on applique le principe de Floquet-Bloch : 
+		\[
+		\begin{aligned}
+			u_n = u_0e^{i(\omega t - kna)} = u_0\lambda^n e^{i\omega t}\\
+			v_n = v_0 e^{i(\omega t-kna)} = v_0\lambda^ne^{i\omega t}
+		\end{aligned}
+		\]
+		En injectant dans les équations d'équilibre on obtient :
+		\[
+		\begin{aligned}
+			\text{(1) }\omega^2 m_1  U_0 
+			&= 2\beta\left(U_0-\frac{V_0}{2}-\frac{1}{\lambda}\frac{V_0}{2}\right)
+			\begin{cases}
+				u_{n+1} = \lambda u_n\\
+				u_{n-1} = \frac{1}{\lambda} u_n
+			\end{cases}
+			\text{ et }
+			\begin{cases}
+				v_{n+1} = \lambda v_n\\
+				v_{n-1} = \frac{1}{\lambda} v_n
+			\end{cases}\\
+			\text{(2) }\omega^2 m_2V_0 
+			&= 2\beta\left(V_0-U_0-\lambda \frac{U_0}{2}\right)
+		\end{aligned}
+		\]
+		
+		$(1)/m_1$ avec $\omega_1 = \sqrt{\frac{2\beta}{m_1}}$ et $(2)/m_2$ avec $\omega_2 = \sqrt{\frac{2\beta}{m_2}}$ :
+		$\begin{cases}
+			\omega^2U_0-\omega_1^2\left(U_0-\frac{V_2}{2}-\frac{1}{\lambda}\frac{V_0}{2}\right) = 0\\
+			\omega^2V_0-\omega_2^2(V_0-\frac{U_0}{2}-\frac{\lambda}{2}U_0) = 0
+		\end{cases}$
+		
+		Ce système  s'écrit sous forme matricielle :
+		\[
+		\left[\begin{matrix}
+			\omega^2 - \omega_1^2 & \frac{\omega_1^2}{2}(1+\frac{1}{\lambda}) \\
+			\frac{\omega_2^2}{2}(1+\lambda) & \omega^2-\omega_2^2
+		\end{matrix}\right]\left[\begin{matrix}
+		U_0\\
+		V_0
+		\end{matrix}\right] = \left[\begin{matrix}
+		0\\
+		0
+		\end{matrix}\right]
+		\]
+		
+		Les solutions sont non-triviales pour Det = 0 c'est-à-dire :
+		\[
+		\begin{aligned}
+			(\omega^2-\omega_1^2)(\omega^2-\omega_2^2) - \frac{\omega_1\omega_2}{4}(1+\frac{1}{\lambda})(1+\lambda) = 0\\
+			\omega^4 - \omega^2(\omega_1^2+\omega_2^2)-\frac{\omega_1^2\omega_2^2}{4}(2+\lambda+\frac{1}{\lambda}) + \omega_1^2\omega_2^2
+		\end{aligned}\]
+		
+		On remarque que $\lambda + \frac{1}{\lambda} = e^{-ika}+e^{ika} = 2 \cos(ka)$\\
+		$\omega^4-\omega^2(\omega_1^2+\omega_2^2) - \frac{\omega_1^2\omega_2^2}{4}(\lambda+\frac{1}{\lambda}-2) = 0$.\\
+		Donc $\lambda+\frac{1}{\lambda} = 2\cos(ka) - 2 = -4\sin^2(\frac{ka}{2})$.\\
+		Ainsi on peut écrire :
+		\[
+		\omega^4-\omega^2(\omega_1^2+\omega_2^2) - \omega_1^2\omega_2^2\sin^2(\frac{ka}{2}) = 0
+		\]
+		
+		Et $\Delta = (\omega_1^2+\omega_2^2)^2 - \omega_1^2\omega_2^2\sin^2(\frac{ka}{2})$ positif car $\sin ^2 \leq 1$ et $(\omega_1^2-\omega_2^2)^2 \geq 0$.\\
+		Les deux solutions s'écrivent :
+		\[
+		\omega^2(k) = \beta \left(\frac{1}{m_1}+\frac{1}{m_2}\right) \pm \beta \sqrt{\left(\frac{1}{m_1}+\frac{1}{m_2}\right)^2-\frac{4\sin^2(\frac{ka}{2})}{m_1m_2}}
+		\]
+		on introduit $\omega_3 = \sqrt{2\beta\left(\frac{1}{m_1}+\frac{1}{m_2}\right)} =: \omega_{max}$.\\
+		
+		\includegraphics[scale=.5]{photo6.png}
+		
+		Si on suppose que $m_1=m_2$, la relation de dispersion devient : $\omega^2(k) = \omega_1^2(1\pm\cos(\frac{ka}{2}))$.\\
+		Intéressons-nous désormais aux propriétés de l'ondes à l'intérieur de la bande interdite :\\
+		Reprenons la relation de dispersion :
+		\[
 		\begin{cases}
-			u_{n+1} = \lambda u_n\\
-			u_{n-1} = \frac{1}{\lambda} u_n
+			\omega^2U_0 = \omega_1^2\left(U_0-\frac{V_2}{2} -\frac{1}{\lambda}\frac{V_0}{2}\right) & /\omega_1 ^2 \text{ et } \Omega_1 ^2 = \frac{\omega^2}{\omega_1^2} \\
+			\omega^2V_0 = \omega_2^2(V_0-\frac{U_0}{2} -\frac{\lambda}{2}U_0) & /\omega_2^2 \text{ et } \Omega_2^2 = \frac{\omega^2}{\omega_2^2}
 		\end{cases}
-		\text{ et }
 		\begin{cases}
-			v_{n+1} = \lambda v_n\\
-			v_{n-1} = \frac{1}{\lambda} v_n
-		\end{cases}\\
-		\text{(2) }\omega^2 m_2V_0 
-		&= 2\beta\left(V_0-U_0-\lambda \frac{U_0}{2}\right)
-	\end{aligned}
-	\]
+			(2\Omega_1^2-2)U_0 + (1+\frac{1}{\lambda})V_0 = 0 \\
+			(1+\lambda)U_0+(2\Omega_2^2-2)V_0 = 0
+		\end{cases}
+		\]
+		
+		On doit annuler le déterminant :
+		\[
+		\begin{aligned}
+			(2\Omega_1^2-2)(\Omega_2^2-2) - \underbrace{(1+\frac{1}{\lambda})(1+\lambda)}_{\rouge{4\sin^2(\frac{ka}{2})}} = 0\\
+			\lambda - \underbrace{\left[4(\Omega_1^2-1)(\Omega_2^2-1) +2\right]}_{2(1-2(\Omega_1^2-1)(\Omega_2^2-1))} + \frac{1}{\lambda} = 0\\
+			\Delta = 16(\Omega_1 ^2-1)(\Omega_2^2-1)\left[\underbrace{(\Omega_1^2-1)(\Omega_2^2-1)}_{\rouge\Gamma}-1\right]
+		\end{aligned}
+		\]
+		
+		Les solutions complexes sont alors :
+		\[
+		\lambda = (2\Gamma-1)\pm2\sqrt{(\Omega_1-1)(\Omega_2-1)(\Gamma-1)}
+		\]
+		
+		\fbox{
+		\begin{minipage}[t]{15cm}
+			Ce qui donne la solution $k(\omega)$ explicite :
+		\[
+		k(\omega) = \frac{i}{a}\log\left[\frac{1}{\omega_1^2\omega_2^2}\left(2\omega^4-2\omega^2\omega_3^2 + \omega_1 ^2\omega_2^2 + 2\omega\sqrt{(\omega^2-\omega_1^2)(\omega^2-\omega_2^2)(\omega^2-\omega_3^2)}\right)\right]
+		\]
+		\end{minipage}}
+
+
+		\hspace{-.5cm}\includegraphics[scale=.4]{photo7.png}
 	
-	$(1)/m_1$ avec $\omega_1 = \sqrt{\frac{2\beta}{m_1}}$ et $(2)/m_2$ avec $\omega_2 = \sqrt{\frac{2\beta}{m_2}}$ :
-	$\begin{cases}
-		\omega^2U_0-\omega_1^2\left(U_0-\frac{V_2}{2}-\frac{1}{\lambda}\frac{V_0}{2}\right) = 0\\
-		\omega^2V_0-\omega_2^2(V_0-\frac{U_0}{2}-\frac{\lambda}{2}U_0) = 0
-	\end{cases}$
+	\subsection{Généralisation aux systèmes à plusieurs degrés de liberté (DDL)}
 	
-	Ce système  s'écrit sous forme matricielle :
-	\[
-	\left[\begin{matrix}
-		\omega^2 - \omega_1^2 & \frac{\omega_1^2}{2}(1+\frac{1}{\lambda}) \\
-		\frac{\omega_2^2}{2}(1+\lambda) & \omega^2-\omega_2^2
+	On considère une chaîne masse-ressort :
+	
+	\includegraphics[scale=.5]{photo11.png}
+	
+	L'équation d'équilibre en régime harmonique s'écrit en $U_n$ :
+	
+	\[m_n\dfrac{d^2U_n}{dt^2} = -\beta_n(U_n-U_{n+1}) - \beta_{n-1}(U_n-U_{n-1})\]
+	
+	qui s'écrit : $m_n \overset{\textbf{..}}{U}_n - \beta_{n-1}U_{n-1} + (\beta_n+\beta_{n-1})U_n - \beta_nU_{n+1} = 0$.\\
+	Le système s'écrit sous forme matricielle :
+	\[\left[\begin{matrix}
+		\ddots & & & & \\
+		& m_{n-1} & & (0) & \\
+		& & m_n & & \\
+		&(0) & & m_{n+1} & \\
+		& & & & \ddots
 	\end{matrix}\right]\left[\begin{matrix}
-	U_0\\
-	V_0
+	\vdots\\
+	\overset{\textbf{..}}{U}_{n-1}\\
+	\overset{\textbf{..}}{U}_{n}\\
+	\overset{\textbf{..}}{U}_{n+1}\\
+	\vdots
+	\end{matrix}\right] + \left[\begin{matrix}
+	\ddots & & & & \\
+	& \ddots & & & \\
+	0 & - \beta_{n-1} & -\beta_n & -\beta_{n+1} & 0\\
+	& & & \ddots & \\
+	& & & & \ddots
+	\end{matrix}\right]\left[\begin{matrix}
+	\vdots\\
+	U_{n-1}\\
+	U_n\\
+	U_{n+1}\\
+	\vdots
 	\end{matrix}\right] = \left[\begin{matrix}
-	0\\
+	0 \\
+	\vdots \\
+	\vdots \\
+	\vdots \\
 	0
-	\end{matrix}\right]
-	\]
+	\end{matrix}\right]\]
 	
-	Les solutions sont non-triviales pour Det = 0 c'est-à-dire :
-	\[
-	\begin{aligned}
-		(\omega^2-\omega_1^2)(\omega^2-\omega_2^2) - \frac{\omega_1\omega_2}{4}(1+\frac{1}{\lambda})(1+\lambda) = 0\\
-		\omega^4 - \omega^2(\omega_1^2+\omega_2^2)-\frac{\omega_1^2\omega_2^2}{4}(2+\lambda+\frac{1}{\lambda}) + \omega_1^2\omega_2^2
-	\end{aligned}\]
+	C'est une EDO qui s'écrit : 
+	\begin{center}
+		\begin{minipage}{4cm}
+			\enc{red}{$\mathbb{M}\dfrac{\partial^2 \overset{\rightarrow}{U}}{\partial t^2} + \mathbb{K} \overset{\rightarrow}{U} = \overset{\rightarrow}{0}$}
+		\end{minipage}
+	\end{center}
 	
-	On remarque que $\lambda + \frac{1}{\lambda} = e^{-ika}+e^{ika} = 2 \cos(ka)$\\
-	$\omega^4-\omega^2(\omega_1^2+\omega_2^2) - \frac{\omega_1^2\omega_2^2}{4}(\lambda+\frac{1}{\lambda}-2) = 0$.\\
-	Donc $\lambda+\frac{1}{\lambda} = 2\cos(ka) - 2 = -4\sin^2(\frac{ka}{2})$.\\
-	Ainsi on peut écrire :
-	\[
-	\omega^4-\omega^2(\omega_1^2+\omega_2^2) - \omega_1^2\omega_2^2\sin^2(\frac{ka}{2}) = 0
-	\]
 	
-	Et $\Delta = (\omega_1^2+\omega_2^2)^2 - \omega_1^2\omega_2^2\sin^2(\frac{ka}{2})$ positif car $\sin ^2 \leq 1$ et $(\omega_1^2-\omega_2^2)^2 \geq 0$.\\
-	Les deux solutions s'écrivent :
-	\[
-	\omega^2(k) = \beta \left(\frac{1}{m_1}+\frac{1}{m_2}\right) \pm \beta \sqrt{\left(\frac{1}{m_1}+\frac{1}{m_2}\right)^2-\frac{4\sin^2(\frac{ka}{2})}{m_1m_2}}
-	\]
-	on introduit $\omega_3 = \sqrt{2\beta\left(\frac{1}{m_1}+\frac{1}{m_2}\right)} =: \omega_{max}$.\\
 	
-	\includegraphics[scale=.5]{photo6.png}
 	
-	Si on suppose que $m_1=m_2$, la relation de dispersion devient : $\omega^2(k) = \omega_1^2(1\pm\cos(\frac{ka}{2}))$.\\
-	Intéressons-nous désormais aux propriétés de l'ondes à l'intérieur de la bande interdite :\\
-	Reprenons la relation de dispersion :
-	\[
-	\begin{cases}
-		\omega^2U_0 = \omega_1^2\left(U_0-\frac{V_2}{2} -\frac{1}{\lambda}\frac{V_0}{2}\right) & /\omega_1 ^2 \text{ et } \Omega_1 ^2 = \frac{\omega^2}{\omega_1^2} \\
-		\omega^2V_0 = \omega_2^2(V_0-\frac{U_0}{2} -\frac{\lambda}{2}U_0) & /\omega_2^2 \text{ et } \Omega_2^2 = \frac{\omega^2}{\omega_2^2}
-	\end{cases}
-	\begin{cases}
-		(2\Omega_1^2-2)U_0 + (1+\frac{1}{\lambda})V_0 = 0 \\
-		(1+\lambda)U_0+(2\Omega_2^2-2)V_0 = 0
-	\end{cases}
-	\]
 	
-	On doit annuler le déterminant :
-	\[
-	\begin{aligned}
-		(2\Omega_1^2-2)(\Omega_2^2-2) - \underbrace{(1+\frac{1}{\lambda})(1+\lambda)}_{\rouge{4\sin^2(\frac{ka}{2})}} = 0\\
-		\lambda - \underbrace{\left[4(\Omega_1^2-1)(\Omega_2^2-1) +2\right]}_{2(1-2(\Omega_1^2-1)(\Omega_2^2-1))} + \frac{1}{\lambda} = 0\\
-		\Delta = 16(\Omega_1 ^2-1)(\Omega_2^2-1)\left[\underbrace{(\Omega_1^2-1)(\Omega_2^2-1)}_{\rouge\Gamma}-1\right]
-	\end{aligned}
-	\]
 	
-	Les solutions complexes sont alors :
-	\[
-	\lambda = (2\Gamma-1)\pm2\sqrt{(\Omega_1-1)(\Omega_2-1)(\Gamma-1)}
-	\]
 	
-	\fbox{
-	\begin{minipage}[t]{15cm}
-		Ce qui donne la solution $k(\omega)$ explicite :
-	\[
-	k(\omega) = \frac{i}{a}\log\left[\frac{1}{\omega_1^2\omega_2^2}\left(2\omega^4-2\omega^2\omega_3^2 + \omega_1 ^2\omega_2^2 + 2\omega\sqrt{(\omega^2-\omega_1^2)(\omega^2-\omega_2^2)(\omega^2-\omega_3^2)}\right)\right]
-	\]
-	\end{minipage}}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	\newpage
+	
+	\section{TD}
+	
+	\subsection{Système périodique et résonance locale}
+	
+	\textbf{\underline{Rappel démarche :}}
+	\begin{enumerate}
+		\item Identifier la période (cellule périodique minimale du système)
+		\item  Écrire les équations d'équilibre (opérateur $\m L U(x,t) = 0$) pour chaque degré de liberté
+		\item Invoquer la stationnarité ($U(x,t) \to u(x,\omega)$) puis le principe de Floquet-Bloch :
+		\[(u_{n+1},u_{n-1},\ldots, \to \left(\lambda,\frac{1}{\lambda}\right)u_n) \text{ où } u_n(t) = u_0 e^{i(nka-\omega t)}\]
+		\item Équation l'équation de dispersion (ou système $\to \det = 0$) liant $\omega$ et $\lambda$.
+		\item Résoudre $((i)$ $\omega(k),$ (ii) $k(\omega))$
+		\item Interpréter les solutions $\left(\left[\begin{minipage}{2.5cm}
+			\text{propagatives}\\\text{évanescentes}
+		\end{minipage}\right] et \left[\begin{minipage}{3cm}
+			\text{progressive + }$x$\\\text{régressive + }$x$
+		\end{minipage}\right]\right)$ et tracer.
+	\end{enumerate}
+	
+	
+	\includegraphics[scale=.5]{photo8.png}
+	
+	On produit des bandes interdites sous forme "additive".\\
+	Si $m_2\to 0$, on doit retrouver la chaîne mono-atomique.
+	
+	\begin{enumerate}
+		\item On identifie la période : \includegraphics[scale=.2]{photo9.png} 
+	
+		\item On écrit les équations d'équilibre :
+		\[\begin{aligned}
+			\text{(1) }&m_1\dfrac{d^2 U_n}{dt^2} &=& -\beta_1(U_n-U_{n+1})-\beta_1(U_n-U_{n-1}) - \beta_2(U_n-V_n)\\\\
+			\text{(1) }&m_1\dfrac{d^2 U_n}{dt^2} &= &\beta_1(U_{n+1}-2U_n+U_{n-1}) + \beta_2(V_n-U_n)\\\\
+			\text{(2) }& m_2\dfrac{d^2 V_n}{dt^2} &= &\beta_2(U_n-V_n)
+		\end{aligned}\]
+		
+		\item On considère le régime stationnaire et le principe de Floquet-Bloch : $U_n = U_0\lambda^n e^{i\omega t}$ et $V_n = V_0 \lambda^n e^{i\omega t}$. Et on réécrit les 2 équations :
+		\[\begin{aligned}
+			\text{(1) } -m_1\omega^2 U_0 &= \beta_1(\lambda U_0 - 2U_0 + \frac{1}{\lambda}U_0)+\beta_2(V_0-U_0)\\
+			\text{(2) } -m_2 \omega^2 V_0 &= \beta_2(U_0-V_0)
+		\end{aligned} \]
+		
+		Puis, on divise $(i)$ par $m_i$ :
+		\[\begin{aligned}
+			-\omega^2 U_0 &= \frac{\beta_1}{m_1}(\lambda U_0 - 2U_0 + \frac{1}{\lambda}U_0)+\frac{\beta_2}{\beta_1}\frac{\beta_1}{m_1}(V_0-U_0)\\
+			-\omega^2 V_0 &= \beta_2/m_2(U_0-V_0)
+		\end{aligned} \]
+		
+		\begin{minipage}[t]{18cm}
+			On regroupe selon $U_0$ et $V_0$ et on utilise les notations suivantes : $\omega_1=\sqrt{\frac{\beta_1}{m_1}}$, $\omega_2 = \sqrt{\frac{\beta_2}{\beta_1m_2}}$ et $r = \frac{\beta_2}{\beta_1}$  :
+		\end{minipage}
+		\[ \begin{aligned}
+			(\omega^2 + \omega_1^2(\lambda+\frac{1}{\lambda}-2)-r\omega_1^2)U_0&+&r\omega_1^2 V_0&=0\\
+			\omega_2^2 U_0&+&(\omega^2-\omega_2^2)V_0 &=0
+		\end{aligned} \]
+
+		
+		On pose : $A = \left[\begin{matrix}
+			\omega^2 + \omega_1^2(\lambda+\frac{1}{\lambda}-2-r) & r\omega_1^2\\
+			\omega_2^2 & \omega^2-\omega_2^2
+		\end{matrix}\right]$ et on a ainsi : $AX = 0$ où $X = \left[\begin{matrix}
+		U_0\\ V_0
+		\end{matrix}\right]$.
+		
+		Regardons le déterminant pour trouver une condition nécessaire et suffisante pour trouver des solutions non trivial :
+		\[\begin{aligned}
+			&\det A = 0\\
+			\iff&\left[\omega^2 + \omega_1^2(\lambda+\frac{1}{\lambda}-2-r)\right]\times (\omega^2-\omega_2^2) - r\omega_1^2\omega_2^2 =0\\
+			\iff & \omega^4 + \omega^2 \left[\omega_1^2(\lambda+\frac{1}{\lambda}-2-r)-\omega_2^2\right]-w_1^2w_2^2\left[r+\lambda+\frac{1}{\lambda}-2-r\right] = 0\\
+			\iff&\omega^4 + \omega^2 \left[\omega_1^2(\lambda+\frac{1}{\lambda}-2-r)-\omega_2^2\right]-w_1^2w_2^2\left[\lambda+\frac{1}{\lambda}-2\right] = 0\\
+			\iff&\omega^4 + \omega^2 \left[\omega_1^2\left(2\left[cos(ka)-1\right]-r\right)-\omega_2^2\right]-2w_1^2w_2^2\left(\cos(ka)-1\right) = 0
+		\end{aligned}\]
+		
+		Puis on regarde le discriminant :
+		\[\begin{aligned}
+			\Delta &=\left[\omega_1^2\left(2\left[cos(ka)-1\right]-r\right)-\omega_2^2\right]^2+8w_1^2w_2^2\left(\cos(ka)-1\right)\\
+			&=\left[2\omega_1^2\left[cos(ka)-1\right]-\omega_2^2-\omega_1^2 r\right]^2+8w_1^2w_2^2\left(\cos(ka)-1\right)\\
+			&=\left[2\omega_1^2\left[cos(ka)-1\right]-\omega_2^2\right]^2+\omega_1^4 r^2+8w_1^2w_2^2\left(\cos(ka)-1\right)\\
+			&=\cdots\\
+			\Delta&>0
+		\end{aligned}\]
+	\end{enumerate}
+	
+	\textbf{\underline{Tracé des solutions :}} Il y a 2 cas : $\begin{cases}
+		\omega_2 <2\omega_1\\
+		\omega_2 = 2 \omega_1\\
+		\omega_2 > 2\omega_1
+	\end{cases}$ :
+	
+	\includegraphics[scale=.5]{photo10.png}
+	
+	Pour calculer le $k$ complexe dans la bande interdite, on doit résoudre $k(\omega)$. L'équation de dispersion peut se réécrire en notant : $\Omega_1^2 = \frac{\omega^2}{\omega_1^2}$ et $\Omega_2^2 = \frac{\omega^2}{\omega_2^2}$ :
+	
+	\[\implies  \lambda^2 + \left[\Omega_1^2+r\dfrac{\Omega_2^2}{1-\Omega_2^2}-2\right]+1 = 0\]
+	
+	\[k(\omega) = \frac{i}{a}\log\left[1-\frac{\Omega_1^2}{2}-\frac{r}{2}\frac{\Omega_2}{1-\Omega_2^2} \pm \sqrt{\left(\Omega_1^2+\frac{r\Omega_2^2}{1-\Omega_2^2}\right)\left(\Omega_1^2+\frac{r\Omega_2^2}{1-\Omega_2^2}-4\right)}\right]\]
+	
+	
+	
 	
 \end{document}
