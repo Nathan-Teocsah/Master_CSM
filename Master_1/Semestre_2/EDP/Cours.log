@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  18 JAN 2026 16:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  18 JAN 2026 16:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1567,17 +1567,17 @@ Overfull \hbox (119.04938pt too wide) in paragraph at lines 525--528
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 559--560
+Underfull \hbox (badness 10000) in paragraph at lines 555--556
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 561--576
+Underfull \hbox (badness 10000) in paragraph at lines 557--572
 
  []
 
 
-Overfull \hbox (18.73357pt too wide) in paragraph at lines 588--594
+Overfull \hbox (18.73357pt too wide) in paragraph at lines 584--590
 []$[][]$ 
  []
 
@@ -1585,7 +1585,7 @@ Overfull \hbox (18.73357pt too wide) in paragraph at lines 588--594
 \openout6 = `Cours.thm'.
 
 [10]
-runsystem(latexminted cleantemp  --timestamp 20260118162050 33C1869ABDF6A46508C
+runsystem(latexminted cleantemp  --timestamp 20260118162603 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -1620,7 +1620,7 @@ t/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
 pe1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public
 /lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.p
 fb>
-Output written on Cours.pdf (11 pages, 2098462 bytes).
+Output written on Cours.pdf (11 pages, 2098485 bytes).
 PDF statistics:
  200 PDF objects out of 1000 (max. 8388607)
  127 compressed objects within 2 object streams
