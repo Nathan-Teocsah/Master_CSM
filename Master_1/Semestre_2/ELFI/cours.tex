@@ -483,18 +483,18 @@
 	
 	\subsection{Triangulation $\mathbb{P}_1$ de Lagrange}
 	On considère un maillage constitué de triangles.\\
-	- $\m C_h$ est la triangulation \hspace{1cm} - $\m C_h$ est un ensemble de triangles.\\
-	- $\m C_h$ doit vérifier les propriétés suivantes :
+	- $\m T_h$ est la triangulation \hspace{1cm} - $\m T_h$ est un ensemble de triangles.\\
+	- $\m T_h$ doit vérifier les propriétés suivantes :
 	\begin{enumerate}
-		\item $\overline{\Omega}_h = \bigcup_{K \in \m C_h} K$ approximation polygonale de $\overline{\Omega}$, de bord $\Gamma_{N,h}$  et $\Gamma_{D,h}$ qui approchent $\Gamma_N$ et $\Gamma_D$.
-		\item $\forall K \in \m C_h, \text{ int}(K) \not = \emptyset$.
-		\item $\forall K_1,K_2 \in \m C_h$, \begin{minipage}[t]{10cm}
+		\item $\overline{\Omega}_h = \bigcup_{K \in \m T_h} K$ approximation polygonale de $\overline{\Omega}$, de bord $\Gamma_{N,h}$  et $\Gamma_{D,h}$ qui approchent $\Gamma_N$ et $\Gamma_D$.
+		\item $\forall K \in \m T_h, \text{ int}(K) \not = \emptyset$.
+		\item $\forall K_1,K_2 \in \m T_h$, \begin{minipage}[t]{10cm}
 			ou bien $\text{int}(K_1)\cap\text{int}(K_2)  = \emptyset$ \\
 		\end{minipage}
-		\item $\forall K'$ arrête de $K_1 \in \m C_h$, \begin{minipage}[t]{10cm}
+		\item $\forall K'$ arrête de $K_1 \in \m T_h$, \begin{minipage}[t]{10cm}
 			ou bien $K' \subset \Gamma_D$\\
 			ou bien $K' \subset \overline{\Gamma_N}$\\
-			ou bien $\exists K_2 \in \m C_h$  tel que $K'$ est aussi une arrête de $K_2$
+			ou bien $\exists K_2 \in \m T_h$  tel que $K'$ est aussi une arrête de $K_2$
 		\end{minipage}
 	\end{enumerate}
 	
@@ -503,5 +503,105 @@
 		
 		\includegraphics[scale =.5]{photo4.png}
 	\end{ex}
+	
+	\textbf{Après} avoir construit la triangulation $\m T_h$, on définit $h$ par :
+	
+	\begin{defi}
+		\begin{minipage}[t]{18cm}
+			Pour la triangulation $\m T_h$ on définit : $h := \displaystyle\max_{K \in \m T_h} \left(\text{diam}(K)\right)$.
+		\end{minipage}
+	\end{defi}
+	
+	\begin{rmq}
+		diam($K$) est le supremum de la distance entre deux points de $K$.
+	\end{rmq}
+	
+	\begin{defi}[$\mathbb{P}_1$ et $\mathbb{Q}_1$]
+		On définit :\\
+		\begin{minipage}{18cm}
+			$\mathbb{P}_1 =$ ensemble des polynôme de degré au plus 1 par rapport à \textbf{l'ensemble des} composantes.\\
+			$\mathbb{Q}_1 =$ ensemble des polynôme de degré au plus 1 par rapport à \textbf{chaque} composante.
+		\end{minipage}
+	\end{defi}
+	
+	\begin{rmq}
+		\begin{minipage}[t]{15cm}
+			$p \in \mathbb{P}_1$ si $p(x) = a_0 + a_1x_1 + a_2 x_2+ \cancel{a_3x_1x_2}$\\
+		$q \in \mathbb{Q}_1$ si $q(x) = a_0 + a_1x_1 + a_2x_2 + a_3x_1x_2$
+		\end{minipage}
+	\end{rmq}
+	
+	\hspace{-.5cm}\begin{minipage}{15cm}
+		On considère une approximation sur chaque triangle $K$ des fonctions basée sur l'approximation polynomiale $\mathbb{P}_1$ de Lagrange.
+	\end{minipage}\hspace{.5cm}\begin{minipage}{10cm}
+	\includegraphics[scale=.5]{photo5.png}
+	\end{minipage}
+	
+	\hspace{-.5cm}\begin{minipage}{15cm}
+		On considère les sommets ($a_i^K$) de $K$ comme noeuds de l'interpolation.
+	\end{minipage}\hspace{.5cm}\begin{minipage}{10cm}
+	\includegraphics[scale=.5]{photo6.png}
+	\end{minipage}
+	
+	\hspace{-.5cm}\textbf{\underline{Notation :}} On note $\lambda_i^k$ la fonction $\mathbb{P}_1$ sur $K$ telle que : \enc[3.3cm]{black}{$\lambda_i^K(a_i^K) = \delta_{i,j}$} pour $i = 1,2,3$.
+	
+	\hspace{-.5cm}Alors :
+	\hspace{-.5cm}\begin{enumerate}[label=$\star$]
+		\item $\left\{\lambda_1^K, \lambda_2^K, \lambda_3^K\right\}$ est une base de $\mathbb{P}_1(K)$.
+		
+		\item Soit $p \in \mathbb{P}_1(K)$ tel que pour tout $i$, $p(a_i^K) = \alpha_i$
+		
+		\[p = \displaystyle\sum_{i=1}^3 \alpha_i\lambda_i^K \hspace{1cm} p(a_j^K) = \sum_{i=1}^3 c_i\underbrace{\lambda_i^K(a_j^K)}_{\delta_{i,j}}\]
+		
+		Donc $c_j = \alpha_j$.
+		
+		\begin{defi}
+			On appelle les $\lambda_i^K$ les coordonnées barycentrique sur $K$.
+		\end{defi}
+		
+		\item $\displaystyle\sum_{i=1}^3 \lambda_i^K = 1$
+		
+		\item $x = \displaystyle\sum_{i=1}^3 a_i^K \lambda_i^K(x)$ pour $x = \left(\begin{matrix}
+			x_1\\
+			x_2
+		\end{matrix}\right) \in K$
+	\end{enumerate}
+	
+	\subsection{Espace discret, numérotation locale et globale, fonctions de base}
+	
+	\textbf{\underline{Notations :}}\begin{enumerate}[label=$\star$]
+		\item $\m N^K =$ ensemble des nœuds de $K$. $(K \in \m T_h)$\\
+		$N^K = \text{card}(\m N^K)$ (ici, cas $\mathbb{P}_1$, $N^K = 3$).
+		
+		\item  On a une propriété (vraie ici, pas systématiquement) :\\
+		\hspace*{1cm}\begin{minipage}[t]{10cm}
+			$K_1$ et $K_2$ dans $\m T_h$ tel que $K_1\cap K_2$ est une arrête commune
+			\begin{enumerate}[label=$\star$]
+				\item $\m N_1^K\cap K_2 = \m N^{K_2}\cap K_1$
+				\item $\mathbb{P}_1(K_1)_{K_1\cap K_2} = \mathbb{P}_1(K_2)_{K_1\cap K_2}$
+			\end{enumerate}
+		\end{minipage}
+		
+		\item $\m M_h = $ ensemble des nœuds de $\m T_h$\\
+		$M_h = \text{card}(\m M_h)$
+		
+		\item $\m N_h = $ ensemble des nœuds de $\m T_h$ qui ne sont pas sur $\Gamma_{D,h}$ (bord avec condition de Dirichlet).\\
+		$N_h = \text{card}(\m N_h)$
+		
+		\item Soit $m \in \m M_h, \m L_h(n) = \left\{K\in \m T_h; n \in \m N^K\right\}$
+	\end{enumerate}
+	
+	\begin{defi}[Espace fonctionnel discret]$ $\\
+		$W_h = \left\{v=(v_K)_{K\in \m T_h} \in \displaystyle\prod_{K\in \m T_h}; \forall n \in \m M_h, \forall K_1,K_2 \in \m L_h(n) : v_{K_1}(n) = v_{K_2}(n)\right\}$\\\\
+		$V_h = \left\{v \in W_h; \forall n \in \m M_h\cap\Gamma_{D,h},\forall K\in \m L_h(n), v_K(n) = 0\right\}$
+	\end{defi}
+	
+	\underline{Ici}, \begin{minipage}[t]{18cm}
+		on peut vérifier que : soit $v \in W_h$,\\
+		$\forall K_1, K_2 \in \m T_h$ tel que $K_1\cap K_2 =$ une arrête commune.\\
+		\hspace*{1cm} $v_{K_1}\big|_{K_1\cap K_2} = v_{K_2}\big|_{K_1\cap K_2}$ : propriété de continuité à l'intersection au niveau des arrêtes.\\
+		
+		$W_h \subset \m C(\Omega)$ et on peut écrire :
+	\end{minipage}
 
 \end{document}
