@@ -9,6 +9,7 @@
 \usepackage{bbold}
 \usepackage{minted}
 \setminted{xleftmargin=-1cm,tabsize=3,gobble=1,framesep=10mm,baselinestretch=.85}
+\usepackage{enumitem}
 
 
 % Mise en page
@@ -122,6 +123,12 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
-\newcommand{\enc}[2]{\begin{tcolorbox}[colback=white, colframe=#1, arc=1mm, boxrule=1pt]#2\end{tcolorbox}}
+\newcommand{\enc}[3][\textwidth]{%
+  \begin{minipage}{#1}%
+    \begin{tcolorbox}[colback=white, colframe=#2, arc=1mm, boxrule=1pt]%
+      #3%
+    \end{tcolorbox}%
+  \end{minipage}%
+}
 \newcommand{\rouge}[1]{\textcolor{red}{#1}}
 \newcommand*\abs[1]{\left\lvert #1 \right\rvert}
