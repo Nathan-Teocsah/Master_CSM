@@ -19,14 +19,19 @@ void Creer_maillage(double a, double b, double c, double d, int n1, int n2, int 
     }
   }
   
+  //=============== ECRITURE DES COORDONNEE LOCALES============================
+  
+  //Création du tableau nRefAr
+  nRefAr = Tableau de 4 colonnes et (n1-1)*(n2-1) lignes initiailisé à 0 !!
+  
   m = (n1 - 1)*(n2 - 1); // Nombre d'éléments (triangle ou quadrangle)
   switch t {
 	  case 1 : // t = 1 : quadrangle
 	    p = 4; // p = 4 (nombre de noeuds par éléments)
 	    ecrire dans fichier : m, t, p 
-	    for (int i = 0; i < (n1-2); i++) // boucle sur les lignes
+	    for (int i = 0; i < (n1-1); i++) // boucle sur les lignes
 	    {
-	      for (int j = 0; j< (n2-2); p++) // boucle sur les colonnes
+	      for (int j = 0; j < (n2-1); p++) // boucle sur les colonnes
 	      {
 	        int e0 = 2 + n1 * i + j ; //On récupère le numéro global du 1er sommet de l'élément (i+1)*(j+1)
 	        ecrire dans le fichier : e0, e0 + n1, e0 + n1 - 1, e0 - 1   
@@ -37,9 +42,9 @@ void Creer_maillage(double a, double b, double c, double d, int n1, int n2, int 
 	    m = 2*m;
 	    p = 3; // p = 3
 	    excrire dans le fichier : m, t, p
-	    for (int i = 0; i < (n1-2); i ++) // boucle sur les lignes
+	    for (int i = 0; i < (n1-1); i ++) // boucle sur les lignes
 	    {
-	      for (int j = 0; j< (n2-2); p++) // boucle sur les colonnes
+	      for (int j = 0; j< (n2-1); p++) // boucle sur les colonnes
 	      {
 	        int e0 = 2 + n1 * i + j ; //On récupère le numéro global du 1er sommet du triangle du bas
 	        ecrire dans le fichier : e0, e0 + n1, e0- 1 // Triangle du bas
@@ -47,3 +52,6 @@ void Creer_maillage(double a, double b, double c, double d, int n1, int n2, int 
 	      }
 	    }
   }
+  
+  
+  
