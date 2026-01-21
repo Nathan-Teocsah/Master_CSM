@@ -78,6 +78,12 @@
 \renewtheorem{Remark}{Remarque}
 \newtheorem{rmq}{Remarque}
 
+\newtheorem{Exercice}{Exercice}
+
+\newtheorem{Brouillon}{Brouillon}
+
+\newtheorem{Solution}{Solution}
+
 \newcommand{\theoremcolorbox}[2]{%
 	\def\theoremframecommand##1{%
 		\begin{tcolorbox}[
@@ -116,6 +122,18 @@
 \theoremcolorbox{gray}{white}
 \newshadedtheorem{ex}[Example]{Exemple}
 
+\definecolor{mygray}{gray}{0.9}
+\theoremcolorbox{blue}{mygray}
+\newshadedtheorem{exo}[Exercice]{Exercice}
+
+\colorlet{myblack}{black!50}
+\theoremcolorbox{myblack}{white}
+\newshadedtheorem{brouillon}[Brouillon]{Brouillon}
+
+\definecolor{myyellow}{rgb}{0.95,0.9,0.6}
+\theoremcolorbox{white}{myyellow}
+\newshadedtheorem{sol}[Solution]{Solution}
+
 %% Autre
 \newcommand{\m}{\mathcal}
 \newcommand{\re}{\operatorname{Re}}
@@ -123,7 +141,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
-\newcommand{\enc}[3][\textwidth]{%
+\newcommand{\enc}[3][\textwidth]{
   \begin{minipage}{#1}%
     \begin{tcolorbox}[colback=white, colframe=#2, arc=1mm, boxrule=1pt]%
       #3%

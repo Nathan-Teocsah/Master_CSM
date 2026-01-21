@@ -59,7 +59,12 @@
 		
 	\end{titlepage}
 	
+	\tableofcontents
+	
+	\newpage
+	
 	\section{Dynamique de $N$ particules en interaction}
+	\subsection{Formulation}
 	
 	\fbox{\red !} $N$ particules identiques, décrites classiquement par les équations de Newton \fbox{\red !}\\
 	On ne part pas des équations de Schrödinger. 
@@ -77,7 +82,7 @@
 		\begin{minipage}{18cm}
 			Force subie par la terre du fait du Soleil : $-G\dfrac{Mm}{\|x\\|^2}\dfrac{x}{\|x\|} = -\dfrac{GMm}{\|T-S\|^3}(T-S)$.\\
 			
-		Force subie par le Soleil du fait de la Terre : $-G\dfrac{Mm}{\|x\|^2}\dfrac{x}{\|x\|} = -\dfrac{GMm}{\|T-S\|^3}(T-S)$.
+			Force subie par le Soleil du fait de la Terre : $-G\dfrac{Mm}{\|x\|^2}\dfrac{x}{\|x\|} = -\dfrac{GMm}{\|T-S\|^3}(T-S)$.
 		\end{minipage}
 		
 		\includegraphics[scale = .5]{photo3.png}
@@ -107,7 +112,7 @@
 	
 	avec \begin{minipage}[t]{15cm}
 		$x_1^0,\ldots, x_N^0,$ positions initiales, données, chacune dans $\R^3$\\
-	 $v_1^0,\ldots, v_N^0,$ vitesses initiales, données , chacune dans $\R^3$
+		$v_1^0,\ldots, v_N^0,$ vitesses initiales, données , chacune dans $\R^3$
 	\end{minipage}
 	
 	$\longrightarrow$ EDO d'ordre 2, en dimension $3N$ , avec typiquement, $N \simeq$ nombre d'Avogadro $\simeq 10^{23}$.\\
@@ -115,7 +120,7 @@
 	
 	\par Cauchy-Lipschitz affirme que ce système admet une solution unique : d'où, $x_1(t),v_1(t),$ etc. sont entièrement déterminés par les données initiales.\\
 	\textbf{\underline{Question :}} Que se passe t'il lorsque $N \to +\infty$ ?
-
+	
 	\par \underline{On a ici 2 limites naturelles :}\\
 	\hspace*{2cm}\begin{minipage}[t]{17.5cm}
 		\begin{enumerate}
@@ -126,7 +131,7 @@
 			exemple typique de boule de billard de rayon $\epsilon$.
 			
 			\includegraphics[scale = .5]{photo4.png}				
-		
+			
 			On assure $N\epsilon^2 = 1$ ($N\epsilon^2 =$ sommes de valeurs explorés par chaque particule), ceci assure (à vue de nez au moins) que en temps 1 on a de l'ordre 1 collision.\\
 			$\rightarrow$ Dans ce régime de convergence, on a convergence, lorsque $N \to +\infty$ vers l'équation de Boltzmann.
 		\end{enumerate}
@@ -139,12 +144,12 @@
 	On part de Newton.\\
 	$\dfrac{d^2 x_i}{dt^2}(t) = \displaystyle\sum_{j=1}^F(x_i(t)-x_j(t))$ pour $i = 1,\ldots,N$ et $F$ connue, avec par exemple : $F(x) = -Gm^2\dfrac{x}{\|x\|^3}$,\\
 	avec \begin{minipage}[t]{4cm}
-			$x_i(0) = x_i^0$ connue.\\
-			$v_i(0) = v_i^0$ connue.
-		\end{minipage}
-		\begin{minipage}[t]{10cm}
-			\textbf{Soit $T$ l'ordre de grandeur de l'échelle temporelle}
-		\end{minipage}
+		$x_i(0) = x_i^0$ connue.\\
+		$v_i(0) = v_i^0$ connue.
+	\end{minipage}
+	\begin{minipage}[t]{10cm}
+		\textbf{Soit $T$ l'ordre de grandeur de l'échelle temporelle}
+	\end{minipage}
 	
 	\textbf{$X$ l'ordre de grandeur de l'échelle spatiale} (si le travail a été bien fait).\\
 	les $v_i^0$ et les $v_i(t)$ vont demeurer de l'ordre de $\frac{X}{T}$.\\
@@ -159,17 +164,17 @@
 	Avec ces notations, les équations de Newton s'écrivent :
 	\begin{center}
 		
-	$\begin{cases}
-		m \dfrac{d^2 X_N}{dt^2}(t) = f(X_N(t)) \text{ où } f : \alpha \mapsto \left(\displaystyle\sum_{\underset{j\not = 1}{j=1}}^N F(\alpha_1-\alpha_j),\ldots,\sum_{\underset{j\not = N}{j=1}}^N F(\alpha_N-\alpha_j)\right)\\
-		X_N(0) = X_N^0, V_N(0) = V_N^0
-	\end{cases}$
+		$\begin{cases}
+			m \dfrac{d^2 X_N}{dt^2}(t) = f(X_N(t)) \text{ où } f : \alpha \mapsto \left(\displaystyle\sum_{\underset{j\not = 1}{j=1}}^N F(\alpha_1-\alpha_j),\ldots,\sum_{\underset{j\not = N}{j=1}}^N F(\alpha_N-\alpha_j)\right)\\
+			X_N(0) = X_N^0, V_N(0) = V_N^0
+		\end{cases}$
 	\end{center}
 	
 	\underline{Adimensionnons ce système :} \begin{minipage}[t]{15cm}
 		Posons $t = T \overset{\sim}{t}$ \hspace{1cm} \begin{minipage}[t]{4 cm}
-														où $\overset{\sim}{t}$  est d'ordre $1$ et $\overset{\sim}{t}$  est sans dimension.
-													\end{minipage}\\		
-	$x_i(t) = X_i(\overset{\sim}{t}) = X_i\left(\frac{t}{T}\right)$
+			où $\overset{\sim}{t}$  est d'ordre $1$ et $\overset{\sim}{t}$  est sans dimension.
+		\end{minipage}\\		
+		$x_i(t) = X_i(\overset{\sim}{t}) = X_i\left(\frac{t}{T}\right)$
 	\end{minipage}
 	
 	De manière équivalente, on pose : $x_n(T) := x\overset{\sim}{X}_N\left(\frac{t}{T}\right)$.
@@ -212,52 +217,59 @@
 	où $G : \alpha \in \R^{3 \times N} \mapsto G(\alpha) = \left(\displaystyle\sum_{\underset{j\not = 1}{j=1}}^N F(x_1-x_j),\ldots,\sum_{\underset{j\not = N}{j=1}}^N F(\alpha_N-\alpha_j)\right)$\\ 
 	et $F : \R^3 \to \R^3$ de classe $\m C^k$ avec $k \geq 1$.
 	
-	\par On souhaite procéder à la limite $N \to \infty$ dans ces équations (EDO en dimension $3\times $ (gros problème topologique, non linéaires)).\\
+	\par On souhaite procéder à la limite $N \to \infty$ dans ces équations (EDO en dimension $3\times $ (gros problème topologique, non linéaires)).
+	
+	\subsection{Fonction de répartition}
 	
 	\enc{red}{
-	\underline{\textbf{Idée profonde :}} au lieu de se donner un jeu de données inutiles dons notre équation de Newton, on se donne une fonction $f^0(x_1^0,v_1^0,x_2^0,v_2^0,\ldots,x_N^0,v_N^0)$, dite fonction de répartition (ou fonction de densité) qui permet de dire :
+		\underline{\textbf{Idée profonde :}} au lieu de se donner un jeu de données inutiles dons notre équation de Newton, on se donne une fonction $f^0(x_1^0,v_1^0,x_2^0,v_2^0,\ldots,x_N^0,v_N^0)$, dite fonction de répartition (ou fonction de densité) qui permet de dire :
+		
+		\[
+		\mathbb{P}\left(x_1^0\in \Omega_1,v_1^0 \in O_1,\ldots,x_N^0 \in \Omega_N,v_N^0\in O_n \right) = \displaystyle\underset{\Omega_1\times O_1\times\cdots\times\Omega_N\times O_N}{\int}f^0(x_1^0,v_1^0,\ldots,x^0_N,v^0_N) dx_1^0dv_1^0\cdots dx_N^0dv_N^0
+		\]
+	}
 	
-	\[
-	\mathbb{P}\left(x_1^0\in \Omega_1,v_1^0 \in O_1,\ldots,x_N^0 \in \Omega_N,v_N^0\in O_n \right) = \displaystyle\underset{\Omega_1\times O_1\times\cdots\times\Omega_N\times O_N}{\int}f^0(x_1^0,v_1^0,\ldots,x^0_N,v^0_N) dx_1^0dv_1^0\cdots dx_N^0dv_N^0
-	\]
-}
 	\fbox{\begin{minipage}[t]{17cm}
-	\underline{Affirmation :} \enc{blue}{\begin{minipage}[t]{16.5cm}
-		 La fonction de répartition $f(t,x_1,t_1,\ldots,x_N,t_N)$ et le flot des équations de Newton : $\left(X_1(t,t_0,x^0_1,\ldots,v^0_N),V_1(t,t_0,x^0_1,\ldots,v^0_N),\ldots,X_N(t,t_0,x^0_1,\ldots,v^0_N),V_N(t,t_0,x^0_1,\ldots,v^0_N)\right)	$\\
-		 Vérifie :
-		 \begin{center}
-		 	$f\left(t,X_1(t,t_0,x^0_1,\ldots,v^0_N),V_1(t,t_0,x^0_1,\ldots,v^0_N),\ldots,X_N(t,t_0,x^0_1,\ldots,v^0_N),V_N(t,t_0,x^0_1,\ldots,v^0_N)\right)$\\
-		 	$=$\\
-		 	$f^0(x^0_1,v^0_1,\ldots,x^0_N,v^0_N)$
-		 \end{center}
+			\underline{Affirmation :} 
+			
+			\enc[17cm]{blue}{
+					La fonction de répartition $f(t,x_1,t_1,\ldots,x_N,t_N)$ et le flot des équations de Newton : $\left(X_1(t,t_0,x^0_1,\ldots,v^0_N),V_1(t,t_0,x^0_1,\ldots,v^0_N),\ldots,X_N(t,t_0,x^0_1,\ldots,v^0_N),V_N(t,t_0,x^0_1,\ldots,v^0_N)\right)	$\\
+					Vérifie :
+					\begin{center}
+						$f\left(t,X_1(t,t_0,x^0_1,\ldots,v^0_N),V_1(t,t_0,x^0_1,\ldots,v^0_N),\ldots,X_N(t,t_0,x^0_1,\ldots,v^0_N),V_N(t,t_0,x^0_1,\ldots,v^0_N)\right)$\\
+						$=$\\
+						$f^0(x^0_1,v^0_1,\ldots,x^0_N,v^0_N)$
+					\end{center}}
 	\end{minipage}}
-		\end{minipage}}
-
+	
 	\underline{\textbf{Notation :}} \begin{minipage}[t]{15cm}
-										$N$ particules \begin{minipage}[t]{15cm}
-											\begin{center}
-												$\left(\overbrace{X_1(t,0,\ldots)}^{flot},V_1(t,0,\ldots),\ldots,X_n(t,0,\ldots),V_N(t,0,\overbrace{x_1^0,v_1^0}^{=z_1^0 \in \R^6},\ldots,\overbrace{x_N^0,v_N^0}^{=z_N^0 \in \R^6})\right)$\\
-											$ = $\\
-											$Z_N(t,0,Z_N^0)$
-											\end{center}
-											,où $Z_n^0 = \left(z_1^0,\ldots,z_N^0\right) \in \R^{6N}$.
-										\end{minipage}
-										Et $Z_N(t,0,Z_N^0)$ est le flot des équations de Newtons que nous considérons.
-									\end{minipage}
-									
+		$N$ particules \begin{minipage}[t]{15cm}
+			\begin{center}
+				$\left(\overbrace{X_1(t,0,\ldots)}^{flot},V_1(t,0,\ldots),\ldots,X_n(t,0,\ldots),V_N(t,0,\overbrace{x_1^0,v_1^0}^{=z_1^0 \in \R^6},\ldots,\overbrace{x_N^0,v_N^0}^{=z_N^0 \in \R^6})\right)$\\
+				$ = $\\
+				$Z_N(t,0,Z_N^0)$
+			\end{center}
+			,où $Z_n^0 = \left(z_1^0,\ldots,z_N^0\right) \in \R^{6N}$.
+		\end{minipage}
+		
+		\vspace{.5cm}
+		
+		Et $Z_N(t,0,Z_N^0)$ est le flot des équations de Newtons que nous considérons.
+	\end{minipage}
+	
 	\underline{\textbf{Reformulation :}} \begin{minipage}[t]{15cm}
 		Nous avions introduit la répartition initiales des particules :
 		\[f^0(x_1^0,v_1^0,\ldots,x_N^0,v_N^0) = f^0(Z_N^0)\]
 		et la répartition à l'instant $t$ associée $f(t,x_1,v_1,\ldots,x_N,v_N) = f(t,Z_N^0)$\\
 		
-		\underline{Affirmation :} \enc{blue}{\begin{center}
-										 	$f(t,Z_N(t,0,Z_N^0)) = f^0(Z_N^0)$\\
-										 	
-										 	\vspace{.5cm}
-										 	
-										 	\includegraphics[scale=.5]{photo5.png}
-										 	\end{center}}
-									 	
+		\underline{Affirmation :} \enc[10cm]{blue}{\begin{center}
+				$f(t,Z_N(t,0,Z_N^0)) = f^0(Z_N^0)$\\
+				
+				\vspace{.5cm}
+				
+				\includegraphics[scale=.5]{photo5.png}
+		\end{center}}\\
+		
 		En effet : $Z_N^0 \in \Omega \iff Z_N(t,0,Z_N^0) \in Z_N(t,0,\Omega)$ car le flot :\\
 		est, par exemple, $f^0(\alpha) = \mathbb{1}_\Omega(\alpha)$ pour un certain ouvert $\Omega \subset \R^{6N}$. 
 		\begin{center}
@@ -274,7 +286,7 @@
 		\end{minipage} \begin{minipage}{10cm}
 			Soit $f^0(\alpha) = 1 \iff f(t,Z_N(t,0,\alpha)) = 1$.\\
 			c'est-à-dire $\forall \alpha \in \R^{6N}$\\
-			 $f(t,Z_N(t,0,\alpha)) = f^0(\alpha)$
+			$f(t,Z_N(t,0,\alpha)) = f^0(\alpha)$
 		\end{minipage}
 	\end{minipage}
 	
@@ -285,66 +297,64 @@
 	\vspace{-.05cm}
 	
 	\textbf{\underline{Petit Calcul :}} \begin{minipage}[t]{16cm}
-			Soit l'EDO $x'(\alpha) = g(x(t))$ où $g$ est donnée, par exemple, par : $ g(\alpha) = \alpha(1-\alpha)$; $\alpha\in\R$.\\
-			$\rightarrow$ Son flot est noté $X(t,0,x_0)$. On se donne une répartition : $f^0(x_0)$
-			
-			\begin{center}
-				\includegraphics[scale=.25]{photo7.png}
-			\end{center}
-			
-			
-			et on se donne une fonction $f(t,x)$ qui vérifie $f(t,X(t,0,x_0)) = f^0(x_0)$\\
-			\hspace*{-.5cm} Or : $\begin{aligned}[t]
-				\dfrac{d}{dt}f(t,X(t,0,x_0)) 
-				&\overset{\text{chain rule}}{=} 1\left(\dfrac{\partial f}{\partial t}\right)(t,X(t,0,x_0))+\underbrace{\left(\dfrac{dX(t,0,x_0)}{dt}\right)}_{\rouge{=g(X(t,0,x_0))}}\cdot\left(\dfrac{\partial f}{\partial x}\right)(t,,X(t,0,x_0))\\
-				&\overset{EDO}{=} \left(\dfrac{\partial f}{\partial t}\right)(t, X(t,0,x_0)) + g(X(t,0,x_0))\cdot\left(\dfrac{\partial f}{\partial x}\right)(t,X(t,0,x_0))\\
-				&\overset{rappel}{=} 0
-			\end{aligned}$
+		Soit l'EDO $x'(\alpha) = g(x(t))$ où $g$ est donnée, par exemple, par : $ g(\alpha) = \alpha(1-\alpha)$; $\alpha\in\R$.\\
+		$\rightarrow$ Son flot est noté $X(t,0,x_0)$. On se donne une répartition : $f^0(x_0)$
+		
+		\begin{center}
+			\includegraphics[scale=.25]{photo7.png}
+		\end{center}
+		
+		
+		et on se donne une fonction $f(t,x)$ qui vérifie $f(t,X(t,0,x_0)) = f^0(x_0)$\\
+		\hspace*{-.5cm} Or : $\begin{aligned}[t]
+			\dfrac{d}{dt}f(t,X(t,0,x_0)) 
+			&\overset{\text{chain rule}}{=} 1\left(\dfrac{\partial f}{\partial t}\right)(t,X(t,0,x_0))+\underbrace{\left(\dfrac{dX(t,0,x_0)}{dt}\right)}_{\rouge{=g(X(t,0,x_0))}}\cdot\left(\dfrac{\partial f}{\partial x}\right)(t,,X(t,0,x_0))\\
+			&\overset{EDO}{=} \left(\dfrac{\partial f}{\partial t}\right)(t, X(t,0,x_0)) + g(X(t,0,x_0))\cdot\left(\dfrac{\partial f}{\partial x}\right)(t,X(t,0,x_0))\\
+			&\overset{rappel}{=} 0
+		\end{aligned}$
 	\end{minipage}
 	
-	\enc{red}{\textbf{\underline{Conclusion :}} \begin{minipage}[t]{15cm}
-		$\forall t, x$
-		\[
+	\hspace{-.8cm}\enc{red}{\textbf{\underline{Conclusion :}} \begin{minipage}[t]{15cm}
+			$\forall t, x$
+			\[
 			\dfrac{\partial f}{\partial t}(t,x) + g(x)\dfrac{\partial f}{\partial x}(t,x) 
 			= \left(\dfrac{\partial f}{\partial t} + g\dfrac{\partial f}{\partial x}\right)(t,\underbrace{X(t,0,\overbrace{X(0,t,x)}^{\overset{(det)}{=x_0}})}_{\text{(rel de groupe pour le flot)} })=0
-		\]
+			\]
 	\end{minipage}}
 	
-	\enc{red}{\textbf{\underline{Conclusion :}} \begin{minipage}[t]{15cm}
-		l'EDO $x'(t) = g(x(t))$ se traduit, pour la fonction $f$, transposée par le flot grâce à :
-		\[
-		f(t,X(t,0,x_0)) = f^0(x_0) \text{ , par l'EDP}
-		\]
-		(Dites du transport)
-		
-		\[
-		\begin{cases}
-			\dfrac{\partial f}{\partial t} (t,x) + g(x) \dfrac{\partial f}{\partial x}(t,x) = 0\\
-			f(t=0,x) = f^0(x)
-		\end{cases}
-		\]
+	\hspace{-.8cm}\enc{red}{\textbf{\underline{Conclusion :}} \begin{minipage}[t]{15cm}
+			l'EDO $x'(t) = g(x(t))$ se traduit, pour la fonction $f$, transposée par le flot grâce à :
+			\[
+			f(t,X(t,0,x_0)) = f^0(x_0) \text{ , par l'EDP}
+			\]
+			(Dites du transport)
+			
+			\[
+			\begin{cases}
+				\dfrac{\partial f}{\partial t} (t,x) + g(x) \dfrac{\partial f}{\partial x}(t,x) = 0\\
+				f(t=0,x) = f^0(x)
+			\end{cases}
+			\]
 	\end{minipage}}
-	
-	\vspace{-.4cm}
 	
 	\begin{ex}[$g(\alpha) = 1$]$ $\\
 		\begin{minipage}[t]{18cm}
 			\fbox{$g(\alpha) = 1$} $\begin{cases}
-		\text{EDO : } \begin{cases}
-			x'(t) = 1\\
-			x(0) = x_0
-		\end{cases} \text{ d'où } X(t,0,x_0) = x_0+t\\\\
-		\text{ EDP } \begin{cases}
-			\dfrac{\partial f}{\partial t}(t,x) + \dfrac{\partial f}{\partial x}(t,x) = 0\\ 
-			f(t=0,x) = f^0(x)
-		\end{cases}\rightarrow f(t,x) = f^0(x-t)
-	\end{cases}$
-	
-	\vspace{.5cm}
-	
-	\begin{minipage}[t]{18cm}
-		\includegraphics[scale=.3]{photo8.png}\hspace{.2cm}\includegraphics[scale=.4]{photo9.png}\hspace{.2cm}\includegraphics[scale=.45]{photo10.png}
-	\end{minipage}
+				\text{EDO : } \begin{cases}
+					x'(t) = 1\\
+					x(0) = x_0
+				\end{cases} \text{ d'où } X(t,0,x_0) = x_0+t\\\\
+				\text{ EDP } \begin{cases}
+					\dfrac{\partial f}{\partial t}(t,x) + \dfrac{\partial f}{\partial x}(t,x) = 0\\ 
+					f(t=0,x) = f^0(x)
+				\end{cases}\rightarrow f(t,x) = f^0(x-t)
+			\end{cases}$
+			
+			\vspace{.5cm}
+			
+			\begin{minipage}[t]{18cm}
+				\includegraphics[scale=.3]{photo8.png}\hspace{.2cm}\includegraphics[scale=.4]{photo9.png}\hspace{.2cm}\includegraphics[scale=.45]{photo10.png}
+			\end{minipage}
 		\end{minipage}
 	\end{ex}
 	
@@ -377,13 +387,13 @@
 		x'(t) = g(t,x(t)) \\
 		x(0) = x_0 \in \R^d
 	\end{cases}$, où $g : \begin{aligned}[t]
-							\R \times \R^d
-							& \to 
-							&\R^d\\
-							(t,\alpha)
-							& \mapsto
-							& g(t,\alpha)
-						\end{aligned}$ est donnée.
+		\R \times \R^d
+		& \to 
+		&\R^d\\
+		(t,\alpha)
+		& \mapsto
+		& g(t,\alpha)
+	\end{aligned}$ est donnée.
 	\begin{ex}[Newton] On considère :
 		
 		\[
@@ -395,11 +405,11 @@
 		\]
 		
 		,où $G : \begin{aligned}[t]
-					\R \times \R^3
-					& \to \R^3\\
-					(t,\alpha) 
-					&\mapsto G(t,\alpha)
-				\end{aligned}$. Soit $f^0 :\R^d \to \R$ (ou $\R_ +$).
+			\R \times \R^3
+			& \to \R^3\\
+			(t,\alpha) 
+			&\mapsto G(t,\alpha)
+		\end{aligned}$. Soit $f^0 :\R^d \to \R$ (ou $\R_ +$).
 	\end{ex}
 	
 	On définit $f(t,x)$ à travers :
@@ -419,13 +429,13 @@
 	\]
 	
 	\enc{red}{\textbf{\underline{Conclusion :}} \begin{minipage}[t]{11cm}
-		$\forall t, \forall x$
-		\[
-		0 = \left(\dfrac{\partial f}{\partial t}(t,z) + g(t,z)\nabla_zf(t,z)\right)(t,z=X(t,0,x))
-		\]
-		Soit $(t,x)$ fixé. Posons : $z = X(t,0,x)$ ($\iff x = X(0,t,z)$)
+			$\forall t, \forall x$
+			\[
+			0 = \left(\dfrac{\partial f}{\partial t}(t,z) + g(t,z)\nabla_zf(t,z)\right)(t,z=X(t,0,x))
+			\]
+			Soit $(t,x)$ fixé. Posons : $z = X(t,0,x)$ ($\iff x = X(0,t,z)$)
 	\end{minipage}}
-
+	
 	On a par (3) :
 	\[
 	\forall t,\forall z, \dfrac{\partial f}{\partial t}(t,z) + g(t,z) \cdot \left(\nabla_xf\right)(t,z) = 0
@@ -464,7 +474,7 @@
 		\end{cases}$}
 	
 	avec $z = (x_1,v_1,\ldots,x_N,v_N)$.
-
+	
 	$X_i(t=0,0,z) = x_i$
 	
 	$V_i(t=0,0,z) = v_i$
@@ -489,6 +499,8 @@
 	\end{minipage}
 	
 	\newpage
+	
+	\subsection{Marginale de $f$}
 	
 	\underline{\underline{\textbf{Idée :}}} introduire les marginales de $f$, définies par :
 	
@@ -542,19 +554,19 @@
 	On observe que :
 	
 	\begin{enumerate}
-		\item $\begin{aligned}[t]
+		\item[$(1)$] $\begin{aligned}[t]
 			\dfrac{\partial}{\partial t} f_N^1(t,x_1,v_1) 
 			&= \dfrac{\partial}{\partial t} \int f(t,\ldots) dx_2dv_2 \cdots dx_N dv_N\\
 			&= \int \dfrac{\partial f}{\partial t}(t,\ldots) dx_2 dv_2 \ldots dx_N dv_N
 		\end{aligned}$
 		
-		\item ($k=1$), $\displaystyle\int v_1 \cdot \nabla_{x_1} f(t,\ldots) dx_2 dv_2 \ldots dx_N dv_N = v_1 \nabla_{x_1}\left[\int f(t,\ldots)dx_1\ldots dv_N\right] = v_1 \cdot \nabla_{x_1} f_N^1$
+		\item[$(2)$] ($k=1$), $\displaystyle\int v_1 \cdot \nabla_{x_1} f(t,\ldots) dx_2 dv_2 \ldots dx_N dv_N = v_1 \nabla_{x_1}\left[\int f(t,\ldots)dx_1\ldots dv_N\right] = v_1 \cdot \nabla_{x_1} f_N^1$
 		
 		\hspace{-.6cm}$(k \not= 1)$, $\displaystyle\int v_k \cdot \nabla_{x_k} f(t,\ldots) dx_2dv_2 \ldots dx_N dv_N = -\int f(t,\ldots)\text{div}_{x_1}(v_k) dx_2 \cdots dv_N = 0$
-			
+		
 		\rouge{\underline{Rappel :}} $\displaystyle \int_{\R^d} u(y) \cdot \nabla_y \phi(y) dy = - \int \phi(y)\text{div}_y(u(y)) dy$\\
 		
-		\item $(k=1)$, $\begin{aligned}[t]
+		\item[$(3)$] $(k=1)$, $\begin{aligned}[t]
 			&\displaystyle\int \frac{1}{N} \sum_{\underset{j\not=1}{j=1}}^N F(x_1-x_j)\cdot \nabla_{v_1} f dx_1 \cdots dv_N\\
 			=
 			&\frac{1}{N} \displaystyle\sum_{\underset{j\not=1}{j=1}}^N \int F(x_1-x_j) \cdot \nabla_{v_1} f(t,\ldots)\\
@@ -598,8 +610,190 @@
 		&= \cdots f_N^{k+1} \cdots
 	\end{aligned}$
 	
+	\newpage
 	
+	\subsection{Passage à la limite}
+	
+	\hspace{-.8cm}\enc[19.5cm]{red}{On a vu que les marginales $f_N^k(t,x_1,v_1,\ldots,x_k,v_k)$ vérifient :
+	
+	$\dfrac{\partial f_N^1}{\partial t}(t,x_1,v_1) + v_1\cdot\nabla_{x_1}f_N^1 + \dfrac{N-1}{N} \displaystyle\int F(x_1-x_2)\nabla_{v_1} f_N^2(t,x_1,v_1,x_2,v_2) = 0$\\
+	
+	$\dfrac{\partial f_N^2}{\partial t} + v_1 \nabla_{x_2}f_N^2 + \dfrac{N-2}{N}\left[\displaystyle\int F(x_1-x_3)\nabla_{v_1} f_N^3 + F(x_2-x_3)\nabla_{v_2}f_N^3\right] + \dfrac{1}{N}\nabla_{v_1} f_N^2 + \dfrac{1}{N}F(x_2-x_1)\cdot\nabla_{v_2}f_N^2 = 0$}
+	
+	\underline{Quand $N \to \infty$ :} \begin{minipage}[t]{16cm}
 		
+		\vspace{-.25cm}
+		
+		\begin{enumerate}
+		\item  Chaque suite de fonction $f_N^k$ possède naturellement une limite (\underline{\underline{faible}}, au sens des distributions), lorsque $N\to\infty$, notée $f^k$.
+		
+		\item  On saura donc passer à la limite(faible) dans les EDP linéaires satisfaites par les $f_N^k$.
+	\end{enumerate}
+	\end{minipage}
+	
+	
+	
+	\hspace{-.8cm}\enc[19.5cm]{red}{\underline{A la limite on a :}\\
+		
+		$(S)\begin{cases}
+		\dfrac{\partial}{\partial t} f^1(t,x_1,v_1) + v_1\cdot\nabla_{x_1} f^1 + \displaystyle\int_{\R^6} F(x_1-x_2)\cdot\nabla_{v_1}f^2(t,x_1,v_1,x_2,v_2) dx_2 dv_2 = 0\\\\	
+		\dfrac{\partial }{\partial t} f^2(t,x_1,v_1,x_2,v_2) + v_1 \nabla_{x_1}f^2 + v_2\nabla_{x_2}f^2 + \displaystyle\int\left[F(x_1-x_3)\cdot\nabla_{v_1}f^3 + F(x_2-x_3)\nabla_{v_2} f^3\right]dx_3v_3 = 0
+	\end{cases}$}\\
+	
+	\rouge{\fbox{!}} le terme \rouge{d'autointeraction} disparaît \rouge{\fbox{!}}
+	
+	\vspace{.5cm}
+		
+	\hspace{-.8cm}Nous avons supposé $f^0(x,x_1,v_1,\cdots,x_N,v_N) = g^0(x_1,v_1)\times\cdots\times g^0(x_N,v_N)$ (indépendance des particules).
+	
+	D'où : \begin{minipage}[t]{18cm}
+		$f^1(t=0,x_1,v_1) = g^0(x_1,v_1)$
+		
+		$f^2(t,x_1,v_1,x_2,v_2) = g^0(x_1,v_1)g^0(x_2,v_2)$
+		
+		etc.
+	\end{minipage}
+	
+	\textbf{\underline{Si}} l'indépendance initiale des particules demeure vraie aux instants $t>0$ ultérieure, ainsi que l'hypothèse de distribution identique,\\
+	\textbf{\underline{Alors}} $f^2(t,x_1,v_1,x_2,v_2) = f^1(t,x_1,v_1)\times f^1(t,x_2,v_2)$ et $\forall k, f^k(t,x_1,v_1,\cdots,x_k,v_k) = f^1(t,x_1,v_1) \times\cdots\times f^1(t,x_k,v_k)$.
+	
+	Ainsi nécessairement, l'eq sur $f^1$ devient : \\
+	
+	\enc{lightgray}{\[\dfrac{\partial f^1}{\partial t}(t,x_1,v_1) + v_1\nabla_{x_1}f^1 + \displaystyle\int_{\R^6} F(x_1-x_2)\nabla_{v_1}\left[f^1(t,x_1,v_1)f^1(t,x_2,v_2)\right]=0 \text{\hspace{1cm} (Vlasov)}\] }
+	
+	Ce qui nous donne une équation sur $f^1$.
+	
+	Ainsi prouver que l'équation de Vlasov sur $f^1$ nous donne une unique solution $f^1(t,x_1,v_1)$ (ok, admis), on connait$f^1$, mais $f^2,\cdots,f^k,\cdots$ : On connait la lmite des $f_N^k$, $\forall k$.
+	
+	\par Ayant ainsi définit $f^k$ comme $f^1(t,x_1,v_1)\times\cdots\times f^1(t,x_k,v_k)$ vérifiant, réciproquement, que ce choix de $f^k$ vérifie $(S)$.
+	
+	\newpage
+	
+	\underline{l'Equation sur $f^1$} en posant $f^1$ solution de Vlasov et $f^2 = f^1(t,x_1,v_1)\times f^1(t,x_2,v_2)$
+	
+	\[\begin{aligned}
+		&\dfrac{\partial f^1}{\partial t}(t,x_1,v_1) + v_1\nabla_{x_1}f^1 + \displaystyle\int F(x_1-x_2)\cdot\nabla_{v_1}f^2(t,x_1,v_1,x_21,x_2)dx_2dv_2 \\
+		=& \dfrac{\partial f^1}{\partial t} + v_1\nabla_{x_1}f^1 + \int F(x_1-x_2)\nabla_{v_1}f^1(t,x_1,v_1)f^1(t,x_2,v_2)dx_2dv_2 \\
+		=& 0 \text{\hspace{.5cm} (par Vlasov)}
+	\end{aligned}\]
+	
+	\underline{l'Equation sur $f^2$}
+	
+	\[\begin{aligned}
+		\underbrace{\dfrac{\partial f^2}{\partial t}}_{(1)} + \underbrace{v_1\nabla_{x_1}f^2}_{(2)} + \underbrace{v_2\nabla_{v_2}f^2}_{(3)} + \underbrace{\displaystyle\int\left[F(x_1-x_2)\nabla_{v_1}f^3 + F(x_2-x_3)\nabla_{v_2}f^3\right]dx_3dv_3}_{(4)} = 0
+	\end{aligned}\]
+	
+	On réécris en fonction de $f^1$ chacun des membres :
+	
+	\hspace{-1cm}\begin{minipage}[t]{20cm}
+		\begin{enumerate}
+		\item[$(1)$] $\dfrac{\partial f^1(t,x_1,v_1)}{\partial t}  f^1(t,x_2,v_2) + \dfrac{\partial f^1(t,x_2,v_2)}{\partial t}f^1(t,x_1,v_1)$\\
+		
+		\item[$(2)$] $\left[v_1\nabla_{x_1}f^1(t,x_1,v_1)\right]f^1(t,x_2,v_2)$\\
+		
+		\item[$(3)$] $f^1(t,x_1,v_1)\left[\nabla_{x_2}f^1(t,x_2,v_2)\right]$\\
+		
+		\item[$(4)$] $\begin{aligned}[t]
+			\displaystyle\int
+			&\left[F(x_1-x_2)\nabla_{v_1}f^1(t,x_1,v_1)\right]f^1(t,x_2,v_2)f^1(t,x_3,v_3) \\
+			&\underbrace{+ \left[F(x_2-x_3)\nabla_{v_2}f^1(t,x_2,v_2)\right]f^1(t,x_1,v_1)f^1(t,x_3,v_3)}_{(5)}dx_3dv_3
+		\end{aligned}$
+		
+		\item[$(5)$] \hspace{-.5cm}$\begin{aligned}[t]
+			f^1(t,x_2,v_2)&	\left[\dfrac{\partial f^1}{\partial t}(t,x_1,v_1) + v_1\nabla_{x_1}f^1(t,x_1,v_1) + \displaystyle\int F(x_1-x_3)\nabla_{v_1}f^1(t,x_2,v_2)f^1(t,x_3,v_3) dx_3dv_ 3\right] \\
+			&+ f^1(t,x_1,v_1)\left[\dfrac{\partial f^1}{\partial t}(t,x_1,v_1) + v_2\nabla_{x_2}f^1(t,x_2,v_2) + \displaystyle\int F(x_2-x_3)\nabla_{v_2}f^1(tx_2,v_2)f^1(t,x_3,v_3)dx_3dv_3\right]\\
+			\underset{\text{par Vlasov sur }f^1}{=}
+			&f^1(t,x_2,v_2)\times 0 + f^1(t,x_1,v_1) \times 0 = 0\\
+		\end{aligned}$
+	\end{enumerate}
+	\end{minipage}
+
+	
+	Même calcul avec les $f^k$...
+	
+	\textbf{\underline{Question :}} Le système $(S)$ possède t'il d'autres solutions qui ne sont pas sous forme produit tensoriel ?
+	
+	\begin{thm}[Point dur de cette analyse : Admis] $ $\\
+		Le système $(S)$ possède une solution unique si :
+		\[f^k(t=0,x_1,v_1,\cdots,x_k,v_k) = f^1(t=0,x_1,v_1)\times\cdots\times f^1(t,x_k,v_k)\]
+	\end{thm}
+	
+	\hspace{-.8cm}\enc{red}{\textbf{\underline{Conclusion :}} par unicité de la solution de $(S)$, on a unicité des valeurs limites $f^k$ des $f_N^k$.}
+	
+	\begin{ex}
+		Soit l'EDO :
+		
+		\[x'(t) = x(t)^2\]
+		
+		Posons $x_k(t) = x(t)^k$. On a :
+		\[\begin{cases}
+			x_1'(t) = x_2(t)\\
+			x_2'(t) = 2x_3(t)\\
+			x_3(t) = 3 x_2(t)\\
+			\vdots\\
+			\vdots
+		\end{cases} \text{ soit avec : } X(t) = \left[\begin{matrix}
+		x_1(t)\\
+		x_2(t)\\
+		\vdots\\
+		x_k(t)\\
+		\vdots
+		\end{matrix}\right] \text{ on a :}\] 
+		
+		\[X'(t) = \left[\begin{matrix}
+			0 & 1 & & & & & \\
+			& \ddots & 2 & & & (0) & \\
+			& & \ddots & 3 & & & \\
+			& & & \ddots & \ddots & & \\
+			&  (0)& & & \ddots & k & \\
+			& & & & & \ddots & \ddots
+		\end{matrix}\right] X(t)\]
+	\end{ex}
+	
+	
+	
+	
+	
+	
+	\newpage
+	
+	\section{TD}
+	\begin{exo}$ $
+		
+		$\begin{cases}
+			x'(t) = y(t) \\
+			y'(t) = x(t)
+		\end{cases}$, flot : $(X(t,0,x,y),Y(t,0,x,y))$.
+		
+		$f^0$ est donnée et on pose : $f(t,X(t,0,x,y),Y(t,0,x,y)) = f^0(x,y)$.
+		
+		\begin{enumerate}
+			\item Quelle est l'EDP satisfaite par $f$ ?
+			\item  A t'on : $f(t,x,y) = f(t,y,x)$ ?
+			\item A t'on : $f(t,x,y) = f^1(t,x)f^1(t,y)$ ?
+		\end{enumerate}
+	\end{exo}
+	
+	\begin{exo}$ $
+		
+		\begin{minipage}[t]{18cm}
+			$\begin{cases}
+			x'(t) = G(x(t)-y(t))+G(x(t)-z(t))\\
+			y'(t) = G(y(t)-x(t)) + G(y(t)-z(t))\\
+			z'(t) = G(z(t)-x(t)) + G(z(t)-y(t))
+		\end{cases}$, où $G : \R \to \R$ est donnée.
+		\end{minipage}
+		
+		$f^0$ est donnée et on pose : $f(t,X(t,0,x,y),Y(t,0,x,y)) = f^0(x,y)$.
+		
+		\begin{enumerate}
+			\item Quelle est l'EDP satisfaite par $f$ ?
+			\item  A t'on : $f(t,x,y) = f(t,y,x)$ ?
+			\item A t'on : $f(t,x,y) = f^1(t,x)f^1(t,y)$ ?
+			\item Quelle sont les équations sur les marginales : $f^1, f^2$ et $f^3$ ?
+		\end{enumerate}
+	\end{exo}
+	
 	
 	
 \end{document}
