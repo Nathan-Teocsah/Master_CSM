@@ -1,7 +1,8 @@
 CC = gcc
 
 a.out :
-	$(CC) main.c Creer_maillage.c
+	rm -f a.out
+	$(CC) main.c Creer_maillage.c etiqAr.c
 
 maillage.txt :
 	touch maillage.txt

@@ -60,7 +60,7 @@
 		
 	\end{titlepage}
 	
-	\section{TP numéro 1}
+	\section{TP séance 1}
 		
 	\vspace{-.5cm}
 	
@@ -190,7 +190,49 @@
 		}
 	\end{minted}
 	
+\section{TP séance 2}
 	
+	Création du maillage :
+	
+	\includegraphics[scale=.5]{photo5.png}
+	
+	$\star$ Ecriture des coordonnées: 
+	
+	\enc[2cm]{red}{$\begin{matrix}
+			x_1&y_1\\
+			\vdots & \\
+			x_n & v_n
+		\end{matrix}$} \rouge{Coordonnée}\\
+	
+	\rouge{$\rightarrow$ Appel de \textbf{etiqAr} (calcul de \textbf{nRefAr})}
+	
+	$\star$ Écriture des éléments :
+	
+	$\underbrace{\enc[3.5cm]{red}{$\begin{matrix}
+			s_1^(1)& \cdots&s_p^{(1)} \\
+			\vdots & & \\
+			s_1^{(m)} & \cdots & s_p^{(m)}
+		\end{matrix}$}}_{\text{\rouge{ngnel}}}$ \hspace{.1cm} $\underbrace{\begin{matrix}
+		r_1^{(1)} & \cdots & r_q^{(1)} \\
+		\vdots & & \\
+		r_1^{(m)} &  \cdots & r_q^{(m)}
+	\end{matrix}}_{\text{\rouge{nRefAr}}}$\\
+
+	\begin{minipage}{5cm}
+		$\star$ Numérotation locale :
+	\end{minipage} \begin{minipage}{3cm}
+		\includegraphics[scale=.5]{photo6.png}
+	\end{minipage}
+	
+	\underline{Lecture du maillage}\\
+	Ecrire une fonction \textit{main} :
+	\begin{enumerate}[label=$\to$]
+		\item déclare des pointeurs : $\underbrace{\text{coord.}}_{\text{float **}}$, $\underbrace{\text{ngnel, nRefAr}}_{\text{int **}}$
+		
+		\item appel de lecfima ($\ldots$,\&coord,$\ldots$) $\to$ allocation dynamique de coordonnée.
+		
+		\item écrire le maillage lu dans un autre fichier
+	\end{enumerate}
 	
 	
 	
