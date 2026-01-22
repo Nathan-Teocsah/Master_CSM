@@ -292,12 +292,12 @@
 	
 	\vspace{.2cm}
 	
-	\textbf{\underline{NB :}} mathématiquement à l'horizon : $ f^0(\alpha), f(t,\alpha) \in L'(\R^{6N},l\alpha) \text{ ou } \in L'\cap L^\infty$
+	\textbf{\underline{NB :}} mathématiquement à l'horizon : $ f^0(\alpha), f(t,\alpha) \in L^1(\R^{6N},l\alpha) \text{ ou } \in L^1\cap L^\infty$
 	
 	\vspace{-.05cm}
 	
 	\textbf{\underline{Petit Calcul :}} \begin{minipage}[t]{16cm}
-		Soit l'EDO $x'(\alpha) = g(x(t))$ où $g$ est donnée, par exemple, par : $ g(\alpha) = \alpha(1-\alpha)$; $\alpha\in\R$.\\
+		Soit l'EDO $x'(t) = g(x(t))$ où $g$ est donnée, par exemple, par : $ g(\alpha) = \alpha(1-\alpha)$; $\alpha\in\R$.\\
 		$\rightarrow$ Son flot est noté $X(t,0,x_0)$. On se donne une répartition : $f^0(x_0)$
 		
 		\begin{center}
@@ -758,41 +758,120 @@
 	\newpage
 	
 	\section{TD}
-	\begin{exo}$ $
-		
-		$\begin{cases}
-			x'(t) = y(t) \\
-			y'(t) = x(t)
-		\end{cases}$, flot : $(X(t,0,x,y),Y(t,0,x,y))$.
-		
-		$f^0$ est donnée et on pose : $f(t,X(t,0,x,y),Y(t,0,x,y)) = f^0(x,y)$.
-		
-		\begin{enumerate}
-			\item Quelle est l'EDP satisfaite par $f$ ?
-			\item  A t'on : $f(t,x,y) = f(t,y,x)$ ?
-			\item A t'on : $f(t,x,y) = f^1(t,x)f^1(t,y)$ ?
-		\end{enumerate}
-	\end{exo}
-	
-	\begin{exo}$ $
-		
-		\begin{minipage}[t]{18cm}
+	\subsection{De 1.1 à 1.4}
+		\begin{exo}$ $
+			
 			$\begin{cases}
-			x'(t) = G(x(t)-y(t))+G(x(t)-z(t))\\
-			y'(t) = G(y(t)-x(t)) + G(y(t)-z(t))\\
-			z'(t) = G(z(t)-x(t)) + G(z(t)-y(t))
-		\end{cases}$, où $G : \R \to \R$ est donnée.
-		\end{minipage}
+				x'(t) = y(t) \\
+				y'(t) = x(t)
+			\end{cases}$, flot : $(X(t,0,x,y),Y(t,0,x,y))$.
+			
+			$f^0$ est donnée et on pose : $f(t,X(t,0,x,y),Y(t,0,x,y)) = f^0(x,y)$.
+			
+			\begin{enumerate}
+				\item Quelle est l'EDP satisfaite par $f$ ?
+				\item  A-t-on : $f(t,x,y) = f(t,y,x)$ ?
+				\item Si $f^0(x,y) = g^0(x)g^0(y)$, a-t-on : $f(t,x,y) = f^1(t,x)f^1(t,y)$ ?
+			\end{enumerate}
+		\end{exo}
+		\begin{brouillon}$ $
+			
+			\hspace{-1cm}\begin{minipage}{19cm}
+				\begin{enumerate}
+				\item On dérive la fonction $t\mapsto f(t,X(t,0,x,y),Y(t,0,x,y))$ en $t$,
+				
+				$\dfrac{d }{d t} f(t,X_0(t),Y_0(t)) = \dfrac{\partial f}{\partial t} (t,X_0(t),Y_0(t)) + \dfrac{\partial f}{\partial x}(t,X_0(t),Y_0(t))\dfrac{\partial X_0}{\partial t}(t) + \dfrac{\partial f}{\partial y}(t,X_0(t),Y_0(t))\dfrac{\partial Y_0}{\partial t}(t)$\\
+				
+				Où : $X_0(t) = X(t,0,x,y)$ et $Y_0(t) = Y(t,0,x,y)$\\
+				
+				Or : $X_0'(t) = Y_0(t)$ et $Y_0'(t) = X_0(t)$ et $f$ ne dépend pas du "temps" d'après les hypothèse. Donc :\\
+				
+				$0 = \dfrac{d }{d t} f(t,X_0(t),Y_0(t)) = \dfrac{\partial f}{\partial t} (t,X_0(t),Y_0(t)) + \dfrac{\partial f}{\partial x}(t,X_0(t),Y_0(t))Y_0(t) + \dfrac{\partial f}{\partial y}(t,X_0(t),Y_0(t))X_0(t)$
+				
+			\end{enumerate}
+			\end{minipage}
+		\end{brouillon}
 		
-		$f^0$ est donnée et on pose : $f(t,X(t,0,x,y),Y(t,0,x,y)) = f^0(x,y)$.
+		\begin{sol}$ $
+			
+			\begin{minipage}{18cm}
+				On commence par résoudre \underline{explicitement} l'EDO :
+				
+				$(EDO) \iff z'(t) = \left(\begin{matrix}
+					0 & 1\\
+					1 & 0
+				\end{matrix}\right)z(t)$ où $z(t) = \left(\begin{matrix}
+				x(t)\\ y(t)
+				\end{matrix}\right)$.\\
+				
+				D'où $z(t) = e^{tA}z_0$ où $z_0 = \left(\begin{matrix}
+					x_0\\ y_0
+				\end{matrix}\right)$
+				
+				Or $A$ a pour valeurs propres 1 et -1.\\
+				D'où (...) : $\begin{cases}
+					x(t) = x_0 \cosh(t) + y_0\sinh(t) \\
+					y(t) = y_0 \cosh(t) + x_0\sinh(t)
+				\end{cases}$.\\
+				
+				$(EDO) \begin{cases}
+					x'(t) = y(t); \hspace{.5cm} x(0) = x_0\\
+					y'(t) = x(t); \hspace{.5cm} y(0) = y_0
+				\end{cases}$
+			\end{minipage}
+			\begin{minipage}{18.5cm}
+				Donc le flot de l'EDO vaut : $\begin{aligned}[t]
+				X(t,0,x_0,y_0) & = x_0\cosh(t) + y_0\sinh(t)\\
+				Y(t,0,x_0,y_0) &= y_0\cosh(t) + x_0\sinh(t)
+				\end{aligned}$.\\
+				Ou encore $Z(t,0,z_0) = \left(\begin{matrix}
+					\cosh & \sinh \\
+					\sinh & \cosh
+				\end{matrix}\right)z_0$.\\
+				
+				Posons $f^0(x,y) = f(t,X(t,0,x,y),Y(t,0,x,y))$. Dérivons cette relation par rapport à $t$ :\\
+				
+				$0 = \dfrac{d}{dt}f^0(x,y) = \dfrac{d}{d t}f(t,X_0(t),Y_0(t))$ (en reprenant les notations du brouillon). Donc :\\
+				$0 = \dfrac{\partial f}{\partial t} (t,X_0(t),Y_0(t)) + \dfrac{\partial f}{\partial x}(t,X_0(t),Y_0(t))\dfrac{\partial X_0}{\partial t}(t) + \dfrac{\partial f}{\partial y}(t,X_0(t),Y_0(t))\dfrac{\partial Y_0}{\partial t}(t)$
+				
+				Ainsi : $0 = \dfrac{d }{d t} f(t,X_0(t),Y_0(t)) = \dfrac{\partial f}{\partial t} (t,X_0(t),Y_0(t)) + \dfrac{\partial f}{\partial x}(t,X_0(t),Y_0(t))Y_0(t) + \dfrac{\partial f}{\partial y}(t,X_0(t),Y_0(t))X_0(t)$\\
+				
+				Finalement : pour tout $\overline{x},\overline{y},t$ :
+				
+				\[0 = \left(\dfrac{\partial f}{\partial t}+y\dfrac{\partial f}{\partial x}+x\dfrac{\partial f}{\partial y}\right)(t,x,y)\]
+				
+				et où $\overline{x} = X_0(t)$ et $\overline{y} = Y_0(t)$. Donc $\begin{cases}
+					x = X(0,t,x,y)\\
+					y = Y(0,t,x,y)
+				\end{cases}$
+			\end{minipage}
+		\end{sol}
 		
-		\begin{enumerate}
-			\item Quelle est l'EDP satisfaite par $f$ ?
-			\item  A t'on : $f(t,x,y) = f(t,y,x)$ ?
-			\item A t'on : $f(t,x,y) = f^1(t,x)f^1(t,y)$ ?
-			\item Quelle sont les équations sur les marginales : $f^1, f^2$ et $f^3$ ?
-		\end{enumerate}
-	\end{exo}
+		
+		
+		
+		
+		
+		
+		\begin{exo}$ $
+			
+			\begin{minipage}[t]{18cm}
+				$\begin{cases}
+				x'(t) = G(x(t)-y(t))+G(x(t)-z(t))\\
+				y'(t) = G(y(t)-x(t)) + G(y(t)-z(t))\\
+				z'(t) = G(z(t)-x(t)) + G(z(t)-y(t))
+			\end{cases}$, où $G : \R \to \R$ est donnée.
+			\end{minipage}
+			
+			$f^0$ est donnée et on pose : $f(t,X(t,0,x,y),Y(t,0,x,y)) = f^0(x,y)$.
+			
+			\begin{enumerate}
+				\item Quelle est l'EDP satisfaite par $f$ ?
+				\item  A-t-on : $f(t,x,y) = f(t,y,x)$ ?
+				\item A-t-on : $f(t,x,y) = f^1(t,x)f^1(t,y)$ ?
+				\item Quelle sont les équations sur les marginales : $f^1, f^2$ et $f^3$ ?
+			\end{enumerate}
+		\end{exo}
 	
 	
 	
