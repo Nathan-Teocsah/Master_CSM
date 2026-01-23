@@ -1,16 +1,15 @@
-CC = gcc
+CC = gcc 
 
-a.out :
-	rm -f a.out
+a.out : Creer_maillage.c etiqAr.c main.c
 	$(CC) main.c Creer_maillage.c etiqAr.c
 
 maillage.txt :
 	touch maillage.txt
 
-clean : maillage.txt a.out
+clean :
 	rm -rf maillage.txt a.out
 
-run : maillage.txt
+run : maillage.txt Creer_maillage.c etiqAr.c main.c a.out 
 	a.out
 	cat maillage.txt
 	
