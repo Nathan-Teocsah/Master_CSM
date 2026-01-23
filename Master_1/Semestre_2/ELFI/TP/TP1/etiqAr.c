@@ -25,25 +25,25 @@ switch (type1) {
       //Ligne du bas du maillage
       for (int i = 0;i<n1-1;i++)
       {
-        nRefAr[i][3] = 1;
+        nRefAr[i][3] = nrefcot[0];
       }
 
       //Colonne de droite
       for (int i = n1-2;i<(n1-1)*(n2-1);i += n1-1)
       {
-        nRefAr[i][3] = 2;
+        nRefAr[i][0] = nrefcot[1];
       }
 
       //Ligne du haut du maillage
       for (int i=c-1;i<(n1-1)*(n2-1);i++)
       {
-        nRefAr[i][1] = 3;
+        nRefAr[i][1] = nrefcot[2];
       }
 
       //Colonne de gauche
       for (int i=0;i<c;i+=n1-1)
       {
-        nRefAr[i][2] = 4;
+        nRefAr[i][2] = nrefcot[3];
       }
       break;
       
@@ -53,25 +53,25 @@ switch (type1) {
       //Ligne du bas du maillage (on saute un triangle sur 2)
       for (int i = 0;i<2*(n1-1)-1;i+=2)
       {
-        nRefAr[i][2] = 1;
+        nRefAr[i][2] = nrefcot[0];
       }
 
       //Colonne de droite
       for (int i = 2*(n1-1)-1;i<2*(n1-1)*(n2-1);i += 2*(n1-1))
       {
-        nRefAr[i][1] = 2;
+        nRefAr[i][1] = nrefcot[1];
       }
 
       //Ligne du haut du maillage
       for (int i=2*c-1;i<2*(n1-1)*(n2-1);i+=2)
       {
-        nRefAr[i][2] = 3;
+        nRefAr[i][2] = nrefcot[2];
       }
 
       //Colonne de gauche
       for (int i=0;i<2*c-1;i+=2*(n1-1))
       {
-        nRefAr[i][1] = 4;
+        nRefAr[i][1] = nrefcot[3];
       }
       break;
   }
