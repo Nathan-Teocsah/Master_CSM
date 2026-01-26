@@ -24,7 +24,4 @@ function u=sedoci(x,alpha,dalpha,beta,gamma,f,ci)
     for i=1:length(x)-1
         U(:,end+1) = U(:,end) + (A(x(i))*U(:,end) + b(x(i)))*(x(i+1)-x(i));
     end
-    u = U(1,:); %On ne garde que la première composante de U
-
-
-
+    u = U(1,:); %On ne garde que la première composante de 

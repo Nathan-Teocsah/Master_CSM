@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  22 JAN 2026 10:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  26 JAN 2026 16:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1319,7 +1319,7 @@ Package hyperref Info: Link coloring OFF on input line 9.
 \@outlinefile=\write5
 \openout5 = `Cours.out'.
 
-<logo.jpg, id=59, 1204.5pt x 612.2875pt>
+<logo.jpg, id=55, 1204.5pt x 612.2875pt>
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
 Package pdftex.def Info: logo.jpg  used on input line 19.
@@ -1501,7 +1501,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 402--403
 
  []
 
-<photo1.png, id=114, 825.0825pt x 253.94875pt>
+<photo1.png, id=109, 825.0825pt x 253.94875pt>
 File: photo1.png Graphic file (type png)
 <use photo1.png>
 Package pdftex.def Info: photo1.png  used on input line 404.
@@ -1521,12 +1521,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 448--448
 
  []
 
-<photo2.png, id=123, 808.01875pt x 371.3875pt>
+<photo2.png, id=118, 808.01875pt x 371.3875pt>
 File: photo2.png Graphic file (type png)
 <use photo2.png>
 Package pdftex.def Info: photo2.png  used on input line 448.
 (pdftex.def)             Requested size: 242.4075pt x 111.4171pt.
-<photo3.png, id=124, 441.65pt x 172.645pt>
+<photo3.png, id=119, 441.65pt x 172.645pt>
 File: photo3.png Graphic file (type png)
 <use photo3.png>
 Package pdftex.def Info: photo3.png  used on input line 448.
@@ -1551,13 +1551,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 509--514
 
  []
 
-<photo4.png, id=134, 668.4975pt x 262.9825pt>
+<photo4.png, id=129, 668.4975pt x 262.9825pt>
 File: photo4.png Graphic file (type png)
 <use photo4.png>
 Package pdftex.def Info: photo4.png  used on input line 529.
 (pdftex.def)             Requested size: 401.1016pt x 157.7907pt.
 [8 <./photo4.png>]
-<photo5.png, id=143, 676.5275pt x 230.8625pt>
+<photo5.png, id=138, 676.5275pt x 230.8625pt>
 File: photo5.png Graphic file (type png)
 <use photo5.png>
 Package pdftex.def Info: photo5.png  used on input line 543.
@@ -1567,49 +1567,297 @@ Underfull \hbox (badness 10000) in paragraph at lines 619--621
 
  []
 
-<photo6.png, id=149, 1012.78375pt x 292.09125pt>
+<photo6.png, id=144, 1012.78375pt x 292.09125pt>
 File: photo6.png Graphic file (type png)
 <use photo6.png>
 Package pdftex.def Info: photo6.png  used on input line 622.
 (pdftex.def)             Requested size: 506.39064pt x 146.04526pt.
-<photo7.png, id=150, 1234.6125pt x 493.845pt>
+<photo7.png, id=145, 1234.6125pt x 493.845pt>
 File: photo7.png Graphic file (type png)
 <use photo7.png>
 Package pdftex.def Info: photo7.png  used on input line 661.
 (pdftex.def)             Requested size: 493.83626pt x 197.53448pt.
 [10 <./photo6.png>]
-<photo11.png, id=156, 594.22pt x 161.60374pt>
+<photo11.png, id=151, 594.22pt x 161.60374pt>
 File: photo11.png Graphic file (type png)
 <use photo11.png>
 Package pdftex.def Info: photo11.png  used on input line 667.
 (pdftex.def)             Requested size: 297.10927pt x 80.80167pt.
  [11 <./photo7.png> <./photo11.png>]
-<photo8.png, id=164, 882.29625pt x 271.0125pt>
-File: photo8.png Graphic file (type png)
-<use photo8.png>
-Package pdftex.def Info: photo8.png  used on input line 753.
-(pdftex.def)             Requested size: 441.14705pt x 135.5059pt.
-<photo9.png, id=165, 260.975pt x 241.90375pt>
-File: photo9.png Graphic file (type png)
-<use photo9.png>
-Package pdftex.def Info: photo9.png  used on input line 759.
-(pdftex.def)             Requested size: 52.19408pt x 48.37988pt.
- [12 <./photo8.png> <./photo9.png>]
-Overfull \hbox (0.9219pt too wide) in paragraph at lines 780--783
+\x=\skip70
+\y=\skip71
+
+Underfull \hbox (badness 10000) in paragraph at lines 718--723
+
+ []
+
+
+Overfull \hbox (7.52852pt too wide) in paragraph at lines 724--724
+[]$\OML/lmm/m/it/12 ^^L[]$ 
+ []
+
+
+Overfull \hbox (2.6355pt too wide) in paragraph at lines 724--724
+[]$\OMS/lmsy/m/n/12 ^^@\OML/lmm/m/it/12 ^^L[]$ 
+ []
+
+
+Overfull \hbox (2.6355pt too wide) in paragraph at lines 725--725
+[]$\OMS/lmsy/m/n/12 ^^@\OML/lmm/m/it/12 ^^L[]$ 
+ []
+
+
+Overfull \hbox (7.52852pt too wide) in paragraph at lines 725--725
+[]$\OML/lmm/m/it/12 ^^L[]$ 
+ []
+
+
+Overfull \hbox (4.16313pt too wide) in paragraph at lines 725--725
+[]$\OML/lmm/m/it/12 ^^L[]$ 
+ []
+
+
+Overfull \hbox (4.96057pt too wide) in paragraph at lines 725--725
+[]$\OMS/lmsy/m/n/12 ^^@\OML/lmm/m/it/12 ^^L[]$ 
+ []
+
+
+Overfull \hbox (4.16313pt too wide) in paragraph at lines 726--726
+[]$\OML/lmm/m/it/12 ^^L[]$ 
+ []
+
+
+Overfull \hbox (4.16313pt too wide) in paragraph at lines 726--726
+[]$\OML/lmm/m/it/12 ^^L[]$ 
+ []
+
+Package hyperref Info: bookmark level for unknown ex defaults to 0 on input lin
+e 731.
+<photo12.png, id=159, 370.38374pt x 95.35625pt>
+File: photo12.png Graphic file (type png)
+<use photo12.png>
+Package pdftex.def Info: photo12.png  used on input line 732.
+(pdftex.def)             Requested size: 185.1914pt x 47.678pt.
+
+Overfull \hbox (137.57222pt too wide) in paragraph at lines 731--734
+[][]$[]$ 
+ []
+
+<photo13.png, id=160, 152.57pt x 76.285pt>
+File: photo13.png Graphic file (type png)
+<use photo13.png>
+Package pdftex.def Info: photo13.png  used on input line 739.
+(pdftex.def)             Requested size: 76.2848pt x 38.1424pt.
+
+Overfull \hbox (215.30354pt too wide) in paragraph at lines 737--756
 [][] 
  []
 
-[13]
-<photo10.png, id=187, 811.03pt x 364.36125pt>
+
+Overfull \hbox (34.68477pt too wide) detected at line 777
+[] [] \OT1/lmr/m/n/12 + [] [] = []
+ []
+
+<photo14.png, id=161, 305.14pt x 100.375pt>
+File: photo14.png Graphic file (type png)
+<use photo14.png>
+Package pdftex.def Info: photo14.png  used on input line 784.
+(pdftex.def)             Requested size: 152.56961pt x 50.18736pt.
+
+Overfull \hbox (222.93048pt too wide) in paragraph at lines 783--786
+[][]$[]$ 
+ []
+
+
+Overfull \hbox (164.1901pt too wide) detected at line 840
+[] [] \OT1/lmr/m/n/12 = []
+ []
+
+
+Overfull \hbox (106.349pt too wide) detected at line 864
+[] [] \OT1/lmr/m/n/12 = []
+ []
+
+<photo15.png, id=162, 771.88374pt x 229.85875pt>
+File: photo15.png Graphic file (type png)
+<use photo15.png>
+Package pdftex.def Info: photo15.png  used on input line 867.
+(pdftex.def)             Requested size: 385.94092pt x 114.92908pt.
+
+Overfull \hbox (46.41573pt too wide) in paragraph at lines 867--868
+[][] 
+ []
+
+
+Underfull \vbox (badness 2096) detected at line 868
+ []
+
+[12 <./photo12.png> <./photo13.png> <./photo14.png>]
+<photo16.png, id=176, 206.7725pt x 78.2925pt>
+File: photo16.png Graphic file (type png)
+<use photo16.png>
+Package pdftex.def Info: photo16.png  used on input line 873.
+(pdftex.def)             Requested size: 103.38599pt x 39.14615pt.
+
+Overfull \hbox (38.08174pt too wide) in paragraph at lines 871--893
+[]$ $[][]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 902--906
+
+ []
+
+
+Overfull \hbox (154.99959pt too wide) in paragraph at lines 894--909
+[] 
+ []
+
+
+Overfull \hbox (186.85078pt too wide) in paragraph at lines 914--928
+[][] 
+ []
+
+<photo17.png, id=177, 163.61125pt x 102.3825pt>
+File: photo17.png Graphic file (type png)
+<use photo17.png>
+Package pdftex.def Info: photo17.png  used on input line 934.
+(pdftex.def)             Requested size: 81.80542pt x 51.19112pt.
+
+Overfull \hbox (115.71889pt too wide) in paragraph at lines 929--937
+[][] 
+ []
+
+
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 948--969
+[] 
+ []
+
+
+Overfull \vbox (5.98631pt too high) detected at line 969
+ []
+
+[13 <./photo15.png> <./photo16.png>] [14 <./photo17.png>]
+Package hyperref Info: bookmark level for unknown exo defaults to 0 on input li
+ne 1082.
+
+Overfull \hbox (186.85078pt too wide) in paragraph at lines 1087--1102
+[][] 
+ []
+
+<photo8.png, id=191, 882.29625pt x 271.0125pt>
+File: photo8.png Graphic file (type png)
+<use photo8.png>
+Package pdftex.def Info: photo8.png  used on input line 1104.
+(pdftex.def)             Requested size: 441.14705pt x 135.5059pt.
+
+Overfull \hbox (101.62186pt too wide) in paragraph at lines 1104--1105
+[][] 
+ []
+
+Package hyperref Info: bookmark level for unknown sol defaults to 0 on input li
+ne 1110.
+<photo9.png, id=192, 260.975pt x 241.90375pt>
+File: photo9.png Graphic file (type png)
+<use photo9.png>
+Package pdftex.def Info: photo9.png  used on input line 1115.
+(pdftex.def)             Requested size: 52.19408pt x 48.37988pt.
+
+Overfull \hbox (5.0671pt too wide) detected at line 1122
+[][]
+ []
+
+
+Overfull \hbox (184.37428pt too wide) in paragraph at lines 1136--1139
+[][] 
+ []
+
+
+Overfull \hbox (40.47395pt too wide) detected at line 1159
+[][]
+ []
+
+<photo10.png, id=193, 811.03pt x 364.36125pt>
 File: photo10.png Graphic file (type png)
 <use photo10.png>
-Package pdftex.def Info: photo10.png  used on input line 823.
+Package pdftex.def Info: photo10.png  used on input line 1179.
 (pdftex.def)             Requested size: 405.514pt x 182.18018pt.
+
+Overfull \hbox (65.98882pt too wide) in paragraph at lines 1179--1180
+[][] 
+ []
+
+
+Overfull \hbox (25.62769pt too wide) detected at line 1185
+\OML/lmm/m/it/12 k\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 !\OT1/lmr/m/n/12 ) = [] [] 
+[]
+ []
+
+[15 <./photo8.png> <./photo9.png>] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 1189--1192
+[][]
+ []
+
+
+Overfull \hbox (69.64133pt too wide) in paragraph at lines 1189--1192
+[] 
+ []
+
+<photo18.png, id=215, 124.465pt x 78.2925pt>
+File: photo18.png Graphic file (type png)
+<use photo18.png>
+Package pdftex.def Info: photo18.png  used on input line 1193.
+(pdftex.def)             Requested size: 62.23235pt x 39.14615pt.
+[17 <./photo10.png> <./photo18.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1210--1212
+
+ []
+
+
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 1239--1245
+[][] 
+ []
+
+
+Overfull \hbox (99.01602pt too wide) in paragraph at lines 1251--1254
+[][] 
+ []
+
+
+Overfull \hbox (99.01602pt too wide) in paragraph at lines 1255--1261
+[][] 
+ []
+
+
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 1267--1268
+[]$[]$ 
+ []
+
+
+Overfull \hbox (138.69893pt too wide) in paragraph at lines 1269--1276
+[]\T1/lmr/bx/it/12 Note : [] 
+ []
+
+[18]
+Underfull \hbox (badness 1895) in paragraph at lines 1281--1282
+[][]\T1/lmr/m/it/12 Écrire (1) sous la
+ []
+
+
+Overfull \hbox (133.86685pt too wide) detected at line 1288
+[][]
+ []
+
+
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 1290--1293
+[][] 
+ []
+
 \tf@thm=\write7
 \openout7 = `Cours.thm'.
 
- [14 <./photo10.png>]
-runsystem(latexminted cleantemp  --timestamp 20260122102502 33C1869ABDF6A46508C
+[19]
+runsystem(latexminted cleantemp  --timestamp 20260126162924 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -1618,36 +1866,37 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `Cours.out' has not changed.
-(rerunfilecheck)             Checksum: 97C0D4627B0A686C3C262DDE4714F488;3613.
+(rerunfilecheck)             Checksum: 11CE4732724D5331519899BE3EE69D52;3344.
  ) 
 Here is how much of TeX's memory you used:
- 46089 strings out of 467538
- 1062166 string characters out of 5419551
- 1682573 words of memory out of 5000000
- 74226 multiletter control sequences out of 15000+600000
- 702046 words of font info for 88 fonts, out of 8000000 for 9000
+ 46231 strings out of 467538
+ 1064352 string characters out of 5419551
+ 1707639 words of memory out of 5000000
+ 74345 multiletter control sequences out of 15000+600000
+ 719416 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,18n,131p,866b,777s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,18n,131p,866b,972s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
-b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line
-10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></u
-sr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/te
-xlive/2025/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/202
-5/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/texmf-d
-ist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/
-type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publ
-ic/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi8
-.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/
-local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texliv
-e/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf
--dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/font
-s/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pu
-blic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lms
-y8.pfb>
-Output written on Cours.pdf (15 pages, 2876600 bytes).
+b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb
+></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line1
+0.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></us
+r/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/tex
+live/2025/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2025
+/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/texmf-di
+st/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
+ype1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publi
+c/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi8.
+pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/l
+ocal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive
+/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-
+dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts
+/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
+lic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy
+8.pfb>
+Output written on Cours.pdf (20 pages, 3270031 bytes).
 PDF statistics:
- 287 PDF objects out of 1000 (max. 8388607)
- 208 compressed objects within 3 object streams
- 43 named destinations out of 1000 (max. 500000)
- 177 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 344 PDF objects out of 1000 (max. 8388607)
+ 243 compressed objects within 3 object streams
+ 63 named destinations out of 1000 (max. 500000)
+ 204 words of extra memory for PDF output out of 10000 (max. 10000000)
 
