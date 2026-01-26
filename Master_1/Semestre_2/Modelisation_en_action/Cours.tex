@@ -687,7 +687,7 @@
 	\end{matrix}\right] + \left[\begin{matrix}
 	\ddots & & & & \\
 	& \ddots & & & \\
-	0 & - \beta_{n-1} & -\beta_n & -\beta_{n+1} & 0\\
+	(0) & - \beta_{n-1} & \beta_{n+1}+\beta_n & -\beta_n & (0)\\
 	& & & \ddots & \\
 	& & & & \ddots
 	\end{matrix}\right]\left[\begin{matrix}
@@ -711,6 +711,353 @@
 		\end{minipage}
 	\end{center}
 	
+	On \textbf{nomme} \underline{$\mathbb{M}$ la \textbf{matrice de masse}} et \underline{$\mathbb{K}$ la \textbf{matrice de raideur}}.
+	
+	\newpage
+	
+	On peut représenter l'écriture des matrices $\mathbb{K}$ et $\mathbb{M}$ du système comme un "assemblage" d'éléments discrets (raideurs 1D) qui sont des cellules :\\
+	\newlength{\x}
+	\setlength{\x}{1cm}
+	\newlength{\y}
+	\setlength{\y}{1.5cm}
+	\[\mathbb{K} = \left[\begin{matrix}
+		-\beta_{n-1} & \beta_{n-1}+\enc[\x]{red}{$\beta_n$} & \enc[\y]{red}{$-\beta_n$} & 0 &  \\
+		0 & \enc[\y]{red}{$-\beta_n$} & \enc[\x]{red}{$\beta_n$} + \enc[\y]{blue}{$\beta_{n+1}$} & \enc[1.8cm]{blue}{$-\beta_{n+1}$} & 0 \\
+		& 0 & \enc[\y]{blue}{$\beta_{n+1}$} & \enc[\y]{blue}{$\beta_{n+1}$} + \beta_{n+2} & - \beta_{n+2}
+	\end{matrix}\right]\]
+	
+	Cela permet d'écrire de façon plus rapide les matrices (EDO) d'un système périodique :
+	
+	\begin{ex}\begin{minipage}{15cm}
+			\includegraphics[scale=.5]{photo12.png}
+		\end{minipage}
+		
+		Écrire le système (EDO) sous la forme $\mathbb{M}\overset{\textbf{..}}{U} + \mathbb{K}U = 0$.
+		
+		\begin{minipage}[t]{19.5cm}
+			\textbf{\underline{Rappel :}} \begin{minipage}{3cm}
+				\includegraphics[scale=.5]{photo13.png}
+			\end{minipage} le système est : $\left[\begin{matrix}
+			m_1 & 0 \\
+			0 & m_2
+		\end{matrix}\right] \left[\begin{matrix}
+		\overset{\textbf{..}}{U} \\ 
+		\overset{\textbf{..}}{V}
+		\end{matrix}\right] + \left[\begin{matrix}
+		k & -k \\
+		-k & k
+		\end{matrix}\right]\left[\begin{matrix}
+		U \\
+		V
+		\end{matrix}\right] = \left[\begin{matrix}
+		0 \\ 0
+		\end{matrix}\right]$.
+		\end{minipage}
+		
+		\vspace{.5cm}
+		
+		\[
+		\left[\begin{matrix}
+			\rouge{m_1} & 0 & 0 & 0 \\
+			0 & m_2 & 0 & 0 \\
+			0 & 0 & m_3 & 0 \\
+			0 & 0 & 0 & m_4
+		\end{matrix}\right]\left[\begin{matrix}
+		\overset{\textbf{..}}{U_1} \\ \overset{\textbf{..}}{U_2} \\ \overset{\textbf{..}}{U_3} \\ \overset{\textbf{..}}{U_4}
+		\end{matrix}\right] + \left[\begin{matrix}
+		\rouge{k_1} + k_4 & \rouge{-k_1} & 0 & -k_4 \\
+		\rouge{-k_1} & \rouge{k_1}+\bleu{k_2} & \bleu{-k_2} & 0 \\
+		0 & \bleu{-k_2} & \bleu{k_2} + \vert{k_3} & \vert{-k_3} \\
+		-k_4 & 0 & \vert{-k_3} & \vert{k_3} + k_4
+		\end{matrix}\right]\left[\begin{matrix}
+		U_1 \\ U_2 \\ U_3 \\ U_4
+		\end{matrix}\right] = \left[\begin{matrix}
+		0 \\ 0 \\ 0 \\ 0
+		\end{matrix}\right]
+		\]
+		
+		En régime stationnaire , $\mathbb{M}\overset{\rightarrow}{\overset{\textbf{..}}{U}} + \mathbb{K}\overset{\rightarrow}{U} = \overset{\rightarrow}{0}$ devient : $ \underbrace{\left(\mathbb{K}-\omega^2\mathbb{M}\right)}_{\rouge{\mathbb{D}}}\overset{\textbf{..}}{U} = 0$. Où $\rouge{\mathbb{D}}$ est la raideur dynamique.		
+	\end{ex}
+	
+	
+	\begin{ex}\begin{minipage}{18cm}
+			\includegraphics[scale=.5]{photo14.png}
+		\end{minipage}
+		
+		\begin{enumerate}
+			\item Écrire les matrices $\mathbb{K}, \mathbf{M}$ d'une cellule périodique "bords libres".
+			
+			\[
+			\underbrace{\left[\begin{matrix}
+				\frac{m_1}{2} & 0 & 0 \\
+				0 & m_2 & 0 \\
+				0 & 0 & \frac{m_1}{2}
+			\end{matrix}\right]}_{\mathbb{M}}\left[\begin{matrix}
+			\overset{\textbf{..}}U_L \\ \overset{\textbf{..}}U_i \\ \overset{\textbf{..}}U_R 
+			\end{matrix}\right] + \underbrace{\left[\begin{matrix}
+			\rouge{k_1} & \rouge{-k_1} & 0 \\
+			\rouge{-k_1} & \rouge{k_1} + \bleu{k_2} & \bleu{-k_2} \\
+			0 & \bleu{-k_2} & \bleu{k_2}
+			\end{matrix}\right]}_{\mathbb{K}}\left[\begin{matrix}
+			U_L \\ U_i\\ U_R
+		\end{matrix}\right] = \left[\begin{matrix}
+		0 \\ 0 \\ 0
+		\end{matrix}\right]
+			\]
+			
+			qui s'écrit : $\left(\mathbb{K}-\omega^2\mathbb{M}\right)\left[\begin{matrix}
+				U_L \\ U_i \\ U_R
+			\end{matrix}\right] = \left[\begin{matrix}
+				0 \\ 0 \\ 0
+			\end{matrix}\right]$.
+			
+			Utilisons $\mathbb{K}$ et $\mathbb{M}$ pour écrire l'EDO du système "généralisé" : 
+			
+			\[\left(\left[\begin{matrix}
+				\bleu{k_1}+\bleu{k_2} & \bleu{-k_2} & & \\
+				\bleu{-k_2} & k_1 + \bleu{k_2} & -k_1 & 0 \\
+				& -k_1 & k_1+k_2 & -k_2 \\
+				& 0 & -k_2 & k_2+k_1
+			\end{matrix}\right] -\omega^2\left[\begin{matrix}
+			\bleu{m_2} & & & \\
+			& \frac{m_1}{2}+\bleu{\frac{m_1}{2}} & & \\
+			& & m_2 & \\
+			& & & \frac{m_1}{2}+\frac{m_1}{2}
+			\end{matrix}\right]\right)\left[\begin{matrix}
+			\vdots\\
+			\left[\begin{matrix}
+			U_L^{(n)}\\
+			U_i^{(n)}
+			\end{matrix}\right] \\
+			\vdots
+			\end{matrix}\right] = \left[\begin{matrix}
+			\vdots\\
+			\left[\begin{matrix}
+				0\\
+				0
+			\end{matrix}\right] \\
+			\vdots
+			\end{matrix}\right]\]
+			
+			
+			On obtient :
+			
+			\[
+			\left(\left[\begin{matrix}
+				0 & -k_2 & k_1 + k_2 & -k_1 & 0& 0 \\
+				0 & 0 & -k_1 & k_1 + k_2 & -k_2 & 0
+			\end{matrix}\right]-\omega^2\left[\begin{matrix}
+			0 & 0 & m_1 & 0 & 0 & 0 \\
+			0 & 0 & 0 & m_2 & 0 & 0
+			\end{matrix}\right]\right)\left[\begin{matrix}
+			U_L^{(n-1)} \\
+			U_i^{(n-1)} \\
+			U_L^{(n)} \\
+			U_i^{(n)} \\
+			U_L^{(n-1)} \\
+			U_i^{(n-1)}
+			\end{matrix}\right] = \left[\begin{matrix}
+			0 \\
+			\vdots \\
+			0
+			\end{matrix}\right]
+			\]
+		\end{enumerate}
+		
+		\includegraphics[scale=.5]{photo15.png}
+	\end{ex}
+	
+	
+	\begin{ex}[Poutre d'Euler-Bernoulli] Éléments discrets\\
+		\begin{minipage}{7cm}
+			\includegraphics[scale=.5]{photo16.png}\\
+			$\rho$ : densité volumique \\
+			$A$ : Section \\
+			$L$ : longueur \\
+			$I$ : Moment de section \\
+			$E$ : Module de Young
+		\end{minipage} $ \begin{aligned}
+		\mathbb{M}_e =& \dfrac{\rho A L}{420}\left[\begin{matrix}
+			156 & 22L & 54 & -13L \\
+			& 4L^2 & 13L & -3L^2 \\
+			& & 156 & -22L \\
+			 & & & 4L^2
+		\end{matrix}\right] \\
+		\mathbb{K}_e =& \dfrac{2EI}{L}\left[\begin{matrix}
+			6 & 3L & -6 & 3L \\
+			  & 2L^2 & -3L & L^2 \\
+			  &     & 6 & -3L \\
+			(Sym) &   &   & 2L^2
+		\end{matrix}\right]
+		\end{aligned} $
+		
+		On peut décomposer nos matrices élémentaires en deux "domaines" (c'est-à-dire $U_L, U_R$) : $\mathbb{M}_e = \left[\begin{matrix}
+			M_L & M_{LR} \\
+			M_{RL} & M_R
+		\end{matrix}\right]$ et $\mathbb{K}_e = \left[\begin{matrix}
+		K_L & K_{LR} \\
+		K_{RL} & K_R
+		\end{matrix}\right]$.\\
+		\begin{minipage}[t]{18cm}
+			Où, par symétrie de $\mathbb{M}_e$ et $\mathbb{K}_e$ : $\begin{cases}
+			M_L = M_L^T & \text{ (idem pour } M_R, K_L, K_R) \\
+			M_{LR} = M_{RL}^T & \text{ (idem pour } K_{LR} = K_{RL}^T)
+		\end{cases}$\\
+		
+		On note alors les raideurs dynamiques : $D_{i,j} = K_{i,j}-\omega^2M_{i,j}$, $i,j \in \{L,R\}$.
+		\end{minipage}
+		
+		\underline{Le système initial :} 
+		
+		\vspace{.5cm}
+		
+		\begin{minipage}[t]{18.5cm}
+			$\left(\mathbb{K}_e-\omega^2\mathbb{M}_e\right)\overset{\rightarrow}{U} = 0$ alors : $\left[\begin{matrix}
+		D_L & D_{LR} \\
+		D_{RL} & D_R
+		\end{matrix}\right]\left[\begin{matrix}
+		\overset{\rightarrow}{U_L} \\ \overset{\rightarrow}{U_R}
+		\end{matrix}\right] = \left[\begin{matrix}
+		0 \\ 0
+		\end{matrix}\right]$, où $\overset{\rightarrow}{U_L} = \left[\begin{matrix}
+		V_L \\ \Theta_L
+		\end{matrix}\right]	$ et $\overset{\rightarrow}{U_R} = \left[\begin{matrix}
+		V_R \\ \Theta_R
+		\end{matrix}\right]	$
+		\end{minipage}
+		
+		\begin{minipage}[t]{16cm}
+			Écrivons l'assemblage de deux cellules décrites par leur matrice de raideur dynamique : $\mathbb{D} = \left[\begin{matrix}
+			D_L & D_{LR} \\
+			R_{RL} & D_R
+		\end{matrix}\right]$ \begin{minipage}{5cm}
+		\includegraphics[scale=.5]{photo17.png}
+		\end{minipage}
+		\end{minipage}
+		
+		\[
+		\left[\begin{matrix}
+			\rouge{D_L} & \rouge{D_{LR}} & \\
+			\rouge{D_{RL}} & \rouge{D_R}+D_L & D_{LR} \\
+			& D_{RL} & D_R
+		\end{matrix}\right]\left[\begin{matrix}
+		U_L^{n-1} \\ U_L^n \\ U_L^{n+1}
+		\end{matrix}\right] = \left[\begin{matrix}
+		0 \\ 0 \\ 0
+		\end{matrix}\right]
+		\]
+		Pour un assemblage "infini" de cellules :\\
+		\begin{minipage}[t]{18.5cm}
+			$\left[\begin{matrix}
+			\ddots & \ddots & \ddots & & & & \\
+			& D_{RL} & D_L+D_R & D_{LR} & & & & \\
+			& \ddots & \ddots & \ddots & & & \\
+			& & D_{RL} & D_L+D_R & D_{LR} & & \\
+			& & & \ddots & \ddots & \ddots & \\
+			& & & & D_{RL} & D_L + D_R & D_{LR} \\
+			& & & & \ddots & \ddots & \ddots
+		\end{matrix}\right]\left[\begin{matrix}
+		\vdots \\
+		U_{n-1} \\
+		U_n\\
+		U_{n+1} \\
+		\vdots
+		\end{matrix}\right] = \left[\begin{matrix}
+		\vdots \\ \vdots \\ 0 \\ \vdots \\ \vdots
+		\end{matrix}\right]$
+		\end{minipage}
+	\end{ex}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -732,9 +1079,12 @@
 	
 	\section{TD}
 	
-	\subsection{Système périodique et résonance locale}
-	
-	\textbf{\underline{Rappel démarche :}}
+	\begin{exo}[Système périodique et résonance locale]$ $\\
+		\textbf{\underline{Rappel démarche :}}
+		
+		\vspace{-.5cm}
+		
+	\begin{minipage}[t]{18.5cm}
 	\begin{enumerate}
 		\item Identifier la période (cellule périodique minimale du système)
 		\item  Écrire les équations d'équilibre (opérateur $\m L U(x,t) = 0$) pour chaque degré de liberté
@@ -748,13 +1098,19 @@
 			\text{progressive + }$x$\\\text{régressive + }$x$
 		\end{minipage}\right]\right)$ et tracer.
 	\end{enumerate}
+	\end{minipage}
 	
 	
 	\includegraphics[scale=.5]{photo8.png}
 	
 	On produit des bandes interdites sous forme "additive".\\
 	Si $m_2\to 0$, on doit retrouver la chaîne mono-atomique.
+	\end{exo}
 	
+	\begin{sol}$ $
+		
+		\vspace{-.5cm}
+		
 	\begin{enumerate}
 		\item On identifie la période : \includegraphics[scale=.2]{photo9.png} 
 	
@@ -827,8 +1183,113 @@
 	\[\implies  \lambda^2 + \left[\Omega_1^2+r\dfrac{\Omega_2^2}{1-\Omega_2^2}-2\right]+1 = 0\]
 	
 	\[k(\omega) = \frac{i}{a}\log\left[1-\frac{\Omega_1^2}{2}-\frac{r}{2}\frac{\Omega_2}{1-\Omega_2^2} \pm \sqrt{\left(\Omega_1^2+\frac{r\Omega_2^2}{1-\Omega_2^2}\right)\left(\Omega_1^2+\frac{r\Omega_2^2}{1-\Omega_2^2}-4\right)}\right]\]
+	\end{sol}
 	
+	\begin{exo}[Formulation matricielle]
+		\begin{minipage}[t]{15cm}
+			Appliquer à la chaîne monoatomique, en considérant la cellule périodique :
+		\end{minipage}
+		
+		\includegraphics[scale=.5]{photo18.png}.
+		
+		\begin{enumerate}
+			\item Déterminer les matrices de masses et raideurs :
+			\[
+			\mathbb{K}_e, \mathbb{M}_e \text{ puis } \mathbb{D} = \left[\begin{matrix}
+				D_L & D_{RL}\\
+				D_{RL} & D_R
+			\end{matrix}\right]
+			\]
+			
+			\item Ecrire la matrice globale du système infini.
+			
+			\item Appliquer le principe de Floquet-Bloch ($U_{n+1}$ et $U_{n-1}$ en fonction de $U_n$ et $\lambda$) et en déduire l'équation de dispersion.
+		\end{enumerate}
+	\end{exo}
 	
+	\begin{sol}$ $\\
+		\begin{enumerate}
+			\item $\mathbb{M}_e = \left[\begin{matrix}
+				\frac{m}{2} & 0 \\
+				0 & \frac{m}{2}
+			\end{matrix}\right]$ et $\mathbb{K}_e=\left[\begin{matrix}
+				K & -K \\
+				-K & K
+			\end{matrix}\right]$\\
+			$\mathbb{D} = k_e-\omega^2\mathbb{M}_e = \left[\begin{matrix}
+				k-\omega^2\frac{m}{2} & -k \\
+				-k & k-\omega^2\frac{m}{2}
+			\end{matrix}\right] = \left[\begin{matrix}
+				D_L & D_{LR} \\
+				D_{RL} & D_R
+			\end{matrix}\right]$
+			
+			\item $\left[\begin{matrix}
+				\ddots & \ddots & \ddots \\
+				& -K & 2K-\omega^2m & -K \\
+				& & \ddots & \ddots & \ddots 
+			\end{matrix}\right]\left[\begin{matrix}
+				\vdots \\ U_{n-1} \\ U_n \\ U_{n+1} \\ \vdots
+			\end{matrix}\right] = \left[\begin{matrix}
+				\vdots \\
+				0 \\
+				\vdots
+			\end{matrix}\right]$
+			
+			\item \begin{minipage}[t]{18.5cm}
+				Floquet-Bloch donne $\begin{cases}
+				U_{n+1} = \lambda U_n \\
+				U_{n-1} = \frac{1}{\lambda} U_n
+			\end{cases}$ et $-KU_{n-1} + (2K-\omega^2n)U_n-KU_{n+1} = 0$
+			\end{minipage}
+			
+			On en déduit l'équation de dispersion des ondes : 
+			\[
+			\left(-K\frac{1}{\lambda} + (2K-\omega^2m)-K\lambda\right)U_n = 0
+			\]
+			
+			\begin{minipage}[t]{15cm}
+				$\div(-K) \implies \left(\lambda + \omega^2\frac{m}{K} -2+\frac{1}{\lambda}\right)U_n = 0 \to $ Équation de dispersion
+			\end{minipage}
+			
+			\begin{minipage}[t]{15cm}
+				La forme $D_{RL}U_{n-1}+(D_L+D_R)U_n+D_{LR}U_{n+1} = 0$ est générale (elle s'applique à toute cellule périodique décrite par une raideur dynamique $\mathbb{D} = \left[\begin{matrix}
+				D_L & D_{LR} \\
+				D_{RL} & D_R
+			\end{matrix}\right]$)
+			\end{minipage}
+			
+			\enc{red}{La relation de dispersion est alors :
+			
+			\[
+			\left(\frac{1}{\lambda} D_{RL} + (D_L+D_R)+D_{LR}\lambda\right)\overset{\textbf{..}}{U_n} = 0_{p,1} \text{ (1)}
+			\]
+			}
+			
+			\textbf{Note :} \begin{minipage}[t]{15cm}
+				C'est un problème aux valeurs propres de dimension notée $p$, polynomiak, d'ordre 2. Il admet donc (en général) $2p$ solutions :
+				\begin{enumerate}
+					\item[$p$] solutions où $\abs{\lambda} < 1$ (progressives)
+					\item[$p$] soltuions où $\abs{\lambda} > 1$ (régressives)
+				\end{enumerate}
+			\end{minipage}
+		\end{enumerate}
+	\end{sol}
 	
+	\newpage
+	
+	\begin{ex}[Suite de l'exercice précédent] Écrire (1) sous la forme $\omega(k)$ c'est-à-dire : $(A-\omega^2B)\emptyset = 0$.
+	\end{ex}
+	\begin{sol}
+		\[\begin{aligned}
+			\left(\frac{1}{\lambda}D_{RL}+(D_L+D_R)+\lambda D_{LR}\right)U_n = 0 \\
+			\left[\frac{1}{\lambda}(K_{RL}-\omega^2M_{RL})+(K_L-\omega^2M_L)+(K_L-\omega^2M_L+K_R-\omega^2M_R)+\lambda(K_{LR}-\omega^2M_{LR})\right]U_n = 0\\
+			\left(\underbrace{\left[\frac{1}{\lambda}K_{RL}+K_L+K_R+\lambda K_{LR}\right]}_{\overset{\sim}{K}(\lambda)}-\omega^2\underbrace{\left[\frac{1}{\lambda}M_{RL}+M_L+M_R+\lambda M_{LR}\right]}_{\overset{\sim}{M}(\lambda)}\right)U_n = 0
+		\end{aligned}\]
+		
+		\begin{minipage}[t]{18cm}
+			Le problème aux VP devient : \enc[5.5cm]{red}{$\left[\overset{\sim}{K}(\lambda) - \omega^2\overset{\sim}{M}(\lambda)\right]U_n = 0$} (2) forme $\omega(\lambda)$
+		\end{minipage}
+	\end{sol}
 	
 \end{document}
