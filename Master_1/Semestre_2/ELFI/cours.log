@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  20 JAN 2026 11:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  27 JAN 2026 16:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1207,7 +1207,35 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Hy@SectionHShift=\skip69
 )
 \c@rmq=\count438
+\c@Exercice=\count439
+\c@Brouillon=\count440
+\c@Solution=\count441
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count442
+\c@ALG@rem=\count443
+\c@ALG@nested=\count444
+\ALG@tlm=\skip70
+\ALG@thistlm=\skip71
+\c@ALG@Lnr=\count445
+\c@ALG@blocknr=\count446
+\c@ALG@storecount=\count447
+\c@ALG@tmpcounter=\count448
+\ALG@tmplength=\skip72
 )
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+\@float@every@algorithm=\toks80
+\c@algorithm=\count449
+))
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
 (french3.ldf)             compatibility with enumitem package,
 (french3.ldf)             reported on input line 9.
@@ -1216,12 +1244,13 @@ Package french3.ldf Info: Setting StandardEnumerateEnv=true for
 (french3.ldf)             reported on input line 9.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 9.
 
- (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count439
+\l__color_backend_stack_int=\count450
 )
 (./cours.aux
 Package babel Info: 'french' activates 'french' shorthands.
@@ -1285,17 +1314,17 @@ LaTeX Info: Redefining \degres on input line 9.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count440
+\scratchcounter=\count451
 \scratchdimen=\dimen378
 \scratchbox=\box92
-\nofMPsegments=\count441
-\nofMParguments=\count442
-\everyMPshowfont=\toks80
-\MPscratchCnt=\count443
+\nofMPsegments=\count452
+\nofMParguments=\count453
+\everyMPshowfont=\toks81
+\MPscratchCnt=\count454
 \MPscratchDim=\dimen379
-\MPnumerator=\count444
-\makeMPintoPDFobject=\count445
-\everyMPtoPDFconversion=\toks81
+\MPnumerator=\count455
+\makeMPintoPDFobject=\count456
+\everyMPtoPDFconversion=\toks82
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1316,7 +1345,7 @@ Package hyperref Info: Link coloring OFF on input line 9.
 \@outlinefile=\write5
 \openout5 = `cours.out'.
 
-<logo.jpg, id=59, 1204.5pt x 612.2875pt>
+<logo.jpg, id=67, 1204.5pt x 612.2875pt>
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
 Package pdftex.def Info: logo.jpg  used on input line 19.
@@ -1420,8 +1449,8 @@ Overfull \hbox (86.49385pt too wide) in paragraph at lines 92--97
  []
 
 
-Overfull \hbox (205.30278pt too wide) in paragraph at lines 99--109
-[]\T1/lmr/m/n/12 On ar-rive à un pro-blème de la forme : $[]$ 
+Overfull \hbox (207.91776pt too wide) in paragraph at lines 99--109
+[]\T1/lmr/m/n/12 On ar-rive à un pro-blème de la forme :  $[]$ 
  []
 
 
@@ -1446,8 +1475,8 @@ Overfull \hbox (35.93503pt too wide) in paragraph at lines 173--179
  []
 
 
-Overfull \hbox (59.9055pt too wide) in paragraph at lines 190--191
-[]$$ | $[]$ 
+Overfull \hbox (62.9055pt too wide) in paragraph at lines 190--191
+[]$$ |  $[]$ 
  []
 
 
@@ -1484,7 +1513,7 @@ Overfull \hbox (137.57222pt too wide) in paragraph at lines 256--259
 [][][] 
  []
 
-<photo1.png, id=100, 340.27126pt x 249.93375pt>
+<photo1.png, id=108, 340.27126pt x 249.93375pt>
 File: photo1.png Graphic file (type png)
 <use photo1.png>
 Package pdftex.def Info: photo1.png  used on input line 281.
@@ -1520,7 +1549,7 @@ Overfull \hbox (99.01602pt too wide) in paragraph at lines 347--350
 [][] 
  []
 
-<photo2.png, id=120, 290.08376pt x 244.915pt>
+<photo2.png, id=128, 290.08376pt x 244.915pt>
 File: photo2.png Graphic file (type png)
 <use photo2.png>
 Package pdftex.def Info: photo2.png  used on input line 373.
@@ -1577,7 +1606,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 430.
 
-<photo3.png, id=132, 416.55624pt x 393.47pt>
+<photo3.png, id=140, 416.55624pt x 393.47pt>
 File: photo3.png Graphic file (type png)
 <use photo3.png>
 Package pdftex.def Info: photo3.png  used on input line 440.
@@ -1619,7 +1648,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 502--503
 
  []
 
-<photo4.png, id=139, 784.9325pt x 252.945pt>
+<photo4.png, id=147, 784.9325pt x 252.945pt>
 File: photo4.png Graphic file (type png)
 <use photo4.png>
 Package pdftex.def Info: photo4.png  used on input line 504.
@@ -1644,7 +1673,7 @@ Overfull \hbox (154.99959pt too wide) in paragraph at lines 520--525
  []
 
 [8 <./photo4.png>]
-<photo5.png, id=155, 125.46875pt x 130.4875pt>
+<photo5.png, id=163, 125.46875pt x 130.4875pt>
 File: photo5.png Graphic file (type png)
 <use photo5.png>
 Package pdftex.def Info: photo5.png  used on input line 537.
@@ -1654,7 +1683,7 @@ Overfull \hbox (188.34132pt too wide) in paragraph at lines 534--539
 [] $[]$ $[]$ 
  []
 
-<photo6.png, id=156, 142.5325pt x 157.58875pt>
+<photo6.png, id=164, 142.5325pt x 157.58875pt>
 File: photo6.png Graphic file (type png)
 <use photo6.png>
 Package pdftex.def Info: photo6.png  used on input line 543.
@@ -1689,7 +1718,7 @@ Overfull \hbox (7.77336pt too wide) in paragraph at lines 609--617
 []$[]$\T1/lmr/m/n/12 , [] 
  []
 
-<photo7.png, id=178, 119.44624pt x 143.53625pt>
+<photo7.png, id=186, 119.44624pt x 143.53625pt>
 File: photo7.png Graphic file (type png)
 <use photo7.png>
 Package pdftex.def Info: photo7.png  used on input line 623.
@@ -1699,7 +1728,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 625--626
 
  []
 
-<photo8.png, id=179, 160.6pt x 58.2175pt>
+<photo8.png, id=187, 160.6pt x 58.2175pt>
 File: photo8.png Graphic file (type png)
 <use photo8.png>
 Package pdftex.def Info: photo8.png  used on input line 631.
@@ -1730,7 +1759,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 671--671
 
  []
 
-<photo9.png, id=180, 185.69376pt x 201.75375pt>
+<photo9.png, id=188, 185.69376pt x 201.75375pt>
 File: photo9.png Graphic file (type png)
 <use photo9.png>
 Package pdftex.def Info: photo9.png  used on input line 671.
@@ -1745,11 +1774,50 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 671--672
 []$[]$ 
  []
 
+[10 <./photo7.png> <./photo8.png> <./photo9.png>]
+Overfull \hbox (26.30157pt too wide) in paragraph at lines 686--686
+|  [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 733--733
+
+ []
+
+
+Overfull \hbox (32.64188pt too wide) in paragraph at lines 733--733
+[]\T1/lmr/m/n/12 Ainsi : []  
+ []
+
+<photo10.png, id=203, 94.3525pt x 139.52126pt>
+File: photo10.png Graphic file (type png)
+<use photo10.png>
+Package pdftex.def Info: photo10.png  used on input line 733.
+(pdftex.def)             Requested size: 75.48209pt x 111.61714pt.
+
+Overfull \hbox (66.17876pt too wide) in paragraph at lines 733--733
+[] $[]$$[]$  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 733--733
+[]$\OML/lmm/m/it/12 n[]$ \T1/lmr/m/n/12 et $\OML/lmm/m/it/12 n[]$ \T1/lmr/m/n/1
+2 ap-par-tiennent à au moins un
+ []
+
+
+Overfull \hbox (6.3456pt too wide) in paragraph at lines 688--733
+[] [] 
+ []
+
+[11 <./photo10.png>]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 758.
 \tf@thm=\write6
 \openout6 = `cours.thm'.
 
-[10 <./photo7.png> <./photo8.png> <./photo9.png>]
-runsystem(latexminted cleantemp  --timestamp 20260120115010 456C7996E5729627FDD
+ [12]
+runsystem(latexminted cleantemp  --timestamp 20260127163408 456C7996E5729627FDD
 F96470E5E0948)...executed safely (allowed).
 
  (./cours.aux)
@@ -1758,16 +1826,16 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `cours.out' has not changed.
-(rerunfilecheck)             Checksum: FBF9D7BA7F7EC639C24124893D09ED39;3093.
+(rerunfilecheck)             Checksum: C3A911DD964B90FAA057CCBE506227A1;3508.
  ) 
 Here is how much of TeX's memory you used:
- 44953 strings out of 467538
- 1038255 string characters out of 5419551
- 1677650 words of memory out of 5000000
- 73051 multiletter control sequences out of 15000+600000
+ 45712 strings out of 467538
+ 1050423 string characters out of 5419551
+ 1689111 words of memory out of 5000000
+ 73788 multiletter control sequences out of 15000+600000
  719897 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,17n,131p,866b,1007s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,19n,131p,866b,1009s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line1
@@ -1787,10 +1855,10 @@ lic/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr
 i8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></u
 sr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/te
 xlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on cours.pdf (11 pages, 972833 bytes).
+Output written on cours.pdf (13 pages, 1006977 bytes).
 PDF statistics:
- 309 PDF objects out of 1000 (max. 8388607)
- 230 compressed objects within 3 object streams
- 71 named destinations out of 1000 (max. 500000)
- 167 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 338 PDF objects out of 1000 (max. 8388607)
+ 255 compressed objects within 3 object streams
+ 82 named destinations out of 1000 (max. 500000)
+ 188 words of extra memory for PDF output out of 10000 (max. 10000000)
 

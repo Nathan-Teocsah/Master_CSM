@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  26 JAN 2026 16:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  26 JAN 2026 19:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1839,37 +1839,32 @@ Overfull \hbox (138.69893pt too wide) in paragraph at lines 1269--1276
  []
 
 [18]
-Underfull \hbox (badness 1895) in paragraph at lines 1281--1282
-[][]\T1/lmr/m/it/12 Écrire (1) sous la
- []
-
-
-Overfull \hbox (133.86685pt too wide) detected at line 1288
+Overfull \hbox (133.86685pt too wide) detected at line 1289
 [][]
  []
 
 
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 1290--1293
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 1291--1294
 [][] 
  []
 
 
-Overfull \hbox (155.38068pt too wide) in paragraph at lines 1294--1301
+Overfull \hbox (155.38068pt too wide) in paragraph at lines 1295--1305
 []\T1/lmr/m/it/12 En pra-tique : [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1303--1305
+Underfull \hbox (badness 10000) in paragraph at lines 1307--1309
 
  []
 
 <photo19.png, id=235, 333.245pt x 176.66pt>
 File: photo19.png Graphic file (type png)
 <use photo19.png>
-Package pdftex.def Info: photo19.png  used on input line 1307.
+Package pdftex.def Info: photo19.png  used on input line 1311.
 (pdftex.def)             Requested size: 166.62209pt x 88.32977pt.
 
-Overfull \hbox (257.98267pt too wide) in paragraph at lines 1306--1316
+Overfull \hbox (257.98267pt too wide) in paragraph at lines 1310--1320
 []$[]$$[]$ 
  []
 
@@ -1877,7 +1872,7 @@ Overfull \hbox (257.98267pt too wide) in paragraph at lines 1306--1316
 \openout7 = `Cours.thm'.
 
 [19 <./photo19.png>]
-runsystem(latexminted cleantemp  --timestamp 20260126164039 33C1869ABDF6A46508C
+runsystem(latexminted cleantemp  --timestamp 20260126193425 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -1913,7 +1908,7 @@ dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts
 /type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
 lic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy
 8.pfb>
-Output written on Cours.pdf (20 pages, 3355771 bytes).
+Output written on Cours.pdf (20 pages, 3355753 bytes).
 PDF statistics:
  354 PDF objects out of 1000 (max. 8388607)
  251 compressed objects within 3 object streams
