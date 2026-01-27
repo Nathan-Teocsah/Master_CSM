@@ -669,4 +669,107 @@
 	$N_8 = n_3^{K_6} = n_1^{K_8}$\\
 	$8 = g^{K_6}(3) = g^{K_8}(1)$
 	\end{minipage}}
+
+	\subsection{Problème discret}
+	
+		\enc[15.5cm]{Green}{
+		\underline{La formulation discrète :}\\
+		\hspace*{.5cm} \begin{minipage}[t]{15cm}
+			Chercher $u \in W_h$ tel que $u\big|_{\Gamma_{D,h}} = u_{D_h}$, et, pour tout $ v \in V_h$ :			
+			\[\fbox{$a_h(u,v) = l_h(u,v)$}\]
+			
+			\fbox{$\begin{cases}
+				a_h(u,v) = \displaystyle\int_{\Omega_h}\nabla u(x)\cdot\nabla v(x)dx + \int_{\Omega_h} u(x)v(x) dx\\			
+			l_h(v) = \displaystyle\int_{\Omega_h} f_\Omega(x) v(x) dx + \int_{\Gamma_{N,h}} g_N(\gamma)v(\gamma)d\gamma
+			\end{cases}$}
+		\end{minipage}
+		}
+		
+		\hspace{.1cm}\doublebar{
+		On exprime $u_h$ sur une base de $W_h=\text{Vect}\{w_I,I=1,\cdots,M_h\}$.
+		
+		On pose : $u_h = \displaystyle\sum_{J=1}^{M_h} u_Jw_J$ \hspace{1cm}\begin{minipage}[t]{10cm}
+			avec $u_J \in \R, \forall J = 1,\cdots,M_h$\\
+			$u_J = u_h(n_J)$
+			\hspace{.5cm} $n_J = J^{eme}$ nœud du maillage
+		\end{minipage}
+		
+		Pour que la relation (FVh) soit vraie $\forall v_h \in V_h$, il faut et il suffit qu'elle soit vraie pour toute fonction d'une base de $V_h$.\\
+		Ainsi : \begin{minipage}[t]{18cm}
+			$\forall w_I$ tel que $n_I \not\in \Gamma_{D,h}$; \hspace{.5cm} \begin{minipage}[t]{10cm}
+				($V_h = \{v_h\in W_h; v_h\big|_K (n)=0, \forall (n,K) \in \Gamma_{D,h}\times \mathcal{T}_h(n) \}$ $= \text{Vect}\{w_I, I \text{ tq } n_I \not\in \Gamma_{D,h}\}$)
+			\end{minipage}\\
+			
+			$a_h(u_h,w_I)=l_h(w_I)$.
+		\end{minipage}
+		
+		\vspace{.5cm}
+		
+		\textbf{Ainsi on obtient :}
+		
+		\vspace{.2cm}
+		
+		\hspace{.5cm}\begin{minipage}{15cm}
+			$\forall I / n_I \not\in \Gamma_{D,h}$ : \\
+			\hspace{.5cm}$\displaystyle\sum_{J=1}^{M_h} \underbrace{u_J}_{=u_{D,h}(n_J) \text{ pour } n_J \in \Gamma_{D,h}}a_h(w_J,w_I) = l_h(w_I)$\\
+			$\forall I / n_I \not\in \Gamma_{D,h}$ :\\
+			\hspace{.5cm} $\displaystyle\sum_{\underset{n_J\not\in \Gamma_{D,h}}{J=1}}^{M_h}u_J\overbrace{a_h(w_J,w_I)}^{A_{IJ}} = l_h(w_I) - \overbrace{\sum_{J=1}^{M_h} u_{D,h}(n_J) a_h(w_J,w_I)}^{B_I}$
+		\end{minipage}\begin{minipage}{5cm}
+		\includegraphics[scale=.8]{photo10.png}\\
+		$N_h \cancel{M_h}$ inconnues\\
+		\hspace*{.5cm} $N_h$ équations
+		\end{minipage}
+		
+		\textbf{La matrice $A$ a les propriété suivantes :}
+		\begin{enumerate}[label=$\star$]
+			\item symétrique
+			\item définie positive (car $a_h$ est coercive)
+			\item $a_h(w_J,w_I) \not=0 \implies$ \begin{minipage}[t]{8cm}
+				$n_I$ et $n_J$ appartiennent à au moins un même élément du maillage\\
+				C'est-à-dire $\mathcal{T}_h(n_I)\cap\mathcal{T}_h(n_J) \not=\emptyset$
+				\end{minipage}
+			\item La matrice est creuse.
+		\end{enumerate}
+		}
+
+		\subsection{Matrices et second membres élémentaires}
+		
+		\begin{defi}
+			Pour $K \in \mathcal{T}_h$, on définie 
+			\[\begin{aligned}
+				a_K(u_h,v_h) =& \displaystyle\int_K \nabla u_h \cdot \nabla v_h + \int_K u_hv_h\\
+				l_K(v_h) =& \int_K f_\Omega v_h + \int_{\partial K\cap \Gamma_{N,h}} g_{N,h}v_h
+			\end{aligned}\]
+		\end{defi}
+		
+		\begin{rmq}
+			\begin{minipage}[t]{12cm}
+				$a_h(u_h,v_h) = \displaystyle\sum_{K\in \mathcal{T}_h} a_K(u_h,v_h)$ et $l_h(v_h) = \displaystyle\sum_{K\in \mathcal{T}_h} l_K(v_h)$\\
+				$a_h(w_J,w_I) = \displaystyle\sum_{K\in \mathcal{T}_h}a_K(w_J,w_I)$
+			\end{minipage}
+			
+			\hspace{-.5cm}Si $n_J \in K$, alors $\exists j$ tel que $w_J = w_j^K$\\
+			Si $n_I \in K$, alors $\exists i$ tel que $w_I = w_i^K$.\\
+			\underline{Question :} Comment calculer (informatiquement) efficacement :
+			\[a_h(w_J,w_I) = \displaystyle\sum_{K \in\mathcal{T}_h(n_I)\cap\mathcal{T}_h(n_J))} \sum_{i=1}^{N_K}\sum_{j=1}^{N_K} \delta_I^{g^K(i)}\delta^{g^K(j)} a_K(w_j^K,w_i^K)\]
+			
+			\underline{Réponse :} On ne fait pas "bêtement" une boucle sur chacun des indices (impossible à calculer en temps raisonnable).
+			\begin{algorithm}
+				\caption{Comment calculer $a_h(w_J,w_I)$}\label{alg:cap}
+				\begin{algorithmic}
+					\For{$K$}
+						\For{$i = 1,\cdots,N_K$}
+							\State $I \gets g^K(i)$
+							\For{$j = 1,\cdots,N_K$}
+								\State $J \gets g^K(j)$
+								\State $a_h(w_J,w_I) \gets a_K(w_j^K,w_i^K) + a_h(w_J,w_I)$
+							\EndFor
+						\EndFor
+					\EndFor
+				\end{algorithmic}
+			\end{algorithm}
+		\end{rmq}
+		
+	
+		
 \end{document}

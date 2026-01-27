@@ -155,3 +155,24 @@
 \newcommand{\bleu}[1]{\textcolor{blue}{#1}}
 \definecolor{darkgreen}{RGB}{0, 102, 51}
 \renewcommand{\vert}[1]{\textcolor{darkgreen}{#1}}
+
+
+
+\newcommand{\doublebar}[1]{%
+\noindent
+\begin{tikzpicture}
+\node[
+  inner xsep=0em,
+  inner ysep=0.6em,
+  text width=\linewidth-2em,
+  align=left
+] (box) {#1};
+\draw[line width=0.35pt] ([xshift=-6pt]box.north west) -- ([xshift=-6pt]box.south west);
+\draw[line width=0.35pt] ([xshift=-9pt]box.north west) -- ([xshift=-9pt]box.south west);
+\end{tikzpicture}
+
+}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+
