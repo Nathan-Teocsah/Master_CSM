@@ -519,8 +519,14 @@
 	\begin{defi}[$\mathbb{P}_1$ et $\mathbb{Q}_1$]
 		On définit :\\
 		\begin{minipage}{18cm}
-			$\mathbb{P}_1 =$ ensemble des polynôme de degré au plus 1 par rapport à \textbf{l'ensemble des} composantes.\\
-			$\mathbb{Q}_1 =$ ensemble des polynôme de degré au plus 1 par rapport à \textbf{chaque} composante.
+			$\mathbb{P}_1 =$ \begin{minipage}[t]{16cm}
+				ensemble des polynôme de degré au plus 1 par rapport à \textbf{l'ensemble des} composantes.\\
+				Pour les \underline{triangles}.
+			\end{minipage}\\
+			$\mathbb{Q}_1 =$ \begin{minipage}[t]{15cm}
+				ensemble des polynôme de degré au plus 1 par rapport à \textbf{chaque} composante.\\
+			Pour les \underline{quadrangle}.
+			\end{minipage}
 		\end{minipage}
 	\end{defi}
 	
@@ -731,6 +737,8 @@
 			\item La matrice est creuse.
 		\end{enumerate}
 		}
+		
+		\newpage
 
 		\subsection{Matrices et second membres élémentaires}
 		
@@ -790,12 +798,12 @@
 		Le calcul des objets élémentaires sur $K$ se ramène à des calculs sur $\widehat K$ par changement de variable d'intégration. Il suffit de définir uniquement les fonctions de base sur $\widehat K$, ainsi que la formule de quadrature.
 		
 		\[
-		\displaystyle\int_K f(x) dx = \int_{\widehat K} f(F_K(\hat x))d\hat x \simeq \sum_{\mu = 1}^Q \omega_\mu f(F_K(\hat{x}_\mu))\abs{\det JF_K(\hat{x}_\mu)}
+		\displaystyle\int_K f(\bm x) d\bm x = \int_{\widehat K} f(F_K(\bm{\hat x}))d\bm{\hat x} \simeq \sum_{\mu = 1}^Q \omega_\mu f(F_K(\bm{\hat{x}}_\mu))\abs{\det JF_K(\bm{\hat{x}}_\mu)}
 		\]
 		avec $\begin{aligned}[t]
 			F_K :& \widehat{K} \to K \\
-			    & \hat x \mapsto x
-		\end{aligned}$.\\
+			    & \bm{\hat x} \mapsto \bm x
+		\end{aligned}$. Et \textbf{$\bm{\hat x}_\mu$} est le $\mu$-ième points d'intégration.\\
 		
 		\begin{minipage}{6.5cm}
 			\includegraphics[scale=.5]{photo12.png}
@@ -808,7 +816,7 @@
 			
 			$F_K$ vérifie :
 			\[
-			F_K(\hat{x}) = \displaystyle\sum_{i=1}^{N^K} \underbrace{\widehat{w}_i(\hat x)}_{\hat\lambda_i(\hat{x}) \text{ ici } \mathbb{P}_1 \text{ lagrange}} a_i^K
+			F_K(\hat{x}) = \displaystyle\sum_{i=1}^{N^K} \underbrace{\widehat{w}_i(\hat x)}_{\hat\lambda_i(\bm{\hat{x}}) \text{ ici } \mathbb{P}_1 \text{ lagrange}} a_i^K
 			\]
 		\end{minipage}
 		

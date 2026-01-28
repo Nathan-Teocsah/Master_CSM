@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  21 JAN 2026 13:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  28 JAN 2026 13:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1207,14 +1207,40 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \c@Exercice=\count439
 \c@Brouillon=\count440
 \c@Solution=\count441
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count442
+\c@ALG@rem=\count443
+\c@ALG@nested=\count444
+\ALG@tlm=\skip70
+\ALG@thistlm=\skip71
+\c@ALG@Lnr=\count445
+\c@ALG@blocknr=\count446
+\c@ALG@storecount=\count447
+\c@ALG@tmpcounter=\count448
+\ALG@tmplength=\skip72
 )
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+\@float@every@algorithm=\toks80
+\c@algorithm=\count449
+))
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
 (french3.ldf)             compatibility with enumitem package,
 (french3.ldf)             reported on input line 11.
 Package french3.ldf Info: Setting StandardEnumerateEnv=true for
 (french3.ldf)             compatibility with enumitem package,
 (french3.ldf)             reported on input line 11.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 )
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
@@ -1225,7 +1251,7 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count442
+\l__color_backend_stack_int=\count450
 )
 (./cours.aux
 Package babel Info: 'french' activates 'french' shorthands.
@@ -1289,17 +1315,17 @@ LaTeX Info: Redefining \degres on input line 11.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count443
+\scratchcounter=\count451
 \scratchdimen=\dimen378
 \scratchbox=\box92
-\nofMPsegments=\count444
-\nofMParguments=\count445
-\everyMPshowfont=\toks80
-\MPscratchCnt=\count446
+\nofMPsegments=\count452
+\nofMParguments=\count453
+\everyMPshowfont=\toks81
+\MPscratchCnt=\count454
 \MPscratchDim=\dimen379
-\MPnumerator=\count447
-\makeMPintoPDFobject=\count448
-\everyMPtoPDFconversion=\toks81
+\MPnumerator=\count455
+\makeMPintoPDFobject=\count456
+\everyMPtoPDFconversion=\toks82
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1320,7 +1346,7 @@ Package hyperref Info: Link coloring OFF on input line 11.
 \@outlinefile=\write5
 \openout5 = `cours.out'.
 
-<logo.jpg, id=19, 1204.5pt x 612.2875pt>
+<logo.jpg, id=27, 1204.5pt x 612.2875pt>
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
 Package pdftex.def Info: logo.jpg  used on input line 21.
@@ -1390,12 +1416,12 @@ Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@refangle 0.  def grestore  e...
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./logo.jpg>]
-<photo1.png, id=29, 618.31pt x 593.21625pt>
+<photo1.png, id=37, 618.31pt x 593.21625pt>
 File: photo1.png Graphic file (type png)
 <use photo1.png>
 Package pdftex.def Info: photo1.png  used on input line 67.
 (pdftex.def)             Requested size: 370.98886pt x 355.9325pt.
-<photo2.png, id=31, 506.89375pt x 491.8375pt>
+<photo2.png, id=39, 506.89375pt x 491.8375pt>
 File: photo2.png Graphic file (type png)
 <use photo2.png>
 Package pdftex.def Info: photo2.png  used on input line 71.
@@ -1412,12 +1438,12 @@ been already used, duplicate ignored
                    \relax 
 l.75 	\textbf{\underline{Maillage :}}
                                       [1 <./photo1.png> <./photo2.png>]
-<photo3.png, id=38, 170.6375pt x 218.8175pt>
+<photo3.png, id=46, 170.6375pt x 218.8175pt>
 File: photo3.png Graphic file (type png)
 <use photo3.png>
 Package pdftex.def Info: photo3.png  used on input line 103.
 (pdftex.def)             Requested size: 119.44542pt x 153.17119pt.
-<photo4.png, id=39, 156.585pt x 169.63374pt>
+<photo4.png, id=47, 156.585pt x 169.63374pt>
 File: photo4.png Graphic file (type png)
 <use photo4.png>
 Package pdftex.def Info: photo4.png  used on input line 113.
@@ -1429,11 +1455,11 @@ to4.png>]
 \pydata@fh@0=\write6
 \openout6 = `_456C7996E5729627FDDF96470E5E0948.data.minted'.
 
-runsystem(latexminted config  --timestamp 20260121135445 456C7996E5729627FDDF96
+runsystem(latexminted config  --timestamp 20260128135425 456C7996E5729627FDDF96
 470E5E0948)...executed safely (allowed).
 
  (./_456C7996E5729627FDDF96470E5E0948.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20260121135445 456C7996E5729627F
+runsystem(latexminted cleanconfig  --timestamp 20260128135425 456C7996E5729627F
 DDF96470E5E0948)...executed safely (allowed).
 
 
@@ -1453,7 +1479,7 @@ LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )) [3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
-<photo5.png, id=62, 589.20125pt x 543.02875pt>
+<photo5.png, id=70, 589.20125pt x 543.02875pt>
 File: photo5.png Graphic file (type png)
 <use photo5.png>
 Package pdftex.def Info: photo5.png  used on input line 197.
@@ -1468,7 +1494,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 211--220
 
  []
 
-<photo6.png, id=63, 197.73875pt x 136.51pt>
+<photo6.png, id=71, 197.73875pt x 136.51pt>
 File: photo6.png Graphic file (type png)
 <use photo6.png>
 Package pdftex.def Info: photo6.png  used on input line 224.
@@ -1478,42 +1504,56 @@ Overfull \hbox (13.51086pt too wide) in paragraph at lines 224--225
 [][] 
  []
 
+(./_minted/B45D353B3A8339A2150A494B0BDBCF0D.highlight.minted [4{/usr/local/texl
+ive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2025/t
+exmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <./photo5.png> <./photo6.png>]
+[5]) [6] (./_minted/F7E56C94D867809793A23979A1B86F1C.highlight.minted [7])
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 449--450
+
+ []
+
+<photo7.png, id=102, 242.9075pt x 185.69376pt>
+File: photo7.png Graphic file (type png)
+<use photo7.png>
+Package pdftex.def Info: photo7.png  used on input line 454.
+(pdftex.def)             Requested size: 121.45345pt x 92.84665pt.
 \tf@thm=\write7
 \openout7 = `cours.thm'.
 
-[4{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/lo
-cal/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <./photo5.png> <.
-/photo6.png>] (./cours.aux)
+[9 <./photo7.png>] (./cours.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `cours.out' has not changed.
-(rerunfilecheck)             Checksum: 93F902A0BA96D547D63513AE61D27862;354.
+(rerunfilecheck)             Checksum: 97614FE69B891E6D1F5F1475692770A2;601.
  ) 
 Here is how much of TeX's memory you used:
- 45179 strings out of 467538
- 1044898 string characters out of 5419551
- 1680798 words of memory out of 5000000
- 73341 multiletter control sequences out of 15000+600000
+ 45871 strings out of 467538
+ 1057572 string characters out of 5419551
+ 1690279 words of memory out of 5000000
+ 74006 multiletter control sequences out of 15000+600000
  679680 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,20n,131p,866b,785s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,20n,131p,866b,1282s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
 cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texli
 ve/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/te
 xmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/f
-onts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
-public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/l
-mr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></
-usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/
-texlive/2025/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/20
-25/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2025/texmf-d
-ist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on cours.pdf (5 pages, 1590633 bytes).
+onts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/l
+mr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/t
+exlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/202
+5/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025/texmf-dis
+t/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
+pe1/public/lm/lmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public
+/lm/lmtti10.pfb>
+Output written on cours.pdf (10 pages, 1701279 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
- 72 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 193 PDF objects out of 1000 (max. 8388607)
+ 133 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

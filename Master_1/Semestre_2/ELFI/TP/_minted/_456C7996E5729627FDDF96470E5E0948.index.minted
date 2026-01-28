@@ -1,9 +1,11 @@
 {
   "jobname": "cours",
   "md5": "456C7996E5729627FDDF96470E5E0948",
-  "timestamp": "20260114181429",
+  "timestamp": "20260128135124",
   "cachefiles": [
     "9F9E42537EE2AAF807E2B9D74501E949.highlight.minted",
+    "B45D353B3A8339A2150A494B0BDBCF0D.highlight.minted",
+    "F7E56C94D867809793A23979A1B86F1C.highlight.minted",
     "_456C7996E5729627FDDF96470E5E0948.index.minted",
     "default.style.minted"
   ]
