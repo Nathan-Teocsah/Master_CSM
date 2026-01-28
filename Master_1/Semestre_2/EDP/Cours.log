@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  22 JAN 2026 16:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  28 JAN 2026 11:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1210,7 +1210,32 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \c@Exercice=\count439
 \c@Brouillon=\count440
 \c@Solution=\count441
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count442
+\c@ALG@rem=\count443
+\c@ALG@nested=\count444
+\ALG@tlm=\skip70
+\ALG@thistlm=\skip71
+\c@ALG@Lnr=\count445
+\c@ALG@blocknr=\count446
+\c@ALG@storecount=\count447
+\c@ALG@tmpcounter=\count448
+\ALG@tmplength=\skip72
 )
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+\@float@every@algorithm=\toks80
+\c@algorithm=\count449
+))
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
 (french3.ldf)             compatibility with enumitem package,
 (french3.ldf)             reported on input line 10.
@@ -1219,12 +1244,13 @@ Package french3.ldf Info: Setting StandardEnumerateEnv=true for
 (french3.ldf)             reported on input line 10.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 10
 .
- (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count442
+\l__color_backend_stack_int=\count450
 )
 (./Cours.aux
 Package babel Info: 'french' activates 'french' shorthands.
@@ -1288,17 +1314,17 @@ LaTeX Info: Redefining \degres on input line 10.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count443
+\scratchcounter=\count451
 \scratchdimen=\dimen378
 \scratchbox=\box92
-\nofMPsegments=\count444
-\nofMParguments=\count445
-\everyMPshowfont=\toks80
-\MPscratchCnt=\count446
+\nofMPsegments=\count452
+\nofMParguments=\count453
+\everyMPshowfont=\toks81
+\MPscratchCnt=\count454
 \MPscratchDim=\dimen379
-\MPnumerator=\count447
-\makeMPintoPDFobject=\count448
-\everyMPtoPDFconversion=\toks81
+\MPnumerator=\count455
+\makeMPintoPDFobject=\count456
+\everyMPtoPDFconversion=\toks82
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1761,29 +1787,97 @@ Underfull \hbox (badness 10000) in paragraph at lines 837--838
  []
 
 
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 797--848
+Underfull \hbox (badness 10000) in paragraph at lines 848--849
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 855--856
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 877--887
+
+ []
+
+Package hyperref Info: bookmark level for unknown dem defaults to 0 on input li
+ne 897.
+
+Underfull \hbox (badness 10000) in paragraph at lines 897--943
+[][]\T1/lmr/m/it/12 On montre : $\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 Y\OT1/lmr/m/
+n/12 (\OML/lmm/m/it/12 z; t; x; y\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; X\OT1/lmr/
+m/n/12 (\OML/lmm/m/it/12 s; t; x; y\OT1/lmr/m/n/12 )) =
+ []
+
+
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 897--943
+[] 
+ []
+
+
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 797--951
 []$[]$
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 797--848
-[]$ 
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 797--951
+[]$
  []
 
 
-Underfull \vbox (badness 4805) detected at line 848
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 797--951
+[] 
+ []
+
+
+Underfull \vbox (badness 4805) detected at line 951
  []
 
 [15]
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 858--865
+Underfull \vbox (badness 10000) detected at line 951
+ []
+
+
+Overfull \vbox (4.23863pt too high) detected at line 951
+ []
+
+[16] [17]
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 961--968
 [][] 
+ []
+
+
+Underfull \hbox (badness 1292) in paragraph at lines 986--987
+[]$\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 X\OT1/lmr/m/n/12 (0\OML/lmm/m/it/12 ; t; x
+; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; Y\OT1/lmr/m/n/12 (0\OML/lmm/m/it/12 ;
+ t; x; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; Z\OT1/lmr/m/n/12 (0\OML/lmm/m/it
+/12 ; t; x; y; z\OT1/lmr/m/n/12 )) = (\OML/lmm/m/it/12 Y\OT1/lmr/m/n/12 (0\OML/
+lmm/m/it/12 ; t; x; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; X\OT1/lmr/m/n/12 (0
+\OML/lmm/m/it/12 ; t; x; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; Z\OT1/lmr/m/n/
+12 (0\OML/lmm/m/it/12 ; t; x; y; z\OT1/lmr/m/n/12 ))$
+ []
+
+
+Overfull \hbox (3.38544pt too wide) in paragraph at lines 982--989
+\T1/lmr/m/it/12 Et on a : [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 989--991
+
+ []
+
+
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 978--999
+[] 
  []
 
 \tf@thm=\write7
 \openout7 = `Cours.thm'.
 
-[16]
-runsystem(latexminted cleantemp  --timestamp 20260122163301 33C1869ABDF6A46508C
+[18]
+runsystem(latexminted cleantemp  --timestamp 20260128113421 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -1795,33 +1889,33 @@ Package rerunfilecheck Info: File `Cours.out' has not changed.
 (rerunfilecheck)             Checksum: 8BA22B25A2B791FB915002D217C543E8;1030.
  ) 
 Here is how much of TeX's memory you used:
- 45029 strings out of 467538
- 1039287 string characters out of 5419551
- 1687573 words of memory out of 5000000
- 73150 multiletter control sequences out of 15000+600000
- 715476 words of font info for 115 fonts, out of 8000000 for 9000
+ 45591 strings out of 467538
+ 1048199 string characters out of 5419551
+ 1710054 words of memory out of 5000000
+ 73696 multiletter control sequences out of 15000+600000
+ 719747 words of font info for 116 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,21n,131p,866b,726s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,21n,131p,866b,929s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbsy10.pfb></usr/lo
 cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texliv
-e/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/te
-xmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/f
-onts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
-/public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/
-lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmib10.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/loca
-l/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/20
-25/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dis
-t/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
-pe1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public
-/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.p
-fb>
-Output written on Cours.pdf (17 pages, 2120643 bytes).
+e/2025/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/texmf-dist/
+fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type
+1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/l
+m/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi8.pfb
+></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/lo
+cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive
+/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-
+dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
+ype1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publi
+c/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy6
+.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
+Output written on Cours.pdf (19 pages, 2151942 bytes).
 PDF statistics:
- 276 PDF objects out of 1000 (max. 8388607)
- 197 compressed objects within 2 object streams
- 49 named destinations out of 1000 (max. 500000)
+ 293 PDF objects out of 1000 (max. 8388607)
+ 209 compressed objects within 3 object streams
+ 53 named destinations out of 1000 (max. 500000)
  124 words of extra memory for PDF output out of 10000 (max. 10000000)
 

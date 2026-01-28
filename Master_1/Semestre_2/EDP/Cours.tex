@@ -844,6 +844,109 @@
 					x = X(0,t,x,y)\\
 					y = Y(0,t,x,y)
 				\end{cases}$
+				
+				\textbf{\underline{Autre approche :}}\\
+				
+				On peut aussi utiliser le flot \underline{explicite :}\\
+				$(1) \implies f^0(x,y) = f(t,\underbrace{x\cosh(t)+y\sinh(t)}_{=X(t,0,x,y)},\underbrace{ycosh(t)+x\sinh(t)}_{=Y(t,0,x,y)})$\\
+				Et on fait $\dfrac{\partial}{\partial t}$ :
+				\[0 = \left(\dfrac{\partial}{\partial t}\right)(\cdots) + \underbrace{\left(x+\sinh(t)+y\cosh(t)\right)}_{\rouge{=Y(t,0,x,y)}}(\cdots)+\cdots\]
+				
+				\textbf{\underline{Troisième approche :}}\\
+				\[\begin{aligned}
+					(1) 
+					& \implies f(t,\underbrace{X(t,0,x,y)}_{x'},\underbrace{Y(t,0,x,y)}_{y'}) = f^0(x,y)\\
+					& \implies f(t,x',y') = f^0(X(0,t,x',y'),Y(0,t,x',y'))\\
+					& \implies f(t,x,y) = f^0(X(0,t,x,y),Y(0,t,x,y))
+				\end{aligned}\]
+				Et on fait $\dfrac{\partial}{\partial t}$.\\
+				Ceci crée le besoin de calculer $\dfrac{d}{dt}\left(X(0,t,x,y)\right)$.\\
+				\underline{Problème :} On dérive par rapport à l'instant initial !! Et on a pas de valeur évidente de $\dfrac{d}{dt}X(0,t,x,y)$.
+				
+				\textbf{\underline{Quatrième approche :}} on exploit la formule :
+				\[f(t,x,y) = f^0(X(0,t,x,y),Y(0,t,x,y))\]
+				On repart de l'EDO : $\begin{cases}
+					x'(t) = y(t)\\
+					y'(t) = x(t)
+				\end{cases}$, avec $\begin{cases}
+				x(t_0) = x_0\\
+				y(t_0) = y_0
+				\end{cases}$.				
+			\end{minipage}
+			\begin{minipage}[t]{18.5cm}
+				$\cdots\to\begin{cases}
+					x(t) = x\cosh(t-t_0)+y\sinh(t-t_0)\\
+					y(t) = y\cosh(t-t_0) + x\sinh(t-t_0)
+				\end{cases}$\\
+				D'où : $\begin{cases}
+					X(0,t,x,y) = x\cosh(0-t) + y\sinh(0-t)
+					Y(0,t,x,y) = y\cosh(0-t) + x\sinh(0-t)
+				\end{cases}$\\
+				D'où (ici) : $f(t,x,y) = f^0(x\cosh(t)-y\sinh(t),y\cosh(t)-x\sinh(t))$ $(3)$.\\
+				D'où (ici) : $= \dfrac{\partial f}{\partial t}(t,x,y) = y\dfrac{\partial f}{\partial x} + x\dfrac{\partial f}{\partial y} = 0$\\
+				
+				\textbf{\underline{Question 2 :}} A t'on $f^0(x,y) = f^0(y,x) \implies f(t,x,y) = f(t,y,x)$ ?
+				
+				\underline{réponse 1 :} sur la formule $(3)$ on le constate.\\
+				$f(t,y,x) = f^0(y\cosh(t)-x\sinh(t),x\cosh(t)-y\sinh(t)) = f^0(x\cosh(t)-y\sinh(t),\cdots) = f(t,x,y)$.\\
+				\underline{réponse 2 :} sans formule.\\
+				On part de $f(t,x,y) = f^0(X(0,t,x,y),Y(0,t,x,y))$ et $f(t,y,x) = f^0(X(0,t,y,x),Y(0,t,y,x))$.\\
+				\underline{On ait ainsi ramener à la question :} A-t-on : $(Y(0,t,x,y),X(0,t,x,y)) = (X(0,t,y,x),Y(0,t,y,x))$ ?\\
+				OUI
+				\begin{dem}
+					On montre : $(Y(z,t,x,y),X(s,t,x,y)) = (X(s,t,y,x),Y(s,t,y,x))$\\
+					\begin{minipage}[t]{18.5cm}
+						\underline{Quand $s=t$ :} $\begin{aligned}
+							(Y(s=t,t,x,y),X(s=t,t,x,y)) = (y,x)\\
+							(X(s=t,t,y,x),Y(s=t,t,y,x)) = (y,x)
+						\end{aligned}$\\
+						\underline{Evolution avec $s$ :} $\dfrac{d}{ds}\left[\begin{matrix}
+							Y(s,t,x,y)\\
+							X(s,t,x,y)
+						\end{matrix}\right] = \left[\begin{matrix}
+							X(z,t,x,y)\\
+							Y(s,t,x,y)
+						\end{matrix}\right] = \left[\begin{matrix}
+							0 & 1 \\
+							1 & 0
+						\end{matrix}\right]\left[\begin{matrix}
+							Y(s,t,x,y)\\
+							X(s,t,x,y)
+						\end{matrix}\right]$\\
+						et $\dfrac{d}{ds}\left[\begin{matrix}
+							X(s,t,y,x) \\
+							Y(s,t,y,x)
+						\end{matrix}\right] = \left[\begin{matrix}
+						0 & 1 \\
+						1 & 0
+						\end{matrix}\right]\left[\begin{matrix}
+						X(s,t,y,x) \\
+						Y(s,t,y,x)
+						\end{matrix}\right]$\\
+						C'est-à-dire : \begin{minipage}[t]{15cm}
+							$\left[\begin{matrix}
+							Y(s,t,x,y) \\
+							X(s,t,x,y)
+						\end{matrix}\right]$ et $\left[\begin{matrix}
+						X(s,t,y,x) \\
+						Y(s,t,y,x)
+						\end{matrix}\right]$\\
+						satisfont la même EDO $Z' = \left[\begin{matrix}
+							0 & 1 \\
+							1 & 0
+						\end{matrix}\right]Z$, avec la même donnée initiale en $s=t$ ces deux quantités sont égales $\forall s$.
+						\end{minipage}
+						
+						On a ainsi montré : $(Y(0,t,x,y),X(0,t,x,y)) = (X(0,t,y,x),Y(0,t,y,x))$.\\
+						Et par suite : $f(t,x,y) = f(t,y,x)$
+					\end{minipage}
+				\end{dem}
+				
+				\textbf{Remarque :} $f(t,x,y)$ et $f(t,y,x)$ satisfont la même EDP avec la même donnée initiale (car $f^0(x,y) = f^0(y,x)$) sous réserve de l'unicité de la solution à lEDP satisfaite par $f$ on peut en déduire $f(t,x,y) = f(t,y,x)$
+				
+				\textbf{\underline{Question 3 :}} A-t-on $f^0(x,y) = g^0(x)g^0(y) \implies f(t,x,y) = g(t,x)g(t,y)$ ?\\
+				\underline{Réponse :} $f(t,x,y) = f^0(X(0,t,x,y),Y(0,t,x,y)) = g^0(x\cosh(t)-y\sinh(t))g^0(y\cosh(t)-x\sinh(t))$.\\
+				on ne voit pas comment (pour une fonction $g^0$ générale) ceci pourrait se mettre sous la forme d'un produit $g(t,x)g(t,y)$.
 			\end{minipage}
 		\end{sol}
 		
@@ -872,6 +975,28 @@
 				\item Quelle sont les équations sur les marginales : $f^1, f^2$ et $f^3$ ?
 			\end{enumerate}
 		\end{exo}
+		\begin{sol}$ $\\
+			\begin{minipage}[t]{18.5cm}
+				\textbf{\underline{Question 1 :}} quelle EDP satisfait $f$ ?\\
+			On a (méthode habituelle) : 
+			\[\dfrac{\partial f}{\partial t}(t,x,y,z)+\left[G(x-y)+G(x-z)\right]\dfrac{\partial f}{\partial x} + \left[G(y-x)+G(y-z)\right]\dfrac{\partial f}{\partial y} + \left[G(z-x)+G(z-y)\right]\dfrac{\partial f}{\partial z} = 0\]
+			On a : $f^0(x,y,z) = f^0(y,x,z) \implies$ même propriété pour $f(t,x,y,z)$.\\
+			En effet : $f(t,x,y,z) = f^0(X(0,t,x,y,z),Y(\cdots),Z(\cdots))$.\\
+			Et on a : \begin{minipage}[t]{17cm}
+				$(X(0,t,x,y,z),Y(0,t,x,y,z),Z(0,t,x,y,z)) = (Y(0,t,x,y,z),X(0,t,x,y,z),Z(0,t,x,y,z))$ par unicité dans Cauchy-Lipschitz.
+			\end{minipage}\\
+			Enfin on a : 
+			\[\dfrac{\partial f}{\partial t}(t,x,y,z)+\left[G(x-y)+G(x-z)\right]\dfrac{\partial f}{\partial x} + \left[G(y-x)+G(y-z)\right]\dfrac{\partial f}{\partial y} + \left[G(z-x)+G(z-y)\right]\dfrac{\partial f}{\partial z} = 0\]
+			$\left(\text{On pose } f^1(t,x) = \displaystyle\int f(t,x,y,z) dydz,\cdots,etc.\right)$\\
+			
+			Ainsi :
+			\[\begin{aligned}
+				\dfrac{\partial f^1}{\partial t}(t,x) 
+			&+ \displaystyle\underbrace{\int\left[G(x-y)+G(x-z)\right]\dfrac{\partial f}{\partial x}(t,x,y,z)}_{\rouge{=2\int G(x-y)\frac{\partial f^2}{\partial t}(t,x,y) dy}} + \underbrace{\int\left[G(y-x)+G(y-z)\right]\dfrac{\partial f}{\partial x}(t,x,y,z)dydz}_{\rouge{\underset{= -\int G'(y-x)f^2(t,x,y)dy + \int G'(y-z)f(t,x,y,z)}{=-\int\left[G'(y-x)+G'(y-z)\right]f(t,x,y,z)}}}\\
+			&+\cdots
+			\end{aligned}\]
+			\end{minipage}
+		\end{sol}
 	
 	
 	
