@@ -14,7 +14,9 @@ set(0,'defaultaxesfontsize',12)
 
 %% 1) Defining the model
 a=1; % spatial periodicity
-b=10000;
+b=10000; % stifness of a coil string
+gamma=0.05;
+b=b*(1+gamma*1i); %On introduit une histérésis : Retard de l'effet sur la cause dans le comportement des corps soumis à une action physique.
 m=1;
 w0=2*sqrt(b/m);
 
