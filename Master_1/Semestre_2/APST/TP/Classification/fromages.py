@@ -19,20 +19,24 @@ print("\n******* Classification Ascendante hiérarchique ******* \n")
 M=linkage(fromages,method='ward',metric='euclidean')
 
 # Tracé de l'arbre
-seuil=40
+seuil=200
 print("----> !!! A vous de reflechir au seuil !!!\n")
+print("====> Dendogram\n")
 plt.figure()
 plt.title('CAH. Visualisation des classes au seuil de '+str(seuil))
 d=dendrogram(M,labels=list(nomfrom),orientation='right',color_threshold=seuil)
 print(np.round(M[:,2],2))
+plt.show()
 
 ##### Récupération des groupes
+print("====> Récupération des groupes")
 groupes=fcluster(M,t=seuil,criterion='distance')
 for k in range(1,np.max(groupes)+1):
     print('Classe '+str(k).ljust(3,' ')+': ', end='')
     print(*nomfrom[np.where(groupes==k)])
 
 #### Décroissance des variances intraclasse
+print("====> Décroissance des variance interclasse")
 VI=np.cumsum(M[:,2]**2)/2
 plt.figure()
 plt.plot(np.arange(len(VI))+1,np.flip(VI,axis=0))

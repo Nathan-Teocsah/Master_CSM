@@ -137,7 +137,7 @@
 		\end{enumerate}
 	\end{minipage}
 	
-	\rouge{Limite faible couplage}
+	\subsection{Limite Faible Couplage}
 	
 	\vspace{-.2cm}
 	
@@ -219,7 +219,7 @@
 	
 	\par On souhaite procéder à la limite $N \to \infty$ dans ces équations (EDO en dimension $3\times $ (gros problème topologique, non linéaires)).
 	
-	\subsection{Fonction de répartition}
+	\subsubsection{Fonction de répartition}
 	
 	\enc{red}{
 		\underline{\textbf{Idée profonde :}} au lieu de se donner un jeu de données inutiles dons notre équation de Newton, on se donne une fonction $f^0(x_1^0,v_1^0,x_2^0,v_2^0,\ldots,x_N^0,v_N^0)$, dite fonction de répartition (ou fonction de densité) qui permet de dire :
@@ -500,7 +500,7 @@
 	
 	\newpage
 	
-	\subsection{Marginale de $f$}
+	\subsubsection{Marginale de $f$}
 	
 	\underline{\underline{\textbf{Idée :}}} introduire les marginales de $f$, définies par :
 	
@@ -612,7 +612,7 @@
 	
 	\newpage
 	
-	\subsection{Passage à la limite}
+	\subsubsection{Passage à la limite}
 	
 	\hspace{-.8cm}\enc[19.5cm]{red}{On a vu que les marginales $f_N^k(t,x_1,v_1,\ldots,x_k,v_k)$ vérifient :
 	
@@ -749,6 +749,231 @@
 			& & & & & \ddots & \ddots
 		\end{matrix}\right] X(t)\]
 	\end{ex}
+	
+	\newpage
+	
+	\subsection{Limite Faible Densité}
+	
+	On a vu comment passer à la limite dans la \underline{limite faible couplage} :
+	
+	\[\begin{cases}
+		\dfrac{dX_i}{dt} = v_i\\
+		\dfrac{dV_i}{dt} = \dfrac{1}{N}\displaystyle\sum_{\underset{j\not=i}{j=1}}^N F(x_i-x_j)
+	\end{cases}\text{ et } N\to\infty\]
+	
+	Maintenant on va passer à la limite suivant la même méthodologie sur la limite faible densité.\\
+	
+	\begin{minipage}{8cm}
+	$\begin{cases}
+		\dfrac{dX_i}{dt} = V_i\\
+		\dfrac{dV_i}{dt} = \underbrace{ }_{\rouge{1}} \displaystyle\sum_{\underset{j\not=i}{j}}^N F\left(\dfrac{X_i-X_j}{\rouge{\fbox{$\epsilon$}}}\right)
+	\end{cases}$
+	\end{minipage}\begin{minipage}{5cm}
+	\includegraphics[scale=1]{photo11.png}
+	\end{minipage}
+	
+	Soit $f(t,x_1,v_1,\cdots,x_N,v_N) = $ la "densité" de particules en $(x_1,v_1)$,$\cdots$,$(x_N,v_N)$.\\
+	
+	Dans le cas des \underline{sphères dures} (collisions élastiques, avec conservation de l'énergie au cour de chaque choc). L'équation sur $f$ est :
+	
+	\[
+	\dfrac{\partial f}{\partial t}(t,x_1,v_1,\cdots,x_N,v_N) + \displaystyle\sum_{i=1}^N v_i\cdot \nabla_{x_i} f = \underbrace{\dfrac{1}{2}}_{\underset{\text{les collisions dans la somme}}{\text{On compte 2 fois}}} \sum_{i,j=1}^N \underbrace{\mathcal L_{i,j}\left[f\right]}_{\rouge{\underset{\text{collision entre }i\text{ et }j}{\text{terme de}}}}
+	\]
+	
+	où :
+	\[
+	\begin{aligned}
+		\mathcal{L}_{i,j}\left[f\right](t,x_1,v_1,\cdots,x_N,v_N) 
+		&= \displaystyle\int_{\mathbb{S}^2}\begin{aligned}[t]
+			\Big[
+			 &f(t,x_1,v_1,\cdots,x_i,v_i',\cdots,x_j=x_i+\varepsilon\omega,v_j',\cdots,x_N,v_N)\varepsilon^2\left<v_j-v_i|\omega\right>_+ \\
+			 &- f(t,x_1,v_1,\cdots,x_i,v_i,\cdots,x_j=x_i+\varepsilon\omega,v_j,\cdots,x_N,v_N)\varepsilon^2\left<v_j-v_i|\omega\right>_- \Big]d\omega
+			\end{aligned}\\
+		&=+\text{terme de gain}-\text{terme de perte}
+	\end{aligned}
+	\]
+	
+	\begin{minipage}{10cm}
+		\includegraphics[scale=.6]{photo12.png}
+	\end{minipage}\begin{minipage}{15cm}
+	avec $\underset{\rouge{\text{conservation de l'énergie cinétique}}}{\begin{cases}
+		v_i'+v_j'=v_i+v_j\\
+		(v_i')^2+(v_j')^2 = v_i^2+v_j^2
+	\end{cases}}$\\
+	où $\begin{cases}
+		\omega \in \R^3\\
+		\|\omega\| = 1
+	\end{cases}$. Donc $\omega \in \mathbb{S}^2$.
+	\end{minipage}
+	
+	\begin{thm}[Pas facile, admis]
+		On a :
+		
+		\[
+		v_i' = v_i - \left< v_i-v_j | \omega\right>\omega\\
+		v_j' = v_j + \left< v_i-v_j | \omega\right>\omega
+		\]
+	\end{thm}
+	
+	\begin{rmq}
+		Notons que le terme $\mathcal L_{i,j}$, qui prend en compte l’interaction, ne contient pas de $\nabla_v f$, et en plus c'est un terme intégral. 
+	\end{rmq}
+	
+	\enc{Blue}{
+	\textbf{\underline{Notation :}} $\mathcal L_{i,j}\left[f\right] = \varepsilon^2\displaystyle\int_{\mathbb{S^2}}\left[ f_{i,j}'\left<v_j-v_i|\omega\right>_{+} - f_{i,j}\left<v_j-v_i|\omega\right>_{-}\right]\delta(x_j=x_i+\varepsilon\omega)$
+	}
+	
+	\begin{thm} Si \begin{minipage}[t]{15cm}
+			$\begin{aligned}[t]
+				&f(t=0,x_1,v_1,\cdots,x_i,v_i,\cdots,x_j,v_j,\cdots,x_N,v_N)\\
+			   =&f(t=0,x_1,v_1,\cdots,x_j,v_j,\cdots,x_i,v_i,\cdots,x_N,v_N)
+			\end{aligned}$
+		\end{minipage}\\
+		
+		$\implies$ Alors $f$ à l'instant $t$ vérifie la même propriété.
+	\end{thm}
+	
+	\begin{dem}
+		Écrivons l'EDP satisfaite par les marginales :
+		\[
+		f_N^k(t,x_1,v_1,\cdots,x_N,v_N) = \displaystyle\int f(t,x_1,v_1,\cdots,x_N,v_N)dx_{k+1}dv_{k+1}\cdots dx_Ndv_N
+		\]
+		
+		\begin{minipage}[t]{18.5cm}
+			On a, en intégrant l'équation sur $f$ par rapport à $(x_2,v_2,\cdots,x_N,v_N)$ :
+		
+		\[
+		\underbrace{\dfrac{\partial f_N^1}{\partial t}}_{=\displaystyle\int\dfrac{\partial f}{\partial t}} + \underbrace{v_1\cdot\nabla_{x_1}f_N^1}_{\displaystyle\int v_1\cdot\nabla_{x_1}f} + \underbrace{0}_{=\sum_{j\geq 2} v_j\cdot\nabla_{x_j}f= -\sum_{j\geq 2}\int\div_{x_j}(v_j)f = 0} = \dfrac{1}{2} \sum_{i,j=1}^N\int \mathcal{L}_{i,j}\left[f\right]dx_2\cdots dx_N
+		\]
+		
+		Pour $i=1,j\not=1$
+		
+		\[
+		\begin{aligned}
+			\displaystyle\int\mathcal L_{i,j}\left[f\right]dx_2\cdots dx_N 
+			&= \varepsilon^2\int\int_{\mathbb{S}^2} \left[f_{1,j}'\left<v_j-v_i|\omega\right>_+-f_{1,j}\left<v_j-v_i|\omega\right>_-\right]\delta(x_j=x_i+\varepsilon\omega)\\
+			&\hspace{-.5cm}\underset{\underset{\underset{\text{est symétrique}}{\text{OK car $f$}}}{j \leftrightarrow 2}}{=} \varepsilon^2\int\int_{\mathbb{S}^2}\left[f_{1,2}'\left<v_2-v_1|\omega\right>_+-f_{1,2}\left<v_2-v_1|\omega\right>_-\right]\delta(x_2=x_1+\varepsilon\omega)\\
+			&\hspace{-.4cm}=\varepsilon^2\int\int \left[\left(f_N^2\right)'\left<v_2-v_1|\omega\right>_+-\left(f_N^2\right)_{1,2}\left<v_2-v_1|\omega\right>_-\right]\delta(x_2=x_1+\varepsilon\omega)dx_2 dv_2d\omega
+		\end{aligned}
+		\]
+		\end{minipage}
+	\end{dem}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
