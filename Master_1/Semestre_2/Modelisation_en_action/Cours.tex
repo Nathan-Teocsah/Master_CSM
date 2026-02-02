@@ -969,8 +969,88 @@
 	\end{ex}
 	
 	
+	\textbf{\underline{Comment traiter les cellules avec des nœuds interne ?}}\\
 	
+	\includegraphics[scale=.8]{photo21.png}\\
 	
+	Écrivons la matrice de masse : $\mathbb{M} = \left[\begin{matrix}
+		\frac m2 \\
+		& M\\
+		& & \frac m2
+	\end{matrix}\right]$\\
+	La matrice de raideur est : $\mathbb{K} = \left[\begin{matrix}
+		K & -K \\
+		-K & K+K & -K \\
+		& -K & K
+	\end{matrix}\right]$\\
+	La raideur dynamique : $\mathbb{D} : \left[\begin{matrix}
+		K-\omega^2 \frac m2 & -K & 0 \\
+		-K & 2K-\omega^2 M & -K \\
+		0 & -K & K-\omega^2\frac m2
+	\end{matrix}\right]\left[\begin{matrix}
+	U_L\\U_i\\U_R
+	\end{matrix}\right]=\left[\begin{matrix}
+	0 \\ 0 \\ 0
+	\end{matrix}\right]$.\\
+	Nous allons substituer $U_i$ par $U_L$ et $U_R$ :\\
+	$\begin{aligned}
+		(2) & -KU_L-KU_R+(2K-\omega^2 M)U_i = 0 \implies U_i = \dfrac{KU_L+KU_R}{2K-\omega^2M}\\
+		(1) \implies &  (K-\omega^2\frac m2)U_L-K\left(\dfrac{K_L+KU_R}{2K-\omega^2 M}\right) = 0 \\
+		& - K\left(\dfrac{KU_L+KU_R}{2K-\omega^2M}\right) + (K-\omega^2\frac m2)U_R = 0
+	\end{aligned}$
+	
+	\vspace{.5cm}
+	
+	$\mathbb{D}\left[\begin{matrix}
+		U_L\\
+		U_i\\
+		U_R
+	\end{matrix}\right]  = \left[\begin{matrix}
+	0 \\ 0 \\ 0
+	\end{matrix}\right] \iff \underbrace{\left[\begin{matrix}
+	\lambda - \omega^2\frac m2 - \dfrac{K^2}{2K-\omega^2M} & \dfrac{-K^2}{2K-\omega^2M}\\
+	-\dfrac{K^2}{2K-\omega^2M} & K -\omega^2\frac m2 -\dfrac{K^2}{2K-\omega^2M}
+	\end{matrix}\right]}_{\overset{\sim}{\mathbb{D}}}\left[\begin{matrix}
+	U_L \\ U_R
+	\end{matrix}\right]=\left[\begin{matrix}
+	0 \\ 0
+	\end{matrix}\right]$\\
+	
+	On peut ainsi obtenir l'équation de dispersion de la chaîne diatomique directement via :
+	\[
+	\left(\overset\sim{\mathbb{D}}_{RL}\frac1\lambda + (\overset\sim{\mathbb{D}}_R+\overset\sim{\mathbb{D}}_R)+\overset\sim{\mathbb{D}}_{LR}\right)\emptyset = 0 \hspace{1cm} \rouge{!! \hspace{.2cm}\overset\sim{\mathbb{D}} \not=\overset\sim{\mathbb{K}}-\omega^2\overset\sim{\mathbb{M}}}
+	\]
+	
+	\subsection{Généralisation de condensation dynamique}
+	
+	\begin{minipage}{13cm}
+		Considérons une cellule périodique (ou domaine discret ou discrétisé). L'équation d'équilibre s'écrit : $\underbrace{\left(\mathbb{K}-\omega^2\mathbb{M}\right)}_{\mathbb{D}}U = f$
+	\end{minipage}\hspace{.5cm}\begin{minipage}{5cm}
+	\includegraphics[scale=.5]{photo22.png}
+	\end{minipage}
+	
+	Où $\mathbb{K}$ : Matrice de Raideur et $\mathbb{M}$ : Matrice de masse.\\
+	
+	Qui se décomposent ici en : $\left[\begin{matrix}
+		\mathbb{D}_b & \mathbb{D}_{bi} \\
+		\mathbb{D}_{ib} & \mathbb{D}_{i}
+	\end{matrix}\right]\left[\begin{matrix}
+	U_b \\ U_i
+	\end{matrix}\right] = \left[\begin{matrix}
+	f_b \\ f_i
+	\end{matrix}\right]$
+	
+	Remplaçons $U_i$ : $\mathbb D_{ib}U_b + \mathbb D_iU_i = f_i$\\
+	Si $\mathbb{D}_i$ est inversible on a : $U_i = \mathbb{D}_i^{-1} f_i - \mathbb{D}_i^{-1}\mathbb D_{ib} U_b$\\
+	On réinjecte :
+	\[
+	\begin{aligned}
+		&\mathbb D_bU_b+\mathbb{D}_{bi}\left(\mathbb D_i^{-1}f_i - \mathbb D_i^{-1}\mathbb{D}_{ib}U_b\right) = f_k\\
+		\iff & \underbrace{\left(\mathbb D_b-\mathbb D_{bi}\mathbb D_i^{-1}\mathbb D_{ib}\right)}_{\overset\sim{\mathbb{D}_b}}U_b = \underbrace{f_k-\mathbb D_{bi}\mathbb D_i^{-1}f_i}_{\overset\sim f_b}
+	\end{aligned}
+	\]
+	
+	Le système "condensé" s'écrit donc : $\overset\sim{\mathbb{D}}_bU_b=\overset\sim f_b$
 	
 	
 	
@@ -1196,7 +1276,7 @@
 			\item Déterminer les matrices de masses et raideurs :
 			\[
 			\mathbb{K}_e, \mathbb{M}_e \text{ puis } \mathbb{D} = \left[\begin{matrix}
-				D_L & D_{RL}\\
+				D_L & D_{LR}\\
 				D_{RL} & D_R
 			\end{matrix}\right]
 			\]
@@ -1318,5 +1398,324 @@
 		\end{enumerate}
 		\end{minipage}
 	\end{exo}
+	\begin{sol}
+		$ $\\
+		\begin{enumerate}
+			\item $\begin{cases}
+			m\dfrac{\partial^2 U_n}{\partial t^2} = -K(U_n-U_{n-1}) - K(U_n-U_{n-1}) - \beta(U_n-V_n)\\\\
+			m\dfrac{\partial^2 V_n}{\partial t^2} = -K(V_n-V_{n-1}) - K(V_n-V_{n+1}) - \beta (V_n-U_n)
+			\end{cases}$
+			
+			\item \begin{minipage}[t]{18.5cm}
+				$\begin{cases}
+				U_n(t) = U_0e^{\i (nka-\omega t)}\\
+				V_n(t) = V_0e^{\i(nka-\omega t)}
+			\end{cases}$, où $a$ est la période.\\
+			$\begin{cases}
+				U_{n+1} = \lambda U_n \\
+				U_{n-1} = \frac{1}{\lambda} U_n
+			\end{cases}$ et $\begin{cases}
+			V_{n+1} = \lambda V_n\\
+			V_{n-1} = \frac{1}{\lambda} V_n
+			\end{cases}$.\\
+			On l'injecte dans l'équation : $\begin{cases}
+				m\omega^2 U_n = K(U_n-\lambda U_n)+K(U_n-\frac{1}{\lambda}U_n) + \beta(U_n-V_n)\\
+				m\omega^2V_n = K(V_n-\lambda V_n) + K(V_n-\frac{1}{\lambda}V_n) + \beta(U_n-V_n)\\
+				m\omega^2V_n = K(V_n-\lambda V_n) + K(V_n-\frac{1}{\lambda}V_n)+\beta(V_n-U_n)
+			\end{cases}$\\
+			On pose $\omega_1 = \frac{K}{M}$ et $\omega_2 = \frac{\beta}{m}$, on a : $\begin{cases}
+				(\omega^2-\omega_1(2-\lambda-\frac{1}{\lambda}) -\omega_2)U_n + \omega_2 V_n = 0\\
+				(\omega^2-\omega_1(2-\lambda-\frac1\lambda))V_n-\omega_2U_n = 0
+			\end{cases}$\\
+			
+			\[\fbox{$\left[\begin{matrix}
+				\omega^2-\omega_1(2-\lambda-\frac{1}{\lambda})-\omega_2 & \omega_2\\
+				\omega_2 & \omega^2-\omega_1(2-\lambda-\frac1\lambda) - \omega_2
+			\end{matrix}\right]\left[\begin{matrix}
+			U_n \\ V_n
+			\end{matrix}\right] = \left[\begin{matrix}
+			0 \\ 0
+			\end{matrix}\right]$}\]
+			
+			\[\begin{aligned}
+				\det(A) &= \left(\omega^2-\omega_1(2-\lambda-\frac{1}{\lambda})^2-\omega_2^2\right)^2 - \omega_2^2\\
+				&= (\omega^2-\omega_1(2-\lambda-\frac1\lambda))(\omega^2-\omega_1(2-\lambda-\frac1\lambda)-2\omega_2)
+			\end{aligned}\]
+			\end{minipage}
+			
+			\item \begin{minipage}[t]{18.5cm}
+				\begin{minipage}{5cm}
+					\includegraphics[scale=1]{photo20.png}
+				\end{minipage}\begin{minipage}{15cm}
+				$\mathbb{M}=\left[\begin{matrix}
+					m & 0 & 0 & 0\\
+					0 & m & 0 & 0 \\
+					0 & 0 & 0 & 0 \\
+					0 & 0 & 0 & 0
+ 				\end{matrix}\right]$ et $\mathbb{K} = \left[\begin{matrix}
+ 				K+\beta & -\beta & -K & 0 \\
+ 				-\beta & k+\beta & 0 & -k \\
+ 				-k & 0 & k & 0 \\
+ 				0 & -k & 0 & k
+ 				\end{matrix}\right]$
+				\end{minipage}
+				
+				\underline{Rappel :} $\mathbb{M}\overset{\textbf{..}}{U}+\mathbb{K}U = 0 \implies \mathbb{D}U = 0$\\
+				
+				\[\mathbb{D} = \left[\begin{matrix}
+					(K+\beta)-\omega^2m & -\beta & -K & 0 \\
+					-\beta & (k+\beta)-\omega^2m & 0 & -K \\
+					-K & 0 & K & 0 \\
+					0 & -K & 0 & K
+				\end{matrix}\right]\]
+				
+				$(D_{RL}\frac1\lambda + (D_L+D_R)+\lambda D_{LR})\vec{U}_L = 0$, où $\vec U_L = \left[\begin{matrix}
+					U_L \\ V_L
+				\end{matrix}\right]$
+				
+				\[
+				\left(\frac1\lambda \left[\begin{matrix}
+					-K & 0 \\
+					0 & -K
+				\end{matrix}\right]+\left[\begin{matrix}
+				(K+\beta)-\omega^2 m + K & -\beta\\
+				-\beta & (K+\beta)-\omega^2m+K
+				\end{matrix}\right] + \lambda\left[\begin{matrix}
+				-K & 0\\
+				0 & -K
+				\end{matrix}\right]\right)\vec U_L = \vec{0}
+				\]
+				
+				\[
+				\left[\begin{matrix}
+					(K+\beta)-\omega^2m+K-(\frac1\lambda+\lambda)K & - \beta \\
+					-\beta & (K+\beta)-\omega^2m + K-(\frac1\lambda + \lambda)K
+				\end{matrix}\right]\left[\begin{matrix}
+				U_L \\
+				V_L
+				\end{matrix}\right] = \left[\begin{matrix}
+				0 \\ 0
+				\end{matrix}\right]
+				\]
+			\end{minipage}	
+		\end{enumerate}
+	\end{sol}
+	
+	\begin{ex} \begin{minipage}[t]{15cm}
+			On considère un système décrit pas les matrices dynamiques : 
+		\end{minipage}
+		\begin{minipage}{10cm}
+			\[
+		\left[\begin{matrix}
+			D_L & D_{Li} & 0 \\
+			D_{iL} & D_i & D_{iR} \\
+			0 & D_{Ri} & D_R
+		\end{matrix}\right]\left[\begin{matrix}
+		U_L\\
+		U_i\\
+		U_R
+		\end{matrix}\right] = \left[\begin{matrix}
+		f_L \\ 0 \\ f_R
+		\end{matrix}\right]
+		\]
+		\end{minipage}\begin{minipage}{5cm}
+		\includegraphics[scale=.5]{photo23.png}
+		\end{minipage}
+		
+		Montrer que ce système peut s'écrire sous forme condensée :
+		
+		$\left[\begin{matrix}
+			\overset\sim D_L & \overset\sim D_{LR} \\
+			\overset\sim D_{RL} & \overset\sim D_R
+		\end{matrix}\right]\left[\begin{matrix}
+		U_L \\ U_R
+		\end{matrix}\right] = \left[\begin{matrix}
+		f_L \\
+		f_R
+		\end{matrix}\right]$, où on explicitera les $\overset\sim D_{ij}$, $i,j \in \{L,R\}$.
+	\end{ex}
+	\begin{sol}
+		on a : $D_{iL} U_L + D_iU_i + D_{iR}U_R = 0$.\\
+		Si $D_i$ est inversible, on obtient  :
+		\[
+		U_i = D_i^{-1}\left(-D_{iL}U_L-D_{iR}U_R\right)
+		\]
+		$\begin{aligned}
+			\to & D_LU_L - D_{Li}D_i^{-1}D_{iL}u_L-D_{Li}D_i^{-1}D_{iR}u_R = f_L\\
+			& \iff -D_{Ri}D_i^{-1}D_{iL}U_L + (D_R-D_{Ri}D_i^{-1}D_{iR})u_R = f_L\\
+			\to & -D_{Ri}D_i^{-1}D_{iL}u_L + (D_R-D_{Ri}D_i^{-1}D_{iR})u_R = f_R
+		\end{aligned}$
+		
+		\[
+		\left[\begin{matrix}
+			\overbrace{D_L-D_{Li}D_i^{-1}D_{iL}}^{\overset\sim D_L} & \overbrace{-D_{Li}D_i^{-1}D_{iR}}^{\overset\sim D_{LR}} \\
+			\underbrace{-D_{Ri}D_i^{-1}D_{iL}}_{\overset\sim D_{RL}} & \underbrace{-D_{Ri}D_i^{-1}D_{iL} + D_R}_{\overset\sim D_R}
+		\end{matrix}\right] \left[\begin{matrix}
+		U_L \\
+		U_R
+		\end{matrix}\right] = \left[\begin{matrix}
+		f_L \\ f_R
+		\end{matrix}\right]
+		\]
+		
+		\textbf{\underline{Alternative}}
+		
+		\[
+		\left[\begin{matrix}
+			D_L & D_{Li} & 0 \\
+			D_{iL} & D_i & D_{iR} \\
+			0 & D_{Ri} & D_R
+		\end{matrix}\right]\left[\begin{matrix}
+		U_L \\ U_i \\ U_R
+		\end{matrix}\right] = \left[\begin{matrix}
+		f_L \\ 0 \\ f_R
+		\end{matrix}\right] \iff \left[\begin{matrix}
+		D_L & 0 & D_{Li} \\
+		0 & D_R & D_{Ri} \\
+		D_{iL} & D_{iR} & D_i
+		\end{matrix}\right]\left[\begin{matrix}
+		U_L \\ U_R \\ U_i
+		\end{matrix}\right] = \left[\begin{matrix}
+		f_L \\ f_R \\ 0
+		\end{matrix}\right]
+		\]
+		
+		$\implies$ On note $b := [L,R]$\\
+		$\implies \left[\begin{matrix}
+			D_b & D_{bi} \\
+			D_{ib} D_i
+		\end{matrix}\right]\left[\begin{matrix}
+		U_b \\ U_i
+		\end{matrix}\right] = \left[\begin{matrix}
+		f_b \\ 0
+		\end{matrix}\right]$\\
+		On applique ensuite la condensation dynamique, i.e. :\\
+		$ \overset\sim D_b = D_b - D_{bi}D_i^{-1}D_{ib}$ et $\overset\sim f_b = f_b-D_{bi}D_i^{-1}\overset{=0}{f_i} = f_b$
+		
+		\[
+		\overset\sim D_b = \left[\begin{matrix}
+			D_L & 0 \\
+			0 & D_R
+		\end{matrix}\right] - \left[\begin{matrix}
+			D_{Li} \\ D_{Ri}
+		\end{matrix}\right]D_i^{-1}\left[D_{iL}D_{iR}\right]
+		\]
+		
+		$\begin{aligned}
+			\overset\sim D_b &= \left[\begin{matrix}
+				D_L & 0 \\
+				0 & D_R
+			\end{matrix}\right] - \left[\begin{matrix}
+				D_{Li} \\
+				D_{Ri}
+			\end{matrix}\right]\left[\begin{matrix}
+				D_i^{-1}D_{iL} & D_i^{-1}D_{iR}
+			\end{matrix}\right]\\
+			&=\left[\begin{matrix}
+				D_L & 0 \\
+				0 & D_R
+			\end{matrix}\right] - \left[\begin{matrix}
+			D_{Li} D_i^{-1}D_{iL} & D_{Li} D_i^{-1}D_{iR} \\
+			D_{Ri}D_i^{-1}D_{iL} & D_{Ri}D_i^{-1}D_{iR}
+			\end{matrix}\right]
+		\end{aligned}
+		$\\
+		Donc $\overset\sim D_b = \left[\begin{matrix}
+			D_L - D_uD_i^{-1}D_{iL} & -D_{Li}D_i^{-1}D_{iR} \\
+			-D_{Ri}D_i^{-1} D_{iL} & D_R-D_{Ri}D_i^{-1}D_{iR}
+		\end{matrix}\right]$.\\
+		On vérifie la symétrie de $\overset\sim D$ :\\
+		$\begin{cases}
+			\overset\sim D_L ^T = \left(D_L-D_{Li}D_i^{-1}D_{iL}\right)^T = D_L^T -D_{iL}^TD_i^{-1 T}D_{Li}^T = D_L-D_{Li}D_i^{-1}D_{iL} = \overset\sim D_L\\
+			\overset\sim D_{LR}^T = -(D_{Li}D_i^{-1}D_{iR})^T = D_{iR}^T(D_i^{-1})^TD_{Li}^T = -D_{Ri}D_i^{-1}D_{iL} = \overset\sim D_{RL}
+		\end{cases}$
+		
+	\end{sol}
+	
+	\begin{exo}[application]
+		\begin{minipage}[t]{12.5cm}
+			appliquer cette méthode (celle de l'exercice précédent) pour écrire (sous forme matricielle) 'équation de dispersion de la chaîne à résonances locales :\\
+			
+			\includegraphics[scale=.5]{photo24.png}
+		\end{minipage}		
+		
+		\begin{enumerate}
+			\item Ecrire $\mathbb K, \mathbb M$ puis $\mathbb D$ pour une cellule périodique "seule"
+			\item Condensation dynamique puis relation de dispersion
+		\end{enumerate}
+	\end{exo}
+	\begin{sol}
+		$ $\\
+		\begin{enumerate}
+			\item\begin{minipage}{5cm}
+					\includegraphics[scale=.5]{photo25.png}
+				\end{minipage}\begin{minipage}{15cm}
+					$\mathbb M = \left[\begin{matrix}
+						\frac{m_1}2 \\
+						& m_2\\
+						& & \frac{m_1}2
+					\end{matrix}\right]$ et $\mathbb K = \left[\begin{matrix}
+					k_1+k_2 & -K_2 &-K_1 \\
+					-k_2 & k_2 & 0 \\
+					-k_1 & 0 & k_1
+					\end{matrix}\right]$
+				\end{minipage}
+				
+				$\mathbb M \overset\to{\vec U} + \mathbb K \vec U = \vec 0$ devient, en régime stationnaire, $-\omega^2\mathbb M \vec U + \mathbb K \vec U = \vec 0$ donc $(-\omega^2\mathbb M + \mathbb K)\vec U = \vec 0$.
+				
+				\[
+				\mathbb D = \left[\begin{matrix}
+					-\omega^2\frac{m_1}2 + k_1+k_2 & -k_2 & -k_1 \\
+					-k_2 & -\omega^2m_2+k_2 & 0 \\
+					-k_1 & 0 & -\omega^2 \frac{m_1}2+k_1
+				\end{matrix}\right]
+				\]
+				
+				\vspace{2cm}
+			
+			\item $\mathbb D \left[\begin{matrix}
+				U_L \\ U_i \\ U_R
+			\end{matrix}\right] \iff \left[\begin{matrix}
+			k_1 + k_2 - \omega^2\frac{m_1}2 & -k_1 & \rouge{-k_2} \\
+			-k_1 & k_1-\omega^2\frac{m_1}2 & \rouge0 \\
+			\vert{-k_2} & \vert0 & \bleu{k_2-\omega^2m_2}
+			\end{matrix}\right]\left[\begin{matrix}
+			U_L \\ U_R \\U_i
+			\end{matrix}\right]$\\
+			
+			$\left[\begin{matrix}
+				D_b & \rouge{D_{bi}}\\
+				\vert{D_{iL}} & \bleu{D_i}
+			\end{matrix}\right]\left[\begin{matrix}
+			U_b \\ U_i
+			\end{matrix}\right] \implies \overset\sim D_b = D_b - D_{bi}D_i^{-1} D_{ib}$\\
+			
+			\begin{minipage}[t]{18.5cm}
+				$\overset\sim D_b = \left[\begin{matrix}
+				k_1+k_2-\omega^2\frac{m_1}2 & -k_1 \\
+				-k_1 & k_1 - \omega^2\frac{m_1}2
+			\end{matrix}\right]-\left[\begin{matrix}
+			-k_2 \\ 0
+			\end{matrix}\right]\dfrac{1}{k_2-\omega^2m_ 2}\left[\begin{matrix}
+			-k_2 & 0
+			\end{matrix}\right]$
+			\end{minipage}
+			
+			\[
+			\overset\sim D = \left[\begin{matrix}
+				k_1+k_2-\omega^2\frac{m_1}2-\dfrac{k_2^2}{k_2-\omega^2m_2} & \bleu{k_1}\\
+				\vert{-k_1} & \rouge{k_1-\omega^2 \frac{m_1}2}
+			\end{matrix}\right]
+			\]
+			
+			\begin{minipage}[t]{18.5cm}
+				L'équation de dispersion (en $k(\omega)$ uniquement car nous avons effectué une condensation dynamique) est alors : $\left(\vert{D_{RL}}\frac1\lambda + (D_L+\rouge{D_R})+\bleu{D_{LR}}\lambda\right)\emptyset = 0$
+			\end{minipage}
+			
+			\[
+			-k_1(\frac1\lambda + \lambda) +2k_1 + k_2 +\dfrac{k_2}{k_2-\omega^2m_2}-\omega^2m_1 = 0
+			\]
+		\end{enumerate}
+	\end{sol}
 	
 \end{document}
