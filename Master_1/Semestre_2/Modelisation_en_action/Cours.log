@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  2 FEB 2026 16:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  3 FEB 2026 10:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2062,7 +2062,7 @@ Overfull \hbox (198.60066pt too wide) in paragraph at lines 1693--1703
  []
 
 
-Overfull \hbox (198.60066pt too wide) in paragraph at lines 1711--1714
+Overfull \hbox (170.1479pt too wide) in paragraph at lines 1711--1714
 [][] 
  []
 
@@ -2071,7 +2071,7 @@ Overfull \hbox (198.60066pt too wide) in paragraph at lines 1711--1714
 \openout7 = `Cours.thm'.
 
  [24]
-runsystem(latexminted cleantemp  --timestamp 20260202163049 33C1869ABDF6A46508C
+runsystem(latexminted cleantemp  --timestamp 20260203100331 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -2107,7 +2107,7 @@ dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts
 /type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
 lic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy
 8.pfb>
-Output written on Cours.pdf (25 pages, 3597527 bytes).
+Output written on Cours.pdf (25 pages, 3597536 bytes).
 PDF statistics:
  408 PDF objects out of 1000 (max. 8388607)
  288 compressed objects within 3 object streams
