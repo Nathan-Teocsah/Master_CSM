@@ -96,7 +96,7 @@
 		\end{cases}$
 	\end{ex}
 	
-	On arrive à un problème de la forme :
+	On arrive à un problème de la forme :\\
 	\enc{red}{Chercher $u \in V$ tel que $\forall v \in V$ :
 		\begin{center}
 			$a(u,v) = l(v)$
@@ -895,13 +895,52 @@
 			\end{minipage}
 			
 			\item Formule exacte $\mathbb P_2$ sur $\hat K '$ :\\
-			$\displaystyle\int_{\hat K'} f(\hat\gamma)d\hat\gamma \simeq\frac{L_{\hat K'}}6\left(f(\hat a_1') + 4f(\frac{\hat a_1' + \hat a_2'}2) + f(\hat a_2')\right) $ avec $L_{\hat K'} = $ longueur de $\hat K'$.
+			$\displaystyle\int_{\hat K'} f(\hat\gamma)d\hat\gamma \simeq\frac{L_{\hat K'}}6\left(f(\hat a_1') + 4f\left(\frac{\hat a_1' + \hat a_2'}2\right) + f(\hat a_2')\right) $ avec $L_{\hat K'} = $ longueur de $\hat K'$.
 		\end{enumerate}
 		
-		\begin{ex}
-			\begin{enumerate}[label=$\star$]
-				\item Formule sur $\hat K$ triangle de rférence, exacte $\mathbb P_1$ .
+		\begin{ex}$ $\\
+			\begin{minipage}{12cm}
+				\begin{enumerate}[label=$\star$]
+				\item Formule sur $\hat K$ triangle de référence, exacte $\mathbb P_1$ .
 				\[\displaystyle\int_{\hat K} f(\hat x)d\hat x \simeq \dfrac{S_{\hat K}}{3}(f(\hat a_1)+f(\hat a_2) + f(\hat a_3))\]
+				
+				\item Formule sur $\hat K$ triangle de référence, exacte $\mathbb P_2$ .
+				\[\displaystyle\int_{\hat K} f(\hat x)d\hat x \simeq \dfrac{S_{\hat K}}{3}(f(\hat a_4)+f(\hat a_5) + f(\hat a_6))\]
 			\end{enumerate}
+			\end{minipage}\begin{minipage}{10cm}
+			\includegraphics[scale=.7]{photo15.png}
+			\end{minipage}
 		\end{ex}
+	
+	\section{Elemens finis usuels}
+	
+	\subsection{Définition d'un élément finis}
+		Soit $K$ convexe fermé sous-ensemble de $\R^2$, avec $\overset\circ K \not= \emptyset$.\\
+		Soit $P$ un espace de dimension finie de foncions de $K$ dans $\R$.\\
+		Soient $N$ formes linéaires $\Phi_i$ définie sur $P$, $\Sigma = \{\Phi_i,i=1,\cdots,N\}$.
+		
+		\begin{defi}
+			$\Sigma$ est dit $P$-unisolvante si $\Sigma$ et $l$ vérifient : \\
+			\hspace*{1cm} \begin{minipage}[t]{18.5cm}
+				soit $\{\alpha_i\}_{i=1,\cdots,N}$ alors il \textbf{existe un unique} $p \in P$ tel que $\Phi_i(p) = \alpha_i$ pour $i \in [\![1,N]\!]$.
+			\end{minipage}
+		\end{defi}
+		
+		\begin{prop}
+			On a équivalence entre les propositions suivantes :
+			\begin{enumerate}[label=$\star$]
+				\item $\Sigma$ est $P$-unisolvante.
+				
+				\item $\begin{cases}
+					\forall i = [\![1, N]\!] \Phi_i(p) = 0 \implies p = 0\\
+					\dim(P) = N
+				\end{cases}$
+				
+				\item $\begin{cases}
+					\dim(P) = N \\
+					\exists N \text{ foncions } (p_i)_{i\in[\![1,N]\!]} \text{ tel que } \forall j \in [\![1,N]\!], \Phi_j(p_i) = \delta_{ij}
+				\end{cases}$
+			\end{enumerate}
+		\end{prop}
+
 \end{document}
