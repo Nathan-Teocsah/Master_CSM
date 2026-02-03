@@ -824,5 +824,84 @@
 			F_K(\hat{x}) = \displaystyle\sum_{i=1}^{N^K} \underbrace{\widehat{w}_i(\hat x)}_{\hat\lambda_i(\bm{\hat{x}}) \text{ ici } \mathbb{P}_1 \text{ lagrange}} a_i^K
 			\]
 		\end{minipage}
+	
+	\subsection{Élément de référence et calculs élémentaires}
 		
+		\underline{\textbf{Regardons $a_K(w_j^K,w_i^K)$ :}}\\\\
+		\hspace*{1cm} \begin{minipage}[t]{19cm}
+			$\begin{aligned}[t]
+				a_K(w_j^K,w_i^K) =& \displaystyle\int_{\hat K} \rouge{\left[\nabla w_j^K\right]\left(F_K(\hat x)\right)} \cdot \rouge{\left[\nabla w_i^K\right]\left(F_K(\hat x)\right)} \vert{\abs{\det FJ_K(\hat x)}}d\hat x  \\
+				&+  \int_{\hat K} \underbrace{\rouge{w_j^K(F_K(\hat x))}}_{\rouge{\hat w_j(\hat x)}}  \underbrace{\rouge{w_i^K(F_K(\hat x))}}_{\rouge{\hat w_i^K(\hat x)}}\vert{\abs{\det FJ_K(\hat x)}}d\hat x
+			\end{aligned}$ 
+		\end{minipage}
+		
+		
+		\textbf{\underline{Regardons $f_K(w_i^K)$ :}}\\
+		\hspace*{1cm} \begin{minipage}[t]{19cm}
+			$\begin{aligned}[t]
+				f_K(w_i^K) = & \displaystyle \int_{\hat K} \vert{f_\Omega (F_K(\hat x))} \underbrace{\rouge{w_i^k(F_K(\hat x))}}_{\rouge{\hat w_i(\hat x)}} \vert{\abs{\det JF_K(\hat x)}}d\hat x \\
+				& + \sum_{K \in \partial K \cap \Gamma_{N,h}} \int_{\hat K}g_N(F_K,(\hat\gamma)) w_i^K(F_K,(\hat\gamma))\abs{\det JF_K,(\hat\gamma)}d\hat\gamma			
+			\end{aligned}$
+		\end{minipage}
+		
+		avec : $F_K(\hat x) = \displaystyle\sum_{i=}^{N^k} a_i^K\hat w_i(\hat x)$,
+		\hspace{1cm} où, \begin{minipage}[t]{15cm}
+			$\hat w_i$ les fonctions de bases sur l'élément $\hat K$\\
+			$a_i^K$ les nœuds associés sur l'élément $\hat K$
+		\end{minipage}
+			
+		\begin{minipage}[t]{6cm}
+			Et :\begin{minipage}[t]{15cm}
+			 $w_i^K \circ F_K \in \mathbb{P}_1(\hat K)$,\\
+			 $\underbrace{\left(\cdots\right)}_{\hat w_i}(\hat a_j) = \delta_{ij}$.
+				\end{minipage}
+				
+				Donc, \enc[3.5cm]{red}{\rouge{$w_i^K\circ F_K = \hat w_i$}}
+			\end{minipage}\begin{minipage}{15cm}$ $\\\\
+			\doublebar{Ici, cas des éléments finis de Lagrange $\mathbb P_1$ conforme.\\
+			On a : \begin{minipage}[t]{10cm}
+				$N^K = 3$; $\hat a_i, i = 1,\cdots,3$ les sommets de $\hat K$.\\
+				$\hat w_i = \hat \lambda_i$.
+			\end{minipage}}
+		\end{minipage}
+		
+		$\dfrac{\partial w_i^K}{\partial x_\alpha} (\underbrace{x}_{F_K(\hat x)}) = \left[\widehat{\text{grad}} (\hat w_i) \cdot F_K^{-1}(x)\right]^T \underbrace{\left(JF_K^{-1}(x)\right)}_{\alpha^{ieme} \text{ colonne de } JF_K^{-1}(x)}$\\
+		\begin{minipage}{12cm}
+			$\dfrac{\partial w_i^K}{\partial x_\alpha}(F_K(\hat x)) = \left[\widehat{\text{grad}}(\hat w_i(\hat x))\right]^T \underbrace{\left(JF_K^{-1}(F_K(\hat x))\right)_\alpha}_{JF_K^{-1}(F_K(\hat x))=\left(JF_K(\hat x)\right)^{-1}}$
+		\end{minipage}\hspace{.5cm}\begin{minipage}{5cm}
+		\includegraphics[scale=1]{photo13.png}
+		\end{minipage}
+		
+		\enc[8.5cm]{red}{$\dfrac{\partial w_i^K}{\partial x_\alpha}(F_K(\hat x)) = \left[\nabla \hat w_i (\hat x)\right]^T \left[\left(JF_K(\hat x)\right)^{-1}\right]_\alpha$}
+		
+		\subsection{Formules de quadrature}
+		
+		Elles définissent les points et les poids de l'intégration numérique sur l'élément de référence.\\\\
+		\textbf{\underline{points :}} $\underbrace{\hat x_k}_{k^{ieme} \text{ point de quad dans }\hat K \subset \R^2}$ avec $q = $ nombre de points de quadratures.\\\\
+		\textbf{\underline{poids :}} $\hat\omega_k$, $k = 1,\ldots,q$.\\\\
+		\textbf{\underline{$\to$ Intégration :}} $\displaystyle\int_{\hat K} f(\hat x) d\hat x \simeq \sum_{k=1}^q \hat\omega_kf(\hat x_k)$.
+		
+		\enc[13cm]{gray}{
+		\begin{rmq}
+			$\displaystyle\sum_{k=1}^q\hat\omega_k = \text{Aire}(\hat K) = \frac12$ ($\hat K$ est le triangle de référence)
+		\end{rmq}}
+	
+		\begin{enumerate}[label=$\star$]
+			\item Formule sur $\hat K' = [0,1]$, exacte $\mathbb P_1$.\\
+			\begin{minipage}{10cm}
+				$\displaystyle\int_{\hat K'} f(\hat\gamma)d\hat\gamma \simeq = \frac{L_{\hat K'}}2 \left(f(\hat a_1')+f(\hat a_2')\right)$
+			\end{minipage}\begin{minipage}{5cm}
+			\includegraphics[scale = .5]{photo14.png}
+			\end{minipage}
+			
+			\item Formule exacte $\mathbb P_2$ sur $\hat K '$ :\\
+			$\displaystyle\int_{\hat K'} f(\hat\gamma)d\hat\gamma \simeq\frac{L_{\hat K'}}6\left(f(\hat a_1') + 4f(\frac{\hat a_1' + \hat a_2'}2) + f(\hat a_2')\right) $ avec $L_{\hat K'} = $ longueur de $\hat K'$.
+		\end{enumerate}
+		
+		\begin{ex}
+			\begin{enumerate}[label=$\star$]
+				\item Formule sur $\hat K$ triangle de rférence, exacte $\mathbb P_1$ .
+				\[\displaystyle\int_{\hat K} f(\hat x)d\hat x \simeq \dfrac{S_{\hat K}}{3}(f(\hat a_1)+f(\hat a_2) + f(\hat a_3))\]
+			\end{enumerate}
+		\end{ex}
 \end{document}
