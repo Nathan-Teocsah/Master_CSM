@@ -809,10 +809,14 @@
 	\begin{thm}[Pas facile, admis]
 		On a :
 		
+		\vspace{-.5cm}
+		
 		\[
 		v_i' = v_i - \left< v_i-v_j | \omega\right>\omega\\
 		v_j' = v_j + \left< v_i-v_j | \omega\right>\omega
 		\]
+		
+		\vspace*{-.8cm}
 	\end{thm}
 	
 	\begin{rmq}
@@ -862,6 +866,8 @@
 		\enc[7cm]{red}{\rouge{!! Si $g(x,y) \in L^1(dxdy)$\\ que dire de $g(x,x) \to$ mal définié\\ $g(x,x+\varepsilon y) \in L^1(dxdy)$}}
 		\end{minipage}
 		
+		\newpage
+		
 		 \begin{minipage}[t]{18cm}
 		 	Reste à étudier, pour $i \not = j$, $i\geq 2$, $j \geq 2$ :
 		 	
@@ -885,7 +891,8 @@
 		 	 		v_2' = v_2 - \langle v_2-v_3|\omega\rangle\omega \\
 		 	 		v_3' = v_3 + \langle v_2-v_3|\omega\rangle\omega
 		 	 	\end{cases}$ c'est-à-dire $\begin{cases}
-		 	 	v_2 = v_2'-\langle v_2'-v_3'|\omega\rangle\omega
+		 	 	v_2 = v_2'-\langle v_2'-v_3'|\omega\rangle\omega\\
+		 	 	v_3 = v_3' + \langle v_2'-v_3'|\omega\rangle\omega
 		 	 	\end{cases}$}\\
 	 	 	
 	 	 	Pour "alléger, notons $(v_2',v_3') = \bf{T_\omega(v_2,v_3)}$ \underline{opérateur linéaire en $(v_2,v_3)$} et on a :\\ $(v_2,v_3) = T_\omega(v_2',v_3')$. Et dans l'intégrale en $dv_2dv_3$ on change de variable et on intègre selon $dv_2'dv_3'$.
@@ -916,11 +923,36 @@
 	 	 	\[
 	 	 	\hspace{-1cm}\begin{aligned}
 	 	 		\displaystyle\int \mathcal L_{i,j}[f]dx_2 \cdots dv_N 
-	 	 		=& \varepsilon^2\int \Big[f(t,x_1,v_1,x_2,v_2,x_3,v_3,\cdots)\langle v_3-v_2|\omega\rangle_+ \\
-	 	 		& - f(t,x_1,v_1,x_2,v_2(\cdots),x_3,v_3(\cdots),\cdots).(-\langle v_3'-v_2'|\omega\rangle)_-\Big] \delta(x_3=x_2+\varepsilon\omega)\\
-	 	 		& d\omega dx_2 dv_2'dx_3dv_3' dx_4 \cdots dv_N
+	 	 		= \varepsilon^2\int& \Big[f(t,x_1,v_1,x_2,v_2,x_3,v_3,\cdots)\langle v_1-v_2|\omega\rangle_- \\
+	 	 		& - f(t,x_1,v_1,x_2,v_2-\langle v_2-v_3|\omega\rangle\omega,x_3,v_3 + \langle v_2-v_3|\omega\rangle\omega,\cdots) \langle v_3'-v_2'|\omega\rangle_+\Big] \\
+	 	 		& \times\delta(x_3=x_2+\varepsilon\omega)d\omega dx_2 dv_2\cdots dv_N
 	 	 	\end{aligned}
 	 	 	\]
+	 	 	
+	 	 	\rouge{Or $\left[\begin{matrix}
+	 	 			v_2 - \langle v_2-v_3|\omega\rangle\omega \\
+	 	 			v_3 + \langle v_2-v_3|\omega\rangle\omega
+	 	 		\end{matrix}\right] = T_\omega \left[\begin{matrix}
+	 	 		v_2 \\ v_3
+	 	 		\end{matrix}\right] = \left[\begin{matrix}
+	 	 		v_2' \\ v_3'
+	 	 		\end{matrix}\right]$ en tant que fontion de $\omega,v_2,v_3$ }
+ 	 		
+ 	 		\[
+ 	 		\hspace{-1cm}\begin{aligned}
+ 	 			\displaystyle\int \mathcal L_{i,j}[f]dx_2 \cdots dv_N 
+ 	 			&= \varepsilon^2\int \Big[f(\cdots)\langle v_3-v_2|\omega\rangle_--f(t,x_1,v_1,v_2',\hspace{-.8cm}\overbrace{x_3,v_3'}^{\rouge{\text{où } \left[\begin{matrix}
+ 	 					v_2' \\ v_3'\end{matrix}\right] = T_\omega\left[\begin{matrix}
+ 	 						v_2\\ v_3
+ 	 					\end{matrix}\right]}}\hspace{-.8cm},\cdots)\langle v_3-v_2|\omega\rangle_+\Big]\\
+  					& \hspace{1.5cm}\delta(x_3=x_2+\varepsilon\omega)d\omega dx_2\cdots dv_N\\
+  					& = -\int \mathcal{L}_{i,j}[f]dx_2\cdots dv_N
+ 	 		\end{aligned}
+ 	 		\]
+ 	 		
+ 	 		\vspace{-.5cm}
+ 	 		
+ 	 		\enc[10cm]{red}{Donc : $\forall i \not = j \geq 2$, $\displaystyle\int \mathcal L_{i,j}[f] dx_2\cdots dv_N = 0$}
 		 \end{minipage}
 		 
 	\end{dem}
