@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  29 JAN 2026 17:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  4 FEB 2026 11:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -965,11 +965,6 @@ Package bm Info: No bold for \U/msb/m/n, using \pmb.
 \symboldlasy=\mathgroup10
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
-
-LaTeX Warning: \include should only be used after \begin{document} on input lin
-e 34.
-
-No file bm.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/pgfplots/pgfplotstable.sty
 (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplotstable 2025/08/14 v1.18.2 Table typesetting and Pretty-printing
@@ -1804,123 +1799,142 @@ Overfull \hbox (23.17918pt too wide) detected at line 840
  []
 
 
-Overfull \hbox (186.85078pt too wide) in paragraph at lines 842--860
+Underfull \hbox (badness 10000) in paragraph at lines 860--861
+
+ []
+
+
+Overfull \hbox (186.85078pt too wide) in paragraph at lines 842--864
 [][] 
  []
 
-[16]
+
+Underfull \hbox (badness 10000) in paragraph at lines 883--890
+
+ []
+
+
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 865--925
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 926
+ []
+
+[16] [17]
 Package hyperref Info: bookmark level for unknown exo defaults to 0 on input li
-ne 987.
+ne 1053.
 Package hyperref Info: bookmark level for unknown brouillon defaults to 0 on in
-put line 1002.
+put line 1068.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1008--1009
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1010--1011
+Underfull \hbox (badness 10000) in paragraph at lines 1074--1075
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1012--1013
+Underfull \hbox (badness 10000) in paragraph at lines 1076--1077
 
  []
 
 
-Overfull \hbox (172.62442pt too wide) in paragraph at lines 1004--1018
+Underfull \hbox (badness 10000) in paragraph at lines 1078--1079
+
+ []
+
+
+Overfull \hbox (172.62442pt too wide) in paragraph at lines 1070--1084
 [] $[]$ 
  []
 
 Package hyperref Info: bookmark level for unknown sol defaults to 0 on input li
-ne 1020.
+ne 1086.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1025--1031
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1036--1041
+Underfull \hbox (badness 10000) in paragraph at lines 1091--1097
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1048--1056
+Underfull \hbox (badness 10000) in paragraph at lines 1102--1107
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1057--1058
+Underfull \hbox (badness 10000) in paragraph at lines 1114--1122
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1062--1063
+Underfull \hbox (badness 10000) in paragraph at lines 1123--1124
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1074
+Underfull \hbox (badness 10000) in paragraph at lines 1128--1129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1080--1081
+Underfull \hbox (badness 10000) in paragraph at lines 1139--1140
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1102--1112
+Underfull \hbox (badness 10000) in paragraph at lines 1146--1147
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1122--1168
+Underfull \hbox (badness 10000) in paragraph at lines 1168--1178
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1188--1234
 [][]\T1/lmr/m/it/12 On montre : $\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 Y\OT1/lmr/m/
 n/12 (\OML/lmm/m/it/12 z; t; x; y\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; X\OT1/lmr/
 m/n/12 (\OML/lmm/m/it/12 s; t; x; y\OT1/lmr/m/n/12 )) =
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 1122--1168
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 1188--1234
 [] 
  []
 
 
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 1022--1176
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 1088--1242
 []$[]$
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 1022--1176
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 1088--1242
 []$
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 1022--1176
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 1088--1242
 [] 
  []
 
 
-Underfull \vbox (badness 4805) detected at line 1176
+Underfull \vbox (badness 4805) detected at line 1242
  []
 
-[17]
-Underfull \vbox (badness 10000) detected at line 1176
+[18]
+Underfull \vbox (badness 10000) detected at line 1242
  []
 
 
-Overfull \vbox (4.23863pt too high) detected at line 1176
+Overfull \vbox (4.23863pt too high) detected at line 1242
  []
 
-[18] [19]
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 1186--1193
+[19] [20]
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 1252--1259
 [][] 
  []
 
 
-Underfull \hbox (badness 1292) in paragraph at lines 1211--1212
+Underfull \hbox (badness 1292) in paragraph at lines 1277--1278
 []$\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 X\OT1/lmr/m/n/12 (0\OML/lmm/m/it/12 ; t; x
 ; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; Y\OT1/lmr/m/n/12 (0\OML/lmm/m/it/12 ;
  t; x; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; Z\OT1/lmr/m/n/12 (0\OML/lmm/m/it
@@ -1931,25 +1945,25 @@ lmm/m/it/12 ; t; x; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; X\OT1/lmr/m/n/12 (0
  []
 
 
-Overfull \hbox (3.38544pt too wide) in paragraph at lines 1207--1214
+Overfull \hbox (3.38544pt too wide) in paragraph at lines 1273--1280
 \T1/lmr/m/it/12 Et on a : [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1214--1216
+Underfull \hbox (badness 10000) in paragraph at lines 1280--1282
 
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 1203--1224
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 1269--1290
 [] 
  []
 
 \tf@thm=\write7
 \openout7 = `Cours.thm'.
 
-[20]
-runsystem(latexminted cleantemp  --timestamp 20260129171638 33C1869ABDF6A46508C
+[21]
+runsystem(latexminted cleantemp  --timestamp 20260204111724 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -1961,10 +1975,10 @@ Package rerunfilecheck Info: File `Cours.out' has not changed.
 (rerunfilecheck)             Checksum: 0A4BB4427919E911DF93EAE745D1E0E1;1404.
  ) 
 Here is how much of TeX's memory you used:
- 45731 strings out of 467538
- 1050125 string characters out of 5419551
+ 45736 strings out of 467538
+ 1050181 string characters out of 5419551
  1712258 words of memory out of 5000000
- 73820 multiletter control sequences out of 15000+600000
+ 73824 multiletter control sequences out of 15000+600000
  726233 words of font info for 119 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,22n,131p,866b,929s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1973,23 +1987,25 @@ b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold5.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb>
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbsy10.pfb></usr/loc
 al/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive
-/2025/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2025/tex
-mf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/texmf-dist/f
-onts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
-/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm
-/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi8.pfb>
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/loc
-al/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/
-2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-d
-ist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
-pe1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public
-/lm/lmri7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.
-pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/l
-ocal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on Cours.pdf (21 pages, 2325642 bytes).
+/2025/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2025/texmf
+-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2025/texmf-dist/fon
+ts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/
+lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi6.pfb>
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local
+/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/
+2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-
+dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
+ype1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/
+lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri7.p
+fb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/lo
+cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texliv
+e/2025/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2025/texm
+f-dist/fonts/type1/public/lm/lmsy8.pfb>
+Output written on Cours.pdf (22 pages, 2361948 bytes).
 PDF statistics:
- 334 PDF objects out of 1000 (max. 8388607)
- 239 compressed objects within 3 object streams
- 61 named destinations out of 1000 (max. 500000)
+ 348 PDF objects out of 1000 (max. 8388607)
+ 248 compressed objects within 3 object streams
+ 62 named destinations out of 1000 (max. 500000)
  150 words of extra memory for PDF output out of 10000 (max. 10000000)
 

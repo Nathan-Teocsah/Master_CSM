@@ -777,7 +777,7 @@
 	Dans le cas des \underline{sphères dures} (collisions élastiques, avec conservation de l'énergie au cour de chaque choc). L'équation sur $f$ est :
 	
 	\[
-	\dfrac{\partial f}{\partial t}(t,x_1,v_1,\cdots,x_N,v_N) + \displaystyle\sum_{i=1}^N v_i\cdot \nabla_{x_i} f = \underbrace{\dfrac{1}{2}}_{\underset{\text{les collisions dans la somme}}{\text{On compte 2 fois}}} \sum_{i,j=1}^N \underbrace{\mathcal L_{i,j}\left[f\right]}_{\rouge{\underset{\text{collision entre }i\text{ et }j}{\text{terme de}}}}
+	\dfrac{\partial f}{\partial t}(t,x_1,v_1,\cdots,x_N,v_N) + \displaystyle\sum_{i=1}^N v_i\cdot \nabla_{x_i} f = \underbrace{\dfrac{1}{2}}_{\underset{\to \underline{Armand}}{\underset{\text{les collisions dans la somme}}{\text{On compte 2 fois}}}} \sum_{i,j=1}^N \underbrace{\mathcal L_{i,j}\left[f\right]}_{\rouge{\underset{\text{collision entre }i\text{ et }j}{\text{terme de}}}}
 	\]
 	
 	où :
@@ -843,20 +843,86 @@
 			On a, en intégrant l'équation sur $f$ par rapport à $(x_2,v_2,\cdots,x_N,v_N)$ :
 		
 		\[
-		\underbrace{\dfrac{\partial f_N^1}{\partial t}}_{=\displaystyle\int\dfrac{\partial f}{\partial t}} + \underbrace{v_1\cdot\nabla_{x_1}f_N^1}_{\displaystyle\int v_1\cdot\nabla_{x_1}f} + \underbrace{0}_{=\sum_{j\geq 2} v_j\cdot\nabla_{x_j}f= -\sum_{j\geq 2}\int\div_{x_j}(v_j)f = 0} = \dfrac{1}{2} \sum_{i,j=1}^N\int \mathcal{L}_{i,j}\left[f\right]dx_2\cdots dx_N
+		\hspace{-.8cm}\underbrace{\dfrac{\partial f_N^1}{\partial t}}_{\fbox{$=\displaystyle\int\dfrac{\partial f}{\partial t}$}} + \underbrace{v_1\cdot\nabla_{x_1}f_N^1}_{\fbox{$\displaystyle\int v_1\cdot\nabla_{x_1}f$}} + \underbrace{0}_{\fbox{$=\sum_{j\geq 2} v_j\cdot\nabla_{x_j}f= -\sum_{j\geq 2}\int\text{div}_{x_j}(v_j)f = 0$}} = \dfrac{1}{2} \sum_{i,j=1}^N\int \mathcal{L}_{i,j}\left[f\right]dx_2\cdots dx_N
 		\]
 		
 		Pour $i=1,j\not=1$
 		
 		\[
-		\begin{aligned}
+		\hspace{-1.2cm}\begin{aligned}
 			\displaystyle\int\mathcal L_{i,j}\left[f\right]dx_2\cdots dx_N 
 			&= \varepsilon^2\int\int_{\mathbb{S}^2} \left[f_{1,j}'\left<v_j-v_i|\omega\right>_+-f_{1,j}\left<v_j-v_i|\omega\right>_-\right]\delta(x_j=x_i+\varepsilon\omega)\\
 			&\hspace{-.5cm}\underset{\underset{\underset{\text{est symétrique}}{\text{OK car $f$}}}{j \leftrightarrow 2}}{=} \varepsilon^2\int\int_{\mathbb{S}^2}\left[f_{1,2}'\left<v_2-v_1|\omega\right>_+-f_{1,2}\left<v_2-v_1|\omega\right>_-\right]\delta(x_2=x_1+\varepsilon\omega)\\
-			&\hspace{-.4cm}=\varepsilon^2\int\int \left[\left(f_N^2\right)'\left<v_2-v_1|\omega\right>_+-\left(f_N^2\right)_{1,2}\left<v_2-v_1|\omega\right>_-\right]\delta(x_2=x_1+\varepsilon\omega)dx_2 dv_2d\omega
+			&\hspace{-.4cm}=\varepsilon^2\int\int \left[\underbrace{\left(f_N^2\right)_{1,2}'}_{\rouge{f_N^2(t,x_1,v_1',x_2,v_2')}}\hspace{-.5cm}\left<v_2-v_1|\omega\right>_+-\hspace{-.5cm}\underbrace{\left(f_N^2\right)_{1,2}}_{\rouge{f_N^2(,x_1,v_1,x_2,v_2)}}\hspace{-.5cm}\left<v_2-v_1|\omega\right>_-\right]\delta(x_2=x_1+\varepsilon\omega)dx_2 dv_2d\omega
 		\end{aligned}
 		\]
+		
+		Et même chose avec $\displaystyle\int \mathcal L_{j,1} [f] dx_2\cdots dv_N$ pour $j \geq 2$.\\
+		
+		\enc[7cm]{red}{\rouge{!! Si $g(x,y) \in L^1(dxdy)$\\ que dire de $g(x,x) \to$ mal définié\\ $g(x,x+\varepsilon y) \in L^1(dxdy)$}}
 		\end{minipage}
+		
+		 \begin{minipage}[t]{18cm}
+		 	Reste à étudier, pour $i \not = j$, $i\geq 2$, $j \geq 2$ :
+		 	
+		 	\[
+		 	\hspace{-1cm}\begin{aligned}
+		 		\displaystyle\int \mathcal L_{i,j}[f]dx_2 \cdots dv_N 
+		 		& = \varepsilon^2\int \left[f_{i,j}' \left<v_j-v_i|\omega\right>_+- f_{i,j}\left<v_j-v_i|\omega\right>_-\right]\delta(x_j=x_i+\varepsilon\omega)d\omega dx_2 \cdots dv_N \\
+		 		& \underset{\substack{\text{par échange }\\ i\leftrightarrow 2 j\leftrightarrow 3}}{=}
+		 		\varepsilon^2
+		 		\int
+		 		\Big[
+		 		\hspace{-.8cm}\underbrace{f'_{2,3}}_{\rouge{f(t,x_1,v_1,x_2,v_2',\cdots)}}\hspace{-.8cm}\langle v_3 - v_2 | \omega\rangle_+
+		 		-
+		 		f_{2,3}\,\langle v_3 - v_2 | \omega\rangle_-
+		 		\Big]
+		 		\,\delta(x_3 - x_2 - \varepsilon \omega)\,
+		 		d\omega\, dx_2 \cdots dv_N
+		 	\end{aligned}
+		 	\]
+		 	 \rouge{avec  $\begin{cases}
+		 	 		v_2' = v_2 - \langle v_2-v_3|\omega\rangle\omega \\
+		 	 		v_3' = v_3 + \langle v_2-v_3|\omega\rangle\omega
+		 	 	\end{cases}$ c'est-à-dire $\begin{cases}
+		 	 	v_2 = v_2'-\langle v_2'-v_3'|\omega\rangle\omega
+		 	 	\end{cases}$}\\
+	 	 	
+	 	 	Pour "alléger, notons $(v_2',v_3') = \bf{T_\omega(v_2,v_3)}$ \underline{opérateur linéaire en $(v_2,v_3)$} et on a :\\ $(v_2,v_3) = T_\omega(v_2',v_3')$. Et dans l'intégrale en $dv_2dv_3$ on change de variable et on intègre selon $dv_2'dv_3'$.
+	 	 	
+	 	 	\[
+	 	 	\hspace{-1cm}\begin{aligned}
+	 	 		\displaystyle\int \mathcal L_{i,j}[f]dx_2 \cdots dv_N 
+	 	 		 =& \varepsilon^2\int \Big[f(t,x_1,v_1,x_2,v_2',x_3,v_3',\cdots)\langle v_3(v_2',v_3',\omega)-v_2(v_2',v_3',\omega)|\omega\rangle_+\\
+	 	 		 & -f(,x_1,v_1,x_2,v_2(v_2',v_3',\omega),x_3,v_3(v_21',v_3',\omega),\cdots)\langle v_3(\cdots)-v_2(\cdots)|\omega\rangle_-\Big]\\
+	 	 		 & \times\delta(x_3=x_2+\varepsilon\omega) \hspace{.1cm} d\omega dx_2dx_3 \hspace{.2cm} \underset{\rouge{dv_2dv_3}}{\rouge{\fbox{$\abs{\det(DT_\omega(v_2',v_3'))}dv_2'dv_3'$}}} \hspace{.2cm} dx_4 \cdots dv_N
+	 	 	\end{aligned}
+	 	 	\]
+	 	 	
+	 	 	\rouge{Or $T_\omega \circ T_\omega = Id$ donc $\left(\det(T_\omega)\right)' = 1$ donc $\abs{\det(T_\omega)} = +1$  avec $\det(T_\omega) = \det(DT_\omega)$.}\\
+	 	 	De plus $\langle v_3(\cdots)-v_2(\cdots)|\omega\rangle = \langle v_3'-v_2'|\omega\rangle + 2 \langle v_2'-v_3'|\omega\rangle\langle\omega|\omega\rangle = - \langle v_3'-v_2'|\omega\rangle$
+	 	 	
+	 	 	\[
+	 	 	\hspace{-1cm}\begin{aligned}
+	 	 		\displaystyle\int \mathcal L_{i,j}[f]dx_2 \cdots dv_N 
+	 	 		=& \varepsilon^2\int \Big[f(t,x_1,v_1,x_2,v_2',x_3,v_3',\cdots).(-\langle v_3'-v_2'|\omega\rangle)_+ \\
+	 	 		& - f(t,x_1,v_1,x_2,v_2(\cdots),x_3,v_3(\cdots),\cdots).(-\langle v_3'-v_2'|\omega\rangle)_-\Big] \delta(x_3=x_2+\varepsilon\omega)\\
+	 	 		& d\omega dx_2 dv_2'dx_3dv_3' dx_4 \cdots dv_N
+	 	 	\end{aligned}
+	 	 	\]
+	 	 	
+	 	 	\rouge{et on change de notation $(v_2',v_3')$ noté $(v_2,v_3)$.}
+	 	 	
+	 	 	\[
+	 	 	\hspace{-1cm}\begin{aligned}
+	 	 		\displaystyle\int \mathcal L_{i,j}[f]dx_2 \cdots dv_N 
+	 	 		=& \varepsilon^2\int \Big[f(t,x_1,v_1,x_2,v_2,x_3,v_3,\cdots)\langle v_3-v_2|\omega\rangle_+ \\
+	 	 		& - f(t,x_1,v_1,x_2,v_2(\cdots),x_3,v_3(\cdots),\cdots).(-\langle v_3'-v_2'|\omega\rangle)_-\Big] \delta(x_3=x_2+\varepsilon\omega)\\
+	 	 		& d\omega dx_2 dv_2'dx_3dv_3' dx_4 \cdots dv_N
+	 	 	\end{aligned}
+	 	 	\]
+		 \end{minipage}
+		 
 	\end{dem}
 	
 	
