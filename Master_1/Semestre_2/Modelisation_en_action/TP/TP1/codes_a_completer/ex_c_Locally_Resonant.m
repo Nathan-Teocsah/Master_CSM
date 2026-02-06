@@ -29,25 +29,28 @@ samples=500;
 
 %% 2) Given wavenumber resolution 
 
-k_range='____TO_FILL____';
-w=zeros('____TO_FILL____');
+k_range=linspace(-2*pi/a, 2*pi/a,samples);
+w=zeros(1,samples);
 wpaper=zeros(length(k_range),2);
 
 for i=1:length(k_range)
     k=k_range(i);
     c=cos(k*a);
-    w(i,:)=roots(['____TO_FILL____']);
+    w1^2*(2*c-1)-r
+    -2*w1^2 * w2^2 * (c-1)
+    w(i,:)=roots([1 w1^2*(2*c-1)-r -2*w1^2 * w2^2 * (c-1)]);
 end
 
 % create new figure
 figure; title('Locally resonant \omega(k)')
 
-plot(k_range,'____TO_FILL____'); 
+plot(k_range,w); 
 
 xlabel('Wavenumber')
 xticks([-2*pi/a -pi/a 0 pi/a 2*pi/a])
 xticklabels({'-^{2*\pi}/_a','-^\pi/_a','0','^\pi/_a','^{2*\pi}/_a'})
 
+pause;
 % separate three cases for axis ticks
 ylabel('Frequency')
 if w2<2*w1

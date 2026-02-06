@@ -937,24 +937,30 @@
 	 	 		\end{matrix}\right] = \left[\begin{matrix}
 	 	 		v_2' \\ v_3'
 	 	 		\end{matrix}\right]$ en tant que fontion de $\omega,v_2,v_3$ }
- 	 		
- 	 		\[
- 	 		\hspace{-1cm}\begin{aligned}
- 	 			\displaystyle\int \mathcal L_{i,j}[f]dx_2 \cdots dv_N 
- 	 			&= \varepsilon^2\int \Big[f(\cdots)\langle v_3-v_2|\omega\rangle_--f(t,x_1,v_1,v_2',\hspace{-.8cm}\overbrace{x_3,v_3'}^{\rouge{\text{où } \left[\begin{matrix}
- 	 					v_2' \\ v_3'\end{matrix}\right] = T_\omega\left[\begin{matrix}
- 	 						v_2\\ v_3
- 	 					\end{matrix}\right]}}\hspace{-.8cm},\cdots)\langle v_3-v_2|\omega\rangle_+\Big]\\
-  					& \hspace{1.5cm}\delta(x_3=x_2+\varepsilon\omega)d\omega dx_2\cdots dv_N\\
-  					& = -\int \mathcal{L}_{i,j}[f]dx_2\cdots dv_N
- 	 		\end{aligned}
- 	 		\]
- 	 		
- 	 		\vspace{-.5cm}
- 	 		
- 	 		\enc[10cm]{red}{Donc : $\forall i \not = j \geq 2$, $\displaystyle\int \mathcal L_{i,j}[f] dx_2\cdots dv_N = 0$}
 		 \end{minipage}
 		 
+		 \begin{minipage}[t]{18.5cm}
+		 	
+		 	\vspace{-.5cm}
+		 	
+		 	\[
+		 	\hspace{-1cm}\begin{aligned}
+		 		\displaystyle\int \mathcal L_{i,j}[f]dx_2 \cdots dv_N 
+		 		&= \varepsilon^2\int \Big[f(\cdots)\langle v_3-v_2|\omega\rangle_--f(t,x_1,v_1,v_2',\hspace{-.8cm}\overbrace{x_3,v_3'}^{\rouge{\text{où } \left[\begin{matrix}
+		 					v_2' \\ v_3'\end{matrix}\right] = T_\omega\left[\begin{matrix}
+		 					v_2\\ v_3
+		 				\end{matrix}\right]}}\hspace{-.8cm},\cdots)\langle v_3-v_2|\omega\rangle_+\Big]\\
+		 		& \hspace{1.5cm}\delta(x_3=x_2+\varepsilon\omega)d\omega dx_2\cdots dv_N\\
+		 		& = -\int \mathcal{L}_{i,j}[f]dx_2\cdots dv_N
+		 	\end{aligned}
+		 	\]
+		 	
+		 	\vspace{-.2cm}
+		 	
+		 	\enc[10cm]{red}{Donc : $\forall i \not = j \geq 2$, $\displaystyle\int \mathcal L_{i,j}[f] dx_2\cdots dv_N = 0$}
+		 	
+		 	\vspace{-.5cm}
+		 \end{minipage}
 	\end{dem}
 	
 	
