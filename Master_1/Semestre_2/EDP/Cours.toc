@@ -6,5 +6,6 @@
 \contentsline {subsubsection}{\numberline {1.2.2}Marginale de $f$}{10}{subsubsection.1.2.2}%
 \contentsline {subsubsection}{\numberline {1.2.3}Passage à la limite}{12}{subsubsection.1.2.3}%
 \contentsline {subsection}{\numberline {1.3}Limite Faible Densité}{15}{subsection.1.3}%
-\contentsline {section}{\numberline {2}TD}{18}{section.2}%
-\contentsline {subsection}{\numberline {2.1}De 1.1 à 1.4}{18}{subsection.2.1}%
+\contentsline {section}{\numberline {2}Conclusion}{19}{section.2}%
+\contentsline {section}{\numberline {3}TD}{20}{section.3}%
+\contentsline {subsection}{\numberline {3.1}De 1.1 à 1.4}{20}{subsection.3.1}%
