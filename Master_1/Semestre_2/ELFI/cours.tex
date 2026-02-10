@@ -912,7 +912,7 @@
 			\end{minipage}
 		\end{ex}
 	
-	\section{Elemens finis usuels}
+	\section{Éléments finis usuels}
 	
 	\subsection{Définition d'un élément finis}
 		Soit $K$ convexe fermé sous-ensemble de $\R^2$, avec $\overset\circ K \not= \emptyset$.\\
@@ -938,9 +938,92 @@
 				
 				\item $\begin{cases}
 					\dim(P) = N \\
-					\exists N \text{ foncions } (p_i)_{i\in[\![1,N]\!]} \text{ tel que } \forall j \in [\![1,N]\!], \Phi_j(p_i) = \delta_{ij}
+					\exists N \text{ fonctions } (p_i)_{i\in[\![1,N]\!]} \text{ tel que } \forall j \in [\![1,N]\!], \Phi_j(p_i) = \delta_{ij}
 				\end{cases}$
 			\end{enumerate}
 		\end{prop}
+		
+		\begin{defi}
+			Un triplet $(K,P,\Sigma)$ tel que $\Sigma$ est $P$-unisolvante est appelé un élément fini.
+		\end{defi}
+		
+		\begin{ex}$ $
+				
+			\begin{enumerate}
+				\item \begin{minipage}[t]{18.5cm}
+					En 2D, $K$ un triangle avec 3 nœuds, $n_i^K$ étant les sommets de $K$.\\
+				$\Sigma$ définie par morceaux : $N = 3$, $\Phi_i : \begin{aligned}[t]
+					\mathbb{P}_1(K) & \to \R \\
+					p & \mapsto p(n_i^K)
+				\end{aligned}$ ($P = \mathbb P_1(K)$)\\
+				$\to$ Éléments fini $\mathbb P_1$ de Lagrange conforme du \textbf{Chapitre précédents}.
+				\end{minipage}
+				\item  \begin{minipage}[t]{18.5cm}
+					En 2D, $K$ un triangle ou quadrangle droit.\\
+					$\Phi_i : p \mapsto p(n_i^K)$ où $n_i^K \in K$ "arbitraire"\\
+					Élément fini $\Big|_\text{de Lagrange}\hspace{-1.5cm}\text{nodal}$\\
+					degré de liberté nodal.
+				\end{minipage}
+				
+				\item \begin{minipage}[t]{18.5cm}
+					$\Phi_i : p \mapsto Dp(n_i^K)v_i$ \begin{minipage}[t]{15cm}
+						où $n_i^K \in K$ sont les nœuds \\
+						et $v_i$ des vecteurs "arbitraires".
+					\end{minipage}\\
+					Élément fini de Hermite d'ordre 1
+				\end{minipage}
+				\item $\Phi_i : p \mapsto D^kp(n_i^K)(v_i^1,\cdots,v_i^k)$\\
+				Hermite ordre $k$.
+			\end{enumerate}
+		\end{ex}
+		
+	\subsection{Élément fini de Lagrange triangulaire droit}
+	\subsubsection{Élément fini triangulaire $\mathbb P_k$ de Lagrange}
+	
+	\hspace{-.6cm}Il est entièrement décrit par les nœuds du triangle.\\
+	Soi $K$ un triangle de sommets $a_1^K,a_2^K,a_3^K$.\\
+	Les nœuds de cet élément fini sont :\\
+	\hspace*{.5cm}\begin{minipage}[t]{18cm}
+		Pour $k=0$, l'ensemble des nœuds est $\mathcal{L}_0^K = \left\{n_1^{0,K} = \displaystyle\sum_{l=1}^3 \lambda_la_l^K,\lambda_l = \frac13, l=1,2,3\right\}$\\
+		Pour $k > 0$, $\mathcal L_k^K = \left\{n_i^K \in K; n_i^K = \displaystyle\sum_{l=1}^3 \lambda_la_l^K, \lambda_l \in \{0,\frac1k, \cdots,\frac{k-1}k,1\}, \sum_{l=1}^3\lambda_l=1\right\}$
+	\end{minipage}
+	
+	\hspace{-1.6cm}\includegraphics[scale=.735]{photo16.png}
+	
+	\subsubsection{Élément fini $\mathbb P_1$ non conforme}
+	
+		\rouge{Non adapté à $H^1(\Omega)$ mais adapté à $L^2(\Omega)$.}\\
+		Il es défini par les nœuds aux centres des arêtes.\\
+		\includegraphics[scale=.5]{photo17.png}\\
+		peuvent être différent : $\begin{cases}
+		\lambda\left(u\big|_{K_1}\right)\Big|_{K_1\cap K_2} \\
+		\lambda\left(u\big|_{K_2}\right)\Big|_{K_1\cap K_2}
+		\end{cases}$
+	
+\subsection{Éléments finis générique}
+	\subsubsection{Élément fini de référence}
+		On considère \begin{minipage}[t]{18.5cm}
+			$\widehat K$ un élément de référence, enveloppe convexe de $\{\hat a_i\}_{i = 1,\cdots,N}$\\
+		$\hat P_1$ un espace de dimension finie $N$.\\
+		$\hat\Sigma = \{\hat\Phi_i,i=1,\cdots,N\}$ formes linéaires sur $\hat P$, $\hat P$-unisolvante et $\hat\Phi_i : \begin{aligned}[t]
+			\hat P & \to \R \\
+			\hat p & \mapsto \hat p(\hat a_i)
+		\end{aligned}$.
+		\end{minipage}\\
+		$(\hat K, \hat P, \hat\Sigma)$ est un élément fini sur $\hat K$, soient $\{\hat\tau_i\}_{i=1,\cdots,N}$ les foncions de base associées.\\
+		\begin{minipage}[t]{20cm}
+			Soit $K$ un élément défini par transformation de $\hat K$ par $F_K$, où $F_K(\hat x) = \displaystyle\sum_{i=1}^N \hat\tau_i(\hat x)a_i^K$; avec $a_i^K$ les nœuds de $K$.
+		\end{minipage}\\
+		On définit alors un élément fini sur $K$ : \begin{minipage}[t]{10cm}
+			$P_K = \{p; p\circ F_K\in\hat P\}$;\\
+			$\Sigma_K = \left\{\Phi; \exists \hat \Phi\in \hat\Sigma; \Phi(\hat p\circ F_K^{-1})=\hat\Phi(\hat p),\forall \hat p \in\hat P\right\}$
+		\end{minipage}\\
+		$(K,P_K,\Sigma_K)$ définit un élément fini sur $K$.\\
+		Les fonctions de bases $\tau_i^K$ sur $K$ associées à $(K,P_K,\Sigma_K)$ vérifient : $\hat\tau_i = \tau_i^K\circ F_K$.
+		
+		\begin{center}
+			\includegraphics[scale=.5]{photo18.png}
+		\end{center}
+		
 
 \end{document}
