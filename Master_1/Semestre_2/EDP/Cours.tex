@@ -1008,20 +1008,22 @@
 	
 	Équation de Boltzmann.
 	
-\section{Conclusion}
+\subsection{Conclusion}
 	
 	
-	EDP de transport, quadratique (explosion en temps fini comme $g^1 = g^2$) \\
-	$\vdots$\\
-	$\vdots$\\
-	et on peu aisément montrer que si $g$ es solution de cette équation de Boltzmann, donc en passant $f^3(t,x_1,v_1,\cdots,x_r,v_r) = f(t,x_1,v_1)\cdots g(t,x_r,v_r)$, cette suite $f^r$ est solution du système limite obtenu lorsque $n \to + \infty$ (exo à faire, puis dans le cas limite faible couplage).\\
+	EDP de transport, quadratique (explosion en temps fini comme $y' = y^2$) \\
+	Le produit ponctuel cause le \textbf{drame},  :
+	\[
+	g(\cdots,x_1,\cdots)g(\cdots,x_1,\cdots)
+	\]
+	et on peu aisément montrer que si $g$ es solution de cette équation de Boltzmann, donc en passant $f^k(t,x_1,v_1,\cdots,x_r,v_r) = f(t,x_1,v_1)\cdots g(t,x_r,v_r)$, cette suite $f^k$ est solution du système limite obtenu lorsque $n \to + \infty$ (exo à faire, puis dans le cas limite faible couplage).\\
 	\underline{Bilan du cours :} on a écrit Newton pour $N$ particules en interaction. On a identifié 2 régimes (2 scaling) $\begin{cases}
 		\text{limite faibe couplage} \\
 		\text{faible densité}
 	\end{cases}$\\
 	On a adopté, à partir des équation de Newton, un point de vu cinétique (ou de physique déterministe) en prenant comme inconnue la fonction de répartition $f(,x_1,v_1,\cdots,x_N,v_N)$.\\
 	Puis on a écrit une hiérarchie d'équation satisfaites par les marginales $f_N^r$..\\
-	On a vu que : $f_N^r \o f^r$ et (propagation du chaos) : $f^k = g(t,x_1,v_1)\times\cdots\times g(t,x_r,v_r)$.\\
+	On a vu que : $f_N^k \to f^k$ et (propagation du chaos) : $f^k = g(t,x_1,v_1)\times\cdots\times g(t,x_r,v_r)$.\\
 	Dans la limite faible couplage, on a vu qu'à la limite $g$ satisfaite : 
 	\[
 	\dfrac{\partial f}{\partial t}(t,x,v) + v\cdots\nabla_x g + \underbrace{\Big[\displaystyle\int F(x-y)\underbrace{\left[\int g(t,y,w)dw\right]}_{\text{densité macro de particule noté }\rho(t,y)}dy\Big]}_{=(F\star_x f)(t,x)} \cdots \nabla_v g(t,x,v) = 0
@@ -1040,6 +1042,106 @@
 		 y_\star = y(t,x,v_\star)
 	\end{aligned}$
 	
+	\subsection{Suppléments : Entropie}
+	
+	On a vu la CV, dans la limite faible densité pour $N$ sphères dures en interactions, vers :
+	
+	\[
+	\dfrac{\partial f}{\partial t}(t,x,v) + v\nabla_x f = Q(f,f)(t,x,v)
+	\]
+	
+	avec $Q(f,f) = \displaystyle\int \left[f'f'_\star - ff_\star\right]\abs{\langle v-v_\star|\omega\rangle}d\omega dv_\star$.\\
+	Où $\begin{cases}
+		v' = v-\langle v-v_\star |\omega\rangle\omega \\
+		v'_\star = v_\star + \langle v-v_\star |\omega\rangle\omega
+	\end{cases}$.\\
+	Calculer $\begin{aligned}[t]
+		\dfrac d{dt} \underbrace{\left[\displaystyle\int f(t,x,v)\log(f(t,x,v))dxdv\right]}_{\rouge{\text{entropie de $f$}}} 
+		&= \int (\partial_t f)\log(f) + f \dfrac{\partial_t f}{f}dxdv\\
+		&= \int \left[\log f + 1\right]Q(f,f) = v\nabla_x f dxdv
+	\end{aligned}$\\
+	Or $\begin{aligned}[t]
+	\displaystyle\int \left[\log f + 1\right]v\nabla_x f dx dv 
+	&= \int \text{div}_x\left(v\log f(t)\right)f(t,x,v)dxdv \\
+	&= - \int fv\cdot\nabla_x\left[\log f +1\right]dxdv \\
+	&= - \int f\sum_i v_i \dfrac{\partial_{x_i} f}{f} dxdv = -\int v\cdot \nabla_x f dxdv\\
+	&= + \int \underbrace{\left(\text{div}_x v\right)}_{=0} f dxdv = 0 
+	\end{aligned}$
+	\\
+	De plus $I := \displaystyle\int \left(\log f +1\right)Q(f,f)dxdv = \int \left(\log f +1\right)\left[\underset{\rouge{\text{en $(x,v')$ }}}{f'}\underset{\rouge{\text{en $(x,v_\star')$}}}{f_\star'}-\underset{\rouge{\text{en $(x,v)$ }}}f\underset{\rouge{\text{en $(x,v_\star)$}}}{f_\star}\right]\abs{\langle v-v_\star|\omega\rangle}d\omega dx dv dv_\star$\\
+	
+	Où $\begin{cases}
+		v' = v-\langle v-v_\star|\omega\rangle\omega\\
+		v'_\star = v_\star + \langle v-v_\star|\omega\rangle\omega
+	\end{cases}$, ou encore $\begin{pmatrix}
+	v' \\ v_\star'
+	\end{pmatrix} = T_\omega\begin{pmatrix}
+	v \\ v_\star
+	\end{pmatrix}$\\
+	
+	Donc $\begin{aligned}[t]
+		I 
+		&= \displaystyle\int \left(\log f + 1\right)\left[f'f_\star'-ff_\star\right] \abs{\langle v-v_\star|\omega\rangle} d\omega dx dv dv_\star\\
+		&\underset{(v,v_\star)\to(v_\star,v)}= \int \left(\log f_\star\right)\left[f'f'_\star-ff_\star\right]\abs{\langle v-v_\star|\omega\rangle}d\omega dx dv dv_\star
+	\end{aligned}$\\
+	
+	De même : $I =$\\
+	\hspace*{-1cm}$\displaystyle\int \left[\left(\log f(t,x,v(v,v_\star',\omega))\right)+1\right]\left(f'f'_\star-f(t,x,v(v',v_\star',\omega))f(t,x,v_\star(v',v_\star',\omega))\right)\abs{\langle v(\cdots)-v_\star(\cdots)|\omega\rangle} \abs{\det T_\omega}dxd\omega'dv_x'd\omega$
+	
+	Donc : $\begin{aligned}[t]
+		I 
+		&= \displaystyle\int \left[\log f(t,x,v')+1\right]\left(ff_\star-f'f_\star'\right)\abs{\langle v'-v'_\star|\omega\rangle}d\omega dx dv dv_\star\\
+		&=\int \left[\log f' + 1\right]\left(ff_\star-f'f_\star'\right)\abs{v-v_\star}d\omega dx dv dv_\star\\
+		&= \displaystyle\int \left[\log f'_\star + 1\right]\left(ff_\star - f'f_\star'\right)\abs{\langle v-v_\star|\omega}d\omega dx dv dv_\star
+	\end{aligned}$\\
+	
+	On a donc 4 expressions différentes pour I.En faisant la moyenne de ces 4 expressions, on a :
+	\[
+	\begin{aligned}
+		I 
+		&= \displaystyle\int \dfrac{\left(\log f +1\right)+\left(\log f_\star + 1\right) - \left(\log f' +1\right)-\left(\log f'_\star + 1\right)}{4}\left[f'f'_\star-ff_\star\right]\abs{\langle v-v_\star|\omega\rangle}\\
+		&=  \frac14 \int\left(\log f + \log f_\star - \log f' - \log f'_\star\right)\abs{f'f'_\star-ff_\star}\abs{\langle v-v_\star|\omega\rangle}d\omega dx dv dv_\star \\
+		&= -\frac14 \int \left[\log (f'f'_\star)-\log(ff_\star)\right]\left(ff'_\star-ff_\star\right) d\omega dx dv dv_\star 
+	\end{aligned}
+	\]
+	
+	C'est-à-dire on a le :
+	
+	\begin{thm}$ $\\
+		\begin{minipage}[t]{18.5cm}
+			\[\dfrac d{dt}\left(\displaystyle\int f\log f dx dv\right) \leq 0\]
+		\end{minipage}
+	\end{thm}
+	
+	
+	Ainsi, \textbf{l'équation de Boltzmann es irréversible en temps !}
+	
+	\newpage
+	
+	\underline{Où est l'arnaque ?}
+	\begin{enumerate}
+		\item L'inconnue déterministe $(X_1(t),V_1(t))$ es devenu la répartition $f(t,x,v)$.
+		\item Le point clef es que les termes $f(,x+\varepsilon\omega,v)$ deviennent $f(t,x,v)$ lorsque $N \to \infty$.
+	\end{enumerate}
+	
+	Ainsi notre discoureurs amène à une perte d'information compatible avec une différence qualitative entre nos 2 descriptions.\\
+	$\to$ explication insuffisante quand on l'inspecte attentivement.\\
+	C'est ici qu'est la perte d'information majeure :\\
+	
+	\includegraphics[scale=.64]{photo13.png}\includegraphics[scale=.5]{photo14.png}
+	
+	Ainsi l'équation de Boltzmann $\displaystyle\int f\log f$ décroît et $f$ tends vers un minimum de l'application $g \mapsto \displaystyle\int g\log g$.\\
+	
+	\underline{Affirmation :} les minimums de cette application s'écrivent :
+	\[
+	f(t,x,v) = \dfrac{\rho(t,x)}{\left(2\pi T(t,x)\right)^{3/2}}\exp\left(-\dfrac{\left[v-u(t,x)\right]^2}{T(t,x)}\right)
+	\]
+	pour certaines foncions :\\
+	$\rho(t,x) = $ densité macroscopique\\
+	$n(t,x) = $ vitesse macroscopique\\
+	$T(t,x) = $ température macroscopique\\
+	
+	\includegraphics[scale=.5]{photo15.png}
 	
 	
 	
