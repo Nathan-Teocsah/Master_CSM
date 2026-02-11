@@ -1,0 +1,119 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{minted}
+
+\makeatletter
+\def\input@path{{/home/maenwe/Master_CSM/modèle_cours_latex}}
+\makeatother
+
+\usepackage{prise_de_note}
+
+
+\begin{document}
+	
+	
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Suppléments de cours} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large \textbf{Apprentissage statistique}}
+		
+		\vfill
+		
+		% Bloc Informations
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft} \large
+				\textbf{Enseignant :} \\
+				Mme \textsc{MAUMY}
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\section{Test statistique}
+	\underline{sample :} \begin{minipage}[t]{17cm}
+		- échantillon \textbf{aléatoire}/\textbf{non aléatoire}\\
+		- un ensemble de variable aléatoire dont une évaluation qui pourrait constituer un échantillon observé
+	\end{minipage}\\
+	
+	Méthode de \textbf{tirage} (Avec Remise ou Sans) / de \textbf{sélection}.\\
+	
+	\textbf{Double aléatoire.}
+	
+	Le statisticien est riche de son échantillon \textbf{aléatoire}.\\
+	Question que se pose le statisticien : est-ce extrapolable ?\\
+	Une méthode d'extrapolation :\\
+	
+	dans un test il y a 2 issus : \begin{minipage}[t]{10cm}
+		 $H_0$ : hypothèses nulles (qu'est ce qu'on ferait si rien ne se passait de significatif)\\
+		 $H_1$ : hypothèse alternative
+	\end{minipage}
+	
+	\begin{ex}
+		Contexte : "il pleut"\\
+		$H_0$ : la promotion reste chez moi\\
+		$H_1$ : la promotion va en cours\\
+		
+		Où est l'aléatoire dedans ?\\
+		Dans la conséquence du choix qu'on a fait\\
+		
+		\textbf{Sauf} que $H_0$ ici n'est pas l'hypothèse nulle, on s'est planté entre les deux.
+	\end{ex}
+	
+	\begin{ex} Contexte : se faire vacciner\\
+		$H_0$ : se faire vacciner \\
+		$H_1$ : ne pas se faire vacciner 
+	\end{ex}
+	
+	On va \textbf{quantifier l'erreur dû au choix que l'on a fait}.\\
+	
+	\hspace{-.7cm}fréquence : mesure (lié à ce qu'on mesure), c'est une \textbf{estimation de la proportion}\\
+	proportion : lié à la probabilité 
+	
+	\vspace{.5cm}
+	
+	\hspace{-.6cm}évènement : $H_1^{ech}| H_0^{pop}$ : proba = $\alpha \to 0$ (ce qu'on veut)\\
+	évènement : $H_0^{ech}| H_1^{pop}$ : proba = $\beta \to 0$ (ce qu'on veut)
+	
+	\vspace{.1cm}
+	
+	Si \textbf{l'un augmente} alors l'\textbf{autre diminue} et inversement.\\
+	
+	On connaît la proba de $H_0^{pop}$ mais pas l'alternative.\\
+	
+	\textbf{\underline{Test satistique :}} \begin{minipage}[t]{15cm}
+		- Processus stochastique\\
+		- Outil de décision : choix (il faut évaluer l'erreur que l'on fait dans les différentes situations)
+	\end{minipage}
+	
+\end{document}
