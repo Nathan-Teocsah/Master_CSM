@@ -1041,8 +1041,10 @@
 		y = y(t,x,v)\\
 		 y_\star = y(t,x,v_\star)
 	\end{aligned}$
+
+\section{Suppléments}
 	
-	\subsection{Suppléments : Entropie}
+	\subsection{Entropie}
 	
 	On a vu la CV, dans la limite faible densité pour $N$ sphères dures en interactions, vers :
 	
@@ -1143,7 +1145,103 @@
 	
 	\includegraphics[scale=.5]{photo15.png}
 	
+	\newpage
 	
+	\subsection{Lien entre Boltzmann et la mécanique des fluides}
+	
+	\[
+	\dfrac{\partial f}{\partial t}(t,x,v) + v\nabla_x f = Q(f,f)
+	\]
+	
+	où $f(t,x,v) =$ densité de particules en $x$ et à la vitesse $v$, à l'instant $t$\\ (description dans l'espace des phases).\\
+	
+	Quantités macroscopiques associées : $\rho(t,x) = \displaystyle\int_{\R^3} f(t,x,v) dv$ = densité de particules en $x \in \R^3$ (dans l'espace physique)
+	
+	\[
+	c(t,x) = \dfrac1{\rho(t,x)}\displaystyle\int \dfrac{v^2}2 f(t,x,v)dv = \text{ énergie cinéique moyenne en } (t,x)
+	\]
+	
+	et encore plus globalement :
+	
+	\[
+	\begin{aligned}
+		\displaystyle\int f(t,x,v) dxdv 
+		&= \text{ quantité totale de particules}\\
+		&= \text{ "masse" de }f
+	\end{aligned}
+	\]
+	
+	\[
+	\begin{aligned}
+		\displaystyle\int vf(t,x,v)dxdv 
+		&= \text{ quantité de mouvemen totale}\\
+		&= \text{ vitesse totale}
+	\end{aligned}
+	\]
+	
+	\[
+	\begin{aligned}
+		\displaystyle\int \dfrac{v^2}2 f(t,x,v) dxdv = \text{ énergie cinétique totale}
+	\end{aligned}
+	\]
+	
+	\fbox{FAIT} les fonctions $\rho(t,x), u(t,x), c(t,x)$ sont les inconnues naturelles de toute la mécanique des fluides (point de vue Eulérien).\\
+	
+	\fbox{!} Le fluide est décrite dans l'espace physique des $x$ et PAS en $(x,v)$ dans l'espace de phase.\\
+	
+	\fbox{FAIT} Dans l'équation de Boltzmann on a :
+	
+	\[
+	\begin{aligned}
+		\displaystyle\int f(t,x,v) dxdv 
+		&= \text{constante par rapport à } t\\
+		&= \rho_0\\
+		\int vf(t,x,v)dxdv 
+		&= \text{ constante } \\
+		&= v_0 \\
+		\int \frac{v^2}2 f(t,x,v) dxdv 
+		&= \text{ constante}\\
+		&=E_0
+	\end{aligned}
+	\]
+	
+	\newpage
+	
+	\begin{dem}$ $\\
+		
+		$\begin{aligned}
+			\displaystyle\frac d{dt}\left(\int v^2f(t,x,v)dxdv\right) 
+			&= \int v^2\frac{\partial f}{\partial t} dx dv \\
+			&= -\underbrace{\int \left(v\nabla_x f\right) v^2 dxdv}_{\rouge{\underset{IPP}= + \int f \text{div}_x(v^2 v) = 0}} + \int Q(f,f) v^2 dxdv
+		\end{aligned}$ \\
+		
+		$\begin{aligned}
+			\displaystyle\int&\left[v'(v,v_\star,\omega)\right]^2\left(ff_\star-f'f'_\star\right)\abs{\langle v'(\cdots)-v'_\star(\cdots)|\omega\rangle}d\omega dx dv dv_\star
+			&= \int Q(f,f)v^2 dx dv \\
+			&= \int v^2 \left(ff_\star-f'f'_\star\right)\abs{\langle v-v_\star|\omega\rangle}d\omega dx dv dv_\star \\
+			&\hspace{-.2cm}\underset{v \leftrightarrow v_\star}= \int v_\star^2 \left(f_\star'f'-f_\star f\right)\abs{\langle v-v_\star|\omega\rangle} d\omega dx dv dv_\star\\
+			&\hspace{-.8cm}\underset{\underset{(v,v_\star)\leftrightarrow (v',v_\star')}{\text{$chg^t$ de variable}}}= \int v^2(v',v_\star',\omega)\left[f'f_\star'-ff_\star\right]\abs{\langle v(\cdots)-v_\star(\cdots)|\omega\rangle} d\omega dx \underbrace{1.dv' dv_\star'}_{\rouge{=dvdv_\star}}\\
+			&\hspace{-.9cm}\underset{\underset{\underset{(v,v_\star) \text{ devient } (v',v_\star')}{(v'v_\star') \text{ noté } (v,v_\star)}}{chg^t \text{ de } not^o}}= \int \left[v'(v,v_\star,\omega)\right]^2\left(ff_\star - f'f_\star'\right)\abs{\langle v'(\cdots)-v_\star(\cdots)|\omega\rangle}d\omega dx dv dv_\star \\
+			&= \int \left[v'(v,v_\star,\omega)\right]^2\left(ff_\star-f'f'_\star\right)\abs{\langle v-v_\star |\omega\rangle} d\omega dx dv dv_\star \\
+			&\hspace{-.7cm}\underset{échange (v,v_\star)}= \int \left[v_\star'(v,v_\star,\omega)\right]^2 \left(ff_\star -f'f_\star'\right)\abs{\langle v-v_\star|\omega\rangle}d\omega dx dv dv_\star\\
+			&= \int \underbrace{\frac{\left[v^2+v_\star^2\right]-\left[(v')^2+(v_\star')^2\right]}4}_{\rouge{=0}}\left(ff_\star -f'f_\star'\right)\abs{\langle v-v_\star|\omega\rangle}d\omega dxdvdv_\star
+		\end{aligned}$\\
+		Le changement de variable est obtenu en écrivant $(v,v_\star) = T_\omega (v',v_\star')$\\
+		
+		De même :\\
+		$\begin{aligned}
+			\dfrac{\partial}{\partial t}\left(\displaystyle\int vf dxdv\right) 
+			&= \int vQ(f,f)dxdv \\
+			&= \int \underbrace{\dfrac{\left[v-v_\star\right]-\left[v'-v_\star'\right]}{4}}_{\rouge{=0}}\left(f'f_\star'-ff_\star\right)\abs{\langle v-v_\star|\omega\rangle} d\omega dx dv dv_\star\\
+			&=0
+		\end{aligned}$\\
+		$\begin{aligned}
+			\dfrac{\partial}{\partial t}\left(\displaystyle\int f dxdv\right) 
+			&= \int Q(f,f) dxdv \\
+			&= \int \frac{[1+1]-[1+1]}4\left(f'f_\star'-ff_\star\right)\abs{\langle v-v_\star|\omega\rangle}d\omega dx dv dv_\star \\
+			&=0
+		\end{aligned}$
+	\end{dem}
 	
 	
 	
