@@ -26,7 +26,6 @@ plt.figure()
 plt.title('CAH. Visualisation des classes au seuil de '+str(seuil))
 d=dendrogram(M,labels=list(nomfrom),orientation='right',color_threshold=seuil)
 print(np.round(M[:,2],2))
-plt.show()
 
 ##### Récupération des groupes
 print("====> Récupération des groupes")
@@ -62,4 +61,4 @@ print("\n******* Comparaison des inerties ******* \n")
 
 print("Inertie Kmeans",nclus,"centres: ",k_means.inertia_)
 print("Inertie CAH",nclus,"classes: ",VI[-nclus])
-
+plt.show()
