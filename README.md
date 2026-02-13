@@ -8,4 +8,4 @@ Ceci est l'ensemble des cours que j'ai suivi lors de mes deux années en Master 
 - VACANCES du 20 au 1 Mars
 
 ## Mars 2026
-- Jeudi 5 : Contrôle _EDO_ (1h30)
+- Jeudi 5 : Contrôle _EDP_ (1h30)
