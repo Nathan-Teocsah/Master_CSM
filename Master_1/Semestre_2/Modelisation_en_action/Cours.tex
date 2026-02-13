@@ -1053,6 +1053,58 @@
 	Le système "condensé" s'écrit donc : $\overset\sim{\mathbb{D}}_bU_b=\overset\sim f_b$
 	
 	
+\begin{rmq}
+	Il existe des situations où il n'es pas possible/souhaitable de faire le calcul de $\mathbb D_i^{-1}$. Dans ce cas, nous pouvons appliquer le principe de Flochet-Bloch à l'ensemble des degré de libertés de la cellule périodique (au lieu de la réduire à $U_L+U_R)$.La solution s'écrit alors $\begin{bmatrix}
+		U_L\\ U_R
+	\end{bmatrix}^{n+1} = \lambda\begin{bmatrix}
+	U_L \\ U_R
+	\end{bmatrix}$.\\
+	Formulation $\begin{bmatrix}
+		U_L \\ U_R
+	\end{bmatrix}$, sous condensation dynamique .\\
+	On considère une structure périodique dont la cellule contient des degré de liberté, $U_L, U_R, U_{LR}$.\\
+	
+		\includegraphics[scale=.5]{photo26.png}
+	
+	L'équation d'équilibre dans une cellule en régime harmonique :
+	
+	$\begin{bmatrix}
+		D_L & D_{Li} & D_{LR} \\
+		D_{iL} & D_i & D_{iR} \\
+		D_{RL} & D_{Ri} & D_R
+	\end{bmatrix}\begin{bmatrix}
+	U_L \\ U_i \\ U_R
+	\end{bmatrix} = \begin{bmatrix}
+	f_L \\ 0 \\ f_R
+	\end{bmatrix}$\\
+	
+	Écrivons l'équilibre dynamique des 3 cellules $(n-1,n,n+1)$ : 
+	
+	$\begin{bNiceMatrix}
+		D_L & D_{Li} & D_{LR} & \Block{2-4}<\large>{(0)} \\
+		D_{iL} & D_i & D_{iR} \\
+		D_{RL} & D_{Ri} & D_R\rouge{+D_L} & \rouge{D_i} & \rouge{D_{LR}} \\
+		\Block{3-3}<\large>{(0)} & & & \rouge{D_{iL}} & \rouge{D_i} & \rouge{D_{iR}} \\
+		& & & \rouge{D_{RL}} & \rouge{D_{Ri}} & \rouge{D_R} \vert{+D_L} & \vert{D_{Li}} \\
+		& & & & & \vert{D_{iL}} & \vert{D_i}
+	\end{bNiceMatrix}\begin{NiceArray}{cc}
+	\Block{5-1}{\begin{bmatrix}
+			U_L^{n-1} \\
+			U_i^{n-1} \\
+			U_L^n \\
+			U_i^n \\
+			U_L^{n+1} \\
+			U_i^{n+1}
+	\end{bmatrix}} & U^{n-1}\\\\
+	& \rouge{U^n}\\\\
+	& \vert{U^{n+1}}
+	\end{NiceArray} = \begin{bmatrix}
+	f_L^{n-1} \\
+	0 \\ 0 \\ 0 \\ 0 \\ f_R^{n+1}
+	\end{bmatrix}$\\
+	
+	\includegraphics[scale=.5]{photo27.png}
+\end{rmq}
 	
 	
 	
@@ -1717,5 +1769,22 @@
 			\]
 		\end{enumerate}
 	\end{sol}
+	
+	
+	\begin{exo}
+		\begin{minipage}[t]{15cm}
+			On considère le système périodique suivant :
+		\end{minipage}
+		
+		\begin{minipage}{12cm}
+			\includegraphics[scale=.5]{photo28.png}
+		\end{minipage}\begin{minipage}{5cm}
+		Toutes les interactions sont des raideurs linéaires 1D notées $\beta$.
+		\end{minipage}\\\\
+		
+		$\to$\begin{minipage}[t]{17cm}
+			Démontrer que les deux modélisations (ie. \vert{UC1} et \rouge{UC2}) aboutissent à la même équation de dispersion.
+		\end{minipage}
+	\end{exo}
 	
 \end{document}
