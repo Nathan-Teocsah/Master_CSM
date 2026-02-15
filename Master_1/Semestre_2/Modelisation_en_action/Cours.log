@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  13 FEB 2026 11:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  15 FEB 2026 21:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2262,11 +2262,36 @@ Overfull \hbox (156.17168pt too wide) in paragraph at lines 1785--1788
 []$\OMS/lmsy/m/n/12 !$[] 
  []
 
+
+LaTeX Warning: Command \i invalid in math mode on input line 1792.
+
+
+Overfull \hbox (125.16327pt too wide) in paragraph at lines 1789--1794
+[]$ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1789--1794
+
+ []
+
+\l__nicematrix_l_dim=\dimen439
+
+Underfull \hbox (badness 10000) in paragraph at lines 1878--1900
+
+ []
+
+
+Overfull \hbox (186.85078pt too wide) in paragraph at lines 1801--1919
+[]$[]$ 
+ []
+
+[25 <./photo28.png>]
 \tf@thm=\write7
 \openout7 = `Cours.thm'.
 
-[25 <./photo28.png>]
-runsystem(latexminted cleantemp  --timestamp 20260213111910 33C1869ABDF6A46508C
+ [26]
+runsystem(latexminted cleantemp  --timestamp 20260215211733 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -2278,10 +2303,10 @@ Package rerunfilecheck Info: File `Cours.out' has not changed.
 (rerunfilecheck)             Checksum: BE6D5185FC51DE7B32755038D9A3FAA5;3617.
  ) 
 Here is how much of TeX's memory you used:
- 50313 strings out of 467538
- 1174464 string characters out of 5419551
- 1816440 words of memory out of 5000000
- 78359 multiletter control sequences out of 15000+600000
+ 52646 strings out of 467538
+ 1223591 string characters out of 5419551
+ 1932978 words of memory out of 5000000
+ 80690 multiletter control sequences out of 15000+600000
  753293 words of font info for 136 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,27n,131p,866b,972s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2302,10 +2327,10 @@ dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts
 /type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
 lic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy
 8.pfb>
-Output written on Cours.pdf (26 pages, 4121190 bytes).
+Output written on Cours.pdf (27 pages, 4129356 bytes).
 PDF statistics:
- 421 PDF objects out of 1000 (max. 8388607)
- 294 compressed objects within 3 object streams
- 91 named destinations out of 1000 (max. 500000)
+ 426 PDF objects out of 1000 (max. 8388607)
+ 298 compressed objects within 3 object streams
+ 93 named destinations out of 1000 (max. 500000)
  262 words of extra memory for PDF output out of 10000 (max. 10000000)
 

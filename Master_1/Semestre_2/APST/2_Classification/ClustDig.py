@@ -23,10 +23,16 @@ labels=labels.astype(int)
 #
 # Clustering avec la fonction KMeans du module scikit learn
 # Le nombre de classes est choisi par défaut comme égal au nombre d'étiquettes
-nclus=len(np.unique(labels))
-nclus=len(np.unique(labels))+2
+nclus=len(np.unique(labels)) # Nombre de cluster
+nclus=len(np.unique(labels))+2 # Pourquoi +2 ? Il est définit juste avant.
 k_means = KMeans(init='k-means++', n_clusters=nclus, n_init=10)
-k_means.fit(digits)
+"""
+'k-means++' = méthode pour choisir les centroïdes initiaux des cluster
+'n_cluster' = nombre de cluster
+n_init = Number of times the k-means algorithm is run with different centroid seeds
+          The final results is the best output in terms of inertia
+"""
+k_means.fit(digits) # Calcul les cluster/centroide associées et même de prédire à quelle classe appartient un nouvel élément
 cl = k_means.labels_ # classes "prédites"
 print('Premières classes:    ',cl[range(20)])
 print('Premières étiquettes: ',labels[range(20)])
