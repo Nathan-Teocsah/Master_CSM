@@ -58,6 +58,10 @@
 		
 	\end{titlepage}
 	
+	\tableofcontents
+	
+	\newpage
+	
 	\section{Introduction aux éléments finis}
 	
 	\subsection{Résolution informelles}
@@ -944,7 +948,9 @@
 		\end{prop}
 		
 		\begin{defi}
-			Un triplet $(K,P,\Sigma)$ tel que $\Sigma$ est $P$-unisolvante est appelé un élément fini.
+			\begin{minipage}[t]{18.5cm}
+				Un triplet $(K,P,\Sigma)$ tel que $\Sigma$ est $P$-unisolvante est appelé un élément fini.
+			\end{minipage}
 		\end{defi}
 		
 		\begin{ex}$ $
@@ -1025,5 +1031,100 @@
 			\includegraphics[scale=.5]{photo18.png}
 		\end{center}
 		
-
+	\subsubsection{Élément fini triangulaire courbe de Lagrange}
+	
+	On se donne un élément fini $\mathbb{P}_k$ sur $\widehat{K}$, $\dim \mathbb P_k = N^K$.\\
+	On identifie $F_K : \widehat K \to K$.\\
+	$\widehat{K}$ donné par $\hat a_1, \cdots, \hat a_{N^K}$ les $N^K$ les $N^K$ noeuds de $\widehat{K}$.\\
+	Il existe un unique $F_K$ dans $\mathbb P_k$ tel que : $ a_i^K = F_K(\hat a_i)$, $\forall i \in [\![1,N^K]\!]$.\\
+	On construit ainsi l'élément fini $\mathbb{P}_k$ sur $K$.\\
+	
+	\includegraphics[scale=.5]{photo19.png}
+	
+	\subsubsection{Élément fini quadrangulaire courbe}
+	
+	\begin{minipage}{14cm}
+		Les nœuds sont définis par : $\hat a_1(1,0), \hat a_2(1,1), \hat a_3(0,1), \hat a_4(0,0)$
+	\end{minipage}\begin{minipage}{5cm}
+	\includegraphics[scale=.5]{photo20.png}
+	\end{minipage}\\
+	
+	$\mathcal{L}_0^{\widehat K} = \left\{n_1^{0,\widehat{K}}; n_{1,1}^{0,\widehat{K}}=n_{1,2}^{0,\widehat{K}} = \frac12\right\}$. $k=0$\\
+	
+	$\mathcal{L}_k^{\widehat K} = \left\{n_i^{k,\widehat{K}}; n_{i,j}^{k,\widehat{K}} \in \dfrac{[\![0,k]\!]}k; j =1,2\right\}$. $k>0$\\
+	
+	\begin{ex}$ $\\
+		\begin{minipage}{3cm}
+			\underline{$k=1$},
+		\end{minipage}\begin{minipage}{16cm}
+		\includegraphics[scale=.5]{photo21.png}
+		\end{minipage}\\
+		
+		\begin{minipage}{18.5cm}
+			Les fonctions de bases associées à $\mathbb{Q}_1$ sont :
+			
+			\[
+			\begin{aligned}
+				\hat \tau_1  \hspace{1cm}& \hat w_1(\hat x) = \hat x_1(1-\hat x_2) \\
+				\hat \tau_2  \hspace{1cm}&\hat w_2(\hat x) = \hat x_1\hat x_2 \\
+				\hat \tau_3  \hspace{1cm}&\hat w_3(\hat x) = (1-\hat x_1)\hat x_2 \\
+				\hat \tau_4  \hspace{1cm}&\hat w_4(\hat x) = (1-\hat x_1)(1-\hat x_2)\\
+				\downarrow \hspace{1cm}& \text{interpolation de l'inconnue}\\
+				\text{pour l'interpolation géométrique} 
+			\end{aligned} \hspace{1cm} \underset{\text{avec } N^K=4}{F_K(\hat x) = \displaystyle\sum_{i=1}^{N^K}} \hat w_i(\hat x) a_i^K
+			\]
+			
+			\begin{minipage}{3cm}
+				\underline{$k=2$}
+			\end{minipage}\begin{minipage}{15cm}
+			\includegraphics[scale=.5]{photo22.png}
+			\end{minipage}\\
+			
+			\begin{minipage}{3cm}
+				\underline{$k=3$}
+			\end{minipage}\begin{minipage}{15cm}
+				\includegraphics[scale=.5]{photo23.png} \hspace{5cm} $\dim\mathbb Q_k = (k+1)^2$
+			\end{minipage}\\
+			
+			Éléments finis isoparamétriques = Même interpolation de l'inconnue et de la géométrie
+			\end{minipage}
+	\end{ex}
+	
+	\newpage
+	
+	\section{Configuration générique et détails de mise en œuvre}
+	
+	$\begin{cases}
+		-\displaystyle\sum_{\alpha,\beta=1}^2 \dfrac{\partial }{\partial x_\beta}\left(a_{\alpha\beta}\dfrac{\partial u}{\partial x_\alpha}\right) + a_{0,0}(x)u(x) =f_\Omega & \text{ sur }\Omega \\\\
+		\dfrac{\partial u}{\partial \mathcal V_\mathcal{A}} + b_Nu = g_N & \text{ sur } \Gamma_N \hspace{.5cm} \text{ condition de Fourier Neumann} \\\\
+		u = u_D & \text{ sur }\Gamma_D \hspace{.5cm} \text{ condition de Dirichlet}
+	\end{cases}$
+	
+	avec $\dfrac{\partial u}{\partial \mathcal V_\mathcal{A}}(\gamma) = \displaystyle\sum_{\alpha,\beta=1}^2 a_{\alpha,\beta}(\gamma)\dfrac{\partial u}{\partial x_\alpha}(\gamma)\mathcal{V}_\beta(\gamma)$
+	
+	\begin{cor}[de la formule de Green]$ $\\
+		\textbf{Si} $\Omega \subset \mathcal C^{0,1}$, 
+		\[
+		\begin{aligned}
+			a_{\alpha\beta} \in H^1(\Omega)\\
+			u \in H^2(\Omega) & & v \in H^1(\Omega)
+		\end{aligned}
+		\]
+		
+		\textbf{Alors} on a :
+		\[
+		\displaystyle \int_\Omega \sum_{\alpha,\beta=1}^2 \dfrac{\partial}{\partial x_\beta}\left(a_{\alpha\beta}\dfrac{\partial u}{\partial x_\alpha}\right)(x) v(x) dx = -\int_\Omega \sum_{\alpha,\beta= 1}^2 a_{\alpha\beta} \dfrac{\partial u}{\partial x_\alpha}(x)\dfrac{\partial v}{\partial x_\beta}(x) dx + \int \frac{\partial u}{\partial \mathcal V_{\mathcal A}}(\gamma)v(\gamma)d\gamma
+		\]
+	\end{cor}
+	
+	\begin{exo}$ $
+		\begin{enumerate}
+			\item Écrire la formulation variationnelle sur $H^1(\Omega)$.
+			
+			\item Écrire la formulation variationnelle discrète associée à une approximation  E.F. $\mathbb P_1$ triangulaire de Lagrange conforme.
+			
+			\item Écrire le système linéaire équivalent à la formulation variationnelle discrète.
+		\end{enumerate}
+	\end{exo}
+	
 \end{document}

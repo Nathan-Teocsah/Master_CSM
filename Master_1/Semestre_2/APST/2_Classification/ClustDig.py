@@ -32,8 +32,14 @@ k_means = KMeans(init='k-means++', n_clusters=nclus, n_init=10)
 n_init = Number of times the k-means algorithm is run with different centroid seeds
           The final results is the best output in terms of inertia
 """
-k_means.fit(digits) # Calcul les cluster/centroide associées et même de prédire à quelle classe appartient un nouvel élément
-cl = k_means.labels_ # classes "prédites"
+# Calcul les cluster/centroide associées 
+# et même de prédire à quelle classe appartient un nouvel élément
+# APRES ça : 
+# - k_means.labels_ : donne les labels des différentes classes
+# - k_means.predict(...) : prédit la classe la plus proche de cet élément
+# - k_means.cluster_centers_ : donne les coordonnées des centroides
+k_means.fit(digits) 
+cl = k_means.labels_ # label des classes
 print('Premières classes:    ',cl[range(20)])
 print('Premières étiquettes: ',labels[range(20)])
 
@@ -47,6 +53,7 @@ for k in range(k_means.n_clusters):
   plt.imshow(np.reshape(k_means.cluster_centers_[k,:],[28,28]))
   plt.title("Cl. "+str(k))
   plt.axis('off')
+
 plt.show()
 # Calcul de l'étiquette majoritaire de chaque classe et du taux d'erreur
 # On fabrique le tableau maj_lab qui a un nurmero de classe (p.ex. predit)
