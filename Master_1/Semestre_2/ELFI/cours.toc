@@ -9,21 +9,22 @@
 \contentsline {subsubsection}{\numberline {1.2.5}Formule de Green}{7}{subsubsection.1.2.5}%
 \contentsline {subsubsection}{\numberline {1.2.6}EDP $\rightarrow $ Formulation variationnelle, caractère bien posé}{7}{subsubsection.1.2.6}%
 \contentsline {subsubsection}{\numberline {1.2.7}Contexte générique, $d = 2$}{8}{subsubsection.1.2.7}%
-\contentsline {subsection}{\numberline {1.3}Formulation variationnelle}{8}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Triangulation $\mathbb {P}_1$ de Lagrange}{9}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Espace discret, numérotation locale et globale, fonctions de base}{10}{subsection.1.5}%
-\contentsline {subsection}{\numberline {1.6}Problème discret}{12}{subsection.1.6}%
-\contentsline {subsection}{\numberline {1.7}Matrices et second membres élémentaires}{13}{subsection.1.7}%
-\contentsline {subsection}{\numberline {1.8}Éléments de référence}{13}{subsection.1.8}%
-\contentsline {subsection}{\numberline {1.9}Élément de référence et calculs élémentaires}{14}{subsection.1.9}%
-\contentsline {subsection}{\numberline {1.10}Formules de quadrature}{15}{subsection.1.10}%
-\contentsline {section}{\numberline {2}Éléments finis usuels}{16}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Définition d'un élément finis}{16}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Élément fini de Lagrange triangulaire droit}{17}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Élément fini triangulaire $\mathbb P_k$ de Lagrange}{17}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Élément fini $\mathbb P_1$ non conforme}{17}{subsubsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.3}Éléments finis générique}{18}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Élément fini de référence}{18}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Élément fini triangulaire courbe de Lagrange}{18}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Élément fini quadrangulaire courbe}{19}{subsubsection.2.3.3}%
-\contentsline {section}{\numberline {3}Configuration générique et détails de mise en œuvre}{20}{section.3}%
+\contentsline {section}{\numberline {2}Problème modèle}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Formulation variationnelle}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Triangulation $\mathbb {P}_1$ de Lagrange}{9}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Espace discret, numérotation locale et globale, fonctions de base}{10}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Problème discret}{12}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Matrices et second membres élémentaires}{13}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Éléments de référence}{13}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Élément de référence et calculs élémentaires}{14}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Formules de quadrature}{15}{subsection.2.8}%
+\contentsline {section}{\numberline {3}Éléments finis usuels}{16}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Définition d'un élément finis}{16}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Élément fini de Lagrange triangulaire droit}{17}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Élément fini triangulaire $\mathbb P_k$ de Lagrange}{17}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Élément fini $\mathbb P_1$ non conforme}{17}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Éléments finis générique}{18}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Élément fini de référence}{18}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Élément fini triangulaire courbe de Lagrange}{18}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Élément fini quadrangulaire courbe}{19}{subsubsection.3.3.3}%
+\contentsline {section}{\numberline {4}Configuration générique et détails de mise en œuvre}{20}{section.4}%
