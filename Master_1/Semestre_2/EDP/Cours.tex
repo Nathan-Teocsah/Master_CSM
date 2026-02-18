@@ -1116,6 +1116,7 @@
 		\end{minipage}
 	\end{thm}
 	
+	\vspace{-.7cm}
 	
 	Ainsi, \textbf{l'équation de Boltzmann es irréversible en temps !}
 	
@@ -1245,7 +1246,7 @@
 	\end{dem}
 	
 
-\section{Introduction (titre provisoire) (\textit{Julien Mahiaud})}
+\section{Introduction : Boltzmann $\to$ Navier Stoke (\textit{Julien Mahiaud})}
 
 	\begin{minipage}{9cm}
 		\includegraphics[scale=.7]{photo17.png}\\
@@ -1335,12 +1336,52 @@ $f(t,x,v) = f(t=0,x-tv,v) = f_0(x-vt,v)$
 \underbrace{\partial_t f(t,x,v) + v\nabla_x f(t,x,v)}_{\text{équation de transport}} = 0
 \]
 	
-\begin{rmq}
-	$ $\\
+\begin{rmq}$ $
+		\begin{enumerate}[label=$\to$]
+			\item $\partial_t f + \nabla_x f = 0$
+			\item dans l'espace tout entier, il faut juste se donner $f_0$ pour résoudre le problème
+			\[
+			f(t,x,v) = f_0(x-tv,v)
+			\]
+			
+			\item Lien avec la partie fluide : $ \mathrm{div}_x a(x)= \dfrac{\partial a_1}{\partial x_1} +\dfrac{\partial a_2}{\partial x_2} +\dfrac{\partial a_3}{\partial x_3}$ \hspace{1cm} $\left(\begin{aligned}
+				x \in \R^3 \\
+				a \in \R^3
+			\end{aligned}\right)$
+			
+			\[
+			\begin{aligned}
+				v\nabla_x f &= \nabla_x(fv) - f\mathrm{div}_x v \hspace{1cm} \mathrm{div}_x(ba) = b\cdot \nabla_x a + b\mathrm{div}_x a \hspace{.5cm} \left(\begin{aligned}
+					b(x) \in \R^3 \\
+					a(x) \in \R
+				\end{aligned}\right)\\
+				&= \nabla_x(fv)
+			\end{aligned}
+			\]
+		\end{enumerate}
+\end{rmq}
+
+\[
+\begin{aligned}
+	&\displaystyle\int \left(\partial_t f + v\nabla_x f\right)\mathrm{d}v = 0 \\
+	&\int_{v \in \R^3} \partial_ f \mathrm{d}v = \partial_t \int f \mathrm dv =  \partial_t\rho \\
+	&\int v\nabla_x f \mathrm dv = \int \nabla_x(fv) \mathrm dv = \nabla_x \int fv \mathrm dv = \rho u
+\end{aligned}
+\]
+
+\[
+\partial_t \rho + \mathrm{div}_x(\rho u) = 0 \hspace{1cm} \text{(équation de conservation de la masse)}
+\]
+
+\begin{rmq}$ $\\
 	\begin{minipage}[t]{18.5cm}
 		\begin{enumerate}[label=$\to$]
-			\item
-		\end{enumerate}
+	\item Si $f \in L^1(\R^3\times\R^3)$, comme $f$ est positive, $\rho \in L^1(\R^3)$.
+	
+	\item  $\displaystyle\int\int_{\R^3\times\R^3} f(t,x,v)(1+v^2) \mathrm dx\mathrm dv < + \infty$ ça implique que $\displaystyle\int f(t,x,v) \mathrm dv\mathrm dx$ existe aussi. \\
+	
+	$\displaystyle\int _{x \in \R^3} \left(\partial_t \rho + \mathrm{div}(\rho u)\right)\mathrm dv - \partial_t \int_{x \in \R^3} \rho \mathrm dx + \underbrace{\int \mathrm{div}_x(\rho u)\mathrm dx}_{=0 \text{ (formule de Stokes)}}$ (si $\rho$ et $u$ de classe $\mathcal C^1$)
+\end{enumerate}
 	\end{minipage}
 \end{rmq}
 	
