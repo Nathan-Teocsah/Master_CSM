@@ -106,5 +106,3 @@ plt.show()
 print("Matrice associée (conf_mat[etiq, classe]):\n")
 print(conf_mat)
 print("   Une ligne = un digit\n   Une colonne = une classe\n")
-
-
