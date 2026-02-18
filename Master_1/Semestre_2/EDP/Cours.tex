@@ -40,8 +40,9 @@
 		% Bloc Informations
 		\begin{minipage}{0.45\textwidth}
 			\begin{flushleft} \large
-				\textbf{Enseignant :} \\
-				M. François \textsc{CASTELLA}
+				\textbf{Enseignants :} \\
+				M. François \textsc{CASTELLA}\\
+				M. Julien \textsc{MATHIAUD}
 			\end{flushleft}
 		\end{minipage}
 		\hfill
@@ -63,7 +64,7 @@
 	
 	\newpage
 	
-	\section{Dynamique de $N$ particules en interaction}
+	\section{Dynamique de $N$ particules en interaction (\textit{François Castella})}
 	\subsection{Formulation}
 	
 	\fbox{\red !} $N$ particules identiques, décrites classiquement par les équations de Newton \fbox{\red !}\\
@@ -1243,11 +1244,49 @@
 		\end{aligned}$
 	\end{dem}
 	
+
+\section{Introduction (titre provisoire) (\textit{Julien Mahiaud})}
+
+	\begin{minipage}{9cm}
+		\includegraphics[scale=.7]{photo17.png}\\
+		
+		\underline{nombre de Knudsen :} $K_n = \dfrac\lambda L$
+	\end{minipage}\begin{minipage}{10cm}
+	$N,x_1,v_1$ ($N$ EDO)
+	\hspace{.5cm} \begin{enumerate}
+		\item[$f(t,x,v)$ :] nombre de particules à l'instant $t$ en $x$ avec la vitesse $v$ (EDP en 7 dimensions)
+		
+		\item[$\rho(t,x)$ :] densité du fluide
+		
+		\item[$u(t,x)$ :] vitesse du fluide
+		
+		\item[$T(t,x)$ :] température du fluide (3 EDP en 4 dimensions)
+		
+		\item[avec] $\begin{aligned}
+			\lambda :& \text{ libre parcours moyen } \left(\begin{aligned}
+				&\text{\small distance parcouru}\\ &\text{\small avant collision}
+			\end{aligned}\right)\\ 
+			L :& \text{ longueur caractéristique de l'objet}
+		\end{aligned}$ 
+	\end{enumerate}
+	\end{minipage}
+	
+	\vspace{1cm}
+	
+	\underline{Lien entre $f$ et $\rho,u,T$}\\
+	
+	\includegraphics[scale=.5]{photo18.png}\\
+	Masse de particules dans le volume : $\begin{aligned}[t]
+		&\rho \times (\Delta x)^3\\
+		=&\left(\displaystyle\int f(t,x,v)m_p dv\right)\Delta x^3 \hspace{.5cm} \text{, où $m_p$ est la masse d'une particule}\\
+		&\text{(on supposera que $m_p = 1$)}
+	\end{aligned}$\\
+	
+	$\rho(t,x) = \displaystyle\int f(t,x,v) m_p \hspace{.1cm} dx dv$ et $u = \displaystyle\dfrac{\int f(t,x,v)m_p v dv}{\int f(t,x,v) m_p dv}$
 	
 	
 	
-	
-	
+	 
 	
 	
 	
