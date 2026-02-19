@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 
 # Chargement des données ======================================================
 dirdat=""
-digits=np.loadtxt(dirdat+"digits_extrait_images.csv", delimiter=',',skiprows=1,usecols=range(1,785))
+digits=np.loadtxt(dirdat+"digits_extrait_images.csv", delimiter=',',skiprows=1,usecols=range(1,28*28+1))
 labels=np.loadtxt(dirdat+"digits_extrait_labels.csv", delimiter=',',skiprows=1,usecols=range(1,2))
 labels=labels.astype(int)
 #from sklearn.preprocessing import StandardScaler
@@ -24,8 +24,8 @@ labels=labels.astype(int)
 # Clustering avec la fonction KMeans du module scikit learn
 # Le nombre de classes est choisi par défaut comme égal au nombre d'étiquettes
 nclus=len(np.unique(labels)) # Nombre de cluster
-nclus=len(np.unique(labels))+2 # Pourquoi +2 ? Il est définit juste avant.
-k_means = KMeans(init='k-means++', n_clusters=nclus, n_init=10)
+nclus=3*len(np.unique(labels)) # Pourquoi +2 ? Il est définit juste avant. Peut-être pour voir ce qu'il se passe si on en met trop
+k_means = KMeans(init='k-means++', n_clusters=nclus, n_init=20)
 """
 'k-means++' = méthode pour choisir les centroïdes initiaux des cluster
 'n_cluster' = nombre de cluster
@@ -45,16 +45,16 @@ print('Premières étiquettes: ',labels[range(20)])
 
 #  Images des centres de classe
 plt.close('all')
-fig=plt.figure(2)
+fig=plt.figure(1)
 plt.clf()
 plt.suptitle("Centres de classe")
 for k in range(k_means.n_clusters):
   plt.subplot(1,k_means.n_clusters,k+1)
   plt.imshow(np.reshape(k_means.cluster_centers_[k,:],[28,28]))
+  # k_means.cluster_center_ est un vecteur ligne, que l'on doit reformer sous la forme d'une marice de pixel : grâce à np.reshape
   plt.title("Cl. "+str(k))
   plt.axis('off')
 
-plt.show()
 # Calcul de l'étiquette majoritaire de chaque classe et du taux d'erreur
 # On fabrique le tableau maj_lab qui a un nurmero de classe (p.ex. predit)
 # renvoie l'etiquette correspondante.
@@ -92,8 +92,8 @@ def BarPlotMat(M):
   for i in range(I):
     plt.bar(ind,M[i,:],bottom=haut,color=plt.cm.inferno(i/(I-1)))
     haut += M[i,:]
+
 fig=plt.figure(3)
-plt.clf()
 conf_mat =  confusion_matrix(labels,cl)
 conf_mat=conf_mat[np.sum(conf_mat,axis=1)>0,:]
 conf_mat=conf_mat[:,np.sum(conf_mat,axis=0)>0]
@@ -102,7 +102,7 @@ plt.xlabel('Classe')
 plt.ylabel('Répartition des étiquettes')
 plt.title('Répartition dans chaque classe')
 plt.legend(['0','1','2','3','4',])
-plt.show()
 print("Matrice associée (conf_mat[etiq, classe]):\n")
 print(conf_mat)
 print("   Une ligne = un digit\n   Une colonne = une classe\n")
+plt.show()
