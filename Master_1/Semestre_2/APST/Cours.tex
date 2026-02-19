@@ -116,4 +116,41 @@
 		- Outil de décision : choix (il faut évaluer l'erreur que l'on fait dans les différentes situations)
 	\end{minipage}
 	
+	
+	\section{Tableau de l'ANOVA}
+	
+	ANOVA = Analysis of Variance
+	
+	\begin{NiceTabular}{c|c|c|c|c|c}
+		\CodeBefore
+			\rowcolor{red!15}{1}
+			\columncolor{red!15}{1}
+			\rectanglecolor{gray!15}{4-4}{4-4}
+			\rectanglecolor{gray!15}{4-5}{4-5}
+			\rectanglecolor{gray!15}{3-5}{3-5}
+			\rectanglecolor{gray!15}{3-6}{3-6}
+		\Body
+		& SC & ddl & Carré Moyen & Fischer & $p$-value\\
+		\hline 
+		Modèle & ESS & $n-p$ & $\dfrac{\mathrm{ESS}}p$ & $F=\dfrac{\mathrm{ESS}/p}{\mathrm{RSS}/n-(p+1)}$ & \\
+		\hline
+		Erreur & RSS & $\begin{aligned}
+			&n-p-1 \\
+			=&n-(p+1)
+		\end{aligned}$ & $\dfrac{\mathrm{RSS}}{n1-(p+1)}$& & \\
+		\hline
+		\hline
+		Totale & TSS & $n-1$ & & & 
+	\end{NiceTabular}\\
+	
+	ddl = degré de liberté
+	
+	\vspace{1cm}
+	
+	\underline{Test de Fisher}\\
+	
+	$H_0$: $\forall i \in [\![1,p]\!], \beta_i = 0$\\
+	$H_1$: $\exists i \in [\![1,p]\!], \beta_i\not= 0$\\
+	\underline{Test de Student}
+	
 \end{document}
