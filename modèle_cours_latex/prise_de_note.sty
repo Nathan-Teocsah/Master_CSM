@@ -81,9 +81,6 @@
 % Raccourcis
 %% nThéorème
 
-\renewtheorem{Remark}{Remarque}
-\newtheorem{rmq}{Remarque}
-
 \newtheorem{Exercice}{Exercice}
 
 \newtheorem{Brouillon}{Brouillon}
@@ -141,6 +138,9 @@
 \theoremcolorbox{white}{myyellow}
 \newshadedtheorem{sol}[Solution]{Solution}
 
+\theoremcolorbox{white}{mygray}
+\newshadedtheorem{rmq}[Remark]{Remarque}
+
 %% Autre
 \newcommand{\m}{\mathcal}
 \newcommand{\re}{\operatorname{Re}}
@@ -161,6 +161,9 @@
 \newcommand{\bleu}[1]{\textcolor{blue}{#1}}
 \definecolor{darkgreen}{RGB}{0, 102, 51}
 \renewcommand{\vert}[1]{\textcolor{darkgreen}{#1}}
+\newcommand{\jaune}[1]{\textcolor{myyellow}{#1}}
+\newcommand{\violet}[1]{\textcolor{purple}{#1}}
+\newcommand{\orange}[1]{\textcolor{orange}{#1}}
 \newcommand{\doublebar}[1]{%
 \noindent
 \begin{tikzpicture}
