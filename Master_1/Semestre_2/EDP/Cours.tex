@@ -1384,6 +1384,186 @@ $f(t,x,v) = f(t=0,x-tv,v) = f_0(x-vt,v)$
 \end{enumerate}
 	\end{minipage}
 \end{rmq}
+
+\begin{enumerate}[label=\alph*)]
+	\item $\partial_t f + v\nabla_x f = 0$
+	
+	\item équation de transport (terme source, force extérieure)\\
+	$1^{er}$ cas : \begin{minipage}[t]{8cm}
+		absorption avec temps caractéristique $\tau$
+		\doublebar{\begin{minipage}[t]{10cm}
+				
+		\[
+		\partial_t f + v\nabla_x f = -\dfrac{f}\tau
+		\]
+		
+		si $f(t,x,v)$ ne dépend que de $t$ et $v$ alors $\partial_t f = -\dfrac f\tau$
+		
+		\[
+		f(t,v) = f(0,v)e^{-t/\tau}
+		\]
+		
+		\textbf{\underline{Méthode des caractéristiques}}\\
+		
+		\includegraphics[scale=.5]{photo19.png}\\
+		
+		$f(t,x,v) = f_0(x-vt,v)e^{-t/\tau} \implies \partial_t f + v\nabla_x f = -\dfrac f\tau$\\
+		$g(t,x,v) = f(t,x+vt)e^{t/\tau}$
+		\end{minipage}}
+	\end{minipage}
+	
+	\hspace{1.6cm}\begin{minipage}[t]{8cm}
+		\doublebar{\begin{minipage}[t]{12cm}
+				$\begin{aligned}
+					\partial_t g &=\partial_t f(t,x+vt,v)e^{t/\tau} +v\cdot \nabla_x f(t,x+v,v)e^{t/\tau}+\frac1\tau g(t,x,v)\\
+					&=e^{t/\tau}\left(\partial_t f + v\nabla_x f + \frac1\tau f\right)(t,x+vt,v) \\
+					&= 0
+				\end{aligned}$\\
+				
+				$g(t,x,v) = g(0,x,v) \implies \begin{aligned}[t]
+					&f(t,x+vt,v)e^{t/\tau} &&=f_0(x,0) \\
+					&f(t,y,v) &&=f_0(y-vt,v)e^{t/\tau}
+				\end{aligned}$\\
+				
+				\textbf{\underline{équation de Moss}}\\
+				
+				$\partial_t f + v\nabla_x f = -\dfrac f\tau$\\
+				$\displaystyle\int_v \left(\partial_t f +v\nabla_x f + \frac f\tau\right)\mathrm{d}t = 0$ \\
+				$\partial_t \rho + \mathrm{div}_x(\rho u) + \frac\rho u = 0 \implies \partial_t \rho + \mathrm{div}_x(\rho u) = - \frac \rho\tau$
+			\end{minipage}}
+	\end{minipage}
+	
+	$2^{eme}$ cas : \begin{minipage}[t]{18cm}
+		force extérieur\hspace{1cm} \begin{minipage}[t]{7cm}
+		force de Lorentz ($q \exists$ tel que $v \wedge B$)\\
+		gravité $g$ \\
+		traînée $-\alpha g$ ($\alpha > 0$)
+	\end{minipage}\\
+	\begin{minipage}[t]{12cm}
+		\doublebar{\textbf{cas de la gravité}
+			
+			\vspace{.5cm}
+			
+			\begin{minipage}{8cm}
+				\includegraphics[scale=.7]{photo20.png}
+				
+				$f(t,x,v) = f_0(x-vt+\frac12 gt^2,v-gt)$
+			\end{minipage}\begin{minipage}{10cm}
+			$\begin{aligned}
+				& 0 &&\hspace{.5cm} t' & \hspace{.5cm}t \\
+				& v-gt &&\hspace{.5cm} v-g(t-t') & \hspace{.5cm}v
+			\end{aligned}$\\
+			
+			déplacement entre 0 et $t$\\			
+			$\displaystyle\int_v \left(v-g(t-t')\right)\mathrm{d}t = v + \underbrace{\frac12 g\left[\left(t-t'\right)^2\right]_0 ^t}_{-\frac12 gt^2}$
+			\end{minipage}
+			
+			\vspace{1cm}
+		
+		$\Delta t$ \\
+		$f(t,x,v) = f(x-vt+\frac12 gt^2,v-gt)$\\
+		$\begin{aligned}
+			f(t+\Delta t, x,v) &= f_0(x-vt-v\Delta t + \frac 12 g(t+\Delta t)^2,v-g(t+\Delta t))\\
+			&= f_0(x-vt+\frac12 gt^2,v-gt)\begin{aligned}[t]
+				&-v\Delta t \nabla_x f_0(x-vt+\frac12 gt^2,v-gt)+O(\Delta t^2)\\
+				&+\frac12 g\times 2\Delta t \nabla_x f_0(x-vt+\frac12 gt,v-gt)+O(\Delta t^2)\\
+				&-g\Delta t \nabla_v f_0(x-vt+\frac 12 gt^2,v-gt) + O(\Delta t^2)
+			\end{aligned}\\
+			f(t+\Delta t,x,v)&=f(t,x,v)+\Delta t \partial_t f(t,x,v) + O(\Delta t^2)
+		\end{aligned}$
+		
+		\vspace{.5cm}
+		
+		$\begin{aligned}
+			&\Delta t \partial_t f(t,x,v) + O(\Delta t^2)\\
+			=&f(t+\Delta t,x,v)-f(t,x,v) \\
+			=&-v\nabla_x f_0 (x-vt+\frac12 gt^2,v-gt)\begin{aligned}
+				&+gt\Delta t \nabla_x f_0(x-vt+\frac12gt^2,v-gt)\\
+				&-g\Delta t \nabla_v f_0(x-vt+\frac12 gt^2,v-gt) + O(\Delta t^2)
+			\end{aligned}
+		\end{aligned}$
+		}
+	\end{minipage}
+	\end{minipage}
+	
+	\hspace{1.7cm}\begin{minipage}[t]{15cm}
+		\doublebar{\begin{minipage}[t]{16cm}
+				$\begin{aligned}
+					&\nabla_v\left(f(t,x,v)\right) \\
+					= &\nabla_v \left(f_0(x-vt+\frac12 gt^2,v-gt)\right) \\
+					=& -t\nabla_x f_0(x-vt+\frac12 gt^2,v-gt)+\nabla_v f_0(x-vt+\frac12 gt^2,v-gt)
+				\end{aligned}$\\
+				$\nabla_x(f(t,x,v)) = \nabla_xf_0\left(x-vt+\frac12 gt^2,v-gt\right)$
+				
+				\vspace{.5cm}
+				
+				$\begin{aligned}
+					\nabla_t f(t,x,v) &= \left(-\nabla_x f_0 + gt \nabla_x f_0 - g \nabla_v f_0\right)\left(x-vt+\frac12 gt^2,v-gt\right)\\
+					&= -v \nabla_x f(,x,v) - g\nabla_v\left(f(t,x,v)\right) + O(\Delta t^2)
+				\end{aligned}$
+				
+				\vspace{.5cm}
+				
+				$\partial_t f + \underbrace{v\nabla_x f}_{\nabla_x \cdot (fv)} + \underbrace{g\cdot\nabla_v f}_{\nabla_v \cdot (fg)} = 0$\\
+				$\partial_t f + \nabla_x\cdot (fv) + \nabla_v\cdot (fg) = 0$ \hspace{1cm} (écriture conservative de l'équation de transport)
+				
+				\vspace{.5cm}
+				
+				\underline{quantité de mouvement}
+				
+				\[
+				\rho u = \displaystyle\int_v f(t,x,v)m_p v \mathrm{d}v
+				\]
+				$
+				\begin{aligned}
+					\partial_t(\rho u) = \partial_t\displaystyle\int_v f(t,x,v) m_p v \mathrm{d}v &= \int_v \partial_t f(t,x,v) m_p v \mathrm{d}v \\
+					&= - \int_v \nabla_x\cdot \left(fv\right) m_p v \mathrm{d}v - \int_v \nabla_v\cdot \left(fg\right) m_p v \mathrm{d}v 
+				\end{aligned}$
+				
+				\[
+				\displaystyle\int f m_p (v_i-u_i)u\mathrm{d}v = \left(\int \underbrace{fm_p (v_i-u_i)}_{0}\right)u = 0
+				\]
+				
+				\[
+				\displaystyle\int fm_p (v_i-u_i)(v-u) = \mathbb{P}_i \hspace{2cm} \mathbb P = \int fm_p(v-u)\otimes (v-u) \mathrm dv
+				\]
+				
+				$\nabla_x \cdot \displaystyle\int f m_p v\otimes v = \nabla_x\cdot\left(\rho u\otimes u + \mathbb P\right)$
+				
+				\[
+				\begin{aligned}
+					\displaystyle \int_v \nabla_x\cdot(fv) m_p v_i \mathrm dv &= \nabla_x \cdot \int_v (fm_pv_i v)\mathrm dv \\
+					&=\nabla_x\cdot \int_v fm_p \left(v_i-u_i+u_i\right)(v-u+u) \mathrm dv \\
+					&= \nabla_x \cdot\int fm_p \left[(v_i-u_i)(v-u) + (v_i-u_i)u + u_i(v-u) + u_i u\right]\mathrm dv
+				\end{aligned}
+				\]
+				
+				$\displaystyle\int_v fm_p u_i u \mathrm dv = \rho u_i u$\\
+				$\displaystyle\int_v fm_p u_i (v-u)\mathrm dv = u\int_v fm_p(v-u)\mathrm dv = 0$
+				
+				\vspace{.5cm}
+				
+				$\displaystyle\int_v \nabla_v \cdot (fg) m_p v \mathrm dv = - \int fg \mathrm{div}_v(m_p v) \mathrm dv$ \hspace{1cm} \begin{minipage}[t]{8cm}
+					(formule de Stokes en supposant que $f$ tends vers 0 suffisamment rapidement en vitesse à l'infini)
+				\end{minipage}\\
+				$\begin{aligned}[t]
+					\mathrm{div}_v(m_p v) &= 3m_p\\
+					&= m_p \left(\dfrac{\partial v_1}{\partial v_1} + \dfrac{\partial v_2}{\partial v_2} + \dfrac{\partial v_3}{\partial v_3}\right)
+				\end{aligned}$ \\
+				$\partial_t(\rho u) + \mathrm{div}_x\left(\rho u\otimes u\right) = 3\rho g = -3\displaystyle\int fm_pg\mathrm{d}v = -3\rho g$
+		\end{minipage}}
+	\end{minipage}
+	
+	\begin{exo}
+		\begin{minipage}[t]{18cm}
+			$\partial_t f + v\nabla_x f = 0$, montrer que $\dfrac{d}{dt} \displaystyle\int f(t,x,v) \frac12 m_p v^2 \mathrm{d}v = 0$
+		\end{minipage}
+		
+		\vspace{-.5cm}
+	\end{exo}
+	
+	
+\end{enumerate}
 	
 	
 	 
