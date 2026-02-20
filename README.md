@@ -8,4 +8,5 @@ Ceci est l'ensemble des cours que j'ai suivi lors de mes deux années en Master 
 - VACANCES du 20 au 1 Mars
 
 ## Mars 2026
+- Semaine du 1 : Contrôle _RNDP_
 - Jeudi 5 : Contrôle _EDP_ (1h30)
