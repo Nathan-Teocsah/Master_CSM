@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  18 FEB 2026 13:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  19 FEB 2026 20:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1354,10 +1354,9 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip72
 )
-\c@rmq=\count491
-\c@Exercice=\count492
-\c@Brouillon=\count493
-\c@Solution=\count494
+\c@Exercice=\count491
+\c@Brouillon=\count492
+\c@Solution=\count493
 )
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
 (french3.ldf)             compatibility with enumitem package,
@@ -1372,7 +1371,7 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count495
+\l__color_backend_stack_int=\count494
 )
 (./Cours.aux
 Package babel Info: 'french' activates 'french' shorthands.
@@ -1436,16 +1435,16 @@ LaTeX Info: Redefining \degres on input line 10.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count496
+\scratchcounter=\count495
 \scratchdimen=\dimen432
 \scratchbox=\box94
-\nofMPsegments=\count497
-\nofMParguments=\count498
+\nofMPsegments=\count496
+\nofMParguments=\count497
 \everyMPshowfont=\toks82
-\MPscratchCnt=\count499
+\MPscratchCnt=\count498
 \MPscratchDim=\dimen433
-\MPnumerator=\count500
-\makeMPintoPDFobject=\count501
+\MPnumerator=\count499
+\makeMPintoPDFobject=\count500
 \everyMPtoPDFconversion=\toks83
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1458,10 +1457,10 @@ e
 ))
 \c__nicematrix_shift_Ldots_last_row_dim=\dimen434
 \c__nicematrix_innersep_middle_dim=\dimen435
-\c@tabularnotesi=\count502
-\enitdp@tabularnotes=\count503
-\c@tabularnotes*i=\count504
-\enitdp@tabularnotes*=\count505
+\c@tabularnotesi=\count501
+\enitdp@tabularnotes=\count502
+\c@tabularnotes*i=\count503
+\enitdp@tabularnotes*=\count504
 
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
@@ -1888,9 +1887,10 @@ Overfull \hbox (188.34132pt too wide) in paragraph at lines 797--809
 []$[]$$[]$ 
  []
 
+[15 <./photo11.png> <./photo12.png>]
 Package hyperref Info: bookmark level for unknown rmq defaults to 0 on input li
 ne 824.
-[15 <./photo11.png> <./photo12.png>]
+
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 829--830
 []$[]$ 
  []
@@ -1938,6 +1938,14 @@ Overfull \hbox (172.6244pt too wide) in paragraph at lines 872--942
 
 Overfull \hbox (186.85078pt too wide) in paragraph at lines 943--965
 [][] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 965
+ []
+
+
+Overfull \vbox (0.1302pt too high) detected at line 965
  []
 
 [16] [17]
@@ -2137,139 +2145,255 @@ Underfull \hbox (badness 10000) in paragraph at lines 1320--1321
 
  []
 
+
+Overfull \hbox (52.88873pt too wide) detected at line 1360
+[][]
+ []
+
 [25]
 Underfull \hbox (badness 10000) in paragraph at lines 1381--1382
 
  []
 
-[26]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 1499.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 1499.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 1499.
+
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 1376--1386
+[] 
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1499.
+Underfull \hbox (badness 10000) in paragraph at lines 1412--1412
+
+ []
+
+<photo19.png, id=286, 390.45876pt x 164.615pt>
+File: photo19.png Graphic file (type png)
+<use photo19.png>
+Package pdftex.def Info: photo19.png  used on input line 1412.
+(pdftex.def)             Requested size: 195.2289pt x 82.3073pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1412--1412
+
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1499.
+Overfull \hbox (80.40518pt too wide) in paragraph at lines 1412--1412
+[][][]  
+ []
 
+
+Underfull \hbox (badness 2818) in paragraph at lines 1393--1413
+[]\T1/lmr/m/n/12 absorption avec temps ca-rac-té-ris-tique $\OML/lmm/m/it/12 ^^
+\$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1433--1433
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1433--1433
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1433--1433
+
+ []
+
+
+Overfull \hbox (137.31068pt too wide) in paragraph at lines 1433--1433
+[][][]  
+ []
+
+[26 <./photo19.png>]
+<photo20.png, id=297, 275.0275pt x 154.5775pt>
+File: photo20.png Graphic file (type png)
+<use photo20.png>
+Package pdftex.def Info: photo20.png  used on input line 1485.
+(pdftex.def)             Requested size: 192.51793pt x 108.20349pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1485--1485
+
+ []
+
+
+Overfull \hbox (194.2162pt too wide) in paragraph at lines 1485--1485
+[]$[]$$[]$  
+ []
+
+
+Overfull \hbox (146.80022pt too wide) in paragraph at lines 1485--1485
+[]$[][]$  
+ []
+
+
+Overfull \hbox (79.68755pt too wide) in paragraph at lines 1485--1485
+[]$[][]$  
+ []
+
+
+Overfull \hbox (49.53448pt too wide) in paragraph at lines 1436--1488
+[]$\OT1/lmr/m/n/12 2[]$ \T1/lmr/m/n/12 cas : [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1554--1554
+[]\T1/lmr/m/n/12 (formule de Stokes en sup-po-sant que $\OML/lmm/m/it/12 f$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1554--1554
+\T1/lmr/m/n/12 tends vers 0 suf-fi-sam-ment ra-pi-de-ment en
+ []
+
+
+Overfull \hbox (11.7201pt too wide) in paragraph at lines 1554--1554
+[]$[][] \OMS/lmsy/m/n/12 r[] ^^A \OT1/lmr/m/n/12 (\OML/lmm/m/it/12 fg\OT1/lmr/m
+/n/12 )\OML/lmm/m/it/12 m[]v\OT1/lmr/m/n/12 d\OML/lmm/m/it/12 v \OT1/lmr/m/n/12
+ = \OMS/lmsy/m/n/12 ^^@ [] \OML/lmm/m/it/12 fg[][]\OT1/lmr/m/n/12 (\OML/lmm/m/i
+t/12 m[]v\OT1/lmr/m/n/12 )d\OML/lmm/m/it/12 v$   [] 
+ []
+
+
+Overfull \hbox (51.95241pt too wide) in paragraph at lines 1554--1554
+[][][]  
+ []
+
+[27 <./photo20.png>] [28]
 Package hyperref Info: bookmark level for unknown exo defaults to 0 on input li
-ne 1500.
+ne 1558.
+
+Overfull \hbox (221.69447pt too wide) in paragraph at lines 1558--1561
+[][][] 
+ []
+
+[29]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 1679.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 1679.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 1679.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1679.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1679.
+
 Package hyperref Info: bookmark level for unknown brouillon defaults to 0 on in
-put line 1515.
+put line 1695.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1521--1522
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1523--1524
+Underfull \hbox (badness 10000) in paragraph at lines 1701--1702
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1525--1526
+Underfull \hbox (badness 10000) in paragraph at lines 1703--1704
 
  []
 
 
-Overfull \hbox (172.62442pt too wide) in paragraph at lines 1517--1531
+Underfull \hbox (badness 10000) in paragraph at lines 1705--1706
+
+ []
+
+
+Overfull \hbox (172.62442pt too wide) in paragraph at lines 1697--1711
 [] $[]$ 
  []
 
 Package hyperref Info: bookmark level for unknown sol defaults to 0 on input li
-ne 1533.
+ne 1713.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1538--1544
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1549--1554
+Underfull \hbox (badness 10000) in paragraph at lines 1718--1724
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1561--1569
+Underfull \hbox (badness 10000) in paragraph at lines 1729--1734
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1570--1571
+Underfull \hbox (badness 10000) in paragraph at lines 1741--1749
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1575--1576
+Underfull \hbox (badness 10000) in paragraph at lines 1750--1751
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1586--1587
+Underfull \hbox (badness 10000) in paragraph at lines 1755--1756
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1593--1594
+Underfull \hbox (badness 10000) in paragraph at lines 1766--1767
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1615--1625
+Underfull \hbox (badness 10000) in paragraph at lines 1773--1774
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1635--1681
+Underfull \hbox (badness 10000) in paragraph at lines 1795--1805
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1815--1861
 [][]\T1/lmr/m/it/12 On montre : $\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 Y\OT1/lmr/m/
 n/12 (\OML/lmm/m/it/12 z; t; x; y\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; X\OT1/lmr/
 m/n/12 (\OML/lmm/m/it/12 s; t; x; y\OT1/lmr/m/n/12 )) =
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 1635--1681
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 1815--1861
 [] 
  []
 
 
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 1535--1689
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 1715--1869
 []$[]$
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 1535--1689
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 1715--1869
 []$
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 1535--1689
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 1715--1869
 [] 
  []
 
 
-Underfull \vbox (badness 4805) detected at line 1689
+Underfull \vbox (badness 4805) detected at line 1869
  []
 
-[27]
-Underfull \vbox (badness 10000) detected at line 1689
+[30]
+Underfull \vbox (badness 10000) detected at line 1869
  []
 
 
-Overfull \vbox (4.23863pt too high) detected at line 1689
+Overfull \vbox (4.23863pt too high) detected at line 1869
  []
 
-[28] [29]
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 1699--1706
+[31] [32]
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 1879--1886
 [][] 
  []
 
 
-Underfull \hbox (badness 1292) in paragraph at lines 1724--1725
+Underfull \hbox (badness 1292) in paragraph at lines 1904--1905
 []$\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 X\OT1/lmr/m/n/12 (0\OML/lmm/m/it/12 ; t; x
 ; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; Y\OT1/lmr/m/n/12 (0\OML/lmm/m/it/12 ;
  t; x; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; Z\OT1/lmr/m/n/12 (0\OML/lmm/m/it
@@ -2280,25 +2404,25 @@ lmm/m/it/12 ; t; x; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; X\OT1/lmr/m/n/12 (0
  []
 
 
-Overfull \hbox (3.38544pt too wide) in paragraph at lines 1720--1727
+Overfull \hbox (3.38544pt too wide) in paragraph at lines 1900--1907
 \T1/lmr/m/it/12 Et on a : [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1727--1729
+Underfull \hbox (badness 10000) in paragraph at lines 1907--1909
 
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 1716--1737
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 1896--1917
 [] 
  []
 
 \tf@thm=\write7
 \openout7 = `Cours.thm'.
 
-[30]
-runsystem(latexminted cleantemp  --timestamp 20260218131149 33C1869ABDF6A46508C
+[33]
+runsystem(latexminted cleantemp  --timestamp 20260219204720 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -2310,13 +2434,13 @@ Package rerunfilecheck Info: File `Cours.out' has not changed.
 (rerunfilecheck)             Checksum: 7DECECF2A71C2AB0E9ACD170653AFA5F;2979.
  ) 
 Here is how much of TeX's memory you used:
- 48289 strings out of 467538
- 1132102 string characters out of 5419551
- 1799024 words of memory out of 5000000
- 76331 multiletter control sequences out of 15000+600000
+ 48366 strings out of 467538
+ 1133615 string characters out of 5419551
+ 1799305 words of memory out of 5000000
+ 76402 multiletter control sequences out of 15000+600000
  757054 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,22n,131p,866b,929s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,23n,131p,866b,1025s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold5.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb>
@@ -2340,10 +2464,10 @@ mf-dist/fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-dist/fon
 ts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/p
 ublic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lm
 sy8.pfb>
-Output written on Cours.pdf (31 pages, 3061556 bytes).
+Output written on Cours.pdf (34 pages, 3202272 bytes).
 PDF statistics:
- 463 PDF objects out of 1000 (max. 8388607)
- 337 compressed objects within 4 object streams
- 89 named destinations out of 1000 (max. 500000)
- 231 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 483 PDF objects out of 1000 (max. 8388607)
+ 350 compressed objects within 4 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 241 words of extra memory for PDF output out of 10000 (max. 10000000)
 
