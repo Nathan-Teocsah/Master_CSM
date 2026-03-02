@@ -11,9 +11,10 @@ Created on Sun Mar 25 09:11:35 2018
 import numpy as np
 import matplotlib.pyplot as plt
 # importation des données -----------------------------------------------------
-nomvar=np.loadtxt("HeartData.txt",dtype='str',max_rows=1,delimiter=",")[1:]
-heart=np.loadtxt("HeartData.txt",skiprows=1,delimiter=",")[:,1:]
-print(*nomvar)
+dir = "/home/maenwe/Master_CSM/Master_1/Semestre_2/APST/3_Analyse_discriminante/"
+nomvar=np.loadtxt(dir + "HeartData.txt",dtype='str',max_rows=1,delimiter=",")[1:]
+heart=np.loadtxt(dir + "HeartData.txt",skiprows=1,delimiter=",")[:,1:]
+print(*nomvar) # si nomvar = ["age", "sbp", "chd"], alors print(*nomvar) affiche : age sbp chd
 print(*heart[12,:])
 X = heart[:,:-1]
 y = heart[:,-1]
@@ -27,7 +28,7 @@ for j,nom in enumerate(quanti):
     data = [v[y==0],v[y==1]]
     plt.subplot(2,4,j+1)
     plt.subplots_adjust(hspace=1,wspace=1)
-    plt.boxplot(data, labels=("No","CHD"),widths=.8)
+    plt.boxplot(data, tick_labels=("No","CHD"),widths=.8) # "No" = sans Coronary Hear Disease et "CHD" = avec
     plt.grid()
     plt.title(nomvar[quanti[j]])
 
@@ -60,7 +61,7 @@ for row in conf: print(*row)
 C = lda.fit_transform(X, y).reshape((-1,)) # On a 2 classes donc 1 seul axe factoriel
 tmp = [C[np.where(y==0)[0]],C[np.where(y==1)[0]]]
 plt.figure()
-plt.boxplot(tmp, labels=("No CHD","CHD"),widths=.8)
+plt.boxplot(tmp, tick_labels=("No CHD","CHD"),widths=.8)
 plt.title("Distribution de la variable discriminante dans les deux classes")
 
 # Avec validation croisée
@@ -73,6 +74,8 @@ ya,yt=y[la],y[lt]
 #yhat = lda.predict(????)
 #errl=
 #print("Taux d'erreur: ",round(errl,3))
+
+plt.show()
 
 
 # Analyse discriminante quadratique ----------------------------------------------

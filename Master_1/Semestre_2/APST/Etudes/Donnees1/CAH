@@ -6,11 +6,10 @@ from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
 from sklearn.cluster import  KMeans
 
 #### Importation des donnees, noms de fromage et noms de variable
-fromages=np.loadtxt("fromages.dat",skiprows=1,usecols=range(1,10))
-nomfrom=np.loadtxt("fromages.dat",dtype='str',usecols=0)[1:]
-nomvar=np.loadtxt("fromages.dat",dtype='str',max_rows=1,usecols=range(1,10))
-print(nomfrom)
-print(nomvar)
+fromages=np.loadtxt("data.csv",delimiter=',',skiprows=1,usecols=range(1,20532))
+
+nomfrom=np.loadtxt("labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=0) # numéro des gênes
+nomvar=np.loadtxt("labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=1)
 
 ##### Exemple de programation de CAH #####
 print("\n******* Classification Ascendante hiérarchique ******* \n")
@@ -18,39 +17,45 @@ print("\n******* Classification Ascendante hiérarchique ******* \n")
 # Calcul de l'arbre
 M=linkage(fromages,method='ward',metric='euclidean')
 
+#### Décroissance des variances intraclasse
+print("====> Décroissance des variance interclasse")
+N = np.flip(M[:,2],axis=0)
+print(N)
+seuil=int(input("Vous pouvez choisir le seuil de coupe de l'arbre : "))
+
+VI=np.cumsum(M[:,2]**2)/2
+plt.figure()
+plt.plot(np.arange(1,len(VI)+1),np.flip(VI,axis=0))
+plt.yticks(list(np.flip(VI,axis=0)))
+plt.xlabel("Nombre de classes")
+plt.ylabel("Variance intraclasse")
+
+
+plt.figure()
+x = np.arange(1,len(N)+1)
+s = np.min(np.where(N<seuil))
+plt.axvline(x[s], linestyle='dashed')
+plt.axhline(y=seuil, linestyle='dashed')
+plt.plot(x,N)
+plt.xticks([x[s],max(x),max(x)//2,max(x)//4,3*max(x)//4,max(x)//8,max(x)//16])
+plt.yticks(list(N)+[seuil])
+plt.xlabel("Nombre de classes")
+plt.ylabel("Delta Distance (Ward)")
+
 # Tracé de l'arbre
-seuil=220
-print("----> !!! A vous de reflechir au seuil !!!\n")
 print("====> Dendogram\n")
 plt.figure()
 plt.title('CAH. Visualisation des classes au seuil de '+str(seuil))
-d=dendrogram(M,labels=list(nomfrom),orientation='right',color_threshold=seuil)
-print(np.round(M[:,2],2))
+d=dendrogram(M,no_labels=True,orientation='right',color_threshold=seuil)
 
 ##### Récupération des groupes
 print("====> Récupération des groupes")
 groupes=fcluster(M,t=seuil,criterion='distance')
+"""
 for k in range(1,np.max(groupes)+1):
     print('Classe '+str(k).ljust(3,' ')+': ', end='')
     print(*nomfrom[np.where(groupes==k)])
-
-#### Décroissance des variances intraclasse
-print("====> Décroissance des variance interclasse")
-VI=np.cumsum(M[:,2]**2)/2
-plt.figure()
-plt.plot(np.arange(len(VI))+1,np.flip(VI,axis=0))
-plt.xlabel("Nombre de classes")
-plt.ylabel("Variance intraclasse")
-
-plt.figure()
-plt.plot(np.arange(len(VI))+1,np.flip(M[:,2],axis=0))
-if 1==0: # Autre figure possible
-  plt.figure()
-  plt.plot(np.arange(len(VI/max(VI)))+1,np.flip(VI/max(VI),axis=0))
-  plt.xlabel("Nombre de classes")
-  plt.ylabel("Variance intraclasse/variance totale")
-
-
+"""
 
 print("\n******* Kmeans ******* \n")
 
@@ -58,9 +63,11 @@ print("\n******* Kmeans ******* \n")
 nclus=np.max(groupes)
 k_means = KMeans(init='k-means++', n_clusters=nclus, n_init=10)
 k_means.fit(fromages)
+"""
 for k in range(nclus):
     print('Classe '+str(k+1).ljust(3,' ')+': ', end='')
     print(*nomfrom[np.where(k_means.labels_==k)])
+"""
 
 print("\n******* Comparaison des inerties ******* \n")
 
