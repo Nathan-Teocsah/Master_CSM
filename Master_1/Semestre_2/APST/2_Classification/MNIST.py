@@ -28,8 +28,8 @@ labels=labels.astype(int)
 # Clustering avec la fonction KMeans du module scikit learn
 # Le nombre de classes est choisi par défaut comme égal au nombre d'étiquettes
 nclus=len(np.unique(labels1)) # Nombre de cluster
-nclus=len(np.unique(labels1))+3 # Pourquoi +2 ? Il est définit juste avant. Peut-être pour voir ce qu'il se passe si on en met "trop"
-k_means = KMeans(init='k-means++', n_clusters=nclus, n_init=10)
+nclus=2*len(np.unique(labels1)) #Pourquoi +2 ? Il est définit juste avant. Peut-être pour voir ce qu'il se passe si on en met "trop"
+k_means = KMeans(init='k-means++', n_clusters=nclus, n_init=20)
 """
 'k-means++' = méthode pour choisir les centroïdes initiaux des cluster
 'n_cluster' = nombre de cluster

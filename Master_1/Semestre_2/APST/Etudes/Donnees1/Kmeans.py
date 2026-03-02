@@ -12,10 +12,8 @@ from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 
 # Chargement des données ======================================================
-dirdat=""
-digits=np.loadtxt(dirdat+"digits_extrait_images.csv", delimiter=',',skiprows=1,usecols=range(1,28*28+1))
-labels=np.loadtxt(dirdat+"digits_extrait_labels.csv", delimiter=',',skiprows=1,usecols=1)
-labels=labels.astype(int)
+digits=np.loadtxt("data.csv",delimiter=',',skiprows=1,usecols=range(1,20532))
+labels=np.loadtxt("labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=1)
 #from sklearn.preprocessing import StandardScaler
 #digits=StandardScaler().fit_transform(digits)
 #
@@ -23,9 +21,9 @@ labels=labels.astype(int)
 #
 # Clustering avec la fonction KMeans du module scikit learn
 # Le nombre de classes est choisi par défaut comme égal au nombre d'étiquettes
-nclus=len(np.unique(labels)) # Nombre de cluster
-nclus=3*len(np.unique(labels)) # Pourquoi +2 ? Il est définit juste avant. Peut-être pour voir ce qu'il se passe si on en met trop
-k_means = KMeans(init='k-means++', n_clusters=nclus, n_init=20)
+
+nclus=len(np.unique(labels)) # Pourquoi +2 ? Il est définit juste avant. Peut-être pour voir ce qu'il se passe si on en met trop
+k_means = KMeans(init='k-means++', n_clusters=nclus, n_init=10)
 """
 'k-means++' = méthode pour choisir les centroïdes initiaux des cluster
 'n_cluster' = nombre de cluster
@@ -38,31 +36,20 @@ n_init = Number of times the k-means algorithm is run with different centroid se
 # - k_means.labels_ : donne les labels des différentes classes
 # - k_means.predict(...) : prédit la classe la plus proche de cet élément
 # - k_means.cluster_centers_ : donne les coordonnées des centroides
+# - k_means.n_clusters : nombre de clusters
 k_means.fit(digits) 
 cl = k_means.labels_ # label des classes
 print('Premières classes:    ',cl[range(20)])
 print('Premières étiquettes: ',labels[range(20)])
 
-#  Images des centres de classe
-plt.close('all')
-fig=plt.figure(1)
-plt.clf()
-plt.suptitle("Centres de classe")
-for k in range(k_means.n_clusters):
-  plt.subplot(1,k_means.n_clusters,k+1)
-  plt.imshow(np.reshape(k_means.cluster_centers_[k,:],[28,28]))
-  # k_means.cluster_center_ est un vecteur ligne, que l'on doit reformer sous la forme d'une marice de pixel : grâce à np.reshape
-  plt.title("Cl. "+str(k))
-  plt.axis('off')
-
 # Calcul de l'étiquette majoritaire de chaque classe et du taux d'erreur
 # On fabrique le tableau maj_lab qui a un nurmero de classe (p.ex. predit)
 # renvoie l'etiquette correspondante.
-maj_lab=np.arange(k_means.n_clusters) # Initialisation de tableau
+maj_lab=np.array([]) # Initialisation de tableau
 for k in range(k_means.n_clusters):
   counts=np.unique(labels[cl==k],return_counts=True) # Nb d'occurences de chaque label
   imax=np.argmax(counts[1]) # Recherche du majoritaire dans k
-  maj_lab[k]=counts[0][imax] # Son étiquette ya majoritaire dans k
+  maj_lab = np.append(maj_lab, counts[0][imax]) # Son étiquette ya majoritaire dans k
 print('\n')
 print("Classe".ljust(23,'.')+" ",end='')
 print(*range(k_means.n_clusters),end='')
@@ -94,15 +81,14 @@ def BarPlotMat(M):
     haut += M[i,:]
 
 fig=plt.figure(3)
-conf_mat =  confusion_matrix(labels,cl)
+conf_mat =  confusion_matrix(labels,maj_lab[cl],labels=np.unique(labels))
 conf_mat=conf_mat[np.sum(conf_mat,axis=1)>0,:]
 conf_mat=conf_mat[:,np.sum(conf_mat,axis=0)>0]
 BarPlotMat(conf_mat)
 plt.xlabel('Classe')
 plt.ylabel('Répartition des étiquettes')
 plt.title('Répartition dans chaque classe')
-plt.legend(['0','1','2','3','4',])
+#plt.legend(['0','1','2','3','4',])
 print("Matrice associée (conf_mat[etiq, classe]):\n")
 print(conf_mat)
-print("   Une ligne = un digit\n   Une colonne = une classe\n")
 plt.show()
