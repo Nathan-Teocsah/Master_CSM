@@ -16,8 +16,8 @@ nomvar=np.loadtxt(dir + "HeartData.txt",dtype='str',max_rows=1,delimiter=",")[1:
 heart=np.loadtxt(dir + "HeartData.txt",skiprows=1,delimiter=",")[:,1:]
 print(*nomvar) # si nomvar = ["age", "sbp", "chd"], alors print(*nomvar) affiche : age sbp chd
 print(*heart[12,:])
-X = heart[:,:-1]
-y = heart[:,-1]
+X = heart[:,:-1] # tout sauf CHD et les noms de variable
+y = heart[:,-1] # CHD
 
 # Statistiques descriptives: boxplots -----------------------------------------
 quanti = np.where((nomvar!="famhist")&(nomvar!="chd"))[0]
@@ -35,7 +35,7 @@ for j,nom in enumerate(quanti):
 # Analyse discriminante linéaire ----------------------------------------------
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.metrics import confusion_matrix,ConfusionMatrixDisplay
-lda = LinearDiscriminantAnalysis()
+lda = LinearDiscriminantAnalysis() # Calcul 2 CHOSES : facteurs principaux et méthode d'analyse linéaire discriminantes
 lda.fit(X,y)
 yhat = lda.predict(X)
 errl=sum(y!=yhat)/len(y)
@@ -75,11 +75,19 @@ ya,yt=y[la],y[lt]
 #errl=
 #print("Taux d'erreur: ",round(errl,3))
 
-plt.show()
-
 
 # Analyse discriminante quadratique ----------------------------------------------
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+lda = QuadraticDiscriminantAnalysis() # Calcul 2 CHOSES : facteurs principaux et méthode d'analyse linéaire discriminantes
+lda.fit(X,y)
+yhat = lda.predict(X)
+errl=sum(y!=yhat)/len(y)
+print("======= Analyse discriminante quadratique =======")
+print("Taux d'erreur: ",round(errl,3))
+plt.rcParams.update({'figure.figsize': (3,3),'font.size': 16})
+conf_mat =  confusion_matrix(y,yhat)
+ConfusionMatrixDisplay(conf_mat).plot(cmap='YlOrBr',colorbar=False)
+plt.rcdefaults()
 
-# A vous!
+plt.show()
 
