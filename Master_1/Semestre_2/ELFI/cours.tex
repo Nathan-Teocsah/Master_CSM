@@ -687,7 +687,11 @@
 	$8 = g^{K_6}(3) = g^{K_8}(1)$
 	\end{minipage}}
 
+	\vspace{-.8cm}
+
 	\subsection{Problème discret}
+	
+	\vspace{-.8cm}
 	
 		\enc[15.5cm]{Green}{
 		\underline{La formulation discrète :}\\
@@ -871,7 +875,7 @@
 			\end{minipage}}
 		\end{minipage}
 		
-		$\dfrac{\partial w_i^K}{\partial x_\alpha} (\underbrace{x}_{F_K(\hat x)}) = \left[\widehat{\text{grad}} (\hat w_i) \cdot F_K^{-1}(x)\right]^T \underbrace{\left(JF_K^{-1}(x)\right)}_{\alpha^{ieme} \text{ colonne de } JF_K^{-1}(x)}$\\
+		$\dfrac{\partial w_i^K}{\partial x_\alpha} (\underbrace{x}_{F_K(\hat x)}) = \left[\widehat{\text{grad}} (\hat w_i) \circ F_K^{-1}(x)\right]^T \underbrace{\left(JF_K^{-1}(x)\right)_\alpha}_{\alpha^{ieme} \text{ colonne de } JF_K^{-1}(x)}$\\
 		\begin{minipage}{12cm}
 			$\dfrac{\partial w_i^K}{\partial x_\alpha}(F_K(\hat x)) = \left[\widehat{\text{grad}}(\hat w_i(\hat x))\right]^T \underbrace{\left(JF_K^{-1}(F_K(\hat x))\right)_\alpha}_{JF_K^{-1}(F_K(\hat x))=\left(JF_K(\hat x)\right)^{-1}}$
 		\end{minipage}\hspace{.5cm}\begin{minipage}{5cm}
@@ -1165,13 +1169,60 @@
 			\]
 			
 			\[
-			\hspace{-1cm}\displaystyle\int_\Omega \sum_{\alpha,\beta = 1}^2 a_{\alpha\beta}(x) \dfrac{\partial u}{\partial x_\alpha}(x) \dfrac{\partial v}{\partial x_\beta}(x) \mathrm dx + \int_{\partial\Omega} b_N(\gamma)v(\gamma)d\gamma +  \int_\Omega a_{00}(x) u(x)v(x)\mathrm dx = \int_\Omega f_\Omega(x) v(x) \mathrm dx + \int_\Omega g_N(\gamma)v(\gamma)\mathrm d\gamma
+			\begin{aligned}
+				&\displaystyle\int_\Omega \sum_{\alpha,\beta = 1}^2 a_{\alpha\beta}(x) \dfrac{\partial u}{\partial x_\alpha}(x) \dfrac{\partial v}{\partial x_\beta}(x) \mathrm dx + \int_{\partial\Omega} b_N(\gamma)v(\gamma)d\gamma +  \int_\Omega a_{00}(x) u(x)v(x)\mathrm dx \\
+				=& \int_\Omega f_\Omega(x) v(x) \mathrm dx + \int_\Omega g_N(\gamma)v(\gamma)\mathrm d\gamma
+			\end{aligned}
 			\]
 			
-			Intégrandes de la Formulation Variationnelle :\\
-			$\displaystyle\int_\Omega \sum_{\alpha,\beta=1}^2 a_{\alpha\beta}(x) \dfrac{\partial u}{\partial x_\alpha}\dfrac{\partial v}{\partial x_\beta}(x)\mathrm dx$ \\
-			$\displaystyle \int_\Omega a_{00}(x) u(x)v(x) \mathrm dx $\\
-			$\displaystyle\int_\Omega b_N(\gamma)u(\gamma)v(\gamma)\mathrm d\gamma$
+			La formulation variationnelle s'écrit :\\
+			Chercher $u \in H^1(\Omega)$ tel que $u = u_D$ sur $\Gamma_D$ et tel que :\\			
+			
+			$\begin{aligned}
+				\forall v& \in H^1(\Omega) \text{ et } v=0 \text{ sur }\Gamma_D : \\
+				& \displaystyle\int_\Omega \sum_{\alpha,\beta=1}^2 \cdots + \int_\Omega a_{00} \cdots + \int_{\Gamma_N} b_N \cdots = \int_\Omega f \cdots + \int_{\Gamma_N} g_N\cdots
+			\end{aligned}$
+			
+			\underline{Discrétisation :}\\
+			\hspace*{.5cm} \begin{minipage}[t]{15cm}
+				$\to$ On remplace $\Omega$ par $\Omega_h$ obtenu avec un maillage $\mathcal{T}_h$\\
+				$\to$ On remplace $H^1(\Omega)$ par un espace de dimension finie $W_h$
+				\hspace*{.5cm} \begin{minipage}[t]{14cm}
+					généré par une base $\{w_I,I\in[\![1,M_h]\!]\}$ avec $M_h =$ nombre de nœuds de $W_h$\\
+					construite sur les nœuds de $\mathcal T_h$
+				\end{minipage}
+				
+				\vspace{.5cm}
+				
+				$w_I$ polynomiale sur chaque $K \in W_h$ et $w_I(n_J) = \delta_{I,J}$, $\forall n_J$ nœud de $\mathcal T_h$.\\
+				
+				On écrit : $V_h$ l'espace qui approche $\{v \in H^1(\Omega),v=0 \text{ sur }\Gamma_D\}$\\
+				$\to V_h = \{w_I; I\in [\![1,M_h]\!] \text{ tq } n_I \not\in \Gamma_D\}$, où $n_I$ est le $I$-ième nœud de $\mathcal T_h$.\\
+				$\dim V_h = N_h =$ nombre de nœuds de $\mathcal T_h$ hors $\Gamma_D$\\
+				$\to$ \begin{minipage}[t]{18cm}
+					$\begin{aligned}[t]
+						u &= \displaystyle\sum_{J=1}^{M_h} u_Jw_J\\
+						&= \sum_{\underset{n_J \not\in \Gamma_D}{J=1}}^{M_h} u_J w_J + \sum_{\underset{n_J \in \Gamma_D}{J=1}}^{M_h}u_D(n_J)w_J
+					\end{aligned}$ avec $u_J = u(n_J)$
+				\end{minipage}
+				
+				\vspace{.5cm}
+				
+				$\displaystyle\int_\Omega \sum_{\alpha,\beta=1}^2 \cdots + \int_\Omega a_{00} \cdots + \int_{\Gamma_N} b_N \cdots = \int_\Omega f \cdots + \int_{\Gamma_N} g_N\cdots$
+			\end{minipage}
+			
+			\newpage
+			
+			\hspace*{1cm}\begin{minipage}[t]{18.5cm}
+				\begin{minipage}[t]{5cm}
+				Intégrandes de la F.V. :\\
+				$\displaystyle\int_\Omega \sum_{\alpha,\beta=1}^2 a_{\alpha\beta}(x) \dfrac{\partial u}{\partial x_\alpha}\dfrac{\partial v}{\partial x_\beta}(x)\mathrm dx$ \\
+				$\displaystyle \int_\Omega a_{00}(x) u(x)v(x) \mathrm dx $\\
+				$\displaystyle\int_{\Gamma_N} b_N(\gamma)u(\gamma)v(\gamma)\mathrm d\gamma$\\
+				$\displaystyle\int_\Omega f_\Omega(x) v(x) \mathrm dx$ \\
+				$\displaystyle\int_{\Gamma_N} g_N(\gamma)v(\gamma)\mathrm d\gamma$
+			\end{minipage}
+			\end{minipage}			
 		\end{enumerate}
 	\end{sol}
 	

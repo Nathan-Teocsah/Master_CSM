@@ -52,10 +52,11 @@ d=dendrogram(M,no_labels=True,orientation='right',color_threshold=seuil)
 ##### Récupération des groupes
 print("====> Récupération des groupes")
 groupes=fcluster(M,t=seuil,criterion='distance')
+"""
 for k in range(1,np.max(groupes)+1):
     print('Classe '+str(k).ljust(3,' ')+': ', end='')
     print(*nomfrom[np.where(groupes==k)])
-
+"""
 
 print("\n******* Kmeans ******* \n")
 
