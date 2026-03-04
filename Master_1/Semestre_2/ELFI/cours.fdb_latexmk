@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1772533046.9175 "/home/maenwe/Master_CSM/Master_1/Semestre_2/ELFI/cours.tex" "cours.pdf" "cours" 1772533050.19082 0
-  "/home/maenwe/Master_CSM/Master_1/Semestre_2/ELFI/cours.tex" 1772533046.64422 47253 0b130637cee2345fb8ec8d8d6a0212b0 ""
-  "/home/maenwe/Master_CSM/modèle_cours_latex/prise_de_note.sty" 1772530199.35923 4339 6637b6a258698edef3d8642f254e254e ""
+["pdflatex"] 1772629980.26905 "/home/maenwe/Master_CSM/Master_1/Semestre_2/ELFI/cours.tex" "cours.pdf" "cours" 1772629983.64098 0
+  "/home/maenwe/Master_CSM/Master_1/Semestre_2/ELFI/cours.tex" 1772629979.96777 49415 e488e310ae6eb7b59be379f1e042318c ""
+  "/home/maenwe/Master_CSM/modèle_cours_latex/prise_de_note.sty" 1772617952.5088 4339 6637b6a258698edef3d8642f254e254e ""
   "/home/maenwe/texmf/tex/latex/enumitem/enumitem.sty" 1738874546 52272 63d293bc0d496619edb57585740861a2 ""
   "/home/maenwe/texmf/tex/latex/framed/framed.sty" 1338588508 22449 7ec15c16d0d66790f28e90343c5434a3 ""
   "/home/maenwe/texmf/tex/latex/ntheorem/ntheorem.std" 1346969955 3382 17867cd297e597bc8552e0ed6030f0ad ""
@@ -323,10 +323,10 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1763477764 5541377 0af08d58b046ada1f2a2c7d4825ab417 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1763477934 3635530 8f4030c5c1a73e3c25b3008884f24cea ""
   "/usr/local/texlive/2025/texmf.cnf" 1763477758.90627 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "cours.aux" 1772533049.98425 8674 a088e0d22d4a29f9f7db45342c9c91d3 "pdflatex"
-  "cours.out" 1772533049.98825 6797 3ba0af05b0812c797b2a750c5f8874a0 "pdflatex"
-  "cours.tex" 1772533046.64422 47253 0b130637cee2345fb8ec8d8d6a0212b0 ""
-  "cours.toc" 1772533049.98825 3064 a2564d6b37a07534d85b89c401f3d901 "pdflatex"
+  "cours.aux" 1772629983.41184 8674 0df75feff897528cbd9d0f591122990d "pdflatex"
+  "cours.out" 1772629983.41584 6797 3ba0af05b0812c797b2a750c5f8874a0 "pdflatex"
+  "cours.tex" 1772629979.96777 49415 e488e310ae6eb7b59be379f1e042318c ""
+  "cours.toc" 1772629983.41584 3064 a2564d6b37a07534d85b89c401f3d901 "pdflatex"
   "logo.jpg" 1767783879.32596 45771 94d1c6ac270b89a1c9360384279dab1e ""
   "photo1.png" 1767884563.66561 54931 a718d039e5e7f58d1e8d22f0acb2a18e ""
   "photo10.png" 1769525348.31951 24663 5adc55b9db7b0de4168fb236cf0d52fc ""
