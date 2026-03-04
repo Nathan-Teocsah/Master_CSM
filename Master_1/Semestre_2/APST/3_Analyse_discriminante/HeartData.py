@@ -58,7 +58,7 @@ conf=conft.T
 for row in conf: print(*row)
 
 # La variable discriminante
-C = lda.fit_transform(X, y).reshape((-1,)) # On a 2 classes donc 1 seul axe factoriel
+C = lda.fit_transform(X, y).reshape(-1) # On a 2 classes donc 1 seul axe factoriel
 tmp = [C[np.where(y==0)[0]],C[np.where(y==1)[0]]]
 plt.figure()
 plt.boxplot(tmp, tick_labels=("No CHD","CHD"),widths=.8)
@@ -66,14 +66,20 @@ plt.title("Distribution de la variable discriminante dans les deux classes")
 
 # Avec validation croisée
 ntest=np.floor(len(y)/2).astype(int)
-per=np.random.permutation(len(y))
-lt,la=per[:ntest], per[ntest:]
-Xa,Xt=X[la,:],X[lt,:]
-ya,yt=y[la],y[lt]
-#lda.fit(????)
-#yhat = lda.predict(????)
-#errl=
-#print("Taux d'erreur: ",round(errl,3))
+errl = 0
+i = 0
+while i < 100:
+  per=np.random.permutation(len(y))
+  lt,la=per[:ntest], per[ntest:]
+  Xa,Xt=X[la,:],X[lt,:]
+  ya,yt=y[la],y[lt]
+  lda.fit(Xa,ya)
+  yhat = lda.predict(Xt)
+  errl += sum(yt!=yhat)/len(yt)
+  i += 1
+errl /= 100
+print("======= Validation croisée =======")
+print("Taux d'erreur: ",round(errl,3))
 
 
 # Analyse discriminante quadratique ----------------------------------------------

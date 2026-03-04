@@ -773,7 +773,7 @@
 			\[a_h(w_J,w_I) = \displaystyle\sum_{K \in\mathcal{T}_h(n_I)\cap\mathcal{T}_h(n_J))} \sum_{i=1}^{N_K}\sum_{j=1}^{N_K} \delta_I^{g^K(i)}\delta^{g^K(j)} a_K(w_j^K,w_i^K)\]
 			
 			\underline{Réponse :} On ne fait pas "bêtement" une boucle sur chacun des indices (impossible à calculer en temps raisonnable).
-			\begin{algorithm}
+			\begin{algorithm}[H]
 				\caption{Comment calculer $a_h(w_J,w_I)$}\label{alg:cap}
 				\begin{algorithmic}
 					\For{$K$}
@@ -789,6 +789,8 @@
 			\end{algorithm}
 		\end{rmq}
 		
+		\vspace{-.5cm}
+		
 	\subsection{Éléments de référence}
 		On appelle élément de référence triangulaire le triangle de sommet $(1,0), (0,1)$ et $(0,0)$.\\
 		
@@ -803,8 +805,6 @@
 		\end{aligned}\]
 		Avec $\hat{x} = (\hat{x}_1,\hat{x}_2) \in \R^2$.
 		\end{minipage}
-		
-		\newpage
 		
 		Le calcul des objets élémentaires sur $K$ se ramène à des calculs sur $\widehat K$ par changement de variable d'intégration. Il suffit de définir uniquement les fonctions de base sur $\widehat K$, ainsi que la formule de quadrature.
 		
@@ -836,8 +836,8 @@
 		\underline{\textbf{Regardons $a_K(w_j^K,w_i^K)$ :}}\\\\
 		\hspace*{1cm} \begin{minipage}[t]{19cm}
 			$\begin{aligned}[t]
-				a_K(w_j^K,w_i^K) =& \displaystyle\int_{\hat K} \rouge{\left[\nabla w_j^K\right]\left(F_K(\hat x)\right)} \cdot \rouge{\left[\nabla w_i^K\right]\left(F_K(\hat x)\right)} \vert{\abs{\det FJ_K(\hat x)}}d\hat x  \\
-				&+  \int_{\hat K} \underbrace{\rouge{w_j^K(F_K(\hat x))}}_{\rouge{\hat w_j(\hat x)}}  \underbrace{\rouge{w_i^K(F_K(\hat x))}}_{\rouge{\hat w_i^K(\hat x)}}\vert{\abs{\det FJ_K(\hat x)}}d\hat x
+				a_K(w_j^K,w_i^K) =& \displaystyle\int_{\hat K} \rouge{\left[\nabla w_j^K\right]\left(F_K(\hat x)\right)} \cdot \rouge{\left[\nabla w_i^K\right]\left(F_K(\hat x)\right)} \Vert{\abs{\det FJ_K(\hat x)}}d\hat x  \\
+				&+  \int_{\hat K} \underbrace{\rouge{w_j^K(F_K(\hat x))}}_{\rouge{\hat w_j(\hat x)}}  \underbrace{\rouge{w_i^K(F_K(\hat x))}}_{\rouge{\hat w_i^K(\hat x)}}\Vert{\abs{\det FJ_K(\hat x)}}d\hat x
 			\end{aligned}$ 
 		\end{minipage}
 		
@@ -845,7 +845,7 @@
 		\textbf{\underline{Regardons $f_K(w_i^K)$ :}}\\
 		\hspace*{1cm} \begin{minipage}[t]{19cm}
 			$\begin{aligned}[t]
-				f_K(w_i^K) = & \displaystyle \int_{\hat K} \vert{f_\Omega (F_K(\hat x))} \underbrace{\rouge{w_i^k(F_K(\hat x))}}_{\rouge{\hat w_i(\hat x)}} \vert{\abs{\det JF_K(\hat x)}}d\hat x \\
+				f_K(w_i^K) = & \displaystyle \int_{\hat K} \Vert{f_\Omega (F_K(\hat x))} \underbrace{\rouge{w_i^k(F_K(\hat x))}}_{\rouge{\hat w_i(\hat x)}} \Vert{\abs{\det JF_K(\hat x)}}d\hat x \\
 				& + \sum_{K \in \partial K \cap \Gamma_{N,h}} \int_{\hat K}g_N(F_K,(\hat\gamma)) w_i^K(F_K,(\hat\gamma))\abs{\det JF_K,(\hat\gamma)}d\hat\gamma			
 			\end{aligned}$
 		\end{minipage}
@@ -911,11 +911,15 @@
 				\[\displaystyle\int_{\hat K} f(\hat x)d\hat x \simeq \dfrac{S_{\hat K}}{3}(f(\hat a_1)+f(\hat a_2) + f(\hat a_3))\]
 				
 				\item Formule sur $\hat K$ triangle de référence, exacte $\mathbb P_2$ .
+				
+				\vspace*{-.5cm}
+				
 				\[\displaystyle\int_{\hat K} f(\hat x)d\hat x \simeq \dfrac{S_{\hat K}}{3}(f(\hat a_4)+f(\hat a_5) + f(\hat a_6))\]
 			\end{enumerate}
 			\end{minipage}\begin{minipage}{10cm}
-			\includegraphics[scale=.7]{photo15.png}
+			\includegraphics[scale=.6]{photo15.png}
 			\end{minipage}
+			
 		\end{ex}
 	
 	\section{Éléments finis usuels}
@@ -1080,15 +1084,19 @@
 				\underline{$k=2$}
 			\end{minipage}\begin{minipage}{15cm}
 			\includegraphics[scale=.5]{photo22.png}
-			\end{minipage}\\
+			\end{minipage}
+			\end{minipage}
 			
-			\begin{minipage}{3cm}
-				\underline{$k=3$}
-			\end{minipage}\begin{minipage}{15cm}
-				\includegraphics[scale=.5]{photo23.png} \hspace{5cm} $\dim\mathbb Q_k = (k+1)^2$
-			\end{minipage}\\
+			\newpage
 			
-			Éléments finis isoparamétriques = Même interpolation de l'inconnue et de la géométrie
+			\begin{minipage}{18.5cm}
+				\begin{minipage}{3cm}
+					\underline{$k=3$}
+				\end{minipage}\begin{minipage}{15cm}
+					\includegraphics[scale=.5]{photo23.png} \hspace{5cm} $\dim\mathbb Q_k = (k+1)^2$
+				\end{minipage}\\
+				
+				Éléments finis isoparamétriques = Même interpolation de l'inconnue et de la géométrie
 			\end{minipage}
 	\end{ex}
 	
@@ -1123,14 +1131,48 @@
 		
 		\begin{minipage}{15cm}
 			
-		\begin{enumerate}
-			\item Écrire la formulation variationnelle sur $H^1(\Omega)$.
-			
-			\item Écrire la formulation variationnelle discrète associée à une approximation  E.F. $\mathbb P_1$ triangulaire de Lagrange conforme.
-			
-			\item Écrire le système linéaire équivalent à la formulation variationnelle discrète.
-		\end{enumerate}
+			\begin{enumerate}
+				\item Écrire la formulation variationnelle sur $H^1(\Omega)$.
+				
+				\item Écrire la formulation variationnelle discrète associée à une approximation  E.F. $\mathbb P_1$ triangulaire de Lagrange conforme.
+				
+				\item Écrire le système linéaire équivalent à la formulation variationnelle discrète.
+			\end{enumerate}
 		\end{minipage}
 	\end{exo}
+	\begin{sol}
+		$ $\\
+		 \begin{minipage}{7cm}
+				$\begin{cases}
+				\mathcal Au = f_\Omega &\text{dans }\Omega \\
+				\dfrac{\partial u}{\partial \mathcal V_{\mathcal{A}}}(\gamma) + b_N u = g_N & \forall \gamma \in \partial\Omega\\
+				u = u_D & \text{sur } \Gamma_D
+			\end{cases}$
+			\end{minipage}\begin{minipage}{8cm}
+			\includegraphics[scale=.5]{photo24.png}
+			\end{minipage} \\
+			$\dfrac{\partial u}{\partial\mathcal{V}_{\mathcal{A}}}(\gamma) = \displaystyle\sum_{i=1}^2 a_{\alpha\beta}(\gamma)\dfrac{\partial u}{\partial x_\alpha}(\gamma)\mathcal{V}_\beta(\gamma) $\\
+			$\forall x \in \Omega$ $(\mathcal Au)(x) = -\displaystyle\sum_{i=1}^2 \dfrac{\partial }{\partial x_\beta}\left(a_{\alpha\beta}(x)\dfrac{\partial}{\partial x_\alpha}u(x)\right)+a_{0,0}(x)u(x)$
+		
+		\begin{enumerate}
+			\item \begin{minipage}[t]{15cm}
+				$-\displaystyle\int_\Omega \sum_{\alpha,\beta = 1}^2 \dfrac{\partial}{\partial x_\beta}\left(a_{\alpha\beta}(x) \dfrac{\partial}{\partial x_\alpha}u(x)\right) v(x) \mathrm dx + \int_\Omega a_{0,0}(x) u(x)v(x) \mathrm dx = \int_\Omega f_\Omega(x) v(x) \mathrm{d}x$
+			\end{minipage}
+			
+			\item La formule de Green induit :			
+			\[
+			\displaystyle\int_\Omega \sum_{\alpha,\beta = 1}^2 a_{\alpha\beta}(x) \dfrac{\partial u}{\partial x_\alpha}(x) \dfrac{\partial v}{\partial x_\beta}(x) \mathrm dx - \int_{\partial\Omega} \dfrac{\partial u}{\partial \mathcal{V}_{\mathcal{A}}}(\gamma)v(\gamma)d\gamma +  \int_\Omega a_{00}(x) u(x)v(x)\mathrm dx = \int_\Omega f_\Omega(x) v(x) \mathrm dx 
+			\]
+			
+			\[
+			\hspace{-1cm}\displaystyle\int_\Omega \sum_{\alpha,\beta = 1}^2 a_{\alpha\beta}(x) \dfrac{\partial u}{\partial x_\alpha}(x) \dfrac{\partial v}{\partial x_\beta}(x) \mathrm dx + \int_{\partial\Omega} b_N(\gamma)v(\gamma)d\gamma +  \int_\Omega a_{00}(x) u(x)v(x)\mathrm dx = \int_\Omega f_\Omega(x) v(x) \mathrm dx + \int_\Omega g_N(\gamma)v(\gamma)\mathrm d\gamma
+			\]
+			
+			Intégrandes de la Formulation Variationnelle :\\
+			$\displaystyle\int_\Omega \sum_{\alpha,\beta=1}^2 a_{\alpha\beta}(x) \dfrac{\partial u}{\partial x_\alpha}\dfrac{\partial v}{\partial x_\beta}(x)\mathrm dx$ \\
+			$\displaystyle \int_\Omega a_{00}(x) u(x)v(x) \mathrm dx $\\
+			$\displaystyle\int_\Omega b_N(\gamma)u(\gamma)v(\gamma)\mathrm d\gamma$
+		\end{enumerate}
+	\end{sol}
 	
 \end{document}

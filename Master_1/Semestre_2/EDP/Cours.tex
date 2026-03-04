@@ -1554,16 +1554,128 @@ $f(t,x,v) = f(t=0,x-tv,v) = f_0(x-vt,v)$
 		\end{minipage}}
 	\end{minipage}
 	
-	\begin{exo}
-		\begin{minipage}[t]{18cm}
+	\hspace{2.5cm}\begin{minipage}[t]{15cm}
+		
+		\begin{exo}\begin{minipage}[t]{18cm}
 			$\partial_t f + v\nabla_x f = 0$, montrer que $\dfrac{d}{dt} \displaystyle\int f(t,x,v) \frac12 m_p v^2 \mathrm{d}v = 0$
 		\end{minipage}
 		
 		\vspace{-.5cm}
 	\end{exo}
+	\end{minipage}
+	
+	\vspace{.5cm}
+	
+	Autres forces : \begin{minipage}[t]{18.5cm}
+		$F = qv\wedge B$ où $B$ est le champ magnétique opposée constant.\\
+		$F = -\alpha v$, avec $\alpha$ homogène à un temps.
+	\end{minipage}
+	
+	\vspace{.5cm}
+	
+	$3^{ème}$ cas : \begin{minipage}[t]{18.5cm} 
+		champ magnétique\\
+		\doublebar{\begin{minipage}[t]{18.5cm}
+				
+		$\begin{aligned}
+			\dfrac{d x}{dt} &= \overset\cdot x &&= v \\
+			\dfrac{dv}{dt} &= \overset\cdot v &&= \dfrac{qv \wedge B}m && \text{$m$ : masse d'une particule}\\
+			B &= B_0 e_z &&&& \text{(dirigé selon l'axe $z$)}
+		\end{aligned}$\\
+	 Ainsi : $ \dfrac d{dt}\left(\frac12 v^2\right) = v \cdot \dfrac{dv}{dt} = v\cdot \dfrac{qv\wedge B}{m} = 0$\\
+	 
+	 On pose $v = v_{//}+v_{\perp}$ où $v_{//}$ dirigé selon $z$ et $v_\perp$ projection de $v$ en $(x,y)$.\\
+	 
+	 $\dfrac{dv_z}{dt} = \dfrac{dv_{//}}{dt} = 0$ \hspace{2cm} $\dfrac{dv_x}{dt} = \dfrac qm Bv_y$\\
+	 $\dfrac{dv_{//}}{dt} = \dfrac{qv_{//}\wedge B}{m}$ \hspace{2cm} $\dfrac{dv_y}{dt} = -\dfrac qm Bv_x$\\
+	 
+	 Pour la gravité, on avait que l'équation de transport était : $\partial_t f + v\cdot \nabla_x f + \underbrace{g \cdot \nabla_v f}_{\nabla_v\cdot\left(fg\right)} = 0$\\
+	 
+	 $\nabla_v \cdot \left(f q\dfrac{v\wedge B}m\right) = f \underbrace{\nabla_v\cdot\left(\dfrac{qv\wedge B}{m}\right)}_0 + \nabla f \cdot \left(\dfrac{qv\wedge B}m\right)$\\\\
+	 
+	 $\partial_t f + v\nabla_x f + \nabla_v\cdot \left(f \dfrac{qv\wedge B}m\right) = 0$\\
+	 
+	 $\dfrac{F_{ext}}m = \alpha v$ $(\alpha < 0)$\\
+	 
+	 $\dfrac{dv}{dt} = - \alpha v \implies v(t) = v(0) e^{-\alpha t}$\\
+	 
+	 $\partial_t f + \underbrace{v\cdot \nabla_x f}_{\nabla_x \cdot (fv)} + \nabla_v \cdot \left(f \dfrac{F_{ext}}m\right) = 0$, où $\partial_t f + v\cdot \nabla_xf + \dfrac{F_{ext}}m \cdot \nabla_v f = 0$\\
+	 
+	 $\begin{aligned}
+	 	X(t+\Delta t) - X(t) &= \displaystyle\int_t^{t+\Delta t} ve^{\alpha(s-(t+\Delta t))}\mathrm ds \\
+	 & = ve^{-\alpha't+\Delta t)} \dfrac1\alpha\left[e^{\alpha(t+\Delta t)}-e^{\alpha t}\right]\\
+	 &= \dfrac v\alpha\left[1-e^{-\alpha\Delta t}\right]
+	 \end{aligned}$\\	 
+	 Essayons de retrouver l'équation en $f(t,x,v)$.\\
+	 
+	 $f(t+\Delta t, x,v) = f(t,x-\dfrac v\alpha\left(1-e^{-\alpha\Delta t}\right),ve^{-\alpha \Delta t})$	 
+	\end{minipage}
+	}
+	\end{minipage}
+	
+	\hspace{1.8cm}\begin{minipage}[t]{18.5cm}
+		\doublebar{
+		\begin{minipage}[t]{18.5cm}
+		$\dfrac{dv}{dt} = \alpha v$ si on a une vitesse $v$ en $t+\Delta t$, la vitesse en $t$ vaut $ve^{-\alpha t}$\\
+		
+		$X(t+\Delta t) - X(t) = \displaystyle\int_t^{t+\Delta t} V(s) \mathrm ds$\\
+		$\begin{cases}
+			V(s) = ve^{\alpha(s-(t+\Delta t))}\\
+			V(t+\Delta t) = v\\
+			V(t) = ve^{-\alpha\Delta t}
+		\end{cases}$
+		
+		\vspace{1cm}		
+		
+		$\underbrace{f(t+\Delta t,x,v)} = \bleu{f\left(t,x-\dfrac v\alpha\left(1-e^{-\alpha\Delta t}\right),ve^{-\alpha\Delta t}\right)}$\\
+		\hspace*{1.2cm}$\hookrightarrow f(t,x,v) + \partial_t f(t,x,v) \Delta t + O(\Delta t)$\\
+		
+		$\bleu{\hookrightarrow  f(t,x,0)-v\Delta t\nabla_x f(t,x,v) + \underset{\Delta t \to 0}{\lim} \underbrace{\dfrac{ve^{-\alpha\Delta t}-v}{\Delta t}}_\alpha\Delta t \nabla_v f(t,x,v) + o(\Delta t)}$\\
+		
+		$\partial_t f(t,x,v)\Delta t = - v \Delta t \nabla_x f(t,x,v) - \alpha v f(t,x,v) \Delta t + o(\Delta t)$\\
+		$\partial_t f + v \underbrace{\nabla_v f} = 0$\\
+		\hspace*{1.6cm} $\hookrightarrow \nabla_v\cdot\left(f\alpha v\right) = f\underbrace{\mathrm{div}_v\left(\alpha v\right)}_{3\alpha}$
+		
+		\vspace{.5cm}
+		
+		$\partial_t f + \nabla_x\cdot \left(fv\right) + \nabla_v\left(f\alpha v\right) = 3\alpha f$\\
+		
+		Pour Stokes : $\dfrac d{dt} \displaystyle\underset{\rouge{impossible !}}{\int_{x,v} f(s,x,v)\mathrm dx \mathrm dv} = 3\alpha\int_{x,v} f(s,x,v)\mathrm dx \mathrm dv$\\
+		
+		$\left[ve^{-\alpha \Delta t},(v+\Delta v)e^{-\alpha\Delta t}\right] \begin{aligned}
+			\longrightarrow t+\Delta t, x,v \\
+			\longleftarrow \left[v,v+\Delta v\right]
+		\end{aligned}$
+		
+		\vspace{1cm}
+		
+		$\rouge{\displaystyle\int_v^{v+\Delta v} f(t+\Delta t,x,v) \mathrm d^3v}$\\
+		$\underbrace{f(t+\Delta t,x,v)}\rouge{\Delta v^3} = \bleu{f\left(t,x-\dfrac v\alpha\left(1-e^{-\alpha\Delta t}\right),ve^{-\alpha\Delta t}\right)}$\\
+		\hspace*{1.2cm}$\hookrightarrow \rouge{f(t+\Delta t,x,v) = f\left(t,x-\dfrac v\alpha \left(1-e^{-\alpha\Delta t}\right),ve^{-\alpha\Delta t}\right)e^{-3\alpha\Delta t}}$\\
+		
+		$\bleu{\hookrightarrow  \rouge{\Big[}f(t,x,0)-v\Delta t\nabla_x f(t,x,v) + \underset{\Delta t \to 0}{\lim} \underbrace{\dfrac{ve^{-\alpha\Delta t}-v}{\Delta t}}_\alpha\Delta t \nabla_v f(t,x,v) + o(\Delta t)}\rouge{\Big]e^{-3\alpha\Delta t}}$\\
+		$\rouge{=\left[f(t,x,v)-v\Delta t\left(v\nabla_x f - \alpha \cdot\nabla_v f\Delta t\right)+o(\Delta t)\right]\left[\Delta t-3\alpha\Delta t + o(\Delta t)\right]}$\\
+		$\rouge{= f(t,x,v)-\Delta t\left(v\nabla_x f + \alpha v\nabla_v f\right) - 3\alpha f \Delta t + o(\Delta t)}$\\
+		
+		$\partial_t f = -v\nabla_x f - \alpha v \cdot\nabla_v f - 3\alpha f$\\
+		$\begin{aligned}
+			\nabla\left(f\alpha v\right) &= f\mathrm{div}_v\left(\alpha v\right)+\alpha v \nabla_v f \\
+			&= 3 \alpha f + \alpha v\cdot \nabla_v f
+		\end{aligned}$\\
+		
+		$\partial_t f + v\nabla_x f + \nabla\left(f\alpha v\right) = 0$
+		
+		\end{minipage}
+		}
+	\end{minipage}
+	
 	
 	
 \end{enumerate}
+
+
+	
+
 	
 	
 	 
