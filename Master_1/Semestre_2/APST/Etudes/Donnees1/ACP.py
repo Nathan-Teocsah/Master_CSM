@@ -14,10 +14,11 @@ varbs=None
 # Lecture des donnees de data.csv : possède 802 lignes et 20 532 colonnes 
 # la première colonne contient le nom de l'échantillon (il y en a 801)
 # la première ligne contient le nom des variables : c'est le nom du gêne (gêne_0, etc.), i y en a 20 531
-X=np.loadtxt("data.csv",delimiter=',',skiprows=1,usecols=range(1,20532))
+path = "/home/maenwe/Master_CSM/Master_1/Semestre_2/APST/Etudes/Donnees1/"
+X=np.loadtxt(path+"data.csv",delimiter=',',skiprows=1,usecols=range(1,20532))
 
-indiv=np.loadtxt("labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=0) # numéro des gênes
-labels=np.loadtxt("labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=1) # nom du cancer (il y a pleins de doublons)
+indiv=np.loadtxt(path+"labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=0) # numéro des gênes
+labels=np.loadtxt(path+"labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=1) # nom du cancer (il y a pleins de doublons)
 
 
 # Récupère le noms des gênes
@@ -61,6 +62,8 @@ C3 = D[2]*U[:,2] # Pourquoi le sortir ?
 # Or les valeurs propres sont les racines carrées des inerties (sommes de x_i au carré)
 A1 = D[0]*V[:,0]/np.sqrt(np.shape(X)[0]) 
 A2 = D[1]*V[:,1]/np.sqrt(np.shape(X)[0]) 
+print(D)
+print(np.shape(D))
 
 # Graphiques premier plan factoriel
 plt.close('all')
@@ -70,7 +73,7 @@ if labels is None:
   plt.scatter(C1,C2)
 else:
   vlab=np.unique(labels) # Détruit les doublons
-  lv=len(vlab)
+  #lv=len(vlab)
   #cols=['C0','C1','C2','C3','k'] # un choix de couleurs
   #cols=plt.cm.nipy_spectral(np.arange(lv)/lv) # un choix de couleurs
   for i,vl in enumerate(vlab): # permet de récupérer les valeurs de vlab et les indices de ces valeurs
