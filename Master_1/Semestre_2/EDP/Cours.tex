@@ -1800,7 +1800,7 @@ $f(t,x,v) = f(t=0,x-tv,v) = f_0(x-vt,v)$
 			
 			\begin{enumerate}
 				\item Quelle est l'EDP satisfaite par $f$ ?
-				\item  A-t-on : $f(t,x,y) = f(t,y,x)$ ?
+				\item  A-t-on : $f^0(x,y) = f^0(y,x) \implies f(t,x,y) = f(t,y,x)$ ?
 				\item Si $f^0(x,y) = g^0(x)g^0(y)$, a-t-on : $f(t,x,y) = f^1(t,x)f^1(t,y)$ ?
 			\end{enumerate}
 		\end{exo}
@@ -1871,14 +1871,14 @@ $f(t,x,v) = f(t=0,x-tv,v) = f_0(x-vt,v)$
 				\[0 = \left(\dfrac{\partial f}{\partial t}+y\dfrac{\partial f}{\partial x}+x\dfrac{\partial f}{\partial y}\right)(t,x,y)\]
 				
 				et où $\overline{x} = X_0(t)$ et $\overline{y} = Y_0(t)$. Donc $\begin{cases}
-					x = X(0,t,x,y)\\
-					y = Y(0,t,x,y)
+					x = X(0,t,\overline x,\overline y)\\
+					y = Y(0,t,\overline x,\overline y)
 				\end{cases}$
 				
 				\textbf{\underline{Autre approche :}}\\
 				
 				On peut aussi utiliser le flot \underline{explicite :}\\
-				$(1) \implies f^0(x,y) = f(t,\underbrace{x\cosh(t)+y\sinh(t)}_{=X(t,0,x,y)},\underbrace{ycosh(t)+x\sinh(t)}_{=Y(t,0,x,y)})$\\
+				$(1) \implies f^0(x,y) = f(t,\underbrace{x\cosh(t)+y\sinh(t)}_{=X(t,0,x,y)},\underbrace{y\cosh(t)+x\sinh(t)}_{=Y(t,0,x,y)})$\\
 				Et on fait $\dfrac{\partial}{\partial t}$ :
 				\[0 = \left(\dfrac{\partial}{\partial t}\right)(\cdots) + \underbrace{\left(x+\sinh(t)+y\cosh(t)\right)}_{\rouge{=Y(t,0,x,y)}}(\cdots)+\cdots\]
 				
@@ -1924,9 +1924,11 @@ $f(t,x,v) = f(t=0,x-tv,v) = f_0(x-vt,v)$
 				\underline{On ait ainsi ramener à la question :} A-t-on : $(Y(0,t,x,y),X(0,t,x,y)) = (X(0,t,y,x),Y(0,t,y,x))$ ?\\
 				OUI
 				\begin{dem}
-					On montre : $(Y(z,t,x,y),X(s,t,x,y)) = (X(s,t,y,x),Y(s,t,y,x))$\\
 					\begin{minipage}[t]{18.5cm}
-						\underline{Quand $s=t$ :} $\begin{aligned}
+						On montre : $(Y(s,t,x,y),X(s,t,x,y)) = (X(s,t,y,x),Y(s,t,y,x))$
+					\end{minipage}\\
+					\begin{minipage}[t]{18.5cm}
+						\underline{Quand $s=t$ :} $\begin{aligned}[t]
 							(Y(s=t,t,x,y),X(s=t,t,x,y)) = (y,x)\\
 							(X(s=t,t,y,x),Y(s=t,t,y,x)) = (y,x)
 						\end{aligned}$\\

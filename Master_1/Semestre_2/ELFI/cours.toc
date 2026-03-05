@@ -13,7 +13,7 @@
 \contentsline {subsection}{\numberline {2.1}Formulation variationnelle}{8}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Triangulation $\mathbb {P}_1$ de Lagrange}{9}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Espace discret, numérotation locale et globale, fonctions de base}{11}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Problème discret}{12}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.4}Problème discret}{13}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Matrices et second membres élémentaires}{14}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Éléments de référence}{14}{subsection.2.6}%
 \contentsline {subsection}{\numberline {2.7}Élément de référence et calculs élémentaires}{15}{subsection.2.7}%

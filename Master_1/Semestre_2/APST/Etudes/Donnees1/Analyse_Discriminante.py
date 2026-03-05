@@ -11,60 +11,80 @@ Created on Sun Mar 25 09:11:35 2018
 import numpy as np
 import matplotlib.pyplot as plt
 # importation des données -----------------------------------------------------
-dir = "/home/maenwe/Master_CSM/Master_1/Semestre_2/APST/3_Analyse_discriminante/"
-nomvar=np.loadtxt(dir + "HeartData.txt",dtype='str',max_rows=1,delimiter=",")[1:]
-heart=np.loadtxt(dir + "HeartData.txt",skiprows=1,delimiter=",")[:,1:]
-print(*nomvar) # si nomvar = ["age", "sbp", "chd"], alors print(*nomvar) affiche : age sbp chd
-print(*heart[12,:])
-X = heart[:,:-1] # tout sauf CHD et les noms de variable
-y = heart[:,-1] # CHD
 
-# Statistiques descriptives: boxplots -----------------------------------------
-quanti = np.where((nomvar!="famhist")&(nomvar!="chd"))[0]
-plt.close('all')
-plt.figure()
-for j,nom in enumerate(quanti):
-    v = heart[:,quanti[j]]
-    data = [v[y==0],v[y==1]]
-    plt.subplot(2,4,j+1)
-    plt.subplots_adjust(hspace=1,wspace=1)
-    plt.boxplot(data, tick_labels=("No","CHD"),widths=.8) # "No" = sans Coronary Hear Disease et "CHD" = avec
-    plt.grid()
-    plt.title(nomvar[quanti[j]])
+path = "/home/maenwe/Master_CSM/Master_1/Semestre_2/APST/Etudes/Donnees1/"
+X=np.loadtxt(path+"data.csv",delimiter=',',skiprows=1,usecols=range(1,20532))
+nomvar=np.loadtxt(path+"labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=0) # numéro des gênes
+y=np.loadtxt(path+"labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=1) # nom du cancer (il y a pleins de doublons)
 
 # Analyse discriminante linéaire ----------------------------------------------
+print("======= Analyse discriminante linéaire =======")
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.metrics import confusion_matrix,ConfusionMatrixDisplay
 lda = LinearDiscriminantAnalysis() # Calcul 2 CHOSES : facteurs principaux et méthode d'analyse linéaire discriminantes
 lda.fit(X,y)
 yhat = lda.predict(X)
 errl=sum(y!=yhat)/len(y)
+
 print("Taux d'erreur: ",round(errl,3))
+
 plt.rcParams.update({'figure.figsize': (3,3),'font.size': 16})
 conf_mat =  confusion_matrix(y,yhat)
 ConfusionMatrixDisplay(conf_mat).plot(cmap='YlOrBr',colorbar=False)
 plt.rcdefaults()
 
-# Pour tracer soi-même la matrice de confusion en format texte
-print("Matrice de confusion (sans validation croisée)\n")
-conf=conf_mat.astype(str)
-conf=np.c_[['y=0 ','y=1 '],conf]
-conf=np.r_[[['   ','yh=0','yh=1']],conf]
-conft=conf.T
-for i,b in enumerate(conft):
-  l=max(len(i) for i in b) # Largeur de la colonne i de conf
-  conft[i]=np.char.ljust(b,l+1,' ')
-conf=conft.T
-for row in conf: print(*row)
+# Premier plan factoriel
+C = lda.fit_transform(X, y)# On a 5 classes, donc 4 facteurs principaux
+C1 = C[:,0] # Premier facteur principal
+C2 = C[:,1] # Deuxième facteur principal
+C3 = C[:,2] # Troisième facteur principal
+C4 = C[:,3] # Quatrième facteur principal
 
-# La variable discriminante
-C = lda.fit_transform(X, y).reshape(-1) # On a 2 classes donc 1 seul axe factoriel
-tmp = [C[np.where(y==0)[0]],C[np.where(y==1)[0]]]
 plt.figure()
-plt.boxplot(tmp, tick_labels=("No CHD","CHD"),widths=.8)
-plt.title("Distribution de la variable discriminante dans les deux classes")
+
+plt.subplot(2,3,1)
+plt.xlabel("C1")
+plt.ylabel("C1")
+
+plt.subplot(2,3,2)
+plt.xlabel("C1")
+plt.ylabel("C2")
+vlab=np.unique(y) # Détruit les doublons
+for i,vl in enumerate(vlab): 
+  l=y==vl 
+  plt.scatter(C1[l],C2[l],s=47,label=vl) 
+plt.legend()
+
+plt.subplot(2,3,3)
+plt.xlabel("C1")
+plt.ylabel("C3")
+vlab=np.unique(y) # Détruit les doublons
+for i,vl in enumerate(vlab): 
+  l=y==vl 
+  plt.scatter(C1[l],C3[l],s=47,label=vl) 
+plt.legend()
+
+#Ligne 2
+plt.subplot(2,3,4)
+plt.xlabel("C2")
+plt.ylabel("C1")
+
+plt.subplot(2,3,5)
+plt.xlabel("C2")
+plt.ylabel("C2")
+
+plt.subplot(2,3,6)
+plt.xlabel("C2")
+plt.ylabel("C3")
+vlab=np.unique(y) # Détruit les doublons
+for i,vl in enumerate(vlab): 
+  l=y==vl 
+  plt.scatter(C2[l],C3[l],s=47,label=vl) 
+plt.legend()
+
 
 # Avec validation croisée
+"""
 ntest=np.floor(len(y)/2).astype(int)
 errl = 0
 i = 0
@@ -80,15 +100,15 @@ while i < 100:
 errl /= 100
 print("======= Validation croisée =======")
 print("Taux d'erreur: ",round(errl,3))
-
+"""
 
 # Analyse discriminante quadratique ----------------------------------------------
+print("======= Analyse discriminante quadratique =======")
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 lda = QuadraticDiscriminantAnalysis() # Calcul 2 CHOSES : facteurs principaux et méthode d'analyse linéaire discriminantes
 lda.fit(X,y)
 yhat = lda.predict(X)
 errl=sum(y!=yhat)/len(y)
-print("======= Analyse discriminante quadratique =======")
 print("Taux d'erreur: ",round(errl,3))
 plt.rcParams.update({'figure.figsize': (3,3),'font.size': 16})
 conf_mat =  confusion_matrix(y,yhat)

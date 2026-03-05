@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  4 MAR 2026 11:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  5 MAR 2026 11:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2472,51 +2472,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 1907--1917
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1927--1973
-[][]\T1/lmr/m/it/12 On montre : $\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 Y\OT1/lmr/m/
-n/12 (\OML/lmm/m/it/12 z; t; x; y\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; X\OT1/lmr/
-m/n/12 (\OML/lmm/m/it/12 s; t; x; y\OT1/lmr/m/n/12 )) =
+Overfull \hbox (227.65688pt too wide) in paragraph at lines 1927--1975
+[][][] 
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 1927--1973
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 1927--1975
 [] 
  []
 
 
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 1827--1981
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 1827--1983
 []$[]$
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 1827--1981
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 1827--1983
 []$
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 1827--1981
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 1827--1983
 [] 
  []
 
 
-Underfull \vbox (badness 4805) detected at line 1981
+Underfull \vbox (badness 4805) detected at line 1983
  []
 
 [31]
-Underfull \vbox (badness 10000) detected at line 1981
+Underfull \vbox (badness 10000) detected at line 1983
  []
 
 
-Overfull \vbox (4.23863pt too high) detected at line 1981
+Overfull \vbox (4.23863pt too high) detected at line 1983
  []
 
 [32] [33]
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 1991--1998
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 1993--2000
 [][] 
  []
 
 
-Underfull \hbox (badness 1292) in paragraph at lines 2016--2017
+Underfull \hbox (badness 1292) in paragraph at lines 2018--2019
 []$\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 X\OT1/lmr/m/n/12 (0\OML/lmm/m/it/12 ; t; x
 ; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; Y\OT1/lmr/m/n/12 (0\OML/lmm/m/it/12 ;
  t; x; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; Z\OT1/lmr/m/n/12 (0\OML/lmm/m/it
@@ -2527,17 +2525,17 @@ lmm/m/it/12 ; t; x; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; X\OT1/lmr/m/n/12 (0
  []
 
 
-Overfull \hbox (3.38544pt too wide) in paragraph at lines 2012--2019
+Overfull \hbox (3.38544pt too wide) in paragraph at lines 2014--2021
 \T1/lmr/m/it/12 Et on a : [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2019--2021
+Underfull \hbox (badness 10000) in paragraph at lines 2021--2023
 
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 2008--2029
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 2010--2031
 [] 
  []
 
@@ -2545,7 +2543,7 @@ Overfull \hbox (169.22597pt too wide) in paragraph at lines 2008--2029
 \openout7 = `Cours.thm'.
 
 [34]
-runsystem(latexminted cleantemp  --timestamp 20260304113215 33C1869ABDF6A46508C
+runsystem(latexminted cleantemp  --timestamp 20260305115832 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -2559,7 +2557,7 @@ Package rerunfilecheck Info: File `Cours.out' has not changed.
 Here is how much of TeX's memory you used:
  48366 strings out of 467538
  1133606 string characters out of 5419551
- 1799305 words of memory out of 5000000
+ 1800305 words of memory out of 5000000
  76401 multiletter control sequences out of 15000+600000
  757054 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2587,7 +2585,7 @@ mf-dist/fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-dist/fon
 ts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/p
 ublic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lm
 sy8.pfb>
-Output written on Cours.pdf (35 pages, 3209278 bytes).
+Output written on Cours.pdf (35 pages, 3209226 bytes).
 PDF statistics:
  487 PDF objects out of 1000 (max. 8388607)
  353 compressed objects within 4 object streams

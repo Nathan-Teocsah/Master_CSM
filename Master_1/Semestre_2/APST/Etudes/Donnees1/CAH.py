@@ -9,8 +9,8 @@ from sklearn.cluster import  KMeans
 path = "/home/maenwe/Master_CSM/Master_1/Semestre_2/APST/Etudes/Donnees1/"
 fromages=np.loadtxt(path+"data.csv",delimiter=',',skiprows=1,usecols=range(1,20532))
 
-nomfrom=np.loadtxt(path+"labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=0) # numéro des gênes
-nomvar=np.loadtxt(path+"labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=1)
+nomvar=np.loadtxt(path+"labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=0) # numéro des gênes
+nomfrom=np.loadtxt(path+"labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=1) # numéro du patient
 
 ##### Exemple de programation de CAH #####
 print("\n******* Classification Ascendante hiérarchique ******* \n")
