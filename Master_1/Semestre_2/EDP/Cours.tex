@@ -1668,13 +1668,135 @@ $f(t,x,v) = f(t=0,x-tv,v) = f_0(x-vt,v)$
 		\end{minipage}
 		}
 	\end{minipage}
-	
-	
-	
 \end{enumerate}
 
+\subsection{Equation de Boltzmann}
 
-	
+$f(t,x,v)$ : densité de particules par unité de volume (en $x$ et en $v$)\\
+$\begin{aligned}
+	\rho &= \displaystyle\int_{\R^3} f(t,x,v)m_p \mathrm dv\\
+	\rho u &= \int f(t,x,v) m_p u \mathrm dv \\
+	\rho E &= \int f(t,x,v) m_p \frac12 v^2 \mathrm dv &&= \frac12\rho u^2+ \int f(t,x,v)m_p(v-u)^2\mathrm dv \\
+	& &&= \frac12 \rho u^2 + \frac32\rho T
+\end{aligned}$\\
+
+\textbf{modélisation des collisions}
+
+\begin{minipage}{10cm}
+	\includegraphics[scale=.5]{photo21.png}
+\end{minipage}\begin{minipage}{15cm}
+	$\begin{cases}
+		m_pv+m_pv_\star = m_pv'+m_pv_p' \\
+		\frac12\left(m_pv^2+m_pv_\star^2\right) = \left(m_pv'^2+v_\star'^2\right)
+	\end{cases}$ 4 équations
+\end{minipage}
+
+4 équations, 6 inconnues $(v',v_\star')$\\
+soit $\sigma\in\mathbb{S}$, $\sigma \in \R^3, |\!|\sigma|\!| = 1$\\
+$v' = \frac{v+v_\star}2+\frac{|\!|v-v_\star|\!|}2\sigma$ et $v_\star' = \frac{v+v_\star}2 - \frac{|\!|v-v_\star|\!|}2\sigma$\\
+$v'^2+v_\star' = 2\left(\frac{v+v_\star}2\right)^2 + 2\left(\frac{v-v_\star}2\right)^2\sigma^2 = 2\left(\frac{v^2}2+\frac{v_\star^2}2\right) = v^2 + v_\star^2$
+
+\vspace{.5cm}
+
+\textbf{équation de Boltzmann}
+
+$\partial_t f + v\nabla_x f = Q(f,f)$, \hspace{.2cm} où $Q(f,f) - \underbrace{Q^+(f,f)}_{gain}-\underbrace{Q^-(f,f)}_{perte}$
+
+\[
+Q^-(f,f) = \displaystyle\int_{\mathbb{S}^*}\int_{\R^3} f_\star(t,x,v)B(|\!|v-v_\star|\!|)\mathrm dv_\star d\sigma
+\]
+
+$\begin{aligned}
+	Q^+(f,f) &= \displaystyle\int\int \underbrace{f(t,x,v')}_{f'}\underbrace{f(t,x,v_\star')}_{f_\star'}B(|\!|v-v_\star|\!|)\mathrm dv_\star\mathrm dv\\
+	Q(f,f) &= \int\int \left(f'f_\star' - ff_\star\right)B(|\!|v-v_\star|\!|)
+\end{aligned}$
+
+Préserver masse, quantité de mouvement et énergie revient à avoir les égalités :
+
+\[
+\langle Q(f,f),\Psi\rangle = \displaystyle\int\int\int \left(f'f_\star'-ff_\star\right)B(|\!|v-v_\star|\!|)\Psi(v)\mathrm dv \mathrm dv_\star \mathrm d\sigma
+\]
+
+Masse $\Psi(v) = m_p$\\
+Quantité de mouvement : $\Psi(v) = m_pv$\\
+Énergie cinétique : $\Psi(v) = \frac12 m_p v^2$\\
+$\begin{aligned}
+	\langle Q(f,f),m_p\rangle &= 0\\
+	\langle Q(f,f), m_p v\rangle &=0 \\
+	\langle Q(f,f),m_pv^2\rangle &=0
+\end{aligned}$	\\
+
+On a la propriété que $\langle Q(f,f), \Psi\rangle = \frac12 \displaystyle\int\int ff^\star\left(\Psi_\star+\Psi_\star'-\Psi-\Psi^\star\right)B(|\!|v-v_\star|\!|)\mathrm dv \mathrm dv_\star \mathrm d\sigma$\\
+
+$\begin{aligned}
+	\langle Q(f,f),\Psi\rangle &= \displaystyle\int\int\int \left(f'f_\star'-ff_\star\right)\Psi B(|\!|v-v_\star|\!|)\mathrm dv \mathrm dv_\star \mathrm d\sigma\\
+	&= \int\int\int \left(f'f_\star' - ff_\star\right)\Psi_\star B(|\!|v-v_\star|\!|)\mathrm dv \mathrm dv_\star \mathrm d\sigma \\
+	&= \frac12 \int\int\int \left(f'f_\star'-ff_\star\right)\left(\Psi+\Psi^\star\right)\mathrm dv\mathrm dv_\star \mathrm d\sigma \\
+	&= \frac12 \int\int \left(ff_\star - f'f_\star'\right)\left(\Psi'+\Psi_\star'\right)\mathrm dv\mathrm dv_\star\mathrm\sigma
+\end{aligned}$
+
+$\langle Q(f,f),\Psi\rangle = \frac14 \displaystyle\int\int\int \left(f'f_\star'-ff_\star\right)\left(\Psi_+\Psi_\star-\Psi_\star'-\Psi'\right)B(|\!|v-v_\star|\!|,\sigma)\mathrm dv \mathrm dv_\star \mathrm dv$\\
+
+$\hookrightarrow$ donne les conservations\\
+$H(f,f) = \displaystyle\int\left(f\ln f - f\right) \mathrm dv$ (entropie au sens mathématiques)\\
+$H(f)$ ne dépend que de $f$ \hspace{.5cm} $\begin{aligned}[t]
+	\partial_t H(f) &=\displaystyle\int \partial_t\left(f\ln f - f\right)\mathrm dv \\
+	&= \int \left(\partial_t f\right)\ln f + f \dfrac{\partial_t f}f-\partial_t f \mathrm dv
+\end{aligned}$\\
+
+$\begin{aligned}
+	\partial_t H(f) &= \displaystyle\int \left(\partial_t f \ln f\right)\\
+	&= \int \left[Q(f,f)-(v\cdot\nabla_x f)\right]\ln f \mathrm dv \\
+	&= \langle Q,\ln f\rangle - \displaystyle\int \nabla_x\cdot\left(fv\right)\ln f\mathrm dv &=\langle Q,\ln f\rangle - \nabla_x \cdot \left[\int \left(f\ln f -f\right)v \mathrm dv\right]
+\end{aligned}$\\
+
+$\nabla H(f) = \displaystyle\int \nabla_x\left(f\ln f - f\right)\mathrm dv = \int \nabla_x f \ln f \mathrm dv$\\
+
+$\partial_t H(f) + \nabla_x\displaystyle\int \left(f\ln f - f\right)v\mathrm dv = \langle Q(f,f),\ln f\rangle$\\
+si on intègre en $x$ et qu'à l'infini $(f\ln f - f)v$ tend suffisamment rapidement vers 0, la formule de Stockes donne :
+
+\[
+\displaystyle\int \partial_x H(f) = \int \langle Q(f,f),\ln f\rangle \mathrm dx = \frac d{dt} \int H(f) \mathrm dx
+\]
+
+$\langle Q(f,f),\ln f\rangle = \frac14 \displaystyle\int\int\left(f'f_\star'+ff_\star\right)\left(\ln f+\ln f_\star - \ln f' - \ln f_\star'\right)B(|\!|v-v_\star|\!|)\mathrm dv \mathrm dv_\star \mathrm d\sigma$\\
+$\begin{aligned}
+	\left(f'f_\star'-ff_\star\right)\left(\ln f +\ln f_\star-\ln f' - \ln f_\star'\right) &= \left(\underbrace{f'}_x f_\star'-\underbrace f_y f_\star\right)\Big(\ln(ff_\star)-\ln(f'f_\star')\Big)\\
+	&= (x-y)\left(\ln y - \ln x\right) \leq 0
+\end{aligned}$\\
+
+$\frac d{dt} \displaystyle\int H(f) \mathrm dx \leq 0$ (second principe de la thermodynamique)\\
+
+$\star$ $\partial_t f + v\nabla_x f = Q(f,f)$ \\
+$t,x,v$ et $f = \frac{f'}{f_0}$\\
+$t' = \frac t{t_0}$ \hspace{1cm} $\frac1{t_0} \partial_{t'} f' + \frac{v_0}{x_0}v'\nabla_{x'} f' = f_0 Q(f',f')$ \\
+$x' = \frac{x}{x_0}$ \hspace{1cm} $\partial_{'}f' + \frac{v_0t_0}{x_0} v' \nabla_x f' = t_0 f_0 Q(f',f')$\\
+$v' = \frac v{v_0}$ \hspace{1cm} $\simeq 1$ Knudsen $\sim \frac 1{f_0}$\\
+
+\textbf{Equation adimentionnée pour le scaling hydrodynamique}
+
+\[
+\partial_t f + v \nabla_x f = \frac 1{K_n} Q(f,f)
+\]
+
+si $K_n$ tend vers 0, $Q(f,f) = K_n\left(\partial_t f + v\nabla_x f\right)\to 0$\\
+A la limite $K_n = 0$ donc $Q(f,f) = 0$.\\
+
+\begin{thm}[théorème H de Boltzmann] Les affirmations suivantes sont équivalentes :\\
+	\begin{enumerate}
+		\item  $Q(f,f) = 0$ 
+		\item  $\langle Q(f,f), \ln f\rangle = 0$
+		\item $f(t,x,v) = \dfrac{\rho(t,x)}{\left(\sqrt{2\pi T(t,x)}\right)^3}\exp \left[-\frac{(u-v)^2}{2T(t,x)}\right]$
+	\end{enumerate}
+	($\frac f\rho$ suit une loi normale d'espérance $u$ et de variance $T(t,x)$)
+\end{thm}
+\begin{dem}
+	$a \implies b$ est immédiat \\
+	$c \implies a$\\
+	$\left(f'f_\star' - ff_\star\right) = \dfrac{\rho^2}{\left(\sqrt{2\pi T(t,x)}\right)^6}\left(\exp\left[-\frac{(u-v')^2}{2T}\right]\exp\left[-\frac{(u-v')^2}{2T(t,x)}-\exp\left[-\frac{(u-v)^2}{2T}\exp\left[-\frac{(u-v_\star)^2}{2T(t,x)}\right]\right]\right]\right)$\\
+	$\exp\left(-\dfrac 1{2T(t,x)} \left(2u^2 - 2u \cdot (v'+v_\star')+v'^2+v_\star'^2\right)\right) - \exp\left(-\frac1{2T(t,x)}\left(2u^2 - 2u(v+v_\star)+v^2+v_\star^2\right)\right) = 0$
+\end{dem}
+
 
 	
 	

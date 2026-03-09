@@ -71,13 +71,13 @@
 	En substituant dans l'équation (substituant), on obtient :
 	\begin{center}
 		\fbox{
-		$\frac{d}{dx}\left(c(x)^2 \frac{dU}{dx}\right) + \omega^2 u = 0$ que l'on note $\mathcal{L}_{\omega}u = 0$.
+			$\frac{d}{dx}\left(c(x)^2 \frac{dU}{dx}\right) + \omega^2 u = 0$ que l'on note $\mathcal{L}_{\omega}u = 0$.
 		}
 	\end{center}
 	,où $\mathcal{L}_{\omega}u$ est l'opérateur (différentiel) qui reflète l'équilibre dynamique (ou équilibre des forces) en toute position $x$ à la fréquence $\omega$.
 	
 	\begin{center}
-		 \fbox{$\mathcal{L}_{\omega}u$ encode les lois physique : $\mathcal{L}_{\omega}u = \frac{d}{dx}\left(c(x) ^2\frac{d \cdot}{dx}\right) + \omega^2$.}
+		\fbox{$\mathcal{L}_{\omega}u$ encode les lois physique : $\mathcal{L}_{\omega}u = \frac{d}{dx}\left(c(x) ^2\frac{d \cdot}{dx}\right) + \omega^2$.}
 	\end{center}
 	
 	$\longrightarrow$ Considérons désormais que \textbf{$c$} est une fonction $P$-périodique, c'est à dire \fbox{$c(x+P) = c(x)$}.
@@ -112,22 +112,22 @@
 	
 	\begin{enumerate}
 		\item[$(1)$] $\begin{aligned}[t]
-						\mathcal L_\omega(\mathcal T v)(\lambda)
-						&= \mathcal L_\omega(v(\cdot + P))(\lambda) \\
-						&= \frac{d}{dx}(c(x)^2 v'(x+P)) + \omega^2 v(x+P) \\
-						&= 2c(x)c'(x)v'(x+P) + c(x)^2 v''(x+P) + \omega^2 v(x+P).
-					\end{aligned}$
-					
-					\vspace{.2cm}
-					
+			\mathcal L_\omega(\mathcal T v)(\lambda)
+			&= \mathcal L_\omega(v(\cdot + P))(\lambda) \\
+			&= \frac{d}{dx}(c(x)^2 v'(x+P)) + \omega^2 v(x+P) \\
+			&= 2c(x)c'(x)v'(x+P) + c(x)^2 v''(x+P) + \omega^2 v(x+P).
+		\end{aligned}$
+		
+		\vspace{.2cm}
+		
 		\item[$(2)$]  $\begin{aligned}[t]
-						\mathcal T \left(\mathcal L_\omega v\right)(x) 
-						&= \left(\mathcal L_\omega v\right)(x+P)\\
-						&= \frac{d}{dy}\left(c(y)^2v'(y)\right) + \omega^2v(y)\\
-						&= 2c'(y)c(y)v'(y) + c(y)^2v''(y) + \omega^2v(y) \\
-						&= (2)
-					\end{aligned}$
-					, où $y = x + p$.
+			\mathcal T \left(\mathcal L_\omega v\right)(x) 
+			&= \left(\mathcal L_\omega v\right)(x+P)\\
+			&= \frac{d}{dy}\left(c(y)^2v'(y)\right) + \omega^2v(y)\\
+			&= 2c'(y)c(y)v'(y) + c(y)^2v''(y) + \omega^2v(y) \\
+			&= (2)
+		\end{aligned}$
+		, où $y = x + p$.
 	\end{enumerate} 
 	
 	Les deux expressions (1) et (2) sont identiques.
@@ -140,7 +140,7 @@
 	\textit{\underline{Remarque :}} Fonction propre de $\mathcal T v = \lambda v, \lambda \in \mathbb{R}$\\
 	
 	\begin{minipage}{8cm}
-	Cela se traduit par : \fbox{$u(x+P) = \lambda u(x)$}.
+		Cela se traduit par : \fbox{$u(x+P) = \lambda u(x)$}.
 	\end{minipage}
 	\begin{minipage}{8cm}
 		\textit{Cette forme correspond à des ondes de Bloch (ondes planes modulées dans le milieu périodique).}
@@ -158,22 +158,22 @@
 		& [A]_k \text{ : matrice } \mathbb{C}^{N\times N}.
 	\end{cases}
 	\]
-
+	
 	
 	L'opérateur de translation est $\left(\mathcal T v\right)(x) = v(x+P)$. De nouveau, si$\mathcal L et \mathcal T$ commutent , alors ils admettent des fonctions propres (communes) et les solutions $u$ de $\mathcal L v = 0$ peuvent être choisi tels que : $\mathcal T v = \lambda v$ $\implies$ $c(x+P) = \lambda v(x)$ où $\lambda \in \mathbb{C}$ est une valeur propre scalaire de $\mathcal T$.
 	\begin{enumerate}
 		\item[$(i)$] $\begin{aligned}[t]
-						\mathcal L\left(\mathcal T v\right)(x) 
-						&= \sum_{k=0}^n [A]_k(x) \frac{d^k}{dx^k}\left(\mathcal T v\right)(x)\\
-						&= \sum_{k=0}^n [A]_k(x) \, v^{(k)}(x+P)
-					\end{aligned}$\\
+			\mathcal L\left(\mathcal T v\right)(x) 
+			&= \sum_{k=0}^n [A]_k(x) \frac{d^k}{dx^k}\left(\mathcal T v\right)(x)\\
+			&= \sum_{k=0}^n [A]_k(x) \, v^{(k)}(x+P)
+		\end{aligned}$\\
 		
 		\item[$(ii)$] $\begin{aligned}[t]
-							\mathcal T\left(\mathcal L v\right)(x) 
-							&= \left(\mathcal L v\right)(x+P)\\
-							&= \displaystyle\sum_{k=0}^n [A]_k(x+P)v^{(k)}(x+P)\\
-							&= (i)
-						\end{aligned}$
+			\mathcal T\left(\mathcal L v\right)(x) 
+			&= \left(\mathcal L v\right)(x+P)\\
+			&= \displaystyle\sum_{k=0}^n [A]_k(x+P)v^{(k)}(x+P)\\
+			&= (i)
+		\end{aligned}$
 	\end{enumerate}
 	
 	Donc $\left[\mathcal L, \mathcal T\right] = 0$.\\
@@ -216,7 +216,7 @@
 	Notons $\mathcal T$ l'opérateur de translation discret : $\left(\mathcal T u\right) = u(n-M) := u_{n+1}.$\\
 	
 	\vspace{-.5cm}
-		
+	
 	\underline{\textbf{Démontrons que} $\left[\mathcal L, \mathcal T\right] = 0$ :} $\left(\mathcal L v\right)(n) = B_1(n)u_{n+1} = B_0(n)u_n + B_{-1}(n)u_{n-1}$\\
 	
 	Calculons : $\begin{aligned}[t]
@@ -228,17 +228,17 @@
 	\end{aligned}$
 	
 	\fbox{
-	\begin{minipage}{15cm}
-		Les solutions sont donc des ondes de Bloch discrète, c'est-à-dire de la forme :
-		
-		$u_n = e^{\mu n}\phi(n)$, où :
-		\[
-		\begin{cases}
-			\phi \text{ est } M\text{-périodique }(\text{i.e. } \phi(n+M) = \phi(n))\\
-			\mu \in \mathbb{C} \text{ est l\'exposant de Floquet}
-		\end{cases}
-		\]
-	\end{minipage}
+		\begin{minipage}{15cm}
+			Les solutions sont donc des ondes de Bloch discrète, c'est-à-dire de la forme :
+			
+			$u_n = e^{\mu n}\phi(n)$, où :
+			\[
+			\begin{cases}
+				\phi \text{ est } M\text{-périodique }(\text{i.e. } \phi(n+M) = \phi(n))\\
+				\mu \in \mathbb{C} \text{ est l\'exposant de Floquet}
+			\end{cases}
+			\]
+		\end{minipage}
 	}
 	
 	Cela implique $\begin{aligned}[t]
@@ -249,7 +249,7 @@
 		&= e^{\mu M}u_n
 	\end{aligned}$
 	\hspace{1cm} On note \underline{$\lambda = e^{\mu M}$}.
-	 
+	
 	\hspace{-1cm}\begin{minipage}[t]{20cm}
 		Ainsi $\left(\mathcal T u\right)(x) = \lambda u_n$ ce qui revient à dire que c'est un vecteur propre de $\mathcal T$ et $\lambda$ est valeur propre, est dit "Multiplicateur de Floquet".
 	\end{minipage}
@@ -267,52 +267,52 @@
 	\begin{prop}$ $\\
 		
 		\begin{minipage}{20cm}
-		\fbox{
-	\begin{minipage}{14.5cm}
-		\begin{tabular}{l|l}
-			\begin{minipage}{7cm}
-				\underline{En 'continue' :}\\
-				$u(x+P) = \lambda u(x)$ avec $\lambda = e^{ikP}$\\
-				$\iff$\\
-				$u(x) = e ^{ikx}\phi(x)$, avec $\phi(x+P) = \phi(x)$\\
-				
-				où $k\in \left[\frac{-\pi}{P},\frac{\pi}{P}\right] \left(\frac{2\pi}{P}\right)$ "Nombre d'onde"
+			\fbox{
+				\begin{minipage}{14.5cm}
+					\begin{tabular}{l|l}
+						\begin{minipage}{7cm}
+							\underline{En 'continue' :}\\
+							$u(x+P) = \lambda u(x)$ avec $\lambda = e^{ikP}$\\
+							$\iff$\\
+							$u(x) = e ^{ikx}\phi(x)$, avec $\phi(x+P) = \phi(x)$\\
+							
+							où $k\in \left[\frac{-\pi}{P},\frac{\pi}{P}\right] \left(\frac{2\pi}{P}\right)$ "Nombre d'onde"
+						\end{minipage}
+						& 
+						\begin{minipage}{7cm}
+							\underline{En 'discret' :}\\
+							$u_{n+1} = \lambda u_n$ avec $\lambda = e^{ikMa}$\\
+							$\iff$\\
+							$u_n = e^{ikna}\phi(n)$, avec $\phi(n+M) = \phi(n)$\\
+							
+							où $k\in \left[\frac{-\pi}{Ma},\frac{\pi}{Ma}\right] \left(\frac{2\pi}{Ma}\right)$
+						\end{minipage}
+					\end{tabular}
+				\end{minipage}
+			} \begin{minipage}{2cm}
+				\textcolor{blue}{\textit{Forme des solutions}}
 			\end{minipage}
-			& 
-			\begin{minipage}{7cm}
-				\underline{En 'discret' :}\\
-				$u_{n+1} = \lambda u_n$ avec $\lambda = e^{ikMa}$\\
-				$\iff$\\
-				$u_n = e^{ikna}\phi(n)$, avec $\phi(n+M) = \phi(n)$\\
-				
-				où $k\in \left[\frac{-\pi}{Ma},\frac{\pi}{Ma}\right] \left(\frac{2\pi}{Ma}\right)$
-			\end{minipage}
-		\end{tabular}
-	\end{minipage}
-	} \begin{minipage}{2cm}
-	\textcolor{blue}{\textit{Forme des solutions}}
-	\end{minipage}
-	\end{minipage}
+		\end{minipage}
 	\end{prop}
 	
 	\begin{dem}
 		\underline{En 'continue' :}\\
 		\begin{minipage}[t]{10cm}
 			Montrons que (1) $\implies$ (2).\\
-		$\begin{aligned}
-			u(x) = e^{-ikP}u(x+P) 
-			&= e^{ikx} \underbrace{e^{ik(x+P)}u(x+P)}_{\phi(x+P)}\\
-			&=e^{ikx} \underbrace{e^{-ikx}\phi(x)}_{\phi(x)}
-		\end{aligned}$
+			$\begin{aligned}
+				u(x) = e^{-ikP}u(x+P) 
+				&= e^{ikx} \underbrace{e^{ik(x+P)}u(x+P)}_{\phi(x+P)}\\
+				&=e^{ikx} \underbrace{e^{-ikx}\phi(x)}_{\phi(x)}
+			\end{aligned}$
 		\end{minipage}\begin{minipage}[t]{12.5cm}
 			Montrons que $(2) \implies (1)$.\\
-		$\begin{aligned}
-			u(x+P) 
-			&= e^{ik(x+P)}\phi(x+P)\\
-			&= e^{ikP}e^{ikx}\phi(x) \text{ , car } \phi \text{ est périodique}\\
-			&= \fbox{$e^{ikP}u(x)$}
-		\end{aligned}
-		$
+			$\begin{aligned}
+				u(x+P) 
+				&= e^{ik(x+P)}\phi(x+P)\\
+				&= e^{ikP}e^{ikx}\phi(x) \text{ , car } \phi \text{ est périodique}\\
+				&= \fbox{$e^{ikP}u(x)$}
+			\end{aligned}
+			$
 		\end{minipage}
 		
 		\vspace{.5cm}
@@ -336,7 +336,7 @@
 			% Courbe périodique c(x)
 			\draw[thick,domain=0:8,samples=200]
 			plot (\x,{0.75 + 0.5*sin(180*\x)});
-						
+			
 		\end{tikzpicture}
 		
 		\item[$\cdot$] Si $|\lambda| < 1$ les ondes sont évanescentes progressives
@@ -428,29 +428,29 @@
 	qui est la relation de dispersion, sous la forme $\omega(k)$.\\
 	
 	\fbox{
-	\begin{minipage}[t]{18.5cm}
-		\textbf{\underline{Représentation de la solution:}}\\
-	
-	\begin{minipage}{10cm}
-		\includegraphics[scale=.3]{photo2.png}
-	\end{minipage}\begin{minipage}[t]{8cm}
-	Comme $k$ est $\frac{2\pi}{a}$-périodique, on ne représente les solution que dans l'intervalle $\left[\frac{-\pi}{a},\frac{\pi}{a}\right]$.
-	\end{minipage}
-	
-	Connaissant le nombre d'onde $k$, on détermine $\begin{cases}
-		\text{la vitesse de phase } C_p = \frac{\omega}{k}\\
-		\text{la vitesse de groupe } c_z = \frac{\partial \omega}{\partial k}
-	\end{cases}$
-	
-	\includegraphics[scale=.5]{photo3.png}
-	
-	$\longrightarrow$ Paquet d'ondes : superposition d'ondes progressives dans un intervalle $k$.
-		\end{minipage}}
+		\begin{minipage}[t]{18.5cm}
+			\textbf{\underline{Représentation de la solution:}}\\
+			
+			\begin{minipage}{10cm}
+				\includegraphics[scale=.3]{photo2.png}
+			\end{minipage}\begin{minipage}[t]{8cm}
+				Comme $k$ est $\frac{2\pi}{a}$-périodique, on ne représente les solution que dans l'intervalle $\left[\frac{-\pi}{a},\frac{\pi}{a}\right]$.
+			\end{minipage}
+			
+			Connaissant le nombre d'onde $k$, on détermine $\begin{cases}
+				\text{la vitesse de phase } C_p = \frac{\omega}{k}\\
+				\text{la vitesse de groupe } c_z = \frac{\partial \omega}{\partial k}
+			\end{cases}$
+			
+			\includegraphics[scale=.5]{photo3.png}
+			
+			$\longrightarrow$ Paquet d'ondes : superposition d'ondes progressives dans un intervalle $k$.
+	\end{minipage}}
 	
 	\vspace{.5cm}
 	
 	\par \textbf{Cherchons} les solutions complexes $k(\omega)$.
-		
+	
 	Reprenons : $-\omega^2m = \beta\left(e^{ika}+e^{-ika}-2\right) = 2\beta \left(\frac{e^{-ika}+e^{ika}}{2} - 1 \right)$
 	
 	$-2\omega^2 = \underbrace{\frac{4\beta}{m}}_{\omega_0^2}\left(\frac{e^{ika}+e^{ika}}{2} - 1\right)$, on introduit : $\begin{cases}
@@ -467,37 +467,37 @@
 		
 		\[
 		\fbox{$
-		\lambda = 1 - 2 \dfrac{\omega^2}{\omega_0^2} \pm 2i \dfrac{\omega}{\omega_0}\sqrt{1-\dfrac{\omega^2}{\omega_0^2}}
-		$}	
+			\lambda = 1 - 2 \dfrac{\omega^2}{\omega_0^2} \pm 2i \dfrac{\omega}{\omega_0}\sqrt{1-\dfrac{\omega^2}{\omega_0^2}}
+			$}	
 		\]
 	\end{minipage}\hspace{1cm}\begin{minipage}[t]{5cm}
-	\fbox{\rouge{!}} Si $\lambda_1$ est solution alors $\lambda_2 = \frac{1}{\lambda_1}$ l'est aussi
+		\fbox{\rouge{!}} Si $\lambda_1$ est solution alors $\lambda_2 = \frac{1}{\lambda_1}$ l'est aussi
 	\end{minipage}
 	
 	
 	On a 3 cas celons les valeur de $\omega$ et $\omega_0$.
 	\begin{enumerate}
 		\item Lorsque $\omega > \omega_0$, il n'y a pas de solution propagative, les ondes sont évanescentes :
-	\[
-	\fbox{
-	$
-	\lambda = 1 - 2 \dfrac{\omega^2}{\omega_0^2} \pm 2 \dfrac{\omega}{\omega_0} \sqrt{\dfrac{\omega^2}{\omega_0^2}-1}
-	$
-	}
-	\]
-	
-	Pour retrouver les solutions explicites $k(\omega)$ on peut utiliser : 
-	\[
-	\begin{aligned}
-		\lambda 
-		&= e^{ika} = e^{i\left(\re(k)+i\im(k)\right)a} = e^{i\re(k)a}e^{-\im(k)a}\\
-		&= e^{-k_I a }\cos(k_R a) + i e^{-ik_I a}\sin(k_R a)
-	\end{aligned}
-	\]
-	
-	\item Lorsque $\omega \leq \omega_0$, $\cos(k_Ra) = 1-2\frac{\omega^2}{\omega_0^2}$ et $\sin^2(\frac{k_R a}{2}) = \frac{\omega^2}{\omega_0^2}$.
-	
-	\item Lorsque $\omega > \omega_0$, on a $\lambda \in \R$, donc $k_R = \pm \frac{\pi}{a} \left[2\pi\right]$.
+		\[
+		\fbox{
+			$
+			\lambda = 1 - 2 \dfrac{\omega^2}{\omega_0^2} \pm 2 \dfrac{\omega}{\omega_0} \sqrt{\dfrac{\omega^2}{\omega_0^2}-1}
+			$
+		}
+		\]
+		
+		Pour retrouver les solutions explicites $k(\omega)$ on peut utiliser : 
+		\[
+		\begin{aligned}
+			\lambda 
+			&= e^{ika} = e^{i\left(\re(k)+i\im(k)\right)a} = e^{i\re(k)a}e^{-\im(k)a}\\
+			&= e^{-k_I a }\cos(k_R a) + i e^{-ik_I a}\sin(k_R a)
+		\end{aligned}
+		\]
+		
+		\item Lorsque $\omega \leq \omega_0$, $\cos(k_Ra) = 1-2\frac{\omega^2}{\omega_0^2}$ et $\sin^2(\frac{k_R a}{2}) = \frac{\omega^2}{\omega_0^2}$.
+		
+		\item Lorsque $\omega > \omega_0$, on a $\lambda \in \R$, donc $k_R = \pm \frac{\pi}{a} \left[2\pi\right]$.
 	\end{enumerate}
 	
 	\vspace{.5cm}
@@ -538,127 +538,127 @@
 	
 	\subsection{Chaîne di-atomique}
 	
-		Considérons le système discret périodique à deux atomes :
-		
-		\includegraphics[scale=.5]{photo5.png}
-		
-		Ecrivons l'équation d'équilibre de la cellule unitaire (i.e. l'élément qui, répété, permet de reconstituer toute la chaîne).
-		 
-		\[
-		\begin{aligned}
-			m_1\dfrac{d^2U_n}{dt^2} = -\beta\left(U_n-V_n\right) - \beta\left(U_n-V_{n-1}\right)\\
-			m_2\dfrac{d^2V_n}{dt^2} = -\beta\left(V_n-U_{n-1}\right) - \beta\left(V_n-U_n\right)
-		\end{aligned}
-		\]
-		
-		On considère le régime stationnaire et on applique le principe de Floquet-Bloch : 
-		\[
-		\begin{aligned}
-			u_n = u_0e^{i(\omega t - kna)} = u_0\lambda^n e^{i\omega t}\\
-			v_n = v_0 e^{i(\omega t-kna)} = v_0\lambda^ne^{i\omega t}
-		\end{aligned}
-		\]
-		En injectant dans les équations d'équilibre on obtient :
-		\[
-		\begin{aligned}
-			\text{(1) }\omega^2 m_1  U_0 
-			&= 2\beta\left(U_0-\frac{V_0}{2}-\frac{1}{\lambda}\frac{V_0}{2}\right)
-			\begin{cases}
-				u_{n+1} = \lambda u_n\\
-				u_{n-1} = \frac{1}{\lambda} u_n
-			\end{cases}
-			\text{ et }
-			\begin{cases}
-				v_{n+1} = \lambda v_n\\
-				v_{n-1} = \frac{1}{\lambda} v_n
-			\end{cases}\\
-			\text{(2) }\omega^2 m_2V_0 
-			&= 2\beta\left(V_0-U_0-\lambda \frac{U_0}{2}\right)
-		\end{aligned}
-		\]
-		
-		$(1)/m_1$ avec $\omega_1 = \sqrt{\frac{2\beta}{m_1}}$ et $(2)/m_2$ avec $\omega_2 = \sqrt{\frac{2\beta}{m_2}}$ :
-		$\begin{cases}
-			\omega^2U_0-\omega_1^2\left(U_0-\frac{V_2}{2}-\frac{1}{\lambda}\frac{V_0}{2}\right) = 0\\
-			\omega^2V_0-\omega_2^2(V_0-\frac{U_0}{2}-\frac{\lambda}{2}U_0) = 0
-		\end{cases}$
-		
-		Ce système  s'écrit sous forme matricielle :
-		\[
-		\left[\begin{matrix}
-			\omega^2 - \omega_1^2 & \frac{\omega_1^2}{2}(1+\frac{1}{\lambda}) \\
-			\frac{\omega_2^2}{2}(1+\lambda) & \omega^2-\omega_2^2
-		\end{matrix}\right]\left[\begin{matrix}
+	Considérons le système discret périodique à deux atomes :
+	
+	\includegraphics[scale=.5]{photo5.png}
+	
+	Ecrivons l'équation d'équilibre de la cellule unitaire (i.e. l'élément qui, répété, permet de reconstituer toute la chaîne).
+	
+	\[
+	\begin{aligned}
+		m_1\dfrac{d^2U_n}{dt^2} = -\beta\left(U_n-V_n\right) - \beta\left(U_n-V_{n-1}\right)\\
+		m_2\dfrac{d^2V_n}{dt^2} = -\beta\left(V_n-U_{n-1}\right) - \beta\left(V_n-U_n\right)
+	\end{aligned}
+	\]
+	
+	On considère le régime stationnaire et on applique le principe de Floquet-Bloch : 
+	\[
+	\begin{aligned}
+		u_n = u_0e^{i(\omega t - kna)} = u_0\lambda^n e^{i\omega t}\\
+		v_n = v_0 e^{i(\omega t-kna)} = v_0\lambda^ne^{i\omega t}
+	\end{aligned}
+	\]
+	En injectant dans les équations d'équilibre on obtient :
+	\[
+	\begin{aligned}
+		\text{(1) }\omega^2 m_1  U_0 
+		&= 2\beta\left(U_0-\frac{V_0}{2}-\frac{1}{\lambda}\frac{V_0}{2}\right)
+		\begin{cases}
+			u_{n+1} = \lambda u_n\\
+			u_{n-1} = \frac{1}{\lambda} u_n
+		\end{cases}
+		\text{ et }
+		\begin{cases}
+			v_{n+1} = \lambda v_n\\
+			v_{n-1} = \frac{1}{\lambda} v_n
+		\end{cases}\\
+		\text{(2) }\omega^2 m_2V_0 
+		&= 2\beta\left(V_0-U_0-\lambda \frac{U_0}{2}\right)
+	\end{aligned}
+	\]
+	
+	$(1)/m_1$ avec $\omega_1 = \sqrt{\frac{2\beta}{m_1}}$ et $(2)/m_2$ avec $\omega_2 = \sqrt{\frac{2\beta}{m_2}}$ :
+	$\begin{cases}
+		\omega^2U_0-\omega_1^2\left(U_0-\frac{V_2}{2}-\frac{1}{\lambda}\frac{V_0}{2}\right) = 0\\
+		\omega^2V_0-\omega_2^2(V_0-\frac{U_0}{2}-\frac{\lambda}{2}U_0) = 0
+	\end{cases}$
+	
+	Ce système  s'écrit sous forme matricielle :
+	\[
+	\left[\begin{matrix}
+		\omega^2 - \omega_1^2 & \frac{\omega_1^2}{2}(1+\frac{1}{\lambda}) \\
+		\frac{\omega_2^2}{2}(1+\lambda) & \omega^2-\omega_2^2
+	\end{matrix}\right]\left[\begin{matrix}
 		U_0\\
 		V_0
-		\end{matrix}\right] = \left[\begin{matrix}
+	\end{matrix}\right] = \left[\begin{matrix}
 		0\\
 		0
-		\end{matrix}\right]
-		\]
-		
-		Les solutions sont non-triviales pour Det = 0 c'est-à-dire :
-		\[
-		\begin{aligned}
-			(\omega^2-\omega_1^2)(\omega^2-\omega_2^2) - \frac{\omega_1\omega_2}{4}(1+\frac{1}{\lambda})(1+\lambda) = 0\\
-			\omega^4 - \omega^2(\omega_1^2+\omega_2^2)-\frac{\omega_1^2\omega_2^2}{4}(2+\lambda+\frac{1}{\lambda}) + \omega_1^2\omega_2^2
-		\end{aligned}\]
-		
-		On remarque que $\lambda + \frac{1}{\lambda} = e^{-ika}+e^{ika} = 2 \cos(ka)$\\
-		$\omega^4-\omega^2(\omega_1^2+\omega_2^2) - \frac{\omega_1^2\omega_2^2}{4}(\lambda+\frac{1}{\lambda}-2) = 0$.\\
-		Donc $\lambda+\frac{1}{\lambda} = 2\cos(ka) - 2 = -4\sin^2(\frac{ka}{2})$.\\
-		Ainsi on peut écrire :
-		\[
-		\omega^4-\omega^2(\omega_1^2+\omega_2^2) - \omega_1^2\omega_2^2\sin^2(\frac{ka}{2}) = 0
-		\]
-		
-		Et $\Delta = (\omega_1^2+\omega_2^2)^2 - \omega_1^2\omega_2^2\sin^2(\frac{ka}{2})$ positif car $\sin ^2 \leq 1$ et $(\omega_1^2-\omega_2^2)^2 \geq 0$.\\
-		Les deux solutions s'écrivent :
-		\[
-		\omega^2(k) = \beta \left(\frac{1}{m_1}+\frac{1}{m_2}\right) \pm \beta \sqrt{\left(\frac{1}{m_1}+\frac{1}{m_2}\right)^2-\frac{4\sin^2(\frac{ka}{2})}{m_1m_2}}
-		\]
-		on introduit $\omega_3 = \sqrt{2\beta\left(\frac{1}{m_1}+\frac{1}{m_2}\right)} =: \omega_{max}$.\\
-		
-		\includegraphics[scale=.5]{photo6.png}
-		
-		Si on suppose que $m_1=m_2$, la relation de dispersion devient : $\omega^2(k) = \omega_1^2(1\pm\cos(\frac{ka}{2}))$.\\
-		Intéressons-nous désormais aux propriétés de l'ondes à l'intérieur de la bande interdite :\\
-		Reprenons la relation de dispersion :
-		\[
-		\begin{cases}
-			\omega^2U_0 = \omega_1^2\left(U_0-\frac{V_2}{2} -\frac{1}{\lambda}\frac{V_0}{2}\right) & /\omega_1 ^2 \text{ et } \Omega_1 ^2 = \frac{\omega^2}{\omega_1^2} \\
-			\omega^2V_0 = \omega_2^2(V_0-\frac{U_0}{2} -\frac{\lambda}{2}U_0) & /\omega_2^2 \text{ et } \Omega_2^2 = \frac{\omega^2}{\omega_2^2}
-		\end{cases}
-		\begin{cases}
-			(2\Omega_1^2-2)U_0 + (1+\frac{1}{\lambda})V_0 = 0 \\
-			(1+\lambda)U_0+(2\Omega_2^2-2)V_0 = 0
-		\end{cases}
-		\]
-		
-		On annuler le déterminant :
-		\[
-		\begin{aligned}
-			(2\Omega_1^2-2)(\Omega_2^2-2) - \underbrace{(1+\frac{1}{\lambda})(1+\lambda)}_{\rouge{4\sin^2(\frac{ka}{2})}} = 0\\
-			\lambda - \underbrace{\left[4(\Omega_1^2-1)(\Omega_2^2-1) +2\right]}_{2(1-2(\Omega_1^2-1)(\Omega_2^2-1))} + \frac{1}{\lambda} = 0\\
-			\Delta = 16(\Omega_1 ^2-1)(\Omega_2^2-1)\left[\underbrace{(\Omega_1^2-1)(\Omega_2^2-1)}_{\rouge\Gamma}-1\right]
-		\end{aligned}
-		\]
-		
-		Les solutions complexes sont alors :
-		\[
-		\lambda = (2\Gamma-1)\pm2\sqrt{(\Omega_1^2-1)(\Omega_2^2-1)(\Gamma-1)}
-		\]
-		
-		\fbox{
+	\end{matrix}\right]
+	\]
+	
+	Les solutions sont non-triviales pour Det = 0 c'est-à-dire :
+	\[
+	\begin{aligned}
+		(\omega^2-\omega_1^2)(\omega^2-\omega_2^2) - \frac{\omega_1\omega_2}{4}(1+\frac{1}{\lambda})(1+\lambda) = 0\\
+		\omega^4 - \omega^2(\omega_1^2+\omega_2^2)-\frac{\omega_1^2\omega_2^2}{4}(2+\lambda+\frac{1}{\lambda}) + \omega_1^2\omega_2^2
+	\end{aligned}\]
+	
+	On remarque que $\lambda + \frac{1}{\lambda} = e^{-ika}+e^{ika} = 2 \cos(ka)$\\
+	$\omega^4-\omega^2(\omega_1^2+\omega_2^2) - \frac{\omega_1^2\omega_2^2}{4}(\lambda+\frac{1}{\lambda}-2) = 0$.\\
+	Donc $\lambda+\frac{1}{\lambda} = 2\cos(ka) - 2 = -4\sin^2(\frac{ka}{2})$.\\
+	Ainsi on peut écrire :
+	\[
+	\omega^4-\omega^2(\omega_1^2+\omega_2^2) - \omega_1^2\omega_2^2\sin^2(\frac{ka}{2}) = 0
+	\]
+	
+	Et $\Delta = (\omega_1^2+\omega_2^2)^2 - \omega_1^2\omega_2^2\sin^2(\frac{ka}{2})$ positif car $\sin ^2 \leq 1$ et $(\omega_1^2-\omega_2^2)^2 \geq 0$.\\
+	Les deux solutions s'écrivent :
+	\[
+	\omega^2(k) = \beta \left(\frac{1}{m_1}+\frac{1}{m_2}\right) \pm \beta \sqrt{\left(\frac{1}{m_1}+\frac{1}{m_2}\right)^2-\frac{4\sin^2(\frac{ka}{2})}{m_1m_2}}
+	\]
+	on introduit $\omega_3 = \sqrt{2\beta\left(\frac{1}{m_1}+\frac{1}{m_2}\right)} =: \omega_{max}$.\\
+	
+	\includegraphics[scale=.5]{photo6.png}
+	
+	Si on suppose que $m_1=m_2$, la relation de dispersion devient : $\omega^2(k) = \omega_1^2(1\pm\cos(\frac{ka}{2}))$.\\
+	Intéressons-nous désormais aux propriétés de l'ondes à l'intérieur de la bande interdite :\\
+	Reprenons la relation de dispersion :
+	\[
+	\begin{cases}
+		\omega^2U_0 = \omega_1^2\left(U_0-\frac{V_2}{2} -\frac{1}{\lambda}\frac{V_0}{2}\right) & /\omega_1 ^2 \text{ et } \Omega_1 ^2 = \frac{\omega^2}{\omega_1^2} \\
+		\omega^2V_0 = \omega_2^2(V_0-\frac{U_0}{2} -\frac{\lambda}{2}U_0) & /\omega_2^2 \text{ et } \Omega_2^2 = \frac{\omega^2}{\omega_2^2}
+	\end{cases}
+	\begin{cases}
+		(2\Omega_1^2-2)U_0 + (1+\frac{1}{\lambda})V_0 = 0 \\
+		(1+\lambda)U_0+(2\Omega_2^2-2)V_0 = 0
+	\end{cases}
+	\]
+	
+	On annuler le déterminant :
+	\[
+	\begin{aligned}
+		(2\Omega_1^2-2)(\Omega_2^2-2) - \underbrace{(1+\frac{1}{\lambda})(1+\lambda)}_{\rouge{4\sin^2(\frac{ka}{2})}} = 0\\
+		\lambda - \underbrace{\left[4(\Omega_1^2-1)(\Omega_2^2-1) +2\right]}_{2(1-2(\Omega_1^2-1)(\Omega_2^2-1))} + \frac{1}{\lambda} = 0\\
+		\Delta = 16(\Omega_1 ^2-1)(\Omega_2^2-1)\left[\underbrace{(\Omega_1^2-1)(\Omega_2^2-1)}_{\rouge\Gamma}-1\right]
+	\end{aligned}
+	\]
+	
+	Les solutions complexes sont alors :
+	\[
+	\lambda = (2\Gamma-1)\pm2\sqrt{(\Omega_1^2-1)(\Omega_2^2-1)(\Gamma-1)}
+	\]
+	
+	\fbox{
 		\begin{minipage}[t]{15cm}
 			Ce qui donne la solution $k(\omega)$ explicite :
-		\[
-		k(\omega) = \frac{i}{a}\log\left[\frac{1}{\omega_1^2\omega_2^2}\left(2\omega^4-2\omega^2\omega_3^2 + \omega_1 ^2\omega_2^2 + 2\omega\sqrt{(\omega^2-\omega_1^2)(\omega^2-\omega_2^2)(\omega^2-\omega_3^2)}\right)\right]
-		\]
-		\end{minipage}}
-
-
-		\hspace{-.5cm}\includegraphics[scale=.4]{photo7.png}
+			\[
+			k(\omega) = \frac{i}{a}\log\left[\frac{1}{\omega_1^2\omega_2^2}\left(2\omega^4-2\omega^2\omega_3^2 + \omega_1 ^2\omega_2^2 + 2\omega\sqrt{(\omega^2-\omega_1^2)(\omega^2-\omega_2^2)(\omega^2-\omega_3^2)}\right)\right]
+			\]
+	\end{minipage}}
+	
+	
+	\hspace{-.5cm}\includegraphics[scale=.4]{photo7.png}
 	
 	\subsection{Généralisation aux systèmes à plusieurs degrés de liberté (DDL)}
 	
@@ -679,29 +679,29 @@
 		&(0) & & m_{n+1} & \\
 		& & & & \ddots
 	\end{matrix}\right]\left[\begin{matrix}
-	\vdots\\
-	\overset{\textbf{..}}{U}_{n-1}\\
-	\overset{\textbf{..}}{U}_{n}\\
-	\overset{\textbf{..}}{U}_{n+1}\\
-	\vdots
+		\vdots\\
+		\overset{\textbf{..}}{U}_{n-1}\\
+		\overset{\textbf{..}}{U}_{n}\\
+		\overset{\textbf{..}}{U}_{n+1}\\
+		\vdots
 	\end{matrix}\right] + \left[\begin{matrix}
-	\ddots & & & & \\
-	& \ddots & & & \\
-	(0) & - \beta_{n-1} & \beta_{n+1}+\beta_n & -\beta_n & (0)\\
-	& & & \ddots & \\
-	& & & & \ddots
+		\ddots & & & & \\
+		& \ddots & & & \\
+		(0) & - \beta_{n-1} & \beta_{n+1}+\beta_n & -\beta_n & (0)\\
+		& & & \ddots & \\
+		& & & & \ddots
 	\end{matrix}\right]\left[\begin{matrix}
-	\vdots\\
-	U_{n-1}\\
-	U_n\\
-	U_{n+1}\\
-	\vdots
+		\vdots\\
+		U_{n-1}\\
+		U_n\\
+		U_{n+1}\\
+		\vdots
 	\end{matrix}\right] = \left[\begin{matrix}
-	0 \\
-	\vdots \\
-	\vdots \\
-	\vdots \\
-	0
+		0 \\
+		\vdots \\
+		\vdots \\
+		\vdots \\
+		0
 	\end{matrix}\right]\]
 	
 	C'est une EDO qui s'écrit : 
@@ -738,20 +738,20 @@
 			\textbf{\underline{Rappel :}} \begin{minipage}{3cm}
 				\includegraphics[scale=.5]{photo13.png}
 			\end{minipage} le système est : $\left[\begin{matrix}
-			m_1 & 0 \\
-			0 & m_2
-		\end{matrix}\right] \left[\begin{matrix}
-		\overset{\textbf{..}}{U} \\ 
-		\overset{\textbf{..}}{V}
-		\end{matrix}\right] + \left[\begin{matrix}
-		k & -k \\
-		-k & k
-		\end{matrix}\right]\left[\begin{matrix}
-		U \\
-		V
-		\end{matrix}\right] = \left[\begin{matrix}
-		0 \\ 0
-		\end{matrix}\right]$.
+				m_1 & 0 \\
+				0 & m_2
+			\end{matrix}\right] \left[\begin{matrix}
+				\overset{\textbf{..}}{U} \\ 
+				\overset{\textbf{..}}{V}
+			\end{matrix}\right] + \left[\begin{matrix}
+				k & -k \\
+				-k & k
+			\end{matrix}\right]\left[\begin{matrix}
+				U \\
+				V
+			\end{matrix}\right] = \left[\begin{matrix}
+				0 \\ 0
+			\end{matrix}\right]$.
 		\end{minipage}
 		
 		\vspace{.5cm}
@@ -763,16 +763,16 @@
 			0 & 0 & m_3 & 0 \\
 			0 & 0 & 0 & m_4
 		\end{matrix}\right]\left[\begin{matrix}
-		\overset{\textbf{..}}{U_1} \\ \overset{\textbf{..}}{U_2} \\ \overset{\textbf{..}}{U_3} \\ \overset{\textbf{..}}{U_4}
+			\overset{\textbf{..}}{U_1} \\ \overset{\textbf{..}}{U_2} \\ \overset{\textbf{..}}{U_3} \\ \overset{\textbf{..}}{U_4}
 		\end{matrix}\right] + \left[\begin{matrix}
-		\rouge{k_1} + k_4 & \rouge{-k_1} & 0 & -k_4 \\
-		\rouge{-k_1} & \rouge{k_1}+\bleu{k_2} & \bleu{-k_2} & 0 \\
-		0 & \bleu{-k_2} & \bleu{k_2} + \vert{k_3} & \vert{-k_3} \\
-		-k_4 & 0 & \vert{-k_3} & \vert{k_3} + k_4
+			\rouge{k_1} + k_4 & \rouge{-k_1} & 0 & -k_4 \\
+			\rouge{-k_1} & \rouge{k_1}+\bleu{k_2} & \bleu{-k_2} & 0 \\
+			0 & \bleu{-k_2} & \bleu{k_2} + \Vert{k_3} & \Vert{-k_3} \\
+			-k_4 & 0 & \Vert{-k_3} & \Vert{k_3} + k_4
 		\end{matrix}\right]\left[\begin{matrix}
-		U_1 \\ U_2 \\ U_3 \\ U_4
+			U_1 \\ U_2 \\ U_3 \\ U_4
 		\end{matrix}\right] = \left[\begin{matrix}
-		0 \\ 0 \\ 0 \\ 0
+			0 \\ 0 \\ 0 \\ 0
 		\end{matrix}\right]
 		\]
 		
@@ -789,20 +789,20 @@
 			
 			\[
 			\underbrace{\left[\begin{matrix}
-				\frac{m_1}{2} & 0 & 0 \\
-				0 & m_2 & 0 \\
-				0 & 0 & \frac{m_1}{2}
-			\end{matrix}\right]}_{\mathbb{M}}\left[\begin{matrix}
-			\overset{\textbf{..}}U_L \\ \overset{\textbf{..}}U_i \\ \overset{\textbf{..}}U_R 
+					\frac{m_1}{2} & 0 & 0 \\
+					0 & m_2 & 0 \\
+					0 & 0 & \frac{m_1}{2}
+				\end{matrix}\right]}_{\mathbb{M}}\left[\begin{matrix}
+				\overset{\textbf{..}}U_L \\ \overset{\textbf{..}}U_i \\ \overset{\textbf{..}}U_R 
 			\end{matrix}\right] + \underbrace{\left[\begin{matrix}
-			\rouge{k_1} & \rouge{-k_1} & 0 \\
-			\rouge{-k_1} & \rouge{k_1} + \bleu{k_2} & \bleu{-k_2} \\
-			0 & \bleu{-k_2} & \bleu{k_2}
-			\end{matrix}\right]}_{\mathbb{K}}\left[\begin{matrix}
-			U_L \\ U_i\\ U_R
-		\end{matrix}\right] = \left[\begin{matrix}
-		0 \\ 0 \\ 0
-		\end{matrix}\right]
+					\rouge{k_1} & \rouge{-k_1} & 0 \\
+					\rouge{-k_1} & \rouge{k_1} + \bleu{k_2} & \bleu{-k_2} \\
+					0 & \bleu{-k_2} & \bleu{k_2}
+				\end{matrix}\right]}_{\mathbb{K}}\left[\begin{matrix}
+				U_L \\ U_i\\ U_R
+			\end{matrix}\right] = \left[\begin{matrix}
+				0 \\ 0 \\ 0
+			\end{matrix}\right]
 			\]
 			
 			qui s'écrit : $\left(\mathbb{K}-\omega^2\mathbb{M}\right)\left[\begin{matrix}
@@ -819,24 +819,24 @@
 				& -k_1 & k_1+k_2 & -k_2 \\
 				& 0 & -k_2 & k_2+k_1
 			\end{matrix}\right] -\omega^2\left[\begin{matrix}
-			\bleu{m_2} & & & \\
-			& \frac{m_1}{2}+\bleu{\frac{m_1}{2}} & & \\
-			& & m_2 & \\
-			& & & \frac{m_1}{2}+\frac{m_1}{2}
+				\bleu{m_2} & & & \\
+				& \frac{m_1}{2}+\bleu{\frac{m_1}{2}} & & \\
+				& & m_2 & \\
+				& & & \frac{m_1}{2}+\frac{m_1}{2}
 			\end{matrix}\right]\right)\left[\begin{matrix}
-			\vdots\\
-			\left[\begin{matrix}
-			U_L^{(n)}\\
-			U_i^{(n)}
-			\end{matrix}\right] \\
-			\vdots
+				\vdots\\
+				\left[\begin{matrix}
+					U_L^{(n)}\\
+					U_i^{(n)}
+				\end{matrix}\right] \\
+				\vdots
 			\end{matrix}\right] = \left[\begin{matrix}
-			\vdots\\
-			\left[\begin{matrix}
-				0\\
-				0
-			\end{matrix}\right] \\
-			\vdots
+				\vdots\\
+				\left[\begin{matrix}
+					0\\
+					0
+				\end{matrix}\right] \\
+				\vdots
 			\end{matrix}\right]\]
 			
 			
@@ -847,19 +847,19 @@
 				0 & -k_2 & k_1 + k_2 & -k_1 & 0& 0 \\
 				0 & 0 & -k_1 & k_1 + k_2 & -k_2 & 0
 			\end{matrix}\right]-\omega^2\left[\begin{matrix}
-			0 & 0 & m_1 & 0 & 0 & 0 \\
-			0 & 0 & 0 & m_2 & 0 & 0
+				0 & 0 & m_1 & 0 & 0 & 0 \\
+				0 & 0 & 0 & m_2 & 0 & 0
 			\end{matrix}\right]\right)\left[\begin{matrix}
-			U_L^{(n-1)} \\
-			U_i^{(n-1)} \\
-			U_L^{(n)} \\
-			U_i^{(n)} \\
-			U_L^{(n-1)} \\
-			U_i^{(n-1)}
+				U_L^{(n-1)} \\
+				U_i^{(n-1)} \\
+				U_L^{(n)} \\
+				U_i^{(n)} \\
+				U_L^{(n-1)} \\
+				U_i^{(n-1)}
 			\end{matrix}\right] = \left[\begin{matrix}
-			0 \\
-			\vdots \\
-			0
+				0 \\
+				\vdots \\
+				0
 			\end{matrix}\right]
 			\]
 		\end{enumerate}
@@ -877,34 +877,34 @@
 			$I$ : Moment de section \\
 			$E$ : Module de Young
 		\end{minipage} $ \begin{aligned}
-		\mathbb{M}_e =& \dfrac{\rho A L}{420}\left[\begin{matrix}
-			156 & 22L & 54 & -13L \\
-			& 4L^2 & 13L & -3L^2 \\
-			& & 156 & -22L \\
-			 & & & 4L^2
-		\end{matrix}\right] \\
-		\mathbb{K}_e =& \dfrac{2EI}{L}\left[\begin{matrix}
-			6 & 3L & -6 & 3L \\
-			  & 2L^2 & -3L & L^2 \\
-			  &     & 6 & -3L \\
-			(Sym) &   &   & 2L^2
-		\end{matrix}\right]
+			\mathbb{M}_e =& \dfrac{\rho A L}{420}\left[\begin{matrix}
+				156 & 22L & 54 & -13L \\
+				& 4L^2 & 13L & -3L^2 \\
+				& & 156 & -22L \\
+				& & & 4L^2
+			\end{matrix}\right] \\
+			\mathbb{K}_e =& \dfrac{2EI}{L}\left[\begin{matrix}
+				6 & 3L & -6 & 3L \\
+				& 2L^2 & -3L & L^2 \\
+				&     & 6 & -3L \\
+				(Sym) &   &   & 2L^2
+			\end{matrix}\right]
 		\end{aligned} $
 		
 		On peut décomposer nos matrices élémentaires en deux "domaines" (c'est-à-dire $U_L, U_R$) : $\mathbb{M}_e = \left[\begin{matrix}
 			M_L & M_{LR} \\
 			M_{RL} & M_R
 		\end{matrix}\right]$ et $\mathbb{K}_e = \left[\begin{matrix}
-		K_L & K_{LR} \\
-		K_{RL} & K_R
+			K_L & K_{LR} \\
+			K_{RL} & K_R
 		\end{matrix}\right]$.\\
 		\begin{minipage}[t]{18cm}
 			Où, par symétrie de $\mathbb{M}_e$ et $\mathbb{K}_e$ : $\begin{cases}
-			M_L = M_L^T & \text{ (idem pour } M_R, K_L, K_R) \\
-			M_{LR} = M_{RL}^T & \text{ (idem pour } K_{LR} = K_{RL}^T)
-		\end{cases}$\\
-		
-		On note alors les raideurs dynamiques : $D_{i,j} = K_{i,j}-\omega^2M_{i,j}$, $i,j \in \{L,R\}$.
+				M_L = M_L^T & \text{ (idem pour } M_R, K_L, K_R) \\
+				M_{LR} = M_{RL}^T & \text{ (idem pour } K_{LR} = K_{RL}^T)
+			\end{cases}$\\
+			
+			On note alors les raideurs dynamiques : $D_{i,j} = K_{i,j}-\omega^2M_{i,j}$, $i,j \in \{L,R\}$.
 		\end{minipage}
 		
 		\underline{Le système initial :} 
@@ -913,26 +913,26 @@
 		
 		\begin{minipage}[t]{18.5cm}
 			$\left(\mathbb{K}_e-\omega^2\mathbb{M}_e\right)\overset{\rightarrow}{U} = 0$ alors : $\left[\begin{matrix}
-		D_L & D_{LR} \\
-		D_{RL} & D_R
-		\end{matrix}\right]\left[\begin{matrix}
-		\overset{\rightarrow}{U_L} \\ \overset{\rightarrow}{U_R}
-		\end{matrix}\right] = \left[\begin{matrix}
-		0 \\ 0
-		\end{matrix}\right]$, où $\overset{\rightarrow}{U_L} = \left[\begin{matrix}
-		V_L \\ \Theta_L
-		\end{matrix}\right]	$ et $\overset{\rightarrow}{U_R} = \left[\begin{matrix}
-		V_R \\ \Theta_R
-		\end{matrix}\right]	$
+				D_L & D_{LR} \\
+				D_{RL} & D_R
+			\end{matrix}\right]\left[\begin{matrix}
+				\overset{\rightarrow}{U_L} \\ \overset{\rightarrow}{U_R}
+			\end{matrix}\right] = \left[\begin{matrix}
+				0 \\ 0
+			\end{matrix}\right]$, où $\overset{\rightarrow}{U_L} = \left[\begin{matrix}
+				V_L \\ \Theta_L
+			\end{matrix}\right]	$ et $\overset{\rightarrow}{U_R} = \left[\begin{matrix}
+				V_R \\ \Theta_R
+			\end{matrix}\right]	$
 		\end{minipage}
 		
 		\begin{minipage}[t]{16cm}
 			Écrivons l'assemblage de deux cellules décrites par leur matrice de raideur dynamique : $\mathbb{D} = \left[\begin{matrix}
-			D_L & D_{LR} \\
-			R_{RL} & D_R
-		\end{matrix}\right]$ \begin{minipage}{5cm}
-		\includegraphics[scale=.5]{photo17.png}
-		\end{minipage}
+				D_L & D_{LR} \\
+				R_{RL} & D_R
+			\end{matrix}\right]$ \begin{minipage}{5cm}
+				\includegraphics[scale=.5]{photo17.png}
+			\end{minipage}
 		\end{minipage}
 		
 		\[
@@ -941,30 +941,30 @@
 			\rouge{D_{RL}} & \rouge{D_R}+D_L & D_{LR} \\
 			& D_{RL} & D_R
 		\end{matrix}\right]\left[\begin{matrix}
-		U_L^{n-1} \\ U_L^n \\ U_L^{n+1}
+			U_L^{n-1} \\ U_L^n \\ U_L^{n+1}
 		\end{matrix}\right] = \left[\begin{matrix}
-		0 \\ 0 \\ 0
+			0 \\ 0 \\ 0
 		\end{matrix}\right]
 		\]
 		Pour un assemblage "infini" de cellules :\\
 		\begin{minipage}[t]{18.5cm}
 			$\left[\begin{matrix}
-			\ddots & \ddots & \ddots & & & & \\
-			& D_{RL} & D_L+D_R & D_{LR} & & & & \\
-			& \ddots & \ddots & \ddots & & & \\
-			& & D_{RL} & D_L+D_R & D_{LR} & & \\
-			& & & \ddots & \ddots & \ddots & \\
-			& & & & D_{RL} & D_L + D_R & D_{LR} \\
-			& & & & \ddots & \ddots & \ddots
-		\end{matrix}\right]\left[\begin{matrix}
-		\vdots \\
-		U_{n-1} \\
-		U_n\\
-		U_{n+1} \\
-		\vdots
-		\end{matrix}\right] = \left[\begin{matrix}
-		\vdots \\ \vdots \\ 0 \\ \vdots \\ \vdots
-		\end{matrix}\right]$
+				\ddots & \ddots & \ddots & & & & \\
+				& D_{RL} & D_L+D_R & D_{LR} & & & & \\
+				& \ddots & \ddots & \ddots & & & \\
+				& & D_{RL} & D_L+D_R & D_{LR} & & \\
+				& & & \ddots & \ddots & \ddots & \\
+				& & & & D_{RL} & D_L + D_R & D_{LR} \\
+				& & & & \ddots & \ddots & \ddots
+			\end{matrix}\right]\left[\begin{matrix}
+				\vdots \\
+				U_{n-1} \\
+				U_n\\
+				U_{n+1} \\
+				\vdots
+			\end{matrix}\right] = \left[\begin{matrix}
+				\vdots \\ \vdots \\ 0 \\ \vdots \\ \vdots
+			\end{matrix}\right]$
 		\end{minipage}
 	\end{ex}
 	
@@ -988,9 +988,9 @@
 		-K & 2K-\omega^2 M & -K \\
 		0 & -K & K-\omega^2\frac m2
 	\end{matrix}\right]\left[\begin{matrix}
-	U_L\\U_i\\U_R
+		U_L\\U_i\\U_R
 	\end{matrix}\right]=\left[\begin{matrix}
-	0 \\ 0 \\ 0
+		0 \\ 0 \\ 0
 	\end{matrix}\right]$.\\
 	Nous allons substituer $U_i$ par $U_L$ et $U_R$ :\\
 	$\begin{aligned}
@@ -1006,19 +1006,19 @@
 		U_i\\
 		U_R
 	\end{matrix}\right]  = \left[\begin{matrix}
-	0 \\ 0 \\ 0
+		0 \\ 0 \\ 0
 	\end{matrix}\right] \iff \underbrace{\left[\begin{matrix}
-	\lambda - \omega^2\frac m2 - \dfrac{K^2}{2K-\omega^2M} & \dfrac{-K^2}{2K-\omega^2M}\\
-	-\dfrac{K^2}{2K-\omega^2M} & K -\omega^2\frac m2 -\dfrac{K^2}{2K-\omega^2M}
-	\end{matrix}\right]}_{\overset{\sim}{\mathbb{D}}}\left[\begin{matrix}
-	U_L \\ U_R
+			\lambda - \omega^2\frac m2 - \dfrac{K^2}{2K-\omega^2M} & \dfrac{-K^2}{2K-\omega^2M}\\
+			-\dfrac{K^2}{2K-\omega^2M} & K -\omega^2\frac m2 -\dfrac{K^2}{2K-\omega^2M}
+		\end{matrix}\right]}_{\overset{\sim}{\mathbb{D}}}\left[\begin{matrix}
+		U_L \\ U_R
 	\end{matrix}\right]=\left[\begin{matrix}
-	0 \\ 0
+		0 \\ 0
 	\end{matrix}\right]$\\
 	
 	On peut ainsi obtenir l'équation de dispersion de la chaîne diatomique directement via :
 	\[
-	\left(\overset\sim{\mathbb{D}}_{RL}\frac1\lambda + (\overset\sim{\mathbb{D}}_R+\overset\sim{\mathbb{D}}_R)+\overset\sim{\mathbb{D}}_{LR}\right)\emptyset = 0 \hspace{1cm} \rouge{!! \hspace{.2cm}\overset\sim{\mathbb{D}} \not=\overset\sim{\mathbb{K}}-\omega^2\overset\sim{\mathbb{M}}}
+	\left(\overset\sim{\mathbb{D}}_{RL}\frac1\lambda + (\overset\sim{\mathbb{D}}_R+\overset\sim{\mathbb{D}}_R)+\overset\sim{\mathbb{D}}_{LR}\right)\Phi = 0 \hspace{1cm} \rouge{!! \hspace{.2cm}\overset\sim{\mathbb{D}} \not=\overset\sim{\mathbb{K}}-\omega^2\overset\sim{\mathbb{M}}}
 	\]
 	
 	\subsection{Généralisation de condensation dynamique}
@@ -1026,7 +1026,7 @@
 	\begin{minipage}{13cm}
 		Considérons une cellule périodique (ou domaine discret ou discrétisé). L'équation d'équilibre s'écrit : $\underbrace{\left(\mathbb{K}-\omega^2\mathbb{M}\right)}_{\mathbb{D}}U = f$
 	\end{minipage}\hspace{.5cm}\begin{minipage}{5cm}
-	\includegraphics[scale=.5]{photo22.png}
+		\includegraphics[scale=.5]{photo22.png}
 	\end{minipage}
 	
 	Où $\mathbb{K}$ : Matrice de Raideur et $\mathbb{M}$ : Matrice de masse.\\
@@ -1035,9 +1035,9 @@
 		\mathbb{D}_b & \mathbb{D}_{bi} \\
 		\mathbb{D}_{ib} & \mathbb{D}_{i}
 	\end{matrix}\right]\left[\begin{matrix}
-	U_b \\ U_i
+		U_b \\ U_i
 	\end{matrix}\right] = \left[\begin{matrix}
-	f_b \\ f_i
+		f_b \\ f_i
 	\end{matrix}\right]$
 	
 	Remplaçons $U_i$ : $\mathbb D_{ib}U_b + \mathbb D_iU_i = f_i$\\
@@ -1053,61 +1053,100 @@
 	Le système "condensé" s'écrit donc : $\overset\sim{\mathbb{D}}_bU_b=\overset\sim f_b$
 	
 	
-\begin{rmq}
-	Il existe des situations où il n'es pas possible/souhaitable de faire le calcul de $\mathbb D_i^{-1}$. Dans ce cas, nous pouvons appliquer le principe de Flochet-Bloch à l'ensemble des degré de libertés de la cellule périodique (au lieu de la réduire à $U_L+U_R)$.La solution s'écrit alors $\begin{bmatrix}
-		U_L\\ U_R
-	\end{bmatrix}^{n+1} = \lambda\begin{bmatrix}
-	U_L \\ U_R
-	\end{bmatrix}$.\\
-	Formulation $\begin{bmatrix}
-		U_L \\ U_R
-	\end{bmatrix}$, sous condensation dynamique .\\
-	On considère une structure périodique dont la cellule contient des degré de liberté, $U_L, U_R, U_{LR}$.\\
-	
+	\begin{rmq}$ $\\
+		
+			Il existe des situations où il n'es pas possible/souhaitable de faire le calcul de $\mathbb D_i^{-1}$. Dans ce cas, nous pouvons appliquer le principe de Flochet-Bloch à l'ensemble des degré de libertés de la cellule périodique (au lieu de la réduire à $U_L+U_R)$.La solution s'écrit alors $\begin{bmatrix}
+			U_L\\ U_R
+		\end{bmatrix}^{n+1} = \lambda\begin{bmatrix}
+			U_L \\ U_R
+		\end{bmatrix}$.\\
+		Formulation $\begin{bmatrix}
+			U_L \\ U_R
+		\end{bmatrix}$, sous condensation dynamique .\\
+		On considère une structure périodique dont la cellule contient des degré de liberté, $U_L, U_R, U_{LR}$.\\
+		
+		\begin{minipage}[t]{17cm}
 		\includegraphics[scale=.5]{photo26.png}
+		
+		L'équation d'équilibre dans une cellule en régime harmonique :
+		
+		$\begin{bmatrix}
+			D_L & D_{Li} & D_{LR} \\
+			D_{iL} & D_i & D_{iR} \\
+			D_{RL} & D_{Ri} & D_R
+		\end{bmatrix}\begin{bmatrix}
+			U_L \\ U_i \\ U_R
+		\end{bmatrix} = \begin{bmatrix}
+			f_L \\ 0 \\ f_R
+		\end{bmatrix}$\\
+		
+		Écrivons l'équilibre dynamique des 3 cellules $(n-1,n,n+1)$ : 
+		
+		
+			$\begin{bNiceMatrix}
+			D_L & D_{Li} & D_{LR} & \Block{2-4}<\large>{(0)} \\
+			D_{iL} & D_i & D_{iR} \\
+			D_{RL} & D_{Ri} & D_R\rouge{+D_L} & \rouge{D_i} & \rouge{D_{LR}} \\
+			\Block{3-3}<\large>{(0)} & & & \rouge{D_{iL}} & \rouge{D_i} & \rouge{D_{iR}} \\
+			& & & \rouge{D_{RL}} & \rouge{D_{Ri}} & \rouge{D_R} \Vert{+D_L} & \Vert{D_{Li}} \\
+			& & & & & \Vert{D_{iL}} & \Vert{D_i}
+		\end{bNiceMatrix}\begin{NiceArray}{cc}
+			\Block{5-1}{\begin{bmatrix}
+					U_L^{n-1} \\
+					U_i^{n-1} \\
+					U_L^n \\
+					U_i^n \\
+					U_L^{n+1} \\
+					U_i^{n+1}
+			\end{bmatrix}} & U^{n-1}\\\\
+			& \rouge{U^n}\\\\
+			& \Vert{U^{n+1}}
+		\end{NiceArray} = \begin{bmatrix}
+			f_L^{n-1} \\
+			0 \\ 0 \\ 0 \\ 0 \\ f_R^{n+1}
+		\end{bmatrix}$\\
+		
+		\includegraphics[scale=.5]{photo27.png}
+		\end{minipage}
+	\end{rmq}
 	
-	L'équation d'équilibre dans une cellule en régime harmonique :
+	\newpage
 	
-	$\begin{bmatrix}
-		D_L & D_{Li} & D_{LR} \\
-		D_{iL} & D_i & D_{iR} \\
-		D_{RL} & D_{Ri} & D_R
-	\end{bmatrix}\begin{bmatrix}
-	U_L \\ U_i \\ U_R
-	\end{bmatrix} = \begin{bmatrix}
-	f_L \\ 0 \\ f_R
-	\end{bmatrix}$\\
+	\underline{Linéarisation d'un EVP (\textit{Eigen Value Problem}) quadratique :}\\
+	On peut résoudre un EVP quadratique de dimension $M$ : $\left(D_{RL}\frac1\lambda + (D_l+D_R)+D_{LR}\lambda\right)\Phi = 0$.\\
+	Il s'agit d'un palindrome $\left(A\lambda^{-1} + \underset{B^t}B + A^t\lambda\right)$. Il admet $2M$ solutions.\\
+	On note $(\lambda_i,\frac1{\lambda_i})$ les valeurs propres avec \begin{minipage}[t]{15cm}
+		$\abs{\lambda_i}<1 \to$ ondes progressives\\
+		$\abs{\frac1{\lambda_i}} > 1 \to$ ondes régressives
+	\end{minipage}\\
 	
-	Écrivons l'équilibre dynamique des 3 cellules $(n-1,n,n+1)$ : 
+	Pour résoudre cet EVP, dont la dimension dépend du nombre de DDL (ou particules), nous l'écrivons sous la forme :
+	$\left(D_{RL} + (D_L+D_R)\lambda + D_{LR}\lambda^2\right)\Phi = 0$\\
+	puis $\left(-D_{RL}-D_R\lambda\right)\Phi = \left(D_L\lambda + D_{LR}\lambda^2\right)\Phi$\\
 	
-	$\begin{bNiceMatrix}
-		D_L & D_{Li} & D_{LR} & \Block{2-4}<\large>{(0)} \\
-		D_{iL} & D_i & D_{iR} \\
-		D_{RL} & D_{Ri} & D_R\rouge{+D_L} & \rouge{D_i} & \rouge{D_{LR}} \\
-		\Block{3-3}<\large>{(0)} & & & \rouge{D_{iL}} & \rouge{D_i} & \rouge{D_{iR}} \\
-		& & & \rouge{D_{RL}} & \rouge{D_{Ri}} & \rouge{D_R} \vert{+D_L} & \vert{D_{Li}} \\
-		& & & & & \vert{D_{iL}} & \vert{D_i}
-	\end{bNiceMatrix}\begin{NiceArray}{cc}
-	\Block{5-1}{\begin{bmatrix}
-			U_L^{n-1} \\
-			U_i^{n-1} \\
-			U_L^n \\
-			U_i^n \\
-			U_L^{n+1} \\
-			U_i^{n+1}
-	\end{bmatrix}} & U^{n-1}\\\\
-	& \rouge{U^n}\\\\
-	& \vert{U^{n+1}}
-	\end{NiceArray} = \begin{bmatrix}
-	f_L^{n-1} \\
-	0 \\ 0 \\ 0 \\ 0 \\ f_R^{n+1}
-	\end{bmatrix}$\\
+	Ce qui s'écrit : $\underbrace{\begin{bNiceMatrix}[margin]
+		 -D_{RL} & -D_R \\
+		 0 & I
+		 \CodeAfter
+		 \SubMatrix[{1-1}{1-2}][extra-height=-.2cm]
+		 \SubMatrix[{2-1}{2-2}][extra-height=-.2cm]
+	\end{bNiceMatrix}}_N
+	\begin{bmatrix}
+		\Phi \\ \lambda\Phi
+	\end{bmatrix} = \lambda \underbrace{\begin{bNiceMatrix}[margin]
+		D_L & D_{LR} \\
+		I & 0
+		\CodeAfter
+		\SubMatrix[{1-1}{1-2}][extra-height=-.17cm]
+		\SubMatrix[{2-1}{2-2}][extra-height=-.17cm]
+	\end{bNiceMatrix}}_{L}\underbrace{\begin{bmatrix}
+	\Phi \\ \lambda\Phi
+	\end{bmatrix}}_{\Psi}$\\
 	
-	\includegraphics[scale=.5]{photo27.png}
-\end{rmq}
-	
-	
-	
+	L'EVP quadratique de dimension $M$ est désormais un EVP linéaire de dimension $2M$
+	\[
+	\left(N-\lambda L\right)\Psi = 0
+	\]
 	
 	
 	
@@ -1216,105 +1255,105 @@
 		
 		\vspace{-.5cm}
 		
-	\begin{minipage}[t]{18.5cm}
-	\begin{enumerate}
-		\item Identifier la période (cellule périodique minimale du système)
-		\item  Écrire les équations d'équilibre (opérateur $\m L U(x,t) = 0$) pour chaque degré de liberté
-		\item Invoquer la stationnarité ($U(x,t) \to u(x,\omega)$) puis le principe de Floquet-Bloch :
-		\[(u_{n+1},u_{n-1},\ldots, \to \left(\lambda,\frac{1}{\lambda}\right)u_n) \text{ où } u_n(t) = u_0 e^{i(nka-\omega t)}\]
-		\item Équation l'équation de dispersion (ou système $\to \det = 0$) liant $\omega$ et $\lambda$.
-		\item Résoudre $((i)$ $\omega(k),$ (ii) $k(\omega))$
-		\item Interpréter les solutions $\left(\left[\begin{minipage}{2.5cm}
-			\text{propagatives}\\\text{évanescentes}
-		\end{minipage}\right] et \left[\begin{minipage}{3cm}
-			\text{progressive + }$x$\\\text{régressive + }$x$
-		\end{minipage}\right]\right)$ et tracer.
-	\end{enumerate}
-	\end{minipage}
-	
-	
-	\includegraphics[scale=.5]{photo8.png}
-	
-	On produit des bandes interdites sous forme "additive".\\
-	Si $m_2\to 0$, on doit retrouver la chaîne mono-atomique.
+		\begin{minipage}[t]{18.5cm}
+			\begin{enumerate}
+				\item Identifier la période (cellule périodique minimale du système)
+				\item  Écrire les équations d'équilibre (opérateur $\m L U(x,t) = 0$) pour chaque degré de liberté
+				\item Invoquer la stationnarité ($U(x,t) \to u(x,\omega)$) puis le principe de Floquet-Bloch :
+				\[(u_{n+1},u_{n-1},\ldots, \to \left(\lambda,\frac{1}{\lambda}\right)u_n) \text{ où } u_n(t) = u_0 e^{i(nka-\omega t)}\]
+				\item Équation l'équation de dispersion (ou système $\to \det = 0$) liant $\omega$ et $\lambda$.
+				\item Résoudre $((i)$ $\omega(k),$ (ii) $k(\omega))$
+				\item Interpréter les solutions $\left(\left[\begin{minipage}{2.5cm}
+					\text{propagatives}\\\text{évanescentes}
+				\end{minipage}\right] et \left[\begin{minipage}{3cm}
+					\text{progressive + }$x$\\\text{régressive + }$x$
+				\end{minipage}\right]\right)$ et tracer.
+			\end{enumerate}
+		\end{minipage}
+		
+		
+		\includegraphics[scale=.5]{photo8.png}
+		
+		On produit des bandes interdites sous forme "additive".\\
+		Si $m_2\to 0$, on doit retrouver la chaîne mono-atomique.
 	\end{exo}
 	
 	\begin{sol}$ $
 		
 		\vspace{-.5cm}
 		
-	\begin{enumerate}
-		\item On identifie la période : \includegraphics[scale=.2]{photo9.png} 
-	
-		\item On écrit les équations d'équilibre :
-		\[\begin{aligned}
-			\text{(1) }&m_1\dfrac{d^2 U_n}{dt^2} &=& -\beta_1(U_n-U_{n+1})-\beta_1(U_n-U_{n-1}) - \beta_2(U_n-V_n)\\\\
-			\text{(1) }&m_1\dfrac{d^2 U_n}{dt^2} &= &\beta_1(U_{n+1}-2U_n+U_{n-1}) + \beta_2(V_n-U_n)\\\\
-			\text{(2) }& m_2\dfrac{d^2 V_n}{dt^2} &= &\beta_2(U_n-V_n)
-		\end{aligned}\]
+		\begin{enumerate}
+			\item On identifie la période : \includegraphics[scale=.2]{photo9.png} 
+			
+			\item On écrit les équations d'équilibre :
+			\[\begin{aligned}
+				\text{(1) }&m_1\dfrac{d^2 U_n}{dt^2} &=& -\beta_1(U_n-U_{n+1})-\beta_1(U_n-U_{n-1}) - \beta_2(U_n-V_n)\\\\
+				\text{(1) }&m_1\dfrac{d^2 U_n}{dt^2} &= &\beta_1(U_{n+1}-2U_n+U_{n-1}) + \beta_2(V_n-U_n)\\\\
+				\text{(2) }& m_2\dfrac{d^2 V_n}{dt^2} &= &\beta_2(U_n-V_n)
+			\end{aligned}\]
+			
+			\item On considère le régime stationnaire et le principe de Floquet-Bloch : $U_n = U_0\lambda^n e^{i\omega t}$ et $V_n = V_0 \lambda^n e^{i\omega t}$. Et on réécrit les 2 équations :
+			\[\begin{aligned}
+				\text{(1) } -m_1\omega^2 U_0 &= \beta_1(\lambda U_0 - 2U_0 + \frac{1}{\lambda}U_0)+\beta_2(V_0-U_0)\\
+				\text{(2) } -m_2 \omega^2 V_0 &= \beta_2(U_0-V_0)
+			\end{aligned} \]
+			
+			Puis, on divise $(i)$ par $m_i$ :
+			\[\begin{aligned}
+				-\omega^2 U_0 &= \frac{\beta_1}{m_1}(\lambda U_0 - 2U_0 + \frac{1}{\lambda}U_0)+\frac{\beta_2}{\beta_1}\frac{\beta_1}{m_1}(V_0-U_0)\\
+				-\omega^2 V_0 &= \beta_2/m_2(U_0-V_0)
+			\end{aligned} \]
+			
+			\begin{minipage}[t]{18cm}
+				On regroupe selon $U_0$ et $V_0$ et on utilise les notations suivantes : $\omega_1=\sqrt{\frac{\beta_1}{m_1}}$, $\omega_2 = \sqrt{\frac{\beta_2}{\beta_1m_2}}$ et $r = \frac{\beta_2}{\beta_1}$  :
+			\end{minipage}
+			\[ \begin{aligned}
+				(\omega^2 + \omega_1^2(\lambda+\frac{1}{\lambda}-2)-r\omega_1^2)U_0&+&r\omega_1^2 V_0&=0\\
+				\omega_2^2 U_0&+&(\omega^2-\omega_2^2)V_0 &=0
+			\end{aligned} \]
+			
+			
+			On pose : $A = \left[\begin{matrix}
+				\omega^2 + \omega_1^2(\lambda+\frac{1}{\lambda}-2-r) & r\omega_1^2\\
+				\omega_2^2 & \omega^2-\omega_2^2
+			\end{matrix}\right]$ et on a ainsi : $AX = 0$ où $X = \left[\begin{matrix}
+				U_0\\ V_0
+			\end{matrix}\right]$.
+			
+			Regardons le déterminant pour trouver une condition nécessaire et suffisante pour trouver des solutions non trivial :
+			\[\begin{aligned}
+				&\det A = 0\\
+				\iff&\left[\omega^2 + \omega_1^2(\lambda+\frac{1}{\lambda}-2-r)\right]\times (\omega^2-\omega_2^2) - r\omega_1^2\omega_2^2 =0\\
+				\iff & \omega^4 + \omega^2 \left[\omega_1^2(\lambda+\frac{1}{\lambda}-2-r)-\omega_2^2\right]-w_1^2w_2^2\left[r+\lambda+\frac{1}{\lambda}-2-r\right] = 0\\
+				\iff&\omega^4 + \omega^2 \left[\omega_1^2(\lambda+\frac{1}{\lambda}-2-r)-\omega_2^2\right]-w_1^2w_2^2\left[\lambda+\frac{1}{\lambda}-2\right] = 0\\
+				\iff&\omega^4 + \omega^2 \left[\omega_1^2\left(2\left[cos(ka)-1\right]-r\right)-\omega_2^2\right]-2w_1^2w_2^2\left(\cos(ka)-1\right) = 0
+			\end{aligned}\]
+			
+			Puis on regarde le discriminant :
+			\[\begin{aligned}
+				\Delta &=\left[\omega_1^2\left(2\left[cos(ka)-1\right]-r\right)-\omega_2^2\right]^2+8w_1^2w_2^2\left(\cos(ka)-1\right)\\
+				&=\left[2\omega_1^2\left[cos(ka)-1\right]-\omega_2^2-\omega_1^2 r\right]^2+8w_1^2w_2^2\left(\cos(ka)-1\right)\\
+				&=\left[2\omega_1^2\left[cos(ka)-1\right]-\omega_2^2\right]^2+\omega_1^4 r^2+8w_1^2w_2^2\left(\cos(ka)-1\right)\\
+				&=\cdots\\
+				\Delta&>0
+			\end{aligned}\]
+		\end{enumerate}
 		
-		\item On considère le régime stationnaire et le principe de Floquet-Bloch : $U_n = U_0\lambda^n e^{i\omega t}$ et $V_n = V_0 \lambda^n e^{i\omega t}$. Et on réécrit les 2 équations :
-		\[\begin{aligned}
-			\text{(1) } -m_1\omega^2 U_0 &= \beta_1(\lambda U_0 - 2U_0 + \frac{1}{\lambda}U_0)+\beta_2(V_0-U_0)\\
-			\text{(2) } -m_2 \omega^2 V_0 &= \beta_2(U_0-V_0)
-		\end{aligned} \]
+		\newpage
 		
-		Puis, on divise $(i)$ par $m_i$ :
-		\[\begin{aligned}
-			-\omega^2 U_0 &= \frac{\beta_1}{m_1}(\lambda U_0 - 2U_0 + \frac{1}{\lambda}U_0)+\frac{\beta_2}{\beta_1}\frac{\beta_1}{m_1}(V_0-U_0)\\
-			-\omega^2 V_0 &= \beta_2/m_2(U_0-V_0)
-		\end{aligned} \]
+		\textbf{\underline{Tracé des solutions :}} Il y a 2 cas : $\begin{cases}
+			\omega_2 <2\omega_1\\
+			\omega_2 = 2 \omega_1\\
+			\omega_2 > 2\omega_1
+		\end{cases}$ :
 		
-		\begin{minipage}[t]{18cm}
-			On regroupe selon $U_0$ et $V_0$ et on utilise les notations suivantes : $\omega_1=\sqrt{\frac{\beta_1}{m_1}}$, $\omega_2 = \sqrt{\frac{\beta_2}{\beta_1m_2}}$ et $r = \frac{\beta_2}{\beta_1}$  :
-		\end{minipage}
-		\[ \begin{aligned}
-			(\omega^2 + \omega_1^2(\lambda+\frac{1}{\lambda}-2)-r\omega_1^2)U_0&+&r\omega_1^2 V_0&=0\\
-			\omega_2^2 U_0&+&(\omega^2-\omega_2^2)V_0 &=0
-		\end{aligned} \]
-
+		\includegraphics[scale=.5]{photo10.png}
 		
-		On pose : $A = \left[\begin{matrix}
-			\omega^2 + \omega_1^2(\lambda+\frac{1}{\lambda}-2-r) & r\omega_1^2\\
-			\omega_2^2 & \omega^2-\omega_2^2
-		\end{matrix}\right]$ et on a ainsi : $AX = 0$ où $X = \left[\begin{matrix}
-		U_0\\ V_0
-		\end{matrix}\right]$.
+		Pour calculer le $k$ complexe dans la bande interdite, on doit résoudre $k(\omega)$. L'équation de dispersion peut se réécrire en notant : $\Omega_1^2 = \frac{\omega^2}{\omega_1^2}$ et $\Omega_2^2 = \frac{\omega^2}{\omega_2^2}$ :
 		
-		Regardons le déterminant pour trouver une condition nécessaire et suffisante pour trouver des solutions non trivial :
-		\[\begin{aligned}
-			&\det A = 0\\
-			\iff&\left[\omega^2 + \omega_1^2(\lambda+\frac{1}{\lambda}-2-r)\right]\times (\omega^2-\omega_2^2) - r\omega_1^2\omega_2^2 =0\\
-			\iff & \omega^4 + \omega^2 \left[\omega_1^2(\lambda+\frac{1}{\lambda}-2-r)-\omega_2^2\right]-w_1^2w_2^2\left[r+\lambda+\frac{1}{\lambda}-2-r\right] = 0\\
-			\iff&\omega^4 + \omega^2 \left[\omega_1^2(\lambda+\frac{1}{\lambda}-2-r)-\omega_2^2\right]-w_1^2w_2^2\left[\lambda+\frac{1}{\lambda}-2\right] = 0\\
-			\iff&\omega^4 + \omega^2 \left[\omega_1^2\left(2\left[cos(ka)-1\right]-r\right)-\omega_2^2\right]-2w_1^2w_2^2\left(\cos(ka)-1\right) = 0
-		\end{aligned}\]
+		\[\implies  \lambda^2 + \left[\Omega_1^2+r\dfrac{\Omega_2^2}{1-\Omega_2^2}-2\right]+1 = 0\]
 		
-		Puis on regarde le discriminant :
-		\[\begin{aligned}
-			\Delta &=\left[\omega_1^2\left(2\left[cos(ka)-1\right]-r\right)-\omega_2^2\right]^2+8w_1^2w_2^2\left(\cos(ka)-1\right)\\
-			&=\left[2\omega_1^2\left[cos(ka)-1\right]-\omega_2^2-\omega_1^2 r\right]^2+8w_1^2w_2^2\left(\cos(ka)-1\right)\\
-			&=\left[2\omega_1^2\left[cos(ka)-1\right]-\omega_2^2\right]^2+\omega_1^4 r^2+8w_1^2w_2^2\left(\cos(ka)-1\right)\\
-			&=\cdots\\
-			\Delta&>0
-		\end{aligned}\]
-	\end{enumerate}
-	
-	\newpage
-	
-	\textbf{\underline{Tracé des solutions :}} Il y a 2 cas : $\begin{cases}
-		\omega_2 <2\omega_1\\
-		\omega_2 = 2 \omega_1\\
-		\omega_2 > 2\omega_1
-	\end{cases}$ :
-	
-	\includegraphics[scale=.5]{photo10.png}
-	
-	Pour calculer le $k$ complexe dans la bande interdite, on doit résoudre $k(\omega)$. L'équation de dispersion peut se réécrire en notant : $\Omega_1^2 = \frac{\omega^2}{\omega_1^2}$ et $\Omega_2^2 = \frac{\omega^2}{\omega_2^2}$ :
-	
-	\[\implies  \lambda^2 + \left[\Omega_1^2+r\dfrac{\Omega_2^2}{1-\Omega_2^2}-2\right]+1 = 0\]
-	
-	\[k(\omega) = \frac{i}{a}\log\left[1-\frac{\Omega_1^2}{2}-\frac{r}{2}\frac{\Omega_2}{1-\Omega_2^2} \pm \sqrt{\left(\Omega_1^2+\frac{r\Omega_2^2}{1-\Omega_2^2}\right)\left(\Omega_1^2+\frac{r\Omega_2^2}{1-\Omega_2^2}-4\right)}\right]\]
+		\[k(\omega) = \frac{i}{a}\log\left[1-\frac{\Omega_1^2}{2}-\frac{r}{2}\frac{\Omega_2}{1-\Omega_2^2} \pm \sqrt{\left(\Omega_1^2+\frac{r\Omega_2^2}{1-\Omega_2^2}\right)\left(\Omega_1^2+\frac{r\Omega_2^2}{1-\Omega_2^2}-4\right)}\right]\]
 	\end{sol}
 	
 	\begin{exo}[Formulation matricielle]
@@ -1370,9 +1409,9 @@
 			
 			\item \begin{minipage}[t]{18.5cm}
 				Floquet-Bloch donne $\begin{cases}
-				U_{n+1} = \lambda U_n \\
-				U_{n-1} = \frac{1}{\lambda} U_n
-			\end{cases}$ et $-KU_{n-1} + (2K-\omega^2n)U_n-KU_{n+1} = 0$
+					U_{n+1} = \lambda U_n \\
+					U_{n-1} = \frac{1}{\lambda} U_n
+				\end{cases}$ et $-KU_{n-1} + (2K-\omega^2n)U_n-KU_{n+1} = 0$
 			\end{minipage}
 			
 			On en déduit l'équation de dispersion des ondes : 
@@ -1386,16 +1425,16 @@
 			
 			\begin{minipage}[t]{15cm}
 				La forme $D_{RL}U_{n-1}+(D_L+D_R)U_n+D_{LR}U_{n+1} = 0$ est générale (elle s'applique à toute cellule périodique décrite par une raideur dynamique $\mathbb{D} = \left[\begin{matrix}
-				D_L & D_{LR} \\
-				D_{RL} & D_R
-			\end{matrix}\right]$)
+					D_L & D_{LR} \\
+					D_{RL} & D_R
+				\end{matrix}\right]$)
 			\end{minipage}
 			
 			\enc{red}{La relation de dispersion est alors :
-			
-			\[
-			\left(\frac{1}{\lambda} D_{RL} + (D_L+D_R)+D_{LR}\lambda\right)\overset{\textbf{..}}{U_n} = 0_{p,1} \text{ (1)}
-			\]
+				
+				\[
+				\left(\frac{1}{\lambda} D_{RL} + (D_L+D_R)+D_{LR}\lambda\right)\overset{\textbf{..}}{U_n} = 0_{p,1} \text{ (1)}
+				\]
 			}
 			
 			\textbf{Note :} \begin{minipage}[t]{15cm}
@@ -1411,7 +1450,7 @@
 	\newpage
 	
 	\begin{ex}[Suite de l'exercice précédent] $ $\\
-		Écrire (1) sous la forme $\omega(k)$ c'est-à-dire : $(A-\omega^2B)\emptyset = 0$.
+		Écrire (1) sous la forme $\omega(k)$ c'est-à-dire : $(A-\omega^2B)\Phi = 0$.
 	\end{ex}
 	\begin{sol}
 		\[\begin{aligned}
@@ -1442,74 +1481,74 @@
 		\begin{minipage}{6cm}
 			\includegraphics[scale=.5]{photo19.png}
 		\end{minipage}\begin{minipage}{15cm}
-		\begin{enumerate}
-			\item Ecrire le système d'EDP en $U_n$ et $V_n$.
-			\item En déduire l'équation de dispersion.
-			\item Choisir une cellule périodique et écrire $\mathbb{K}_e$, $\mathbb{M}_e$ pour $\mathbb{D}$.
-			\item Retrouver directement d'équation de dispersion (matricielle).
-		\end{enumerate}
+			\begin{enumerate}
+				\item Ecrire le système d'EDP en $U_n$ et $V_n$.
+				\item En déduire l'équation de dispersion.
+				\item Choisir une cellule périodique et écrire $\mathbb{K}_e$, $\mathbb{M}_e$ pour $\mathbb{D}$.
+				\item Retrouver directement d'équation de dispersion (matricielle).
+			\end{enumerate}
 		\end{minipage}
 	\end{exo}
 	\begin{sol}
 		$ $\\
 		\begin{enumerate}
 			\item $\begin{cases}
-			m\dfrac{\partial^2 U_n}{\partial t^2} = -K(U_n-U_{n-1}) - K(U_n-U_{n-1}) - \beta(U_n-V_n)\\\\
-			m\dfrac{\partial^2 V_n}{\partial t^2} = -K(V_n-V_{n-1}) - K(V_n-V_{n+1}) - \beta (V_n-U_n)
+				m\dfrac{\partial^2 U_n}{\partial t^2} = -K(U_n-U_{n-1}) - K(U_n-U_{n-1}) - \beta(U_n-V_n)\\\\
+				m\dfrac{\partial^2 V_n}{\partial t^2} = -K(V_n-V_{n-1}) - K(V_n-V_{n+1}) - \beta (V_n-U_n)
 			\end{cases}$
 			
 			\item \begin{minipage}[t]{18.5cm}
 				$\begin{cases}
-				U_n(t) = U_0e^{\i (nka-\omega t)}\\
-				V_n(t) = V_0e^{\i(nka-\omega t)}
-			\end{cases}$, où $a$ est la période.\\
-			$\begin{cases}
-				U_{n+1} = \lambda U_n \\
-				U_{n-1} = \frac{1}{\lambda} U_n
-			\end{cases}$ et $\begin{cases}
-			V_{n+1} = \lambda V_n\\
-			V_{n-1} = \frac{1}{\lambda} V_n
-			\end{cases}$.\\
-			On l'injecte dans l'équation : $\begin{cases}
-				m\omega^2 U_n = K(U_n-\lambda U_n)+K(U_n-\frac{1}{\lambda}U_n) + \beta(U_n-V_n)\\
-				m\omega^2V_n = K(V_n-\lambda V_n) + K(V_n-\frac{1}{\lambda}V_n) + \beta(U_n-V_n)\\
-				m\omega^2V_n = K(V_n-\lambda V_n) + K(V_n-\frac{1}{\lambda}V_n)+\beta(V_n-U_n)
-			\end{cases}$\\
-			On pose $\omega_1 = \frac{K}{M}$ et $\omega_2 = \frac{\beta}{m}$, on a : $\begin{cases}
-				(\omega^2-\omega_1(2-\lambda-\frac{1}{\lambda}) -\omega_2)U_n + \omega_2 V_n = 0\\
-				(\omega^2-\omega_1(2-\lambda-\frac1\lambda))V_n-\omega_2U_n = 0
-			\end{cases}$\\
-			
-			\[\fbox{$\left[\begin{matrix}
-				\omega^2-\omega_1(2-\lambda-\frac{1}{\lambda})-\omega_2 & \omega_2\\
-				\omega_2 & \omega^2-\omega_1(2-\lambda-\frac1\lambda) - \omega_2
-			\end{matrix}\right]\left[\begin{matrix}
-			U_n \\ V_n
-			\end{matrix}\right] = \left[\begin{matrix}
-			0 \\ 0
-			\end{matrix}\right]$}\]
-			
-			\[\begin{aligned}
-				\det(A) &= \left(\omega^2-\omega_1(2-\lambda-\frac{1}{\lambda})^2-\omega_2^2\right)^2 - \omega_2^2\\
-				&= (\omega^2-\omega_1(2-\lambda-\frac1\lambda))(\omega^2-\omega_1(2-\lambda-\frac1\lambda)-2\omega_2)
-			\end{aligned}\]
+					U_n(t) = U_0e^{\i (nka-\omega t)}\\
+					V_n(t) = V_0e^{\i(nka-\omega t)}
+				\end{cases}$, où $a$ est la période.\\
+				$\begin{cases}
+					U_{n+1} = \lambda U_n \\
+					U_{n-1} = \frac{1}{\lambda} U_n
+				\end{cases}$ et $\begin{cases}
+					V_{n+1} = \lambda V_n\\
+					V_{n-1} = \frac{1}{\lambda} V_n
+				\end{cases}$.\\
+				On l'injecte dans l'équation : $\begin{cases}
+					m\omega^2 U_n = K(U_n-\lambda U_n)+K(U_n-\frac{1}{\lambda}U_n) + \beta(U_n-V_n)\\
+					m\omega^2V_n = K(V_n-\lambda V_n) + K(V_n-\frac{1}{\lambda}V_n) + \beta(U_n-V_n)\\
+					m\omega^2V_n = K(V_n-\lambda V_n) + K(V_n-\frac{1}{\lambda}V_n)+\beta(V_n-U_n)
+				\end{cases}$\\
+				On pose $\omega_1 = \frac{K}{M}$ et $\omega_2 = \frac{\beta}{m}$, on a : $\begin{cases}
+					(\omega^2-\omega_1(2-\lambda-\frac{1}{\lambda}) -\omega_2)U_n + \omega_2 V_n = 0\\
+					(\omega^2-\omega_1(2-\lambda-\frac1\lambda))V_n-\omega_2U_n = 0
+				\end{cases}$\\
+				
+				\[\fbox{$\left[\begin{matrix}
+						\omega^2-\omega_1(2-\lambda-\frac{1}{\lambda})-\omega_2 & \omega_2\\
+						\omega_2 & \omega^2-\omega_1(2-\lambda-\frac1\lambda) - \omega_2
+					\end{matrix}\right]\left[\begin{matrix}
+						U_n \\ V_n
+					\end{matrix}\right] = \left[\begin{matrix}
+						0 \\ 0
+					\end{matrix}\right]$}\]
+				
+				\[\begin{aligned}
+					\det(A) &= \left(\omega^2-\omega_1(2-\lambda-\frac{1}{\lambda})^2-\omega_2^2\right)^2 - \omega_2^2\\
+					&= (\omega^2-\omega_1(2-\lambda-\frac1\lambda))(\omega^2-\omega_1(2-\lambda-\frac1\lambda)-2\omega_2)
+				\end{aligned}\]
 			\end{minipage}
 			
 			\item \begin{minipage}[t]{18.5cm}
 				\begin{minipage}{5cm}
 					\includegraphics[scale=1]{photo20.png}
 				\end{minipage}\begin{minipage}{15cm}
-				$\mathbb{M}=\left[\begin{matrix}
-					m & 0 & 0 & 0\\
-					0 & m & 0 & 0 \\
-					0 & 0 & 0 & 0 \\
-					0 & 0 & 0 & 0
- 				\end{matrix}\right]$ et $\mathbb{K} = \left[\begin{matrix}
- 				K+\beta & -\beta & -K & 0 \\
- 				-\beta & k+\beta & 0 & -k \\
- 				-k & 0 & k & 0 \\
- 				0 & -k & 0 & k
- 				\end{matrix}\right]$
+					$\mathbb{M}=\left[\begin{matrix}
+						m & 0 & 0 & 0\\
+						0 & m & 0 & 0 \\
+						0 & 0 & 0 & 0 \\
+						0 & 0 & 0 & 0
+					\end{matrix}\right]$ et $\mathbb{K} = \left[\begin{matrix}
+						K+\beta & -\beta & -K & 0 \\
+						-\beta & k+\beta & 0 & -k \\
+						-k & 0 & k & 0 \\
+						0 & -k & 0 & k
+					\end{matrix}\right]$
 				\end{minipage}
 				
 				\underline{Rappel :} $\mathbb{M}\overset{\textbf{..}}{U}+\mathbb{K}U = 0 \implies \mathbb{D}U = 0$\\
@@ -1530,11 +1569,11 @@
 					-K & 0 \\
 					0 & -K
 				\end{matrix}\right]+\left[\begin{matrix}
-				(K+\beta)-\omega^2 m + K & -\beta\\
-				-\beta & (K+\beta)-\omega^2m+K
+					(K+\beta)-\omega^2 m + K & -\beta\\
+					-\beta & (K+\beta)-\omega^2m+K
 				\end{matrix}\right] + \lambda\left[\begin{matrix}
-				-K & 0\\
-				0 & -K
+					-K & 0\\
+					0 & -K
 				\end{matrix}\right]\right)\vec U_L = \vec{0}
 				\]
 				
@@ -1543,10 +1582,10 @@
 					(K+\beta)-\omega^2m+K-(\frac1\lambda+\lambda)K & - \beta \\
 					-\beta & (K+\beta)-\omega^2m + K-(\frac1\lambda + \lambda)K
 				\end{matrix}\right]\left[\begin{matrix}
-				U_L \\
-				V_L
+					U_L \\
+					V_L
 				\end{matrix}\right] = \left[\begin{matrix}
-				0 \\ 0
+					0 \\ 0
 				\end{matrix}\right]
 				\]
 			\end{minipage}	
@@ -1558,20 +1597,20 @@
 		\end{minipage}
 		\begin{minipage}{10cm}
 			\[
-		\left[\begin{matrix}
-			D_L & D_{Li} & 0 \\
-			D_{iL} & D_i & D_{iR} \\
-			0 & D_{Ri} & D_R
-		\end{matrix}\right]\left[\begin{matrix}
-		U_L\\
-		U_i\\
-		U_R
-		\end{matrix}\right] = \left[\begin{matrix}
-		f_L \\ 0 \\ f_R
-		\end{matrix}\right]
-		\]
+			\left[\begin{matrix}
+				D_L & D_{Li} & 0 \\
+				D_{iL} & D_i & D_{iR} \\
+				0 & D_{Ri} & D_R
+			\end{matrix}\right]\left[\begin{matrix}
+				U_L\\
+				U_i\\
+				U_R
+			\end{matrix}\right] = \left[\begin{matrix}
+				f_L \\ 0 \\ f_R
+			\end{matrix}\right]
+			\]
 		\end{minipage}\begin{minipage}{5cm}
-		\includegraphics[scale=.5]{photo23.png}
+			\includegraphics[scale=.5]{photo23.png}
 		\end{minipage}
 		
 		Montrer que ce système peut s'écrire sous forme condensée :
@@ -1580,10 +1619,10 @@
 			\overset\sim D_L & \overset\sim D_{LR} \\
 			\overset\sim D_{RL} & \overset\sim D_R
 		\end{matrix}\right]\left[\begin{matrix}
-		U_L \\ U_R
+			U_L \\ U_R
 		\end{matrix}\right] = \left[\begin{matrix}
-		f_L \\
-		f_R
+			f_L \\
+			f_R
 		\end{matrix}\right]$, où on explicitera les $\overset\sim D_{ij}$, $i,j \in \{L,R\}$.
 	\end{ex}
 	\begin{sol}
@@ -1603,10 +1642,10 @@
 			\overbrace{D_L-D_{Li}D_i^{-1}D_{iL}}^{\overset\sim D_L} & \overbrace{-D_{Li}D_i^{-1}D_{iR}}^{\overset\sim D_{LR}} \\
 			\underbrace{-D_{Ri}D_i^{-1}D_{iL}}_{\overset\sim D_{RL}} & \underbrace{-D_{Ri}D_i^{-1}D_{iL} + D_R}_{\overset\sim D_R}
 		\end{matrix}\right] \left[\begin{matrix}
-		U_L \\
-		U_R
+			U_L \\
+			U_R
 		\end{matrix}\right] = \left[\begin{matrix}
-		f_L \\ f_R
+			f_L \\ f_R
 		\end{matrix}\right]
 		\]
 		
@@ -1618,17 +1657,17 @@
 			D_{iL} & D_i & D_{iR} \\
 			0 & D_{Ri} & D_R
 		\end{matrix}\right]\left[\begin{matrix}
-		U_L \\ U_i \\ U_R
+			U_L \\ U_i \\ U_R
 		\end{matrix}\right] = \left[\begin{matrix}
-		f_L \\ 0 \\ f_R
+			f_L \\ 0 \\ f_R
 		\end{matrix}\right] \iff \left[\begin{matrix}
-		D_L & 0 & D_{Li} \\
-		0 & D_R & D_{Ri} \\
-		D_{iL} & D_{iR} & D_i
+			D_L & 0 & D_{Li} \\
+			0 & D_R & D_{Ri} \\
+			D_{iL} & D_{iR} & D_i
 		\end{matrix}\right]\left[\begin{matrix}
-		U_L \\ U_R \\ U_i
+			U_L \\ U_R \\ U_i
 		\end{matrix}\right] = \left[\begin{matrix}
-		f_L \\ f_R \\ 0
+			f_L \\ f_R \\ 0
 		\end{matrix}\right]
 		\]
 		
@@ -1637,9 +1676,9 @@
 			D_b & D_{bi} \\
 			D_{ib} D_i
 		\end{matrix}\right]\left[\begin{matrix}
-		U_b \\ U_i
+			U_b \\ U_i
 		\end{matrix}\right] = \left[\begin{matrix}
-		f_b \\ 0
+			f_b \\ 0
 		\end{matrix}\right]$\\
 		On applique ensuite la condensation dynamique, i.e. :\\
 		$ \overset\sim D_b = D_b - D_{bi}D_i^{-1}D_{ib}$ et $\overset\sim f_b = f_b-D_{bi}D_i^{-1}\overset{=0}{f_i} = f_b$
@@ -1667,8 +1706,8 @@
 				D_L & 0 \\
 				0 & D_R
 			\end{matrix}\right] - \left[\begin{matrix}
-			D_{Li} D_i^{-1}D_{iL} & D_{Li} D_i^{-1}D_{iR} \\
-			D_{Ri}D_i^{-1}D_{iL} & D_{Ri}D_i^{-1}D_{iR}
+				D_{Li} D_i^{-1}D_{iL} & D_{Li} D_i^{-1}D_{iR} \\
+				D_{Ri}D_i^{-1}D_{iL} & D_{Ri}D_i^{-1}D_{iR}
 			\end{matrix}\right]
 		\end{aligned}
 		$\\
@@ -1700,68 +1739,68 @@
 		$ $\\
 		\begin{enumerate}
 			\item\begin{minipage}{5cm}
-					\includegraphics[scale=.5]{photo25.png}
-				\end{minipage}\begin{minipage}{15cm}
-					$\mathbb M = \left[\begin{matrix}
-						\frac{m_1}2 \\
-						& m_2\\
-						& & \frac{m_1}2
-					\end{matrix}\right]$ et $\mathbb K = \left[\begin{matrix}
+				\includegraphics[scale=.5]{photo25.png}
+			\end{minipage}\begin{minipage}{15cm}
+				$\mathbb M = \left[\begin{matrix}
+					\frac{m_1}2 \\
+					& m_2\\
+					& & \frac{m_1}2
+				\end{matrix}\right]$ et $\mathbb K = \left[\begin{matrix}
 					k_1+k_2 & -K_2 &-K_1 \\
 					-k_2 & k_2 & 0 \\
 					-k_1 & 0 & k_1
-					\end{matrix}\right]$
-				\end{minipage}
-				
-				$\mathbb M \overset\to{\vec U} + \mathbb K \vec U = \vec 0$ devient, en régime stationnaire, $-\omega^2\mathbb M \vec U + \mathbb K \vec U = \vec 0$ donc $(-\omega^2\mathbb M + \mathbb K)\vec U = \vec 0$.
-				
-				\[
-				\mathbb D = \left[\begin{matrix}
-					-\omega^2\frac{m_1}2 + k_1+k_2 & -k_2 & -k_1 \\
-					-k_2 & -\omega^2m_2+k_2 & 0 \\
-					-k_1 & 0 & -\omega^2 \frac{m_1}2+k_1
-				\end{matrix}\right]
-				\]
-				
-				\vspace{2cm}
+				\end{matrix}\right]$
+			\end{minipage}
+			
+			$\mathbb M \overset\to{\vec U} + \mathbb K \vec U = \vec 0$ devient, en régime stationnaire, $-\omega^2\mathbb M \vec U + \mathbb K \vec U = \vec 0$ donc $(-\omega^2\mathbb M + \mathbb K)\vec U = \vec 0$.
+			
+			\[
+			\mathbb D = \left[\begin{matrix}
+				-\omega^2\frac{m_1}2 + k_1+k_2 & -k_2 & -k_1 \\
+				-k_2 & -\omega^2m_2+k_2 & 0 \\
+				-k_1 & 0 & -\omega^2 \frac{m_1}2+k_1
+			\end{matrix}\right]
+			\]
+			
+			\vspace{2cm}
 			
 			\item $\mathbb D \left[\begin{matrix}
 				U_L \\ U_i \\ U_R
 			\end{matrix}\right] \iff \left[\begin{matrix}
-			k_1 + k_2 - \omega^2\frac{m_1}2 & -k_1 & \rouge{-k_2} \\
-			-k_1 & k_1-\omega^2\frac{m_1}2 & \rouge0 \\
-			\vert{-k_2} & \vert0 & \bleu{k_2-\omega^2m_2}
+				k_1 + k_2 - \omega^2\frac{m_1}2 & -k_1 & \rouge{-k_2} \\
+				-k_1 & k_1-\omega^2\frac{m_1}2 & \rouge0 \\
+				\Vert{-k_2} & \Vert0 & \bleu{k_2-\omega^2m_2}
 			\end{matrix}\right]\left[\begin{matrix}
-			U_L \\ U_R \\U_i
+				U_L \\ U_R \\U_i
 			\end{matrix}\right]$\\
 			
 			$\left[\begin{matrix}
 				D_b & \rouge{D_{bi}}\\
-				\vert{D_{iL}} & \bleu{D_i}
+				\Vert{D_{iL}} & \bleu{D_i}
 			\end{matrix}\right]\left[\begin{matrix}
-			U_b \\ U_i
+				U_b \\ U_i
 			\end{matrix}\right] \implies \overset\sim D_b = D_b - D_{bi}D_i^{-1} D_{ib}$\\
 			
 			\begin{minipage}[t]{18.5cm}
 				$\overset\sim D_b = \left[\begin{matrix}
-				k_1+k_2-\omega^2\frac{m_1}2 & -k_1 \\
-				-k_1 & k_1 - \omega^2\frac{m_1}2
-			\end{matrix}\right]-\left[\begin{matrix}
-			-k_2 \\ 0
-			\end{matrix}\right]\dfrac{1}{k_2-\omega^2m_ 2}\left[\begin{matrix}
-			-k_2 & 0
-			\end{matrix}\right]$
+					k_1+k_2-\omega^2\frac{m_1}2 & -k_1 \\
+					-k_1 & k_1 - \omega^2\frac{m_1}2
+				\end{matrix}\right]-\left[\begin{matrix}
+					-k_2 \\ 0
+				\end{matrix}\right]\dfrac{1}{k_2-\omega^2m_ 2}\left[\begin{matrix}
+					-k_2 & 0
+				\end{matrix}\right]$
 			\end{minipage}
 			
 			\[
 			\overset\sim D = \left[\begin{matrix}
 				k_1+k_2-\omega^2\frac{m_1}2-\dfrac{k_2^2}{k_2-\omega^2m_2} & \bleu{k_1}\\
-				\vert{-k_1} & \rouge{k_1-\omega^2 \frac{m_1}2}
+				\Vert{-k_1} & \rouge{k_1-\omega^2 \frac{m_1}2}
 			\end{matrix}\right]
 			\]
 			
 			\begin{minipage}[t]{16cm}
-				L'équation de dispersion (en $k(\omega)$ uniquement car nous avons effectué une condensation dynamique) est alors : $\left(\vert{D_{RL}}\frac1\lambda + (D_L+\rouge{D_R})+\bleu{D_{LR}}\lambda\right)\emptyset = 0$
+				L'équation de dispersion (en $k(\omega)$ uniquement car nous avons effectué une condensation dynamique) est alors : $\left(\Vert{D_{RL}}\frac1\lambda + (D_L+\rouge{D_R})+\bleu{D_{LR}}\lambda\right)\Phi = 0$
 			\end{minipage}
 			
 			\[
@@ -1779,142 +1818,142 @@
 		\begin{minipage}{12cm}
 			\includegraphics[scale=.5]{photo28.png}
 		\end{minipage}\begin{minipage}{5cm}
-		Toutes les interactions sont des raideurs linéaires 1D notées $\beta$.
+			Toutes les interactions sont des raideurs linéaires 1D notées $\beta$.
 		\end{minipage}\\\\
 		
 		$\to$\begin{minipage}[t]{17cm}
-			Démontrer que les deux modélisations (ie. \vert{UC1} et \rouge{UC2}) aboutissent à la même équation de dispersion.
+			Démontrer que les deux modélisations (ie. \Vert{UC1} et \rouge{UC2}) aboutissent à la même équation de dispersion.
 		\end{minipage}
 	\end{exo}
 	\begin{sol}$ $\\
 		\underline{Notation :} \begin{minipage}[t]{15cm}
 			$\alpha_i = 2\beta-\omega^2m_i$.\\
-		$u_{n,i} = U_ie^{\i(kna-\omega t)}$ 
+			$u_{n,i} = U_ie^{i(kna-\omega t)}$ 
 		\end{minipage}\\
 		
 		$F_i = \beta\left(U_{n-1}+U_{n+1}-2U_n\right)$
-
+		
 		$(2\beta-\omega^2 m_i) U_i =  \beta\displaystyle\sum_{j\not=i} f_{i,j}(k)U_j = 0$
 		
 		\newpage
 		
 		\begin{minipage}{18.5cm}
 			
-		\[
-		\mathbb{M}_1 =
-		\begin{bNiceArray}{cc|cc}[first-row,last-col,margin]
-			1 & 2 & 3 & 4 & \\
-			m_0/2 & 0 & 0 & 0 & 1 \\
-			0 & m_1 & 0 & 0 & 2 \\
-			\hline
-			0 & 0 & m_2 & 0 & 3 \\
-			0 & 0 & 0 & m_0/2 & 4
-		\end{bNiceArray}\hspace{1cm} \mathbb K_1 =\begin{bNiceArray}{cc:cc}[margin]
-		2\beta & \beta & -\beta & 0 \\
-		-\beta & 2\beta & 0 & -\beta \\
-		\hdashline 
-		-\beta & 0 & 2\beta & -\beta \\
-		0 & -\beta & -\beta & 2\beta		
-		\end{bNiceArray}
-		\]
-		
-		\vspace{.5cm}
-		
-		\[
-		\mathbb M_2 = \begin{bNiceMatrix}[first-row,last-col]
-			1 & 2 & 3 & 4 & 5 & \\
-			m_1/2 & & & \Block{3-2}<\large>{(0)} & & 1\\
-			& m_1/2 & & & & 2 \\
-			\Block{2-3}<\large>{(0)} 
-			& & m_0 & & & 3 \\
-			& & & m_1/2 & & 4 \\
-			& & & & m_2/2 & 5
-		\end{bNiceMatrix} \hspace{1cm} \mathbb K_2 = \begin{bNiceMatrix}[margin,last-col]
-			\beta & 0 & \Block[draw=red]{2-1}{\begin{matrix}
-					-\beta \\ -\beta
-			\end{matrix}} & \Block{2-2}{(0)} & & 1 \\
-			0 & \beta & & & & 2\\
-			\Block[draw=red]{1-2}{} -\beta & -\beta & \Block[draw=red]{3-3}{} 4\beta & \Block[draw=black]{1-2}{} +\beta & -\beta & 3 \\
-		 	\Block{2-2}{(0)} & & \Block[draw=black]{2-1}{} -\beta & -\beta & 0 & 4 \\
-			& & -\beta & 0 & \beta & 5
-		\end{bNiceMatrix}
-		\]
-		
-		\vspace{.5cm}
-		
-		\[\begin{aligned}
-			L = \begin{bmatrix}
-				\beta & 0 \\
-				0 & \beta
-			\end{bmatrix} & \hspace{1cm} & R = \begin{bmatrix}
-			-\beta & 0 \\
-			0 & \beta
-			\end{bmatrix} & \hspace{1cm} & Li = \begin{bmatrix}
-			-\beta \\ - \beta
-			\end{bmatrix} \\\\
-			iL = \begin{bmatrix}
-				-\beta & - \beta
-			\end{bmatrix} & \hspace{1.5cm} & Di = \begin{bmatrix}
-			4\beta
-			\end{bmatrix} & \hspace{1.5cm} & LR = \begin{bmatrix}
-			0 & 0 \\
-			0 & 0
-			\end{bmatrix} \\\\
-			RL = \begin{bmatrix}
-				0 & 0 \\
-				0 & 0
-			\end{bmatrix} & \hspace{1.5cm} & iR = \begin{bmatrix}
-			-\beta & - \beta
-			\end{bmatrix} & \hspace{1.5cm} & Ri = \begin{bmatrix}
-			-\beta \\ - \beta
-			\end{bmatrix} \\\\
-			DR = \begin{bmatrix}
-				-\beta & 0 \\ 0 & \beta
-			\end{bmatrix}
-		\end{aligned}\]
-		
-		\vspace{.5cm}
-		
-		$t_\lambda(M) = \begin{bmatrix}
-			M_{RL}\frac1\lambda M_L+M_R+M_{LR}\lambda & M_{Ri}\frac1\lambda + M_{Li} \\
-			M_{iL}+M_{iR}\lambda & M_i
-		\end{bmatrix}$ et $\mathbb M = \begin{bNiceMatrix}[margin=1em]
-		m_0 & & 0 & 0 \\\\
-		0 & & m_1 & 0 \\
-		0 & & 0 & m_2
-		\CodeAfter
-			\SubMatrix[{1-1}{1-1}]
-			\SubMatrix[{1-3}{1-4}]
-			\SubMatrix[{3-1}{4-1}]
-			\SubMatrix[{3-3}{4-4}]
-		\end{bNiceMatrix}$\\
-		$t_\lambda(K) = \begin{bNiceMatrix}[margin=1em]
-			4 & & (1+\lambda) & -1 & -1 \\\\
-			\Block{2-1}{(1+\lambda)} & -1 &  &2 & 0 \\
-			& -1 & & 0 & 2
-			\CodeAfter
+			\[
+			\mathbb{M}_1 =
+			\begin{bNiceArray}{cc|cc}[first-row,last-col,margin]
+				1 & 2 & 3 & 4 & \\
+				m_0/2 & 0 & 0 & 0 & 1 \\
+				0 & m_1 & 0 & 0 & 2 \\
+				\hline
+				0 & 0 & m_2 & 0 & 3 \\
+				0 & 0 & 0 & m_0/2 & 4
+			\end{bNiceArray}\hspace{1cm} \mathbb K_1 =\begin{bNiceArray}{cc:cc}[margin]
+				2\beta & \beta & -\beta & 0 \\
+				-\beta & 2\beta & 0 & -\beta \\
+				\hdashline 
+				-\beta & 0 & 2\beta & -\beta \\
+				0 & -\beta & -\beta & 2\beta		
+			\end{bNiceArray}
+			\]
+			
+			\vspace{.5cm}
+			
+			\[
+			\mathbb M_2 = \begin{bNiceMatrix}[first-row,last-col]
+				1 & 2 & 3 & 4 & 5 & \\
+				m_1/2 & & & \Block{3-2}<\large>{(0)} & & 1\\
+				& m_1/2 & & & & 2 \\
+				\Block{2-3}<\large>{(0)} 
+				& & m_0 & & & 3 \\
+				& & & m_1/2 & & 4 \\
+				& & & & m_2/2 & 5
+			\end{bNiceMatrix} \hspace{1cm} \mathbb K_2 = \begin{bNiceMatrix}[margin,last-col]
+				\beta & 0 & \Block[draw=red]{2-1}{\begin{matrix}
+						-\beta \\ -\beta
+				\end{matrix}} & \Block{2-2}{(0)} & & 1 \\
+				0 & \beta & & & & 2\\
+				\Block[draw=red]{1-2}{} -\beta & -\beta & \Block[draw=red]{3-3}{} 4\beta & \Block[draw=black]{1-2}{} +\beta & -\beta & 3 \\
+				\Block{2-2}{(0)} & & \Block[draw=black]{2-1}{} -\beta & -\beta & 0 & 4 \\
+				& & -\beta & 0 & \beta & 5
+			\end{bNiceMatrix}
+			\]
+			
+			\vspace{.5cm}
+			
+			\[\begin{aligned}
+				L = \begin{bmatrix}
+					\beta & 0 \\
+					0 & \beta
+				\end{bmatrix} & \hspace{1cm} & R = \begin{bmatrix}
+					-\beta & 0 \\
+					0 & \beta
+				\end{bmatrix} & \hspace{1cm} & Li = \begin{bmatrix}
+					-\beta \\ - \beta
+				\end{bmatrix} \\\\
+				iL = \begin{bmatrix}
+					-\beta & - \beta
+				\end{bmatrix} & \hspace{1.5cm} & Di = \begin{bmatrix}
+					4\beta
+				\end{bmatrix} & \hspace{1.5cm} & LR = \begin{bmatrix}
+					0 & 0 \\
+					0 & 0
+				\end{bmatrix} \\\\
+				RL = \begin{bmatrix}
+					0 & 0 \\
+					0 & 0
+				\end{bmatrix} & \hspace{1.5cm} & iR = \begin{bmatrix}
+					-\beta & - \beta
+				\end{bmatrix} & \hspace{1.5cm} & Ri = \begin{bmatrix}
+					-\beta \\ - \beta
+				\end{bmatrix} \\\\
+				DR = \begin{bmatrix}
+					-\beta & 0 \\ 0 & \beta
+				\end{bmatrix}
+			\end{aligned}\]
+			
+			\vspace{.5cm}
+			
+			$t_\lambda(M) = \begin{bmatrix}
+				M_{RL}\frac1\lambda M_L+M_R+M_{LR}\lambda & M_{Ri}\frac1\lambda + M_{Li} \\
+				M_{iL}+M_{iR}\lambda & M_i
+			\end{bmatrix}$ et $\mathbb M = \begin{bNiceMatrix}[margin=1em]
+				m_0 & & 0 & 0 \\\\
+				0 & & m_1 & 0 \\
+				0 & & 0 & m_2
+				\CodeAfter
+				\SubMatrix[{1-1}{1-1}]
+				\SubMatrix[{1-3}{1-4}]
+				\SubMatrix[{3-1}{4-1}]
+				\SubMatrix[{3-3}{4-4}]
+			\end{bNiceMatrix}$\\
+			$t_\lambda(K) = \begin{bNiceMatrix}[margin=1em]
+				4 & & (1+\lambda) & -1 & -1 \\\\
+				\Block{2-1}{(1+\lambda)} & -1 &  &2 & 0 \\
+				& -1 & & 0 & 2
+				\CodeAfter
 				\SubMatrix[{1-4}{1-5}]
 				\SubMatrix[{3-4}{4-5}]
 				\SubMatrix[{3-2}{4-2}]
-		\end{bNiceMatrix}$\\
-		
-		L'équation de dispersion "augmenté" ($\omega(k)$) :
-		
-		\[
-		\left(\beta \begin{bmatrix}
-			4 & -(1+\lambda) & -(1+\lambda) \\
-			-(1+\lambda) & 2 & 0 \\
-			-(1+\lambda) & 0 & 2
-		\end{bmatrix} - \omega^2 \begin{bmatrix}
-		m_0 \\
-		& m_1 \\
-		& & m_2
-		\end{bmatrix}\right)\begin{bmatrix}
-		U_1 \\ U_2 \\ U_3
-		\end{bmatrix} = \begin{bmatrix}
-		0 \\ 0 \\ 0
-		\end{bmatrix}
-		\]
+			\end{bNiceMatrix}$\\
+			
+			L'équation de dispersion "augmenté" ($\omega(k)$) :
+			
+			\[
+			\left(\beta \begin{bmatrix}
+				4 & -(1+\lambda) & -(1+\lambda) \\
+				-(1+\lambda) & 2 & 0 \\
+				-(1+\lambda) & 0 & 2
+			\end{bmatrix} - \omega^2 \begin{bmatrix}
+				m_0 \\
+				& m_1 \\
+				& & m_2
+			\end{bmatrix}\right)\begin{bmatrix}
+				U_1 \\ U_2 \\ U_3
+			\end{bmatrix} = \begin{bmatrix}
+				0 \\ 0 \\ 0
+			\end{bmatrix}
+			\]
 		\end{minipage}		
 	\end{sol}
 	

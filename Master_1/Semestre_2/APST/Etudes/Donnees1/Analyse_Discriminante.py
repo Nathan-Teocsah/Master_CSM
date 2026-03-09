@@ -236,7 +236,7 @@ Erreur_apprentissage_total_lda = []
 Erreur_croisée_lda = []
 
 Min = 1
-Max = 20
+Max = 40
 for taille in range(Min,Max+1):
   print("============================================")
   print("Nombre de composantes principales : ",taille)
@@ -302,19 +302,22 @@ for taille in range(Min,Max+1):
   print(3*"     "+"Taux d'erreur de validation croisée: ",round(errl,3),"%\n\n")
   Erreur_croisée_qda.append(errl)
 
+
 fig, axs = plt.subplots(1, 2)
 fig.suptitle('ACP puis Quadratique')
+fig.set_figheight(7)
+fig.set_figwidth(15)
 
 axs[0].plot(Erreur_apprentissage_total_qda,label="Erreur d'apprentissage")
 axs[0].plot(Erreur_croisée_qda,label="Erreur de validation croisée")
-axs[0].set_xticks(list(range(Min,Max+1)))
+axs[0].set_xticks(list(np.arange(Min,Max+1,2)))
 axs[0].set_xlabel("Nombre de composantes principales")
 axs[0].set_ylabel("Taux d'erreur (%)")
 axs[0].legend()
 
 axs[1].plot(Erreur_apprentissage_total_qda[3:],label="Erreur d'apprentissage")
 axs[1].plot(Erreur_croisée_qda[3:],label="Erreur de validation croisée")
-axs[1].set_xticks(list(range(Max-Min-2)),list(range(Min+3,Max+1)))
+axs[1].set_xticks(list(np.arange(0,Max-Min-2,2)),list(np.arange(Min+3,Max+1,2)))
 axs[1].set_xlabel("Nombre de composantes principales")
 axs[1].set_ylabel("Taux d'erreur (%)")
 axs[1].legend()
@@ -322,17 +325,19 @@ axs[1].legend()
 
 fig1, axs = plt.subplots(1, 2)
 fig1.suptitle('ACP puis Linéaire')
+fig1.set_figheight(7)
+fig1.set_figwidth(15)
 
 axs[0].plot(Erreur_apprentissage_total_lda,label="Erreur d'apprentissage")
 axs[0].plot(Erreur_croisée_lda,label="Erreur de validation croisée")
-axs[0].set_xticks(list(range(Min,Max+1)))
+axs[0].set_xticks(list(np.arange(Min,Max+1,2)))
 axs[0].set_xlabel("Nombre de composantes principales")
 axs[0].set_ylabel("Taux d'erreur (%)")
 axs[0].legend()
 
 axs[1].plot(Erreur_apprentissage_total_lda[3:],label="Erreur d'apprentissage")
 axs[1].plot(Erreur_croisée_lda[3:],label="Erreur de validation croisée")
-axs[1].set_xticks(list(range(Max-Min-2)),list(range(Min+3,Max+1)))
+axs[1].set_xticks(list(np.arange(0,Max-Min-2,2)),list(np.arange(Min+3,Max+1,2)))
 axs[1].set_xlabel("Nombre de composantes principales")
 axs[1].set_ylabel("Taux d'erreur (%)")
 axs[1].legend()

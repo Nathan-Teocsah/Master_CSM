@@ -105,8 +105,8 @@
 	
 	\section{Le jeu de données}
 	
-	Le jeu de donné contient 801 patients et 20 532 gênes (les variables).\\
-	Dans tous les scripts fournis l'ensemble du jeux de donné a été exploité.
+	Le jeu de données contient 801 patients et 20 532 gènes (les variables).\\
+	Dans tous les scripts fournis l'ensemble du jeux de données a été exploité.
 	
 	\section{Organisation des différents scripts python}
 	
@@ -123,7 +123,7 @@
 	\end{enumerate}
 	\end{minipage}	
 		
-	\begin{tcolorbox}[title=\textbf{Objectif}]
+	\begin{tcolorbox}[title=\textbf{Objectifs}]
 		\begin{enumerate}
 			\item Être capable de prédire qu'il y a bien 5 types de cancers dans ce jeux de donnée 
 			\item Réussir à prédire correctement le cancer de chacun des patients.
@@ -132,7 +132,7 @@
 	
 	\section{ACP.py}
 	
-	Nous avons effectués une Analyse en composantes principales sur l'ensemble des données, n'ayant bien sûr moins de 20 532 patients, le nombre de composantes principales non nuls est inférieur ou égale à 801. Pour connaître le nombre de variable à prendre en compte pour ne pas ou perdre le moins possible d'informations, nous traçons le graphique des inerties cumulées :
+	Nous avons effectués une Analyse en composantes principales sur l'ensemble des données, ayant bien sûr moins de 20 532 patients, le nombre de composantes principales non nuls est inférieur ou égale à 801. Pour connaître le nombre de variables à prendre en compte pour ne pas ou perdre le moins possible d'informations, nous traçons le graphique des inerties cumulées :
 	
 	\begin{center}
 		\includegraphics[scale=.7]{"ACP/inertie.png"}
@@ -144,12 +144,12 @@
 	
 	\hspace{-1.2cm}\includegraphics[scale=.67]{"ACP/C1_C2.png"}\includegraphics[scale=.67]{"ACP/C2_C3.png"}
 	
-	Bien que l'on soit capable de réduire considérablement le nombre de variable, mais dû au fait le nombre de patients est bien moindre que le nombre de variables il semble pertinent de garder l'ensemble des variables dans un premier temps, au vu du temps de calcul nécessaire.
+	Bien que l'on soit capable de réduire considérablement le nombre de variables, mais le fait le nombre de patients est bien moindre que le nombre de variables il semble pertinent de garder l'ensemble des variables dans un premier temps, au vu du temps de calcul nécessaire.
 	
 	
 	\section{K-means}
 	
-	Aucune ACP n'a été effectué au préalable, nous avons choisi autant de classes que de cancer listés dans le jeu de donnés (5). Le nombre de fois que l'algorithme de Kmeans a été choisi à 50, et parmi ces 50 familles de centroides, la famille avec la meilleur inertie est choisie.\\
+	Aucune ACP n'a été effectuée au préalable, nous avons choisi autant de classes que de cancer listés dans le jeux de donnés (5). Le nombre de fois que l'algorithme de Kmeans a été exécuté a été choisi à 50, et parmi ces 50 familles de centroides, la famille avec la meilleur inertie est choisie.\\
 	Le taux de mal classé est assez faible malgré cela :  0.749 $\%$.
 	
 	\hspace{2cm}\includegraphics[scale=.7]{Kmeans/confusion_5classes.png}\hspace{3cm}\includegraphics[scale=.4]{Kmeans/repartition_5classes.png}
@@ -173,7 +173,7 @@
 	
 	\vspace{-.5cm}
 	
-	Regardons le graphique de la différence de variance interclasse lors de la fusion de 2 classes (sur l'axes des ordonnées, il a été volontairement idiqué chacune des valeurs pour visualiser les sauts) :
+	Regardons le graphique de la différence de variance interclasse lors de la fusion de 2 classes (sur l'axes des ordonnées, il a été volontairement indiqué chacune des valeurs pour visualiser les sauts) :
 	
 	\hspace{3.5cm}\includegraphics[scale=.6]{CAH/delta.png}
 	
@@ -197,15 +197,36 @@
 	
 	\section{Analyse discriminante}
 	
-	Il a été fait le chois d'effectuer une analyse discriminante linéaire et quadratique sur l'ensemble des données et d'effectuer une validation croisée (entraînement sur les 2/3 des données et test sur 1/3 des données, le choix est fait aléatoirement, et ce choix est refait 10 fois puis moyenné).
+	Il a été choisi d'effectuer une analyse discriminante linéaire et quadratique sur l'ensemble des données.\\
+	Pour l'analyse discriminante \textbf{linéaire} et \textbf{quadratique}, l'erreur est très faible : pour la \textbf{quadratique} il n'y a pas d'erreur (mais un message d'erreur comme quoi, évidement, les données sont corrélés), et pour la linéaireil y a \textbf{1} unique erreur. \\
 	
+	Il a été effectué, après coup, une validation croisée (entraînement sur les 2/3 des données et test sur 1/3 des données, le choix est fait aléatoirement, et ce choix est refait 10 fois puis moyenné). Et à ce test les 2 algorithmes sont bien moins performant (phénomène de sur-apprentissage à priori) :
+	\begin{center}
+		\textbf{\underline{linéaire :}} 26.18 $\%$ \hspace{2cm} \textbf{\underline{quadratique :}} 69.963 $\%$
+	\end{center}
+	
+	C'est pour cette raison que le choix a été fait de faire une ACP puis d'effectuer une analyse discriminante sur les 40 première composantes principales. Les résultats sont bien plus probant (à partir de 9 composantes principales, l'erreur d'apprentissage retombe à 0 pour l'analyse discriminante quadratique).
+	
+	\includegraphics[scale=.5]{AD/ACP_lineaire.png}
+	
+	\includegraphics[scale=.5]{AD/ACP_quadratique.png}
+	
+	On constate qu'il ne suffit que d'une dizaine de composantes principales pour obtenir des prédictions qui semblent être de bonne qualités.
+	
+	\includegraphics[scale=.38]{AD/planfactoriel.png}
+	
+	scikit-learn permet de facilement tracer les plans factoriels qui permettent de discriminer \textbf{visuellement} les 5 groupes bien plus rapidement qu'avec une simple ACP.
 	
 	\section{Conclusion}
 	
 	\begin{enumerate}
-		\item \textbf{BRCA :} le phénomène constaté semble pertinent à être considéré, en effet en faisant une rapide recherche nous constatons que le cancer BRCA se scinde en 2 types de cancer. Cette éventuelle interprétation, n'est appuyé que par une simple et courte recherche sur internet, l'appui d'un ou d'une expert aurait été intéressante.
+		\item \textbf{BRCA :} le phénomène constaté semble pertinent à être considéré, en effet en faisant une rapide recherche nous constatons que le cancer BRCA se scinde en 2 types de cancer. Cette éventuelle interprétation, n'est appuyé que par une simple et courte recherche sur internet, l'appui d'un ou d'une experte aurait été plus que pertinente.
 		
-		\item Une chose curieuse que je n'ai pu expliquer est que la matrice de variance interclasse (est à priori non inversible) mais cela ne provoque pas d'erreur sur l'analyse discriminante linéaire (contrairement à l'analyse discriminante quadratique) pour l'algorithme fourni par la bibliothèque scikit-learn.
+		\item Une chose curieuse que je n'ai pu expliquer est que la matrice de variance intraclasse est à priori non inversible, mais cela ne provoque pas d'erreur sur l'analyse discriminante linéaire (contrairement à l'analyse discriminante quadratique) pour l'algorithme fourni par la bibliothèque scikit-learn.
+		
+		\item L'interprétation des résultats s'avère compliqué sachant que je n'ai presque aucunes connaissances médicales, l'ajustement des paramètres est donc très probablement grandement discutable.
+		
+		\item Il aurait pu être intéressant de croiser la CAH ou les K-means pour créer cette $6^{ième}$ catégorie de cancer puis d'appliquer une analyse discriminantes pour voir s'il était possible d'expliquer ces résultats à l'aide des variables.
 	\end{enumerate}
 	
 	
