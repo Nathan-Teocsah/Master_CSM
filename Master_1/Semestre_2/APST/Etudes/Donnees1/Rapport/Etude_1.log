@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  9 MAR 2026 12:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  9 MAR 2026 14:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1119,8 +1119,35 @@ File: CAH/confusion1500.png Graphic file (type png)
 <use CAH/confusion1500.png>
 Package pdftex.def Info: CAH/confusion1500.png  used on input line 194.
 (pdftex.def)             Requested size: 173.44823pt x 144.54018pt.
- [4 <./CAH/arbre900.png> <./CAH/confusion789.png> <./CAH/arbre1500.png> <./CAH/
-confusion1500.png>] (./Etude_1.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--202
+
+ []
+
+<AD/ACP_lineaire.png, id=85, 1084.05pt x 469.755pt>
+File: AD/ACP_lineaire.png Graphic file (type png)
+<use AD/ACP_lineaire.png>
+Package pdftex.def Info: AD/ACP_lineaire.png  used on input line 210.
+(pdftex.def)             Requested size: 542.02368pt x 234.87692pt.
+[4 <./CAH/arbre900.png> <./CAH/confusion789.png> <./CAH/arbre1500.png> <./CAH/c
+onfusion1500.png>]
+<AD/ACP_quadratique.png, id=94, 1084.05pt x 469.755pt>
+File: AD/ACP_quadratique.png Graphic file (type png)
+<use AD/ACP_quadratique.png>
+Package pdftex.def Info: AD/ACP_quadratique.png  used on input line 212.
+(pdftex.def)             Requested size: 542.02368pt x 234.87692pt.
+<AD/planfactoriel.png, id=95, 1387.584pt x 699.5736pt>
+File: AD/planfactoriel.png Graphic file (type png)
+<use AD/planfactoriel.png>
+Package pdftex.def Info: AD/planfactoriel.png  used on input line 216.
+(pdftex.def)             Requested size: 527.2874pt x 265.84073pt.
+ [5 <./AD/ACP_lineaire.png> <./AD/ACP_quadratique.png> <./AD/planfactoriel.png>
+]
+
+LaTeX Warning: Command \` invalid in math mode on input line 229.
+
+[6{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+(./Etude_1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
@@ -1129,21 +1156,23 @@ Package rerunfilecheck Info: File `Etude_1.out' has not changed.
 (rerunfilecheck)             Checksum: 900FBE2C4BA5AD01BB2266E3B72729EA;1045.
  ) 
 Here is how much of TeX's memory you used:
- 36736 strings out of 467538
- 862839 string characters out of 5419551
+ 36762 strings out of 467538
+ 863447 string characters out of 5419551
  1366037 words of memory out of 5000000
- 65087 multiletter control sequences out of 15000+600000
+ 65108 multiletter control sequences out of 15000+600000
  672609 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,7n,108p,754b,611s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
 cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/tex
-mf-dist/fonts/type1/public/lm/lmr17.pfb>
-Output written on Etude_1.pdf (5 pages, 450851 bytes).
+ve/2025/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fon
+ts/type1/public/lm/lmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pu
+blic/lm/lmr8.pfb>
+Output written on Etude_1.pdf (7 pages, 685589 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
- 144 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 153 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
+ 21 named destinations out of 1000 (max. 500000)
+ 159 words of extra memory for PDF output out of 10000 (max. 10000000)
 
