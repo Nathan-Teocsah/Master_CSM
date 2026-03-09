@@ -8,39 +8,19 @@ Created on Mon Mar 12 08:28:18 2018
 
 import numpy as np
 from sklearn.cluster import  KMeans
-from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix,ConfusionMatrixDisplay
 
 # Chargement des données ======================================================
-digits=np.loadtxt("data.csv",delimiter=',',skiprows=1,usecols=range(1,20532))
-labels=np.loadtxt("labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=1)
-#from sklearn.preprocessing import StandardScaler
-#digits=StandardScaler().fit_transform(digits)
-#
-# ACP ICI
-#
-# Clustering avec la fonction KMeans du module scikit learn
-# Le nombre de classes est choisi par défaut comme égal au nombre d'étiquettes
+path="/home/maenwe/Master_CSM/Master_1/Semestre_2/APST/Etudes/Donnees1/"
+digits=np.loadtxt(path+"data.csv",delimiter=',',skiprows=1,usecols=range(1,20532))
+labels=np.loadtxt(path+"labels.csv",delimiter=',',skiprows=1,dtype='str',usecols=1)
 
-nclus=len(np.unique(labels)) # Pourquoi +2 ? Il est définit juste avant. Peut-être pour voir ce qu'il se passe si on en met trop
-k_means = KMeans(init='k-means++', n_clusters=nclus, n_init=10)
-"""
-'k-means++' = méthode pour choisir les centroïdes initiaux des cluster
-'n_cluster' = nombre de cluster
-n_init = Number of times the k-means algorithm is run with different centroid seeds
-          The final results is the best output in terms of inertia
-"""
-# Calcul les cluster/centroide associées 
-# et même de prédire à quelle classe appartient un nouvel élément
-# APRES ça : 
-# - k_means.labels_ : donne les labels des différentes classes
-# - k_means.predict(...) : prédit la classe la plus proche de cet élément
-# - k_means.cluster_centers_ : donne les coordonnées des centroides
-# - k_means.n_clusters : nombre de clusters
+nclus=3*len(np.unique(labels))
+k_means = KMeans(init='k-means++', n_clusters=nclus, n_init=50)
+
 k_means.fit(digits) 
-cl = k_means.labels_ # label des classes
-print('Premières classes:    ',cl[range(20)])
-print('Premières étiquettes: ',labels[range(20)])
+cl = k_means.labels_ 
 
 # Calcul de l'étiquette majoritaire de chaque classe et du taux d'erreur
 # On fabrique le tableau maj_lab qui a un nurmero de classe (p.ex. predit)
@@ -50,28 +30,38 @@ for k in range(k_means.n_clusters):
   counts=np.unique(labels[cl==k],return_counts=True) # Nb d'occurences de chaque label
   imax=np.argmax(counts[1]) # Recherche du majoritaire dans k
   maj_lab = np.append(maj_lab, counts[0][imax]) # Son étiquette ya majoritaire dans k
+
+maj_lab1=np.array([maj_lab[0]]) # Initialisation de tableau pour les étiquettes majoritaires avec un suffixe pour les doublons
+lab=np.unique(maj_lab)
+count_lab = np.zeros(len(lab), dtype=int)
+
+for k in range(1,len(maj_lab)):
+  if maj_lab[k] in maj_lab1:
+    i_0 = np.where(lab == maj_lab[k])[0][0]
+    count_lab[i_0] += 1
+    maj_lab1=np.append(maj_lab1,maj_lab[k]+"_"+str(count_lab[i_0]))
+  else:
+    maj_lab1=np.append(maj_lab1,maj_lab[k])
+    count_lab = np.append(count_lab, 1)
+
 print('\n')
 print("Classe".ljust(23,'.')+" ",end='')
 print(*range(k_means.n_clusters),end='')
 print("\n"+"Etiquette majoritaire".ljust(23,'.')+" ",end='')
-print(*(maj_lab))
-err=sum(labels!=maj_lab[cl])/len(cl)
-print("Taux de mal classés:",err.round(3))
-# Matrice de confusion
-# Rq: La matrice fournie par confusion_matrix est carrée:
-#    On retire les lignes de zeros de conf_mat, dues au fait qu'il peut y avoir plus de classes que d'etiquettes
-#    Et de meme avec les colonnes s'il y a moins de classes
-conf_mat =  confusion_matrix(labels,maj_lab[cl])
-from sklearn.metrics import confusion_matrix,ConfusionMatrixDisplay
+print(*(maj_lab1))
+err=100*sum(labels!=maj_lab[cl])/len(cl)
+print("Taux de mal classés:",err.round(3),"%")
+
+pred_labels = maj_lab1[cl]
+labels_cm = np.unique(np.concatenate((labels, pred_labels)))
+conf_mat = confusion_matrix(labels, pred_labels, labels=labels_cm)
 plt.rcParams.update({'figure.figsize': (3,3),'font.size': 10})
-ConfusionMatrixDisplay(conf_mat).plot(cmap='YlOrBr')
+ConfusionMatrixDisplay(conf_mat, display_labels=labels_cm).plot(cmap='YlOrBr')
 im = plt.gca().images[-1].colorbar.remove()
 plt.rcdefaults()
+plt.title('{} classes'.format(k_means.n_clusters))
 
-# Représentation en barplot
 def BarPlotMat(M):
-# Fait un barplot pour chaque colonne de M.
-# La couleur correspond à l'indice, la hauteur à la valeur
   I=M.shape[0]
   J=M.shape[1]
   ind = np.arange(J)
@@ -81,14 +71,11 @@ def BarPlotMat(M):
     haut += M[i,:]
 
 fig=plt.figure(3)
-conf_mat =  confusion_matrix(labels,maj_lab[cl],labels=np.unique(labels))
-conf_mat=conf_mat[np.sum(conf_mat,axis=1)>0,:]
-conf_mat=conf_mat[:,np.sum(conf_mat,axis=0)>0]
 BarPlotMat(conf_mat)
 plt.xlabel('Classe')
 plt.ylabel('Répartition des étiquettes')
 plt.title('Répartition dans chaque classe')
-#plt.legend(['0','1','2','3','4',])
-print("Matrice associée (conf_mat[etiq, classe]):\n")
-print(conf_mat)
+plt.xticks(np.arange(len(labels_cm)), labels_cm)
+plt.title('Répartition dans chaque classe')
+plt.legend(labels_cm)
 plt.show()

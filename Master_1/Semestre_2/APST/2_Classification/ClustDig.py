@@ -12,7 +12,7 @@ from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 
 # Chargement des données ======================================================
-dirdat=""
+dirdat="/home/maenwe/Master_CSM/Master_1/Semestre_2/APST/2_Classification/"
 digits=np.loadtxt(dirdat+"digits_extrait_images.csv", delimiter=',',skiprows=1,usecols=range(1,28*28+1))
 labels=np.loadtxt(dirdat+"digits_extrait_labels.csv", delimiter=',',skiprows=1,usecols=1)
 labels=labels.astype(int)
