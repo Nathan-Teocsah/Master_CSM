@@ -28,7 +28,8 @@ indiv=[]
 varbs=None
 
 # Lecture des donnees de poterie
-pot=np.loadtxt("Poteries.csv",skiprows=1,usecols=range(0,10)) # Stocke sous forme de matrice le fichier .csv, saute la première ligne (skiprow) car c'est là où est stocké le noms des variables
+path = "/home/maenwe/Master_CSM/Master_1/Semestre_2/APST/1_ACP/"
+pot=np.loadtxt(path + "Poteries.csv",skiprows=1,usecols=range(0,10)) # Stocke sous forme de matrice le fichier .csv, saute la première ligne (skiprow) car c'est là où est stocké le noms des variables
   # Les données sont pas défauts de type float
 
 indiv=np.array([str(int(a)) for a in pot[:,0]]) # Récupère les numéros d'échantillons (convertit en string pour l'affichage)
@@ -37,7 +38,10 @@ labels=np.array([str(a)[0] for a in labels]) # On convertit les numéros de four
 X=pot[:,np.arange(0,9)] # Récupère toutes les expériences que l'on a faite avec chacun des 9 paramètres
 
 # Récupère les noms des 9 paramètres (stocké sur la première ligne : d'où le [0,:], dans les 9 colonnes : usecols=range(0,9))
-varbs=np.loadtxt("Poteries.csv",dtype='str',usecols=range(0,9))[0,:] 
+varbs=np.loadtxt(path + "Poteries.csv",dtype='str',usecols=range(0,9))[0,:] 
+
+
+
 
 def stdise(X):
   """Routine de standardisation : On standardise les unités des variables
@@ -47,7 +51,7 @@ def stdise(X):
        X=np.arange(12).reshape((4,3))
        print(StandardScaler().fit_transform(X))
   """
-  Xs=X.astype(float) # Pour etre sur que Xs est en float, utilité ? Car np.loadtxt renvoie déjà un float
+  Xs=X.astype(float) # Pour etre sur que Xs est en float, utilité ? Car np.loadtxt renvoie déjà un float 
     # Pas utile
 
   mk=np.mean(Xs,axis=0) # axis = 0 : moyenne de chaque colonne
@@ -67,8 +71,11 @@ def stdise(X):
 # Apres standardisation les colonnes sont de norme "nb de ligne" et non 1,
 # on corrige cela, pour avoir de meilleures echelles.
 Xs=stdise(X)
+print("X shape : ",Xs.shape)
 
 (U,D,VT) = np.linalg.svd(Xs,full_matrices=False)
+print("D shape : ",np.shape(D))
+
 V=VT.T # Transposée de VT
 # Premieres composantes principales : on prend les première car les vp sont, par défaut, rangés par ordre décroissant
 C1 = D[0]*U[:,0]

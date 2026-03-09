@@ -6,9 +6,10 @@ from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
 from sklearn.cluster import  KMeans
 
 #### Importation des donnees, noms de fromage et noms de variable
-fromages=np.loadtxt("fromages.dat",skiprows=1,usecols=range(1,10))
-nomfrom=np.loadtxt("fromages.dat",dtype='str',usecols=0)[1:]
-nomvar=np.loadtxt("fromages.dat",dtype='str',max_rows=1,usecols=range(1,10))
+path="/home/maenwe/Master_CSM/Master_1/Semestre_2/APST/2_Classification/"
+fromages=np.loadtxt(path+"fromages.dat",skiprows=1,usecols=range(1,10))
+nomfrom=np.loadtxt(path+"fromages.dat",dtype='str',usecols=0)[1:]
+nomvar=np.loadtxt(path+"fromages.dat",dtype='str',max_rows=1,usecols=range(1,10))
 print(nomfrom)
 print(nomvar)
 
@@ -35,7 +36,6 @@ for k in range(1,np.max(groupes)+1):
     print(*nomfrom[np.where(groupes==k)])
 
 #### Décroissance des variances intraclasse
-print("====> Décroissance des variance interclasse")
 VI=np.cumsum(M[:,2]**2)/2
 plt.figure()
 plt.plot(np.arange(len(VI))+1,np.flip(VI,axis=0))
