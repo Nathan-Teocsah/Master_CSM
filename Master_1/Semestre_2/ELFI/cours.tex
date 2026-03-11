@@ -1185,7 +1185,7 @@
 			
 			$\begin{aligned}
 				\forall v& \in H^1(\Omega) \text{ et } v=0 \text{ sur }\Gamma_D : \\
-				& \displaystyle\int_\Omega \sum_{\alpha,\beta=1}^2 \cdots + \int_\Omega a_{00} \cdots + \int_{\Gamma_N} b_N \cdots = \int_\Omega f \cdots + \int_{\Gamma_N} g_N\cdots
+				& \displaystyle\int_\Omega \sum_{\alpha,\beta=1}^2 \cdots + \int_\Omega a_{00} \cdots + \int_{\Gamma_N} b_N \cdots = \int_\Omega f \cdots + \int_{\Gamma_N} g_N\cdots \hspace{.2cm} \text{: (FV)}
 			\end{aligned}$
 			
 			\underline{Discrétisation :}\\
@@ -1213,25 +1213,58 @@
 				
 				\vspace{.5cm}
 				
-				$\displaystyle\int_\Omega \sum_{\alpha,\beta=1}^2 \cdots + \int_\Omega a_{00} \cdots + \int_{\Gamma_N} b_N \cdots = \int_\Omega f \cdots + \int_{\Gamma_N} g_N\cdots$
+				$\to$ \begin{minipage}[t]{15cm}
+					Pour que la relation (FV) soit vraie $\forall v \in V_h$, il faut et il suffit qu'elle soit vraie pour toute fonction d'une base de $V_h$, car (FV) est linéaire en $v$.\\
+					On écrit alors (FV) pour $v=w_I$ pour tout $I$ tel que : $m_I\not\in \Gamma_D$
+				\end{minipage}\\
+				
+				$\to$ \begin{minipage}[t]{18cm}
+					On injecte cete expression de $u$ et choix de $v$ dans $(FV)$.\\
+					$\hookrightarrow$ $I^{ième}$ équation du système linéaire.
+				\end{minipage}
+				
+				$\underbrace{\displaystyle\int_\Omega \sum_{\alpha,\beta=1}^2 \rouge{a_{\alpha\beta}\dfrac{\partial w_I}{\partial x_\alpha}\dfrac{\partial w_I}{\partial x_\beta}} + \int_\Omega a_{00} \rouge{w_Jw_I} + \int_{\Gamma_N} b_N \rouge{w_J w_I}}_{\rouge{A_{IJ}}} = \underbrace{\int_\Omega f \rouge{w_I} + \int_{\Gamma_N} g_N\rouge{w_I}}_{\rouge{F_I}}$ : $(FV)$
 			\end{minipage}
 			
 			\newpage
 			
-			\hspace*{1cm}\begin{minipage}[t]{18.5cm}
-				\begin{minipage}[t]{5cm}
+			\begin{minipage}[t]{18.5cm}
+				\begin{minipage}[t]{5.5cm}
 				Intégrandes de la F.V. :\\
 				$\displaystyle\int_\Omega \sum_{\alpha,\beta=1}^2 a_{\alpha\beta}(x) \dfrac{\partial u}{\partial x_\alpha}\dfrac{\partial v}{\partial x_\beta}(x)\mathrm dx$ \\
 				$\displaystyle \int_\Omega a_{00}(x) u(x)v(x) \mathrm dx $\\
 				$\displaystyle\int_{\Gamma_N} b_N(\gamma)u(\gamma)v(\gamma)\mathrm d\gamma$\\
 				$\displaystyle\int_\Omega f_\Omega(x) v(x) \mathrm dx$ \\
 				$\displaystyle\int_{\Gamma_N} g_N(\gamma)v(\gamma)\mathrm d\gamma$
+			\end{minipage}\begin{minipage}[t]{6cm}
+			Intégrandes de la FV discrète :\\
+			$\displaystyle\int_\Omega\sum_{\alpha,\beta=1}^2 a_{\alpha\beta}(x)\dfrac{\partial w_J}{\partial x_\beta}(x)\dfrac{\partial w_I}{\partial x_\beta}(x) \mathrm dx$\\
+			$\displaystyle\int_\Omega a_{00}(x) w_J(x)w_I(x) \mathrm dx$\\
+			$\displaystyle\int_{\Gamma_N}b_N(\gamma)w_J(\gamma)w_I(\gamma)\mathrm d\gamma$\\
+			$\displaystyle\int_\Omega f_\Omega(x) w_I(x) \mathrm dx$\\
+			$\displaystyle \int_{\Gamma_N} g_N(\gamma)w_I(\gamma)\mathrm d\gamma$
+			\end{minipage}\begin{minipage}[t]{6cm}
+			Objets élémentaires associés :\\
+			$\displaystyle\int_K\sum_{\alpha,\beta=1}^2 a_{\alpha\beta}(x) \dfrac{\partial w_J^K}{\partial x_\alpha}(x)\dfrac{\partial w_I^K}{\partial x_\beta}(x)$\\
+			$\displaystyle\int_K a_{00}(x)w_J^K(x) w_I^K(x) \mathrm dx$\\
+			$\displaystyle\int_{K'} b_N(\gamma) w_J^K(\gamma)w_I^K(\gamma)\mathrm d\gamma$\\
+			$\displaystyle\int_K f_\Omega(x) w_I^K(x)\mathrm dx$\\
+			$\displaystyle\int_{K'} g_N(\gamma)w_I^K(\gamma)\mathrm d\gamma$
 			\end{minipage}
 			\end{minipage}			
 		\end{enumerate}
 		
-		FINIR DE COPIER !!!!!
+		Avec $K \in \mathcal{T}_h$, $K'$ arête de $K \in \mathcal{T}_h$ tel que $K' \subset \Gamma_N$.\\
+		$i,j \in [\![1,N^K]\!]$, avec $N^K$ = nombre de nœuds de $K$.
 	\end{sol}
+	
+	\begin{exo}[de la feuille "formule et exos - calculs élémentaire]
+		\begin{minipage}[t]{18cm}
+			On s'intéresse à : $\displaystyle\int_K \nabla\lambda_i^K\nabla\lambda_j^K$ et $\begin{aligned}[t]\displaystyle\int_K \lambda_i^K\lambda_j^K &= \int_K (\lambda_i^K)^2 && \text{si } i=j \\
+			&= \int_K (\lambda_i^K)^{k_1}(\lambda_j^K)^{k_2} && \text{avec } k_1=1 \text{ et } k_2=1 \text{ si } i\not=j
+		\end{aligned}$
+		\end{minipage}
+	\end{exo}
 	
 	\begin{minipage}{6cm}
 		\includegraphics[scale=.5]{photo25.png}
