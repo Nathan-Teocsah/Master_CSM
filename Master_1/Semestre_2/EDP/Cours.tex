@@ -1783,7 +1783,7 @@ si $K_n$ tend vers 0, $Q(f,f) = K_n\left(\partial_t f + v\nabla_x f\right)\to 0$
 A la limite $K_n = 0$ donc $Q(f,f) = 0$.\\
 
 \begin{thm}[théorème H de Boltzmann] Les affirmations suivantes sont équivalentes :\\
-	\begin{enumerate}
+	\begin{enumerate}[label=\alph*.]
 		\item  $Q(f,f) = 0$ 
 		\item  $\langle Q(f,f), \ln f\rangle = 0$
 		\item $f(t,x,v) = \dfrac{\rho(t,x)}{\left(\sqrt{2\pi T(t,x)}\right)^3}\exp \left[-\frac{(u-v)^2}{2T(t,x)}\right]$
@@ -1791,10 +1791,102 @@ A la limite $K_n = 0$ donc $Q(f,f) = 0$.\\
 	($\frac f\rho$ suit une loi normale d'espérance $u$ et de variance $T(t,x)$)
 \end{thm}
 \begin{dem}
-	$a \implies b$ est immédiat \\
-	$c \implies a$\\
-	$\left(f'f_\star' - ff_\star\right) = \dfrac{\rho^2}{\left(\sqrt{2\pi T(t,x)}\right)^6}\left(\exp\left[-\frac{(u-v')^2}{2T}\right]\exp\left[-\frac{(u-v')^2}{2T(t,x)}-\exp\left[-\frac{(u-v)^2}{2T}\exp\left[-\frac{(u-v_\star)^2}{2T(t,x)}\right]\right]\right]\right)$\\
+	\underline{$a \implies b$} est immédiat \\
+	\underline{$c \implies a$}\\
+	\hspace*{.2cm}\simplebar{\begin{minipage}[t]{18cm}
+		$\left(f'f_\star' - ff_\star\right) = \dfrac{\rho^2}{\left(\sqrt{2\pi T(t,x)}\right)^6}\left(\exp\left[-\frac{(u-v')^2}{2T}\right]\exp\left[-\frac{(u-v')^2}{2T(t,x)}-\exp\left[-\frac{(u-v)^2}{2T}\exp\left[-\frac{(u-v_\star)^2}{2T(t,x)}\right]\right]\right]\right)$\\
 	$\exp\left(-\dfrac 1{2T(t,x)} \left(2u^2 - 2u \cdot (v'+v_\star')+v'^2+v_\star'^2\right)\right) - \exp\left(-\frac1{2T(t,x)}\left(2u^2 - 2u(v+v_\star)+v^2+v_\star^2\right)\right) = 0$
+	\end{minipage}}
+
+	\noindent\underline{$b \implies c$}\\
+	\hspace*{.2cm}\simplebar{\begin{minipage}[t]{18cm}
+			$\langle Q(f,f), \ln f\rangle = \frac12 \displaystyle\int\int \left(f'f_\star'-ff_\star\right)\left(\Psi_+\Psi_\star-\Psi'-\Psi_\star'\right)B(|\!|v-v_\star|\!|)\mathrm dv \mathrm dv_\star\mathrm d\sigma$\\
+			\hspace*{5cm} $\Psi = \ln f$\\
+			\noindent Si $f$ est régulière on a forcément :	$\underbrace{\ln f}_g+\ln f_\star-\ln f' - \ln f_\star' = 0$ \\
+			
+			\hspace*{.8cm}\begin{minipage}[t]{15cm}
+				$\begin{aligned}
+					g(v) + g(v_\star) &= g\left(\frac{v+v_\star}{2} + \frac{v-v_\star}2\sigma\right) + g\left(\frac{v+v_\star}{2} - \frac{v-v_\star}2\sigma\right) && \forall \sigma \\
+					&= T_1(v+v_\star,(v-v_\star)^2)\\
+					&= T_2(v+v_\star, v^2+v_\star^2)
+				\end{aligned}$\\
+				$v^2+v_ \star^2 = (v+v_\star)^2-2vv_\star = \frac12 \left((v+v_\star)^2 + (v-v_\star)^2\right)$
+			\end{minipage}
+			
+			Le but est de résoudre : $g(v) + g(v_\star) = T((v+v_\star),(v-v_\star)^2)$ \hspace{.5cm} ($T_1,T_2,T_3,T_4$)\\
+			\begin{lm} \begin{minipage}[t]{15cm}
+					Si $g : \R^2 \to \R^2$ est $\mathcal C^2$ et si $T : \R^2 \times \R \to \R$ est aussi $\mathcal C^2$, alors :
+				\end{minipage}\\
+				\begin{minipage}[t]{18cm}
+					l'égalité $g(v) + g(v_\star) = T(v+v_\star, (v-v_\star)^2)$ implique $\exists a,b,c$ tel que $g(v) = a+b+v+cv^2$.
+				\end{minipage}
+			\end{lm}
+	\end{minipage}}
+
+	\newpage
+
+	\vspace*{-1.4cm}
+
+			\hspace*{-.5cm}\begin{minipage}[t]{18cm}
+				\begin{dem}$L_{i,j} = (v_{j,\star} - v_j)(\partial_{v_i}-\partial_{v_i^\star})-(v_{i,\star}-v_i)(\partial_{v_j} - \partial_{v_j,\star})$\\
+				
+			\begin{minipage}[t]{17.5cm}
+			$\begin{aligned}
+				L_{i,j}\left(T(v+v_\star,(v-v_\star)^2)\right) =& (v_{j,\star}-v_j)\rouge{\Big[}&&\hspace{-.5cm}\partial_i T(v+v_\star,(v-v_\star)^2)\left[\dfrac{\partial (v_i+v_i^\star)}{\partial v_i}-\dfrac{\partial (v_i+v_i^\star)}{\partial v_i^\star}\right]\\
+				& &&\hspace{-.5cm}+\partial_4T(v+v_\star,(v-v_\star)^2)\left[\dfrac{\partial (v-v_\star)^2}{\partial v_i}-\dfrac{\partial (v-v_\star)^2}{\partial v_i}\right]\rouge{\Big]}\\
+				&-(v_{i,\star}-v_i)\rouge{\Big[}&& \partial_jT(v+v_\star,(v-v_\star)^2)\left[\dfrac{\partial (v_j+v_{j,\star})}{\partial v_j} + \dfrac{\partial (v_j+v_{j,\star})}{\partial v_{j,\star}}\right]\\
+				& &&+\partial_4T(v+v_\star,(v-v_\star)^2)\left[\dfrac{\partial (v-v_\star)^2}{\partial v_j} + \dfrac{\partial (v-v_\star)^2}{\partial v_j^\star}\right]\rouge{\Big]}
+			\end{aligned}$\\
+			
+			$\begin{aligned}
+				&L_{i,j}\left(T(v+v_\star,(v-v_\star)\right)\\
+				=&(v_{j,\star}-v_j)\left[0+\partial_4T(v+v_\star,(v-v_\star)^2)\left(2(v_i-v_i^\star)-2(v_i^\star)-2(v_i^\star-v_i')\right)\right]\\
+				&-(v_{i,\star}-v_i)\left[0+\partial_4 T(v+v_\star,(v-v\star)^2)\left(2(v_j-v_j^\star)-2(v_j^\star-v_j)\right)\right]\\
+				=& (v_{j,\star}-v_j)4(v_i-v_i^\star)\partial_4 T + 4(v_{i,\star}-v_i)(v_j^\star-v_j)\partial_4 T\\
+				=&0
+			\end{aligned}$\\
+			
+			$L_{i,j}(g(v)+g(v_\star)) = 0$\\
+			$\begin{aligned}
+				0=&(v_{j,\star}-v_j)\left(\partial_{v_i}[g(v)+g(v_\star)]-\partial_{v_{i,\star}}[g(v)+g(v_\star)]\right) \\
+				&- (v_{i,\star}-v_i)\left(\partial_{v_i}[g(v)+g(v_\star)]-\partial_{v_{j,\star}}[g(v)+g(v_\star)])\right)
+			\end{aligned}$
+			
+			\vspace{.5cm}
+			
+			$0=(v_{j,\star}-v_j)\left(\partial_{v_i}g-\partial_{v_{i,\star}}f_\star\right) - (v_{i,\star}-v_i)\left(\partial_{v_i}g-\partial_{v_{j,\star}}g_\star\right)$ \hspace{.5cm} (avec $g_\star = g(v_\star)$)\\			
+			premier choix on dérive par rappor à $v_i$ et $v_{i,\star}$ \\
+			$0= 0-\partial_{v_i}\partial_{v_i}g-\partial_{v_i^\star}\partial_{v_j^\star} g^\star$ \hspace{.5cm} $\partial_{v_i}\partial_{v_j} g = etc. = 0$\\
+			second choix par rapport à $v_i$ et $v_{j,\star}$\\
+			$0=\partial_{v_i}^2 g - \partial_{v_{j,\star}^2} g^\star$ \hspace{.5cm} $\partial_{v_j}^2 g = \partial_{v_{j,\star}}^2 g^\star$\\
+			La matrice hessienne de $g$ se présente sous la forme :\\
+			\hspace*{1cm} $\begin{pmatrix}
+			c & 0 & 0 \\
+			0 & c & 0 \\
+			0 & 0 & c
+			\end{pmatrix} = c I$\\
+			
+			$\dfrac{\partial^2 g}{\partial v_1^2} = etc.$\hspace{.5cm} $\begin{aligned}[t]
+				&\dfrac{\partial g}{\partial v_1} = cste.v_1 + cste_2 + h(v_2,v_3)\\
+				&g(v) = \frac12 cste.v_1^2 + cste_2.v_1 + cste_3 + h(v_2,v_3)v_1 + J(v_2,v_3)
+			\end{aligned}$\\
+			\hspace*{4cm} $h$ dépend de $v_3$\\
+			$\dfrac{\partial^2 g}{\partial v_1 \partial v_2} = \dfrac{\partial h}{\partial v_2}(v_2,v_3) = 0$ \hspace{1cm} $g(v) = cste.v^2 + cste_2.v + cste_3$\\
+			On a montré : $\partial_{v_1}\partial_{v_2} g = 0$. Ainsi $0=0+0+0\partial_{v_2} h(v_2,v_3)+0$, donc $h$ ne dépend pas de $v_2$.\\
+			En dérivant par rapport à $v_1$ et $v_3$, on obtient que $h$ ne dépend que de $v_3$ pour la même raison. On peut réécrire $g$ sous la forme $g(v) = av_1^2 + bv_1 + c + J(v_1,v_3)$. On fait le même raisonnement en itérant par rapport à $v_2$ et $v_2$, $\partial_{v_2}^2 g = \dfrac{\partial^2 J}{\partial v_2^2} = \frac12 a$. $J(v_2,v_3)$ est de nouveau un polynôme de degré 2 en $v_2$ auquel on somme une fonction de $v_3$. La dernière fonction dépendant de $v_3$ doit être de dérivée seconde en $v_3$ constante car la dérivée seconde de $g$ en $v_3$ donc c'est un polynôme de degré 2 en $v_3$.\\
+			$g(v) = av_1^2 +b_1v_1 + c_1 + av_2^2 + b_2v_2+c_2 + av_3^2 + b_3v_3 + c_3 = av^2 + b_v + c$ où  $\begin{cases}
+				b  = (b_1, b_2, b_3)\\
+				c = c_1+c_2+c_3
+			\end{cases}$	
+			
+			\vspace*{-.8cm}		
+			\end{minipage}		
+			\end{dem}
+			\end{minipage}
+			
+			\vspace*{-1cm}
+			
+			$ $
 \end{dem}
 
 
