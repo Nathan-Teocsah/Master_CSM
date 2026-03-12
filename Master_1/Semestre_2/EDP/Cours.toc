@@ -10,7 +10,7 @@
 \contentsline {section}{\numberline {2}Suppléments}{19}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Entropie}{19}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Lien entre Boltzmann et la mécanique des fluides}{22}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Introduction : Boltzmann $\to $ Navier Stoke \small (\textit {Julien Mahiaud})}{24}{section.3}%
+\contentsline {section}{\numberline {3}Introduction : Boltzmann $\to $ Navier Stoke \small (\textit {Julien Mathiaud})}{24}{section.3}%
 \contentsline {section}{\numberline {4}Équation de transport}{25}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Équation classique}{25}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Equation de Boltzmann}{31}{subsection.4.2}%
