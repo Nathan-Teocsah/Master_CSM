@@ -8,7 +8,6 @@
 
 \begin{document}
 	
-	
 	\begin{titlepage}
 		\centering
 		
@@ -721,9 +720,9 @@
 	\newlength{\y}
 	\setlength{\y}{1.5cm}
 	\[\mathbb{K} = \left[\begin{matrix}
-		-\beta_{n-1} & \beta_{n-1}+\enc[\x]{red}{$\beta_n$} & \enc[\y]{red}{$-\beta_n$} & 0 &  \\
-		0 & \enc[\y]{red}{$-\beta_n$} & \enc[\x]{red}{$\beta_n$} + \enc[\y]{blue}{$\beta_{n+1}$} & \enc[1.8cm]{blue}{$-\beta_{n+1}$} & 0 \\
-		& 0 & \enc[\y]{blue}{$\beta_{n+1}$} & \enc[\y]{blue}{$\beta_{n+1}$} + \beta_{n+2} & - \beta_{n+2}
+		-\beta_{n-1} & \beta_{n-1}+\rouge{\beta_n} & \rouge{-\beta_n} & 0 &  \\
+		0 & \rouge{-\beta_n} & \rouge{\beta_n} + \bleu{\beta_{n+1}} & \bleu{-\beta_{n+1}} & 0 \\
+		& 0 & \bleu{\beta_{n+1}} & \bleu{\beta_{n+1}} + \beta_{n+2} & - \beta_{n+2}
 	\end{matrix}\right]\]
 	
 	Cela permet d'écrire de façon plus rapide les matrices (EDO) d'un système périodique :
@@ -1148,19 +1147,183 @@
 	\left(N-\lambda L\right)\Psi = 0
 	\]
 	
+	\noindent Lors d'application numériques on utilisera cette forme avec $\Big[\Gamma,\Psi\Big] = \text{eig}(N,L)$, \\
+	puis on récupère $\overset{\cdot\cdot}\Phi = \overset{\cdot\cdot}\Psi \left[1:M\right]$\\
+	Pour les systèmes de grande dimension ($M>100$) on peut régulariser le problème en introduisant un facteur $\rouge\sigma$.\\
+	
+	$\begin{bmatrix}
+		-D_{RL} & -D_R \\
+		0 & \rouge\sigma
+	\end{bmatrix}\begin{bmatrix}
+	\Phi \\ \lambda\Phi
+	\end{bmatrix} = \begin{bmatrix}
+	D_L & D_{LR} \\
+	\rouge\sigma I & 0
+	\end{bmatrix}\begin{bmatrix}
+	\Phi \\ \lambda\Phi
+	\end{bmatrix}$ où $\rouge\sigma$ est de l'ordre de $\mathbb D$.
 	
 	
+\section{Dynamique des systèmes périodiques finis}
+\subsection{Solutions en ondes d'une corde vibrante}
+\begin{enumerate}[label=$\cdot$]
+	\item On considère d'équation d'ondes dans le cas homogène scalaire.\\
+$\begin{cases}
+	\partial_t^2 U(t,x) -c^2\partial_x^2 U(t,x) = 0 \\
+	U(t,x=a) = V_a(t)\\
+	U(t,x=b) = V_b(t)
+\end{cases}$ conditions aux limites/ déplacement imposé\\
+
+$V_a$ et $V_b$ peuvent représenter des excitations imposés par un actionneur , ou des perturbations ou encore un encastrement.
+
+	\item Appliquons une transformation de Fourier en temps :$U(t,x) = \dfrac1{\sqrt{2\pi}}\displaystyle\int_{-\infty}^{+\infty} U(\omega,x)e^{i\omega t}\mathrm d\omega$\\
+	On a alors : $\begin{cases}
+		\partial_x^2 U(\omega,x)+\left(\frac\omega c\right)^2U(\omega,x) = 0 \\
+		U(\omega,a) = V_a(\omega)\\
+		U(\omega,b) = V_b(\omega)
+	\end{cases}$
 	
+	\item On suppose connu e nombre d'onde (i.e. $k(\omega)=\frac\omega c$), obtenu par une analyse de dispersion (Partie I).
+\end{enumerate}
 	
+La solution générale de l'EDO harmonique est une superposition linéaire de deux solutions indépendanes : 
+\[
+U(\omega,x) = A^+(\omega)e^{-ik(\omega)x} + A^-(\omega)e^{ik(\omega)x}
+\]
+où $A^+$ et $A^-$ sont les amplitudes d'ondes (complexes), déterminées par les conditions aux limites.\\
+La solution complexe (dont les déplacement sont la partie réelle) est donc :
+\[
+U(,x) = \dfrac1{\sqrt{2\pi}}\displaystyle\int_{-\infty}^{+\infty}A^+(\omega)e^{i(\omega t-kx)}+A^-(\omega)e^{i(\omega t+ kx)}\mathrm d\omega
+\]
 	
+\begin{exo}
+	\begin{minipage}[t]{15cm}
+		On suppose que $\begin{cases}
+		a=0\\ b=L
+	\end{cases}$ et $\begin{cases}
+	V_a(\omega)=0\\ V_b(\omega) = V
+	\end{cases}$
+	\end{minipage}\\
+	Démontrer que $U(t,x) = \dfrac V{\sqrt{2\pi}}\displaystyle\int_\R \dfrac{\sin(k(\omega)x)}{\sin(k(\omega)L)} e^{i\omega t}\mathrm d\omega$
+\end{exo}	
+\begin{sol}
+	$\forall \omega \begin{aligned}[t]
+		\begin{cases}
+		U(\omega,0) = 0 \\
+		U(\omega,L) = V
+	\end{cases} &\iff \begin{cases}
+	A^+e^{-ik.0}+A^-e^{ik.0} = 0 \\
+	A^+e^{-ikL}+A^-e^{ikL} = V
+	\end{cases}\\
+	&\iff \begin{bmatrix}
+		1 & 1\\
+		e^{-ikL} & e^{ikL}
+	\end{bmatrix}\begin{bmatrix}
+	A^+\\ A^-
+	\end{bmatrix} = \begin{bmatrix}
+	0 \\ V
+	\end{bmatrix}\\
+	&\iff \begin{bmatrix}
+		A^+ \\ A^-
+	\end{bmatrix} = \dfrac V{e^{ikL}-e^{-ikL}}\begin{bmatrix}
+	-1 \\ 1
+	\end{bmatrix}
+	\end{aligned}$\\
 	
+	$U(\omega,x) = \dfrac{-Ve^{ikx}}{e^{ikL}-e^{-ikL}} + \dfrac{Ve^{ikx}}{e^{ikL}-e^{-ikL}} = \dfrac{\sin(kx)}{\sin(kL)}V$\\
+	Or $U(t,x) = \dfrac1{\sqrt{2\pi}}\displaystyle\int_{-\infty}^{+\infty} U(\omega,x) e^{i\omega t}\mathrm d\omega = \dfrac V{\sqrt{2\pi}}\displaystyle\int_\R \dfrac{\sin(kx)}{\sin(kL)}\mathrm d\omega$
+\end{sol}
+
+
+\subsection{Généralisation à système Multi-ondes/Multi-DDL}
+
+\subsubsection{Guide d'ondes uniforme vectoriel}
+
+On suppose désormais le guide d'ondes \underline{vectoriel} (i.e. contenant $M$ DDL/atomes) par section.
+
+\begin{ex}
+	$\begin{cases}
+		\text{- Poutre de Euler-Bernouilli}\\
+		\text{- Cordes couplées}
+	\end{cases}$
+\end{ex}
+
+Pour une onde (j) la décomposition de $\vec{U}(\omega,x)$ s'écrit :
+\[
+\vec U_j(\omega,x) = \vec\Phi^+(\omega)e^{-ikx}A^+(\omega) + \vec\Phi^-(\omega)e^{ikx}A^-(\omega)
+\]	
+où $\vec\Phi = \begin{bmatrix}
+	\Phi^{(1)}\\\vdots\\\Phi^{(M)}
+\end{bmatrix}$ est un vecteur de dimension $M$, vecteur propre de l'équation de dispersion, normalisé, et analogue à un mode propre.\\
+On note $\Phi^+, A^+$ les ondes associées à $Im(k) < 0$ (progressives)\\
+On note $\Phi^-, A^-$ les ondes associées à $Im(k) > 0$ (régressive).\\
+Les $\Phi$ décrivent la "polarisation" de l'onde ou les déplacements des $M$ composantes sous l'effet de la propagation de l'onde.
+
+\subsubsection{Cependant une décomposition de $\vec U$ sur une seule onde serait incomplète sous l'effet de la propagations de l'onde}
+
+Donc la solution complète est une superposition des $M$ ondes :
+
+\[
+\vec U(\omega, x) = \displaystyle\sum_{j=1}^M \vec\Phi_j^+ e^{-ik_j x}A_j^+ + \vec\Phi_j^- e^{ik_j x}A_j^-
+\]
+
+sous la forme plus compacte :
+
+\[
+\fbox{$\vec U(\omega,x) = \underline{\underline{\Phi^+}} \underline{\Gamma^+}(x) \underline{a^+} + \underline{\underline{\Phi^-}} \underline{\Gamma^-}(x) \underline{a^-}$}
+\]
 	
+où $\underline{\underline{\Phi^\pm}} = \left[\underline{\Phi_1^\pm},\cdots,\underline{\Phi_M^\pm}\right]$\\
+$\underline{\underline{\Gamma^\pm}}(x) = diag\left(e^{\mp ik_1 x},\cdots,e^{\mp ik_M x}\right)$ et $\underline{a}^\pm = \begin{bmatrix}
+	A_1^\pm \\ \vdots \\ A_M^\pm
+\end{bmatrix}$
+
+\includegraphics[scale=.5]{photo29.png}
+
+De même que pour le cas scalaire, les ampliudes $\underline{a}^+$n et $\underline{a}^-$ ($2M$ inconnues) sp,t déterminées à partir des CL.\\
+Dans le cas temporel/transitoire, la solution devient :
+\[
+\vec U(t,x) = \dfrac1{\sqrt{2\pi}}\displaystyle\int_\R \left[\Phi^+\Gamma^+a^+ +\Phi^-\Gamma^- a^-\right]e^{i\omega t}\mathrm d\omega
+\]
+
+\subsection{Décomposition en ondes de Bloch pour un guide périodique, scalaire, fini}
+
+\subsubsection{Considérons la chaîne monoatomique (équiv. à une corde avec masses localisés périodique)}
+
+Eq. (connue) du système est : $\begin{cases}
+	m\partial_t^2 U_n = \beta\left(U_{n+1}+U_{n-1} - 2U_n\right)\\
+	U_0(t) = V_0(t) \text{ et } U_N(t) = V_N(t)
+\end{cases}$
 	
+\includegraphics[scale=.5]{photo30.png}
+
+En analyse fréquentielle (régime stationnaire, ou après transformée de Fourier) on a :\\
+$\begin{cases}
+	U_{n+1} + \left(\Omega^2 -2\right)U_n + U_{n-1} = 0 \\
+	U_0 = V_0\\
+	U_N = V_N
+\end{cases}$ $\forall n  \in [\![1,N-1]\!]$ où $\Omega = \frac\omega{\omega_0}$ et $\omega_0 = \sqrt{\frac\beta m}$\\
+
+\subsubsection{Nous supposons que l'étude de dispersion effectuée dans le guide, c.a.d. nous connaissons $k(\omega)$, et donc $\lambda(\omega)$, $\forall \omega$}
 	
-	
-	
-	
-	
+La solution générale de l'Eq. aux différences finies/harmoniques est la superpositions de deux solutions indépendantes ($+$ et $-$) :
+\[
+U_n(\omega) = \lambda^n A^+(\omega) + \lambda^{-n}A^-(\omega) \text{ où $ A^+$ et $A^-$ sont les amplitudes complexes (inconnues)}
+\]
+
+Pour conserver les puissances de $\lambda$ positives, on choisit $A^- = \lambda^N A^-$.\\
+ce qui donne : $\begin{aligned}[t]
+	U_n &= \lambda^n A^+ + \lambda^{N-h} A^- \\
+	&= e^{-iknd}A^+ + e^{ik(N-n)d} A^-
+\end{aligned}$\\
+La solution temporelle devient : $U_n(t) = \dfrac1{\sqrt{2\pi}}\displaystyle\int_\R e^{i(\omega t - knd)} A^+ + e^{i(\omega t - k(N-n)d)}A^- \mathrm d\omega$.\\
+
+\begin{exo}[applicatif] \includegraphics[scale=.5]{photo31.png}\\
+	\begin{enumerate}[label=$\cdot$]
+		\item Pour tout $\omega$, calculer $U_n(\omega)$, connaissant $\lambda(\omega)$.
+		\item Comparer la solution à la solution similaire pour la corde finie.
+	\end{enumerate}
+\end{exo}
 	
 	
 	

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  11 MAR 2026 13:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  12 MAR 2026 11:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2681,7 +2681,7 @@ Overfull \hbox (169.22597pt too wide) in paragraph at lines 2224--2245
 \openout7 = `Cours.thm'.
 
 [38]
-runsystem(latexminted cleantemp  --timestamp 20260311135502 33C1869ABDF6A46508C
+runsystem(latexminted cleantemp  --timestamp 20260312112544 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -2690,7 +2690,7 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `Cours.out' has not changed.
-(rerunfilecheck)             Checksum: 512F7972BF7B91B3E32612B86D63DA09;3148.
+(rerunfilecheck)             Checksum: 7343075D2A5B7319593F828522BD8300;3153.
  ) 
 Here is how much of TeX's memory you used:
  48402 strings out of 467538
@@ -2723,7 +2723,7 @@ mf-dist/fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-dist/fon
 ts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/p
 ublic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lm
 sy8.pfb>
-Output written on Cours.pdf (39 pages, 3275002 bytes).
+Output written on Cours.pdf (39 pages, 3274999 bytes).
 PDF statistics:
  522 PDF objects out of 1000 (max. 8388607)
  382 compressed objects within 4 object streams

@@ -11,4 +11,12 @@
 \contentsline {subsection}{\numberline {2.2}Chaîne di-atomique}{9}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Généralisation aux systèmes à plusieurs degrés de liberté (DDL)}{11}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Généralisation de condensation dynamique}{15}{subsection.2.4}%
-\contentsline {section}{\numberline {3}TD}{18}{section.3}%
+\contentsline {section}{\numberline {3}Dynamique des systèmes périodiques finis}{17}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Solutions en ondes d'une corde vibrante}{17}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Généralisation à système Multi-ondes/Multi-DDL}{18}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Guide d'ondes uniforme vectoriel}{18}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Cependant une décomposition de $\vec U$ sur une seule onde serait incomplète sous l'effet de la propagations de l'onde}{19}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Décomposition en ondes de Bloch pour un guide périodique, scalaire, fini}{20}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Considérons la chaîne monoatomique (équiv. à une corde avec masses localisés périodique)}{20}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Nous supposons que l'étude de dispersion effectuée dans le guide, c.a.d. nous connaissons $k(\omega )$, et donc $\lambda (\omega )$, $\forall \omega $}{20}{subsubsection.3.3.2}%
+\contentsline {section}{\numberline {4}TD}{21}{section.4}%
