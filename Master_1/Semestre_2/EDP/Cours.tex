@@ -1782,7 +1782,8 @@ $v' = \frac v{v_0}$ \hspace{1cm} $\simeq 1$ Knudsen $\sim \frac 1{f_0}$\\
 si $K_n$ tend vers 0, $Q(f,f) = K_n\left(\partial_t f + v\nabla_x f\right)\to 0$\\
 A la limite $K_n = 0$ donc $Q(f,f) = 0$.\\
 
-\begin{thm}[théorème H de Boltzmann] Les affirmations suivantes sont équivalentes :\\
+\begin{thm}[théorème H de Boltzmann] $ $\\
+	Les affirmations suivantes sont équivalentes :
 	\begin{enumerate}[label=\alph*.]
 		\item  $Q(f,f) = 0$ 
 		\item  $\langle Q(f,f), \ln f\rangle = 0$
@@ -1873,7 +1874,10 @@ A la limite $K_n = 0$ donc $Q(f,f) = 0$.\\
 			\hspace*{4cm} $h$ dépend de $v_3$\\
 			$\dfrac{\partial^2 g}{\partial v_1 \partial v_2} = \dfrac{\partial h}{\partial v_2}(v_2,v_3) = 0$ \hspace{1cm} $g(v) = cste.v^2 + cste_2.v + cste_3$\\
 			On a montré : $\partial_{v_1}\partial_{v_2} g = 0$. Ainsi $0=0+0+0\partial_{v_2} h(v_2,v_3)+0$, donc $h$ ne dépend pas de $v_2$.\\
-			En dérivant par rapport à $v_1$ et $v_3$, on obtient que $h$ ne dépend que de $v_3$ pour la même raison. On peut réécrire $g$ sous la forme $g(v) = av_1^2 + bv_1 + c + J(v_1,v_3)$. On fait le même raisonnement en itérant par rapport à $v_2$ et $v_2$, $\partial_{v_2}^2 g = \dfrac{\partial^2 J}{\partial v_2^2} = \frac12 a$. $J(v_2,v_3)$ est de nouveau un polynôme de degré 2 en $v_2$ auquel on somme une fonction de $v_3$. La dernière fonction dépendant de $v_3$ doit être de dérivée seconde en $v_3$ constante car la dérivée seconde de $g$ en $v_3$ donc c'est un polynôme de degré 2 en $v_3$.\\
+			En dérivant par rapport à $v_1$ et $v_3$, on obtient que $h$ ne dépend que de $v_3$ pour la même raison. On peut réécrire $g$ sous la forme $g(v) = av_1^2 + bv_1 + c + J(v_1,v_3)$. On fait le même raisonnement en itérant par rapport à $v_2$ et $v_2$, $\partial_{v_2}^2 g = \dfrac{\partial^2 J}{\partial v_2^2} = \frac12 a$. $J(v_2,v_3)$ est de nouveau un polynôme de degré 2 en $v_2$ auquel on somme une fonction de $v_3$. La dernière fonction dépendant de $v_3$ doit être de dérivée seconde en $v_3$ constante car la dérivée seconde de $g$ en $v_3$ donc c'est un polynôme de degré 2 en $v_3$.
+			
+			\vspace{-.5cm}
+			
 			$g(v) = av_1^2 +b_1v_1 + c_1 + av_2^2 + b_2v_2+c_2 + av_3^2 + b_3v_3 + c_3 = av^2 + b_v + c$ où  $\begin{cases}
 				b  = (b_1, b_2, b_3)\\
 				c = c_1+c_2+c_3
@@ -1884,10 +1888,84 @@ A la limite $K_n = 0$ donc $Q(f,f) = 0$.\\
 			\end{dem}
 			\end{minipage}	
 			
-			\vspace{-2cm}
+			$\ln(f) = av^2 + bv + c$ et $\begin{aligned}[t]
+				f = \exp(av^2+bv+c) &= \exp\left(a\left(v+\frac b{2a}\right)^2-\left(\frac{b^2}{4a}+c\right)\right)\\
+				&= \exp\left(c-\frac{b^2}{4a}\right)\exp\left(a\left(v+\frac b{2a}\right)^2\right)
+			\end{aligned}$\\
 			
-			$ $
+			\begin{minipage}[t]{18cm}
+				$\displaystyle\int \dfrac\rho{\sqrt{2\pi T}^3} \exp\left(-\dfrac{(u-v)^2}{2T}\right)\mathrm dv = \rho$ \\
+			$\displaystyle\int \dfrac\rho{\sqrt{2\pi T}^3} \exp\left(-\dfrac{(u-v)^2}{2T}\right)u\mathrm dv = \rho u$ \hspace{.5cm} $\displaystyle\int \dfrac\rho{\sqrt{2\pi T}^3}\exp\left(-\dfrac{(u-v)^2}{2T}\frac12 v^2 \mathrm dv = \frac12 u^2 + \frac32 \rho T\right)$
+			\end{minipage}
 \end{dem}
+
+\vspace{-.5cm}
+
+Retour sur les équations fluides :
+
+\[
+\fbox{$\begin{gathered}
+	\partial_t\rho + \mathrm{div}_x(\rho u) = 0 \text{ (conservation de la masse)}\\
+	\partial_t\left(\rho u\right) + \mathrm{div}_x(\rho u\otimes u) + \mathrm{div}_x(\mathbb P) = 0 \\
+	\mathbb P = \displaystyle \int fm_p (v-u) \otimes (v-u) \mathrm dv \underset{\varepsilon\to0}\longrightarrow \int \dfrac\rho{\sqrt{2\pi T}^3}\exp\left(-\dfrac{(u-v)^2}{2T}\right)m_p (v-u)\otimes(v-u) \mathrm dv
+\end{gathered}$}
+\]
+
+$\begin{aligned}[t]
+	&\displaystyle\int\dfrac\rho{\sqrt{2\pi T}^3} \exp\left(-\dfrac{(u-v)^2}{2T}\right)(u_i-v_i)(u_j-v_j)m_p \mathrm dv_1\mathrm dv_2 \mathrm dv_3\\
+	=&\rho T \delta_{i,j}
+\end{aligned}$ \hspace{.5cm}  \begin{minipage}[t]{7cm}
+	à calculer pour $i=j$ et $i \not= j$, alors par symétries des rôles :
+\end{minipage}
+
+\vspace{.5cm}
+
+On a : \fbox{\begin{minipage}[t]{3.5cm}
+		$\mathbb P \to \rho T Id$\\
+$\mathrm{div}_x \mathbb P \to \nabla_x \left(\rho T\right)$
+	\end{minipage}}
+
+
+\underline{On a donc :} 
+\begin{enumerate}
+	\item Équation de quantité de mouvement (Euler) \\
+\hspace*{.5cm} \begin{minipage}[t]{18cm}
+					$\partial_t(\rho u) + \mathrm{div}_x(\rho u \otimes u) + \nabla_x (\hspace{-.2cm}\underbrace{\rho T}_{pression}\hspace{-.2cm}) = 0$\\
+				
+				$\partial_t f + v \nabla_x f = \frac12 Q(f,f)$ ($\varepsilon$ Knudsen)\\
+				$\displaystyle\int \left(\partial_t f + v\nabla_x f\right)m_p v \mathrm dv = 0 \to \int v_i \partial_{x_i} f m_p v  = \partial_{x_i}\left(\int fm_p v\right)$\\
+				$\partial_t\displaystyle\int fm_p v\mathrm dv + \nabla_x \cdot \int \underbrace{fm_pv\otimes v}_{fm_p ((v-u)+u)\otimes((v-u)+u)}\mathrm dv = 0$\\
+				$\begin{aligned}[t]
+					&\displaystyle\int\dfrac\rho{\sqrt{2\pi T}^3} \exp\left(-\dfrac{(u-v)^2}{2T}\right)(u_i-v_i)(u_j-v_j)m_p \mathrm dv_1\mathrm dv_2 \mathrm dv_3\\
+					=&\rho T \delta_{i,j}
+				\end{aligned}$
+				\end{minipage}
+
+\item Équation d'énergie (Euler) 
+
+\hspace*{.5cm}\begin{minipage}[t]{18cm}
+	$\begin{aligned}
+	\displaystyle\int \left(\partial_t f + v\nabla_x f\right)\frac12 m_p v^2 \mathrm dv&= \int \frac12Q(f,f) \frac12 m_p v^2 \mathrm dv \\
+	&= 0
+\end{aligned}$\\
+
+\noindent$1^{ère}$ étape : sortir les dérivées\\
+$2^{ème}$ étape : remplacer $f$ par son équilibre $\dfrac\rho{\sqrt{2\pi T}^3}\exp\left(-\dfrac{(u-v)^2}{2T}\right)$\\
+$\left(\rho E = \frac12\rho u^2 + \frac32 \rho T = \frac12 \displaystyle\int fm_p v^2 \mathrm dv\right)$
+\end{minipage}
+
+\hspace*{.5cm}\begin{minipage}[t]{18cm}
+	$\begin{aligned}
+		\displaystyle\int \left(\partial_t f + v\nabla_x f\right)\frac12 m_p v^2 \mathrm dv &= \partial_t\int \frac12f m_p v^2\mathrm dv + \nabla_x \cdot \int \frac12 fm_p  v^2 v \mathrm dv\\
+		&=\partial_t(\rho E) +\nabla_x \cdot \int m_p v^2  (v-u+u)\mathrm dv \\
+		&=\partial_t (\rho E) + \nabla_x\cdot\left(\int fm_p \frac12 (v-u+u)^2 (v-u) + \rho E u\right)\\
+		&=\partial_t(\rho E) + \nabla_x\cdot(\rho E u)+\nabla_x\cdot\bleu \int fm_p(v-u+u)^2 (v-u)\mathrm dv
+	\end{aligned}$\\
+	$\displaystyle\bleu\int fm_p \frac12\left((v-u)^2+2u\cdot(v-u) + \underbrace{u^2}_0\right) (v-u)\mathrm dv$\\
+	
+	Ainsi $\displaystyle\bleu\int fm_p \frac12 (v-u)^2$
+\end{minipage}
+\end{enumerate}
 
 
 	
