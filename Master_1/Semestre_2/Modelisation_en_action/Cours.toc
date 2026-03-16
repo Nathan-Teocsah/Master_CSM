@@ -19,4 +19,10 @@
 \contentsline {subsection}{\numberline {3.3}Décomposition en ondes de Bloch pour un guide périodique, scalaire, fini}{20}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Considérons la chaîne monoatomique (équiv. à une corde avec masses localisés périodique)}{20}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {3.3.2}Nous supposons que l'étude de dispersion effectuée dans le guide, c.a.d. nous connaissons $k(\omega )$, et donc $\lambda (\omega )$, $\forall \omega $}{20}{subsubsection.3.3.2}%
-\contentsline {section}{\numberline {4}TD}{21}{section.4}%
+\contentsline {subsection}{\numberline {3.4}Décomposition en ondes de Bloch dans une structure périodique finie}{21}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Rappel}{21}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}La solution générale d'un système multi-modal fini est donc une superposition des $M$ ondes qui s'écrit :}{22}{subsubsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.5}Écriture des conditions aux limites et assemblage de structures périodiques \underline {finies}}{24}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Chaîne mono-atomique}{24}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Condition aux limites ($U,F$) dans le cas général}{25}{subsubsection.3.5.2}%
+\contentsline {section}{\numberline {4}TD}{26}{section.4}%

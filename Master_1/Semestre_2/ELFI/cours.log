@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  11 MAR 2026 12:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  12 MAR 2026 15:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2345,13 +2345,93 @@ Overfull \hbox (154.99959pt too wide) in paragraph at lines 1262--1267
 <photo25.png, id=403, 315.1775pt x 276.03125pt>
 File: photo25.png Graphic file (type png)
 <use photo25.png>
-Package pdftex.def Info: photo25.png  used on input line 1270.
+Package pdftex.def Info: photo25.png  used on input line 1272.
 (pdftex.def)             Requested size: 157.58836pt x 138.01527pt.
+
+Overfull \hbox (163.96901pt too wide) in paragraph at lines 1271--1277
+[][]$[]$$[]$ 
+ []
+
+
+Overfull \hbox (285.26387pt too wide) in paragraph at lines 1278--1282
+[]$[]  \OT1/lmr/m/n/12 = \OML/lmm/m/it/12 []$   [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1278--1282
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1283--1284
+
+ []
+
+
+Overfull \hbox (229.52992pt too wide) in paragraph at lines 1285--1294
+[][][] 
+ []
+
+<photo26.png, id=404, 279.0425pt x 467.7475pt>
+File: photo26.png Graphic file (type png)
+<use photo26.png>
+Package pdftex.def Info: photo26.png  used on input line 1296.
+(pdftex.def)             Requested size: 139.5209pt x 233.87317pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1298--1299
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1300--1301
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1302--1303
+
+ []
+
+
+Overfull \hbox (257.98267pt too wide) in paragraph at lines 1295--1306
+[]$[]$$[]$ 
+ []
+
+
+Overfull \hbox (76.68164pt too wide) in paragraph at lines 1307--1318
+[]$[][]$ 
+ []
+
+
+Overfull \hbox (154.99959pt too wide) in paragraph at lines 1307--1318
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1323--1326
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1327--1332
+
+ []
+
+
+Overfull \hbox (75.8254pt too wide) in paragraph at lines 1333--1338
+[]$[][]$ 
+ []
+
+
+Underfull \vbox (badness 2318) detected at line 1338
+ []
+
+[23 <./photo25.png>]
 \tf@thm=\write7
 \openout7 = `cours.thm'.
 
-[23 <./photo25.png>]
-runsystem(latexminted cleantemp  --timestamp 20260311124407 456C7996E5729627FDD
+ [24 <./photo26.png>]
+runsystem(latexminted cleantemp  --timestamp 20260312155856 456C7996E5729627FDD
 F96470E5E0948)...executed safely (allowed).
 
  (./cours.aux)
@@ -2363,13 +2443,13 @@ Package rerunfilecheck Info: File `cours.out' has not changed.
 (rerunfilecheck)             Checksum: 3BA0AF05B0812C797B2A750C5F8874A0;6797.
  ) 
 Here is how much of TeX's memory you used:
- 48496 strings out of 467538
- 1135813 string characters out of 5419551
- 1782360 words of memory out of 5000000
- 76501 multiletter control sequences out of 15000+600000
+ 48514 strings out of 467538
+ 1136097 string characters out of 5419551
+ 1799360 words of memory out of 5000000
+ 76517 multiletter control sequences out of 15000+600000
  734503 words of font info for 131 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,23n,131p,866b,1092s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,27n,131p,866b,1092s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line1
@@ -2389,10 +2469,10 @@ lic/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr
 i8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></u
 sr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/te
 xlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on cours.pdf (24 pages, 2408857 bytes).
+Output written on cours.pdf (25 pages, 2618526 bytes).
 PDF statistics:
- 540 PDF objects out of 1000 (max. 8388607)
- 413 compressed objects within 5 object streams
- 134 named destinations out of 1000 (max. 500000)
- 375 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 548 PDF objects out of 1000 (max. 8388607)
+ 418 compressed objects within 5 object streams
+ 136 named destinations out of 1000 (max. 500000)
+ 380 words of extra memory for PDF output out of 10000 (max. 10000000)
 

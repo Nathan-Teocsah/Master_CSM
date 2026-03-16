@@ -1193,7 +1193,7 @@ U(\omega,x) = A^+(\omega)e^{-ik(\omega)x} + A^-(\omega)e^{ik(\omega)x}
 où $A^+$ et $A^-$ sont les amplitudes d'ondes (complexes), déterminées par les conditions aux limites.\\
 La solution complexe (dont les déplacement sont la partie réelle) est donc :
 \[
-U(,x) = \dfrac1{\sqrt{2\pi}}\displaystyle\int_{-\infty}^{+\infty}A^+(\omega)e^{i(\omega t-kx)}+A^-(\omega)e^{i(\omega t+ kx)}\mathrm d\omega
+U(t,x) = \dfrac1{\sqrt{2\pi}}\displaystyle\int_{-\infty}^{+\infty}A^+(\omega)e^{i(\omega t-kx)}+A^-(\omega)e^{i(\omega t+ kx)}\mathrm d\omega
 \]
 	
 \begin{exo}
@@ -1324,26 +1324,314 @@ La solution temporelle devient : $U_n(t) = \dfrac1{\sqrt{2\pi}}\displaystyle\int
 		\item Comparer la solution à la solution similaire pour la corde finie.
 	\end{enumerate}
 \end{exo}
+\begin{sol}
+	\underline{Rappel :} dans un système à 1 degré de liberté et une onde, la décomposition en ondes (de Bloch) s'écrit : $\forall n\in \N$, $u_n = \lambda^n A^+ + \lambda^{N-n}A^-$.\\
+	
+	$\begin{aligned}
+		\begin{cases}
+		U_0 = 0 \\
+		U_N = V
+	\end{cases} \iff \begin{cases}
+	\lambda^0 A^+ + \lambda^N A^- = 0\\
+	\lambda^N A^+ + \lambda^0 A^- = V
+	\end{cases} &\iff \begin{cases}
+	A^+ = -\lambda^N A^-\\
+	-\lambda^NA^- + A^- = V
+	\end{cases}\\
+	& \iff \begin{cases}
+		A^+ = -\lambda^N \dfrac V{-\lambda^N+1}\\
+		A^- = \dfrac V{-\lambda^N+1}
+	\end{cases}
+	\end{aligned}$\\
+	
+	Ainsi $\begin{bmatrix}
+		1 & \lambda^N \\
+		\lambda^N & 1
+	\end{bmatrix}\begin{bmatrix}
+	A^+ \\ A^-
+	\end{bmatrix} = \begin{bmatrix}
+	0 \\ V
+	\end{bmatrix}$\\
+	
+	$\implies\begin{bmatrix}
+		A^+ \\ A^-
+	\end{bmatrix} = \dfrac1{1-\lambda^{2N}}\begin{bmatrix}
+	1 & - \lambda^N \\
+	-\lambda^N & 1
+	\end{bmatrix}\begin{bmatrix}
+	0 \\ V
+	\end{bmatrix}$\\
+	
+	Donc $\begin{bmatrix}
+		A^+ \\ A^-
+	\end{bmatrix} = \dfrac V{1-\lambda^{2N}}\begin{bmatrix}
+	-\lambda^N \\ 1
+	\end{bmatrix}$\\
+	On retrouve les déplacements $\begin{aligned}[t]
+		U_n & = \lambda^n \dfrac{-\lambda^N}{1-\lambda^{2N}}V + \lambda^{N-n}\dfrac1{1-\lambda^{2N}}V \\
+		& = \dfrac{\lambda^{N-n} - \lambda^{N+1}}{\lambda^N(\lambda^{-N}-\lambda^N)}V \\
+		&= \dfrac{\lambda^{-n}-\lambda^n}{\lambda^{-N}-\lambda^N}V
+	\end{aligned}$\\
+	\begin{minipage}[t]{15cm}
+		Or $\begin{cases}
+		\lambda = e^{-ika} \\
+		L = Na
+	\end{cases}$, donc $U_n = \dfrac{\sin(kL\frac nN)}{\sin(kL)}V$ 
+	, où $k(\omega)=\frac i\alpha\ln\left(1-\frac{2\omega^2}{\omega_0} - \frac{2\omega}{\omega_0}\sqrt{\frac{\omega^2}{\omega_0^2}-1}\right)$\\
+	
+	Pour la corde (uniforme) de longueur $L$, nous avions : $U(x) = \dfrac{\sin(kx)}{\sin(kL)} V$
+	\end{minipage}	
+\end{sol}
+
+\subsection{Décomposition en ondes de Bloch dans une structure périodique finie}
+
+\subsubsection{Rappel}
+ L'équation d'équilibre donne l'EDO suivante :
+ 
+ \[
+ D_{RL} U_{n+1} + (D_L+D_R)U_n + D_{LR} U_{n+1} = 0
+ \]
+	
+La relation de dispersion $\left(\frac1\lambda D_{RL} + (D_l+D_R) + \lambda D_{LR}\right)\Phi_{M,1} = 0$\\
+
+donne $2M$ solutions : $\begin{aligned}[t]
+	\to M \text{progressives ($\abs\lambda <1$) notées ($\lambda_j,\vec\Phi_j^+$)}\\
+	\to M \text{ régressives ($\abs\lambda > 1$) notées ($\frac1\lambda, \vec\Phi_j^-$)}
+\end{aligned}$\\
+
+Pour une seule onde, la décomposition s'effectue de façon similaire au cas uniforme vectoriel :
+
+ \[\vec U_n^{(j)} = \vec\Phi_j^+ e^{-ik_j dn}A_j^+ + \vec\Phi_j^- e^{-ik_jd(N-n)} A_j^- \]
+ 
+où encore :
+
+\[\vec U_n^{(j)} = \vec\Phi_j^+ \lambda_j^n A_j^+ + \vec\Phi_j^-\lambda_j^{N-n}A_j^-\]
+	
+	\subsubsection{La solution générale d'un système multi-modal fini est donc une superposition des $M$ ondes qui s'écrit :}
+	
+	\[
+	U_n(\omega) = \displaystyle\sum_{j=1}^M \vec\Phi_j^+ \lambda_j^nA_j^+ + \vec\Phi_j^-\lambda_j^{N-n}A_j^-
+	\]
+	
+	ou encore : 
+	
+	\begin{center}
+		\enc[6cm]{red}{$U_n =\underline{\underline{\Phi}}^+\underline{\underline{\Lambda}}^n\underline{a}^++\underline{\underline{\Phi}}^-\underline{\underline{\Lambda}}^{N-n}\underline{a}^-$}
+	\end{center}
+	
+	où $\Phi^\pm = \left[\underline{\Phi}_1^\pm,\cdots,\underline{\Phi}_M^\pm\right]$; $\underline{a}^\pm = \begin{bmatrix}
+		A_1^\pm \\  \vdots \\ A_M^\pm
+	\end{bmatrix}$ et $a_i^\pm = A_i^\pm$\\
+	
+	$\Lambda = \begin{bmatrix}
+		\lambda_1 \\
+		& \ddots \\
+		&&\lambda_M
+	\end{bmatrix}$\\
+	
+	En régime transitoire :
+	
+	$\underline{U}_n(t) = \frac1{\sqrt{2\pi}}\displaystyle\int_{-\infty}^{+\infty} \sum_{j=1}^M \Phi_j^+A_j^+e^{i(\omega t - k_j dn)} + \Phi_j^- e^{i(\omega t -k_jd(N-n))}\mathrm d\omega$\\
+	
+	où $\underline{U}$ est un vecteur à $M$ composantes et où les $2M$ inconnues ($\underline a^+,\underline a^-$) sont déterminées par les conditions aux limites.\\
+	
+	\underline{Remarques :}\\
+	\begin{enumerate}[label = $\star$]
+		\item Cette décomposition prend la forme d'une projection de $\vec U_n$ sur $\begin{bmatrix}
+			\underline a^+ \\
+			\underline a^-
+		\end{bmatrix}$ c'est-à-dire $\underline{u} = \underline{\underline{P}} \hspace{.08cm}\underline{a}$
+		
+		\item \begin{minipage}{5cm}
+			\includegraphics[scale=.2]{photo32.png} 
+		\end{minipage}\begin{minipage}{15cm}
+		\begin{enumerate}[label=$\star$]
+			\item ce système possède $(N+1)M$ inconnues $U_n^{(j)}$, $n \in [\![0,N]\!]$, $j \in [\![1,M]\!]$
+			
+			\item En base ondulatoire, le système a $2M$ ($\underline a^-,\underline a^-$) inconnues
+		\end{enumerate}
+		\end{minipage}
+	\end{enumerate}
+	
+	\newpage
+	
+	\underline{Synthèse :}
+	
+	\begin{NiceTabular}{c|c|c}
+	\toprule
+	& Uniforme $U(x)$ & Périodique \\
+	\midrule
+	1DDL - 1 onde & $U(x) = e^{-ikx}A^++e^{-ik(L-x)}A^-$ & $U_n = \lambda^n A^+ \lambda^N-nA^-$\\
+	\midrule
+	$M$ DDL - $M$ onde & $\vec U(x) = \vec\Phi^+ e^{-ikx}A^+ + \vec\Phi^- e^{-ik(L-x)}A^-$ & $\vec U_n = \vec\phi^+\lambda^n A^+ + \vec\phi^-\lambda^{N-n}A^-$ \\
+	\midrule
+	\Block{}{1 DDL - $M$ ondes\\ forme développée} & $U(x) = \displaystyle\sum_{j=1}^M e^{-ik_j x} A_j^+ + e^{-ik_j (L-x)}A_j^-$ & $U_n = \displaystyle\sum_{j=1}^M \lambda_j^nA_j^+ + \lambda_j^{N-n}A_j^-$\\
+	\midrule
+	\Block{}{$M$ DDL - $M$ ondes\\ forme développée} & $\vec U(x) = \displaystyle\sum_{j=1}^M \vec\Phi_j^+ e^{-ik_j x} A_j^+ + \vec\Phi_j^- e^{-ik_j(L-x)}A_j^-$ & $\vec U_n = \displaystyle \sum_{j=1}^M \vec\phi_j^+\lambda_j^n A_j^+ + \vec\phi_j^- \lambda_j^{N-n}A_j^-$\\	
+	\midrule
+	\Block{}{$M$ DDL - M ondes \\ forme compacte \\ (matricielle)} & $\vec U(x) = \underline{\underline{\Phi}}^+\underline{\underline{\Gamma}}(x)\underline{a}^+ + \underline{\underline{\Phi}}^-\underline{\underline{\Gamma}}(L-x)\underline{a}^-$ & $U_n =\underline{\underline{\Phi}}^+\underline{\underline{\Lambda}}^n\underline{a}^++\underline{\underline{\Phi}}^-\underline{\underline{\Lambda}}^{N-n}\underline{a}^-$\\
+	\bottomrule
+	\end{NiceTabular}
+	
+	\begin{enumerate}[label=$\star$]
+		\item $k, \lambda$ sont solutions (valeurs propres) d'une relation de dispersion
+		
+		\item  $\Phi^+, \Phi^-$ sont vecteurs propres
+		
+		\item  Les amplitudes $a^+, a^-$ sont les nouvelles inconnues, calculées à partir des C.L. (ex. $\begin{cases}
+			x = 0 \\ x = L
+		\end{cases} $ ou $\begin{cases}
+		n= 0 \\ n= N
+		\end{cases}$)
+		
+		\item  Dans le cas d'une analyse harmonique en $\omega$ (régime stationnaire) , seul $U(\omega)$ est à calculer (mono-fréquence)
+		
+		\item Dans le cas transitoire, on doit calculer $U(\omega)$ pour toutes les fréquences de la transformée de Fourier, puis intégrer les $U_n(\omega)$ pour obtenir $U_n(t)$.
+		
+		\item  Des divergences peuvent être observées aux résonances, si le modèle 'est pas amorti (i.e. $\mathbb K - \omega^2 \mathbb  M$ avec $\mathbb M$ et $\mathbb K$ réels)\\
+		Modèle dispersif classique en dynamique $\mathbb K^\star = \mathbb K (1+i\eta)$, où $\eta$ : facteur de perte $\sim 1/n$
+	\end{enumerate}
+	
+\newpage
+	
+\subsection{Écriture des conditions aux limites et assemblage de structures périodiques \underline{finies}}
+
+
+\subsubsection{Chaîne mono-atomique}
+	
+	\includegraphics[scale=.5]{photo33.png}
+	
+	On considère une chaîne monoatomique finie constituée de $N$ cellules ($N+1$) atomes, en régime stationnaire. Le système d'équation s'écrit :
+	
+	\[
+	\begin{bmatrix}
+		k-\omega^2 m & -k \\
+		-k & \cdots \\\\\\
+		& &  - k & k-\omega^2 & -k \\\\\\
+		& & & & \cdots & -k \\
+		& & & & -k & k-\omega^2 m
+	\end{bmatrix}\begin{bmatrix}
+	U_0 \\  U_1 \\ \vdots \\ U_{n-1}\\U_n \\ U_{n+1} \\\vdots\\U_{N-1}\\U_N
+	\end{bmatrix} = \begin{bmatrix}
+	f_0 \\ \\ 
+	\vdots\\ \\
+	\vdots\\ \\
+	\vdots\\ \\
+	f_N
+	\end{bmatrix}
+	\]
+	
+	Dans l'exercice précédent, nous avions imposé $U_0$ et $U_N$ : l'écriture des C.L.\\
+	Que se passe-t-il lorsque l'on ne connaît pas les déplacement $U_0$, mais la force extérieur (ex. $F_0$) ?\\
+	
+	Si \underline{$S_0 =F_0$} est imposé, alors $U_0$ est inconnue. Développons la 1ère ligne du système :
+	\[
+	(k-\omega^2 m)U_0-kU_1 = F_0
+	\] 
+	or nous connaissons également $U_1$ grâce à la décomposition en ondes de Bloch : $\forall n, U_n = \lambda^n A^+ + \lambda^{N-n}A^- \implies\begin{cases}
+		U_0 = A^+ + \lambda A^- \\
+		U_1 = \lambda A^+ +\lambda^{N-1}A^-
+	\end{cases}$\\
+	cela donne : $(k-\omega^2 m)(A^+ + \lambda^N A^-) - k(\lambda A^+ + \lambda^{N-n}A^-) = F_0$\\
+	
+	\[
+	\left[k-\omega^2 m-k\lambda\right]A^+ + \left[(k-\omega^2 m)\lambda^N-k\lambda^{N-1}\right]A^- = F_0
+	\]
+	
+	Si \underline{$S_N = F_N$} est imposée, on développe la $N^{ième}$ ligne (équilibre des forces en $U_N$) :\\
+	$-kU_{N-1}+(k-\omega^2 m)U_N = F_N$, on décompose $\begin{cases}
+		U_{N-1} = \lambda^{N-1}A^+ + \lambda A^-\\
+		U_N = \lambda^N A^+ + A^-
+	\end{cases}$\\
+	
+	ceci donne :
+	
+	\[
+	\left[-k\lambda^{N-1}+(k-\omega^2 m)\lambda^N\right]A^+ + \left[-k\lambda+(k-\omega^2 m)\right]A^- = F_N
+	\]
+	
+	Pour trouver $A^+$ et $A^-$ on doit donc résoudre le système :
+	
+	\[
+	\underbrace{\begin{bmatrix}
+		k-\omega^2 m - k\lambda & (k-\omega^2m)\lambda^N-k\lambda^{N-1} \\
+		(k-\omega^2m)\lambda^N - k \lambda^{N-1} & (k-\omega^2 m)-k\lambda
+	\end{bmatrix}}_{H(\lambda,\omega)}\begin{bmatrix}
+	A^+ \\ A^-
+	\end{bmatrix} = \begin{bmatrix}
+	F_0 \\ A_N
+	\end{bmatrix} \implies \begin{bmatrix}
+	A^+ \\ A^-
+	\end{bmatrix} = H(\lambda,\omega)^{-1}\begin{bmatrix}
+	F_0 \\ F_N
+	\end{bmatrix}
+	\]
 	
 	
+	\subsubsection{Condition aux limites ($U,F$) dans le cas général}
 	
+	On considère la structure périodique finie, constituée par un assemblage de cellules périodiques identiques décrites par la raideur dynamique $\mathbb D= \begin{bmatrix}
+		D_L & D_{LR} \\
+		D_{RL} & D_R
+	\end{bmatrix}$
 	
+	\includegraphics[scale=.5]{photo34.png}
 	
+	\begin{rmq}
+		Ici on utilise une matrice sans DLL internes ($U_I = \{\}$), où bien une matrice où les DDL internes sont condensés sur $U_L, U_R$
+	\end{rmq}
 	
+	Le système global s'écrit alors :
 	
+	\[
+	\begin{bmatrix}
+		D_L & D_{LR} \\
+		D_{RL} & D_R+D_L & D_{LR} \\
+		& D_{RL} & \ddots & \ddots \\
+		& & \ddots & \ddots & \ddots \\
+		& & & D_{RL} & D_L+D_R & D_{LR} \\
+		& & & & D_{RL} & D_R
+	\end{bmatrix}\begin{bmatrix}
+	U_0 \\
+	U_1 \\ \\
+	\vdots \\ 
+	U_{N-1} \\
+	U_N
+	\end{bmatrix} = \begin{bmatrix}
+	f_0 \\
+	0 \\ \\
+	\vdots \\ 
+	0 \\
+	f_N
+	\end{bmatrix} \iff \mathbb D_{global}U_{global} = F_{global}
+	\]
 	
+	\begin{enumerate}
+		\item Cas \underline{$U_0-U_N$ imposés}. On a donc $\begin{cases}
+			u_0 = U_0\\
+			u_N = U_N
+		\end{cases}$ connus. On ignore les notations $\underline{\cdot}$ et $\underline{\underline{\cdot}}$\\
+		La décomposition en ondes de Bloch est, dans le cas vectoriel ($M$ DDL), multimodal ($M$ ondes), $\forall n \in [\![0,N]\!], \underline{U}_n = \underline{\underline{\Phi}}^+\underline{\underline{\Lambda}}^n\underline{a}^+ + \underline{\underline{\Phi}}^-\underline{\underline{\Lambda}}^{N-n}\underline{a}^-$\\
+		ceci donne : $\begin{cases}
+			u_0 = \Phi^+ a^+ + \Phi^-\Lambda^N a^- = U_0 \\
+			u_N = \Phi^+ \Lambda^N a^+ + \Phi^- a^- = U_n
+		\end{cases}\iff \underbrace{\begin{bmatrix}
+		\Phi^+ & \Phi \Lambda^N \\
+		\Phi^+\Lambda^N & \Phi^+
+		\end{bmatrix}}_H\underbrace{\begin{bmatrix}
+		a^+ \\ a^-
+		\end{bmatrix}}_{a} = \underbrace{\begin{bmatrix}
+		U_0 \\ U_N
+		\end{bmatrix}}_{U}$\\
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		Donc $\begin{bmatrix}
+			a^+ \\ a^-
+		\end{bmatrix} = H^{-1}\begin{bmatrix}
+		U_0 \\ U_N
+		\end{bmatrix}$ est la solution, qui nous donne ensuite $U_n$ pour tout $n \in \N$.
+		
+		\item \underline{Cas $F_0 - F_N$ imposés}
+	\end{enumerate}
 	
 	
 	
