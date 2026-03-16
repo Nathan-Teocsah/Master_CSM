@@ -1266,6 +1266,8 @@
 		\end{minipage}
 	\end{exo}
 	
+	\begin{sol}
+		
 	\begin{minipage}{6cm}
 		\includegraphics[scale=.5]{photo25.png}
 	\end{minipage}\begin{minipage}{10cm}
@@ -1273,6 +1275,66 @@
 		$\nabla\lambda_i^K = \dfrac{\alpha_i \overrightarrow{h_ia_i}}{|\!|\overrightarrow{h_ia_i}|\!|}+\dfrac{\alpha_j\overrightarrow{h_ia_j}}{|\!|\overrightarrow{h_ia_j}|\!|}$
 	\end{minipage}
 	
-	$\underbrace{\nabla\lambda_i^K \cdot \dfrac{\overrightarrow{h_ia_i^K}}{|\!|h_ia_i|\!|}}_{\dfrac1{|\!|h_i^Ka_j^K|\!|}\left(\underbrace{\lambda_i^K(a_j^K)}_0-\underbrace{\lambda_i^K(h_i^K)}_0\right)=0} = \alpha_i$
+	$\underbrace{\nabla\lambda_i^K \cdot \dfrac{\overrightarrow{h_ia_i^K}}{|\!|h_ia_i|\!|}}_{\dfrac1{|\!|h_i^Ka_j^K|\!|}\left(\underbrace{\lambda_i^K(a_j^K)}_0-\underbrace{\lambda_i^K(h_i^K)}_0\right)=0} \hspace{-1.7cm}= \alpha_i$ \hspace{2cm} \begin{minipage}[t]{15cm}
+		$\lambda_i^K(a_j^K) = \delta_{i,j}$ et $\lambda_i^K \in \mathbb P_1(K)$\\
+		$\to \alpha_j = 0$
+	\end{minipage}\\
+	
+	\fbox{$\nabla\lambda_i^K = \dfrac{\overrightarrow{h_i^K a_i^K}}{|\!|\overrightarrow{h_i^Ka_i^K|\!|^2}}$}\\
+	
+	\begin{minipage}[t]{10cm}
+		$\displaystyle\int_K \lambda_j^K\lambda_i^K$ : \begin{minipage}{5cm}
+			matrice de masse\\ élémentaire\\ (intégrandes IdId)
+		\end{minipage}
+	\end{minipage}\begin{minipage}[t]{10cm}
+	$\displaystyle\int_K\nabla\lambda_j^K\cdot\nabla\lambda_i^K$ : \begin{minipage}{5cm}
+		matrice de rigidité\\ élémentaire\\ (intégrande $\nabla\cdot\nabla$)
+	\end{minipage}
+	\end{minipage}
+	
+	\begin{minipage}{6cm}
+		\includegraphics[scale=.5]{photo26.png}
+	\end{minipage}\begin{minipage}{15cm}
+	$\nabla_1 ^K\cdot\nabla\lambda_1^K = \dfrac{\overrightarrow{h_1^Ka_1^K}\cdot\overrightarrow{h_1^Ka_1^K}}{|\!|h_1^Ka_1^K|\!|^4} = \dfrac1{|\!|h_1^Ka_1^K|\!|^2}$ \\
+	
+	$|\!|h_1^Ka_1^K|\!|\times |\!| a_2^Ka_3^K|\!| = 2S_K$ où $S_K = $ aire de $K$.\\
+	
+	$\nabla\lambda_1^K \cdot \nabla\lambda_1^K = \dfrac{|\!|a_2^Ka_3^K|\!|^2}{4S_K^2}$\\
+	
+	\fbox{$\displaystyle\int_K \nabla\lambda_1^K \cdot\nabla\lambda_1^K = \dfrac{|\!|a_2^Ka_3^K|\!|}{4S_K}$}
+	\end{minipage}
+	
+	$\begin{aligned}
+		\nabla\lambda_1^K \cdot\nabla\lambda_2^K &= \dfrac{\overrightarrow{h_1^Ka_1^K}\cdot\overrightarrow{h_2^Ka_2^K}}{|\!|\overrightarrow{h_1^Ka_1^K}|\!|^2 \times |\!| h_2^K a_2^K|\!|^2} = \dfrac{\cancel{|\!|\overrightarrow{h_1^Ka_1^K}|\!|}\times \cancel{|\!|\overrightarrow{h_2^Ka_2^K}|\!|} \times\cos(\overrightarrow{h_1^Ka_1^K},\overrightarrow{h_2^Ka_2^K})}{|\!|h_1^Ka_1^K|\!|^{\cancel{2}}\times|\!|\overrightarrow{h_2^Ka_2^K}|\!|^{\cancel2}}\\
+		&\overset{\rouge?}= -\dfrac1{4S_K^2}\overrightarrow{a_3^Ka_1^K}\cdot\overrightarrow{a_3^Ka_2^K} = -\dfrac1{4S_K^2}|\!|\overrightarrow{a_3^Ka_1^K}|\!|\times|\!|\overrightarrow{a_3^Ka_2^K}|\!|\times\cos(\overrightarrow{a_3^Ka_1^K},\overrightarrow{a_3^Ka_2^K})
+	\end{aligned}$\\
+	\begin{minipage}[t]{18cm}
+		Or $\left.\begin{aligned}[t]
+		&2S_K = |\!|\overrightarrow{h_1^Ka_1^K}|\!|\times|\!|\overrightarrow{a_2^Ka_3^K}|\!|\\
+		&2S_K = |\!|\overrightarrow{h_2^Ka_2^K}|\!|\times|\!|\overrightarrow{a_1^Ka_3^K}|\!|
+	\end{aligned}\right\} \implies \nabla\lambda_1^K\cdot\nabla\lambda_2^K = \dfrac{|\!|\overrightarrow{a_2^Ka_3^K}|\!|}{2S_K}\dfrac{|\!|\overrightarrow{a_1^Ka_3^K}|\!|}{2S_K}\cos\left(\overrightarrow{h_1^Ka_1^K},\overrightarrow{h_2^Ka_2^K}\right)$
+	\end{minipage}\\
+	Pour conclure il suffit de montrer que :
+	\[
+	\begin{aligned}
+		&-\cos\left(a_3^Ka_1^K,a_3^Ka_2^K\right) = \cos(\overrightarrow{h_1^Ka_1^K},\overrightarrow{h_2^Ka_2^K})\\
+		&- \cos(\beta) \overset{\rouge?}= \cos\left(\frac\pi2+\overset\sim\beta\right)
+	\end{aligned}
+	\]
+	$\cos\left(\frac\pi2+\overset\sim\beta\right)=\cos\left(\frac\pi2+\frac\pi2-\beta\right) = \cos\left(\pi-\beta\right) = - \cos(\beta)$\\
+	\fbox{$\displaystyle\int_K\nabla\lambda_1^K\cdot\nabla\lambda_2^K = - \dfrac{\overrightarrow{a_3^Ka_1^K}\cdot\overrightarrow{a_3^Ka_2^K}}{4S_K}$}\\
+	
+	\underline{Calcul de } $\begin{aligned}[t]
+		&\displaystyle\int_K \lambda_1^{k_1}\lambda_2^{k_2}\\
+		=&\underbrace{\abs{\det JF_K}}_{2S_K}\displaystyle\int_0^1\int_0^{1-x_1} x_1^{k_1}x_2^{k_2}\mathrm dx_2\mathrm dx_1\\
+		=&\dfrac{2S_K}{k_2+1}\int_0^1 x_1^{k_1}(1-x_1)^{k_2+1}\mathrm dx_1
+	\end{aligned}$\\
+	
+	$\begin{aligned}
+		\displaystyle\int_0^1 x^k(1-x)^l\mathrm dx &= \text{ i.p.p. successives} &= \dfrac{l!}{(k+1)(k+21)\cdots(k+l)}\underbrace{\displaystyle\int_0^1 x^{k+l}\mathrm dx}_{\frac1{k+l+1}}\\
+		&= \dfrac{l!}{(k+1)\cdots(k+l+1)} \\
+		&=\dfrac{l!k!}{(k+l+1)!}
+	\end{aligned}$
+	\end{sol}
 	
 \end{document}
