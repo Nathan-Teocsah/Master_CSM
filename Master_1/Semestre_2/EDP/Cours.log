@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  16 MAR 2026 18:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  17 MAR 2026 12:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2580,6 +2580,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 1958--1965
 
  []
 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1966 ...  + u\int fm_p (v-u)\otimes(v-u)\mathrm$
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Extra }, or forgotten \endgroup.
+\math@egroup #1->#1\egroup 
+                           
+l.1966 ...  + u\int fm_p (v-u)\otimes(v-u)\mathrm$
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
 
 Overfull \hbox (15.14827pt too wide) in paragraph at lines 1957--1968
 []| [] 
@@ -2737,7 +2759,7 @@ Overfull \hbox (169.22597pt too wide) in paragraph at lines 2302--2323
 \openout7 = `Cours.thm'.
 
 [40]
-runsystem(latexminted cleantemp  --timestamp 20260316181240 33C1869ABDF6A46508C
+runsystem(latexminted cleantemp  --timestamp 20260317124848 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -2751,7 +2773,7 @@ Package rerunfilecheck Info: File `Cours.out' has not changed.
 Here is how much of TeX's memory you used:
  48411 strings out of 467538
  1134253 string characters out of 5419551
- 1799303 words of memory out of 5000000
+ 1800303 words of memory out of 5000000
  76430 multiletter control sequences out of 15000+600000
  757054 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2779,7 +2801,7 @@ mf-dist/fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-dist/fon
 ts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/p
 ublic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lm
 sy8.pfb>
-Output written on Cours.pdf (41 pages, 3281392 bytes).
+Output written on Cours.pdf (41 pages, 3281421 bytes).
 PDF statistics:
  534 PDF objects out of 1000 (max. 8388607)
  392 compressed objects within 4 object streams
