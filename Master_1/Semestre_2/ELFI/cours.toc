@@ -1,30 +1,34 @@
 \babel@toc {french}{}\relax 
-\contentsline {section}{\numberline {1}Introduction aux éléments finis}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Résolution informelles}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Établissement de la formulation variationnelle}{3}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}Les espaces fonctionnels}{3}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Notion de distribution}{4}{subsubsection.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.3}Convergence et dérivation au sens des distributions}{5}{subsubsection.1.2.3}%
-\contentsline {subsubsection}{\numberline {1.2.4}Espaces de Sobolev}{6}{subsubsection.1.2.4}%
-\contentsline {subsubsection}{\numberline {1.2.5}Formule de Green}{7}{subsubsection.1.2.5}%
-\contentsline {subsubsection}{\numberline {1.2.6}EDP $\rightarrow $ Formulation variationnelle, caractère bien posé}{8}{subsubsection.1.2.6}%
-\contentsline {subsubsection}{\numberline {1.2.7}Contexte générique, $d = 2$}{8}{subsubsection.1.2.7}%
-\contentsline {section}{\numberline {2}Problème modèle}{8}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Formulation variationnelle}{8}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Triangulation $\mathbb {P}_1$ de Lagrange}{9}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Espace discret, numérotation locale et globale, fonctions de base}{11}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Problème discret}{13}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Matrices et second membres élémentaires}{14}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Éléments de référence}{14}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Élément de référence et calculs élémentaires}{15}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Formules de quadrature}{16}{subsection.2.8}%
-\contentsline {section}{\numberline {3}Éléments finis usuels}{17}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Définition d'un élément finis}{17}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Élément fini de Lagrange triangulaire droit}{18}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Élément fini triangulaire $\mathbb P_k$ de Lagrange}{18}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Élément fini $\mathbb P_1$ non conforme}{18}{subsubsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.3}Éléments finis générique}{19}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Élément fini de référence}{19}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Élément fini triangulaire courbe de Lagrange}{19}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}Élément fini quadrangulaire courbe}{20}{subsubsection.3.3.3}%
-\contentsline {section}{\numberline {4}Configuration générique et détails de mise en œuvre}{21}{section.4}%
+\contentsline {section}{\numberline {1}Introduction aux éléments finis}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Résolution informelles}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Établissement de la formulation variationnelle}{4}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Les espaces fonctionnels}{4}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Notion de distribution}{5}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Convergence et dérivation au sens des distributions}{6}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Espaces de Sobolev}{7}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Formule de Green}{8}{subsubsection.1.2.5}%
+\contentsline {subsubsection}{\numberline {1.2.6}EDP $\rightarrow $ Formulation variationnelle, caractère bien posé}{9}{subsubsection.1.2.6}%
+\contentsline {subsubsection}{\numberline {1.2.7}Contexte générique, $d = 2$}{9}{subsubsection.1.2.7}%
+\contentsline {section}{\numberline {2}Problème modèle}{9}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Formulation variationnelle}{9}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Triangulation $\mathbb {P}_1$ de Lagrange}{10}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Espace discret, numérotation locale et globale, fonctions de base}{12}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Problème discret}{14}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Matrices et second membres élémentaires}{15}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Éléments de référence}{15}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Élément de référence et calculs élémentaires}{16}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Formules de quadrature}{17}{subsection.2.8}%
+\contentsline {section}{\numberline {3}Éléments finis usuels}{18}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Définition d'un élément finis}{18}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Élément fini de Lagrange triangulaire droit}{19}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Élément fini triangulaire $\mathbb P_k$ de Lagrange}{19}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Élément fini $\mathbb P_1$ non conforme}{19}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Éléments finis générique}{20}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Élément fini de référence}{20}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Élément fini triangulaire courbe de Lagrange}{20}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Élément fini quadrangulaire courbe}{21}{subsubsection.3.3.3}%
+\contentsline {section}{\numberline {4}Configuration générique et détails de mise en œuvre}{22}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Formulation Variationnelle discrète}{22}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Stockage de la matrice}{26}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Stockage morse ordonnée}{26}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Stockage morse désordonnée}{27}{subsubsection.4.2.2}%
