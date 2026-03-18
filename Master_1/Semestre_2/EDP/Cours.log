@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  17 MAR 2026 12:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  18 MAR 2026 10:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2580,157 +2580,145 @@ Underfull \hbox (badness 10000) in paragraph at lines 1958--1965
 
  []
 
-! Missing } inserted.
-<inserted text> 
-                }
-l.1966 ...  + u\int fm_p (v-u)\otimes(v-u)\mathrm$
-                                                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
 
-! Extra }, or forgotten \endgroup.
-\math@egroup #1->#1\egroup 
-                           
-l.1966 ...  + u\int fm_p (v-u)\otimes(v-u)\mathrm$
-                                                  
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
+Underfull \hbox (badness 10000) in paragraph at lines 1966--1971
+
+ []
 
 
-Overfull \hbox (15.14827pt too wide) in paragraph at lines 1957--1968
+Underfull \hbox (badness 10000) in paragraph at lines 1972--1975
+
+ []
+
+
+Overfull \hbox (15.14827pt too wide) in paragraph at lines 1957--1982
 []| [] 
  []
 
 [35] [36]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 2083.
+(Font)              <14.4> on input line 2097.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 2083.
+(Font)              <7> on input line 2097.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 2083.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 2097.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2083.
+(hyperref)                removing `math shift' on input line 2097.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2083.
+(hyperref)                removing `math shift' on input line 2097.
 
 Package hyperref Info: bookmark level for unknown brouillon defaults to 0 on in
-put line 2099.
+put line 2113.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2105--2106
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2107--2108
+Underfull \hbox (badness 10000) in paragraph at lines 2119--2120
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2109--2110
+Underfull \hbox (badness 10000) in paragraph at lines 2121--2122
 
  []
 
 
-Overfull \hbox (172.62442pt too wide) in paragraph at lines 2101--2115
+Underfull \hbox (badness 10000) in paragraph at lines 2123--2124
+
+ []
+
+
+Overfull \hbox (172.62442pt too wide) in paragraph at lines 2115--2129
 [] $[]$ 
  []
 
 Package hyperref Info: bookmark level for unknown sol defaults to 0 on input li
-ne 2117.
+ne 2131.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2122--2128
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2133--2138
+Underfull \hbox (badness 10000) in paragraph at lines 2136--2142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2145--2153
+Underfull \hbox (badness 10000) in paragraph at lines 2147--2152
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2154--2155
+Underfull \hbox (badness 10000) in paragraph at lines 2159--2167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2159--2160
+Underfull \hbox (badness 10000) in paragraph at lines 2168--2169
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2170--2171
+Underfull \hbox (badness 10000) in paragraph at lines 2173--2174
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2177--2178
+Underfull \hbox (badness 10000) in paragraph at lines 2184--2185
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2199--2209
+Underfull \hbox (badness 10000) in paragraph at lines 2191--2192
 
  []
 
 
-Overfull \hbox (227.65688pt too wide) in paragraph at lines 2219--2267
+Underfull \hbox (badness 10000) in paragraph at lines 2213--2223
+
+ []
+
+
+Overfull \hbox (227.65688pt too wide) in paragraph at lines 2233--2281
 [][][] 
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 2219--2267
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 2233--2281
 [] 
  []
 
 
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 2119--2275
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 2133--2289
 []$[]$
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 2119--2275
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 2133--2289
 []$
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 2119--2275
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 2133--2289
 [] 
  []
 
 
-Underfull \vbox (badness 4805) detected at line 2275
+Underfull \vbox (badness 4805) detected at line 2289
  []
 
 [37]
-Underfull \vbox (badness 10000) detected at line 2275
+Underfull \vbox (badness 10000) detected at line 2289
  []
 
 
-Overfull \vbox (4.23863pt too high) detected at line 2275
+Overfull \vbox (4.23863pt too high) detected at line 2289
  []
 
 [38] [39]
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 2285--2292
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 2299--2306
 [][] 
  []
 
 
-Underfull \hbox (badness 1292) in paragraph at lines 2310--2311
+Underfull \hbox (badness 1292) in paragraph at lines 2324--2325
 []$\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 X\OT1/lmr/m/n/12 (0\OML/lmm/m/it/12 ; t; x
 ; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; Y\OT1/lmr/m/n/12 (0\OML/lmm/m/it/12 ;
  t; x; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; Z\OT1/lmr/m/n/12 (0\OML/lmm/m/it
@@ -2741,17 +2729,17 @@ lmm/m/it/12 ; t; x; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; X\OT1/lmr/m/n/12 (0
  []
 
 
-Overfull \hbox (3.38544pt too wide) in paragraph at lines 2306--2313
+Overfull \hbox (3.38544pt too wide) in paragraph at lines 2320--2327
 \T1/lmr/m/it/12 Et on a : [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2313--2315
+Underfull \hbox (badness 10000) in paragraph at lines 2327--2329
 
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 2302--2323
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 2316--2337
 [] 
  []
 
@@ -2759,7 +2747,7 @@ Overfull \hbox (169.22597pt too wide) in paragraph at lines 2302--2323
 \openout7 = `Cours.thm'.
 
 [40]
-runsystem(latexminted cleantemp  --timestamp 20260317124848 33C1869ABDF6A46508C
+runsystem(latexminted cleantemp  --timestamp 20260318100753 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -2801,7 +2789,7 @@ mf-dist/fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-dist/fon
 ts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/p
 ublic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lm
 sy8.pfb>
-Output written on Cours.pdf (41 pages, 3281421 bytes).
+Output written on Cours.pdf (41 pages, 3282519 bytes).
 PDF statistics:
  534 PDF objects out of 1000 (max. 8388607)
  392 compressed objects within 4 object streams
