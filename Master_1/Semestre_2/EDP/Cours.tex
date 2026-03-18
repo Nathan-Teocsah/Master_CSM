@@ -1963,7 +1963,21 @@ $\left(\rho E = \frac12\rho u^2 + \frac32 \rho T = \frac12 \displaystyle\int fm_
 	\end{aligned}$\\
 	$\displaystyle\bleu\int fm_p \frac12\left((v-u)^2+2u\cdot(v-u) + \underbrace{u^2}_0\right) (v-u)\mathrm dv$\\
 	
-	Ainsi $...=\displaystyle\int fm_p \frac12 (v-u)^2(v-u)  + u\int fm_p (v-u)\otimes(v-u)\mathrm$
+	Ainsi $...=\displaystyle\rouge\int fm_p \frac12 (v-u)^2(v-u)\mathrm dv  + \Vert\int fm_p u\cdot(v-u)(v-u)\mathrm dv$\\
+	Or : $\begin{aligned}[t]
+		\displaystyle\rouge\int fm_p u\cdot(v-u)(v-u) \mathrm dv = \int \dfrac1{\sqrt{2\pi}^3}\exp\left(\dfrac{(u-v)^2}{2T}\right)u\cdot(v-u) (v-u) \mathrm dv = \rho T\times (u)\\
+		\Vert\int fm_p u\cdot(v-u)(v-u)\mathrm dv = \int m_p \dfrac\rho{\sqrt{2\pi T}^3}\exp\left(-\dfrac{(v-u)^2}{2T}\right)\dfrac12(v-u)^2(v-u) \mathrm dv=0
+	\end{aligned}$\\
+	
+	$0 = \partial_t(\rho E) + \mathrm{div}_x(\rho Eu+\rho Tu)$ (conservation énergie Euler) \\
+	$H = E+\frac p\rho$ (enthalpie)\\
+	$\partial_t(\rho E) + \mathrm{div}_x(\rho H u) = 0$\\
+	
+	Les équation d'Euler : $\begin{cases}
+		\partial_t\rho + \mathrm{div}_x(\rho u) = 0 & p = \rho T\\
+		\partial_t\rho u +\mathrm{div}_x(\rho u \otimes u) + \nabla_x p = 0 & E = \frac12 u^2 + \frac32 T\\
+		\partial_t\rho E + \mathrm{div}_x((\rho E+p)u) = 0 & p = \rho\frac 23(E-\frac12 u^2)
+	\end{cases}$
 \end{minipage}
 \end{enumerate}
 
