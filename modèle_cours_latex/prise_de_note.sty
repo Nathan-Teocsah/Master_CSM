@@ -19,7 +19,7 @@
 \usepackage{titlesec}
 \usepackage{graphicx}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{tcolorbox}
+\usepackage[all]{tcolorbox}
 
 % Mathématiques
 \usepackage{amsmath}
@@ -44,7 +44,8 @@
 \usepackage{pstricks}
 
 % Liens cliquables
-\usepackage[hidelinks]{hyperref}
+\PassOptionsToPackage{hidelinks}{hyperref}
+\usepackage{hyperref}
 
 % Marges
 \geometry{
@@ -105,6 +106,24 @@
 	}%
 }
 
+\newcommand{\theoremcolorboxdot}[2]{%
+	\def\theoremframecommand##1{%
+		\begin{tcolorbox}[
+			enhanced,
+			arc=1.5mm,
+			frame hidden,
+			colback=#2,
+			left=6pt,
+			right=6pt,
+			top=6pt,
+			bottom=6pt,
+			borderline={0.5mm}{0mm}{dotted,#1}
+		]
+			##1
+		\end{tcolorbox}
+	}%
+}
+
 
 \theoremcolorbox{blue}{white}
 \newshadedtheorem{thm}[Theorem]{Théorème}
@@ -121,7 +140,7 @@
 \theoremcolorbox{purple}{white}
 \newshadedtheorem{cor}[Corollary]{Corollaire}
 
-\theoremcolorbox{lightgray}{white}
+\theoremcolorboxdot{lightgray}{white}
 \newshadedtheorem{dem}[Proof]{Preuve}
 
 \theoremcolorbox{gray}{white}

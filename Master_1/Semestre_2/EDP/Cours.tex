@@ -1670,7 +1670,7 @@ $f(t,x,v) = f(t=0,x-tv,v) = f_0(x-vt,v)$
 	\end{minipage}
 \end{enumerate}
 
-\subsection{Equation de Boltzmann}
+\subsection{Equation de Boltzmann : modélisation des collisions}
 
 $f(t,x,v)$ : densité de particules par unité de volume (en $x$ et en $v$)\\
 $\begin{aligned}
@@ -1736,7 +1736,6 @@ $\begin{aligned}
 \end{aligned}$
 
 $\langle Q(f,f),\Psi\rangle = \frac14 \displaystyle\int\int\int \left(f'f_\star'-ff_\star\right)\left(\Psi_+\Psi_\star-\Psi_\star'-\Psi'\right)B(|\!|v-v_\star|\!|,\sigma)\mathrm dv \mathrm dv_\star \mathrm dv$\\
-
 $\hookrightarrow$ donne les conservations\\
 $H(f,f) = \displaystyle\int\left(f\ln f - f\right) \mathrm dv$ (entropie au sens mathématiques)\\
 $H(f)$ ne dépend que de $f$ \hspace{.5cm} $\begin{aligned}[t]
@@ -1771,7 +1770,9 @@ $\star$ $\partial_t f + v\nabla_x f = Q(f,f)$ \\
 $t,x,v$ et $f = \frac{f'}{f_0}$\\
 $t' = \frac t{t_0}$ \hspace{1cm} $\frac1{t_0} \partial_{t'} f' + \frac{v_0}{x_0}v'\nabla_{x'} f' = f_0 Q(f',f')$ \\
 $x' = \frac{x}{x_0}$ \hspace{1cm} $\partial_{'}f' + \frac{v_0t_0}{x_0} v' \nabla_x f' = t_0 f_0 Q(f',f')$\\
-$v' = \frac v{v_0}$ \hspace{1cm} $\simeq 1$ Knudsen $\sim \frac 1{f_0}$\\
+$v' = \frac v{v_0}$ \hspace{1cm} $\simeq 1$ Knudsen $\sim \frac 1{f_0}$
+
+\newpage
 
 \textbf{Equation adimentionnée pour le scaling hydrodynamique}
 
@@ -1814,7 +1815,7 @@ A la limite $K_n = 0$ donc $Q(f,f) = 0$.\\
 				$v^2+v_ \star^2 = (v+v_\star)^2-2vv_\star = \frac12 \left((v+v_\star)^2 + (v-v_\star)^2\right)$
 			\end{minipage}
 			
-			Le but est de résoudre : $g(v) + g(v_\star) = T((v+v_\star),(v-v_\star)^2)$ \hspace{.5cm} ($T_1,T_2,T_3,T_4$)\\
+			Le but est de résoudre : $g(v) + g(v_\star) = T((v+v_\star),(v-v_\star)^2)$ \hspace{.5cm} ($T_1,T_2,T_3,T_4$)
 			\begin{lm} \begin{minipage}[t]{15cm}
 					Si $g : \R^2 \to \R^2$ est $\mathcal C^2$ et si $T : \R^2 \times \R \to \R$ est aussi $\mathcal C^2$, alors :
 				\end{minipage}\\
@@ -1981,14 +1982,70 @@ $\left(\rho E = \frac12\rho u^2 + \frac32 \rho T = \frac12 \displaystyle\int fm_
 \end{minipage}
 \end{enumerate}
 
+\subsection{Passage vers les équations de Navier-Stockes}
 
+$\partial_t \rho + \mathrm{div}(\rho u) = 0$\\
+$\partial_t(\rho u) + \mathrm{div}(\rho u\otimes u) + \nabla p = \nabla\cdot\left(\mu \dfrac{\nabla u + \nabla u^T}2\right)$ avec $\mu$ la viscosité\\
+$\begin{aligned}[t]
+	\partial_t(\rho E) + \mathrm{div}(\rho H u) =& \nabla\cdot\left(\lambda\nabla T\right)\\
+	&\nabla\cdot\left(\mu\left(\dfrac{\nabla u + \nabla u^T}2\right)u\right) & \hspace{.5cm} \nabla u + \nabla u ^T = \left(\partial_iu_j+\partial_ju_i\right)
+\end{aligned}$ \hspace*{-5cm} avec $\lambda$ la conductivité thermique
 	
-	
+Repartons de l'équation de Boltzmann
+
+\[
+\partial_t f + v \nabla_x f = \frac12 Q(f,f)
+\]
+
+\subsubsection{Développement de Hilbert}
+$f = M + \varepsilon g$ \hspace{1cm} $\begin{aligned}[t]
+	Q(f,f) &= Q(M,M) + \varepsilon Q(M,g) + \varepsilon Q(M,g) + \varepsilon Q(g,M) + \varepsilon^2 Q(g,g)\\
+	&= \varepsilon(Q(M,g)+Q(g,M)+O(\varepsilon^2))
+\end{aligned}$
+
+\[
+\begin{gathered}
+	\partial_t f + v\nabla_x f = \partial_t M + v\nabla_x M + O(\varepsilon)\\
+	\partial_t M + v\nabla_x M = Q(M,g) + Q(g,M)
+\end{gathered}
+\]
+
+$\begin{aligned}
+	Q(f,f) &= \displaystyle\int\int \left(f'f_\star' - ff^\star\right)B(|\!|v-v^\star|\!|)\mathrm dv^\star\mathrm dv\\
+Q(M,g)+Q(g,M) &= \displaystyle\int\int\left[\left((M'g'^\star-Mg^\star)+(g'M'^\star-gM^\star)\right)\right]B(|\!|v-v^\star|\!|)\mathrm dv^\star\mathrm dv
+\end{aligned}$
 	 
+\textit{Bof ...}
+
+\subsubsection{Développement de Chapman-Enskog}
+
+$f = M(1+\varepsilon h)$\\
+\underline{Rappel :} on a : $MM^\star = M'M'^\star$ (lié aux propriétés de conservations)\\
+
+$\begin{aligned}
+	Q(f,f) &= 0 + \varepsilon \displaystyle\int\int M'M'^\star \left(h'^\star - h^\star\right) + MM^\star\left(h'-h\right)B(|\!|v-v^\star|\!|)\mathrm dv \mathrm d\sigma + O(\varepsilon^2)\\
+	&= \varepsilon\int\int MM^\star \left(h/^\star+h'-h^\star-h\right)B(|\!|v-v^\star|\!|)\mathrm dv \mathrm d\sigma + O(\varepsilon ^2) \\
+	&=2M\displaystyle\int\int M^\star\left(h'^\star+h'-h^\star-h\right)B(|\!|v-v^\star|\!|)\mathrm dv \mathrm d\sigma + O(\varepsilon^2)
+\end{aligned}$\\
+
+Au final, trouver $h$  revient à résoudre $\partial_t M + v\nabla_x M = \displaystyle\int\int M^\star \left(h'^\star h' - hh^\star\right)B(|\!|v-v^\star|\!|)\mathrm dv \mathrm d\sigma$\\
+
+$\begin{aligned}
+	\partial_t M & = M \dfrac{\partial_t M}{M} \\
+	&=M\partial_t\ln M \\
+	&= M\left[\frac{\partial_t \rho}\rho - \frac32 \dfrac{\partial_t T}T - \partial_t \left(\dfrac{(v-u)^2}{2T}\right)\right]\\
+	&= M\left[\dfrac{\partial_t \rho}\rho - \dfrac32\dfrac{\partial_t T}T + \dfrac{(v-u)^2}{2T^2}\partial_t T\right]\\
+	&= M\left[\dfrac{\partial_t \rho}\rho - \dfrac{\partial_t u (u-v)}{T} + \left(\dfrac{(v-u) ^2}{2T^2} - \dfrac3{2}\right)\partial_t T\right]
+\end{aligned}$\\
+
+En 1D (en espace), $\partial_x M = vM \left[\dfrac{\partial_x \rho}\rho - \dfrac{\partial_x u(v-u)}T + \left(\dfrac{(v-u)^2}{2T^2}-\dfrac3{2T}\right)\partial_x T\right]$\\
+
+$\partial_t (\rho E) + \partial_t\left((\rho E + p)u\right) = 0$ \hspace{1cm} $E = \frac12 u^2 +\frac32 T$ \\
 	
-	
-	
-	
+$\begin{aligned}
+	&\partial_t (\rho E) + \partial_t\left((\rho E + p)u\right)\\
+	=&E(\partial_t\rho + \partial_x (\rho u))+\rho\partial_t E + \rho u
+\end{aligned}$
 	
 	
 	
