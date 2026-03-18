@@ -2042,12 +2042,62 @@ En 1D (en espace), $\partial_x M = vM \left[\dfrac{\partial_x \rho}\rho - \dfrac
 
 $\partial_t (\rho E) + \partial_t\left((\rho E + p)u\right) = 0$ \hspace{1cm} $E = \frac12 u^2 +\frac32 T$ \\
 	
-$\begin{aligned}
+\begin{minipage}{9cm}
+	$\begin{aligned}
 	&\partial_t (\rho E) + \partial_t\left((\rho E + p)u\right)\\
-	=&E(\partial_t\rho + \partial_x (\rho u))+\rho\partial_t E + \rho u
+	=&E(\partial_t\rho + \partial_x (\rho u))+\rho\partial_t E + \rho u\partial_x E + \partial_x(\rho u) \\
+	=&\rho\left(\partial_t E + u \partial_x E\right) + \partial_x (pu) 
+\end{aligned}$\\
+
+$\begin{aligned}
+	\partial_t E &= u\partial_t u + \frac32 \partial_t T\\
+	&= u\left[-u\partial_x u - \dfrac{\nabla p}\rho\right] + \frac32 \partial_t T
 \end{aligned}$
-	
-	
+\end{minipage}\begin{minipage}{15cm}
+\simplebar{$\begin{aligned}[t]
+		0 =& \rho \left(u\left(-u\partial_x u - \dfrac{\nabla p}\rho\right)+\frac32\partial_t T\right)\\
+		&+\rho u\left(u\partial_x u + \frac32 \partial_x T\right)\\
+		&+\partial_x(pu)
+	\end{aligned}$}
+\end{minipage}\\
+
+\noindent$0 = -u\partial_x p + \frac32 p \partial_t T + \frac32 \rho u \partial_x T + \partial_x (pu) $\\
+$\partial_t T + u \partial_x T + \frac23 T\partial_x u = 0$ \hspace{3cm} (en 3D $\partial_t T + u\cdot\nabla_x T + \frac23 T \mathrm{div}_x u = 0$)\\
+
+$\partial_t u + u\nabla u + \dfrac{\nabla p}\rho = 0 \implies \partial_t u + u \nabla u + T\dfrac{\nabla p}\rho + \nabla T = 0$\\
+$\partial_t T + u\nabla T + \frac23 T \mathrm{div}_x u = 0$\\
+$\partial_t\rho+\mathrm{div}\rho u = 0$ \hspace{1cm} $\partial_t \rho + u \cdot \nabla \rho + \rho \mathrm{div}_x u = 0$
+
+\newpage
+
+\textbf{$\longrightarrow$ Quels sont les termes en $\rho$ ?}\\
+
+$\begin{aligned}
+	& - u \dfrac{\partial_x \rho}\rho - \dfrac{u-v}T\left(-\dfrac{T\partial_x\partial}\rho\right) + v\dfrac{\partial_x\rho}\rho \\
+	=&(v-u)\dfrac{\partial_x \rho}{\rho} + (u-v)\dfrac{\partial_x \rho}{\rho} = 0
+\end{aligned}$\\
+
+Si on réunit tous les termes de la même façon, on obtient :
+\[
+\begin{aligned}
+	\partial_t M + v\nabla_x M =& A\left(\dfrac{v-u}{\sqrt T}\right)\cdot\dfrac{\nabla_x T}T + B\left(\dfrac{v-u}{\sqrt{T}}\right):\nabla_x u \\
+	&A\left(\dfrac{v-u}{\sqrt T}\right) = \left(\dfrac{\left(\dfrac{v-u}{\sqrt T}\right)^2}2 - \dfrac52\right)\dfrac{v-u}{\sqrt T}B_{ij}\left(\dfrac{v-u}{\sqrt T}\right) = \left(\dfrac{v_i-u_i}{\sqrt{T}}\dfrac{v_j-u_j}{\sqrt{T}}-\dfrac13\dfrac{(v-u)^2}T\delta_{ij}\right)
+\end{aligned}
+\]
+
+Soit $A$ et $B$ deux matrices : $\left(A : B\right)$ est une sorte de produit scalaire  de 2 matrices...\\
+
+$\begin{aligned}
+	& \partial_t M + v\cdot \nabla_x M = M\left(A\cdot\dfrac{\nabla_x T}T + \underbrace{B:\nabla_x u}_{B:\frac{\nabla u + \nabla u^T}2 \text{ (B symétrique)}}\right)\\
+	=&M\displaystyle\int\int M^\star\left[h'+h'^\star - h-h^\star\right]B(|\!|v-v^\star|\!|)\mathrm dv^\star \mathrm d\sigma
+\end{aligned}$\\
+
+Le problème à résoudre c'est : 
+\[
+A:\dfrac{\nabla_x T}{T} + B : \nabla_x u = \displaystyle\int\int M^\star\left(h'h'^\star-h-h^\star\right)B\left(|\!|v-v^\star|\!|\right)\mathrm dv^\star \mathrm d\sigma
+\]
+
+$f$ s'exprime en fonction de $A$ et $B$ : \fbox{$f = M\left(1+\alpha A \dfrac{\nabla_x T}T + B:\nabla u\right)$}
 	
 	
 	
