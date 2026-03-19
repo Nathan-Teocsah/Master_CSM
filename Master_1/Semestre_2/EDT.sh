@@ -11,7 +11,7 @@ fi
 
 # Heure actuelle
 NOW=$(date -u +"%Y%m%dT%H%M%SZ")
-
+NOW=20260318T133013Z
 # Parser
 awk -v now="$NOW" -v MASTER="$MASTER" '
 BEGIN { in_event=0 }
@@ -19,16 +19,16 @@ BEGIN { in_event=0 }
 /END:VEVENT/ {
     if (start <= now && end >= now) {
         if (summary ~ /^ELFI/) {
-            system("texstudio \"" MASTER "/ELFI/Cours.tex\" &")
+            system("texstudio \"" MASTER "/ELFI/cours.tex\" &")
+            system("nautilus \"ELFI\" &")
         }
         else if (summary ~ /^MODA1/) {
             system("texstudio \"" MASTER "/Modelisation_en_action/Cours.tex\" &")
+            system("nautilus \"Modelisation_en_action\" &")
         }
         else if (summary ~ /^EDP/) {
             system("texstudio \"" MASTER "/EDP/Cours.tex\" &")
-        }
-        else if (summary ~ /^RNDP/) {
-            system("texstudio \"" MASTER "/RNDP/Cours.tex\" &")
+			   system("nautilus \"EDP\" &")
         }
         else if (summary ~ /^APST/) {
             system("code --session")

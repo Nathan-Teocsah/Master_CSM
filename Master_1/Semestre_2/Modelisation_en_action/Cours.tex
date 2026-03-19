@@ -1630,8 +1630,41 @@ où encore :
 		U_0 \\ U_N
 		\end{bmatrix}$ est la solution, qui nous donne ensuite $U_n$ pour tout $n \in \N$.
 		
+		\newpage
+		
 		\item \underline{Cas $F_0 - F_N$ imposés}
+		
+		Lorsque les efforts extérieurs sont appliqués aux extrémités $n=0$ et $n=N$, on écrit l'équilibre des forces en $n=0$ et $n=N$, ce qui revient à développer les $1^{ère}$ et $N^{ième}$ lignes du système $D_yU_y = F_y$, c'est-à-dire : $\begin{cases}
+			D_L U_0 + D_{LR} U_1 = F_0\\
+			D_{RL}U_{N-1} + D_RU_N=F_N
+		\end{cases}$ ou $\begin{cases}
+		U_1 = \Phi^+\Lambda a^+ + \Phi^-\Lambda^{N-1}a^- \\
+		U_{N-1} = \Phi^+\Lambda^{N-1}a^+ + \Phi^-\Lambda a^-
+		\end{cases}$\\
+		$\begin{cases}
+			D_L(\Phi^+a^++\Phi^-\Lambda^Na^-)+D_{LR}(\Phi^+\Lambda a^+ + \Phi^-\Lambda^{N-1}a^-) = F_0\\
+			D_{RL}(\Phi^+\Lambda^{N-1}a^+ + \Phi^-\Lambda a^-) + D_R(\Phi^+\Lambda^N a^++\Phi^-a^-) = F_N
+		\end{cases}$\\
+		Sous forme matricielle, cela donne :\\
+		\enc[13.5cm]{red}{$\begin{bmatrix}
+				D_L\Phi^+ + D_{LR}\Phi^+\Lambda & D_L\Phi^-\Lambda^N + D_{LR}\Phi^-\Lambda^{N-1} \\
+				D_{RL}\Phi^+ \Lambda^{N-1} + D_R\Phi^+\Lambda^N & D_{RL}\Phi^-\Lambda + D_R\Phi^-
+			\end{bmatrix}\begin{bmatrix}
+			a^+ \\ a^-
+			\end{bmatrix} = \begin{bmatrix}
+			F_0 \\ F_N
+			\end{bmatrix}$}
 	\end{enumerate}
+	
+	\begin{exo}
+		\begin{minipage}[t]{14cm}
+			Écrire les systèmes analogues pour les conditions aux limites de type $(U_0-F_N)$ et $(F_0-U_N)$
+		\end{minipage}
+		
+		\begin{minipage}[t]{18cm}
+			Puis appliquer au système suivant : \hspace{.5cm} \includegraphics[scale=.5]{photo35.png}
+		\end{minipage}
+	\end{exo}
 	
 	
 	
