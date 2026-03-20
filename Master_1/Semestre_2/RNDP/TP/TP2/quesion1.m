@@ -20,10 +20,28 @@ A = 1/h^2 *A;
 U = A\F;
 U = [u(0); U; u(1)];
 T = linspace(0,1,N+1);
+figure()
 plot(T,U)
-hold On
+hold on
 plot(T,u(T))
 legend('solution approchée','solution exacte')
 title('Comparaison des solutions')
+hold off
+
+U1 = choltrd(A,F);
+U1 = [u(0), U1, u(1)];
+
+for i=1:length(U)
+    U1(i)-U(i)
+end
+
+figure()
+plot(T,U1)
+hold on
+plot(T,u(T))
+legend('solution approchée','solution exacte')
+title('Comparaison des solutions avec choltrd')
+hold off
+
 
 pause;
