@@ -11,7 +11,7 @@ fi
 
 # Heure actuelle
 NOW=$(date -u +"%Y%m%dT%H%M%SZ")
-NOW=20260318T133013Z
+
 # Parser
 awk -v now="$NOW" -v MASTER="$MASTER" '
 BEGIN { in_event=0 }
