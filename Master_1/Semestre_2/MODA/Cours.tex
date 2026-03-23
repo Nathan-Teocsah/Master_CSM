@@ -2586,7 +2586,7 @@ où encore :
 		Guide d'ondes périodique \underline{semi-infini}\\
 		\begin{minipage}{6cm}
 			\includegraphics[scale=.5]{photo39.png}
-		\end{minipage}\begin{minipage}{10cm}
+		\end{minipage}\begin{minipage}{15cm}
 			\begin{enumerate}
 				\item Écrire le système global, en notant $\mathbb D = \begin{bmatrix}
 					D_L & D_{LR} \\
@@ -2611,11 +2611,35 @@ où encore :
 			\end{bmatrix} = \begin{bmatrix}
 				F_0 \\ 0 \\ 0 \\ \vdots
 			\end{bmatrix}$
+			
 			\item $F_0 - U_n$\\
 			$D_LU_0 + D_{LR} U_L = F_0$\\
 			$U_0 = \Phi^+ a^+ + 0 \to$ milieu semi-uniforme\\
 			$U_n = \Phi^+\Lambda a^+$\\
+			$\left(\underbrace{D_L\Phi^++D_{LR}\Phi^+\Lambda}_H\right) = F_0$\\
+			$a^+ = H^{-1}F_0$\\
+			$U_n = \Phi^+\Lambda^n a^+ = \fbox{$\Phi^+\Lambda^n H^{-1} F_0$}$
+			
+			\item Appliquons avec \begin{minipage}{5cm}
+				\includegraphics[scale=.5]{photo40.png}
+			\end{minipage}\\
+			\begin{minipage}[t]{18cm}
+				$\begin{cases}
+				\Phi^+ = 1 & \Lambda = \lambda\\
+				\mathbb D = \begin{bmatrix}
+					k-\omega^2 m & -k \\
+					-k & k
+				\end{bmatrix}
+			\end{cases} \implies \begin{aligned}[t]
+			u_n&= \Phi^+ \Lambda^n\left[D_L\Phi^+ + D_{LR}\Phi^+\Lambda\right]^{-1}\\
+			&=\lambda^n\left(k-\omega^2m-k\lambda\right)^{-1}F_0
+			\end{aligned}$
+			\end{minipage}\\
+			Donc $\forall n, \fbox{$u_n = \dfrac{\lambda^n F_0}{k-\omega^2m-k\lambda}$}$
 		\end{enumerate}
+		
+		\vspace{-.5cm}
+		
 	\end{sol}
 	
 \end{document}

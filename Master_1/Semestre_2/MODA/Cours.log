@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  23 MAR 2026 16:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  23 MAR 2026 16:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2794,13 +2794,7 @@ File: photo39.png Graphic file (type png)
 Package pdftex.def Info: photo39.png  used on input line 2588.
 (pdftex.def)             Requested size: 136.50966pt x 92.84665pt.
 
-Underfull \hbox (badness 5217) in paragraph at lines 2591--2595
-[]\T1/lmr/m/it/12 Écrire le sys-tème glo-bal, en no-tant $\U/bbold/m/n/12 D \OT
-1/lmr/m/n/12 =
- []
-
-
-Overfull \hbox (98.09407pt too wide) in paragraph at lines 2585--2601
+Overfull \hbox (240.35785pt too wide) in paragraph at lines 2585--2601
 []$$[]$ 
  []
 
@@ -2809,16 +2803,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 2602--2604
 
  []
 
+<photo40.png, id=541, 135.50626pt x 75.28125pt>
+File: photo40.png Graphic file (type png)
+<use photo40.png>
+Package pdftex.def Info: photo40.png  used on input line 2624.
+(pdftex.def)             Requested size: 67.75294pt x 37.64052pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2614--2618
-
+Overfull \hbox (184.37428pt too wide) in paragraph at lines 2623--2639
+[] 
  []
 
 \tf@thm=\write7
 \openout7 = `Cours.thm'.
 
-[39 <./photo39.png>]
-runsystem(latexminted cleantemp  --timestamp 20260323160815 33C1869ABDF6A46508C
+[39 <./photo39.png> <./photo40.png>]
+runsystem(latexminted cleantemp  --timestamp 20260323163231 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -2830,10 +2829,10 @@ Package rerunfilecheck Info: File `Cours.out' has not changed.
 (rerunfilecheck)             Checksum: 1EE7968BCD2D0FDD9F380A97BF1E2631;10226.
  ) 
 Here is how much of TeX's memory you used:
- 58848 strings out of 467538
- 1377577 string characters out of 5419551
+ 58857 strings out of 467538
+ 1377726 string characters out of 5419551
  2114076 words of memory out of 5000000
- 86726 multiletter control sequences out of 15000+600000
+ 86734 multiletter control sequences out of 15000+600000
  753293 words of font info for 136 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,30n,131p,866b,972s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2854,10 +2853,10 @@ dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts
 /type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
 lic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy
 8.pfb>
-Output written on Cours.pdf (40 pages, 5151395 bytes).
+Output written on Cours.pdf (40 pages, 5166709 bytes).
 PDF statistics:
- 678 PDF objects out of 1000 (max. 8388607)
- 489 compressed objects within 5 object streams
- 157 named destinations out of 1000 (max. 500000)
- 597 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 681 PDF objects out of 1000 (max. 8388607)
+ 490 compressed objects within 5 object streams
+ 158 named destinations out of 1000 (max. 500000)
+ 602 words of extra memory for PDF output out of 10000 (max. 10000000)
 
