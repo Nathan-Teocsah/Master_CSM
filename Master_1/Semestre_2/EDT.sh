@@ -22,7 +22,7 @@ BEGIN { in_event=0 }
             system("texstudio \"" MASTER "/ELFI/cours.tex\" &")
         }
         else if (summary ~ /^MODA1/) {
-            system("texstudio \"" MASTER "/Modelisation_en_action/Cours.tex\" &")
+            system("texstudio \"" MASTER "/MODA/Cours.tex\" &")
         }
         else if (summary ~ /^EDP/) {
             system("texstudio \"" MASTER "/EDP/Cours.tex\" &")

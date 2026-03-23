@@ -1195,44 +1195,6 @@ La solution complexe (dont les déplacement sont la partie réelle) est donc :
 \[
 U(t,x) = \dfrac1{\sqrt{2\pi}}\displaystyle\int_{-\infty}^{+\infty}A^+(\omega)e^{i(\omega t-kx)}+A^-(\omega)e^{i(\omega t+ kx)}\mathrm d\omega
 \]
-	
-\begin{exo}
-	\begin{minipage}[t]{15cm}
-		On suppose que $\begin{cases}
-		a=0\\ b=L
-	\end{cases}$ et $\begin{cases}
-	V_a(\omega)=0\\ V_b(\omega) = V
-	\end{cases}$
-	\end{minipage}\\
-	Démontrer que $U(t,x) = \dfrac V{\sqrt{2\pi}}\displaystyle\int_\R \dfrac{\sin(k(\omega)x)}{\sin(k(\omega)L)} e^{i\omega t}\mathrm d\omega$
-\end{exo}	
-\begin{sol}
-	$\forall \omega \begin{aligned}[t]
-		\begin{cases}
-		U(\omega,0) = 0 \\
-		U(\omega,L) = V
-	\end{cases} &\iff \begin{cases}
-	A^+e^{-ik.0}+A^-e^{ik.0} = 0 \\
-	A^+e^{-ikL}+A^-e^{ikL} = V
-	\end{cases}\\
-	&\iff \begin{bmatrix}
-		1 & 1\\
-		e^{-ikL} & e^{ikL}
-	\end{bmatrix}\begin{bmatrix}
-	A^+\\ A^-
-	\end{bmatrix} = \begin{bmatrix}
-	0 \\ V
-	\end{bmatrix}\\
-	&\iff \begin{bmatrix}
-		A^+ \\ A^-
-	\end{bmatrix} = \dfrac V{e^{ikL}-e^{-ikL}}\begin{bmatrix}
-	-1 \\ 1
-	\end{bmatrix}
-	\end{aligned}$\\
-	
-	$U(\omega,x) = \dfrac{-Ve^{ikx}}{e^{ikL}-e^{-ikL}} + \dfrac{Ve^{ikx}}{e^{ikL}-e^{-ikL}} = \dfrac{\sin(kx)}{\sin(kL)}V$\\
-	Or $U(t,x) = \dfrac1{\sqrt{2\pi}}\displaystyle\int_{-\infty}^{+\infty} U(\omega,x) e^{i\omega t}\mathrm d\omega = \dfrac V{\sqrt{2\pi}}\displaystyle\int_\R \dfrac{\sin(kx)}{\sin(kL)}\mathrm d\omega$
-\end{sol}
 
 
 \subsection{Généralisation à système Multi-ondes/Multi-DDL}
@@ -1318,70 +1280,7 @@ ce qui donne : $\begin{aligned}[t]
 \end{aligned}$\\
 La solution temporelle devient : $U_n(t) = \dfrac1{\sqrt{2\pi}}\displaystyle\int_\R e^{i(\omega t - knd)} A^+ + e^{i(\omega t - k(N-n)d)}A^- \mathrm d\omega$.\\
 
-\begin{exo}[applicatif] \includegraphics[scale=.5]{photo31.png}\\
-	\begin{enumerate}[label=$\cdot$]
-		\item Pour tout $\omega$, calculer $U_n(\omega)$, connaissant $\lambda(\omega)$.
-		\item Comparer la solution à la solution similaire pour la corde finie.
-	\end{enumerate}
-\end{exo}
-\begin{sol}
-	\underline{Rappel :} dans un système à 1 degré de liberté et une onde, la décomposition en ondes (de Bloch) s'écrit : $\forall n\in \N$, $u_n = \lambda^n A^+ + \lambda^{N-n}A^-$.\\
-	
-	$\begin{aligned}
-		\begin{cases}
-		U_0 = 0 \\
-		U_N = V
-	\end{cases} \iff \begin{cases}
-	\lambda^0 A^+ + \lambda^N A^- = 0\\
-	\lambda^N A^+ + \lambda^0 A^- = V
-	\end{cases} &\iff \begin{cases}
-	A^+ = -\lambda^N A^-\\
-	-\lambda^NA^- + A^- = V
-	\end{cases}\\
-	& \iff \begin{cases}
-		A^+ = -\lambda^N \dfrac V{-\lambda^N+1}\\
-		A^- = \dfrac V{-\lambda^N+1}
-	\end{cases}
-	\end{aligned}$\\
-	
-	Ainsi $\begin{bmatrix}
-		1 & \lambda^N \\
-		\lambda^N & 1
-	\end{bmatrix}\begin{bmatrix}
-	A^+ \\ A^-
-	\end{bmatrix} = \begin{bmatrix}
-	0 \\ V
-	\end{bmatrix}$\\
-	
-	$\implies\begin{bmatrix}
-		A^+ \\ A^-
-	\end{bmatrix} = \dfrac1{1-\lambda^{2N}}\begin{bmatrix}
-	1 & - \lambda^N \\
-	-\lambda^N & 1
-	\end{bmatrix}\begin{bmatrix}
-	0 \\ V
-	\end{bmatrix}$\\
-	
-	Donc $\begin{bmatrix}
-		A^+ \\ A^-
-	\end{bmatrix} = \dfrac V{1-\lambda^{2N}}\begin{bmatrix}
-	-\lambda^N \\ 1
-	\end{bmatrix}$\\
-	On retrouve les déplacements $\begin{aligned}[t]
-		U_n & = \lambda^n \dfrac{-\lambda^N}{1-\lambda^{2N}}V + \lambda^{N-n}\dfrac1{1-\lambda^{2N}}V \\
-		& = \dfrac{\lambda^{N-n} - \lambda^{N+1}}{\lambda^N(\lambda^{-N}-\lambda^N)}V \\
-		&= \dfrac{\lambda^{-n}-\lambda^n}{\lambda^{-N}-\lambda^N}V
-	\end{aligned}$\\
-	\begin{minipage}[t]{15cm}
-		Or $\begin{cases}
-		\lambda = e^{-ika} \\
-		L = Na
-	\end{cases}$, donc $U_n = \dfrac{\sin(kL\frac nN)}{\sin(kL)}V$ 
-	, où $k(\omega)=\frac i\alpha\ln\left(1-\frac{2\omega^2}{\omega_0} - \frac{2\omega}{\omega_0}\sqrt{\frac{\omega^2}{\omega_0^2}-1}\right)$\\
-	
-	Pour la corde (uniforme) de longueur $L$, nous avions : $U(x) = \dfrac{\sin(kx)}{\sin(kL)} V$
-	\end{minipage}	
-\end{sol}
+
 
 \subsection{Décomposition en ondes de Bloch dans une structure périodique finie}
 
@@ -1453,8 +1352,6 @@ où encore :
 		\end{minipage}
 	\end{enumerate}
 	
-	\newpage
-	
 	\underline{Synthèse :}
 	
 	\begin{NiceTabular}{c|c|c}
@@ -1488,8 +1385,10 @@ où encore :
 		
 		\item Dans le cas transitoire, on doit calculer $U(\omega)$ pour toutes les fréquences de la transformée de Fourier, puis intégrer les $U_n(\omega)$ pour obtenir $U_n(t)$.
 		
-		\item  Des divergences peuvent être observées aux résonances, si le modèle 'est pas amorti (i.e. $\mathbb K - \omega^2 \mathbb  M$ avec $\mathbb M$ et $\mathbb K$ réels)\\
+		\item  \begin{minipage}[t]{18.5cm}
+			Des divergences peuvent être observées aux résonances, si le modèle 'est pas amorti (i.e. $\mathbb K - \omega^2 \mathbb  M$ avec $\mathbb M$ et $\mathbb K$ réels).
 		Modèle dispersif classique en dynamique $\mathbb K^\star = \mathbb K (1+i\eta)$, où $\eta$ : facteur de perte $\sim 1/n$
+		\end{minipage}
 	\end{enumerate}
 	
 \newpage
@@ -1656,20 +1555,7 @@ où encore :
 			\end{bmatrix}$}
 	\end{enumerate}
 	
-	\begin{exo}
-		\begin{minipage}[t]{14cm}
-			Écrire les systèmes analogues pour les conditions aux limites de type $(U_0-F_N)$ et $(F_0-U_N)$
-		\end{minipage}
-		
-		\begin{minipage}[t]{18cm}
-			Puis appliquer au système suivant : \hspace{.5cm} \includegraphics[scale=.5]{photo35.png}
-		\end{minipage}
-	\end{exo}
-	\begin{sol}
-		Les conditions aux limites sont : $\begin{cases}
-			u_0 = U_0
-		\end{cases}$
-	\end{sol}
+	
 	
 	
 	
@@ -1737,6 +1623,8 @@ où encore :
 	\newpage
 	
 	\section{TD}
+	
+	\subsection{système périodique : Introduction (section 1 - 2.2)}
 	
 	\begin{exo}[Système périodique et résonance locale]$ $\\
 		\textbf{\underline{Rappel démarche :}}
@@ -1844,6 +1732,7 @@ où encore :
 		\[k(\omega) = \frac{i}{a}\log\left[1-\frac{\Omega_1^2}{2}-\frac{r}{2}\frac{\Omega_2}{1-\Omega_2^2} \pm \sqrt{\left(\Omega_1^2+\frac{r\Omega_2^2}{1-\Omega_2^2}\right)\left(\Omega_1^2+\frac{r\Omega_2^2}{1-\Omega_2^2}-4\right)}\right]\]
 	\end{sol}
 	
+	\subsection{Condensation dynamique (section 2.3 - 2.4)}
 	\begin{exo}[Formulation matricielle]
 		\begin{minipage}[t]{15cm}
 			Appliquer à la chaîne monoatomique, en considérant la cellule périodique :
@@ -1937,9 +1826,9 @@ où encore :
 	
 	\newpage
 	
-	\begin{ex}[Suite de l'exercice précédent] $ $\\
+	\begin{exo}[Suite de l'exercice précédent] $ $\\
 		Écrire (1) sous la forme $\omega(k)$ c'est-à-dire : $(A-\omega^2B)\Phi = 0$.
-	\end{ex}
+	\end{exo}
 	\begin{sol}
 		\[\begin{aligned}
 			\left(\frac{1}{\lambda}D_{RL}+(D_L+D_R)+\lambda D_{LR}\right)U_n = 0 \\
@@ -2080,7 +1969,7 @@ où encore :
 		\end{enumerate}
 	\end{sol}
 	
-	\begin{ex} \begin{minipage}[t]{15cm}
+	\begin{exo} \begin{minipage}[t]{15cm}
 			On considère un système décrit pas les matrices dynamiques : 
 		\end{minipage}
 		\begin{minipage}{10cm}
@@ -2103,7 +1992,8 @@ où encore :
 		
 		Montrer que ce système peut s'écrire sous forme condensée :
 		
-		$\left[\begin{matrix}
+		\begin{minipage}[t]{18cm}
+			$\left[\begin{matrix}
 			\overset\sim D_L & \overset\sim D_{LR} \\
 			\overset\sim D_{RL} & \overset\sim D_R
 		\end{matrix}\right]\left[\begin{matrix}
@@ -2112,7 +2002,8 @@ où encore :
 			f_L \\
 			f_R
 		\end{matrix}\right]$, où on explicitera les $\overset\sim D_{ij}$, $i,j \in \{L,R\}$.
-	\end{ex}
+		\end{minipage}
+	\end{exo}
 	\begin{sol}
 		on a : $D_{iL} U_L + D_iU_i + D_{iR}U_R = 0$.\\
 		Si $D_i$ est inversible, on obtient  :
@@ -2443,6 +2334,288 @@ où encore :
 			\end{bmatrix}
 			\]
 		\end{minipage}		
+	\end{sol}
+	
+	
+	\subsection{Dynamique des systèmes périodiques (section 3 - ...)}
+	
+	\begin{exo}
+		\begin{minipage}[t]{15cm}
+			On suppose que $\begin{cases}
+				a=0\\ b=L
+			\end{cases}$ et $\begin{cases}
+				V_a(\omega)=0\\ V_b(\omega) = V
+			\end{cases}$
+		\end{minipage}\\
+		Démontrer que $U(t,x) = \dfrac V{\sqrt{2\pi}}\displaystyle\int_\R \dfrac{\sin(k(\omega)x)}{\sin(k(\omega)L)} e^{i\omega t}\mathrm d\omega$
+	\end{exo}	
+	\begin{sol}
+		$\forall \omega \begin{aligned}[t]
+			\begin{cases}
+				U(\omega,0) = 0 \\
+				U(\omega,L) = V
+			\end{cases} &\iff \begin{cases}
+				A^+e^{-ik.0}+A^-e^{ik.0} = 0 \\
+				A^+e^{-ikL}+A^-e^{ikL} = V
+			\end{cases}\\
+			&\iff \begin{bmatrix}
+				1 & 1\\
+				e^{-ikL} & e^{ikL}
+			\end{bmatrix}\begin{bmatrix}
+				A^+\\ A^-
+			\end{bmatrix} = \begin{bmatrix}
+				0 \\ V
+			\end{bmatrix}\\
+			&\iff \begin{bmatrix}
+				A^+ \\ A^-
+			\end{bmatrix} = \dfrac V{e^{ikL}-e^{-ikL}}\begin{bmatrix}
+				-1 \\ 1
+			\end{bmatrix}
+		\end{aligned}$\\
+		
+		$U(\omega,x) = \dfrac{-Ve^{ikx}}{e^{ikL}-e^{-ikL}} + \dfrac{Ve^{ikx}}{e^{ikL}-e^{-ikL}} = \dfrac{\sin(kx)}{\sin(kL)}V$\\
+		Or $U(t,x) = \dfrac1{\sqrt{2\pi}}\displaystyle\int_{-\infty}^{+\infty} U(\omega,x) e^{i\omega t}\mathrm d\omega = \dfrac V{\sqrt{2\pi}}\displaystyle\int_\R \dfrac{\sin(kx)}{\sin(kL)}\mathrm d\omega$
+	\end{sol}
+	
+	\begin{exo}[applicatif] \includegraphics[scale=.5]{photo31.png}\\
+		\begin{enumerate}[label=$\cdot$]
+			\item Pour tout $\omega$, calculer $U_n(\omega)$, connaissant $\lambda(\omega)$.
+			\item Comparer la solution à la solution similaire pour la corde finie.
+		\end{enumerate}
+	\end{exo}
+	\begin{sol}
+		\underline{Rappel :} dans un système à 1 degré de liberté et une onde, la décomposition en ondes (de Bloch) s'écrit : $\forall n\in \N$, $u_n = \lambda^n A^+ + \lambda^{N-n}A^-$.\\
+		
+		$\begin{aligned}
+			\begin{cases}
+				U_0 = 0 \\
+				U_N = V
+			\end{cases} \iff \begin{cases}
+				\lambda^0 A^+ + \lambda^N A^- = 0\\
+				\lambda^N A^+ + \lambda^0 A^- = V
+			\end{cases} &\iff \begin{cases}
+				A^+ = -\lambda^N A^-\\
+				-\lambda^NA^- + A^- = V
+			\end{cases}\\
+			& \iff \begin{cases}
+				A^+ = -\lambda^N \dfrac V{-\lambda^N+1}\\
+				A^- = \dfrac V{-\lambda^N+1}
+			\end{cases}
+		\end{aligned}$\\
+		
+		Ainsi $\begin{bmatrix}
+			1 & \lambda^N \\
+			\lambda^N & 1
+		\end{bmatrix}\begin{bmatrix}
+			A^+ \\ A^-
+		\end{bmatrix} = \begin{bmatrix}
+			0 \\ V
+		\end{bmatrix}$\\
+		
+		$\implies\begin{bmatrix}
+			A^+ \\ A^-
+		\end{bmatrix} = \dfrac1{1-\lambda^{2N}}\begin{bmatrix}
+			1 & - \lambda^N \\
+			-\lambda^N & 1
+		\end{bmatrix}\begin{bmatrix}
+			0 \\ V
+		\end{bmatrix}$\\
+		
+		Donc $\begin{bmatrix}
+			A^+ \\ A^-
+		\end{bmatrix} = \dfrac V{1-\lambda^{2N}}\begin{bmatrix}
+			-\lambda^N \\ 1
+		\end{bmatrix}$\\
+		On retrouve les déplacements $\begin{aligned}[t]
+			U_n & = \lambda^n \dfrac{-\lambda^N}{1-\lambda^{2N}}V + \lambda^{N-n}\dfrac1{1-\lambda^{2N}}V \\
+			& = \dfrac{\lambda^{N-n} - \lambda^{N+1}}{\lambda^N(\lambda^{-N}-\lambda^N)}V \\
+			&= \dfrac{\lambda^{-n}-\lambda^n}{\lambda^{-N}-\lambda^N}V
+		\end{aligned}$\\
+		\begin{minipage}[t]{15cm}
+			Or $\begin{cases}
+				\lambda = e^{-ika} \\
+				L = Na
+			\end{cases}$, donc $U_n = \dfrac{\sin(kL\frac nN)}{\sin(kL)}V$ 
+			, où $k(\omega)=\frac i\alpha\ln\left(1-\frac{2\omega^2}{\omega_0} - \frac{2\omega}{\omega_0}\sqrt{\frac{\omega^2}{\omega_0^2}-1}\right)$\\
+			
+			Pour la corde (uniforme) de longueur $L$, nous avions : $U(x) = \dfrac{\sin(kx)}{\sin(kL)} V$
+		\end{minipage}	
+	\end{sol}
+	
+	\begin{exo}
+		\begin{minipage}[t]{14cm}
+			Écrire les systèmes analogues pour les conditions aux limites de type $(U_0-F_N)$ et $(F_0-U_N)$
+		\end{minipage}
+		
+		\begin{minipage}[t]{18cm}
+			Puis appliquer au système suivant : \hspace{.5cm} \includegraphics[scale=.5]{photo35.png}
+		\end{minipage}
+	\end{exo}
+	\begin{sol}$ $\\
+		\begin{minipage}[t]{18cm}
+			La décomposition en ondes de Bloch s'écrit : $\forall n \in [\![0,N]\!], u_n = \underline{\underline{\Phi}}^+\underline{\underline{\Lambda}}^N \underline{a}^+ + \underline{\underline{\Phi}}^-\underline{\underline{\Lambda}}^{N-1}\underline{a}^-$\\
+			Le système global s'écrit en fonction de la matrice dynamique $\mathbb D = \mathbb K - \omega^2 \mathbb M = \begin{bmatrix}
+				D_{L} & D_{LR} \\
+				D_{RL} & D_L
+			\end{bmatrix}$\\
+			\begin{minipage}{13cm}
+				$\begin{bmatrix}
+					D_L && D_{LR} \\
+					D_{RL} && D_R+D_L & \ddots \\
+					&\ddots  && \ddots & \ddots \\
+					&& \ddots && \ddots & \ddots\\
+					&&& D_{RL}  & D_L+D_R && D_{LR} \\
+					&&&		 & D_R		&& D_R
+				\end{bmatrix}\begin{bmatrix}
+					\rouge{u_0} \\
+					\bleu{u_1} \\
+					\vdots\\
+					\vdots\\
+					\bleu{u_{N-1}} \\
+					\bleu{u_N}
+				\end{bmatrix} = \begin{bmatrix}
+					\bleu{f_0}\\
+					\vdots\\
+					\vdots\\
+					\vdots\\
+					\vdots\\
+					\rouge{F_N}
+				\end{bmatrix}$
+			\end{minipage} \begin{minipage}{2cm}
+				\bleu{inconnu}\\
+				\rouge{connu}
+			\end{minipage}\\
+			Les conditions aux limites sont : $\begin{cases}
+				u_0 = U_0 & \text{à gauche }\\
+				D_{RL}u_{N-1}+D_Ru_N = F_N & \text{à droite}
+			\end{cases}$\\
+			$\begin{cases}
+				\Phi^+ a^+ + \Phi^-\Lambda^Na^- = U_0\\
+				(D_{RL}\Phi^+\Lambda^{N-1}+D_R\Phi^+\Lambda^N)a^+ + (D_{RL}\Phi^-\Lambda+D_R\Phi^-)a^- = F_N
+			\end{cases}$
+		\end{minipage}
+		
+		\begin{minipage}{18cm}
+			ce qui donne le système : $\begin{bmatrix}
+				\Phi^+ & \Phi^-\Lambda^N \\
+				D_{RL}\Phi^+\Lambda^{N-1}+D_R\Phi^+\Lambda^N & D_{RL}\Phi^-\Lambda+D_R\Phi^-
+			\end{bmatrix}\begin{bmatrix}
+				a^+ \\ a^-
+			\end{bmatrix} = \begin{bmatrix}
+				U_0\\ F_N
+			\end{bmatrix}$\\
+			Appliquons à la chaîne mono finie en condition U-F :\\
+			$\begin{cases}
+				\Phi^+ = \Phi^- = 1 \\
+				\Lambda = \lambda
+			\end{cases}$, \begin{minipage}[t]{15cm}
+				cellule : \includegraphics[scale=.5]{photo36.png}\\
+				$\mathbb D = \mathbb K - \omega^2 \mathbb M = \begin{bmatrix}
+					k & -k \\
+					-k & k
+				\end{bmatrix} - \omega^2\begin{bmatrix}
+					m/2 & 0 \\
+					0 & m/2
+				\end{bmatrix} = \begin{bmatrix}
+					k-\omega^2 m/2 & -k \\
+					-k & k-\omega^2m/2
+				\end{bmatrix}$
+			\end{minipage}\\
+			
+			Le système devient : $\begin{bmatrix}
+				1 & \lambda^N \\
+				-k\lambda^{N-1}+(k-\omega^2m/2)\lambda^N & -k\lambda+(k-\omega^2m/2)
+			\end{bmatrix}\begin{bmatrix}
+				a^+ \\ a^-
+			\end{bmatrix} = \begin{bmatrix}
+				0 \\ F_N
+			\end{bmatrix}$ car $U_0 = 0$\\
+			
+			$\begin{aligned}
+				(L1) & a^+ + \lambda^Na^- = 0 \implies a^- = -\lambda^N a^+ \\
+				(L2) & \left[\lambda^{N-1}(\lambda k - \omega^2m/2 \lambda - k) - \lambda^{-N}(k-\omega^2m/2-\lambda k)\right]a^+ = F_N
+			\end{aligned}$\\
+			
+			$\left(\lambda^N k - \lambda^N\omega^2m/2 - \lambda^{N-1}k-\lambda^{-N}k + \lambda^{-N}\omega^2m/2+\lambda^{-N+1}k\right) = F_N$\\
+			$\left[\underbrace{\lambda^N\left(k-\omega^2m/2 - \frac k\lambda\right) - \lambda^{-N}\left(k-\omega^2m/2-k\lambda\right)}_{\alpha}\right]a^+ = F_N$\\
+			Donc $\begin{cases}
+				a^+ = \alpha^{-1}F_N \\
+				\alpha^- = -\lambda^{-N}\alpha^-F_N
+			\end{cases}$\\
+			Donc la solution est : $\forall n, \begin{aligned}
+				u_n &= \left(\lambda^n - \lambda^{N-n}\lambda^N\right)\alpha^{-1}F_N\\
+				&=\left(\lambda^n-\lambda^{-n}\right)\alpha^{-1}F_N
+			\end{aligned}$
+		\end{minipage}
+	\end{sol}
+	
+	\begin{exo}
+		$ $	\\
+			\begin{minipage}[t]{18cm}Assemblage de système matriciels :\\
+			\includegraphics[scale=.5]{photo37.png}\\
+			On décompose ce système en 3 domaines (ou 3 groupes de DDL après discrétisation éléments finis)\\
+			L'équilibre dynamique de cet élément s'écrit : $\mathbb D\begin{bmatrix}
+				u_L \\ u_i \\ u_R
+			\end{bmatrix} = \begin{bmatrix}
+			F_L\\ 0 \\ F_R
+			\end{bmatrix}$\\
+			Écrire l'assemblage de deux cellules différentes, décrites par leur raideur dynamique,\\
+			notées $\mathbb D^{(1)}$ et $\mathbb D^{(2)}$\\
+			
+			\includegraphics[scale=.5]{photo38.png}
+			\end{minipage}
+	\end{exo}
+	\begin{sol}$ $\\
+		
+		 \begin{minipage}[t]{15cm}
+				$\begin{bmatrix}
+				D_L^{(1)} & D_{Li}^{(1)} & D_{LR}^{(1)} \\
+				D_{iL}^{(1)} & D_i^{(1)} & D_{iR} \\
+				D_{RL}^{(1)} & D_{Ri}^{(1)} & D_R^{(1)}+\rouge{D_L^{(2)}} & \rouge{D_{Li}^{(2)}} & \rouge{D_{LR}^{(2)}} \\
+				& & \rouge{D_{iL}^{(2)}} & \rouge{D_i^{(2)}} & \rouge{D_{iR}^{(2)}} \\
+				& & \rouge{D_{RL}^{(2)}} & \rouge{D_{Ri}^{(2)}} & \rouge{D_R^{(2)}}
+			\end{bmatrix}\begin{bmatrix}
+			U_0 \\ V_0 \\ U_1 \\ V_1\\ U_2
+			\end{bmatrix} = \begin{bmatrix}
+			0 \\ 0 \\ 0 \\ 0 \\ F_2
+			\end{bmatrix}$
+			\end{minipage}
+	\end{sol}
+	
+	\begin{exo}$ $\\
+		Guide d'ondes périodique \underline{semi-infini}\\
+		\begin{minipage}{6cm}
+			\includegraphics[scale=.5]{photo39.png}
+		\end{minipage}\begin{minipage}{10cm}
+			\begin{enumerate}
+				\item Écrire le système global, en notant $\mathbb D = \begin{bmatrix}
+					D_L & D_{LR} \\
+					D_{RL} & D_R
+				\end{bmatrix}$
+				
+				\item Décomposer en ondes et en déduire la solution $u_n$, $\forall n \in \N$
+				
+				\item Appliquer à une chaîne mono-atomique
+			\end{enumerate}
+		\end{minipage}
+	\end{exo}
+	\begin{sol}$ $\\
+		\begin{enumerate}
+			\item $\begin{bmatrix}
+				D_L & D_{LR} \\
+				D_{RL} && D_R + D_L && D_{LR} & \\
+				&\ddots& &\ddots& &\ddots\\
+				&&\ddots &&\ddots &&\ddots
+			\end{bmatrix}\begin{bmatrix}
+				u_0 \\ u_1 \\ u_2 \\ \vdots
+			\end{bmatrix} = \begin{bmatrix}
+				F_0 \\ 0 \\ 0 \\ \vdots
+			\end{bmatrix}$
+			\item $F_0 - U_n$\\
+			$D_LU_0 + D_{LR} U_L = F_0$\\
+			$U_0 = \Phi^+ a^+ + 0 \to$ milieu semi-uniforme\\
+			$U_n = \Phi^+\Lambda a^+$\\
+		\end{enumerate}
 	\end{sol}
 	
 \end{document}
