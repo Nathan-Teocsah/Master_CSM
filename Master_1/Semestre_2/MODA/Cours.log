@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  23 MAR 2026 13:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  23 MAR 2026 16:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1605,7 +1605,7 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<logo.jpg, id=151, 1204.5pt x 612.2875pt>
+<logo.jpg, id=163, 1204.5pt x 612.2875pt>
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
 Package pdftex.def Info: logo.jpg  used on input line 18.
@@ -1679,22 +1679,23 @@ Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@refangle 0.  def grestore  e...
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./logo.jpg>]
-(./Cours.toc)
-\tf@toc=\write6
-\openout6 = `Cours.toc'.
-
-
+(./Cours.toc
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.62 	\newpage
-               [1{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-math
-it.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/l
-ocal/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+l.30 ...e (section 2.3 - 2.4)}{28}{subsection.4.2}
+                                                  % [1{/usr/local/texlive/2025/
+texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2025/texmf-dist
+/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvi
+ps/lm/lm-mathsy.enc}]
 Package marginnote Info: Using workaround for absolute page number on input lin
-e 62.
+e 30.
+)
+\tf@toc=\write6
+\openout6 = `Cours.toc'.
 
+ [2]
 Underfull \hbox (badness 10000) in paragraph at lines 69--71
 
  []
@@ -1704,7 +1705,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 136--138
 
  []
 
-[2{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+[3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 1
 39.
 
@@ -1718,7 +1719,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 164--169
 
  []
 
-[3]
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 210--211
 
  []
@@ -1748,7 +1749,7 @@ Overfull \hbox (17.6248pt too wide) in paragraph at lines 252--255
 [] [] 
  []
 
-[4]
+[5]
 Package hyperref Info: bookmark level for unknown prop defaults to 0 on input l
 ine 266.
 
@@ -1783,7 +1784,7 @@ Overfull \hbox (283.03699pt too wide) in paragraph at lines 298--316
 [][] 
  []
 
-[5]
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 389--394
 
  []
@@ -1793,7 +1794,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 401--402
 
  []
 
-<photo1.png, id=225, 825.0825pt x 253.94875pt>
+<photo1.png, id=245, 825.0825pt x 253.94875pt>
 File: photo1.png Graphic file (type png)
 <use photo1.png>
 Package pdftex.def Info: photo1.png  used on input line 403.
@@ -1803,7 +1804,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 410--412
 
  []
 
-[6 <./photo1.png>]
+[7 <./photo1.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 426--428
 
  []
@@ -1813,12 +1814,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 447--447
 
  []
 
-<photo2.png, id=234, 808.01875pt x 371.3875pt>
+<photo2.png, id=253, 808.01875pt x 371.3875pt>
 File: photo2.png Graphic file (type png)
 <use photo2.png>
 Package pdftex.def Info: photo2.png  used on input line 447.
 (pdftex.def)             Requested size: 242.4075pt x 111.4171pt.
-<photo3.png, id=235, 441.65pt x 172.645pt>
+<photo3.png, id=254, 441.65pt x 172.645pt>
 File: photo3.png Graphic file (type png)
 <use photo3.png>
 Package pdftex.def Info: photo3.png  used on input line 447.
@@ -1833,7 +1834,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 462--463
 
  []
 
-[7 <./photo2.png> <./photo3.png>]
+[8 <./photo2.png> <./photo3.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 506--507
 
  []
@@ -1843,39 +1844,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 508--513
 
  []
 
-<photo4.png, id=245, 668.4975pt x 262.9825pt>
+<photo4.png, id=264, 668.4975pt x 262.9825pt>
 File: photo4.png Graphic file (type png)
 <use photo4.png>
 Package pdftex.def Info: photo4.png  used on input line 528.
 (pdftex.def)             Requested size: 401.1016pt x 157.7907pt.
-[8 <./photo4.png>]
-<photo5.png, id=254, 676.5275pt x 230.8625pt>
+[9 <./photo4.png>]
+<photo5.png, id=273, 676.5275pt x 230.8625pt>
 File: photo5.png Graphic file (type png)
 <use photo5.png>
 Package pdftex.def Info: photo5.png  used on input line 542.
 (pdftex.def)             Requested size: 338.26291pt x 115.43095pt.
- [9 <./photo5.png>]
+ [10 <./photo5.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 618--620
 
  []
 
-<photo6.png, id=260, 1012.78375pt x 292.09125pt>
+<photo6.png, id=279, 1012.78375pt x 292.09125pt>
 File: photo6.png Graphic file (type png)
 <use photo6.png>
 Package pdftex.def Info: photo6.png  used on input line 621.
 (pdftex.def)             Requested size: 506.39064pt x 146.04526pt.
-<photo7.png, id=261, 1234.6125pt x 493.845pt>
+<photo7.png, id=280, 1234.6125pt x 493.845pt>
 File: photo7.png Graphic file (type png)
 <use photo7.png>
 Package pdftex.def Info: photo7.png  used on input line 660.
 (pdftex.def)             Requested size: 493.83626pt x 197.53448pt.
-[10 <./photo6.png>]
-<photo11.png, id=267, 594.22pt x 161.60374pt>
+[11 <./photo6.png>]
+<photo11.png, id=286, 594.22pt x 161.60374pt>
 File: photo11.png Graphic file (type png)
 <use photo11.png>
 Package pdftex.def Info: photo11.png  used on input line 666.
 (pdftex.def)             Requested size: 297.10927pt x 80.80167pt.
- [11 <./photo7.png> <./photo11.png>]
+ [12 <./photo7.png> <./photo11.png>]
 \x=\skip73
 \y=\skip74
 
@@ -1885,7 +1886,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 717--722
 
 Package hyperref Info: bookmark level for unknown ex defaults to 0 on input lin
 e 730.
-<photo12.png, id=275, 370.38374pt x 95.35625pt>
+<photo12.png, id=295, 370.38374pt x 95.35625pt>
 File: photo12.png Graphic file (type png)
 <use photo12.png>
 Package pdftex.def Info: photo12.png  used on input line 731.
@@ -1895,7 +1896,7 @@ Overfull \hbox (137.57222pt too wide) in paragraph at lines 730--733
 [][]$[]$ 
  []
 
-<photo13.png, id=276, 152.57pt x 76.285pt>
+<photo13.png, id=296, 152.57pt x 76.285pt>
 File: photo13.png Graphic file (type png)
 <use photo13.png>
 Package pdftex.def Info: photo13.png  used on input line 738.
@@ -1910,7 +1911,7 @@ Overfull \hbox (34.6846pt too wide) detected at line 776
 [] [] \OT1/lmr/m/n/12 + [] [] = []
  []
 
-<photo14.png, id=277, 305.14pt x 100.375pt>
+<photo14.png, id=297, 305.14pt x 100.375pt>
 File: photo14.png Graphic file (type png)
 <use photo14.png>
 Package pdftex.def Info: photo14.png  used on input line 783.
@@ -1930,7 +1931,7 @@ Overfull \hbox (106.34879pt too wide) detected at line 863
 [] [] \OT1/lmr/m/n/12 = []
  []
 
-<photo15.png, id=278, 771.88374pt x 229.85875pt>
+<photo15.png, id=298, 771.88374pt x 229.85875pt>
 File: photo15.png Graphic file (type png)
 <use photo15.png>
 Package pdftex.def Info: photo15.png  used on input line 866.
@@ -1940,8 +1941,8 @@ Overfull \hbox (46.41573pt too wide) in paragraph at lines 866--867
 [][] 
  []
 
-[12 <./photo12.png> <./photo13.png> <./photo14.png>]
-<photo16.png, id=292, 206.7725pt x 78.2925pt>
+[13 <./photo12.png> <./photo13.png> <./photo14.png>]
+<photo16.png, id=311, 206.7725pt x 78.2925pt>
 File: photo16.png Graphic file (type png)
 <use photo16.png>
 Package pdftex.def Info: photo16.png  used on input line 872.
@@ -1966,7 +1967,7 @@ Overfull \hbox (186.85078pt too wide) in paragraph at lines 913--927
 [][] 
  []
 
-<photo17.png, id=293, 163.61125pt x 102.3825pt>
+<photo17.png, id=312, 163.61125pt x 102.3825pt>
 File: photo17.png Graphic file (type png)
 <use photo17.png>
 Package pdftex.def Info: photo17.png  used on input line 933.
@@ -1985,12 +1986,12 @@ Overfull \hbox (169.22597pt too wide) in paragraph at lines 947--968
 Overfull \vbox (11.64876pt too high) detected at line 968
  []
 
-[13 <./photo15.png> <./photo16.png>]
+[14 <./photo15.png> <./photo16.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 971--972
 
  []
 
-<photo21.png, id=301, 245.91875pt x 98.3675pt>
+<photo21.png, id=320, 245.91875pt x 98.3675pt>
 File: photo21.png Graphic file (type png)
 <use photo21.png>
 Package pdftex.def Info: photo21.png  used on input line 973.
@@ -2000,12 +2001,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 973--974
 
  []
 
-[14 <./photo17.png> <./photo21.png>]
+[15 <./photo17.png> <./photo21.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 1003--1017
 
  []
 
-<photo22.png, id=308, 174.6525pt x 158.5925pt>
+<photo22.png, id=327, 174.6525pt x 158.5925pt>
 File: photo22.png Graphic file (type png)
 <use photo22.png>
 Package pdftex.def Info: photo22.png  used on input line 1028.
@@ -2032,7 +2033,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1057--1066
 
  []
 
-<photo26.png, id=309, 319.1925pt x 197.73875pt>
+<photo26.png, id=328, 319.1925pt x 197.73875pt>
 File: photo26.png Graphic file (type png)
 <use photo26.png>
 Package pdftex.def Info: photo26.png  used on input line 1068.
@@ -2062,7 +2063,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1085--1107
 
  []
 
-<photo27.png, id=310, 700.6175pt x 198.7425pt>
+<photo27.png, id=329, 700.6175pt x 198.7425pt>
 File: photo27.png Graphic file (type png)
 <use photo27.png>
 Package pdftex.def Info: photo27.png  used on input line 1108.
@@ -2076,7 +2077,7 @@ Overfull \hbox (144.17165pt too wide) in paragraph at lines 1067--1110
 Overfull \vbox (0.23868pt too high) detected at line 1110
  []
 
-[15 <./photo22.png>] [16 <./photo26.png> <./photo27.png>]
+[16 <./photo22.png>] [17 <./photo26.png> <./photo27.png>]
 Overfull \hbox (86.06651pt too wide) in paragraph at lines 1114--1121
 \T1/lmr/m/n/12 On note $\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^U[]; []\OT1/lmr/m/n
 /12 )$ \T1/lmr/m/n/12 les va-leurs propres avec [] 
@@ -2107,601 +2108,717 @@ Underfull \hbox (badness 10000) in paragraph at lines 1170--1176
 
  []
 
-[17]
-Package hyperref Info: bookmark level for unknown exo defaults to 0 on input li
-ne 1200.
-
-Overfull \hbox (136.33621pt too wide) in paragraph at lines 1200--1208
-[][][] 
- []
-
-Package hyperref Info: bookmark level for unknown sol defaults to 0 on input li
-ne 1210.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1210--1232
-
- []
-
 [18]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1262.
+(hyperref)                removing `math shift' on input line 1224.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1262.
+(hyperref)                removing `math shift' on input line 1224.
 
-<photo29.png, id=338, 476.78125pt x 181.67876pt>
+[19]
+<photo29.png, id=355, 476.78125pt x 181.67876pt>
 File: photo29.png Graphic file (type png)
 <use photo29.png>
-Package pdftex.def Info: photo29.png  used on input line 1281.
+Package pdftex.def Info: photo29.png  used on input line 1243.
 (pdftex.def)             Requested size: 238.39003pt x 90.83914pt.
-[19 <./photo29.png>]
-<photo30.png, id=344, 825.0825pt x 170.6375pt>
+<photo30.png, id=356, 825.0825pt x 170.6375pt>
 File: photo30.png Graphic file (type png)
 <use photo30.png>
-Package pdftex.def Info: photo30.png  used on input line 1298.
+Package pdftex.def Info: photo30.png  used on input line 1260.
 (pdftex.def)             Requested size: 412.54024pt x 85.31853pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1300--1306
+Underfull \hbox (badness 10000) in paragraph at lines 1262--1268
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1307.
+(hyperref)                removing `math shift' on input line 1269.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\omega' on input line 1307.
+(hyperref)                removing `\omega' on input line 1269.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1307.
+(hyperref)                removing `math shift' on input line 1269.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1307.
+(hyperref)                removing `math shift' on input line 1269.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 1307.
+(hyperref)                removing `\lambda' on input line 1269.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\omega' on input line 1307.
+(hyperref)                removing `\omega' on input line 1269.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1307.
+(hyperref)                removing `math shift' on input line 1269.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1307.
+(hyperref)                removing `math shift' on input line 1269.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\forall' on input line 1307.
+(hyperref)                removing `\forall' on input line 1269.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\omega' on input line 1307.
+(hyperref)                removing `\omega' on input line 1269.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1307.
+(hyperref)                removing `math shift' on input line 1269.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1314--1320
-
- []
-
-<photo31.png, id=345, 599.23875pt x 115.43124pt>
-File: photo31.png Graphic file (type png)
-<use photo31.png>
-Package pdftex.def Info: photo31.png  used on input line 1321.
-(pdftex.def)             Requested size: 299.61864pt x 57.71547pt.
-
-Overfull \hbox (79.28851pt too wide) in paragraph at lines 1321--1322
-[][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1321--1322
+Underfull \hbox (badness 10000) in paragraph at lines 1276--1282
 
  []
 
-[20 <./photo30.png> <./photo31.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1328--1329
+[20 <./photo29.png> <./photo30.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1294--1295
 
  []
 
 
-Overfull \hbox (39.93208pt too wide) in paragraph at lines 1330--1346
-[]$[][]$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1330--1346
+Underfull \hbox (badness 10000) in paragraph at lines 1296--1300
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1347--1355
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1309.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1309.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1321--1324
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1356--1364
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1376--1381
-
- []
-
-
-Overfull \hbox (69.64133pt too wide) in paragraph at lines 1365--1384
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1395--1396
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1397--1401
+Underfull \hbox (badness 10000) in paragraph at lines 1325--1330
 
  []
 
 [21]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1410.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1410.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1422--1425
+Underfull \hbox (badness 10000) in paragraph at lines 1333--1334
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1426--1431
+Underfull \hbox (badness 10000) in paragraph at lines 1335--1336
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1434--1435
+Underfull \hbox (badness 10000) in paragraph at lines 1337--1338
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1436--1437
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1438--1439
-
- []
-
-<photo32.png, id=361, 611.28375pt x 197.73875pt>
+<photo32.png, id=368, 611.28375pt x 197.73875pt>
 File: photo32.png Graphic file (type png)
 <use photo32.png>
-Package pdftex.def Info: photo32.png  used on input line 1446.
+Package pdftex.def Info: photo32.png  used on input line 1345.
 (pdftex.def)             Requested size: 122.25458pt x 39.54704pt.
 
-Overfull \hbox (57.82742pt too wide) in paragraph at lines 1445--1454
+Overfull \hbox (57.82742pt too wide) in paragraph at lines 1344--1353
 []$[]$$[]$ 
  []
 
-[22 <./photo32.png>]
 \g__nicematrix_block_box_2_box=\box103
 \g__nicematrix_block_box_3_box=\box104
- [23]
+
+Overfull \hbox (15.14828pt too wide) in paragraph at lines 1388--1392
+[][] 
+ []
+
+[22 <./photo32.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1497.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@@underline' on input line 1497.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 1497.
+(hyperref)                removing `math shift' on input line 1396.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 1497.
+(hyperref)                removing `\@@underline' on input line 1396.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1497.
+(hyperref)                removing `\hbox' on input line 1396.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1497.
+(hyperref)                removing `\mathsurround' on input line 1396.
 
-<photo33.png, id=381, 486.81876pt x 103.38625pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1396.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1396.
+
+<photo33.png, id=384, 486.81876pt x 103.38625pt>
 File: photo33.png Graphic file (type png)
 <use photo33.png>
-Package pdftex.def Info: photo33.png  used on input line 1502.
+Package pdftex.def Info: photo33.png  used on input line 1401.
 (pdftex.def)             Requested size: 243.40878pt x 51.693pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1524--1526
+Underfull \hbox (badness 10000) in paragraph at lines 1423--1425
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1530--1536
+Underfull \hbox (badness 10000) in paragraph at lines 1429--1435
 
  []
 
 
-LaTeX Warning: Command \` invalid in math mode on input line 1541.
+LaTeX Warning: Command \` invalid in math mode on input line 1440.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1541--1546
+Underfull \hbox (badness 10000) in paragraph at lines 1440--1445
 
  []
 
-[24 <./photo33.png>]
+[23 <./photo33.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1571.
+(hyperref)                removing `math shift' on input line 1470.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1571.
+(hyperref)                removing `math shift' on input line 1470.
 
-<photo34.png, id=388, 492.84125pt x 179.67125pt>
+<photo34.png, id=390, 492.84125pt x 179.67125pt>
 File: photo34.png Graphic file (type png)
 <use photo34.png>
-Package pdftex.def Info: photo34.png  used on input line 1578.
+Package pdftex.def Info: photo34.png  used on input line 1477.
 (pdftex.def)             Requested size: 246.42001pt x 89.83539pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1610--1626
+Underfull \hbox (badness 10000) in paragraph at lines 1509--1525
 
  []
 
-[25 <./photo34.png>]
+[24 <./photo34.png>]
 
-LaTeX Warning: Command \` invalid in math mode on input line 1637.
-
-
-LaTeX Warning: Command \` invalid in math mode on input line 1637.
+LaTeX Warning: Command \` invalid in math mode on input line 1536.
 
 
-Overfull \hbox (107.88345pt too wide) in paragraph at lines 1660--1663
-[][][] 
- []
+LaTeX Warning: Command \` invalid in math mode on input line 1536.
 
-<photo35.png, id=396, 375.4025pt x 86.3225pt>
-File: photo35.png Graphic file (type png)
-<use photo35.png>
-Package pdftex.def Info: photo35.png  used on input line 1665.
-(pdftex.def)             Requested size: 187.70079pt x 43.16113pt.
+[25]
+Package hyperref Info: bookmark level for unknown exo defaults to 0 on input li
+ne 1629.
 
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 1664--1667
+Overfull \hbox (186.85078pt too wide) in paragraph at lines 1634--1649
 [][] 
  []
 
-[26 <./photo35.png>]
-Overfull \hbox (186.85078pt too wide) in paragraph at lines 1746--1761
-[][] 
- []
-
-<photo8.png, id=405, 882.29625pt x 271.0125pt>
+<photo8.png, id=404, 882.29625pt x 271.0125pt>
 File: photo8.png Graphic file (type png)
 <use photo8.png>
-Package pdftex.def Info: photo8.png  used on input line 1763.
+Package pdftex.def Info: photo8.png  used on input line 1651.
 (pdftex.def)             Requested size: 441.14705pt x 135.5059pt.
 
-Overfull \hbox (101.62186pt too wide) in paragraph at lines 1763--1764
+Overfull \hbox (101.62186pt too wide) in paragraph at lines 1651--1652
 [][] 
  []
 
-<photo9.png, id=406, 260.975pt x 241.90375pt>
+Package hyperref Info: bookmark level for unknown sol defaults to 0 on input li
+ne 1657.
+<photo9.png, id=405, 260.975pt x 241.90375pt>
 File: photo9.png Graphic file (type png)
 <use photo9.png>
-Package pdftex.def Info: photo9.png  used on input line 1774.
+Package pdftex.def Info: photo9.png  used on input line 1662.
 (pdftex.def)             Requested size: 52.19408pt x 48.37988pt.
 
-Overfull \hbox (5.0671pt too wide) detected at line 1781
+Overfull \hbox (5.0671pt too wide) detected at line 1669
 [][]
  []
 
 
-Overfull \hbox (184.37428pt too wide) in paragraph at lines 1795--1798
+Overfull \hbox (184.37428pt too wide) in paragraph at lines 1683--1686
 [][] 
  []
 
 
-Overfull \hbox (40.47395pt too wide) detected at line 1818
+Overfull \hbox (40.47395pt too wide) detected at line 1706
 [][]
  []
 
-<photo10.png, id=407, 811.03pt x 364.36125pt>
+<photo10.png, id=406, 811.03pt x 364.36125pt>
 File: photo10.png Graphic file (type png)
 <use photo10.png>
-Package pdftex.def Info: photo10.png  used on input line 1838.
+Package pdftex.def Info: photo10.png  used on input line 1726.
 (pdftex.def)             Requested size: 405.514pt x 182.18018pt.
 
-Overfull \hbox (65.98882pt too wide) in paragraph at lines 1838--1839
+Overfull \hbox (65.98882pt too wide) in paragraph at lines 1726--1727
 [][] 
  []
 
 
-Overfull \hbox (25.62769pt too wide) detected at line 1844
+Overfull \hbox (25.62769pt too wide) detected at line 1732
 \OML/lmm/m/it/12 k\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 !\OT1/lmr/m/n/12 ) = [] [] 
 []
  []
 
-[27 <./photo8.png> <./photo9.png>] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 1848--1851
+
+Overfull \vbox (6.16357pt too high) detected at line 1733
+ []
+
+[26 <./photo8.png> <./photo9.png>] [27]
+Underfull \hbox (badness 10000) in paragraph at lines 1737--1740
 [][]
  []
 
 
-Overfull \hbox (69.64133pt too wide) in paragraph at lines 1848--1851
+Overfull \hbox (69.64133pt too wide) in paragraph at lines 1737--1740
 [] 
  []
 
-<photo18.png, id=429, 124.465pt x 78.2925pt>
+<photo18.png, id=428, 124.465pt x 78.2925pt>
 File: photo18.png Graphic file (type png)
 <use photo18.png>
-Package pdftex.def Info: photo18.png  used on input line 1852.
+Package pdftex.def Info: photo18.png  used on input line 1741.
 (pdftex.def)             Requested size: 62.23235pt x 39.14615pt.
-[29 <./photo10.png> <./photo18.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1869--1871
+[28 <./photo10.png> <./photo18.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1758--1760
 
  []
 
 
-Overfull \hbox (198.60066pt too wide) in paragraph at lines 1898--1904
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 1787--1793
 [][] 
  []
 
 
-Overfull \hbox (99.01602pt too wide) in paragraph at lines 1910--1913
+Overfull \hbox (99.01602pt too wide) in paragraph at lines 1799--1802
 [][] 
  []
 
 
-Overfull \hbox (99.01602pt too wide) in paragraph at lines 1914--1920
+Overfull \hbox (99.01602pt too wide) in paragraph at lines 1803--1809
 [][] 
  []
 
 
-Overfull \hbox (29.3747pt too wide) in paragraph at lines 1926--1927
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 1815--1816
 []$[]$ 
  []
 
 
-Overfull \hbox (138.69893pt too wide) in paragraph at lines 1928--1935
+Overfull \hbox (138.69893pt too wide) in paragraph at lines 1817--1824
 []\T1/lmr/bx/it/12 Note : [] 
  []
 
-[30]
-Overfull \hbox (133.86685pt too wide) detected at line 1948
+[29]
+Overfull \hbox (133.86685pt too wide) detected at line 1837
 [][]
  []
 
 
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 1950--1953
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 1839--1842
 [][] 
  []
 
 
-Overfull \hbox (155.38068pt too wide) in paragraph at lines 1954--1964
+Overfull \hbox (155.38068pt too wide) in paragraph at lines 1843--1853
 []\T1/lmr/m/it/12 En pra-tique : [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1966--1968
+Underfull \hbox (badness 10000) in paragraph at lines 1855--1857
 
  []
 
-<photo19.png, id=449, 333.245pt x 176.66pt>
+<photo19.png, id=447, 333.245pt x 176.66pt>
 File: photo19.png Graphic file (type png)
 <use photo19.png>
-Package pdftex.def Info: photo19.png  used on input line 1970.
+Package pdftex.def Info: photo19.png  used on input line 1859.
 (pdftex.def)             Requested size: 166.62209pt x 88.32977pt.
 
-Overfull \hbox (257.98267pt too wide) in paragraph at lines 1969--1979
+Overfull \hbox (257.98267pt too wide) in paragraph at lines 1858--1868
 []$[]$$[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1981--1983
+Underfull \hbox (badness 10000) in paragraph at lines 1870--1872
 
  []
 
 
-LaTeX Warning: Command \i invalid in math mode on input line 1990.
+LaTeX Warning: Command \i invalid in math mode on input line 1879.
 
 
-LaTeX Warning: Command \i invalid in math mode on input line 1991.
+LaTeX Warning: Command \i invalid in math mode on input line 1880.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1989--2009
+Underfull \hbox (badness 10000) in paragraph at lines 1878--1898
 
  []
 
 
-Overfull \hbox (198.60066pt too wide) in paragraph at lines 1988--2024
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 1877--1913
 [][] 
  []
 
-<photo20.png, id=450, 107.40125pt x 119.44624pt>
+<photo20.png, id=448, 107.40125pt x 119.44624pt>
 File: photo20.png Graphic file (type png)
 <use photo20.png>
-Package pdftex.def Info: photo20.png  used on input line 2027.
+Package pdftex.def Info: photo20.png  used on input line 1916.
 (pdftex.def)             Requested size: 107.40097pt x 119.44594pt.
 
-Overfull \hbox (42.67914pt too wide) in paragraph at lines 2026--2041
+Overfull \hbox (42.67914pt too wide) in paragraph at lines 1915--1930
 []$[]$$[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2042--2043
+Underfull \hbox (badness 10000) in paragraph at lines 1931--1932
 
  []
 
 
-Overfull \hbox (198.60066pt too wide) in paragraph at lines 2025--2080
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 1914--1969
 [][] 
  []
 
-[31 <./photo19.png>] [32 <./photo20.png>]
-<photo23.png, id=474, 311.1625pt x 173.64874pt>
+[30 <./photo19.png>] [31 <./photo20.png>]
+<photo23.png, id=473, 311.1625pt x 173.64874pt>
 File: photo23.png Graphic file (type png)
 <use photo23.png>
-Package pdftex.def Info: photo23.png  used on input line 2101.
+Package pdftex.def Info: photo23.png  used on input line 1990.
 (pdftex.def)             Requested size: 155.58087pt x 86.82416pt.
 
-Overfull \hbox (13.3171pt too wide) in paragraph at lines 2101--2102
+Overfull \hbox (13.3171pt too wide) in paragraph at lines 1990--1991
 [][] 
  []
 
 
-Overfull \hbox (137.57222pt too wide) in paragraph at lines 2083--2103
+Overfull \hbox (136.33621pt too wide) in paragraph at lines 1972--1992
 [][][]
  []
 
 
-Overfull \hbox (69.64133pt too wide) in paragraph at lines 2083--2103
+Overfull \hbox (69.64133pt too wide) in paragraph at lines 1972--1992
 []$$[]$ 
  []
 
 
-Overfull \hbox (5.4091pt too wide) detected at line 2160
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 1995--2006
+[][] 
+ []
+
+
+Overfull \hbox (5.4091pt too wide) detected at line 2051
 [] [] \OT1/lmr/m/n/12 = []  \OMS/lmsy/m/n/12 ([])  [] [] \OT1/lmr/m/n/12 = []
  []
 
 
-Overfull \hbox (56.63445pt too wide) in paragraph at lines 2183--2211
+Overfull \hbox (56.63445pt too wide) in paragraph at lines 2074--2102
 []$ 
  []
 
-[33 <./photo23.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 2216--2217
+[32 <./photo23.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2107--2108
 
  []
 
-<photo24.png, id=482, 393.47pt x 127.47626pt>
+<photo24.png, id=481, 393.47pt x 127.47626pt>
 File: photo24.png Graphic file (type png)
 <use photo24.png>
-Package pdftex.def Info: photo24.png  used on input line 2218.
+Package pdftex.def Info: photo24.png  used on input line 2109.
 (pdftex.def)             Requested size: 196.73451pt x 63.73796pt.
 
-Overfull \hbox (145.07932pt too wide) in paragraph at lines 2215--2220
+Overfull \hbox (145.07932pt too wide) in paragraph at lines 2106--2111
 [][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2227--2229
+Underfull \hbox (badness 10000) in paragraph at lines 2118--2120
 
  []
 
-<photo25.png, id=483, 263.98625pt x 198.7425pt>
+<photo25.png, id=482, 263.98625pt x 198.7425pt>
 File: photo25.png Graphic file (type png)
 <use photo25.png>
-Package pdftex.def Info: photo25.png  used on input line 2230.
+Package pdftex.def Info: photo25.png  used on input line 2121.
 (pdftex.def)             Requested size: 131.9928pt x 99.371pt.
 
-Overfull \hbox (241.2798pt too wide) in paragraph at lines 2229--2242
+Overfull \hbox (241.2798pt too wide) in paragraph at lines 2120--2133
 []$[]$$[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2255--2264
+Underfull \hbox (badness 10000) in paragraph at lines 2146--2155
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2265--2271
+Underfull \hbox (badness 10000) in paragraph at lines 2156--2162
 
  []
 
 
-Overfull \hbox (198.60066pt too wide) in paragraph at lines 2272--2282
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 2163--2173
 [][] 
  []
 
 
-Overfull \hbox (127.46877pt too wide) in paragraph at lines 2290--2293
+Overfull \hbox (127.46877pt too wide) in paragraph at lines 2181--2184
 [][] 
  []
 
-[34 <./photo24.png> <./photo25.png>]
-Overfull \hbox (136.33621pt too wide) in paragraph at lines 2302--2305
+[33 <./photo24.png> <./photo25.png>]
+Overfull \hbox (136.33621pt too wide) in paragraph at lines 2193--2196
 [][][] 
  []
 
-<photo28.png, id=496, 657.45625pt x 216.81pt>
+<photo28.png, id=495, 657.45625pt x 216.81pt>
 File: photo28.png Graphic file (type png)
 <use photo28.png>
-Package pdftex.def Info: photo28.png  used on input line 2307.
+Package pdftex.def Info: photo28.png  used on input line 2198.
 (pdftex.def)             Requested size: 328.72733pt x 108.40472pt.
 
-Underfull \hbox (badness 2158) in paragraph at lines 2309--2310
+Underfull \hbox (badness 2158) in paragraph at lines 2200--2201
 \T1/lmr/m/it/12 des rai-deurs li-néaires 1D
  []
 
 
-Overfull \hbox (144.17165pt too wide) in paragraph at lines 2306--2311
+Overfull \hbox (144.17165pt too wide) in paragraph at lines 2197--2202
 []$[]$$[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2306--2311
+Underfull \hbox (badness 10000) in paragraph at lines 2197--2202
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2306--2311
+Underfull \hbox (badness 10000) in paragraph at lines 2197--2202
 
  []
 
 
-Overfull \hbox (156.17168pt too wide) in paragraph at lines 2312--2315
+Overfull \hbox (156.17168pt too wide) in paragraph at lines 2203--2206
 []$\OMS/lmsy/m/n/12 !$[] 
  []
 
 
-Overfull \hbox (125.16327pt too wide) in paragraph at lines 2316--2321
+Overfull \hbox (125.16327pt too wide) in paragraph at lines 2207--2212
 []$ [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2316--2321
+Underfull \hbox (badness 10000) in paragraph at lines 2207--2212
 
  []
 
 \l__nicematrix_l_dim=\dimen446
 
-Underfull \hbox (badness 10000) in paragraph at lines 2405--2427
+Underfull \hbox (badness 10000) in paragraph at lines 2296--2318
 
  []
 
 
-Overfull \hbox (186.85078pt too wide) in paragraph at lines 2328--2446
+Overfull \hbox (186.85078pt too wide) in paragraph at lines 2219--2337
 []$[]$ 
  []
 
-[35 <./photo28.png>]
+[34 <./photo28.png>] [35]
+Overfull \hbox (136.33621pt too wide) in paragraph at lines 2343--2351
+[][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2353--2375
+
+ []
+
+<photo31.png, id=508, 599.23875pt x 115.43124pt>
+File: photo31.png Graphic file (type png)
+<use photo31.png>
+Package pdftex.def Info: photo31.png  used on input line 2380.
+(pdftex.def)             Requested size: 299.61864pt x 57.71547pt.
+
+Overfull \hbox (79.28851pt too wide) in paragraph at lines 2380--2381
+[][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2380--2381
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2387--2388
+
+ []
+
+
+Overfull \hbox (39.93208pt too wide) in paragraph at lines 2389--2405
+[]$[][]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2389--2405
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2406--2414
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2415--2423
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2435--2440
+
+ []
+
+
+Overfull \hbox (69.64133pt too wide) in paragraph at lines 2424--2443
+[] 
+ []
+
+
+Overfull \vbox (11.09431pt too high) detected at line 2443
+ []
+
+[36 <./photo31.png>]
+Overfull \hbox (114.63345pt too wide) in paragraph at lines 2446--2449
+[][][] 
+ []
+
+<photo35.png, id=521, 375.4025pt x 86.3225pt>
+File: photo35.png Graphic file (type png)
+<use photo35.png>
+Package pdftex.def Info: photo35.png  used on input line 2451.
+(pdftex.def)             Requested size: 187.70079pt x 43.16113pt.
+
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 2450--2453
+[][] 
+ []
+
+
+Overfull \hbox (154.99959pt too wide) in paragraph at lines 2454--2497
+[] 
+ []
+
+<photo36.png, id=522, 116.435pt x 50.1875pt>
+File: photo36.png Graphic file (type png)
+<use photo36.png>
+Package pdftex.def Info: photo36.png  used on input line 2512.
+(pdftex.def)             Requested size: 58.21735pt x 25.09367pt.
+
+Overfull \hbox (12.01213pt too wide) in paragraph at lines 2499--2524
+[]$\T1/lmr/m/it/12 , [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2499--2524
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2525--2533
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2534--2538
+
+ []
+
+
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 2498--2550
+[]$[]$ 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 2550
+ []
+
+
+Overfull \vbox (11.89285pt too high) detected at line 2550
+ []
+
+[37 <./photo35.png>]
+<photo37.png, id=530, 238.8925pt x 92.345pt>
+File: photo37.png Graphic file (type png)
+<use photo37.png>
+Package pdftex.def Info: photo37.png  used on input line 2555.
+(pdftex.def)             Requested size: 119.44595pt x 46.17238pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2554--2564
+
+ []
+
+<photo38.png, id=531, 275.0275pt x 123.46124pt>
+File: photo38.png Graphic file (type png)
+<use photo38.png>
+Package pdftex.def Info: photo38.png  used on input line 2565.
+(pdftex.def)             Requested size: 137.51341pt x 61.73045pt.
+
+Overfull \hbox (154.99959pt too wide) in paragraph at lines 2553--2567
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2568--2569
+
+ []
+
+
+Overfull \hbox (87.26614pt too wide) in paragraph at lines 2570--2583
+[][] 
+ []
+
+[38 <./photo36.png> <./photo37.png> <./photo38.png>]
+<photo39.png, id=540, 273.02pt x 185.69376pt>
+File: photo39.png Graphic file (type png)
+<use photo39.png>
+Package pdftex.def Info: photo39.png  used on input line 2588.
+(pdftex.def)             Requested size: 136.50966pt x 92.84665pt.
+
+Underfull \hbox (badness 5217) in paragraph at lines 2591--2595
+[]\T1/lmr/m/it/12 Écrire le sys-tème glo-bal, en no-tant $\U/bbold/m/n/12 D \OT
+1/lmr/m/n/12 =
+ []
+
+
+Overfull \hbox (98.09407pt too wide) in paragraph at lines 2585--2601
+[]$$[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2602--2604
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2614--2618
+
+ []
+
 \tf@thm=\write7
 \openout7 = `Cours.thm'.
 
- [36]
-runsystem(latexminted cleantemp  --timestamp 20260323134713 33C1869ABDF6A46508C
+[39 <./photo39.png>]
+runsystem(latexminted cleantemp  --timestamp 20260323160815 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -2710,13 +2827,13 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `Cours.out' has not changed.
-(rerunfilecheck)             Checksum: 6DD27A05CBE159AE62A7D6E95A5DDB62;9240.
+(rerunfilecheck)             Checksum: 1EE7968BCD2D0FDD9F380A97BF1E2631;10226.
  ) 
 Here is how much of TeX's memory you used:
- 58783 strings out of 467538
- 1376561 string characters out of 5419551
- 2112853 words of memory out of 5000000
- 86676 multiletter control sequences out of 15000+600000
+ 58848 strings out of 467538
+ 1377577 string characters out of 5419551
+ 2114076 words of memory out of 5000000
+ 86726 multiletter control sequences out of 15000+600000
  753293 words of font info for 136 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,30n,131p,866b,972s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2737,10 +2854,10 @@ dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts
 /type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
 lic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy
 8.pfb>
-Output written on Cours.pdf (37 pages, 4971320 bytes).
+Output written on Cours.pdf (40 pages, 5151395 bytes).
 PDF statistics:
- 630 PDF objects out of 1000 (max. 8388607)
- 452 compressed objects within 5 object streams
- 142 named destinations out of 1000 (max. 500000)
- 553 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 678 PDF objects out of 1000 (max. 8388607)
+ 489 compressed objects within 5 object streams
+ 157 named destinations out of 1000 (max. 500000)
+ 597 words of extra memory for PDF output out of 10000 (max. 10000000)
 
