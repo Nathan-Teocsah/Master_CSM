@@ -32,3 +32,4 @@
 \contentsline {subsection}{\numberline {4.2}Stockage de la matrice}{26}{subsection.4.2}%
 \contentsline {subsubsection}{\numberline {4.2.1}Stockage morse ordonnée}{26}{subsubsection.4.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.2}Stockage morse désordonnée}{27}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Passage du SMD au SMO}{28}{subsubsection.4.2.3}%

@@ -2642,4 +2642,164 @@ où encore :
 		
 	\end{sol}
 	
+	\begin{exo}
+		$ $\\
+		
+		\begin{minipage}{6cm}
+			On considère le système suivant :\\
+			\includegraphics[scale=.5]{photo41.png}
+		\end{minipage}\begin{minipage}{10cm}
+		où $\mathbb D = \begin{bmatrix}
+			D_L & D_i & 0 \\
+			D_{iL} & D_i & D_{iR} \\
+			0 & D_{Ri} & D_R
+		\end{bmatrix}$
+		\end{minipage}\\
+		\begin{enumerate}
+			\item  \begin{minipage}[t]{18cm}
+				Assembler le système global traduisant l'équilibre dynamique sous la forme : $\mathbb D_y\begin{bmatrix}
+				u_0 \\ P_0\\ u_1 \\ \vdots \\ u_{N-1} \\ P_{N-1} \\ u_N
+			\end{bmatrix} = \begin{bmatrix}
+			F_0 \\ 0 \\ \\ \vdots \\ \\ 0 \\ f_N
+			\end{bmatrix}$
+			\end{minipage}
+			
+			\item Réécrire en fonction de la matrice $\overset\sim{\mathbb D}$ condensée (à expliciter)
+			
+			\item Décomposer les C.L. en ondes de Bloch
+		\end{enumerate}
+	\end{exo}
+	
+	\begin{exo}
+		\includegraphics[scale=.5]{photo42.png}\\
+		\begin{enumerate}
+			\item Système global avec $S$
+			
+			\item  Idem avec $\overset\sim S$
+			
+			\item  Équation d'équilibre aux interfaces de $S$
+			
+			\item Décomposer en ondes
+			
+			\item  Calcul de $R$ et $T$
+		\end{enumerate}
+	\end{exo}\newpage
+	\begin{sol}
+		$ $
+		\begin{enumerate}
+			\item \begin{minipage}{18.5cm}
+			$\begin{bNiceMatrix}[margin=0.1em]
+				\Ddots \\
+				& D_R+D_L & D_{LR} \\
+				 &  D_{RL} & D_R+S_L & S_{Li} & 0\\
+				 & 		   & S_{iL} & S_i & S_{iR} \\
+				 &  	   & 	0	& S_{Ri} & S_R+D_L & D_{LR} \\
+				 &		   &	    &        & D_{RL} & D_R+D_L\\
+				 & & & & & & \Ddots
+			\end{bNiceMatrix}\begin{bNiceMatrix}
+			\Vdots \\ u_0 \\ u_1 \\ p \\ v_0 \\ v_1 \\ \Vdots
+			\end{bNiceMatrix} = \begin{bNiceMatrix}
+			\Vdots \\ \\ \\ 0 \\ \Vdots \\ \\ \\
+			\end{bNiceMatrix}$
+			\end{minipage}
+			
+			\item \begin{minipage}[t]{18.5cm}
+				$\overset\sim S_b = \rouge{S_b}-\bleu{S_{bi}}S_i^{-1}S_{ib}$, où $b = \begin{bmatrix}
+				L \\ R
+			\end{bmatrix}$ \\
+			$S = \begin{bNiceMatrix}[margin=1em]
+				\rouge{S_L} & \rouge0 & \bleu{S_{Li}}\\
+				\rouge0 & \rouge{S_R} & \bleu{S_{Ri}} \\
+				S_{iL} & S_{iR} & S_i\\
+				\CodeAfter
+				\SubMatrix[{1-1}{2-2}]
+				\SubMatrix[{1-3}{2-3}]
+			\end{bNiceMatrix}$, $\begin{aligned}[t]
+			\overset\sim S &= \begin{bmatrix}
+			S_L & 0 \\
+			0 & S_R
+			\end{bmatrix} - \begin{bmatrix}
+			S_{Li} \\
+			S_{Ri}
+			\end{bmatrix}S_i^{-1}\begin{bmatrix}
+			S_{iL} & S_{iR}
+			\end{bmatrix}\\
+			&= \begin{bmatrix}
+				S_L-S_{iL}S_i^{-1}S_{iL} & -S_{Li}S_i^{-1}S_{iR} \\
+				-S_{Ri}S_i^{-1}S_{iR} & S_R - S_{Ri}S_i^{-1}S_{iR}
+			\end{bmatrix}\\
+			&=\begin{bmatrix}
+				\overset\sim S_L & \overset\sim S_{LR} \\
+				\overset\sim S_{RL} & \overset\sim S_R
+			\end{bmatrix}
+		\end{aligned}$\\
+		On peut alors représenter le système comme :\\
+		\includegraphics[scale=.5]{photo43.png}\\
+		On assemble alors : $\begin{bNiceMatrix}[margin=0.1em]
+			\Ddots \\
+			& D_R+D_L & D_{LR} \\
+			&  D_{RL} & D_R+\overset\sim S_L &\overset\sim S_{LR} \\
+			&  	   	&\overset\sim S_{RL} &\overset\sim S_R+D_L & D_{LR} \\
+			&		   &	    &        & D_{RL} & D_R+D_L\\
+			& & & & & & \Ddots
+		\end{bNiceMatrix}\begin{bNiceMatrix}
+			\Vdots \\ u_0 \\ u_1 \\ v_0 \\ v_1 \\ \Vdots
+		\end{bNiceMatrix} = 0$
+			\end{minipage}
+			
+			\item \begin{minipage}[t]{15cm}
+				On développe les lignes correspondantes pour l'équation en $u_1$ et $v_0$ : 
+				
+				\[
+				\begin{cases}
+					D_{RL} u_0 + (D_R+\overset\sim S_L)u_1 + \overset\sim S_{LR} v_0 = 0 & (1) \\
+					\overset\sim S_{RL} u_1 + (\overset\sim S_R + D_L)v_0 + D_{LR} v_1 = 0 & (2)
+				\end{cases}
+				\]
+			\end{minipage}
+			
+			\item $\forall n, \begin{aligned}[t]
+				u_n = \Phi^+\Lambda^n a^+ + \Phi^- \Lambda^{\overset{=1}{N-n}}a^- \\
+				v_n = \Phi^+ \Lambda^+ b^+ + \Phi^- \Lambda^{\overset{=1}{M-n}}b^-
+			\end{aligned}$\\
+			\hspace*{-1cm}$\begin{cases}
+				\left[D_{RL}\Phi^+ + (D_R+\overset\sim S_L)\Phi^+\Lambda\right]a^- + \overset\sim S_{LR}\Phi^+b^+ + \overset\sim S_{LR} \Phi^-\Lambda b^- = 0 & (1)\\\\
+				\overset\sim S_{RL}\Phi^+ \Lambda a^+ + \overset\sim S_{RL}\Phi^- a^- + \left[(\overset\sim S_R +D_L)\Phi^+ +D_{LR}\Phi^+ \Lambda\right]b^+ + \left[(\overset\sim S_R + D_L)\Phi^-\Lambda + D_{LR}\Phi^-\right]b^- = 0 & (2)
+			\end{cases}$\\
+			qui s'écrit : $ H\begin{bmatrix}
+				a^+ \\ a^- \\ b^+ \\ b^-
+			\end{bmatrix} = 0$
+			
+			\item  \begin{minipage}[t]{15cm}
+				On suppose connue une onde individuelle ($a^+ = 1$)\\
+			Calculons les coefficients de Réflexion et Transmission\\
+			\includegraphics[scale=.5]{photo44.png}\\
+			Le système devient :
+			\[
+			\begin{aligned}
+				ca^+ = - dR-\overset\sim S_{LR}\Phi^+T \\
+				\overset\sim S_{RL}\Phi^+\Lambda a^+ = - \overset\sim S_{LR}\Phi^- R-f T\\
+				\begin{bmatrix}
+					c \\ \overset\sim S_{RL}\Phi^+\Lambda
+				\end{bmatrix}a^+ = \begin{bmatrix}
+				-d & -\overset\sim S_{LR}\Phi^+ \\
+				-\overset\sim S_{RL}\Phi^- & - f
+				\end{bmatrix}\begin{bmatrix}
+				R \\ T
+				\end{bmatrix}
+			\end{aligned}
+			\]
+			Les coefficients de Réflexion et de Transmission des ondes de Bloch au travers d'un élément de couplage $S$ s'obtient par : $\begin{bmatrix}
+				R \\ T
+			\end{bmatrix}\begin{bmatrix}
+			d & \overset\sim S_{LR}\Phi^+ \\
+			\overset\sim S_R\Phi^- & -f
+			\end{bmatrix}\begin{bmatrix}
+			c \\ \overset\sim S_{RL}\Phi^+ \Lambda
+			\end{bmatrix}a^+$
+			\end{minipage}
+		\end{enumerate}
+	\end{sol}
+	
+	
 \end{document}
