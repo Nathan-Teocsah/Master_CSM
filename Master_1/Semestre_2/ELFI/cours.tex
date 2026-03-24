@@ -1494,4 +1494,43 @@
 		\end{minipage}
 	\end{ex}
 	
+	\subsubsection{Passage du SMD au SMO}
+	
+	On réarrange les éléments stockés dans $LMat$.\\
+	On travaille ligne par ligne :\\
+	\hspace*{1cm} \begin{minipage}[t]{15cm}
+		Pour chaque ligne :
+		\begin{enumerate}[label=-]
+			\item localisation dans $LMat$ du SMD de tous les éléments de cette ligne (avec $FirstAdLi$ et $FollowAdLi$)
+			
+			\item tri des éléments de la ligne selon les indices colonnes.
+		\end{enumerate}
+	\end{minipage}
+	
+	\noindent On a ainsi un stockage ordonné SMO.\\
+	Le stockage SMD s'obtient par assemblage des matrices élémentaires et seconds membres sans prises en compte des conditions de Dirichlet.
+	
+	\enc{black}{\textbf{\underline{Rappel :}}\\
+	On souhaite résoudre le système linéaire : $AU = B$, $A \in \R^{N_h\times N_h}$ et $B \in \R^{N_h}$\\
+	
+	$A_{IJ} = \displaystyle\int_{\Omega_h}\sum_{\alpha\beta} a_{\alpha\beta}\dfrac{\partial}{\partial x_\alpha}w_J\dfrac\partial{\partial x_\beta}w_I - \int_{\Omega_h}a_{00}w_Jw_I + \int_{\Gamma_N} b_Nw_Jw_I$\\
+	$B_I = F_I-\displaystyle\sum_{n_J\in \mathcal M_h \cap\Gamma_D} u_I(n_J)A_{IJ}$\\
+	$F_I = \displaystyle\int_{\Omega_h}f_\Omega w_I + \int_{\Gamma_N}g_Nw_I$}\\
+	
+	Après assemblage, le système SMD ne correspond pas au problème mathématiques à résoudre.\\
+	On fait la prise en compte des conditions de Dirichlet au moment du passage du SMD au SMO : exemple si les nœuds de $\Gamma_D$ sont $n_I$, $I \in [\![N_h+1,M_h]\!]$.
+	
+	$A_{SMD} = \begin{bNiceMatrix}[margin=1em]
+		A_{1,1} & & & & \fbox{$\circ$} & \fbox{$\circ$} & \fbox{$\circ$}\\
+		& \Ddots & & Sym\\\\
+		& & & A_{N_h, N_h}	\\
+		\fbox{$\circ$} & \Cdots &  & \fbox{$\circ$} & A_{N_h+1,N_h+1}\\
+		\fbox{$\circ$} & \Cdots	&  &  & \fbox{$\circ$} & \Ddots \\
+		\fbox{$\circ$} & \Cdots &  &  &  & \fbox{$\circ$} & \\
+						&       &  &  &  &                 &A_{M_h,M_h} 	
+		\CodeAfter
+		\SubMatrix[{1-1}{4-4}]
+	\end{bNiceMatrix}$
+	
+	
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  23 MAR 2026 16:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  24 MAR 2026 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2813,11 +2813,86 @@ Overfull \hbox (184.37428pt too wide) in paragraph at lines 2623--2639
 [] 
  []
 
+[39 <./photo39.png> <./photo40.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2646--2647
+
+ []
+
+<photo41.png, id=557, 322.20375pt x 118.4425pt>
+File: photo41.png Graphic file (type png)
+<use photo41.png>
+Package pdftex.def Info: photo41.png  used on input line 2650.
+(pdftex.def)             Requested size: 161.10147pt x 59.2211pt.
+
+Overfull \hbox (115.71889pt too wide) in paragraph at lines 2648--2659
+[]$[]$$[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2648--2659
+
+ []
+
+
+Overfull \hbox (184.37428pt too wide) in paragraph at lines 2659--2666
+[][] 
+ []
+
+<photo42.png, id=558, 555.07375pt x 252.945pt>
+File: photo42.png Graphic file (type png)
+<use photo42.png>
+Package pdftex.def Info: photo42.png  used on input line 2674.
+(pdftex.def)             Requested size: 277.53618pt x 126.47218pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2674--2676
+
+ []
+
+[40 <./photo41.png> <./photo42.png>]
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 2690--2705
+[]$[]$ 
+ []
+
+<photo43.png, id=575, 410.53375pt x 155.58125pt>
+File: photo43.png Graphic file (type png)
+<use photo43.png>
+Package pdftex.def Info: photo43.png  used on input line 2737.
+(pdftex.def)             Requested size: 205.26637pt x 77.79042pt.
+
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 2706--2749
+[][] 
+ []
+
+
+Overfull \hbox (99.01602pt too wide) in paragraph at lines 2750--2760
+[][] 
+ []
+
+
+Overfull \hbox (164.18556pt too wide) in paragraph at lines 2761--2772
+| $[]$ 
+ []
+
+<photo44.png, id=576, 371.3875pt x 164.615pt>
+File: photo44.png Graphic file (type png)
+<use photo44.png>
+Package pdftex.def Info: photo44.png  used on input line 2776.
+(pdftex.def)             Requested size: 185.69328pt x 82.3073pt.
+
+Overfull \hbox (99.01602pt too wide) in paragraph at lines 2773--2801
+[][] 
+ []
+
+
+Overfull \vbox (18.63002pt too high) detected at line 2802
+ []
+
+[41 <./photo43.png>]
 \tf@thm=\write7
 \openout7 = `Cours.thm'.
 
-[39 <./photo39.png> <./photo40.png>]
-runsystem(latexminted cleantemp  --timestamp 20260323163231 33C1869ABDF6A46508C
+ [42 <./photo44.png>]
+runsystem(latexminted cleantemp  --timestamp 20260324163145 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -2829,13 +2904,13 @@ Package rerunfilecheck Info: File `Cours.out' has not changed.
 (rerunfilecheck)             Checksum: 1EE7968BCD2D0FDD9F380A97BF1E2631;10226.
  ) 
 Here is how much of TeX's memory you used:
- 58857 strings out of 467538
- 1377726 string characters out of 5419551
- 2114076 words of memory out of 5000000
- 86734 multiletter control sequences out of 15000+600000
+ 60805 strings out of 467538
+ 1418118 string characters out of 5419551
+ 2146802 words of memory out of 5000000
+ 88663 multiletter control sequences out of 15000+600000
  753293 words of font info for 136 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,30n,131p,866b,972s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,30n,131p,866b,1081s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line1
@@ -2853,10 +2928,10 @@ dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts
 /type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
 lic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy
 8.pfb>
-Output written on Cours.pdf (40 pages, 5166709 bytes).
+Output written on Cours.pdf (43 pages, 5507091 bytes).
 PDF statistics:
- 681 PDF objects out of 1000 (max. 8388607)
- 490 compressed objects within 5 object streams
- 158 named destinations out of 1000 (max. 500000)
- 602 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 722 PDF objects out of 1000 (max. 8388607)
+ 519 compressed objects within 6 object streams
+ 177 named destinations out of 1000 (max. 500000)
+ 622 words of extra memory for PDF output out of 10000 (max. 10000000)
 
