@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  24 MAR 2026 16:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  25 MAR 2026 11:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2814,23 +2814,14 @@ Overfull \hbox (184.37428pt too wide) in paragraph at lines 2623--2639
  []
 
 [39 <./photo39.png> <./photo40.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 2646--2647
-
- []
-
 <photo41.png, id=557, 322.20375pt x 118.4425pt>
 File: photo41.png Graphic file (type png)
 <use photo41.png>
-Package pdftex.def Info: photo41.png  used on input line 2650.
+Package pdftex.def Info: photo41.png  used on input line 2649.
 (pdftex.def)             Requested size: 161.10147pt x 59.2211pt.
 
-Overfull \hbox (115.71889pt too wide) in paragraph at lines 2648--2659
-[]$[]$$[]$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2648--2659
-
+Overfull \hbox (284.52756pt too wide) in paragraph at lines 2647--2657
+[]$$[]$ 
  []
 
 
@@ -2838,61 +2829,166 @@ Overfull \hbox (184.37428pt too wide) in paragraph at lines 2659--2666
 [][] 
  []
 
-<photo42.png, id=558, 555.07375pt x 252.945pt>
-File: photo42.png Graphic file (type png)
-<use photo42.png>
-Package pdftex.def Info: photo42.png  used on input line 2674.
-(pdftex.def)             Requested size: 277.53618pt x 126.47218pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2674--2676
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 2675--2690
+[][] 
+ []
+
+<photo45.png, id=558, 268.00125pt x 70.2625pt>
+File: photo45.png Graphic file (type png)
+<use photo45.png>
+Package pdftex.def Info: photo45.png  used on input line 2693.
+(pdftex.def)             Requested size: 214.40128pt x 56.21005pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2692--2694
 
  []
 
-[40 <./photo41.png> <./photo42.png>]
-Overfull \hbox (198.60066pt too wide) in paragraph at lines 2690--2705
+
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 2691--2755
+[][] 
+ []
+
+
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 2756--2769
 []$[]$ 
  []
 
-<photo43.png, id=575, 410.53375pt x 155.58125pt>
+
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 2770--2794
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 2795
+ []
+
+
+Overfull \vbox (6.55067pt too high) detected at line 2795
+ []
+
+[40 <./photo41.png> <./photo45.png>]
+<photo42.png, id=572, 555.07375pt x 252.945pt>
+File: photo42.png Graphic file (type png)
+<use photo42.png>
+Package pdftex.def Info: photo42.png  used on input line 2801.
+(pdftex.def)             Requested size: 277.53618pt x 126.47218pt.
+
+Overfull \hbox (106.81966pt too wide) in paragraph at lines 2801--2802
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2800--2804
+
+ []
+
+
+Overfull \hbox (155.92152pt too wide) in paragraph at lines 2812--2815
+[][] 
+ []
+
+[41 <./photo42.png>]
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 2820--2835
+[]$[]$ 
+ []
+
+<photo43.png, id=585, 410.53375pt x 155.58125pt>
 File: photo43.png Graphic file (type png)
 <use photo43.png>
-Package pdftex.def Info: photo43.png  used on input line 2737.
+Package pdftex.def Info: photo43.png  used on input line 2867.
 (pdftex.def)             Requested size: 205.26637pt x 77.79042pt.
 
-Overfull \hbox (198.60066pt too wide) in paragraph at lines 2706--2749
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 2836--2879
 [][] 
  []
 
 
-Overfull \hbox (99.01602pt too wide) in paragraph at lines 2750--2760
+Overfull \hbox (99.01602pt too wide) in paragraph at lines 2880--2890
 [][] 
  []
 
 
-Overfull \hbox (164.18556pt too wide) in paragraph at lines 2761--2772
+Overfull \hbox (164.18556pt too wide) in paragraph at lines 2891--2898
 | $[]$ 
  []
 
-<photo44.png, id=576, 371.3875pt x 164.615pt>
+<photo44.png, id=586, 371.3875pt x 164.615pt>
 File: photo44.png Graphic file (type png)
 <use photo44.png>
-Package pdftex.def Info: photo44.png  used on input line 2776.
+Package pdftex.def Info: photo44.png  used on input line 2906.
 (pdftex.def)             Requested size: 185.69328pt x 82.3073pt.
 
-Overfull \hbox (99.01602pt too wide) in paragraph at lines 2773--2801
+Overfull \hbox (99.01602pt too wide) in paragraph at lines 2903--2931
+[][] 
+ []
+
+[42 <./photo43.png>]
+<photo46.png, id=598, 286.06876pt x 97.36375pt>
+File: photo46.png Graphic file (type png)
+<use photo46.png>
+Package pdftex.def Info: photo46.png  used on input line 2936.
+(pdftex.def)             Requested size: 143.03403pt x 48.68175pt.
+
+Overfull \hbox (155.92152pt too wide) in paragraph at lines 2943--2949
+[][] 
+ []
+
+<photo47.png, id=599, 283.0575pt x 157.58875pt>
+File: photo47.png Graphic file (type png)
+<use photo47.png>
+Package pdftex.def Info: photo47.png  used on input line 2975.
+(pdftex.def)             Requested size: 198.13889pt x 110.31136pt.
+
+Overfull \hbox (27.42236pt too wide) in paragraph at lines 2975--2976
 [][] 
  []
 
 
-Overfull \vbox (18.63002pt too high) detected at line 2802
+Underfull \hbox (badness 10000) in paragraph at lines 2974--2977
+
  []
 
-[41 <./photo43.png>]
+
+Overfull \hbox (138.03923pt too wide) in paragraph at lines 2978--2985
+[]$[]$ $[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2978--2985
+
+ []
+
+
+Overfull \hbox (22.93675pt too wide) in paragraph at lines 2986--3004
+[]$[][]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2986--3004
+
+ []
+
+[43 <./photo44.png> <./photo46.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 3013--3014
+
+ []
+
+<photo48.png, id=613, 404.51125pt x 157.58875pt>
+File: photo48.png Graphic file (type png)
+<use photo48.png>
+Package pdftex.def Info: photo48.png  used on input line 3016.
+(pdftex.def)             Requested size: 242.70862pt x 94.55397pt.
+
+Overfull \hbox (343.34094pt too wide) in paragraph at lines 3015--3023
+[]$[]$$[]$ 
+ []
+
 \tf@thm=\write7
 \openout7 = `Cours.thm'.
 
- [42 <./photo44.png>]
-runsystem(latexminted cleantemp  --timestamp 20260324163145 33C1869ABDF6A46508C
+[44 <./photo47.png> <./photo48.png>]
+runsystem(latexminted cleantemp  --timestamp 20260325112058 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -2904,13 +3000,13 @@ Package rerunfilecheck Info: File `Cours.out' has not changed.
 (rerunfilecheck)             Checksum: 1EE7968BCD2D0FDD9F380A97BF1E2631;10226.
  ) 
 Here is how much of TeX's memory you used:
- 60805 strings out of 467538
- 1418118 string characters out of 5419551
- 2146802 words of memory out of 5000000
- 88663 multiletter control sequences out of 15000+600000
+ 62377 strings out of 467538
+ 1450818 string characters out of 5419551
+ 2160829 words of memory out of 5000000
+ 90217 multiletter control sequences out of 15000+600000
  753293 words of font info for 136 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,30n,131p,866b,1081s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,30n,131p,866b,1159s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line1
@@ -2928,10 +3024,10 @@ dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts
 /type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
 lic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy
 8.pfb>
-Output written on Cours.pdf (43 pages, 5507091 bytes).
+Output written on Cours.pdf (45 pages, 5735652 bytes).
 PDF statistics:
- 722 PDF objects out of 1000 (max. 8388607)
- 519 compressed objects within 6 object streams
- 177 named destinations out of 1000 (max. 500000)
- 622 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 758 PDF objects out of 1000 (max. 8388607)
+ 545 compressed objects within 6 object streams
+ 195 named destinations out of 1000 (max. 500000)
+ 642 words of extra memory for PDF output out of 10000 (max. 10000000)
 
