@@ -2642,19 +2642,19 @@ où encore :
 		
 	\end{sol}
 	
-	\begin{exo}
-		$ $\\
-		
-		\begin{minipage}{6cm}
+	\begin{exo}		
+		\begin{minipage}[t]{6cm}
 			On considère le système suivant :\\
-			\includegraphics[scale=.5]{photo41.png}
-		\end{minipage}\begin{minipage}{10cm}
-		où $\mathbb D = \begin{bmatrix}
-			D_L & D_i & 0 \\
-			D_{iL} & D_i & D_{iR} \\
-			0 & D_{Ri} & D_R
-		\end{bmatrix}$
-		\end{minipage}\\
+			\begin{minipage}{6cm}
+				\includegraphics[scale=.5]{photo41.png}
+			\end{minipage}\begin{minipage}{10cm}
+			où $\mathbb D = \begin{bmatrix}
+				D_L & D_i & 0 \\
+				D_{iL} & D_i & D_{iR} \\
+				0 & D_{Ri} & D_R
+			\end{bmatrix}$
+			\end{minipage}
+		\end{minipage}
 		\begin{enumerate}
 			\item  \begin{minipage}[t]{18cm}
 				Assembler le système global traduisant l'équilibre dynamique sous la forme : $\mathbb D_y\begin{bmatrix}
@@ -2669,21 +2669,151 @@ où encore :
 			\item Décomposer les C.L. en ondes de Bloch
 		\end{enumerate}
 	\end{exo}
+	\begin{sol}
+		$ $
+		\begin{enumerate}
+			\item \begin{minipage}[t]{18.5cm}
+				$\begin{bmatrix}
+				D_L & D_{Li} & 0\\
+				D_{iL} & D_i & D_{iR} \\
+				0 & D_{Ri} & D_R+D_L \\
+				  &        &         & \ddots\\
+				  &		   &		 &   	  & D_R+D_L & D_{Li} & 0 \\
+				  &		   &		 &   	  & D_{iL} & D_i & D_{iR} \\
+				  &		   &		 &   	  & 0 & D_{Ri} & D_R
+			\end{bmatrix}\begin{bmatrix}
+			u_0 \\ p_0 \\ u_1 \\\vdots\\u_{N-1} \\ p_{N-1} \\ u_N
+			\end{bmatrix} = \begin{bNiceMatrix}
+			F_0 \\ 0 \\ \Vdots \\ \\ \\ 0 \\ f_N
+			\end{bNiceMatrix}$
+			\end{minipage}
+			
+			\item \begin{minipage}[t]{18.5cm}
+				Pour une cellule $(n)$ l'équilibre local s'écrit :\\
+				\includegraphics[scale=.8]{photo45.png}\\
+				
+				$\begin{aligned}
+					\begin{bmatrix}
+					D_L & D_{Li} & 0 \\
+					D_{iL} & D_i & D_{iR} \\
+					0 & D_{Ri} & D_R
+				\end{bmatrix}\begin{bmatrix}
+				u_L \\ p \\ u_R
+				\end{bmatrix}=\begin{bmatrix}
+				F_L \\ 0 \\ F_R
+				\end{bmatrix} & 
+				\iff  \begin{bNiceMatrix}[margin=1em]
+				D_L & 0 & D_i \\
+				0 & D_R & D_{Ri} \\
+				D_{iL} & D_{iR} & D_i
+				\CodeAfter
+				\SubMatrix[{1-1}{2-2}]
+				\SubMatrix[{3-3}{3-3}]
+				\end{bNiceMatrix}\begin{bNiceMatrix}[margin=1em]
+				u_L \\
+				u_R \\
+				p
+				\CodeAfter 
+				\SubMatrix[{1-1}{2-1}]
+				\end{bNiceMatrix} = \begin{bNiceMatrix}
+				F_L \\
+				F_R \\
+				0
+				\CodeAfter 
+				\SubMatrix[{1-1}{2-1}]
+				\end{bNiceMatrix}\\
+				&\iff \begin{bmatrix}
+					D_b & D_{bi} \\
+					D_{iL} & D_i
+				\end{bmatrix}\begin{bmatrix}
+				u_b \\ p
+				\end{bmatrix} = \begin{bmatrix}
+				f_b  \\ 0
+				\end{bmatrix}\\
+				&\iff \Big[
+					\underbrace{D_b-D_{bi}D_i^{-1}D_{ib}}_{\rouge{\overset\sim D_b}}\Big]u_b = f_b
+				\end{aligned}$\\
+				$\begin{aligned}
+					\overset\sim D &= \underbrace{\begin{bmatrix}
+						D_L & 0 \\
+						0 & D_R
+					\end{bmatrix}}_{D_b} - \underbrace{\begin{bmatrix}
+					D_{Li}\\
+					D_{Ri}
+				\end{bmatrix}}_{D_{bi}}D_i^{-1}\underbrace{\begin{bmatrix}
+				D_{iL} & D_{iR}
+			\end{bmatrix}}_{D_{ib}} = \begin{bmatrix}
+			D_L-D_{Li}D_i^{-1}D_{iL} & -D_{Li}D_i^{-1}D_{iR} \\
+			-D_{Ri}D_i^{-1}D_{iL} & D_R-D_{Ri}D_i^{-1}D_{iR}
+		\end{bmatrix}\\
+		&=\begin{bmatrix}
+			\overset\sim D_L & \overset\sim D_{LR} \\
+			\overset\sim D_{RL} & \overset\sim D_R
+		\end{bmatrix}
+				\end{aligned}$
+			\end{minipage}
+			
+		\begin{minipage}{18.5cm}
+			Le système assemblé devient alors : $\begin{bmatrix}
+			\overset\sim D_L & \overset\sim D_{LR} \\
+			\overset\sim D_{RL} & \overset\sim D_R + \overset\sim D_L & \cdots \\
+			& & \ddots \\
+			& & \cdots & \overset\sim D_R + \overset\sim D_L & \overset\sim D_{LR} \\
+			& & & \overset\sim D_{RL} & \overset\sim D_R
+		\end{bmatrix}\begin{bmatrix}
+		u_0 \\ u_1 \\ \vdots \\ u_{N-1} \\ u_N
+		\end{bmatrix} = \begin{bmatrix}
+		F_0 \\ 0 \\ \vdots \\ 0 \\ f_N
+		\end{bmatrix}$
+		\end{minipage}
+		
+		\item \begin{minipage}[t]{18.5cm}
+			$\begin{cases}
+			\text{en }n=0 : \overset\sim D_L u_0 + \overset\sim D_{LR} u_1 = F_0 \\
+			\text{en }n=N : u_N = V_N
+		\end{cases}$\\
+		Décomposition en ondes de Bloch : $\forall n \in \N, u_n = \Phi^+\Lambda^n a^+ + \Phi^-\Lambda^{N-n}a^-$\\
+		Ce qui donne : $\begin{cases}
+			\overset\sim D_L\left(\Phi^+a^+ + \Phi^- \Lambda^Na^-\right)+\overset\sim D_{RL}\left(\Phi^+ \Lambda a^+ + \Phi^-\Lambda^{N-1}a^-\right) = F_0 \\
+			\Phi^+\Lambda^Na^+ + \Phi^-a^- = V_N
+		\end{cases}$\\
+		qui s'écrit : $\underbrace{\begin{bmatrix}
+				\overset\sim D_L\Phi^+ + \overset\sim D_{LR}\Phi^+\Lambda & \overset\sim D_L\Phi^-\Lambda^{N-1}\\
+				\Phi^+ \Lambda^N&  \Phi^-
+		\end{bmatrix}}_H\begin{bmatrix}
+		a^+ \\ a^-
+	\end{bmatrix}= \begin{bmatrix}
+	F_0 \\ V_0
+	\end{bmatrix}$\\
+	et $\begin{bmatrix}
+	a^+ \\ a^-
+	\end{bmatrix}= H^{-1}\begin{bmatrix}
+	F_0 \\ V_N
+	\end{bmatrix}$, ce qui donne $\forall n \in [\![0,N]\!], u_n = \Phi^+\Lambda^na^+ + \Phi^- \Lambda^{N-n}a^-$
+		\end{minipage}
+		\end{enumerate}
+	\end{sol}
+	
+	\vspace{4.5cm}
 	
 	\begin{exo}
-		\includegraphics[scale=.5]{photo42.png}\\
+		\begin{minipage}{6cm}
+			\includegraphics[scale=.5]{photo42.png}
+		\end{minipage}\\
 		\begin{enumerate}
-			\item Système global avec $S$
+			\item Assembler le système global avec $S$
 			
-			\item  Idem avec $\overset\sim S$
+			\item  Assembler avec $\overset\sim S$ (condensation de $p$ sur $(u_i,v_i)$).
 			
-			\item  Équation d'équilibre aux interfaces de $S$
+			\item  Ecrire les conditions d'équilibre des forces aux interfaces de $S$.
 			
 			\item Décomposer en ondes
 			
-			\item  Calcul de $R$ et $T$
+			\item \begin{minipage}[t]{17cm}
+				 En supposant une onde incidente d'amplitude $1$ (i.e. $a^+ = \vec1$), déterminer le système à résoudre pour connaître les ondes réfléchie ($R=a^-$) et transmise ($T = b^+$)
+			\end{minipage}
 		\end{enumerate}
-	\end{exo}\newpage
+	\end{exo}
 	\begin{sol}
 		$ $
 		\begin{enumerate}
@@ -2765,8 +2895,8 @@ où encore :
 			\hspace*{-1cm}$\begin{cases}
 				\left[D_{RL}\Phi^+ + (D_R+\overset\sim S_L)\Phi^+\Lambda\right]a^- + \overset\sim S_{LR}\Phi^+b^+ + \overset\sim S_{LR} \Phi^-\Lambda b^- = 0 & (1)\\\\
 				\overset\sim S_{RL}\Phi^+ \Lambda a^+ + \overset\sim S_{RL}\Phi^- a^- + \left[(\overset\sim S_R +D_L)\Phi^+ +D_{LR}\Phi^+ \Lambda\right]b^+ + \left[(\overset\sim S_R + D_L)\Phi^-\Lambda + D_{LR}\Phi^-\right]b^- = 0 & (2)
-			\end{cases}$\\
-			qui s'écrit : $ H\begin{bmatrix}
+			\end{cases}$\newpage
+			$\to$ qui s'écrit : $ H\begin{bmatrix}
 				a^+ \\ a^- \\ b^+ \\ b^-
 			\end{bmatrix} = 0$
 			
@@ -2800,6 +2930,110 @@ où encore :
 			\end{minipage}
 		\end{enumerate}
 	\end{sol}
+	
+	\begin{exo}
+		Structure $\infty$ avec force interne.\\
+		\hspace*{3cm}\includegraphics[scale=.5]{photo46.png}
+		
+		\begin{enumerate}
+			\item Écrire le système décrivant l'équilibre dynamique global.
+			
+			\item Décomposer en ondes les déplacements
+			
+			\item \begin{minipage}[t]{17cm}
+				Résoudre et en déduire la solution $\forall n \in \N$ , $u_n$ et $D =\begin{bmatrix}
+				D_L & D_{LR} \\
+				D_{RL} & D_R
+			\end{bmatrix}$
+			\end{minipage}
+		\end{enumerate}
+	\end{exo}
+	\begin{sol}
+		$ $
+		\begin{enumerate}
+			\item $\begin{bNiceMatrix}
+				\Ddots & \\
+				       & D_R+D_L & D_{LR} \\
+						& D_{RL} & D_R+D_L \\
+						& 		 & D_{RL} & D_R + D_L \\
+						&		 &		  & 		  & \Ddots
+			\end{bNiceMatrix}\begin{bNiceMatrix}
+			\Vdots \\
+			u_1 \\
+			u_0 \\ 
+			v_1 \\
+			\Vdots
+			\end{bNiceMatrix} = \begin{bNiceMatrix}
+			\Vdots \\
+			0 \\
+			F_0 \\
+			0 \\
+			\Vdots
+			\end{bNiceMatrix}$
+			
+			\item \begin{minipage}{6cm}
+				\includegraphics[scale=.7]{photo47.png}
+			\end{minipage}\\
+			
+			$\begin{cases}
+				u_n = \Phi^- \Lambda^n a^- \\
+				v_n = \Phi^+ \Lambda^n b^+
+			\end{cases}$ \begin{minipage}{13cm}
+			\underline{\textbf{Remarque :}}\\
+			on aurait pu prendre $n$ classique, $u_n = \Phi^-\Lambda^{N-n}a^-$ puis $u_{n'}=\Phi^-\Lambda^{-n'}$ avec $N=0$ puis $n=-n'$.
+			\end{minipage}\\
+			
+			$\begin{aligned}
+				&\begin{cases}
+				D_{RL} u_1 + (D_L+D_R)u_0 + D_{LR} v_1 = F_0\\
+				u_0 = v_0
+			\end{cases}\\
+			\iff & \begin{cases}
+				\left[D_{RL}\Phi^-\Lambda+(D_L+D_R)\Phi^-\right]a^- +D_{LR}\Phi^+\Lambda b^+= F_0 \\
+				\Phi^- a^- = \Phi^+b^+
+			\end{cases}\\
+			\iff& \begin{cases}
+				b^+ = (\Phi^+)^{-1}\Phi^-a^- \\
+				\underbrace{\left[D_{RL}\Phi^-\Lambda+(D_L+D_R)\Phi^- + D_{LR}\Phi^+ \Lambda(\Phi^+)^{-1}\Phi^-\right]}_{H}a^- = F_0
+			\end{cases}\\
+			\iff & \begin{cases}
+				a^- = H^{-1} F_0\\
+				b^+ = (\Phi^+)^{-1}\Phi^- H^{-1}F_0
+			\end{cases}
+			\end{aligned}$\\
+			
+		\item 	$\forall n \in \N, \begin{aligned}[t]
+				u_n &= \Phi^-\Lambda^n H^{-1}F_0 \\
+				v_n &= \Phi^+ \Lambda^n(\Phi^+)^{-1}\Phi^-H^{-1}F_0
+			\end{aligned}$
+		\end{enumerate}
+	\end{sol}
+	
+	\begin{exo}
+		Système périodique \underline{fini} avec force interne :\\
+		
+		 \begin{minipage}{9cm}
+		 	\includegraphics[scale=.6]{photo48.png}
+		 \end{minipage}\begin{minipage}{15cm}
+		 	$\begin{aligned}
+			u_n &= \Phi^-\Lambda^n H^{-1}F_0 \\
+			v_n &= \Phi^+ \Lambda^n(\Phi^+)^{-1}\Phi^-H^{-1}F_0
+		\end{aligned}$
+		 \end{minipage}
+		 
+		 \begin{enumerate}
+		 	\item $D$ condensé, assembler le système global
+		 	
+		 	\item  Écrire les 4 conditions aux limites (efforts et/ou déplacements)
+		 	
+		 	\item Décomposer en ondes pour déterminer la matrice $H$ telle que :
+		 	\[H\begin{bmatrix}
+		 		a^+ \\ a^- \\ b^+ \\ b^-
+		 	\end{bmatrix} = \begin{bmatrix}
+		 	U_0 \\ 0 \\ F_1 \\ V_N
+		 	\end{bmatrix}\]
+		 \end{enumerate}
+	\end{exo}
 	
 	
 \end{document}

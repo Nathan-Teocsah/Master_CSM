@@ -1,7 +1,7 @@
 #!/bin/bash
 
 FILE="/home/maenwe/Téléchargements/ADECal.ics"
-MASTER1="/home/maenwe/Master_CSM/Master_1/Semestre_2"
+Master1="/home/maenwe/Master_CSM/Master_1/Semestre_2"
 
 # Vérification
 if [ ! -f "$FILE" ]; then
