@@ -2097,7 +2097,19 @@ Le problème à résoudre c'est :
 A:\dfrac{\nabla_x T}{T} + B : \nabla_x u = \displaystyle\int\int M^\star\left(h'h'^\star-h-h^\star\right)B\left(|\!|v-v^\star|\!|\right)\mathrm dv^\star \mathrm d\sigma
 \]
 
-$f$ s'exprime en fonction de $A$ et $B$ : \fbox{$f = M\left(1+\alpha A \dfrac{\nabla_x T}T + B:\nabla u\right)$}
+$f$ s'exprime en fonction de $A$ et $B$ : \fbox{$f = M\left(1+\alpha A \dfrac{\nabla_x T}T + B:\nabla u\right)$}\\
+
+\underline{Equation de Navier-Stockes :} $\partial_t \rho + \mathrm{div}(\rho u) = 0$\\
+
+$\partial_t \rho u + \mathrm{div}(\rho u \otimes u) + \mathrm{div}(\mathbb P) = 0$\\
+\hspace{1cm} $\mathbb P = \displaystyle\int fm_p (u-v) \otimes (u-v) \mathrm dv = \int M\left(1+\rouge{\alpha A \dfrac{\nabla T}T} + \beta \bleu{B:\dfrac{\nabla u + \nabla u^T}2}\right)(u-v)\otimes (u-v) \mathrm dv$\\
+
+$\rouge{\alpha A \dfrac{\nabla T}T}$ : d'intégrale nulle (par imparité selon 1 des 3 directions.\\
+
+$\bleu{B:\dfrac{\nabla u + \nabla u^T}2}$ : $\begin{aligned}[t]
+ &B_{kl}\left(\dfrac{\partial_k u_l +  \partial_l u_k}2\right)Tv_iv_j\\
+ =& \left(v_kv_l - \dfrac13 V^2\delta_{kl}\right)v_iv_jT\left(\dfrac{\partial_k u_l + \partial_l u_k}2\right)
+\end{aligned}$
 	
 	
 	
