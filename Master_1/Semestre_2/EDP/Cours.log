@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  18 MAR 2026 12:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  25 MAR 2026 12:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2783,130 +2783,150 @@ Underfull \hbox (badness 10000) in paragraph at lines 2090--2094
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 2100--2101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2102--2103
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2104--2106
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2107--2108
+
+ []
+
 [38]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 2204.
+(Font)              <14.4> on input line 2216.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 2204.
+(Font)              <7> on input line 2216.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 2204.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 2216.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2204.
+(hyperref)                removing `math shift' on input line 2216.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2204.
+(hyperref)                removing `math shift' on input line 2216.
 
 Package hyperref Info: bookmark level for unknown brouillon defaults to 0 on in
-put line 2220.
+put line 2232.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2226--2227
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2228--2229
+Underfull \hbox (badness 10000) in paragraph at lines 2238--2239
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2230--2231
+Underfull \hbox (badness 10000) in paragraph at lines 2240--2241
 
  []
 
 
-Overfull \hbox (172.62442pt too wide) in paragraph at lines 2222--2236
+Underfull \hbox (badness 10000) in paragraph at lines 2242--2243
+
+ []
+
+
+Overfull \hbox (172.62442pt too wide) in paragraph at lines 2234--2248
 [] $[]$ 
  []
 
 Package hyperref Info: bookmark level for unknown sol defaults to 0 on input li
-ne 2238.
+ne 2250.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2243--2249
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2254--2259
+Underfull \hbox (badness 10000) in paragraph at lines 2255--2261
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2266--2274
+Underfull \hbox (badness 10000) in paragraph at lines 2266--2271
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2275--2276
+Underfull \hbox (badness 10000) in paragraph at lines 2278--2286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2280--2281
+Underfull \hbox (badness 10000) in paragraph at lines 2287--2288
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2291--2292
+Underfull \hbox (badness 10000) in paragraph at lines 2292--2293
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2298--2299
+Underfull \hbox (badness 10000) in paragraph at lines 2303--2304
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2320--2330
+Underfull \hbox (badness 10000) in paragraph at lines 2310--2311
 
  []
 
 
-Overfull \hbox (227.65688pt too wide) in paragraph at lines 2340--2388
+Underfull \hbox (badness 10000) in paragraph at lines 2332--2342
+
+ []
+
+
+Overfull \hbox (227.65688pt too wide) in paragraph at lines 2352--2400
 [][][] 
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 2340--2388
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 2352--2400
 [] 
  []
 
 
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 2240--2396
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 2252--2408
 []$[]$
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 2240--2396
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 2252--2408
 []$
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 2240--2396
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 2252--2408
 [] 
  []
 
 
-Underfull \vbox (badness 4805) detected at line 2396
+Underfull \vbox (badness 4805) detected at line 2408
  []
 
 [39]
-Underfull \vbox (badness 10000) detected at line 2396
+Underfull \vbox (badness 10000) detected at line 2408
  []
 
 
-Overfull \vbox (4.23863pt too high) detected at line 2396
+Overfull \vbox (4.23863pt too high) detected at line 2408
  []
 
 [40] [41]
-Overfull \hbox (172.6244pt too wide) in paragraph at lines 2406--2413
+Overfull \hbox (172.6244pt too wide) in paragraph at lines 2418--2425
 [][] 
  []
 
 
-Underfull \hbox (badness 1292) in paragraph at lines 2431--2432
+Underfull \hbox (badness 1292) in paragraph at lines 2443--2444
 []$\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 X\OT1/lmr/m/n/12 (0\OML/lmm/m/it/12 ; t; x
 ; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; Y\OT1/lmr/m/n/12 (0\OML/lmm/m/it/12 ;
  t; x; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; Z\OT1/lmr/m/n/12 (0\OML/lmm/m/it
@@ -2917,17 +2937,17 @@ lmm/m/it/12 ; t; x; y; z\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; X\OT1/lmr/m/n/12 (0
  []
 
 
-Overfull \hbox (3.38544pt too wide) in paragraph at lines 2427--2434
+Overfull \hbox (3.38544pt too wide) in paragraph at lines 2439--2446
 \T1/lmr/m/it/12 Et on a : [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2434--2436
+Underfull \hbox (badness 10000) in paragraph at lines 2446--2448
 
  []
 
 
-Overfull \hbox (169.22597pt too wide) in paragraph at lines 2423--2444
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 2435--2456
 [] 
  []
 
@@ -2935,7 +2955,7 @@ Overfull \hbox (169.22597pt too wide) in paragraph at lines 2423--2444
 \openout7 = `Cours.thm'.
 
 [42]
-runsystem(latexminted cleantemp  --timestamp 20260318122656 33C1869ABDF6A46508C
+runsystem(latexminted cleantemp  --timestamp 20260325123205 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -2977,7 +2997,7 @@ mf-dist/fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-dist/fon
 ts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/p
 ublic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lm
 sy8.pfb>
-Output written on Cours.pdf (43 pages, 3296210 bytes).
+Output written on Cours.pdf (43 pages, 3297504 bytes).
 PDF statistics:
  596 PDF objects out of 1000 (max. 8388607)
  427 compressed objects within 5 object streams
