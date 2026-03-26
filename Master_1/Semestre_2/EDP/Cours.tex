@@ -2109,12 +2109,88 @@ $\rouge{\alpha A \dfrac{\nabla T}T}$ : d'intégrale nulle (par imparité selon 1
 $\bleu{B:\dfrac{\nabla u + \nabla u^T}2}$ : $\begin{aligned}[t]
  &B_{kl}\left(\dfrac{\partial_k u_l +  \partial_l u_k}2\right)Tv_iv_j\\
  =& \left(v_kv_l - \dfrac13 V^2\delta_{kl}\right)v_iv_jT\left(\dfrac{\partial_k u_l + \partial_l u_k}2\right)
-\end{aligned}$
+\end{aligned}$\\
+
+$\partial_t (\rho E) + \mathrm{div}(\rho E u + \mathbb P u + q) = 0$\\
+$q= \displaystyle\underset{\text{(flux de chaleur)}}{\int f\frac12(v-u)^2(v-u)} \to$ effets thermiques
+	
+\subsection{Modèle approché de l'équation de Boltzmann (modèle BKG)}
 	
 	
-	
-	
-	
+\underline{BKG :} Bhatnagar, Gross and Krook \\
+
+$\partial_t f = Q_{BKG}(f)$ (homogène $f(t,v)$)\\
+$\langle Q_{BKG},\begin{bmatrix}
+	m_p \\
+	m_p v \\
+	m_p \frac12 v^2
+\end{bmatrix}\rangle = \begin{bNiceMatrix}[margin=1em]
+0\\0\\0\\0\\0
+\CodeAfter
+\SubMatrix[{2-1}{3-1}]
+\SubMatrix[{4-1}{5-1}]
+\end{bNiceMatrix}$ et $Q_{BKV} = 0 \iff f= M$\\
+$\partial_t f = \frac1T (M-f)$, $M = \frac\rho{\sqrt{2\pi T}^3}\exp\left(-\dfrac{(u-v)^2}{2T}\right)$ et $f(t,v) = f_0(v)e^{-t/T}$\\
+
+$\to$ \begin{minipage}[t]{15cm}
+	Conservation des moments, second principe, linéairisé de l'opérateur, développement de Champann-Enskog ?
+\end{minipage}\\
+
+$Q_{BKG}(f) = 0 \iff \langle Q_{BKG},\ln f\rangle = 0 \iff f=M$ \hspace{1cm} $\langle Q_{BKG}, \ln f\rangle \leq 0$\\
+
+($m_p = 1$) $\displaystyle\int fm_p \mathrm dv= \rho$ \hspace{1cm} $\displaystyle\int M = \rho$ \hspace{1cm} $\displaystyle\int (f-M)\mathrm dv = 0$\\
+
+$\begin{aligned}[t]
+	\displaystyle\int Mv\mathrm dv &= \rho u \\
+	&= \int fv \mathrm dv
+\end{aligned}$ \hspace{1cm} $\displaystyle\int M\frac12 v^2 = \frac12 \rho u^2 + \frac32 \rho T = \int f\frac12 v^2 \mathrm dv$\\
+
+\underline{$\implies \langle Q_{BKG},\ln f\rangle = \displaystyle\int \frac1T (M-f) \overset?\leq 0$}\\
+
+$L(f) = \underset{\varepsilon\to0}\lim \dfrac{Q_{BKG}(M(1+\varepsilon h))-Q(M)}M$ et $f = M(1+\varepsilon h)$\\
+
+$\begin{aligned}
+	\langle Q_{BKG}(f),\ln f\rangle &= \displaystyle\int \frac1T (M-f)\ln\left(\frac f M \times M\right)\mathrm dv \\
+	&= \underset{\leq 0}{\frac1M \int (M-f)\ln \frac fM} + \frac1T \int (M-f)\ln M \mathrm dv
+\end{aligned}$\\
+
+$\ln M = \ln \rho \sqrt{2\pi T}^3-\dfrac{(u-v)^2}{2T}$\\
+$\displaystyle\int (M-f)\ln M \mathrm dv =\ln \dfrac\rho{\sqrt{2\pi T}^3} \underbrace{\int (f-M)\mathrm dv}_{0} -\frac1{2T}\int (f-M)(\underbrace{u^2}_0 - \underbrace{2u\cdot v}_0+\underbrace{v^2}_0)\mathrm dv = 0$\\
+
+$\langle Q_{BKG}(f),\ln f\rangle \leq 0$ : on a égalité \textbf{ssi} $\ln \frac fM = 0 \iff f = M$.
+
+\newpage
+
+\textbf{\underline{Linéairisé :}}\\
+
+\noindent$\begin{aligned}
+	\dfrac{Q_{BKG}(f)- Q(\mathrm{Maxwel})}{\varepsilon M} & = \frac1T \dfrac{\mathrm{Maxwel}(f) - M(1+\varepsilon h)}{\varepsilon M} \\
+	&= \frac1T \dfrac{\mathrm{Maxwel}(f)(1+\varepsilon h)- \mathrm{Maxwel}(f)(1+\varepsilon h)}{\varepsilon \mathrm{Maxwel}(f)} \\
+	&= \dfrac{\mathrm{Maxwel}(f)-\mathrm{Maxwel}(f)-\varepsilon\mathrm{Maxwel}(f)\ln}{\varepsilon\mathrm{Maxwel}(f)} \\
+	&=-\dfrac\ln t
+\end{aligned}$ \hspace{2cm} $\mathrm{Maxwel}$ = maxwellienne\\
+
+$M(M(1+\varepsilon h)) = M + o_\varepsilon(1)$\\
+
+$f= M(1+\varepsilon h)  \begin{aligned}[t]
+	\implies& \displaystyle\int f = \int M(1+\varepsilon h) & \rho = \rho + \varepsilon \int hM &\implies& \int hM = 0\\
+	\implies& \int fv = \int M(1+\varepsilon h)v & \rho u = \rho u + \varepsilon \int hMv & & \int hMv = 0\\
+	\implies& \int f\frac12 v^2= \int M(1+\varepsilon h)\frac12 v^2 & 0 = \int hM\frac12 v^2
+\end{aligned}$\\
+
+\textbf{\underline{Chapman-Enskog}}\\
+$f=M\left(1+\varepsilon\frac\mu p \left(A(v)\cdots \nabla T + B(v) : \dfrac{\nabla u + \nabla u^T}2\right)+O(\varepsilon^2)\right)$\\
+
+$\dfrac{\partial_t M + v\nabla_x M}M = \dfrac1{\varepsilon T}(Mf) \implies f = M - \varepsilon T\left(\dfrac{\partial_t M+v\nabla_x M}M\right)$\\
+
+$\partial_t \rho + \mathrm{div}(\rho u) = 0$\\
+$\partial_t \rho u + \mathrm{div}(\rho u\otimes u) + \nabla (\rho T) = \nabla\left(\mu \dfrac{\nabla u + \nabla u^T}2\right)$\\
+$\partial_t (\rho E) + \mathrm{div}\left(\rho E u + \rho T u\right) = \nabla\left(\mu\dfrac{\nabla u + \nabla u ^T}2 u \right)-\nabla q$ \hspace{2cm} \begin{minipage}[t]{5cm}
+	$q= -\lambda\nabla T$ et $\lambda = \psi C_p$ (avec $C_p$ la chaleur du gaz)
+\end{minipage}\\
+
+\textbf{\underline{Pourquoi $f= Q(f) \implies f=M(f)$ ?}}
+
 	
 	
 	
