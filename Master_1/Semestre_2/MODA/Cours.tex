@@ -1109,9 +1109,8 @@
 		\end{minipage}
 	\end{rmq}
 	
-	\newpage
+	\subsection{Linéarisation d'un EVP (\textit{Eigen Value Problem}) quadratique}
 	
-	\underline{Linéarisation d'un EVP (\textit{Eigen Value Problem}) quadratique :}\\
 	On peut résoudre un EVP quadratique de dimension $M$ : $\left(D_{RL}\frac1\lambda + (D_l+D_R)+D_{LR}\lambda\right)\Phi = 0$.\\
 	Il s'agit d'un palindrome $\left(A\lambda^{-1} + \underset{B^t}B + A^t\lambda\right)$. Il admet $2M$ solutions.\\
 	On note $(\lambda_i,\frac1{\lambda_i})$ les valeurs propres avec \begin{minipage}[t]{15cm}
@@ -1163,6 +1162,7 @@
 	\Phi \\ \lambda\Phi
 	\end{bmatrix}$ où $\rouge\sigma$ est de l'ordre de $\mathbb D$.
 	
+\newpage
 	
 \section{Dynamique des systèmes périodiques finis}
 \subsection{Solutions en ondes d'une corde vibrante}
@@ -1732,7 +1732,6 @@ où encore :
 		\[k(\omega) = \frac{i}{a}\log\left[1-\frac{\Omega_1^2}{2}-\frac{r}{2}\frac{\Omega_2}{1-\Omega_2^2} \pm \sqrt{\left(\Omega_1^2+\frac{r\Omega_2^2}{1-\Omega_2^2}\right)\left(\Omega_1^2+\frac{r\Omega_2^2}{1-\Omega_2^2}-4\right)}\right]\]
 	\end{sol}
 	
-	\subsection{Condensation dynamique (section 2.3 - 2.4)}
 	\begin{exo}[Formulation matricielle]
 		\begin{minipage}[t]{15cm}
 			Appliquer à la chaîne monoatomique, en considérant la cellule périodique :
@@ -1969,6 +1968,8 @@ où encore :
 		\end{enumerate}
 	\end{sol}
 	
+	\subsection{Condensation dynamique (section 2.3 - 2.4)}
+	
 	\begin{exo} \begin{minipage}[t]{15cm}
 			On considère un système décrit pas les matrices dynamiques : 
 		\end{minipage}
@@ -2061,6 +2062,8 @@ où encore :
 		\end{matrix}\right]$\\
 		On applique ensuite la condensation dynamique, i.e. :\\
 		$ \overset\sim D_b = D_b - D_{bi}D_i^{-1}D_{ib}$ et $\overset\sim f_b = f_b-D_{bi}D_i^{-1}\overset{=0}{f_i} = f_b$
+		
+		\newpage
 		
 		\[
 		\overset\sim D_b = \left[\begin{matrix}
