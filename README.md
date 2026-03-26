@@ -11,3 +11,7 @@ Ceci est l'ensemble des cours que j'ai suivi lors de mes deux années en Master 
 - Semaine du 1 : Contrôle _RNDP_
 - Jeudi 5 : Contrôle _EDP_ (1h30)
 - Lundi 30 : Contrôle MODA
+
+## Mai 2026
+- Rendu Etude 2 APST (Régression linéaire multiple, Ridge, commencer méthode non paramétrique) : Dimanche 3 mai
+- Rendu Etude 3 APST : Dimanche 17 mai
