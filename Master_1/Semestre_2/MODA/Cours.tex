@@ -3014,15 +3014,7 @@ où encore :
 	
 	\begin{exo}
 		Système périodique \underline{fini} avec force interne :\\
-		
-		 \begin{minipage}{9cm}
 		 	\includegraphics[scale=.6]{photo48.png}
-		 \end{minipage}\begin{minipage}{15cm}
-		 	$\begin{aligned}
-			u_n &= \Phi^-\Lambda^n H^{-1}F_0 \\
-			v_n &= \Phi^+ \Lambda^n(\Phi^+)^{-1}\Phi^-H^{-1}F_0
-		\end{aligned}$
-		 \end{minipage}
 		 
 		 \begin{enumerate}
 		 	\item $D$ condensé, assembler le système global
@@ -3033,10 +3025,142 @@ où encore :
 		 	\[H\begin{bmatrix}
 		 		a^+ \\ a^- \\ b^+ \\ b^-
 		 	\end{bmatrix} = \begin{bmatrix}
-		 	U_0 \\ 0 \\ F_1 \\ V_N
+		 	U_0 \\ 0 \\ F_M \\ V_N
 		 	\end{bmatrix}\]
 		 \end{enumerate}
 	\end{exo}
+	\begin{sol}$ $
+		\begin{enumerate}
+			\item \begin{minipage}[t]{18.5cm}
+				$D = \begin{bmatrix}
+				D_L & D_{LR} \\
+				D_{RL} & D_R
+			\end{bmatrix}$\\
+			
+			$\begin{bNiceMatrix}
+				D_L & D_{LR} \\
+				D_{RL} & D_L + D_R & \Ddots \\
+					   & \Ddots    & \Ddots \\
+					   & &			& D_L + D_R & D_{LR} \\
+					   &&			& D_{RL}    & D_R+D_L & D_{LR} \\
+					   &&			&           & \Ddots  & \Ddots & \Ddots \\
+					   &&			&			&		  &			& D_L+D_R & D_{LR} \\
+					   &&			&			&		 & 		   & D_{RL}    & D_R
+			\end{bNiceMatrix}\begin{bNiceMatrix}
+			U_0 \\
+			u_1 \\
+			\Vdots \\
+			u_{M-1} \\
+			u_M \\
+			v_1 \\
+			\Vdots\\
+			v_{N-1} \\
+			V_N
+			\end{bNiceMatrix} = \begin{bNiceMatrix}
+			f_0 \\
+			0 \\
+			\Vdots \\
+			0 \\
+			f_M \\
+			0 \\
+			\Vdots\\
+			0 \\
+			f_N
+			\end{bNiceMatrix}$
+			\end{minipage}
+			
+			\item $\begin{cases}
+				u_0 = U_0 \\
+				v_N = V_n \\
+				u_M = v_0 \\
+				 D_{RL} v_{M-1} + (D_L+D_R)v_M + D_{LR} v_1 = F_M
+			\end{cases}$
+			
+			\item $u_m = \Phi^+ \Lambda^ma^++\Phi^-\Lambda^{M-m}a^-$\\
+			$v_n = \Phi^+ \Lambda^nb^++\Phi^-\Lambda^{M-m}b^-$\\
+			$\begin{cases}
+				\Phi^+ a^+ +  \Phi^-\Lambda^Ma^- = U_0 \\
+				\Phi^+ \Lambda^Nb^+ + \Phi^- b^- = V_N \\
+				\Phi^+\Lambda^Ma^+ + \Phi^-a^- = \Phi^+b^+ + \Phi^-\Lambda^Nb^- \\
+				D_{RL}(\Phi^+ \Lambda^{M-1}a^+ + \Phi^- \Lambda a^-)+(D_L+D_R)(\Phi^+\Lambda^Ma^++\Phi^- a^-)+D_{LR}(\Phi^+\Lambda b^++\Phi^-\Lambda^{N-1}b)=F_M
+			\end{cases}$\\
+			
+			$H = \begin{bmatrix}
+				\Phi^+ & \Phi^-\Lambda^M & 0 & 0 \\
+				\Phi^+\Lambda^M & \Phi^- & -\Phi^+ & - \Phi^-\Lambda^N \\
+				D_{RL}\Phi^+\Lambda^{M-1}+(D_L+D_R)\Phi^+\Lambda^M & D_{RL}\Phi^-\Lambda + (D_L+D_R)\Phi^- & D_{LR}\Phi^+ \Lambda & D_{LR}\Phi^-\Lambda^{N-1} \\
+				0 & 0& \Phi^+\Lambda^N & \Phi^-
+			\end{bmatrix}$
+
+		\end{enumerate}
+	\end{sol}
 	
+	\begin{exo}\begin{minipage}[t]{18cm}
+			Deux guides d'ondes périodiques - diffusion des ondes
+		\end{minipage}
+		\includegraphics[scale=.5]{photo49.png}\\
+		
+		On note $\begin{cases}
+			(\Phi^\pm,\Lambda) & \text{les ondes dans } \mathbb{D}^{(1)} \\
+			(\Psi^\pm,\Delta) & \text{les dondes dans }\mathbb{D}^{(2)}
+		\end{cases}$\\
+		On considère une onde de Bloch incidente, d'amplitude $a^+$.\\
+		\underline{Question :} \begin{minipage}[t]{13cm}
+			Ecrire le système permettant de calculer les amplitudes transmises ($T$) et réfléchies ($R$) à l'interface.
+		\end{minipage}
+	\end{exo}	
+	\begin{sol}$ $\\
+		\begin{minipage}[t]{18.5cm}
+			On commence par assembler le système d'équation : $\begin{bNiceMatrix}[margin=1em]
+				\Ddots \\
+				 & D_R^1 + D_L^1 & D_{LR}^1 \\
+				  & D_{RL} ^1 & D_R^1 + D_L^2 & D_{LR}^2 \\
+				  &			  & D_{RL}^2      & D_R^2 + D_L^2 \\
+				  &			  &				  &				& \Ddots
+			\end{bNiceMatrix}$\\
+			La continuité des déplacements et l'équilibre des forces à la jonction s'écrivent :\\
+			$\begin{cases}
+				u_1 = v_0 \\
+				D_{RL}^1u_0 + (D_R^1+D_L^2)u_1 + D_{LR}^2 v_ 1 = 0
+			\end{cases}$\\
+			
+			La décomposition en ondes de Bloch donne :\\
+			$\begin{cases}
+				u_n = \Phi^+ \Lambda^na^++\Phi^-\Lambda^{1-n}a^- & \text{pour $N= 1$ (convention arbitraire)}\\v_n = \Psi^+\Delta^ + + \Psi^-\Delta^{-n}b^-
+			\end{cases}$ \\
+			La réflexion $a^- =: R$\\
+			La transmission $b^+ =: T$\\
+			2 Équations : \\
+			$\begin{cases}
+				\Phi^+ \Lambda a^+ + \Phi^-R=\Psi^+ T\\
+				(\underbrace{D_{RL}\Phi^+(D_L+D_R)\Phi^+\Lambda}_{\alpha^+})a^+ + (\underbrace{D_{RL}\Phi^-\Lambda+(D_L+D_R)\Phi^-}_{\alpha^-})R+D_{LR}\Psi^+\Delta T = 0
+			\end{cases}$\\
+			
+			$\begin{bmatrix}
+				\Phi^- &  - \Psi^+ \\
+				\alpha^- & D_{LR}\Psi^+\Delta
+			\end{bmatrix}\begin{bmatrix}
+			R \\ T
+			\end{bmatrix} = \begin{bmatrix}
+			-\Phi^+ \Lambda \\
+			-\alpha^+
+			\end{bmatrix}a^+$\\
+			
+			Donc on obtient les coefficients de réflexion et Transmission des ondes via :
+			
+			\[
+			\fbox{$\begin{bmatrix}
+				R \\
+				T
+			\end{bmatrix} = \begin{bmatrix}
+			\Phi^- & -\Psi^+ \\
+			\alpha^{-1} & D_{LR}\Psi^+ \Delta
+			\end{bmatrix}^{-1}\begin{bmatrix}
+			-\Phi^+\Lambda\\
+			-\alpha^+
+			\end{bmatrix}a^+$}
+			\]
+		\end{minipage}
+	\end{sol}
 	
 \end{document}

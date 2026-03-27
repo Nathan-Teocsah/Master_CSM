@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  26 MAR 2026 09:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  27 MAR 2026 11:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2975,25 +2975,85 @@ Underfull \hbox (badness 10000) in paragraph at lines 2989--3007
  []
 
 [44 <./photo44.png> <./photo46.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 3016--3017
-
- []
-
 <photo48.png, id=622, 404.51125pt x 157.58875pt>
 File: photo48.png Graphic file (type png)
 <use photo48.png>
-Package pdftex.def Info: photo48.png  used on input line 3019.
+Package pdftex.def Info: photo48.png  used on input line 3017.
 (pdftex.def)             Requested size: 242.70862pt x 94.55397pt.
+ [45 <./photo47.png> <./photo48.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 3035--3039
 
-Overfull \hbox (343.34094pt too wide) in paragraph at lines 3018--3026
-[]$[]$$[]$ 
+ []
+
+
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 3034--3071
+[][] 
+ []
+
+
+Overfull \hbox (181.77899pt too wide) in paragraph at lines 3079--3087
+[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3079--3087
+
+ []
+
+
+Overfull \hbox (156.84293pt too wide) in paragraph at lines 3088--3094
+[]$\OML/lmm/m/it/12 H \OT1/lmr/m/n/12 = []$ 
+ []
+
+<photo49.png, id=635, 613.29124pt x 199.74625pt>
+File: photo49.png Graphic file (type png)
+<use photo49.png>
+Package pdftex.def Info: photo49.png  used on input line 3101.
+(pdftex.def)             Requested size: 306.64487pt x 99.87288pt.
+
+Overfull \hbox (228.44447pt too wide) in paragraph at lines 3098--3102
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3098--3102
+
+ []
+
+
+Overfull \hbox (69.13576pt too wide) in paragraph at lines 3103--3111
+[]$ [] 
+ []
+
+
+Overfull \vbox (0.12105pt too high) detected at line 3111
+ []
+
+[46 <./photo49.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 3114--3126
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3127--3138
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3139--3148
+
+ []
+
+
+Overfull \hbox (169.22597pt too wide) in paragraph at lines 3112--3164
+[] 
  []
 
 \tf@thm=\write7
 \openout7 = `Cours.thm'.
 
-[45 <./photo47.png> <./photo48.png>]
-runsystem(latexminted cleantemp  --timestamp 20260326094505 33C1869ABDF6A46508C
+[47]
+runsystem(latexminted cleantemp  --timestamp 20260327111508 33C1869ABDF6A46508C
 3C105810129C7)...executed safely (allowed).
 
  (./Cours.aux)
@@ -3005,10 +3065,10 @@ Package rerunfilecheck Info: File `Cours.out' has not changed.
 (rerunfilecheck)             Checksum: B4C71259CBB0C25AFA7A269B7105F705;10591.
  ) 
 Here is how much of TeX's memory you used:
- 62380 strings out of 467538
- 1450855 string characters out of 5419551
- 2160807 words of memory out of 5000000
- 90218 multiletter control sequences out of 15000+600000
+ 63902 strings out of 467538
+ 1482695 string characters out of 5419551
+ 2193928 words of memory out of 5000000
+ 91732 multiletter control sequences out of 15000+600000
  757564 words of font info for 137 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,30n,131p,866b,1159s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -3029,10 +3089,10 @@ dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts
 /type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
 lic/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy
 8.pfb>
-Output written on Cours.pdf (46 pages, 5737209 bytes).
+Output written on Cours.pdf (48 pages, 5924142 bytes).
 PDF statistics:
- 767 PDF objects out of 1000 (max. 8388607)
- 553 compressed objects within 6 object streams
- 197 named destinations out of 1000 (max. 500000)
- 650 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 785 PDF objects out of 1000 (max. 8388607)
+ 567 compressed objects within 6 object streams
+ 205 named destinations out of 1000 (max. 500000)
+ 655 words of extra memory for PDF output out of 10000 (max. 10000000)
 
