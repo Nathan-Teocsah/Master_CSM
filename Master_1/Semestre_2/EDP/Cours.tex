@@ -2530,6 +2530,75 @@ $\partial_t (\rho E) + \mathrm{div}\left(\rho E u + \rho T u\right) = \nabla\lef
 			\end{aligned}\]
 			\end{minipage}
 		\end{sol}
+		
+	\newpage
+		
+	\subsection{Equation de Navier-Stockes (\small{\textit{Julien Mathiaud})}}
+	
+	\begin{exo}
+		\begin{minipage}[t]{18.5cm}
+			$f(t,x,v)$, $t \in \R$ \hspace{.5cm} $x \in \R$ \hspace{.5cm} $v \in [-1, 1]$
+		\end{minipage}\\
+		
+		\begin{minipage}{18cm}
+			$\partial_t f + v \nabla_x f = \sigma \nabla_v((c^2-v^2)\nabla_v f)$ \hspace{.5cm} \begin{minipage}[t]{15cm}
+			$c$  vitesse $c=1$\\
+			$\sigma$ : fréquence de collision
+		\end{minipage}\\
+		
+		Scaling associé : \hspace{.5cm} $\partial_t f + \dfrac1\varepsilon v \nabla_x f = \dfrac\sigma{\varepsilon^2}\nabla_v\left((c^2-v^2)\nabla_v f\right)$ \hspace{.5cm} $\rho = \dfrac1{2c} \displaystyle\int_{-c}^c f(t,x,v) \mathrm dv$\\
+		Opérateur de collision de Foller-Planck : \hspace{.5cm} $\rho u = \dfrac1{2c}\displaystyle\int_{-c}^c f(t,x,v) \mathrm dv$
+		
+		\begin{enumerate}
+			\item Écrire l'opérateur de conservation de conservation de la masse.
+			
+			\item Montrer que la quantité que la quantité de mouvement n'est pas à priori conservée.
+			
+			\item Trouver l'équilibre du noyau de collision.
+			
+			\item Faire un développement asymptotique autour de l'équilibre.
+			
+			\item montrer que lorsque $\varepsilon \to 0$, $\rho$ va vérifier l'équation de la chaleur \begin{minipage}[t]{4.5cm}
+				 $\partial_t \rho  = D\nabla \rho$\\
+				 $D$ est à déterminer en fonctions des paramètres
+			\end{minipage}
+			
+			\item Y-a-t-il un second principe ?
+			
+			\item Étude du linéarisé de l'opérateur $f \to \nabla\cdot\left((c^2-v^2)\nabla_v f\right)$.
+			
+			\item Quelle équation est vérifiée si $\sigma$ dépend de $x$ ?
+		\end{enumerate}
+		\end{minipage}
+	\end{exo}
+	\begin{sol}$ $
+		\begin{enumerate}
+			\item \begin{minipage}[t]{18.5cm}
+				$\partial_t f + \dfrac v\varepsilon
+			 \cdot\nabla_x f = \dfrac\sigma{\varepsilon^2} \nabla\left((c^2 - v^2)\nabla_vf\right)$\\
+			On intègre en vitesse :\\
+			
+			$\begin{aligned}
+				\displaystyle\int_{-c}^c (\partial_t f - \dfrac v\varepsilon\cdot\nabla_x f)\mathrm dv &= \dfrac\sigma{\varepsilon^2}\int_{-c}^c \partial_v \left((c^2-v^2)\partial_v f\right)\mathrm dv\\
+				2c\partial_t\rho + \dfrac{2c}\varepsilon\mathrm{div}_x(\rho u) &= \dfrac{\sigma}{\varepsilon^2}\left[(c^2-v^2)\partial_v f\right]_{-c}^c\\
+				&= 0\\
+				\partial_t \rho + \dfrac1\varepsilon \mathrm{div}_x(\rho u) &= 0
+			\end{aligned}$
+		\end{minipage}
+		
+		\item \begin{minipage}[t]{18cm}
+			$\displaystyle\int_{-c}^c \left(\partial_t f + \dfrac1\varepsilon v \nabla_x f\right)v\mathrm dv = \dfrac\sigma{\varepsilon^2}\int_ {-c}^c (c^2-v^2)\partial_v f \mathrm dv$\\
+			$\begin{aligned}
+				2c\partial_t\rho u + \dfrac1\varepsilon\nabla_x\displaystyle\int_{-c}^c fv^2\mathrm dv &= \dfrac\sigma{\varepsilon^2}\left[(c^2-v^2)\partial_v f v\right]_{-c}^c-\dfrac\sigma{\varepsilon^2} \int_{-c}^c (c^2-v^2)\partial_v f\mathrm dv\\
+				&= \dfrac\sigma{\varepsilon^2}\Big(\underbrace{\left[(c^2-v^2)f\right]_{-c}^c}_0+2\int_{-c}^c fv \mathrm dv\Big) \\
+				& = -\dfrac\sigma{\varepsilon^2}4c\rho u
+			\end{aligned}$\\
+			
+			$\displaystyle\partial_t(\rho u) + \dfrac1\varepsilon\nabla_x\left(\dfrac1{2c}\int_{-c}^c fv^2\mathrm dv\right) = -\dfrac{2\sigma}{\varepsilon^2}(\rho u)$
+		\end{minipage}
+		\end{enumerate}
+	\end{sol}
+	
 	
 	
 	
