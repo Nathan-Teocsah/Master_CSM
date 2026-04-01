@@ -20,3 +20,4 @@
 \contentsline {subsection}{\numberline {4.4}Modèle approché de l'équation de Boltzmann (modèle BKG)}{39}{subsection.4.4}%
 \contentsline {section}{\numberline {5}TD}{41}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Dynamique de $N$ particule \small (\textit {François Castella})}{41}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Equation de Navier-Stockes (\small {\textit {Julien Mathiaud})}}{45}{subsection.5.2}%
