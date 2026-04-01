@@ -14,5 +14,5 @@ disp(['Le point de temps = ', num2str(nb_pt_temp)]);
 
 U = zeros(nb_pt_esp,nb_pt_temp);
 U(:,1) = 100; % Condition limite (100 degres a t=0)
-D = 
+D = eye(nb_pt_esp-1) - k
 
