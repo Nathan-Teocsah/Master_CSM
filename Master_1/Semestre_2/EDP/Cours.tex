@@ -1687,7 +1687,7 @@ $\begin{aligned}
 \end{minipage}\begin{minipage}{15cm}
 	$\begin{cases}
 		m_pv+m_pv_\star = m_pv'+m_pv_p' \\
-		\frac12\left(m_pv^2+m_pv_\star^2\right) = \left(m_pv'^2+v_\star'^2\right)
+		\frac12\left(m_pv^2+m_pv_\star^2\right) = \frac12\left(m_pv'^2+v_\star'^2\right)
 	\end{cases}$ 4 équations
 \end{minipage}
 
@@ -1700,14 +1700,15 @@ $v'^2+v_\star' = 2\left(\frac{v+v_\star}2\right)^2 + 2\left(\frac{v-v_\star}2\ri
 
 \textbf{équation de Boltzmann}
 
-$\partial_t f + v\nabla_x f = Q(f,f)$, \hspace{.2cm} où $Q(f,f) - \underbrace{Q^+(f,f)}_{gain}-\underbrace{Q^-(f,f)}_{perte}$
+$\partial_t f + v\nabla_x f = Q(f,f)$, \hspace{.2cm} où $Q(f,f) - \underbrace{Q^+(f,f)}_{gain}-\underbrace{Q^-(f,f)}_{perte}$\\
 
-\[
-Q^-(f,f) = \displaystyle\int_{\mathbb{S}^*}\int_{\R^3} f_\star(t,x,v)B(|\!|v-v_\star|\!|)\mathrm dv_\star d\sigma
-\]
+
+
 
 $\begin{aligned}
+	Q^-(f,f) &= \displaystyle\int_{\mathbb{S}^*}\int_{\R^3} f_\star(t,x,v)B(|\!|v-v_\star|\!|)\mathrm dv_\star d\sigma\\
 	Q^+(f,f) &= \displaystyle\int\int \underbrace{f(t,x,v')}_{f'}\underbrace{f(t,x,v_\star')}_{f_\star'}B(|\!|v-v_\star|\!|)\mathrm dv_\star\mathrm dv\\
+	&\downarrow\\
 	Q(f,f) &= \int\int \left(f'f_\star' - ff_\star\right)B(|\!|v-v_\star|\!|)
 \end{aligned}$
 
@@ -1717,10 +1718,11 @@ Préserver masse, quantité de mouvement et énergie revient à avoir les égali
 \langle Q(f,f),\Psi\rangle = \displaystyle\int\int\int \left(f'f_\star'-ff_\star\right)B(|\!|v-v_\star|\!|)\Psi(v)\mathrm dv \mathrm dv_\star \mathrm d\sigma
 \]
 
-Masse $\Psi(v) = m_p$\\
-Quantité de mouvement : $\Psi(v) = m_pv$\\
-Énergie cinétique : $\Psi(v) = \frac12 m_p v^2$\\
-$\begin{aligned}
+$\begin{aligned}[t]
+	\text{Masse :} & \Psi(v) = m_p\\
+\text{Quantité de mouvement :} & \Psi(v) = m_pv\\
+\text{Énergie cinétique :} & \Psi(v) = \frac12 m_p v^2
+\end{aligned}$ \hspace{.5cm} $\begin{aligned}[t]
 	\langle Q(f,f),m_p\rangle &= 0\\
 	\langle Q(f,f), m_p v\rangle &=0 \\
 	\langle Q(f,f),m_pv^2\rangle &=0
@@ -2594,9 +2596,66 @@ $\partial_t (\rho E) + \mathrm{div}\left(\rho E u + \rho T u\right) = \nabla\lef
 				& = -\dfrac\sigma{\varepsilon^2}4c\rho u
 			\end{aligned}$\\
 			
-			$\displaystyle\partial_t(\rho u) + \dfrac1\varepsilon\nabla_x\left(\dfrac1{2c}\int_{-c}^c fv^2\mathrm dv\right) = -\dfrac{2\sigma}{\varepsilon^2}(\rho u)$
+			$\displaystyle\partial_t(\rho u) + \dfrac1\varepsilon\nabla_x\cdot\left(\dfrac1{2c}\int_{-c}^c fv^2\mathrm dv\right) = -\dfrac{2\sigma}{\varepsilon^2}\rho u$
+		\end{minipage}
+		
+		\newpage
+		
+		\item \begin{minipage}[t]{18cm}
+			Cherchons ce qui annule le noyau de collision.\\
+		
+		$\nabla_v \left((c^2-v^2)\nabla_v f\right) = 0$, donc $(c^2-v^2)\nabla_v f = cste$\\
+		Ainsi pour tout $v \not = \pm c$, $\nabla_v f = \dfrac{cste}{c^2-v^2} = \dfrac{cste}{2c}\left[\dfrac1{c+v}+\dfrac1{c-v}\right]$,\\
+		et ainsi $f = \dfrac{cste}{2c}\left[\ln\left(c+v\right)-\ln(c-v)\right]+cste'$.\\
+		$f$ régulière en $\pm c$ donc, $cste = 0 \implies f = cste'$, et puisque $\rho = \dfrac1{2c}\displaystyle\int_{-c}^c f\mathrm dv = cste'$, \fbox{$f = \rho$}.
+		\end{minipage}
+		
+		\item \begin{minipage}[t]{18cm}
+			$f(t,x,v) = \displaystyle\sum\varepsilon^nh_n(t,x,v)$, mettons cette expression dans l'équation que $f$ vérifie : 
+
+			\[
+			\displaystyle\sum \varepsilon^n \partial_th_n(t,x,v) + \varepsilon^{n-1}v \cdot \nabla_x h_n = \sigma\sum \varepsilon^{n-2}\partial_v\left((c^2-v^2)\partial_v h_n(t,x,v)\right)
+			\]
+			
+			On en déduit : \\
+			
+			$\begin{aligned}
+				\dfrac1{\varepsilon^2} && \partial_v\left((c^2-v^2)\partial_v h_0\right) = 0 & \implies h_0 = \rho \\
+				\dfrac1{\varepsilon} && 0+v\nabla_x h_0 = \sigma\partial_v\left((c^2-v^2)\partial_v h_1\right)\\
+				\varepsilon^0 && \partial_t h_0+ v\nabla_x h_1 = \sigma\partial_v\left((c^2-v^2)\partial_vh_2\right)
+			\end{aligned}$\\
+			
+			Ainsi : $v\cdot\nabla_x\rho = \sigma\partial_v\left((c^2-v^2)\partial_vh_1\right)$\\
+			Donc : $\dfrac{v^2}2\nabla_x \rho + cste = \sigma(c^2-v^2)\partial_v h_1$\\
+			D'où l'on tire : $\partial_v h_1 = \dfrac{cste}{\sigma(c^2-v^2)} + \dfrac12\nabla_x\rho\dfrac{v^2-c^2+c^2}{c^2-v^2} = \dfrac{cste + \dfrac12 c^2\nabla_x \rho}{\sigma(c^2-v^2)}-\dfrac12\dfrac{\nabla_x\rho}\sigma$\\
+			Pour que $h_1$ soit continue il faut que : $cste + \dfrac12c^2\nabla_x\rho = 0$\\
+			Ainsi $h_1 = -\dfrac12v\dfrac{\nabla_x \rho}\sigma + \rouge{cste}$.\\
+			$f = \rho + \varepsilon h_1 + o(\varepsilon)$.\\
+			$\rho = \dfrac1{2c}\displaystyle\int_{-c}^c f = \rho + \varepsilon\dfrac1{2c}\int_{-c}^ch_1\mathrm dv + o(\varepsilon)$\\
+			$\dfrac1{2c}\displaystyle\int_{-c}^c h_1\mathrm dv = 0$ donc $\rouge{cste} = 0$.\\
+			Finalement : $h_1 = -\dfrac{v\cdot\nabla_x\rho}{2\sigma}$
+		\end{minipage}
+		
+		\item \begin{minipage}[t]{18cm}
+			$\partial_t \rho - \dfrac1{2c}\displaystyle\int_{-c}^c \dfrac{v^2}{2\sigma}\Delta \rho = 0$\\
+			$\partial_t \rho = \dfrac1{2c}\dfrac2{6\sigma}c^2\Delta \rho$\\
+			$\partial_t\rho = \dfrac{c^2}{6\sigma}\Delta \rho$\\
+			$D = \dfrac{c^2}{6\sigma}$
+		\end{minipage}
+		
+		\item \begin{minipage}[t]{18cm}
+			$\begin{aligned}[t]
+				&\partial_t\displaystyle\int f\ln f - f \\
+				=& \int \partial_t f \ln f \\
+				=&\dfrac{\sigma}{\varepsilon^2}\int_{-c}^c\nabla_x\left((c^2-v^2)\nabla_x f\right)\ln f \\
+				=&\dfrac\sigma{\varepsilon^2}\left(\left[(c^2-v^2)\nabla_x f\right]_{-c}^c - \int_{-c}^c (c^2-v^2)\nabla_v f\dfrac{\nabla_v f}f\right)\\
+				=&\dfrac\sigma{\varepsilon^2}\int_{-c}^c(c^2-v^2)\dfrac1f\abs{\nabla f}^2 \leq 0
+			\end{aligned}$
 		\end{minipage}
 		\end{enumerate}
+		
+		\vspace*{-.5cm}
+		
 	\end{sol}
 	
 	
