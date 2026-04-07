@@ -1520,18 +1520,33 @@
 	Après assemblage, le système SMD ne correspond pas au problème mathématiques à résoudre.\\
 	On fait la prise en compte des conditions de Dirichlet au moment du passage du SMD au SMO : exemple si les nœuds de $\Gamma_D$ sont $n_I$, $I \in [\![N_h+1,M_h]\!]$.
 	
-	$A_{SMD} = \begin{bNiceMatrix}[margin=1em]
+	\hspace{-1.5cm}$A_{SMD} = \begin{bNiceMatrix}[margin=1em]
 		A_{1,1} & & & & \fbox{$\circ$} & \fbox{$\circ$} & \fbox{$\circ$}\\
-		& \Ddots & & Sym\\\\
-		& & & A_{N_h, N_h}	\\
-		\fbox{$\circ$} & \Cdots &  & \fbox{$\circ$} & A_{N_h+1,N_h+1}\\
-		\fbox{$\circ$} & \Cdots	&  &  & \fbox{$\circ$} & \Ddots \\
-		\fbox{$\circ$} & \Cdots &  &  &  & \fbox{$\circ$} & \\
-						&       &  &  &  &                 &A_{M_h,M_h} 	
+		& \Ddots & & Sym & \Vdots & \Vdots & \Vdots \\\\
+		& & & A_{N_h, N_h} & \fbox{$\circ$} &	\\
+		\fbox{$\circ$} & \Cdots &  & \fbox{$\circ$}    & A_{N_h+1,N_h+1}   & \fbox{$\circ$} \\
+		\fbox{$\circ$} & \Cdots	&  &                   & \fbox{$\circ$}    & \Ddots 		& \fbox{$\circ$} \\
+		\fbox{$\circ$} & \Cdots &  &                   &  			       & \fbox{$\circ$} & A_{M_h,M_h} 
 		\CodeAfter
 		\SubMatrix[{1-1}{4-4}]
-	\end{bNiceMatrix}$
+	\end{bNiceMatrix}
+	\begin{bNiceMatrix}
+		\Vdots \\\\u\\\Vdots \\u_{N_h+1}\\\Vdots\\u_{M_h}
+	\end{bNiceMatrix} =
+	\begin{bNiceMatrix}[last-col,margin]
+		F_1 &  \leftarrow F_1 - \displaystyle\sum_{J=N_h+1}^{M_h} u_D(n_J)A_{1J}\\
+		\Cdots & \\
+		\\
+		F_{N_h} & \\
+		\cancel{F_{N_h+1}} & \leftarrow A_{N_h+1,N_h+1}u_D(n_{N_h+1})\\
+		\Cdots \\
+		\cancel{F_{M_h}} & \leftarrow A_{M_h,M_h}u_D(n_{M_h})
+	\end{bNiceMatrix}
+	$
 	
+	\begin{rmq}
+		Gestion mémoire, or le SMD et le SMO
+	\end{rmq}
 	
 	
 	
