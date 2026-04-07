@@ -1533,4 +1533,185 @@
 	\end{bNiceMatrix}$
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+\newpage
+
+\section{Correction contrôle blanc 2024-2025}
+
+\includegraphics[scale=.4]{photo27.jpg}
+
+\includegraphics[scale=.4]{photo28.jpg}
+
+\newpage
+
+\textbf{\underline{Exercice 2}}
+
+\begin{enumerate}
+	\item \begin{enumerate}[label=$\star$]
+		\item On multiplie l'EDP par une fonction test $v \in H^1(\Omega)$ et on intègre sur $\Omega$ :
+		
+		\[
+		-\displaystyle\int_\Omega \Delta u v + \int_\Omega K u v = 0
+		\]
+		
+		\item Formule de Green :
+		
+		\[
+		\displaystyle\int_\Omega \Delta uv = - \int \nabla u \cdot\nabla v + \int_{\partial \Omega} \dfrac{\partial u}{\partial \mathcal{V}}v
+		\]
+		
+		Donc :
+		
+		\[
+		\begin{aligned}
+			\displaystyle\int_\Omega \nabla u \cdot\nabla v + \int_\Omega \Delta uv &= \int_{\partial \Omega}\dfrac{\partial u}{\partial \mathcal{V}}v\\\\
+			\int_\Omega \nabla u \cdot\nabla v + \int_\Omega K uv &= \int_{\partial\Omega}\dfrac{\partial u}{\partial\mathcal{V}}v
+		\end{aligned}
+		\]
+		
+		\item Prise en compte des conditions aux bords : $u$ est donné sur $\Gamma_D$ ($u=0$).\\
+		
+		On pose $v = 0$ sur $\Gamma_D$.\\
+		Ainsi : $\displaystyle\int_{\partial\Omega} \dfrac{\partial u}{\partial\mathcal{V}}v = \int_{\Gamma_N} \dfrac{\partial u}{\partial \mathcal{V}}v = \int_{\Gamma_N} g_N$ \hspace{1cm} car $v= 0$ sur $\Gamma_D$.
+		
+		\item Intégrandes de la F.V. : $\begin{aligned}
+			&\displaystyle\int_\Omega \nabla u \cdot \nabla v \\
+			&\int_\Omega uv \\
+			&\int_\Omega g_N v
+		\end{aligned}$
+		
+		\item La formulation variationnelle s'écrit :\\
+		Chercher $u \in H^1(\Omega)$ tel que $u=0$ sur $\Gamma_D$ et tel que $\forall v \in H^1(\Omega)$, $v=0$ sur $\Gamma_D$
+		\[
+		\displaystyle\int_\Omega \nabla u \cdot \nabla v + \int_\Omega K uv = \int_{\Gamma_N} g_N v
+		\]
+	\end{enumerate}
+	
+	\item $\{w_I\}_{I\in[\![1,M_h]\!]}$ : fonctions de bases E.F. associées à $\mathcal T_h$.\\
+	$M_h$ : nombre de nœuds dans $\mathcal T_h$.
+	
+	\[
+	u_h = \displaystyle\sum_{I=1}^9 u_J w_J 
+	\]
+	
+	avec $u_J = u(n_J)$
+	
+	\begin{minipage}{11cm}
+		Pour que la relation $(FV)$ soit vraie $\forall v \in V_h$, il faut et il suffit qu'elle soit vraie pour toute fonction \underline{d'une base de $V_h$} car $(FV)$ est linéaire en $v$.\\
+		On écrit alors la formulation variationnelle pour :\\
+		$v_h = w_I$, $\forall I \in [\![1,M_h]\!]$
+	\end{minipage}\hspace{1cm}\begin{minipage}{6cm}
+	\includegraphics[scale=.7]{photo29.png}\\
+	
+	Il y a 3 nœuds hors condition de Dirichlet, le système global est donc de taille 3.	
+	\end{minipage}\\
+	
+	On injecte cette expression de $u$ et ce choix de $v$ dans la F.V.
+	
+	\[
+	\displaystyle\int_{\Omega_h} \nabla\left(\sum_{J=1}^9 u_J w_J\right)\cdot\nabla w_I + K \int_{\Omega_h}\left(\sum_{j=1}^9 u_J w_J\right)w_I = \int_{\Gamma_N} g_N w_I
+	\]
+	
+	\[
+	\displaystyle\sum_{j=1}^9 u_J \underbrace{\int_{\Omega_h}\nabla w_J \cdot \nabla w_I + K \int_{\Omega_h} w_J w_I}_{A_{IJ}} = \underbrace{\int_{\Gamma_N}g_Nw_I}_{B_I}
+	\]
+	
+	Pour $I,J \in \{4,5,6\}.$
+	
+	\[
+	A_{IJ} = \displaystyle\underbrace{\int_{\Omega_h}\nabla w_J \cdot\nabla w_I}_{\text{Matrice de rigidité R}} + K \underbrace{\int_{\Omega_h}w_Jw_I}_{\text{Matrice de masse M}}
+	\]
+	
+	\item  $M_{ij}^K = \displaystyle\int_K \lambda_i^K\lambda_j^K = \cdots = \cdots$\\
+	
+	$M_K = \dfrac1{96}\begin{bmatrix}
+		2 & 1 & 1 \\
+		1 & 2 & 1 \\ 
+		1 & 1 & 2
+	\end{bmatrix}$\\
+	
+	$M_{33} = 2\times \dfrac1{96} \times 2$\\
+	$M_{55} = 6 \times \dfrac{1}{96}\times2$\\
+	$M_{54} = 2 \times \dfrac1{96}$
+	
+	\item $\begin{aligned}
+		A &= R + \kappa M\\
+		&= \begin{bmatrix}
+			R_{44} + \kappa M_{44} & R_{45} + \kappa M_{45} & R_{46} + \kappa M_{46} \\
+			& \ddots \\
+			Sym & & \ddots \\
+			& & & \ddots
+		\end{bmatrix}
+	\end{aligned}$
+\end{enumerate}
+	
 \end{document}

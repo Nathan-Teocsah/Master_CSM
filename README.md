@@ -14,6 +14,7 @@ Ceci est l'ensemble des cours que j'ai suivi lors de mes deux années en Master 
 
 ## Avril 2026
 - Mercredi 29 : Contrôle _ELFI_
+- Semaine du 27 : Contrôle _RNDP_
 
 ## Mai 2026
 - Rendu Etude 2 APST (Régression linéaire multiple, Ridge, commencer méthode non paramétrique) : Dimanche 3 mai
