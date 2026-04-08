@@ -1642,17 +1642,30 @@
 		0 & 12 \\
 		0 & 13 & 0 \\
 		0 & 0 & 14 & 15 & X
-	\end{bNiceMatrix}$
+	\end{bNiceMatrix}$ \begin{minipage}[t]{15cm}
+	$LMatP(N_{L_h}+1) =$ élément fictif\\
+	en ligne $N_h$ de $L_h$
+	\end{minipage}
 	
 	\begin{defi}[Stockage Profil] Stockage défini sur trois tableaux :
 		
 		\begin{enumerate}[label=$\star$]
 			\item $diagP(i)$, $i \in [\![1,N_h]\!]$
 			
+			\vspace{.5cm}
+			
 			\item \begin{minipage}[t]{18.5cm}
-				$LMatP(l)$, $l\in [\![1,N_{L_h}+1]\!]$\\
-			$LMatP(l)$ = $l^{ième}$ élément stocké dans l'ordre de lecture d'une matrice.\\
+				$LMatP(l)$, $l\in [\![1,N_{L_h}+1]\!]$, $l^{ième}$ élément stocké dans l'ordre de lecture d'une matrice.\\
 			$LMat$ contient tous les éléments du profil de la partie inférieure stricte de la matrice.
+			\end{minipage}
+			
+			\vspace{.5cm}
+			
+			\item \begin{minipage}[t]{17cm}
+				$Profil(i)$, $i \in [\![1,N_h]\!]$, \begin{minipage}[t]{13cm}
+					position dans $LMatP$ du premier élément de la ligne $i$ stockée dans $LMatP$.
+				\end{minipage}\\
+			S'il n'y a pas d'élément "non nul" stockée pour la ligne $i$ : $Profil(i) = Profil(i+1)$.
 			\end{minipage}
 		\end{enumerate}
 	\end{defi}
