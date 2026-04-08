@@ -1246,8 +1246,9 @@
 	\end{dem}
 	
 
-\section{Introduction : Boltzmann $\to$ Navier Stoke \small(\textit{Julien Mathiaud})}
+\section{Boltzmann $\to$ Navier Stoke \small(\textit{Julien Mathiaud})}
 
+\subsection{Introduction}
 	\begin{minipage}{9cm}
 		\includegraphics[scale=.7]{photo17.png}\\
 		
@@ -1311,9 +1312,9 @@
 		$Tr(\mathbb P)=3p \implies p = \rho T$
 	\end{minipage}
 	
-\section{Équation de transport}
+\subsection{Équation de transport}
 
-\subsection{Équation classique}
+\subsubsection{Équation classique}
 
 Soit $f(t,x,v)$ qui représente le nombre de particule qui sont en $x$ à l'instant $t$ avec la vitesse $v$.\\
 
@@ -1670,7 +1671,7 @@ $f(t,x,v) = f(t=0,x-tv,v) = f_0(x-vt,v)$
 	\end{minipage}
 \end{enumerate}
 
-\subsection{Equation de Boltzmann : modélisation des collisions}
+\subsubsection{Equation de Boltzmann : modélisation des collisions}
 
 $f(t,x,v)$ : densité de particules par unité de volume (en $x$ et en $v$)\\
 $\begin{aligned}
@@ -2189,9 +2190,125 @@ $\partial_t \rho + \mathrm{div}(\rho u) = 0$\\
 $\partial_t \rho u + \mathrm{div}(\rho u\otimes u) + \nabla (\rho T) = \nabla\left(\mu \dfrac{\nabla u + \nabla u^T}2\right)$\\
 $\partial_t (\rho E) + \mathrm{div}\left(\rho E u + \rho T u\right) = \nabla\left(\mu\dfrac{\nabla u + \nabla u ^T}2 u \right)-\nabla q$ \hspace{2cm} \begin{minipage}[t]{5cm}
 	$q= -\lambda\nabla T$ et $\lambda = \psi C_p$ (avec $C_p$ la chaleur du gaz)
-\end{minipage}\\
+\end{minipage}
 
-\textbf{\underline{Pourquoi $f= Q(f) \implies f=M(f)$ ?}}
+\newpage
+
+\section{Équation de la chaleur}
+
+\subsection{Obtention de l'équation}
+
+On veut obtenir une équation sur la température. Si on repart de Navier-Stokes :
+
+\[
+\begin{aligned}
+	&&\partial_t\rho + \mathrm{div}_x(\rho u) &=0\\
+	&&\partial_t\rho u + \mathrm{div}_x(\rho u \otimes u) + \nabla \rho &= \nabla\left(\mu\dfrac{\nabla u + \nabla u^t}2\right)\\
+	&&\partial_t(\rho E) + \mathrm{div}_x(\rho E u + \rho u) &= \nabla\left(\mu\dfrac{\nabla u + \nabla u^t}2\right) - \nabla\left(\lambda \nabla T\right)\\
+	u \to 0 && \partial_t\rho = 0 &\implies  \rho = cste\\
+	&&\partial_t E &= \nabla\left(\lambda\nabla T\right) \\
+	&& E=\dfrac12 u^2 + \dfrac32 T &\underset{u\to 0}\longrightarrow \dfrac32T
+\end{aligned}
+\]
+
+$\begin{aligned}[t]
+	\rho\dfrac32\partial_t T &= \nabla\left(\lambda\nabla T\right)\\
+	\partial_t  &= \nabla\left(\dfrac\lambda\rho\dfrac23\nabla T\right)
+\end{aligned}$ avec $\rho = cste$.\\
+
+\noindent La bonne relation pour l'énergie $E = \dfrac12 u^2 + \dfrac32 RT$ ($R$ = constante du gaz parfait).\\
+$\partial_t T = \nabla\Big(\underbrace{\dfrac\lambda\rho\dfrac2{3R}}_{D=\dfrac\lambda{\rho c}}\nabla T\Big)$ \hspace{1cm} $c= \dfrac{3R}2$ (chaleur spécifique à volume constant).\\
+
+On peut aussi obtenir l'équation de la chaleur à partir d'un bilan d'énergie et de la loi de Fourier\\ ($j$ : flux thermique \hspace{.5cm} $W.m^{-2}$) :
+\[
+j = -\lambda\nabla_x T
+\]
+
+\begin{minipage}{6cm}
+	\includegraphics[scale=.5]{photo22.png}
+\end{minipage}\begin{minipage}{15cm}
+Énergie contenue\\
+$E = \rho c_p T \mathrm dx\mathrm dy \mathrm dz$\\
+$\begin{aligned}
+	E(t+\Delta t) - E(t) = &-\lambda\dfrac{\partial T}{\partial x}\Big|_{x,y,t}\mathrm dz\mathrm dy - \lambda \dfrac{\partial T}{\partial y}\Big|_{x,y,t} \mathrm dx\mathrm dz - \lambda \dfrac{\partial T}{\partial z}\Big|_{x,y,t}\mathrm dx \mathrm dy\\
+	&+\lambda\dfrac{\partial T}{\partial \lambda}\Big|_{x,y,t}\mathrm dz \mathrm dy + \lambda\dfrac{\partial T}{\partial y}\Big|_{x,y,t}\mathrm dy \mathrm dz + \lambda \dfrac{\partial }{\partial t}\Big|_{x,y,t}\mathrm dx \mathrm dy
+\end{aligned}$
+\end{minipage}
+
+$\begin{aligned}
+	\rho\mathrm dx\mathrm dy \mathrm dz c\left((t+\Delta t)-T(t)\right) = \Big(\lambda\mathrm dz\mathrm dy\left[-\dfrac{\partial T}{\partial x}\Big|_{x,y,t} + \dfrac{\partial T}{\partial x}\Big|_{x+dx,y,t}\right] &+ \lambda\mathrm dx\mathrm dz\left[-\dfrac{\partial T}{\partial y}\Big|_{x,y,t} + \dfrac{\partial T}{\partial y}\Big|_{x,y+dy,t}\right]\\
+&+\lambda\mathrm dx\mathrm dy\left[-\dfrac{\partial T}{\partial z}\Big|_{x,y,t} + \dfrac{\partial T}{\partial t}\Big|_{x,y,t+dt}\right]\Big)
+\end{aligned}$\\
+
+on divise à droite et à gauche par $\Delta t\mathrm dx \mathrm dy \mathrm dt$ et on fait tendre $\Delta t, \dx, \dy, \dz$ vers 0.\\
+
+$\begin{aligned}
+	\rho c\partial_t  &= \dfrac{\partial}{\partial x}\left(\lambda\dfrac{\partial T}{\partial x}\right)+\dfrac\partial{\partial y}\left(\lambda\dfrac{\partial T}{\partial y}\right) + \dfrac\partial{\partial t}\left(\lambda\dfrac{\partial T}{\partial z}\right) \\
+	&=\lambda\Delta T & (\lambda \text{ constant})\\
+	&= \nabla\left(\lambda\nabla T\right) & (\text{si $\lambda$ non constant})
+\end{aligned}$\\
+
+L'équation de la chaleur dissipe l'énergie.
+\[
+\begin{aligned}
+	\displaystyle\dfrac d{dt}\int_{\R^3}\left(\rho c \dfrac{\pi^2}2\right)\dx\dy\dz = \int_{\R^3} \rho c T\partial_t T \dx\dy\dz &= -\int_{\R^3} \nabla T \cdot\left(\lambda\nabla T\right)\dx\dy\dz\\
+	\text{(par Stockes)} & =-\int_{\R^3}\lambda\abs{\nabla T}^2\dx\dy\dz & \text{(si $\lambda$ scalaire)}\\
+	&=-\int_{\R^3} \left(\nabla T)^t\lambda\nabla T \dx\dy\dz\right) & \text{($\lambda$ matrice)}
+\end{aligned}
+\]
+
+\subsection{Étude 1D de l'équation de a chaleur}
+
+$\partial_t T = \dfrac\lambda{\rho c}\Delta T$ \hspace{1cm} ($\lambda$ constant) \hspace{1cm} $D = \dfrac\lambda{\rho c}$.\\
+On dispose de 3 méthodes pour résoudre cette équation.
+\begin{enumerate}[label=$\to$]
+	\item série de Fourier \hspace{1cm} $[a,b]$
+	
+	\item transformée de Fourier \hspace{1cm} $\R$ 
+	
+	\item transformée de Laplace \hspace{1cm} $\R^+$
+\end{enumerate}
+
+\subsubsection{Transformée de Fourrier}
+
+$T(t,x)$\\
+$\begin{aligned}
+	\mathcal F\left(x\to T(t,x)\right) = \left(\mathcal F T\right)(t,\xi) &= \int_{-\infty}^{+\infty} T(t,x) e^{-ix\xi}\dx\\
+	 \mathcal F\left(f\times g\right) &= \mathcal F(f) \star \mathcal F(g)
+\end{aligned}$\\
+
+$\partial_t T = D\Delta T \implies \mathcal F\left(\partial_t T - D\Delta T\right) = 0$\\
+$\displaystyle\int_\R\left(\partial_t T-D\Delta_{x,x}T\right)e^{-ix\xi}\dx = 0$\\
+$\begin{aligned}
+	\dfrac\partial{\partial t} \int_\R T(t,x)e^{-ix\xi}\dx &=D\int_\R\left(\Delta_{x,x} T\right) e^{-ix\xi}\dx \\
+	&=i\xi D\int_\R\partial_x T e^{-ix\xi}\dx\\
+	&= D(i\xi)^2\int_\R T(t,x)e^{-ix\xi}\dx\\
+	&=-D\xi^2\mathcal F\left(T(t,x)\right)
+\end{aligned}$\\
+
+\noindent$\dfrac\partial{\partial t}\mathcal F(T(t,x)) = -D\xi^2\mathcal F(T(t,x))$\\
+$\mathcal F\left(T(t,x)\right) = e^{-D\xi^2t}\mathcal F(T(0,x))$\\
+
+\noindent$T(t,x) = \mathcal F^{-1}\left(\xi\mapsto e^{-D\xi^2t}\right)\star T(0,x)$ \hspace{2cm} $\left(T(0,x) = \mathcal F^{-1}\left(\mathcal F\left(x\mapsto T(0,x)\right)\right)\right)$\\
+$\mathcal F^{-1}\left(\xi\mapsto e^{-D\xi^2t}\right)$\\
+$\begin{aligned}[t]
+	&\displaystyle\int_{-\infty}^{+\infty}e^{-\alpha\xi^2}e^{-D\xi}\mathrm d\xi \hspace{1cm} \text{(avec $ \alpha >0$ quelconque)}\\
+	=&\int_{-\infty}^{+\infty}e^{\alpha(\xi+\frac D{2\alpha})^2}e^{-\frac{\alpha x^2}{4\alpha^2}}\mathrm d\xi = e^{-\dfrac{x^2}{4\alpha^2}}\int_{-\infty}^{+\infty}e^{-alpha\left(\xi+\frac D{2\alpha}\right)^2}\mathrm d\xi = e^{\dfrac{x^2}{4\alpha^2}}\int_{-\infty}^{+\infty}e^{-\alpha\xi^2}\mathrm d\xi \underset{u=\sqrt\alpha\xi}= \int_{-\infty}^{+\infty}e^{-u^2}\dfrac{\mathrm du}{\sqrt\alpha} = \dfrac{\sqrt\pi}{\sqrt\alpha}
+\end{aligned}$ \\
+
+$\displaystyle\int_{-\infty}^{+\infty}e^{-\alpha\xi^2}e^{-i\alpha\xi}\mathrm d\xi = \sqrt{\frac\pi\alpha}e^{-\dfrac{x^2}{4\alpha}}$\\
+$\begin{aligned}
+	T(t,x) &= \dfrac1{2\pi}\underbrace{\sqrt{\dfrac\pi{Dt}}e^{-\dfrac{x^2}{5Dt}}}_{\text{noyau de l'équation de la chaleur}}\star T(0,x)\\
+	&=\int_{-\infty}^{+\infty}\underbrace{\dfrac1{2\pi}\sqrt{\dfrac{\pi}{Dt}}e^{-\dfrac{(x-y)^2}{4Dt}}}_{\text{normale centrée en $c$ et de variance $2Dt$}}T(0,y)\dy
+\end{aligned}$\\
+
+Au sens des distributions : $\begin{cases}
+	\rho c\partial_t T = D\Delta T \\
+	T(0,x) = \delta_0
+\end{cases}$ $T = $ noyau de l'équation
+
+
+
 
 	
 	
