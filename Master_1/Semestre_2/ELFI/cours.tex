@@ -896,7 +896,7 @@
 		\textbf{\underline{poids :}} $\hat\omega_k$, $k = 1,\ldots,q$.\\\\
 		\textbf{\underline{$\to$ Intégration :}} $\displaystyle\int_{\hat K} f(\hat x) d\hat x \simeq \sum_{k=1}^q \hat\omega_kf(\hat x_k)$.
 		
-		\enc[13cm]{gray}{
+		\enc[14cm]{gray}{
 		\begin{rmq}
 			$\displaystyle\sum_{k=1}^q\hat\omega_k = \text{Aire}(\hat K) = \frac12$ ($\hat K$ est le triangle de référence)
 		\end{rmq}}
@@ -1366,7 +1366,7 @@
 	\subsubsection{Stockage morse ordonnée}
 	
 	Tel que défini dans MELINA++, librairie Éléments Finis développée à l'IRMAR.\\
-	\rouge{\textbf{!} On appelle élément "non nul" $A_{IJ}$ de $AH$ élément tel que $\mathrm{supp} w_J \cap \mathrm{supp} w_I \not=\emptyset$ \textbf{!}}
+	\rouge{\textbf{!} On appelle élément "non nul" $A_{IJ}$ de $AH$ élément tel que $\mathrm{supp}(w_J) \cap \mathrm{supp}(w_I) \not=\emptyset$ \textbf{!}}
 	
 	Ce stockage permet de faire des opérations algébriques sur les matrices après le stockage !
 	
@@ -1535,18 +1535,128 @@
 	\end{bNiceMatrix} =
 	\begin{bNiceMatrix}[last-col,margin]
 		F_1 &  \leftarrow F_1 - \displaystyle\sum_{J=N_h+1}^{M_h} u_D(n_J)A_{1J}\\
-		\Cdots & \\
+		\Vdots & \\
 		\\
 		F_{N_h} & \\
 		\cancel{F_{N_h+1}} & \leftarrow A_{N_h+1,N_h+1}u_D(n_{N_h+1})\\
-		\Cdots \\
+		\Vdots \\
 		\cancel{F_{M_h}} & \leftarrow A_{M_h,M_h}u_D(n_{M_h})
 	\end{bNiceMatrix}
 	$
 	
 	\begin{rmq}
-		Gestion mémoire, or le SMD et le SMO
+		Gestion mémoire, le SMD et le SMO.\\
+		longueur de $LMat_{SMD}$.
+		\begin{enumerate}[label=-]
+			\item on sur-estime la longueur de LMat.
+			
+			\item A chaque itération de l'assemblage on vérifie que l'on ne dépasse pas cette limite.
+		\end{enumerate}
 	\end{rmq}
+	
+	\subsection{Résolution du système}
+	
+	Propriété de la matrice : symétrique, définie positive, creuse.\\
+	$\to$ Résolution par la méthode de Cholesky (ie. $LL^t$) :
+	
+	\begin{enumerate}[label=$\star$]
+		\item Décomposition $LL^t$.\\
+		Il \textbf{existe} une \textbf{unique} $L$ triangulaire inférieure telle que $\forall i$, $L_{ii} > 0$ et $A = LL^t$.
+		
+		\item Résolution : $Ax = B \iff L\underbrace{(L^t x)}_{y} = B \iff \begin{cases}
+			Ly = B & \to \text{ méthode de la descente} \\
+			L^t x = y & \to \text{ méthode de la remontée} 
+		\end{cases}$
+	\end{enumerate}
+	
+	Décomposition $LL^t$. On peut procéder ligne par ligne : 
+	\[
+	\begin{bNiceMatrix}
+		A_{11} & & A_{1N_h} \\
+		& \Ddots \\
+		A_{N_h1} & & A_{N_hn_h}
+	\end{bNiceMatrix} = \begin{bNiceMatrix}
+	L_{11} & \Block{2-2}<\Large>{0}\\
+	\Vdots & \Ddots \\
+	L_{N_h1} & \Cdots & L_{N_hN_h}
+	\end{bNiceMatrix}\begin{bNiceMatrix}
+	L_{11} & \Cdots & L_{N_h1}\\
+	\Block{2-2}<\Large>{0} & \Ddots & \Vdots\\
+	 & & L_{N_hN_h}
+	\end{bNiceMatrix}
+	\]
+	
+	\begin{enumerate}[label=$\star$]
+		\item $A_{11} = L_{11}^2 $ $\to$ $L_{11} = \sqrt{A_{11}}$
+		
+		\item 2ème ligne :\\
+		$A_{21} = \rouge{L_{21}} L_{11}$ $\to$ $\rouge{L_{21}}$\\
+		$A_{22} = \rouge{L_{21}} \rouge{L_{21}} + \bleu{L_{22}}\bleu{L_{22}}$ $\to$ $\bleu{L_{22}} = \sqrt{A_{22}-\rouge{L_{21}}^2}$
+		
+		\item $i^{ème}$ ligne du produit $A = LL^t$.\\
+		On détermine la ligne $i$ de $L$.\\
+		$\left.\begin{aligned}
+			A_{i1} &= \rouge{L_{i1}}L_{11}\\
+		A_{i2} &= \bleu{L_{i2}}L_{21} + \bleu{L_{i2}}L_{22}\\
+		A_{i3} &= \rouge{L_{i1}} L_{31} + \bleu{L_{i2}}L_{32} + \Vert{L_{i3}} L_{33}\\
+		&\vdots\\
+		A_{i,i-1} &= \rouge{L_{i1}}L_{i-1,i} + \cdots + \orange{L_{i,i-1}}L_{i-1,i-1}
+		\end{aligned}\right\} \iff \begin{bNiceMatrix}
+		L_{11} & \Block{4-4}<\Large>{0} \\
+		\Vdots & \Ddots \\
+		\\
+		\\
+		L_{i-1,1} & \Cdots & & & L_{i-1,i-1}
+		\end{bNiceMatrix}\begin{bNiceMatrix}
+		\rouge{L_{i1}}\\
+		\bleu{L_{i2}} \\
+		\Vert{L_{i3}}\\
+		\Vdots \\
+		\orange{L_{i,i-1}}
+		\end{bNiceMatrix} = \begin{bNiceMatrix}
+		A_{i1} \\
+		\Vdots\\
+		\\
+		\\
+		A_{i,i-1}
+		\end{bNiceMatrix}$\\
+		
+		$A_{ii} = \rouge{L_{i1}}\rouge{L_{i1}} + \bleu{L_{i2}}\bleu{L_{i2}} + \cdots + \orange{L_{i,i-1}}\orange{L_{i,i-1}} + \textcolor{brown}{L_{ii}L_{ii}}$\\
+		$\hookrightarrow \textcolor{brown}{L_{ii}} = \sqrt{A_{ii}-\displaystyle\sum_{j=1}^{i-1} L_{ij}^2}$
+	\end{enumerate}
+	
+	\newpage
+	
+	\textbf{\underline{Travail préalable} à la décomposition $LL^t$}\\
+	
+	Stockage Profil (préservé par la décomposition $LL^t$).\\
+	Il stocke tous les éléments à partir du premier non nul pour chaque ligne :\\
+	
+	$\begin{bNiceMatrix}[margin=1em]
+		\CodeBefore
+		\tikz \draw [fill=red!15] (2-|1) |- (3-|1) |- (3-|2) |- (2-|2) |- cycle;
+		\tikz \draw [fill=red!15] (3-|2) |- (4-|2) |- (5-|3) |- (6-|4) |- (6-|5) |- (5-|4) |- (4-|4) |- (4-|3) |- cycle;
+		\Body
+		X &  & \Block{3-3}{Sym}\\
+		11 & \Ddots \\
+		0 & 12 \\
+		0 & 13 & 0 \\
+		0 & 0 & 14 & 15 & X
+	\end{bNiceMatrix}$
+	
+	\begin{defi}[Stockage Profil] Stockage défini sur trois tableaux :
+		
+		\begin{enumerate}[label=$\star$]
+			\item $diagP(i)$, $i \in [\![1,N_h]\!]$
+			
+			\item \begin{minipage}[t]{18.5cm}
+				$LMatP(l)$, $l\in [\![1,N_{L_h}+1]\!]$\\
+			$LMatP(l)$ = $l^{ième}$ élément stocké dans l'ordre de lecture d'une matrice.\\
+			$LMat$ contient tous les éléments du profil de la partie inférieure stricte de la matrice.
+			\end{minipage}
+		\end{enumerate}
+	\end{defi}
+	
 	
 	
 	
