@@ -2307,6 +2307,95 @@ Au sens des distributions : $\begin{cases}
 	T(0,x) = \delta_0
 \end{cases}$ $T = $ noyau de l'équation
 
+\subsubsection{Transformée de Laplace}
+
+\begin{minipage}{7cm}
+	\includegraphics[scale=.5]{photo23.png}
+\end{minipage}\begin{minipage}{15cm}
+$x \geq 0$\\
+$\partial_t T = D\Delta T$\\
+$\mathcal L(t\mapsto T(t,x))(p,x) = \displaystyle\int_{0}^{+\infty} e^{-pt}T(t,x)\dx$
+\end{minipage}\\
+
+$\begin{cases}
+	T(0,x) = T_0\\7
+	T(t,x=0) = T_0 = \displaystyle\int_0^{+\infty} e^{-pt}T(t,x)\dx
+\end{cases}$\\
+
+$\mathcal L(1) = \displaystyle\int_0^{+\infty}e^{-pt}1\dt = \dfrac1T$\\
+
+Puisque $\partial_t T - D\Delta T = 0$, on a : $\mathcal L(\partial_t T-D\Delta T) = 0$.\\
+$\displaystyle\int_0^{+\infty}\left(e^{-pt}\partial_tT-D\Delta T\right)\dt = 0$ et on intègre par partie :\\
+$\left[Te^{-pt}\right]_0^{+\infty} + p\displaystyle\int_0^{+\infty}e^{-pt}T(t,x)\dt - D\Delta\int_0^{+\infty}e^{-pt}T(t,x)\dt = 0$\\
+Et ainsi : $-T(0,x) + p\mathcal L(1)(x,p) - D\Delta\mathcal L(T)(x,p) = 0$\\
+A $p$ fixé, on considère $p \mathcal L(T)-D\partial_x\mathcal L(T) = T(0,x) = T_i$\\
+$\mathcal L(T)(p,x) = \dfrac{p_i}p+$ solution de l'équation homogène (en $x$)\\
+$\mathcal L(T)(p,x) = \dfrac{T_i}p + Ae^{-\sqrt{\frac pD}x} +  Be^{\sqrt{\frac pD}x}$ \rouge{avec $B=0$ pour que ce soit intégrable pour $x > 0$}.\\
+Ainsi : $\mathcal L(T)(p,0) = \dfrac{T_i}p + A \implies A= \dfrac{T_0-T_i}2$\\
+$T(t,x) = T_0 + (T_0-T_i)\mathcal L^{-1}(p \mapsto \dfrac1pe^{-\sqrt{\frac pD}x})$\\
+$\dfrac{T(t,x)-T_0}{T_i-T_0} = erf\left(\dfrac x{2\sqrt{Dt}}\right)$ où $erf(x) = \dfrac x2\displaystyle\int_0^{+\infty} e^{-x^2}\dx \underset{x\to+\infty}\longrightarrow 1$\\
+
+$t\to0^+$ \hspace{.5cm} $x > 0$ \hspace{.5cm} $T(t,x) \to T_i$\\
+$t\to+\infty$ \hspace{.5cm} $x > 0$ \hspace{.5cm} $T(t,x) \to T_0$
+
+\subsubsection{Série de Fourier}
+
+\begin{minipage}{7cm}
+	\includegraphics[scale=.5]{photo24.png}
+\end{minipage}\begin{minipage}{15cm}
+$\partial_t T= D\Delta T$ en $x=-L$ et $x=L$\\
+$T(t=0,x) = T_i$ pour $x \in [-L,L]$
+\end{minipage}\\
+
+\begin{minipage}{7cm}
+	\includegraphics[scale=.3]{photo25.png}
+\end{minipage}\begin{minipage}{15cm}
+	$\displaystyle\int T\left(\partial_t T - D\Delta T\right) (t,x) \dx = 0$\\
+$\dfrac12\dfrac d{dt}\displaystyle\int T^2 \dx = D\int_{-L}^L T\Delta T\dx = \left[T\partial_x T\right]_{-L}^L-\underbrace{D\int_{-L}^L\left(\nabla_x T\right)^2 \dx}_{\leq 0}$
+\end{minipage}
+
+\begin{thm}[autour des séries de Fourier]$ $\\
+	\begin{minipage}[t]{18.5cm}
+		Si $f$ est périodique de période $T$ alors :
+		\[
+			S_n(f) = \displaystyle\sum_{k=0}^n a_k \cos\left(\dfrac{2\pi kt}T\right) + \sum_{k=0}^n b_n \sin\left(\dfrac{2\pi kt}T\right)
+		\]
+		$S_n(f) \to f$ au sens $\mathcal L^2$ si $f \in \mathcal L^2$.\\
+		$S_n(f)(x) \to \left(\underset{x^-}\lim f + \underset{x^+}\lim f\right)/2$ (fonction continue par morceaux, théorème de Dirichlet)
+	\end{minipage}
+\end{thm}
+
+\noindent$\begin{aligned}
+	\partial_t T &=D\Delta T\\
+	T(t,x) &= \displaystyle\sum_{n=0}^{+\infty} a_n(t)\cos\left(\dfrac{2\pi nx}{4L}\right) + \sum_{n=0}^{+\infty} b_n(t)\sin\left(\dfrac{2\pi nx}{4L}\right)\\
+	\partial_t T &= \sum_{n=0}^{+\infty} a_n'(t)\cos\left(\dfrac{2\pi nx}{4L}\right) + \sum_{n=0}^{+\infty} b_n'(t)\sin\left(\dfrac{2\pi nx}{4L}\right)\\
+	D\Delta T &=  D\left(-\sum_{n=0}^{+\infty} a_n(t)\cos\left(\dfrac{2\pi nx}{4L}\right) - \sum_{n=0}^{+\infty} b_n(t)\sin\left(\dfrac{2\pi nx}{4L}\right)\right)
+\end{aligned}$\\
+\par$\begin{aligned}
+	a_n'(t) = -D\left(\frac{2\pi n}{4L}\right)^2a_n(t) & \hspace{.5cm}a_n(t) = a_n(0)e^{-D\left(\frac{2\pi n}{4L}\right)^2t} \\
+	b_n'(t) = -D\left(\frac{2\pi n}{4L}\right)^2b_n(t) & \hspace{.5cm}b_n(t) = b_n(0)e^{-D\left(\frac{2\pi n}{4L}\right)^2t}
+\end{aligned}$\\
+
+dès que $t>0$, la fonction devient $\mathcal C^\infty$ par convergence normale.\\
+
+La donnée initiale est paire, donc $\forall n$, $b_n(0) = 0$
+
+\vspace{-.5cm}
+
+\[
+\begin{aligned}
+	\displaystyle\int_{-L}^{3L}T(0,x)\cos\left(\dfrac{2\pi n x}{4L}\right)\dx &= \sum_{k=0}^{+\infty}\underbrace{\int_{-L}^{3L}a_n(0)\cos\left(\dfrac{2\pi kx}{4L}\right)\cos\left(\dfrac{2\pi nx}{4L}\right)\dx}_{\text{ d'intégralle nulle si $k\not=n$}} \\
+	&= a_n(0)\int_{-L}^{3L}\cos\left(\dfrac{2\pi nx}{4L}\right)\dx = a_n(0) 4L\times 1/2 = 2La_n(0)
+\end{aligned}
+\]
+
+$\begin{aligned}
+	\displaystyle\int_{-L}^{3L} T(0,x)\cos\left(\dfrac{2\pi nx}{4L}\right)\dx &= \int_{-L}^LT_i \cos\left(\dfrac{2\pi nx}{4L}\right)\dx + \int_L^{3L} \left(2T_0-T_1\right)\cos\left(\dfrac{2\pi nx}{4L}\right)\dx\\
+	&=T_i\left[\dfrac{4L}{2\pi n}\sin\left(\dfrac{2\pi nx}{4L}\right)\right]_{-L}^L+(2T-0-T_1)\left[\dfrac{4L}{2\pi n}\sin\left(\dfrac{2\pi nx}{4L}\right)\right]_L^{3L}\\
+	&=\dfrac{4L}{2\pi n}_i2\sin\left(\dfrac{n\pi}2\right)+2(T_0-T_1)\left(-2\sin\left(\dfrac{\pi n}2\right)\right)
+\end{aligned}$\\
+
+$a_0(0) = \dfrac1{4L}\displaystyle\int_{-L}^{3L} T(0,x)\dx = T_0$ \hspace{2cm} $T(t,x) = T_0 + \displaystyle\sum_{n=1}^{+\infty} a_n(0)\exp\left(-\dfrac{(2\pi n)^2Dt}{L^2}\right)\cos\left(\dfrac{2\pi nx}{4L}\right)$
 
 
 
