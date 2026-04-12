@@ -1671,6 +1671,54 @@
 	\end{defi}
 	
 	
+	\subsection{Validation numérique}
+	
+	Évaluation des erreurs commises :
+	\begin{enumerate}[label=-]
+		\item Erreur de l'interpolation de la géométrique.
+		\item Erreur de l'interpolation de l'inconnue.
+	\end{enumerate} 
+	
+	\begin{lm}[de Céa]$ $\\
+		Soient \begin{minipage}[t]{18.5cm}
+			$u$ la solution exacte de la F.V. continue sur $V$\\
+			$u_h$ la solution exacte de la F.V. discrète sur $V_h$
+		\end{minipage}\\
+		
+		Sous les hypothèses du lemme de Lax-Milgram : 
+		\begin{enumerate}[label=-]
+			\item $M$ constante de continuité de la forme bi-linéaire.
+			\item $\alpha$ constante de coercivité de la forme bi-linéaire.
+		\end{enumerate}
+		
+		On a : \fbox{$\lVert u-u_h\lVert \leq \dfrac M\alpha \underset{\bm{v_h} \in V_h}\inf \lVert u-\bm{v_h}\lVert$}
+	\end{lm}
+	
+	\newpage
+	
+	On obtient à partir de cela : soit $h$ = max des longueurs des arêtes de $\mathcal T_h$.\\
+	Par exemple si on considère un élément fini $\mathbb P_1$, si $v \in H^2(\Omega)$ alors
+	\[
+	\begin{aligned}
+		\lVert u-v_h\lVert_{H^1(\Omega)} \leq ch\abs{u}_{H^2}\\
+		\lVert u-v_h\lVert_{L^2(\Omega)} \leq ch^2\abs{u}_{H^2}
+	\end{aligned}
+	\]
+	avec $\abs{u}_{H^m} = \left(\displaystyle\sum_{\abs{\alpha}=m}\lVert\partial^\alpha u\lVert_{L^2}^2\right)^{1/2}$
+	
+	\begin{enumerate}[label=-]
+		\item Erreur en $h^k$ où $k$ dépend du degré de l'approximation $\begin{aligned}[t]
+		h = \dfrac12 & & h = \dfrac14 & & \cdots & & h = \dfrac18\\
+		err(1)       & & err(2)	      & &		 & & err(3)
+		\end{aligned}$
+		
+		\hfill\includegraphics[scale=.7]{photo30.png}\hspace{2cm}
+				
+		\item Si ce n'est pas égal à $k$ alors on a sûrement un log dans $u$ ou $u_h$
+
+	\end{enumerate}
+	
+	
 	
 	
 	
