@@ -1273,16 +1273,23 @@
 	\begin{minipage}{6cm}
 		\includegraphics[scale=.5]{photo25.png}
 	\end{minipage}\begin{minipage}{10cm}
-		$\nabla\lambda_i^K = \dfrac{\overrightarrow{h_ia_i}}{|\!|\overrightarrow{h_i a_i}|\!|^2}\left(\dfrac{\overrightarrow{h_ia_i}}{|\!|\overrightarrow{h_ia_i}|\!|}, \dfrac{\overrightarrow{h_ia_j}}{|\!|\overrightarrow{h_ia_j}|\!|}\right)$\\
-		$\nabla\lambda_i^K = \dfrac{\alpha_i \overrightarrow{h_ia_i}}{|\!|\overrightarrow{h_ia_i}|\!|}+\dfrac{\alpha_j\overrightarrow{h_ia_j}}{|\!|\overrightarrow{h_ia_j}|\!|}$
+		Montrons que : $\nabla\lambda_i^K = \dfrac{\overrightarrow{h_ia_i}}{|\!|\overrightarrow{h_i a_i}|\!|^2}$.\\
+		Puisque $\left(\dfrac{\overrightarrow{h_ia_i}}{|\!|\overrightarrow{h_ia_i}|\!|}, \dfrac{\overrightarrow{h_ia_j}}{|\!|\overrightarrow{h_ia_j}|\!|}\right)$ est une base orthonormale :\\
+		\[\nabla\lambda_i^K = \dfrac{\alpha_i \overrightarrow{h_ia_i}}{|\!|\overrightarrow{h_ia_i}|\!|}+\dfrac{\alpha_j\overrightarrow{h_ia_j}}{|\!|\overrightarrow{h_ia_j}|\!|}\]
 	\end{minipage}
 	
-	$\underbrace{\nabla\lambda_i^K \cdot \dfrac{\overrightarrow{h_ia_i^K}}{|\!|h_ia_i|\!|}}_{\dfrac1{|\!|h_i^Ka_j^K|\!|}\left(\underbrace{\lambda_i^K(a_j^K)}_0-\underbrace{\lambda_i^K(h_i^K)}_0\right)=0} \hspace{-1.7cm}= \alpha_i$ \hspace{2cm} \begin{minipage}[t]{15cm}
-		$\lambda_i^K(a_j^K) = \delta_{i,j}$ et $\lambda_i^K \in \mathbb P_1(K)$\\
-		$\to \alpha_j = 0$
-	\end{minipage}\\
+	Montrons que $\nabla \lambda_i \cdot \overrightarrow{mn} = \lambda_i(n) - \lambda_i(m)$.\\
+	\begin{minipage}[t]{18.5cm}
+		Puisque $\lambda_i$ est un polynôme de degré 1, $\nabla\lambda_i$ est constant, ainsi : $\lambda_i(m) = \lambda_i(n) + \nabla\lambda_i\cdot\overrightarrow{mn}$
+	\end{minipage}
 	
-	\fbox{$\nabla\lambda_i^K = \dfrac{\overrightarrow{h_i^K a_i^K}}{|\!|\overrightarrow{h_i^Ka_i^K|\!|^2}}$}\\
+	Concluons :\\
+	
+	$\underbrace{\nabla\lambda_i^K \cdot \dfrac{\overrightarrow{h_ia_k^K}}{|\!|h_ia_k|\!|}}_{=\dfrac1{|\!|\overrightarrow{h_ia_k}|\!|}\left(\underbrace{\lambda_i(a_k)}_{\delta_{i,k}}-\underbrace{\lambda_i(h_i)}_0\right)} \hspace{-1.7cm}= \alpha_k$ \hspace{2cm} \begin{minipage}[t]{5cm}
+		$\implies$ $\alpha_k = \dfrac1{|\!|\overrightarrow{h_ia_i}|\!|}\delta_{k,i}$
+	\end{minipage}\begin{minipage}[t]{10cm}
+	$ \implies$ \fbox{$\nabla\lambda_i^K = \dfrac{\overrightarrow{h_i^K a_i^K}}{|\!|\overrightarrow{h_i^Ka_i^K|\!|^2}}$}
+	\end{minipage}\\
 	
 	\begin{minipage}[t]{10cm}
 		$\displaystyle\int_K \lambda_j^K\lambda_i^K$ : \begin{minipage}{5cm}
@@ -1295,9 +1302,9 @@
 	\end{minipage}
 	
 	\begin{minipage}{6cm}
-		\includegraphics[scale=.5]{photo26.png}
+		\includegraphics[scale=.4]{photo26.png}
 	\end{minipage}\begin{minipage}{15cm}
-	$\nabla_1 ^K\cdot\nabla\lambda_1^K = \dfrac{\overrightarrow{h_1^Ka_1^K}\cdot\overrightarrow{h_1^Ka_1^K}}{|\!|h_1^Ka_1^K|\!|^4} = \dfrac1{|\!|h_1^Ka_1^K|\!|^2}$ \\
+	$\nabla\lambda_1 ^K\cdot\nabla\lambda_1^K = \dfrac{\overrightarrow{h_1^Ka_1^K}\cdot\overrightarrow{h_1^Ka_1^K}}{|\!|h_1^Ka_1^K|\!|^4} = \dfrac1{|\!|h_1^Ka_1^K|\!|^2}$ \\
 	
 	$|\!|h_1^Ka_1^K|\!|\times |\!| a_2^Ka_3^K|\!| = 2S_K$ où $S_K = $ aire de $K$.\\
 	
@@ -1337,6 +1344,8 @@
 		&= \dfrac{l!}{(k+1)\cdots(k+l+1)} \\
 		&=\dfrac{l!k!}{(k+l+1)!}
 	\end{aligned}$
+	
+	\vspace{-.5cm}
 	\end{sol}
 	
 	\subsection{Stockage de la matrice}
@@ -1889,7 +1898,7 @@
 	$M_{55} = 6 \times \dfrac{1}{96}\times2$\\
 	$M_{54} = 2 \times \dfrac1{96}$
 	
-	\item $\begin{aligned}
+	\item $\begin{aligned}[t]
 		A &= R + \kappa M\\
 		&= \begin{bmatrix}
 			R_{44} + \kappa M_{44} & R_{45} + \kappa M_{45} & R_{46} + \kappa M_{46} \\
