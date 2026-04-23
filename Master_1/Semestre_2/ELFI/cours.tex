@@ -1931,7 +1931,7 @@
 		1 & 2 & 1 \\ 
 		1 & 1 & 2
 	\end{bmatrix}\]
-	
+	,
 	\item \begin{enumerate}
 		\item Il suffit pour cela de compter le nombre de fois qu'un élément touche un point ($i=j$)\\ ou un segment ($i\not=j$).\\
 			  $M_{11} = \dfrac2{96} \times 1$ \hspace{.5cm} $M_{33} = \dfrac2{96} \times 2$ \hspace{.5cm} $M_{44} = \dfrac2{96} \times 3$ \hspace{.5cm} $M_{55} = \dfrac{2}{96}\times6$ \hspace{.5cm} $M_{66} = \dfrac2{96}\times 3$\\
@@ -1946,7 +1946,7 @@
 	\end{enumerate}
 	
 	\item La matrice du système linéaire est de la forme : $\begin{aligned}[t]
-		A &= R + \kappa M\\
+		A_\kappa &= R + \kappa M\\
 		&= \begin{bNiceMatrix}
 			R_{11} + \kappa M_{11} \\
 			 & \Ddots \\
@@ -1955,7 +1955,22 @@
 		\end{bNiceMatrix}
 	\end{aligned}$\\
 	Rappelons que $R$ et $M$ sont définies positives ici.\\
-	Ainsi, si $\kappa > 0$, alors 
+	Ainsi, si $\kappa \geq 0$, alors pour tout $X \in \mathcal M_{9,1}(\R)^\star$ :\\
+	$X^t AX = X^t(R+\kappa M)X = X^tRX + \kappa X^t M X >0$ car $X^tRX > 0$ et $\kappa X^tMX \geq 0$.\\
+	Ainsi, puisque $A_\kappa$ est symétrique définie positive elle est inversible.\\
+	Ainsi $\det(A_\kappa) \geq 0$ (car définie positive donc valeur propre positive) pour tout $\kappa \geq 0$.\\
+	
+	$\to$ Plus généralement, $RX+\kappa MX = 0 \iff M^{-1}RX = -\kappa X$. Ainsi :
+	\begin{center}
+		 $A_\kappa$ est inversible, si et seulement si, $\kappa$ est une valeur propre de $-M^{-1}R$.
+	\end{center}
+	
+	Notons $V(-M^{-1}R)$ l'ensemble des valeurs propres de $M^{-1}R$.\\
+	Ainsi, d'après ce qui précède, $V(-M^{-1}R) \subset \R^-$.\\
+	
+	De plus $V(M^{-1}R)$ est un ensemble fini, donc il y a seulement un \textbf{nombre fini} de valeur de $\kappa$ qui rendent le système non inversible (et aucune dans $\R^+$).\\
+	Pour savoir lesquels il faut calculer tous les coefficients de la matrice $A_\kappa$ en fonction de $\kappa$.
+	
 \end{enumerate}
 	
 \end{document}
