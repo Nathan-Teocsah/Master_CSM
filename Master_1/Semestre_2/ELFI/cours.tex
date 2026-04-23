@@ -1358,7 +1358,6 @@
 	
 	$\begin{aligned}
 		\displaystyle\int_0^1 x^k(1-x)^l\mathrm dx &= \text{ i.p.p. successives} &= \dfrac{l!}{(k+1)(k+21)\cdots(k+l)}\displaystyle\int_0^1 x^{k+l}\mathrm dx\\
-		\vspace*{-1cm}
 		&= \dfrac{l!}{(k+1)\cdots(k+l+1)} \\
 		&=\dfrac{l!k!}{(k+l+1)!}
 	\end{aligned}$
@@ -1833,7 +1832,7 @@
 		\item On multiplie l'EDP par une fonction test $v \in H^1(\Omega)$ et on intègre sur $\Omega$ :
 		
 		\[
-		-\displaystyle\int_\Omega \Delta u v + \int_\Omega K u v = 0
+		-\displaystyle\int_\Omega \Delta u v + \int_\Omega \kappa u v = 0
 		\]
 		
 		\item Formule de Green :
@@ -1847,7 +1846,7 @@
 		\[
 		\begin{aligned}
 			\displaystyle\int_\Omega \nabla u \cdot\nabla v + \int_\Omega \Delta uv &= \int_{\partial \Omega}\dfrac{\partial u}{\partial \mathcal{V}}v\\\\
-			\int_\Omega \nabla u \cdot\nabla v + \int_\Omega K uv &= \int_{\partial\Omega}\dfrac{\partial u}{\partial\mathcal{V}}v
+			\int_\Omega \nabla u \cdot\nabla v + \int_\Omega \kappa uv &= \int_{\partial\Omega}\dfrac{\partial u}{\partial\mathcal{V}}v
 		\end{aligned}
 		\]
 		
@@ -1865,7 +1864,7 @@
 		\item La formulation variationnelle s'écrit :\\
 		Chercher $u \in H^1(\Omega)$ tel que $u=0$ sur $\Gamma_D$ et tel que $\forall v \in H^1(\Omega)$, $v=0$ sur $\Gamma_D$
 		\[
-		\displaystyle\int_\Omega \nabla u \cdot \nabla v + \int_\Omega K uv = \int_{\Gamma_N} g_N v
+		\displaystyle\int_\Omega \nabla u \cdot \nabla v + \int_\Omega \kappa uv = \int_{\Gamma_N} g_N v
 		\]
 	\end{enumerate}
 	
@@ -1891,40 +1890,72 @@
 	On injecte cette expression de $u$ et ce choix de $v$ dans la F.V.
 	
 	\[
-	\displaystyle\int_{\Omega_h} \nabla\left(\sum_{J=1}^9 u_J w_J\right)\cdot\nabla w_I + K \int_{\Omega_h}\left(\sum_{j=1}^9 u_J w_J\right)w_I = \int_{\Gamma_N} g_N w_I
+	\displaystyle\int_{\Omega_h} \nabla\left(\sum_{J=1}^9 u_J w_J\right)\cdot\nabla w_I + \kappa \int_{\Omega_h}\left(\sum_{j=1}^9 u_J w_J\right)w_I = \int_{\Gamma_N} g_N w_I
 	\]
 	
 	\[
-	\displaystyle\sum_{j=1}^9 u_J \underbrace{\int_{\Omega_h}\nabla w_J \cdot \nabla w_I + K \int_{\Omega_h} w_J w_I}_{A_{IJ}} = \underbrace{\int_{\Gamma_N}g_Nw_I}_{B_I}
+	\displaystyle\sum_{j=1}^9 u_J \underbrace{\int_{\Omega_h}\nabla w_J \cdot \nabla w_I + \kappa \int_{\Omega_h} w_J w_I}_{A_{IJ}} = \underbrace{\int_{\Gamma_N}g_Nw_I}_{B_I}
 	\]
 	
 	Pour $I,J \in \{4,5,6\}.$
 	
 	\[
-	A_{IJ} = \displaystyle\underbrace{\int_{\Omega_h}\nabla w_J \cdot\nabla w_I}_{\text{Matrice de rigidité R}} + K \underbrace{\int_{\Omega_h}w_Jw_I}_{\text{Matrice de masse M}}
+	A_{IJ} = \displaystyle\underbrace{\int_{\Omega_h}\nabla w_J \cdot\nabla w_I}_{\text{Matrice de rigidité R}} + \kappa \underbrace{\int_{\Omega_h}w_Jw_I}_{\text{Matrice de masse M}}
 	\]
 	
 	\item  $M_{ij}^K = \displaystyle\int_K \lambda_i^K\lambda_j^K = \cdots = \cdots$\\
 	
-	$M_K = \dfrac1{96}\begin{bmatrix}
+	Calculons $\displaystyle\begin{aligned}[t]
+		\int_K \lambda_1^{k_1}\lambda_2^{k_2} &= \abs{\det JF_K}\int_0^1\int_0^{1-x_1}x_1^{k_1}x_2^{k_2}\dx_2\dx_1\\
+		&=\dfrac{2S_K}{k_2+1}\int_0^1 x_1^{k_1} (1-x_1)^{k_2+1}\dx_1\\
+		&= i.p.p\\
+		&=\dfrac{2S_K}{k_2+1}\dfrac{(k_2+1)!}{(k_1+1)\cdots(k_1+k_2+1)}\int_0^1 x_1^{k_1+k_2+1}\dx_1\\
+		&=2S_K\dfrac{k_2!}{(k_1+1)\cdots(k_1+k_2+1)(k_1+k_2+2)}\\
+		&=2S_K\dfrac{k_2!k_1!}{(k_1+k_2+2)!}
+	\end{aligned}$\\
+	
+	Calculons $\displaystyle\begin{aligned}[t]
+		\int_K \lambda_1^{k_1}\lambda_3^{k_2} &= \abs{\det JF_K}\int_0^1\int_0^{1-x_1}x_1^{k_1}(1-x_1-x_2)^{k_2}\dx_2\dx_1\\
+		&=2S_K\int_0^1x_1^{k_1}\int_0^{1-x_1}(1-x_1-x_2)^{k_2}\dx_2\dx_1\\
+		&=2S_K\int_0^1x_1^{k_1}\left[\dfrac{-1}{k_2+1}(1-x_1-x_2)^{k_2+1}\right]_0^{1-x_1}\dx_2\dx_1\\
+		&=\dfrac{2S_K}{k_2+1}\int_0^1 x_1^{k_1}(1-x_1)^{k_2+1}\dx_1 &= \int_K\lambda_1^{k_1}\lambda_2^{k_2}
+	\end{aligned}$\\
+	
+	De même $\displaystyle\int_K\lambda_2^{k_1}\lambda_3^{k_2} = 2S_K\int_0^1\int_0^{1-x_2}x_2^{k_1}(1-x_1-x_2)^{k_2}\dx_1\dx_2 = \int_K \lambda_1^{k_1}\lambda_2^{k_2}$.\\
+	
+	Or $M_{11}^K = 2S_K\dfrac{0!2!}{4!} = \dfrac{S_K}{3!}$, or $S_K = \dfrac{0.5\times0.5}{2} = \dfrac18$.\\
+	Ainsi $M_{11}^K = \dfrac{2}{96}$ et $M_{12}^K = 2S_K\dfrac{1!1!}{4!} = \dfrac1{96}$. Finalement :
+	
+	\[M^K = \dfrac1{96}\begin{bmatrix}
 		2 & 1 & 1 \\
 		1 & 2 & 1 \\ 
 		1 & 1 & 2
-	\end{bmatrix}$\\
+	\end{bmatrix}\]
 	
-	$M_{33} = 2\times \dfrac1{96} \times 2$\\
-	$M_{55} = 6 \times \dfrac{1}{96}\times2$\\
-	$M_{54} = 2 \times \dfrac1{96}$
+	\item \begin{enumerate}
+		\item Il suffit pour cela de compter le nombre de fois qu'un élément touche un point ($i=j$)\\ ou un segment ($i\not=j$).\\
+			  $M_{11} = \dfrac2{96} \times 1$ \hspace{.5cm} $M_{33} = \dfrac2{96} \times 2$ \hspace{.5cm} $M_{44} = \dfrac2{96} \times 3$ \hspace{.5cm} $M_{55} = \dfrac{2}{96}\times6$ \hspace{.5cm} $M_{66} = \dfrac2{96}\times 3$\\
+			  $M_{54} = \dfrac1{96} \times 2$ \hspace{.5cm} $M_{53} = \dfrac1{96}\times 2$ \hspace{.5cm} $M_{75} = \dfrac1{96}\times 2$ \hspace{.5cm} $M_{64} = 0$ \hspace{.5cm} $M_{95} = 0$
+			  
+			  \vspace{.5cm}
 	
-	\item $\begin{aligned}[t]
+	\item $R_{11} = \dfrac1{2} \times 1$ \hspace{.5cm} $R_{33} = \dfrac1{2} \times 2$ \hspace{.5cm} $R_{44} = \dfrac12\left(1+1+2\right)$ \hspace{.5cm} $R_{55} = 2\times\dfrac12\left(1+1+2\right)$\\ $R_{66} = \dfrac12\times\left(1+1+2\right)$\\
+	$R_{54} = \dfrac1{2} (-1+(-1))$ \hspace{.5cm} $R_{53} = 2\times \dfrac02$ \hspace{.5cm} $R_{75} = 2\times \dfrac02$ \hspace{.5cm} $R_{64} = 0$ \hspace{.5cm} $R_{95} = 0$
+	
+	\vspace{.5cm}
+	\end{enumerate}
+	
+	\item La matrice du système linéaire est de la forme : $\begin{aligned}[t]
 		A &= R + \kappa M\\
-		&= \begin{bmatrix}
-			R_{44} + \kappa M_{44} & R_{45} + \kappa M_{45} & R_{46} + \kappa M_{46} \\
-			& \ddots \\
-			Sym & & \ddots \\
-			& & & \ddots
-		\end{bmatrix}
-	\end{aligned}$
+		&= \begin{bNiceMatrix}
+			R_{11} + \kappa M_{11} \\
+			 & \Ddots \\
+			 Sym \\
+			& & & R_{99}+\kappa M_{99}
+		\end{bNiceMatrix}
+	\end{aligned}$\\
+	Rappelons que $R$ et $M$ sont définies positives ici.\\
+	Ainsi, si $\kappa > 0$, alors 
 \end{enumerate}
 	
 \end{document}
