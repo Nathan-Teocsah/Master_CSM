@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  22 APR 2026 15:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  23 APR 2026 09:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2602,107 +2602,122 @@ Underfull \hbox (badness 10000) in paragraph at lines 1332--1335
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1336--1341
+Underfull \hbox (badness 10000) in paragraph at lines 1337--1342
+[]$[]$
+ []
+
+
+Overfull \hbox (24.0pt too wide) in paragraph at lines 1355--1355
+[][]$[]$  
+ []
+
+
+Overfull \hbox (286.43542pt too wide) in paragraph at lines 1336--1358
+[]$[]$$[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1336--1358
 
  []
 
 
-Overfull \hbox (75.8254pt too wide) in paragraph at lines 1342--1347
+Overfull \hbox (75.8254pt too wide) in paragraph at lines 1359--1365
 []$[][]$ 
  []
 
 [24 <./photo25.png>] [25 <./photo26.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1353--1354
+Underfull \hbox (badness 10000) in paragraph at lines 1371--1372
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1355--1360
+Underfull \hbox (badness 10000) in paragraph at lines 1373--1378
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1363--1364
+Underfull \hbox (badness 10000) in paragraph at lines 1381--1382
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1365--1366
+Underfull \hbox (badness 10000) in paragraph at lines 1383--1384
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1367--1368
+Underfull \hbox (badness 10000) in paragraph at lines 1385--1386
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1370--1371
+Underfull \hbox (badness 10000) in paragraph at lines 1388--1389
 
  []
 
 
-Overfull \hbox (154.99959pt too wide) in paragraph at lines 1382--1404
+Overfull \hbox (154.99959pt too wide) in paragraph at lines 1400--1422
 []$ 
  []
 
 [26]
-Overfull \hbox (232.466pt too wide) in paragraph at lines 1407--1411
+Overfull \hbox (232.466pt too wide) in paragraph at lines 1425--1429
 [][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1414--1415
+Underfull \hbox (badness 10000) in paragraph at lines 1432--1433
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1417--1424
+Underfull \hbox (badness 10000) in paragraph at lines 1435--1442
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1425--1432
+Underfull \hbox (badness 10000) in paragraph at lines 1443--1450
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1433--1439
+Underfull \hbox (badness 10000) in paragraph at lines 1451--1457
 
  []
 
 
-Overfull \hbox (87.26613pt too wide) in paragraph at lines 1416--1453
+Overfull \hbox (87.26613pt too wide) in paragraph at lines 1434--1471
 [][][] 
  []
 
 
-Overfull \hbox (154.99959pt too wide) in paragraph at lines 1457--1474
+Overfull \hbox (154.99959pt too wide) in paragraph at lines 1475--1492
 [] 
  []
 
 [27]
-Overfull \hbox (12.60716pt too wide) in paragraph at lines 1486--1503
+Overfull \hbox (12.60716pt too wide) in paragraph at lines 1504--1521
 []\T1/lmr/m/it/12 2. $[]$ 
  []
 
 
-Overfull \hbox (41.18855pt too wide) in paragraph at lines 1476--1504
+Overfull \hbox (41.18855pt too wide) in paragraph at lines 1494--1522
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1527--1527
+Underfull \hbox (badness 10000) in paragraph at lines 1545--1545
 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 1527--1528
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 1545--1546
 []$[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1527--1528
+Underfull \hbox (badness 10000) in paragraph at lines 1545--1546
 
  []
 
@@ -2714,64 +2729,64 @@ Underfull \hbox (badness 10000) in paragraph at lines 1527--1528
 \l__nicematrix_right_delim_dim=\dimen452
 \l__nicematrix_l_dim=\dimen453
 
-Overfull \hbox (2.17065pt too wide) in paragraph at lines 1532--1555
+Overfull \hbox (2.17065pt too wide) in paragraph at lines 1550--1573
 [] $\OML/lmm/m/it/12 A[] \OT1/lmr/m/n/12 = [][] = []$ 
  []
 
 [28]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 1591.
+(Font)              <17.28> on input line 1609.
 
 
-LaTeX Warning: Command \` invalid in math mode on input line 1605.
+LaTeX Warning: Command \` invalid in math mode on input line 1623.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1605--1632
+Underfull \hbox (badness 10000) in paragraph at lines 1623--1650
 
  []
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1639--1640
+Underfull \hbox (badness 10000) in paragraph at lines 1657--1658
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1641--1643
+Underfull \hbox (badness 10000) in paragraph at lines 1659--1661
 
  []
 
 
-Overfull \hbox (42.99474pt too wide) in paragraph at lines 1644--1658
+Overfull \hbox (42.99474pt too wide) in paragraph at lines 1662--1676
 []$[]$ [] 
  []
 
 
-LaTeX Warning: Command \` invalid in math mode on input line 1667.
+LaTeX Warning: Command \` invalid in math mode on input line 1685.
 
 
-Overfull \hbox (198.60066pt too wide) in paragraph at lines 1666--1670
+Overfull \hbox (198.60066pt too wide) in paragraph at lines 1684--1688
 [][] 
  []
 
 
-Overfull \hbox (1.67476pt too wide) in paragraph at lines 1674--1678
+Overfull \hbox (1.67476pt too wide) in paragraph at lines 1692--1696
 []$\OML/lmm/m/it/12 Profil\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 i\OT1/lmr/m/n/12 )$
 \T1/lmr/m/it/12 , $\OML/lmm/m/it/12 i \OMS/lmsy/m/n/12 2 \OT1/lmr/m/n/12 [ [1\O
 ML/lmm/m/it/12 ; N[]\OT1/lmr/m/n/12 ] ]$\T1/lmr/m/it/12 , [] 
  []
 
 
-Overfull \hbox (155.92152pt too wide) in paragraph at lines 1673--1679
+Overfull \hbox (155.92152pt too wide) in paragraph at lines 1691--1697
 [][] 
  []
 
 
-Overfull \hbox (204.32593pt too wide) in paragraph at lines 1691--1696
+Overfull \hbox (204.32593pt too wide) in paragraph at lines 1709--1714
 \T1/lmr/m/it/12 Soient [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1691--1696
+Underfull \hbox (badness 10000) in paragraph at lines 1709--1714
 
  []
 
@@ -2779,56 +2794,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 1691--1696
 <photo30.png, id=557, 269.005pt x 160.6pt>
 File: photo30.png Graphic file (type png)
 <use photo30.png>
-Package pdftex.def Info: photo30.png  used on input line 1724.
+Package pdftex.def Info: photo30.png  used on input line 1742.
 (pdftex.def)             Requested size: 188.3022pt x 112.41922pt.
  [31 <./photo30.png>]
 <photo27.jpg, id=565, 1274.7625pt x 1758.57pt>
 File: photo27.jpg Graphic file (type jpg)
 <use photo27.jpg>
-Package pdftex.def Info: photo27.jpg  used on input line 1805.
+Package pdftex.def Info: photo27.jpg  used on input line 1823.
 (pdftex.def)             Requested size: 509.89597pt x 703.41556pt.
 <photo28.jpg, id=566, 1347.0325pt x 1780.6525pt>
 File: photo28.jpg Graphic file (type jpg)
 <use photo28.jpg>
-Package pdftex.def Info: photo28.jpg  used on input line 1807.
+Package pdftex.def Info: photo28.jpg  used on input line 1825.
 (pdftex.def)             Requested size: 538.80347pt x 712.2484pt.
 
-Overfull \hbox (15.8259pt too wide) in paragraph at lines 1807--1808
+Overfull \hbox (15.8259pt too wide) in paragraph at lines 1825--1826
 [][] 
  []
 
 [32 <./photo27.jpg>] [33 <./photo28.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 1836--1837
+Underfull \hbox (badness 10000) in paragraph at lines 1854--1855
 
  []
 
 <photo29.png, id=575, 169.63374pt x 124.465pt>
 File: photo29.png Graphic file (type png)
 <use photo29.png>
-Package pdftex.def Info: photo29.png  used on input line 1868.
+Package pdftex.def Info: photo29.png  used on input line 1886.
 (pdftex.def)             Requested size: 118.7428pt x 87.1249pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1868--1869
+Underfull \hbox (badness 10000) in paragraph at lines 1886--1887
 
  []
 
 
-Overfull \hbox (0.92188pt too wide) in paragraph at lines 1863--1872
+Overfull \hbox (0.92188pt too wide) in paragraph at lines 1881--1890
 []$[]$ $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1863--1872
+Underfull \hbox (badness 10000) in paragraph at lines 1881--1890
 
  []
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1889--1890
+Underfull \hbox (badness 10000) in paragraph at lines 1907--1908
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1891--1896
+Underfull \hbox (badness 10000) in paragraph at lines 1909--1914
 
  []
 
@@ -2836,7 +2851,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1891--1896
 \openout7 = `cours.thm'.
 
 [35 <./photo29.png>]
-runsystem(latexminted cleantemp  --timestamp 20260422150445 456C7996E5729627FDD
+runsystem(latexminted cleantemp  --timestamp 20260423092633 456C7996E5729627FDD
 F96470E5E0948)...executed safely (allowed).
 
  (./cours.aux)
@@ -2850,11 +2865,11 @@ Package rerunfilecheck Info: File `cours.out' has not changed.
 Here is how much of TeX's memory you used:
  57558 strings out of 467538
  1347356 string characters out of 5419551
- 2049373 words of memory out of 5000000
+ 2048370 words of memory out of 5000000
  85368 multiletter control sequences out of 15000+600000
  742535 words of font info for 142 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,27n,131p,866b,1254s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,30n,131p,866b,1254s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line1
@@ -2876,7 +2891,7 @@ sr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/local/te
 xlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025
 /texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist
 /fonts/type1/public/lm/lmsy8.pfb>
-Output written on cours.pdf (36 pages, 3203135 bytes).
+Output written on cours.pdf (36 pages, 3203951 bytes).
 PDF statistics:
  745 PDF objects out of 1000 (max. 8388607)
  569 compressed objects within 6 object streams
