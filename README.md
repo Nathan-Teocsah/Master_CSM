@@ -5,7 +5,8 @@ Ceci est l'ensemble des cours que j'ai suivi lors de mes deux années en Master 
 
 ## Février 2026
 - Lundi 16 : Contrôle de _MODA_
-- VACANCES du 20 au 1 Mars
+
+_VACANCE_ 20 -> 1 Mars
 
 ## Mars 2026
 - Semaine du 1 : Contrôle _RNDP_
@@ -18,6 +19,7 @@ _Vacances_ 11 -> 26
 - Semaine du 27 : Contrôle _RNDP_
 
 ## Mai 2026
-- Rendu Etude 2 APST (Régression linéaire multiple, Ridge, commencer méthode non paramétrique) : Dimanche 3 mai
-- Rendu _ELFI_ :
-- Rendu Etude 3 APST : Dimanche 17 mai
+- Dimanche 3 : Rendu Etude 2 _APST_ 
+- ?? : Rendu _ELFI_
+- Mardi 12 : soutenance _projet tutoré_
+- Dimanche 17 : Rendu Etude 3 _APST_

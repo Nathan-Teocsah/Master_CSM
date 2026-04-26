@@ -621,8 +621,8 @@
 	\vspace{.5cm}
 	
 	\begin{defi}[Espace fonctionnel discret]$ $\\
-		$W_h = \left\{v=(v_K)_{K\in \m T_h} \in \displaystyle\prod_{K\in \m T_h}; \forall n \in \m M_h, \forall K_1,K_2 \in \m L_h(n) : v_{K_1}(n) = v_{K_2}(n)\right\}$\\\\
-		$V_h = \left\{v \in W_h; \forall n \in \m M_h\cap\Gamma_{D,h},\forall K\in \m L_h(n), v_K(n) = 0\right\}$
+		$W_h = \left\{v=(v_K)_{K\in \m T_h} \in \displaystyle\prod_{K\in \m T_h}\mathbb P_1(K)\hspace{.2cm}\vert \hspace{.2cm}\forall n \in \m M_h, \forall K_1,K_2 \in \m L_h(n) : v_{K_1}(n) = v_{K_2}(n)\right\}$\\\\
+		$V_h = \left\{v \in W_h\hspace{.2cm}\vert\hspace{.2cm} \forall n \in \m M_h\cap\Gamma_{D,h},\forall K\in \m L_h(n), v_K(n) = 0\right\}$
 	\end{defi}
 	
 	
@@ -1217,7 +1217,7 @@
 				
 				$\to$ \begin{minipage}[t]{15cm}
 					Pour que la relation (FV) soit vraie $\forall v \in V_h$, il faut et il suffit qu'elle soit vraie pour toute fonction d'une base de $V_h$, car (FV) est linéaire en $v$.\\
-					On écrit alors (FV) pour $v=w_I$ pour tout $I$ tel que : $m_I\not\in \Gamma_D$
+					\fbox{\textbf{On écrit alors (FV) pour $v=w_I$ pour tout $I$ tel que : $n_I\not\in \Gamma_D$}}
 				\end{minipage}\\
 				
 				$\to$ \begin{minipage}[t]{18cm}
@@ -1259,6 +1259,12 @@
 		Avec $K \in \mathcal{T}_h$, $K'$ arête de $K \in \mathcal{T}_h$ tel que $K' \subset \Gamma_N$.\\
 		$i,j \in [\![1,N^K]\!]$, avec $N^K$ = nombre de nœuds de $K$.
 	\end{sol}
+	\begin{rmq}
+		\begin{minipage}[t]{15cm}
+			On prend $v=w_I$ pour tout $I$ tel que : $m_I\not\in \Gamma_D$ \textbf{\underline{car}} on a pris $v = 0$ sur $\Gamma_D$,\\
+			ce qui revient à écrire que $v\cdot w_I = 0$ pour tout $n_I \in \Gamma_D$.
+		\end{minipage}
+	\end{rmq}
 	
 	\begin{exo}[de la feuille "formule et exos - calculs élémentaire]
 		\begin{minipage}[t]{18cm}
@@ -1267,9 +1273,7 @@
 		\end{aligned}$
 		\end{minipage}
 	\end{exo}
-	
 	\begin{sol}
-		
 	\begin{minipage}{6cm}
 		\includegraphics[scale=.5]{photo25.png}
 	\end{minipage}\begin{minipage}{10cm}
@@ -1283,7 +1287,11 @@
 		Puisque $\lambda_i$ est un polynôme de degré 1, $\nabla\lambda_i$ est constant, ainsi : $\lambda_i(m) = \lambda_i(n) + \nabla\lambda_i\cdot\overrightarrow{mn}$
 	\end{minipage}
 	
-	Concluons :\\
+	\newpage
+	
+	Concluons :
+	
+	\vspace{.05cm}
 	
 	$\underbrace{\nabla\lambda_i^K \cdot \dfrac{\overrightarrow{h_ia_k^K}}{|\!|h_ia_k|\!|}}_{=\dfrac1{|\!|\overrightarrow{h_ia_k}|\!|}\left(\underbrace{\lambda_i(a_k)}_{\delta_{i,k}}-\underbrace{\lambda_i(h_i)}_0\right)} \hspace{-1.7cm}= \alpha_k$ \hspace{2cm} \begin{minipage}[t]{5cm}
 		$\implies$ $\alpha_k = \dfrac1{|\!|\overrightarrow{h_ia_i}|\!|}\delta_{k,i}$
@@ -1395,6 +1403,8 @@
 	\rouge{\textbf{!} On appelle élément "non nul" $A_{IJ}$ de $AH$ élément tel que $\mathrm{supp}(w_J) \cap \mathrm{supp}(w_I) \not=\emptyset$ \textbf{!}}
 	
 	Ce stockage permet de faire des opérations algébriques sur les matrices après le stockage !
+	
+	\newpage
 	
 	\begin{defi}[Stockage morse ordonnée]$ $\\
 		\begin{minipage}{18cm}
@@ -1595,6 +1605,8 @@
 		\end{cases}$
 	\end{enumerate}
 	
+	\newpage
+	
 	Décomposition $LL^t$. On peut procéder ligne par ligne : 
 	\[
 	\begin{bNiceMatrix}
@@ -1651,8 +1663,6 @@
 		$\hookrightarrow \textcolor{brown}{L_{ii}} = \sqrt{A_{ii}-\displaystyle\sum_{j=1}^{i-1} L_{ij}^2}$
 	\end{enumerate}
 	
-	\newpage
-	
 	\textbf{\underline{Travail préalable} à la décomposition $LL^t$}\\
 	
 	Stockage Profil (préservé par la décomposition $LL^t$).\\
@@ -1691,6 +1701,7 @@
 				$Profil(i)$, $i \in [\![1,N_h]\!]$, \begin{minipage}[t]{13cm}
 					position dans $LMatP$ du premier élément de la ligne $i$ stockée dans $LMatP$.
 				\end{minipage}\\
+				
 			S'il n'y a pas d'élément "non nul" stockée pour la ligne $i$ : $Profil(i) = Profil(i+1)$.
 			\end{minipage}
 		\end{enumerate}
@@ -1968,7 +1979,7 @@
 	Notons $V(-M^{-1}R)$ l'ensemble des valeurs propres de $M^{-1}R$.\\
 	Ainsi, d'après ce qui précède, $V(-M^{-1}R) \subset \R^-$.\\
 	
-	De plus $V(M^{-1}R)$ est un ensemble fini, donc il y a seulement un \textbf{nombre fini} de valeur de $\kappa$ qui rendent le système non inversible (et aucune dans $\R^+$).\\
+	De plus $V(M^{-1}R)$ est un ensemble fini, donc il y a seulement un \textbf{nombre fini} de valeur de $\kappa$ qui rendent le système \textbf{non inversible} (et aucune dans $\R^+$).\\
 	Pour savoir lesquels il faut calculer tous les coefficients de la matrice $A_\kappa$ en fonction de $\kappa$.
 	
 \end{enumerate}

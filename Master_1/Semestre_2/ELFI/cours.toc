@@ -31,8 +31,8 @@
 \contentsline {subsection}{\numberline {4.1}Formulation Variationnelle discrète}{22}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Stockage de la matrice}{26}{subsection.4.2}%
 \contentsline {subsubsection}{\numberline {4.2.1}Stockage morse ordonnée}{26}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Stockage morse désordonnée}{27}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2}Stockage morse désordonnée}{28}{subsubsection.4.2.2}%
 \contentsline {subsubsection}{\numberline {4.2.3}Passage du SMD au SMO}{28}{subsubsection.4.2.3}%
 \contentsline {subsection}{\numberline {4.3}Résolution du système}{29}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Validation numérique}{30}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Correction contrôle blanc 2024-2025}{32}{section.5}%
+\contentsline {subsection}{\numberline {4.4}Validation numérique}{31}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Correction contrôle blanc 2024-2025}{33}{section.5}%
