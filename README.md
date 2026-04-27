@@ -16,10 +16,10 @@ _VACANCE_ 20 -> 1 Mars
 ## Avril 2026
 _Vacances_ 11 -> 26
 - Mercredi 29 : Contrôle _ELFI_
-- Semaine du 27 : Contrôle _RNDP_
 
 ## Mai 2026
 - Dimanche 3 : Rendu Etude 2 _APST_ 
+- Lundi 4 : Contrôle _RNDP_
 - ?? : Rendu _ELFI_
 - Mardi 12 : soutenance _projet tutoré_
 - Dimanche 17 : Rendu Etude 3 _APST_
