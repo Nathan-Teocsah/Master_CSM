@@ -2864,6 +2864,49 @@ $a_0(0) = \dfrac1{4L}\displaystyle\int_{-L}^{3L} T(0,x)\dx = T_0$ \hspace{2cm} $
 		
 	\end{sol}
 	
+\section{TP}
+\subsection{Théorie}
+
+Équation que l'on va étudier : $\partial_t f + v\nabla_x f = \dfrac12\left(\dfrac{\rho_0}\rho\right)(\rho-f)$.\\
+Avec $\rho = \dfrac12\displaystyle\int_{-1}^1 f(t,x,v)\mathrm dv$. On pose $\tau = \eta$.\\
+$f = \rho + \eta g$ ($\eta \leq 0$).\\
+$\begin{aligned}
+	O(\eta) + v\nabla_x\rho + O(\eta) &= -\left(\dfrac{\rho_0}\rho\right)^\alpha \dfrac\eta{\tau}g + O(\eta)\\
+	&= - \left(\dfrac{\rho_0}\rho\right)^\alpha g
+\end{aligned}$\\
+$g = -\left(\dfrac\rho{\rho_0}\right)^\alpha v\nabla_x\rho$\\
+
+$\eta\partial_t \rho + \dfrac12 \nabla_x\displaystyle\int_{-1}^1 fv = 0$\\
+$\begin{aligned}
+	\displaystyle\int_{-1}^1 fv = \int_{-1}^1 (\rho + \eta g) v \mathrm dv& = \eta \int_{-1}^1 gv \mathrm dv\\
+	&=-\eta\left(\dfrac\rho{\rho_0}\right)^\alpha \displaystyle\int_{-1}^1 \left(v\nabla_x\rho\right) v \mathrm dv \\
+	&= -\eta\left(\dfrac\rho{\rho_0}\right)^\alpha\nabla_x \rho\int_{-1}^1 v^2\mathrm dv \\
+	&= -\dfrac23 \eta\left(\rho{\rho_0}\right)^\alpha\nabla_x\rho
+\end{aligned}$\\
+
+\noindent$\partial_t\rho + \dfrac12\nabla_x \left(-\dfrac23\left(\dfrac\rho{\rho_0}\right)^\alpha\nabla_x\rho\right) = 0$\\
+Donc $\partial_t \rho = \dfrac13 \nabla_x\left(\left(\dfrac\rho{\rho_0}\right)^\alpha\nabla_x\rho\right)$.\\
+
+\[
+\eta\partial_t f + v\nabla_x f = \dfrac1\tau\left(\dfrac{\rho_0}\rho\right)^\alpha (\rho - f)\hspace{.8cm}\oplus\hspace{.8cm}\tau = \eta
+\]
+
+$\partial_t f = \dfrac1\tau (\rho-f)$\\
+$f(t,v) = f_0(t,v)e^{-t/\tau} + \rho (1-e^{-t/\tau})\mathcal U \left([-1, 1]\right)$ $\to$ loi uniforme sur $[-1,1]$\\
+
+$y' = ay$ et $y(t+\Delta t) = (1+a \Delta t)y(t)$\\
+$\dfrac{y(t+\Delta)-y(t)}{\Delta t} = a y(t+\Delta t)$ et $y(t+\Delta t) = \dfrac1{1-a\Delta t} y(t)$\\
+
+\underline{Probabilité d'avoir une collision entre $t$ et $t+\Delta t$ : } $\mathbb P = 1-e^{-\Delta t/\tau}$\\
+
+$\overset{\text{donnée initiale}}{(f/\tau) \hspace{.2cm} x_i,v_i} \begin{cases}
+	\text{\underline{collision}} \hspace{.5cm} V_i \to V_i' \text{ tirer $\rho$ et $\eta$ sur une loi uniforme} \to \begin{aligned}[t]
+		&X_i(t+\Delta t)\\
+		=&X_i(t) + V_i'\Delta t
+	\end{aligned}\\
+	\text{\underline{pas de collisions}} \hspace{.5cm} V_i'=V_i \hspace{.5cm} X_i(t+\Delta t) = X_i(t) + V_i\Delta t	
+\end{cases}$
+
 	
 	
 	
