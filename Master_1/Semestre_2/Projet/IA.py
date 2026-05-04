@@ -1,109 +1,108 @@
 import numpy as np
-from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
 
-# --- Constantes physiques ---
-G = 6.67430e-11          # Constante gravitationnelle (m^3 kg^-1 s^-2)
-R = 3.397e6              # Rayon de Mars (m)
-M_0 = 6.4171e23          # Masse de Mars (kg)
-m = 1.0659e16            # Masse de Phobos (kg)
-k_2 = 0.15               # Nombre de Love pour Mars
-omega_p = 7.088e-5       # Vitesse de rotation de Mars (rad/s)
+# Constantes
+G = 6.67430e-11
+M0 = 6.4185e23
+m = 1.06e16
+R = 3396.2e3
+k2 = 0.15
+a0 = 9377e3
+omega_p = 2 * np.pi / (24.622962 * 3600)
+roche = 2.2 * R
+alpha = [0.2, 0.3, 0.4]
 
-# --- Paramètres du modèle ---
-# Valeurs de E (en day rad^-1) pour chaque alpha, converties en secondes
-E_values = {
-    0.2: 1.201e8 * 86400,   # 1201 × 10^5 day rad^-1 → s rad^-1
-    0.3: 8.1028e4 * 86400,   # 81028 day rad^-1 → s rad^-1
-    0.4: 2.104e3 * 86400     # 2104 day rad^-1 → s rad^-1
-}
+def E(alpha):
+    match alpha:
+        case 0.2: return 1201 * 10**5 * 24 * 3600
+        case 0.3: return 81028 * 24 * 3600
+        case 0.4: return 2104 * 24 * 3600
 
-# --- Fonctions auxiliaires ---
 def n(a):
-    """Calcule la moyenne motion n (rad/s) pour un demi-grand axe a (m)."""
-    return np.sqrt(G * M_0 / a**3)
+    return np.sqrt(G * (M0 + m) / a**3)
 
-def chi(a):
-    """Calcule la fréquence tidale chi (rad/s) pour un demi-grand axe a (m)."""
+def X(a):
     return 2 * np.abs(omega_p - n(a))
 
 def Delta_t(a, alpha):
-    """
-    Calcule le lag temporel Delta_t (s) pour un demi-grand axe a (m) et un exposant alpha.
-    Équation (29) : Delta_t = E * (2 * E * chi)^(-(alpha + 1))
-    """
-    E_alpha = E_values[alpha]
-    chi_val = chi(a)
-    return E_alpha * (2 * E_alpha * chi_val) ** (-alpha - 1)
+    return E(alpha)**(-alpha) * X(a)**(-(alpha + 1))
 
-# --- Équation différentielle (équation 36) ---
-def da_dt(t, a, alpha):
-    """
-    Équation (36) : da/dt = - (6 * k_2 * R^5 * n * m * Delta_t) / (M_0 * a^4) * (n - omega_p)
-    """
-    a = a[0]  # solve_ivp attend un tableau
-    n_val = n(a)
-    Delta_t_val = Delta_t(a, alpha)
-    return - (6 * k_2 * R**5 * n_val * m * Delta_t_val) / (M_0 * a**4) * (n_val - omega_p)
+def da_dt(a, alpha):
+    if a < roche:
+        return 0
+    numerateur = 6 * k2 * R**5 * n(a) * m * Delta_t(a, alpha)
+    denominateur = M0 * a**4
+    return -numerateur / denominateur * (n(a) - omega_p)
 
-# --- Simulation ---
-def simuler_phobos(alpha, a0, t_max):
-    """
-    Simule l'évolution de a en fonction du temps pour un alpha donné.
-    """
-    # Condition d'arrêt : a <= R (surface de Mars)
-    def hit_surface(t, a):
-        return a[0] - R
+def euler_explicite(a0, alpha, T, dt):
+    t = np.arange(0, T, dt)
+    a = np.zeros(len(t))
+    a[0] = a0
+    for i in range(1, len(t)):
+        a[i] = a[i-1] + da_dt(a[i-1], alpha) * dt
+    return t, a
 
-    hit_surface.terminal = True
-    hit_surface.direction = -1
+# Paramètres de la simulation
+T = 3.5e7 * 365.25 * 24 * 3600  # 35 millions d'années en secondes
+Alpha = alpha[0]  # alpha = 0.2
+Nb_point = 10  # Nombre de pas de temps à tester
+dt0 = 1e6  # Pas de temps initial (11.5 jours en secondes)
 
-    # Résolution de l'ODE
-    sol = solve_ivp(
-        lambda t, a: da_dt(t, a, alpha),
-        [0, t_max],
-        [a0],
-        method='RK45',
-        rtol=1e-6,
-        atol=1e-6,
-        events=hit_surface
-    )
+# Calcul de la solution de référence avec le plus petit pas
+dt_ref = dt0
+t_ref, a_ref = euler_explicite(a0, Alpha, T, dt_ref)
+zero_ref = np.argmax(a_ref < roche)  # Index où a_ref < roche
+print(f"Phobos atteint la Roche après {t_ref[zero_ref]/(365.25*24*3600e6):.2f} millions d'années (référence).")
 
-    # Conversion du temps en années
-    t_years = sol.t / (365.25 * 24 * 3600)
+# Grille commune pour l'interpolation
+x_query = np.linspace(0, T, int(T/dt_ref))
+a_ref_interp = np.interp(x_query, t_ref, a_ref)
 
-    return sol.t, sol.y[0], t_years
+# Tableaux pour stocker les erreurs
+Erreur_rel = np.zeros(Nb_point - 1)
+Erreur_abs = np.zeros(Nb_point - 1)
+DT = np.zeros(Nb_point - 1)
+Temps_chute = np.zeros(Nb_point - 1)
 
-# --- Paramètres initiaux ---
-a0 = 9.376e6              # Demi-grand axe initial de Phobos (m)
-t_max = 5e7 * 365.25 * 24 * 3600  # 50 millions d'années en secondes
+for i in range(1, Nb_point):
+    dt = i * dt0  # Pas de temps croissant
+    DT[i-1] = dt
+    print(f"\nCalcul pour dt = {dt/(365.25*24*3600):.2f} années.")
+    t, a = euler_explicite(a0, Alpha, T, dt)
+    zero = np.argmax(a < roche)
+    Temps_chute[i-1] = t[zero] / (365.25 * 24 * 3600e6)  # Temps de chute en Ma
+    a_interp = np.interp(x_query, t, a)
+    Erreur_rel[i-1] = np.max(np.abs(a_interp - a_ref_interp) / a_ref_interp)
+    Erreur_abs[i-1] = np.max(np.abs(a_interp - a_ref_interp))
 
-# --- Simulation pour différents alpha ---
-alphas = [0.2, 0.3, 0.4]
-results = {}
-
-for alpha in alphas:
-    t, a, t_years = simuler_phobos(alpha, a0, t_max)
-    results[alpha] = (t_years, a)
-
-# --- Tracé des résultats ---
-plt.figure(figsize=(10, 6))
-for alpha in alphas:
-    t_years, a = results[alpha]
-    plt.plot(t_years / 1e6, a / 1e3, label=f"α = {alpha}")
-
-plt.xlabel("Temps (Millions d'années)")
-plt.ylabel("Demi-grand axe (km)")
-plt.title("Évolution du demi-grand axe de Phobos pour différents α")
+# Tracé des erreurs
+plt.figure(figsize=(12, 6))
+plt.plot(DT/(365.25*24*3600), Erreur_rel, '-+', label="Erreur relative")
+plt.xlabel("Pas de temps (années)")
+plt.ylabel("Erreur relative")
+plt.title("Erreur relative en fonction du pas de temps (Euler explicite)")
+plt.xscale("log")
+plt.yscale("log")
 plt.grid(True)
 plt.legend()
-plt.show()
 
-# --- Temps de chute ---
-for alpha in alphas:
-    t_years, a = results[alpha]
-    if len(sol.t_events[0]) > 0:  # Si Phobos a atteint la surface
-        t_crash = sol.t_events[0][0] / (365.25 * 24 * 3600) / 1e6
-        print(f"Pour α = {alpha}, Phobos atteint la surface de Mars en {t_crash:.2f} millions d'années.")
-    else:
-        print(f"Pour α = {alpha}, Phobos n'a pas atteint la surface après 50 millions d'années.")
+plt.figure(figsize=(12, 6))
+plt.plot(DT/(365.25*24*3600), Erreur_abs/1e3, '-+', label="Erreur absolue (km)")
+plt.xlabel("Pas de temps (années)")
+plt.ylabel("Erreur absolue (km)")
+plt.title("Erreur absolue en fonction du pas de temps (Euler explicite)")
+plt.xscale("log")
+plt.yscale("log")
+plt.grid(True)
+plt.legend()
+
+plt.figure(figsize=(12, 6))
+plt.plot(DT/(365.25*24*3600), Temps_chute, '-+', label="Temps de chute (Ma)")
+plt.xlabel("Pas de temps (années)")
+plt.ylabel("Temps de chute (Ma)")
+plt.title("Temps de chute de Phobos en fonction du pas de temps")
+plt.xscale("log")
+plt.grid(True)
+plt.legend()
+
+plt.show()
