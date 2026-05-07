@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  4 MAY 2026 16:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  4 MAY 2026 16:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1828,7 +1828,7 @@ Overfull \hbox (137.57222pt too wide) in paragraph at lines 260--263
 [][][] 
  []
 
-<photo1.png, id=278, 340.27126pt x 249.93375pt>
+<photo1.png, id=279, 340.27126pt x 249.93375pt>
 File: photo1.png Graphic file (type png)
 <use photo1.png>
 Package pdftex.def Info: photo1.png  used on input line 285.
@@ -2892,7 +2892,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1977--1979
 \openout7 = `cours.thm'.
 
 [36]
-runsystem(latexminted cleantemp  --timestamp 20260504160942 456C7996E5729627FDD
+runsystem(latexminted cleantemp  --timestamp 20260504162646 456C7996E5729627FDD
 F96470E5E0948)...executed safely (allowed).
 
  (./cours.aux)
@@ -2932,7 +2932,7 @@ sr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/local/te
 xlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025
 /texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist
 /fonts/type1/public/lm/lmsy8.pfb>
-Output written on cours.pdf (37 pages, 3212659 bytes).
+Output written on cours.pdf (37 pages, 3212874 bytes).
 PDF statistics:
  757 PDF objects out of 1000 (max. 8388607)
  580 compressed objects within 6 object streams
