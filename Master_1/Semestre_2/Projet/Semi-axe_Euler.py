@@ -9,15 +9,17 @@ R = 3396.2e3 # rayon de Mars (en mètres)
 k2 = 0.169 # nombre de Love de Mars : https://arxiv.org/html/2405.05519v1
 a0 = 9377e3 # demi-grand axe phobos (en mètres)
 omega_p = 2*np.pi/(24.622962*3600) # vitesse de rotation de Mars (rad/s)
-roche = 2.2*R # distance de Roche pour Phobos (en mètres) : https://www.insu.cnrs.fr/fr/cnrsinfo/phobos-la-lune-condamnee-pourquoi-mars-va-eroder-puis-disloquer-son-satellite
+roche = 3000e3 # distance de Roche pour Phobos (en mètres) : https://www.insu.cnrs.fr/fr/cnrsinfo/phobos-la-lune-condamnee-pourquoi-mars-va-eroder-puis-disloquer-son-satellite
+lim_roche = 2.2*R
 alpha = [0.2, 0.3, 0.4] # Exposant de la loi de puissance
+Q = 80
 
 def E(alpha) : # sec/rad (Q = E^alpha X^alpha)
     match alpha :
         case 0.2 : return  1201*10**5*24*3600
         case 0.3 : return 81028*24*3600
         case 0.4 : return 2104*24*3600
-        case _ : return 1
+        case 0 : return 2*Q
 
 def n(a) : # fréquence orbitale de Phobos (rad/s)  
     return np.sqrt(G*(M0+m)/a**3)
@@ -26,7 +28,9 @@ def X(a) : # fréquence de marée principale (s^(-1))
     return 2*np.abs(omega_p - n(a))
 
 def Delta_t(a, alpha) : # lag temporel (s)
-    return E(alpha)**(-alpha) * X(a)**(-(alpha+1))
+    match alpha :
+        case 0 : return (X(a)*Q)**(-1)
+        case _ : return E(alpha)**(-alpha) * X(a)**(-(alpha+1))
 
 def da_dt(a, alpha) : # dérivée du demi-grand axe (m/s)
     numerateur = 6* k2 * R**5 * n(a) * m * Delta_t(a, alpha)
@@ -35,12 +39,27 @@ def da_dt(a, alpha) : # dérivée du demi-grand axe (m/s)
         return 0
     return -numerateur/denominateur * (n(a) - omega_p)
 
+def da_dt_Kaula(a) : # dérivée du demi-grand axe (m/s)
+    numerateur = 3* k2 * R**5 * G * m
+    denominateur = Q * np.sqrt(G*(M0+m)) * a**(5.5)
+    if a < roche :
+        return 0
+    return -numerateur/denominateur
+
 def euler_explicite(a0, alpha, T, dt) :
     t = np.arange(0, T, dt) # temps de 0 à T avec nb_point points
     a = np.zeros(len(t)) # tableau pour stocker les valeurs de a
     a[0] = a0
     for i in range(1, len(t)) :
         a[i] = a[i-1] + da_dt(a[i-1], alpha) * dt # Euler explicite
+    return t, a
+
+def euler_explicite_Kaula(a0, T, dt) :
+    t = np.arange(0, T, dt) # temps de 0 à T avec nb_point points
+    a = np.zeros(len(t)) # tableau pour stocker les valeurs de a
+    a[0] = a0
+    for i in range(1, len(t)) :
+        a[i] = a[i-1] + da_dt_Kaula(a[i-1]) * dt # Euler explicite
     return t, a
 
 # Résolution numérique de l'ODE
@@ -64,7 +83,7 @@ Delta[0] = Delta_t(a0, Alpha)
 zero = -1 # index où a devient constant (Phobos atteint la Roche)
 for i in range(1, len(t)) :
     Delta[i] = Delta_t(a[i], Alpha)
-    if a[i] <= roche and zero == -1 : 
+    if a[i] <= lim_roche and zero == -1 : 
         zero = i
 
 from scipy.integrate import solve_ivp
@@ -83,26 +102,27 @@ sol_ref = solve_ivp(
 )
 
 a_ref = sol_ref.sol(t)[0]
-zero_ref = np.argmax(a_ref < roche)
+zero_ref = np.argmax(a_ref < lim_roche)
 print(f"Phobos atteint la Roche après {t[zero]/(365.25*24*3600e6):.6f} millions d'années.")
 print(f"Phobos atteint la Roche après {t[zero_ref]/(365.25*24*3600e6):.6f} millions d'années (référence RK45).")
 print(f"----> Différence entre les deux méthodes : {(t[zero] - t[zero_ref])/(365.25*24*3600*10**6):.6f} millions d'années.")
 ind_roche = np.min([np.argmax(a <= roche),np.argmax(a_ref <= roche)])
 print(f"sup |met_Euler - met_RK45| = {np.max(np.abs(a[0:ind_roche] - a_ref[0:ind_roche])):.6f} mètres.")
 
-
-t_0,a_0 = euler_explicite(a0, 0, T, dt)
+tK,aK = euler_explicite_Kaula(a0, T, dt)
+ind_rocheK = np.argmax(aK <= roche)
 t3,a3 = euler_explicite(a0, 0.3, T, dt)
 t4,a4 = euler_explicite(a0, 0.4, T, dt)
-Delta0 = Delta_t(a_0,0.3)
+DeltaK = Delta_t(aK,0)
 Delta3 = Delta_t(a3,0.3)
 Delta4 = Delta_t(a4,0.4)
 
 plt.figure()
-plt.plot(t_0/(365.25*24*3600 * 10**6), a_0*10**(-3), label="alpha = 0")
+plt.plot(tK[0:ind_rocheK]/(365.25*24*3600 * 10**6), aK[0:ind_rocheK]*10**(-3), label="Kaula")
 plt.plot(t/(365.25*24*3600 * 10**6), a*10**(-3), label="alpha = 0.2")
 plt.plot(t3/(365.25*24*3600 * 10**6), a3*10**(-3), label="alpha = 0.3")
 plt.plot(t4/(365.25*24*3600 * 10**6), a4*10**(-3), label="alpha = 0.4")
+plt.plot(t/(365.25*24*3600 * 10**6), 10**(-3)*lim_roche*np.ones(len(t)), '--',label="Limite de roche")
 plt.xlabel("Temps (millilons d'années)")
 plt.ylabel("Demi-grand axe (km)")
 plt.title("Évolution du demi-grand axe de Phobos")
@@ -110,7 +130,19 @@ plt.grid()
 plt.legend()
 
 plt.figure()
-plt.plot(t_0/(365.25*24*3600 * 10**6), Delta0/60, label="alpha = 0")
+plt.plot(tK[0:ind_rocheK]/(365.25*24*3600 * 10**6), (aK[0:ind_rocheK]-a0)*10**(-3), label="Kaula")
+plt.plot(t/(365.25*24*3600 * 10**6), (a-a0)*10**(-3), label="alpha = 0.2")
+plt.plot(t3/(365.25*24*3600 * 10**6), (a3-a0)*10**(-3), label="alpha = 0.3")
+plt.plot(t4/(365.25*24*3600 * 10**6), (a4-a0)*10**(-3), label="alpha = 0.4")
+plt.plot(t/(365.25*24*3600 * 10**6), 10**(-3)*(lim_roche-a0)*np.ones(len(t)), '--',label="Limite de roche")
+plt.xlabel("Temps (millilons d'années)")
+plt.ylabel("Demi-grand axe (km)")
+plt.title("Évolution du demi-grand axe de Phobos (a-a0)")
+plt.grid()
+plt.legend()
+
+plt.figure()
+plt.plot(tK[0:ind_rocheK]/(365.25*24*3600 * 10**6), DeltaK[0:ind_rocheK]/60, label="Kaula")
 plt.plot(t/(365.25*24*3600 * 10**6), Delta/60, label="alpha = 0.2")
 plt.plot(t3/(365.25*24*3600 * 10**6), Delta3/60, label="alpha = 0.3")
 plt.plot(t4/(365.25*24*3600 * 10**6), Delta4/60, label="alpha = 0.4")

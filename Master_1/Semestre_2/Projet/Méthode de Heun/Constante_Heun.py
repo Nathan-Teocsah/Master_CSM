@@ -10,7 +10,7 @@ k2 = 0.169 # nombre de Love de Mars : https://arxiv.org/html/2405.05519v1
 a0 = 9377e3 # demi-grand axe phobos (en mètres)
 omega_p = 2*np.pi/(24.622962*3600) # vitesse de rotation de Mars (rad/s)
 roche = 2.2*R # distance de Roche pour Phobos (en mètres) : https://www.insu.cnrs.fr/fr/cnrsinfo/phobos-la-lune-condamnee-pourquoi-mars-va-eroder-puis-disloquer-son-satellite
-alpha = 0.4 # Exposant de la loi de puissance
+alpha = 0.2 # Exposant de la loi de puissance
 dt_max = 10**5 # En année
 dt = 10**2 # En année (dt < dt_max)
 
@@ -83,11 +83,15 @@ print("----------------------------------------")
 print(f"Constante de Lipschitz L = {Lipschitz:E}")
 print("----------------------------------------")
 
-C2 = np.exp(Lipschitz * T)*M2*T/2
-print(f"On a |y_n - y(t_n)| < {C2:E}*h")
+N0 = np.max(np.abs(f(Intervalle_a)))
+N1 = np.max(np.abs(df_x(Intervalle_a)))
+N2 = np.max(np.abs(d2f_2x(Intervalle_a)))
+C = 4*N0*N1**2 + 4*N0**2*N2 + 6*N0**2*N2
+C = C*T/24
+C = np.exp(T*(Lipschitz+dt_max*Lipschitz**2/2))*C
+print(f"On a |y_n - y(t_n)| < {C:E}*h^2")
 print("----------------------------------------")
-dt = dt * 365.25 * 24 * 3600
-print(f"pour h = {dt:E} secondes :\n |y_n - y(t_n)| < {C2*dt:.2f} m.")
+print(f"pour h = {dt:E} secondes :\n |y_n - y(t_n)| < {C*dt**2:E} m.")
 print(f"Nombre de points : {T/dt:.3E}")
 
 
