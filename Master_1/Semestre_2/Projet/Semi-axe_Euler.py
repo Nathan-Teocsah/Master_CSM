@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
 
 G = 6.67430e-11 # constante gravitationnelle
 M0 = 6.4185e23 # masse de Mars
@@ -16,6 +17,7 @@ def E(alpha) : # sec/rad (Q = E^alpha X^alpha)
         case 0.2 : return  1201*10**5*24*3600
         case 0.3 : return 81028*24*3600
         case 0.4 : return 2104*24*3600
+        case _ : return 1
 
 def n(a) : # fréquence orbitale de Phobos (rad/s)  
     return np.sqrt(G*(M0+m)/a**3)
@@ -47,6 +49,7 @@ index = 0 # index pour alpha = 0.2
 Alpha = alpha[index]
 dt = 10**2 # pas de temps en années
 dt = dt * 365.25 * 24 * 3600 # conversion du pas de temps en secondes
+print("\n Pour alpha = 0.2")
 print(f"Pas de temps : {dt:E} secondes.")
 print(f"Pas de temps : {dt/(3600*24*365.25):E} années.")
 print(f"Nombre de points : {int(T/dt):E}.")
@@ -74,7 +77,7 @@ sol_ref = solve_ivp(
     t_span=(0, T),
     y0=[a0],
     method='RK45',
-    rtol=1e-14,  # Tolérance relative très stricte
+    rtol=1e-12,  # Tolérance relative très stricte
     atol=1e-6,   # Tolérance absolue (1 mm)
     dense_output=True
 )
@@ -84,14 +87,22 @@ zero_ref = np.argmax(a_ref < roche)
 print(f"Phobos atteint la Roche après {t[zero]/(365.25*24*3600e6):.6f} millions d'années.")
 print(f"Phobos atteint la Roche après {t[zero_ref]/(365.25*24*3600e6):.6f} millions d'années (référence RK45).")
 print(f"----> Différence entre les deux méthodes : {(t[zero] - t[zero_ref])/(365.25*24*3600*10**6):.6f} millions d'années.")
-print(f"sup |met_Euler - met_RK45| = {np.max(np.abs(a - a_ref)):.6f} mètres.")
+ind_roche = np.min([np.argmax(a <= roche),np.argmax(a_ref <= roche)])
+print(f"sup |met_Euler - met_RK45| = {np.max(np.abs(a[0:ind_roche] - a_ref[0:ind_roche])):.6f} mètres.")
 
 
-
+t_0,a_0 = euler_explicite(a0, 0, T, dt)
+t3,a3 = euler_explicite(a0, 0.3, T, dt)
+t4,a4 = euler_explicite(a0, 0.4, T, dt)
+Delta0 = Delta_t(a_0,0.3)
+Delta3 = Delta_t(a3,0.3)
+Delta4 = Delta_t(a4,0.4)
 
 plt.figure()
-plt.plot(t/(365.25*24*3600 * 10**6), a_ref*10**(-3), label="Chute de a (km) pour alpha = 0.2")
-plt.plot(t/(365.25*24*3600 * 10**6), a*10**(-3), color='red', label="Chute de a (km) pour alpha = 0.2")
+plt.plot(t_0/(365.25*24*3600 * 10**6), a_0*10**(-3), label="alpha = 0")
+plt.plot(t/(365.25*24*3600 * 10**6), a*10**(-3), label="alpha = 0.2")
+plt.plot(t3/(365.25*24*3600 * 10**6), a3*10**(-3), label="alpha = 0.3")
+plt.plot(t4/(365.25*24*3600 * 10**6), a4*10**(-3), label="alpha = 0.4")
 plt.xlabel("Temps (millilons d'années)")
 plt.ylabel("Demi-grand axe (km)")
 plt.title("Évolution du demi-grand axe de Phobos")
@@ -99,14 +110,20 @@ plt.grid()
 plt.legend()
 
 plt.figure()
-plt.plot(t/(365.25*24*3600 * 10**6), Delta_t(a_ref, Alpha)/60, label="Lag temporel (en min) pour alpha = 0.2")
-plt.plot(t/(365.25*24*3600 * 10**6), Delta/60, color='red', label="Lag temporel (en min) pour alpha = 0.2")
+plt.plot(t_0/(365.25*24*3600 * 10**6), Delta0/60, label="alpha = 0")
+plt.plot(t/(365.25*24*3600 * 10**6), Delta/60, label="alpha = 0.2")
+plt.plot(t3/(365.25*24*3600 * 10**6), Delta3/60, label="alpha = 0.3")
+plt.plot(t4/(365.25*24*3600 * 10**6), Delta4/60, label="alpha = 0.4")
 plt.xlabel("Temps (millilons d'années)")
 plt.ylabel("Delta_t (min)")
 plt.title("Évolution du lag temporel de Phobos")
 plt.grid()
 plt.legend()
 
+reponse=input("Voulez vous etudier la convergence ? (o/n) ")
+if (reponse!= 'o'):
+    plt.show()
+    sys.exit()
 
 # Calcul de l'erreur 
 print("\n Calcul de l'erreur pour différents pas")
@@ -120,7 +137,6 @@ DT = np.linspace(dt0, dt_fin, Nb_point)  # pas de temps (en années) pour l'erre
 
 Erreur = np.zeros(Nb_point) # tableau pour stocker les erreurs
 
-import sys
 import time
 temps = np.zeros(Nb_point)
 temps_total=time.time()
