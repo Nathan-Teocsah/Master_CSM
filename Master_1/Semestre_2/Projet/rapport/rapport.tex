@@ -1,0 +1,290 @@
+\documentclass[12pt,a4paper]{article}
+
+\makeatletter
+\def\input@path{{/home/maenwe/Master_CSM/modèle_cours_latex}}
+\makeatother
+
+\usepackage{prise_de_note}
+
+\begin{document}
+	
+	
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Projet Tutoré} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large Étude de la chute de Phobos sur Mars}
+		
+		\vfill
+		
+		% Bloc Informations
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft} \large
+				\textbf{Étudiant :} \\
+				Mariko \textsc{DUNSEATH}
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Armand \textsc{DELLACHERIE}\\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\tableofcontents
+	
+	\newpage
+	
+	\section{Objectifs}
+	
+	\section{Obtention de l'équation}
+	
+	\subsection{Effet de marée}
+	
+	\subsection{Limite du modèle}
+	
+	\subsubsection{Approximations}
+	
+	\subsubsection{Limite de Roche}
+	
+	\section{Résolution numérique}
+	
+	Nous allons nous intéresser à l'équation suivante : \enc[3cm]{red}{$\dfrac{da}{dt} = f(a)$}\\
+	
+	avec $f(a) = -\dfrac{6k_2R^5mn(a)}{M_0a^4}\Delta t(a)(n(a)-\omega_p)$, pour $a \in ]0,+\infty[$. Où :
+	\begin{center}
+		$n(a) = \sqrt{\dfrac{G(M_0+m)}{a^3}}$ \hspace{2cm} $\Delta t_(a) = \mathcal E(\alpha)^{-\alpha}\left(2\abs{n(a)-\omega_p}\right)^{-(\alpha+1)}$\\
+		
+		avec $\mathcal E > 0$.
+	\end{center}
+	
+	\subsection{Première propriété de la solution et étude de $f$}
+	
+	Soit $a_0 > 0$.
+	
+	\begin{prop}[décroissance]
+		Si $n(a_0) > \omega_p$,\\
+		\begin{minipage}{18.5cm}
+			Alors $\begin{cases}
+			\dfrac{da}{dt} = f(a) \\
+			a(0) = a_0
+		\end{cases}$ possède une unique solution maximale sur un ouvert $U$ tel que $0\in U$ et cette solution est strictement décroissante.
+		\end{minipage}
+	\end{prop}
+	\begin{dem}$ $
+		
+		\vspace{.2cm}
+				
+		\begin{minipage}{17.5cm}
+			Puisque $n$ est strictement décroissante, continue et que $n(a_0) > \omega_p$, alors pour tout $a \in ]0,a_0+\varepsilon[$ (pour un $\varepsilon > 0$ donné) , $n(a) > n(a_0) > \omega_p$.\\
+			Ainsi pour tout $a \in ]0,a_0+\varepsilon[$, $\Delta t(a) = \mathcal{E}^{-\alpha}\left(2(n(a)-\omega_p)\right)^{-(\alpha+1)} > 0$, donc $f$ est $\mathcal{C}^1$ sur $]0,a_0+\varepsilon[$.\\
+			Donc, $f$ est localement lipschitzienne sur $]0,a_0+\varepsilon[$. Ainsi d'après le théorème de Cauchy-Lipschitz local, le problème possède une unique solution maximale que l'on note $a$ définie sur $]-t_1,t_2[= U$ avec $t_1,t_2 >0$.
+		\end{minipage}
+		\begin{minipage}{17.5cm}
+			Puisque $\Delta t(a) > 0$ sur $U$, $f(a)$ est strictement négative sur $U$. Donc $\dfrac{da}{dt}$ est strictement décroissante sur $U$.
+		\end{minipage}
+	\end{dem}
+	
+	De cela on peut en déduire que $f$ est globalement Lipschitzienne si on ne se rapproche pas de 0.
+	
+	\begin{prop} Soit $0< a_{roche} < a_0$ tel que $n(a_0) > \omega_p$\\
+		
+		\begin{minipage}{18.5cm}
+			$f$ est globalement lipschitzienne sur $[a_{roche},a_0]$ de coefficient de Lipschitz $L = \underset{a \in [a_{roche},a_0]}\sup\abs{f'(a)}<+\infty$.
+		\end{minipage}
+	\end{prop}
+	\begin{dem}$ $
+		
+		\vspace{.2cm}
+		
+		\begin{minipage}{17.5cm}
+			D'après la preuve précédente $f$ est $\mathcal C^1$ sur $[a_{roche},a_0]$. Donc par l'inégalité des accroissements finis, $\abs{f(x)-f(y)} \leq L\abs{x-y}$ pour tout $x,y \in [a_{roche},a_0]$, avec $L = \underset{[a_{roche},a_0]}\sup\abs{f'}$ qui est fini car $f$ est continue sur un compact.
+		\end{minipage}
+	\end{dem}
+	
+	A partir de maintenant on considère $a$ comme la solution de notre problème sur $I = \R^+\cap a^{-1}([a_{roche},a_0])$.
+	
+	\subsection{Erreur en norme infinie pour la méthode d'Euler Explicite}
+	
+	La méthode d'Euler explicite est la suivante : $a_{n+1} = a_n + hf(a)$ (pour un pas constant).\\
+	On sait que cette méthode est d'ordre 1 et on connaît une borne de l'erreur :
+	\[
+	\abs{a(t_n)-a_n} \leq e^{LT}\dfrac{M_2T}{2}h
+	\]
+	où $h = _{n+1} - t_n$ et $M_2 = \sup \abs{a''} = \sup\abs{f(a)'} = \sup\abs{a'f'(a)} = \sup\abs{f(a)f'(a)}$\\
+	
+	\noindent Il faut bien sûr que $f$ soit de classe $\mathcal C²$ ce qui est le cas si on se place dans les hypothèse de la propriété 2.\\
+	
+	Nous allons maintenant estimer l'erreur commise pour savoir à partir de quel pas ce schéma est intéressant pour le cas $\alpha$ = 0.2.\\
+	Quelques constantes :
+	\[
+	\begin{aligned}
+		G = 6.67430e-11 m^3kg^{-1}s^{-2}&& \text{ (constante gravitationelle)}\\
+		T = 3.5e7 * 365.25 * 24 * 3600 s.&& \text{ (35 millions d'années en secondes)}\\
+		M0 = 6.4185e23&& \text{ (masse de Mars)} \\
+		m = 1.06e16&& \text{ (masse de Phobos)} \\
+		R = 3396.2e3 m.&& \text{ (rayon de Mars (en mètres))}\\
+		k2 = 0.169 && \text{ (nombre de Love de Mars : https://arxiv.org/html/2405.05519v1)} \\
+		a_0 = 9377e3 m.&& \text{ (demi-grand axe phobos (en mètres))} \\
+		\omega_p = 2\pi/(24.622962*3600)&& \text{ (vitesse de rotation de Mars (rad/s))} \\
+		a_{roche} = 2.2R
+	\end{aligned}
+	\]
+	
+	En rentrant ces valeurs dans la calculatrice on obtient le graphique suivant pour $f$ :
+	\begin{center}
+		\includegraphics[scale=.5]{f.png}
+	\end{center}
+	
+	On a ainsi que $L \leq 4\times10^{-15}$, de plus $1,1 \times 10^{15} \leq T \leq 1,2\times 10^{15}$.\\
+	Il reste à évaluer $M_2$. On va dans un premier temps faire une première majoration : $M_2 \leq \underset{[a_{roche},a_0]}\sup \abs{f(a)f'(a)}$.\\
+	Nous avons donc besoin de la dérivée de $f$ : $f'(a) =
+	B_0\, a^{-13/2}
+	\left(
+	C_1 a^{-3/2} - \omega_p
+	\right)^{-\alpha}
+	-
+	B_1\, a^{-8}
+	\left(
+	C_1 a^{-3/2} - \omega_p
+	\right)^{-(\alpha+1)}$\\
+	avec : $\begin{aligned}[t]
+		B_0 &= 5,5\dfrac{6k_2R^5m}{M_0}E(\alpha)^{-\alpha}\sqrt{G(M_0+m)}2^{-(\alpha+1)}\\
+		B_1 &= \alpha B_0\\
+		C_1 &= \sqrt{G(M0+m)}
+	\end{aligned}$
+	
+	Traçons le graphique de $ff'$ pour ces données :
+	\begin{center}
+		\includegraphics[scale=.5]{ff.png}
+	\end{center}
+	
+	Ainsi $M_2 \leq 1,5\times10^{-23}$. Ainsi $\abs{a(t_n)-a_n} \leq e^{4,5\times1,2\times10^{-9}}\dfrac{1,5\times1,2\times 10^{15-23}}2 h \leq 2,96\times10^{-7}h$.\\
+	
+	Ainsi pour une pas de 100 ans : $h \simeq 3,15 \times 10^9$ (donc un nombre total d'environ 350 000), on a : $\abs{y(t_n)-y_n} \leq 931,7 m.$. Le temps d'exécution de l'algorithme est ici d'environ \textbf{2 secondes}.\\
+	
+	La question qui se pose maintenant est l'ordre de grandeur de la solution, sur quelle plage de valeur va évoluer la solution pour rendre crédible cette erreur. C'est l'objet de la section suivante.\\
+	
+	Pour $\alpha = 0,3$, on a : $\abs{a(t_n)-a_n} \leq 2,3 \times 10^{-7}h$.\\
+	Et pour $\alpha = 0,4$, on a : $\abs{a(t_n)-a_n} \leq 1,78 \times 10^{-7}h$.
+	
+	\subsection{Ordre de grandeur de la solution et choix du pas}
+	
+	Pour $\alpha = 0.2$.	
+	Nous allons donc évaluer l'ordre de grandeur de la solution. On note toujours $a$ la solution.\\
+	On va chercher à majorer $\abs{a(t_0+h)-a(t_0)}$ pas une fonction en $h > 0$.\\
+	Effectuons un développement de Taylor-Lagrange en $x_0$ à l'ordre 1 : il existe $\theta_h \in [x_0,x_0+h]$ tel que : 
+	\[a(t_0+h) = a(t_0) + ha'(\theta_h) = a(t_0) + hf(a(\theta_h))\]
+	Ainsi : $\abs{a(t_0+h)-a(t_0)} \leq \underset{[a_{roche},a_0]}{\sup} \abs f \times h$.\\
+	Or $\abs{f} \leq 4.6\times 10^{-9}$.\\
+	Finalement $\abs{a(T)-a_0} \leq 4,5\times10^{-9}\times T \leq 4,5\times1.2\times 10^{15-9} = 5,4\times 10^6 m = 5400 km$.\\
+	Ainsi l'erreur commise est très faible en comparaison à la plage de valeur que prend $a(t)$ (qui est de l'ordre du millier de km) : $\dfrac{0.9317}{5400} \sim 1,7 \times^{-4} = 0.017 \%$. 
+	
+	\subsection{Estimation de la chute}
+	
+	\begin{minipage}{10cm}
+		\includegraphics[scale=.5]{sol.png}
+	\end{minipage}\begin{minipage}{10cm}
+	\includegraphics[scale=.5]{delta.png}
+	\end{minipage}
+	
+	D'après cette simulation, Phobos atteindra la limite de Roche dans 26,2126 millions d'années.
+	
+	\subsubsection{Précision de la solution}
+	
+	\subsection{Comparaison avec Runge-Kutta 45}
+	
+	Pour pouvoir étudier l'ordre de convergence pratique  et le comparer au théorique, nous avons choisis d'utiliser une méthode déjà implémenté de résolution déjà implémenter dans python : la méthode de Runge Kuta emboîté d'ordre 4 (RK45). A l'aide de cette méthode nous avons calculer une solution que nous considérons comme solution de référence. Et calculons l'erreur de norme infini pour différent pas entre cette solution et la solution obtenue pour ce différents pas par la méthode d'Euler.\\
+	Puis nous avons effectuer une régression linéaire pour connaître l'ordre de convergence et le coefficient constant.\\
+	Nous avons aussi mesuré, pour ces différents pas le temps de calcul.
+	
+	\begin{minipage}{10cm}
+		\includegraphics[scale=.5]{erreur_euler.png}
+	\end{minipage}\begin{minipage}{10cm}
+	\includegraphics[scale=.5]{temps_euler.png}
+	\end{minipage}
+	
+	Et on retrouve bien l'ordre 1 pour la \textbf{convergence : 0.995}. Et pour le \textbf{coefficient : $3,08\times10^{-16}$} (soit 10 fois moins que ce qu'on avait calculé). Ce qui confirme nos calculs théorique.
+	
+	\subsection{Méthode de Heun}
+	
+	Le schéma de Heun s'écrit ainsi : $a_{n+1} = a_n + \frac h2\left(f(a_n) + f(a_n+hf(a_n))\right)$
+	
+	\subsubsection{Résultat théorique}
+	
+	\begin{enumerate}
+		\item \textbf{Consistance :}\\
+			On note $\varepsilon_n$ l'erreur de consistance : $\varepsilon_n = a(t_{n+1}) - a(t_n) - \frac h2\left(f(a(t_n)) + f(a(t_n) + hf(a(t_n)))\right)$\\
+			
+			Effectuons un développement de Taylor-Lagrange à l'ordre 3 :\\
+			il existe $\alpha_n \in [t_n,t_{n+1}]$ tel que : $a(t_{n+1}) = a(t_n) + h a'(t_n) + \frac {h^2}2 a^{(2)}(t_n) + \frac {h^3}{6} a^{(3)}(\alpha_n) $\\
+			Ainsi $\abs{\varepsilon_n} = \abs{ \frac{h^2}2a^{(2)}(t_n) + \frac{h^3}6a^{(3)}(\alpha_n) + \frac h2 f(a(t_n)) - \frac h2 f(a(t_n) + ha'(t_n))}$.\\
+			
+			Effectuons un développement de Taylor-Lagrange à l'ordre 2 de $f$,\\ il existe $\beta_n \in (a(t_n),a(t_n) + ha'(t_n))$ : $\begin{aligned}[t]
+				f(a(t_n) + ha'(t_n)) &= f(a(t_n)) + ha'(t_n)f'(a(t_n)) + \frac{\left[ha'(t_n)\right]^2}2f^{(2)}(\beta_n)\\
+				&= f(a(t_n)) + ha^{(2)}(t_n) + \frac{\left[ha'(t_n)\right]^2}2f^{(2)}(\beta_n)
+			\end{aligned}$\\
+			
+			Ainsi $\abs{\varepsilon_n} = \abs{\frac{h^3}{6}a^{(3)}(\alpha_n) - \frac{h^3}4f(a(t_n))^2f^{(2)}(\beta_n)} \leq h^3\left[\frac{M_3}6 + \frac{N_0^2N_2}4\right]$.\\
+			Où $M_k = \sup\abs{a^{(k)}}$ et $N_k = \sup\abs{f^{(k)}}$.\\
+			Or $\begin{aligned}[t]
+				a^{(3)}(t) = \left(f(a(t))f'(a(t))\right)' &= a'(t)f'(a(t))f'(a(t)) + f(a(t))a'(t)f^{(2)}(a(t)) \\
+				&= f(a(t))f'(a(t))^2 + f(a(t))^2f^{(2)}(a(t))
+			\end{aligned}$.\\
+			Donc $M_3 \leq N_0N_1^2 + N_0^2N_2$. Ainsi $\abs{\varepsilon_n} \leq \dfrac{h^3}{24}\left(4N_0N_1^2+4N_0^2N_2+6N_0^2N_2\right)$.\\
+			On pose $C = 4N_0N_1^2+4N_0^2N_2+6N_0^2N_2$.\\
+			
+			Finalement $\displaystyle\sum_{n=0}^{N-1} \abs{\varepsilon_n} \leq \sum_{n=0}^{N-1} h\frac{h^2}{24}C = \frac{CT}{24}h^2$.
+			
+			\item \textbf{Stabilité :}\\
+			Soit $b_{n+1} = b_n + \frac h2 \left(f(b_n) + f(b_n + hf(b_n))\right) + \mu_n$.\\
+			$\begin{aligned}
+				\abs{a_{n+1}-b_{n+1}} &\leq  \abs{a_n-b_n} + \abs{f(a_n)-f(b_n)} + \abs{f(a_n+hf(a_n))-f(b_n+hf(b_n))} + \abs{\mu_n}\\
+				&\leq \abs{a_n-b_n} + L\abs{a_n-b_n} + L\abs{a_n-b_n + h\left(f(a_n)-f(b_n)\right)} + \abs{\mu_n}\\
+				&\leq (1+2L)\abs{a_n-b_n} + hL^2\abs{a_n-b_n} + \abs{\mu_n}\\
+				&\leq (1+2L+hL^2)\abs{a_n-b_n}+\abs{\mu_n} = \left(1 + (2+hL)L\right)\abs{a_n-b_n} + \abs{mu_n}
+			\end{aligned}$
+	\end{enumerate}
+	
+	\subsubsection{Résultat pratique et comparaison avec Euler}
+	
+	\begin{minipage}{10cm}
+		\includegraphics[scale=.5]{erreur_heune.png}
+	\end{minipage}\begin{minipage}{10cm}
+	\includegraphics[scale=.5]{temps_heune.png}
+	\end{minipage}
+	
+	On retrouve bien l'\textbf{ordre 2 : 1,991}. Et le coefficient : $7,6\times10^{-32}$.\\
+	
+	On remarque quelque chose que l'on aurait pu prédire, la méthode de Heune est moins rapide pour un même pas que celle d'Euler, cela s'explique par le fait que l'on fait plus d'évaluation pour la méthode de Heune que dans celle d'Euler. Cependant cette différence n'est pas suffisament significative pour rendre moins ntéressante la méthode de Heune, en effet, pour cout bien moindre (pour le moins fin des pas testé) on est aussi précis que le plus fin des pas testé pour la méthode d'Euler.
+	
+	
+\end{document}

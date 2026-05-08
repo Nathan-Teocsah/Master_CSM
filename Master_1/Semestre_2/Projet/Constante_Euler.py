@@ -10,7 +10,7 @@ k2 = 0.169 # nombre de Love de Mars : https://arxiv.org/html/2405.05519v1
 a0 = 9377e3 # demi-grand axe phobos (en mètres)
 omega_p = 2*np.pi/(24.622962*3600) # vitesse de rotation de Mars (rad/s)
 roche = 2.2*R # distance de Roche pour Phobos (en mètres) : https://www.insu.cnrs.fr/fr/cnrsinfo/phobos-la-lune-condamnee-pourquoi-mars-va-eroder-puis-disloquer-son-satellite
-alpha = 0.2 # Exposant de la loi de puissance
+alpha = 0.4 # Exposant de la loi de puissance
 
 def E(alpha) : # sec/rad (Q = E^alpha X^alpha)
     match alpha :
@@ -139,25 +139,26 @@ print(f"On a |y_n - y(t_n)| < {C2:E}*h")
 print("----------------------------------------")
 
 print(f"pour h = {dt:E} secondes :\n |y_n - y(t_n)| < {C2*dt:.2f} m.")
+print(f"Nombre de points : {T/dt:.3E}")
 
 print(f" sup |met_Euler - met_RK45| = {np.max(np.abs(a - a_ref)):.2f} m.")
 
 
-# Tracer de la courbe de f(a) pour alpha = 0.2
+# Tracer de la courbe de f'(a) pour alpha = 0.2
+plt.figure()
+plt.plot(Intervalle_a, df_x(Intervalle_a), label="f'(a) pour alpha = 0.2")
+plt.xlabel("a")
+plt.ylabel("f(a)")
+plt.title("Fonction f'(a) pour alpha = 0.2")
+plt.grid()
+plt.legend()
+
+# Tracer de la courbe f(a) pour alpha = 0.2
 plt.figure()
 plt.plot(Intervalle_a, f(Intervalle_a), label="f(a) pour alpha = 0.2")
 plt.xlabel("a")
 plt.ylabel("f(a)")
 plt.title("Fonction f(a) pour alpha = 0.2")
-plt.grid()
-plt.legend()
-
-# Tracer de la courbe f(a(t)) pour alpha = 0.2
-plt.figure()
-plt.plot(t/(365.25*24*3600e6), f(a_ref), label="f(a(t)) pour alpha = 0.2")
-plt.xlabel("Temps (millions d'années)")
-plt.ylabel("f(a(t))")
-plt.title("Fonction f(a(t)) pour alpha = 0.2")
 plt.grid()
 plt.legend()
 
