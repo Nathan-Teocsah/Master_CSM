@@ -47,20 +47,24 @@ def da_dt_Kaula(a) : # dérivée du demi-grand axe (m/s)
     return -numerateur/denominateur
 
 def euler_explicite(a0, alpha, T, dt) :
-    t = np.arange(0, T, dt) # temps de 0 à T avec nb_point points
-    a = np.zeros(len(t)) # tableau pour stocker les valeurs de a
-    a[0] = a0
-    for i in range(1, len(t)) :
-        a[i] = a[i-1] + da_dt(a[i-1], alpha) * dt # Euler explicite
-    return t, a
+    a = [a0]
+    t = [0]
+    while t[-1] < T :
+        if a[-1] < roche :
+            break
+        a.append(a[-1] + da_dt(a[-1], alpha) * dt) # Euler explicite
+        t.append(t[-1]+dt)
+    return np.array(t), np.array(a)
 
 def euler_explicite_Kaula(a0, T, dt) :
-    t = np.arange(0, T, dt) # temps de 0 à T avec nb_point points
-    a = np.zeros(len(t)) # tableau pour stocker les valeurs de a
-    a[0] = a0
-    for i in range(1, len(t)) :
-        a[i] = a[i-1] + da_dt_Kaula(a[i-1]) * dt # Euler explicite
-    return t, a
+    a = [a0]
+    t = [0]
+    while t[-1] < T :
+        if a[-1] < roche :
+            break
+        a.append(a[-1] + da_dt_Kaula(a[-1], alpha) * dt) # Euler explicite
+        t.append(t[-1]+dt)
+    return np.array(t), np.array(a)
 
 # Résolution numérique de l'ODE
 T = 4e7 * 365.25 * 24 * 3600 # 50 millions d'années en secondes
