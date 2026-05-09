@@ -1,22 +1,28 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
+from scipy.integrate import solve_ivp
+import time
+from sklearn.linear_model import LinearRegression
+
+#----------------- Constantes ------------------
 
 G = 6.67430e-11 # constante gravitationnelle
 M0 = 6.4185e23 # masse de Mars
 m = 1.06e16 # masse de Phobos
 R = 3396.2e3 # rayon de Mars (en mètres)
-k2 = 0.15 # 0.169 nombre de Love de Mars : https://arxiv.org/html/2405.05519v1
-a0 = 9377e3 # demi-grand axe phobos (en mètres)
+k2 = 0.169 # 0.169 nombre de Love de Mars : https://arxiv.org/html/2405.05519v1
 omega_p = 2*np.pi/(24.622962*3600) # vitesse de rotation de Mars (rad/s)
-a_min = 3000e3 # distance de Roche pour Phobos (en mètres) : https://www.insu.cnrs.fr/fr/cnrsinfo/phobos-la-lune-condamnee-pourquoi-mars-va-eroder-puis-disloquer-son-satellite
-lim_roche = 2.2*R
+a0 = 9377e3 # demi-grand axe phobos (en mètres)
+lim_roche = 2.2*R# distance de Roche pour Phobos (en mètres) : https://www.insu.cnrs.fr/fr/cnrsinfo/phobos-la-lune-condamnee-pourquoi-mars-va-eroder-puis-disloquer-son-satellite
+a_min = lim_roche
 alpha = [0.2, 0.3, 0.4] # Exposant de la loi de puissance
 Q = 80
 
-T = 4e7 * 365.25 * 24 * 3600 # 50 millions d'années en secondes
-index = 0 # index pour alpha = 0.2
-Alpha = alpha[index]
+T = 3.5e7 * 365.25 * 24 * 3600 # 50 millions d'années en secondes
+Alpha = alpha[0]
+
+#---------------------------- Fonctions --------------------
 
 def E(alpha) : # sec/rad (Q = E^alpha X^alpha)
     match alpha :
@@ -56,20 +62,11 @@ def euler_explicite(a0, alpha, T, dt) :
         t.append(t[-1]+dt)
     return np.array(t), np.array(a)
 
-def euler_explicite_Kaula(a0, T, dt) :
-    a = [a0]
-    t = [0]
-    while t[-1] < T :
-        if a[-1] < a_min :
-            break
-        a.append(a[-1] + da_dt_Kaula(a[-1], alpha) * dt) # Euler explicite
-        t.append(t[-1]+dt)
-    return np.array(t), np.array(a)
-
-from scipy.integrate import solve_ivp
-
 def da_dt_for_solve_ivp(t, a):
-    return [da_dt(a[0], Alpha)]  # solve_ivp attend un tableau
+    return [da_dt(a, Alpha)]  # solve_ivp attend un tableau
+
+
+#----------------------- Resolution EDO --------------------------
 
 sol_ref = solve_ivp(
     da_dt_for_solve_ivp,
@@ -81,35 +78,40 @@ sol_ref = solve_ivp(
     dense_output=True
 )
 
-# Calcul de l'erreur 
+#---------------------- Calcul de l'erreur ----------------------
+
+print(f"Temps de simulation T = {T:.3E} secondes.")
+print(f"a_min = {a_min:.3E} m.")
+print(f"lim_roche = {lim_roche:.3E} m.")
+
 print("\n Calcul de l'erreur pour différents pas")
 Nb_point = 10**3 # nombre de points pour l'erreur
 dt0 = 10**2  # pas de temps initial pour l'erreur (en secondes)
-dt_fin = 10**5
+dt_fin = 10**4
 
 dt_fin = dt_fin * 365.25 * 24 * 3600 # conversion du pas de temps final en secondes
 dt0 = dt0 * 365.25 * 24 * 3600 # conversion du pas de temps initial en secondes
 DT = np.linspace(dt0, dt_fin, Nb_point)  # pas de temps (en années) pour l'erreur
 
+Erreur_rel = np.zeros(Nb_point) # tableau pour stocker les erreurs
 Erreur = np.zeros(Nb_point) # tableau pour stocker les erreurs
 
-import time
 temps = np.zeros(Nb_point)
 temps_total=time.time()
 for i in range(Nb_point) :
     dt = DT[i]
-    print(f"\rprogression : {(i+1)/Nb_point*100:.2f} %", end='', file=sys.stdout)
     temps[i] = time.time()
     t,a = euler_explicite(a0, Alpha, T, dt)
     temps[i] = time.time() - temps[i]
-    ind_roche = np.min([np.argmax(a <= a_min),np.argmax(sol_ref.sol(t)[0] <= a_min)])
-    Erreur[i] = np.max(np.abs(a[0:ind_roche] - sol_ref.sol(t)[0][0:ind_roche]))
-    Erreur[i] = Erreur[i]/np.max(np.abs(sol_ref.sol(t)[0][0:ind_roche]))
+    ind_min = np.min([np.argmax(a <= a_min),np.argmax(sol_ref.sol(t)[0] <= a_min)])
+    Erreur[i] = np.max(np.abs(a[0:ind_min] - sol_ref.sol(t)[0][0:ind_min]))
+    Erreur_rel[i] = Erreur[i]/np.max(np.abs(sol_ref.sol(t)[0][0:ind_min]))
+    print(f"\rprogression : {(i+1)/Nb_point*100:.2f} % --- Erreur_rel = {Erreur_rel[i]:.2E}", end='', file=sys.stdout)
 
 print(f"\nTemps total = {time.time()-temps_total:.2f} s.")
 
-print("\n\n Régression linéaire pour trouver l'ordre de convergence :")
-from sklearn.linear_model import LinearRegression
+
+#----------------------- Calcul coef erreur_infinis ---------------------------
 
 # Sample data
 x = np.log(DT).reshape(-1, 1)  # Reshape for scikit-learn
@@ -122,15 +124,41 @@ model = LinearRegression()
 model.fit(x, y)
 
 # Get model parameters
-print(f"---> Ordre de convergence : {model.coef_[0]}")
-print(f"Estimation de C : |y_n-y(t_n)| <= C*h^{model.coef_[0]}")
-print(f"---> C = exp({model.intercept_}) = {np.exp(model.intercept_):E}")
+print("\n---------- Erreur absolue -----------")
+print(f"---> Ordre de convergence : {model.coef_[0]:.2E}")
+print(f"Estimation de C : |y_n-y(t_n)| <= C*h^{model.coef_[0]:.2E}")
+print(f"---> C = {np.exp(model.intercept_):.2E}")
+
+#-------------------------- Calcul coef erreur_rel ---------------
+
+# Sample data
+x_rel = np.log(DT).reshape(-1, 1)  # Reshape for scikit-learn
+y_rel = np.log(Erreur_rel)
+
+# Create model instance
+model_rel = LinearRegression()
+
+# Fit the model
+model_rel.fit(x_rel, y_rel)
+
+# Get model parameters
+print("\n---------- Erreur relative -----------")
+print(f"---> C = {np.exp(model_rel.intercept_):.2E}")
 
 plt.figure()
-plt.plot(DT/(365.25*24*3600), Erreur)
+plt.plot(DT/(365.25*24*3600), Erreur*1e-3)
 plt.xlabel("pas de temps (années)")
 plt.ylabel("Erreur (en km)")
-plt.title("Erreur (en norme infinie) pour la méthode d'Euler")
+plt.title("Erreur (en norme infinie) pour la méthode de Heun")
+plt.xscale("log")
+plt.yscale("log")
+plt.grid()
+
+plt.figure()
+plt.plot(DT/(365.25*24*3600), Erreur_rel)
+plt.xlabel("pas de temps (années)")
+plt.ylabel("Erreur relative")
+plt.title("Erreur relative (en norme infinie) pour la méthode de Heun")
 plt.xscale("log")
 plt.yscale("log")
 plt.grid()
@@ -139,7 +167,7 @@ plt.figure()
 plt.plot(DT/(365.25*24*3600), temps)
 plt.xlabel("pas de temps (années)")
 plt.ylabel("Temps (s.)")
-plt.title("Temps d'execution de la méthode de Euler")
+plt.title("Temps d'execution de la méthode de Heun")
 plt.xscale("log")
 plt.yscale("log")
 plt.grid()

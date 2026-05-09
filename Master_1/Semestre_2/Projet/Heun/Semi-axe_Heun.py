@@ -12,7 +12,7 @@ k2 = 0.169 # 0.169 nombre de Love de Mars : https://arxiv.org/html/2405.05519v1
 a0 = 9377e3 # demi-grand axe phobos (en mètres)
 omega_p = 2*np.pi/(24.622962*3600) # vitesse de rotation de Mars (rad/s)
 lim_roche = 2.2*R # distance de Roche pour Phobos (en mètres) : https://www.insu.cnrs.fr/fr/cnrsinfo/phobos-la-lune-condamnee-pourquoi-mars-va-eroder-puis-disloquer-son-satellite
-a_min = 3000e3
+a_min = R
 alpha = [0.2, 0.3, 0.4] # Exposant de la loi de puissance
 Q = 80
 
@@ -57,7 +57,9 @@ def euler_explicite(a0, alpha, T, dt) :
     while t[-1] < T :
         if a[-1] < a_min :
             break
-        a.append(a[-1] + da_dt(a[-1], alpha) * dt) # Euler explicite
+        k1 = da_dt(a[-1], alpha)
+        k2 = da_dt(a[-1] + k1 * dt, alpha)
+        a.append(a[-1] + (k1 + k2) * dt / 2) # Euler explicite
         t.append(t[-1]+dt)
     return np.array(t), np.array(a)
 
@@ -67,7 +69,9 @@ def euler_explicite_Kaula(a0, T, dt) :
     while t[-1] < T :
         if a[-1] < a_min :
             break
-        a.append(a[-1] + da_dt_Kaula(a[-1]) * dt) # Euler explicite
+        k1 = da_dt_Kaula(a[-1])
+        k2 = da_dt_Kaula(a[-1] + k1 * dt)
+        a.append(a[-1] + (k1 + k2) * dt / 2) # Euler explicite
         t.append(t[-1]+dt)
     return np.array(t), np.array(a)
 
