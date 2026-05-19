@@ -1,0 +1,194 @@
+\documentclass[12pt,a4paper]{article}
+
+\makeatletter
+\def\input@path{{/home/maenwe/Master_CSM/modèle_cours_latex}}
+\makeatother
+
+\usepackage{prise_de_note}
+
+
+\usepackage{graphicx}
+\graphicspath{{/home/maenwe/Master_CSM/modèle_cours_latex}}
+
+\begin{document}
+	
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Notes de stage} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large }
+		
+		\vfill
+		
+		% Bloc Informations
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft} \large
+				\textbf{Encadrant :} \\
+				Ludovic \textsc{MARTAUD}
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\tableofcontents
+	
+	\newpage
+	
+	\section{Expression du reste}
+	
+	\subsection{Expression exacte du reste}
+	
+	On veut trouver une expression de $\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u$ à partir des $u_k$ :
+	
+	\begin{equation}\label{eq:objectif}
+		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u = \dfrac1{\abs{C_i}}\int_{\partial C_i} u(x)n(x) \dx = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[\int_a^b u(x^{i,j}(\xi))d\xi\right] n_{i,j}
+	\end{equation}
+	
+	Où $ x^{i,j} : [a,b]  \to \Gamma_{i,j}$ est une paramétrisation de $\Gamma_{i,j}$.\\
+	
+	Effectuons un d.l. :
+	\[
+	u(x) = u(x_{i,j}) + \left[x-x_{i,j}\right]\cdot\nabla u(x_{i,j}) + \displaystyle\int_0^1 (1-t)(x-x_{i,j})^tH_{\gamma_{x}(t)}u (x-x_{i,j}) \dt
+	\]
+	
+	où $\gamma_x(t) = tx_{i,j} + (1-t)x$.\\
+	
+	Ainsi : $u_k = \dfrac1{\abs{C_k}}\displaystyle\int_{C_k} u = u(x_{i,j}) + \left[x_k-x_{i,j}\right]\cdot\nabla u(x_{i,j}) + \int_0^1 \dfrac{(1-t)}{C_k}\int_{C_k}(x-x_{i,j})^tH_{\gamma_{x}(t)}u (x-x_{i,j})\dx \dt$\\
+	Pour $k \in \{i,j\}$.\\
+	
+	On a ainsi : 
+	
+	\vspace{.2cm}
+	
+	\hspace*{-1.7cm}$\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} = u(x_{i,j}) + \displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\left[\dfrac{d_{j,ij}}{C_i}\int_{C_i}(x-x_{i,j})^tH_{\gamma_{x}(t)}u (x-x_{i,j})\dx + \dfrac{d_{i,ij}}{C_j}\int_{C_j}(x-x_{i,j})^tH_{\gamma_{x}(t)}u (x-x_{i,j})\dx\right] \dt$\\
+	
+	On pose :
+	
+	\hspace*{-.5cm}\enc[19.4cm]{black}{
+		
+		\vspace{-.5cm}
+		
+		\begin{equation}\label{eq:R1}
+		R_1^{i,j} = \displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\left[\dfrac{d_{j,ij}}{C_i}\int_{C_i}(x-x_{i,j})^tH_{\gamma_{x}(t)}u (x-x_{i,j})\dx + \dfrac{d_{i,ij}}{C_j}\int_{C_j}(x-x_{i,j})^tH_{\gamma_{x}(t)}u (x-x_{i,j})\dx\right] \dt
+	\end{equation}}
+	
+	
+	Ainsi : \\
+	\begin{equation}\label{eq:xij}
+		\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} = u(x_{i,j}) + R_1^{i,j}
+	\end{equation}\\
+	
+	Effectuons cette fois un d.l. sur $x(\xi)$ : 	
+	\[
+	u(x^{i,j}(\xi)) = u(x_{i,j}) + \left[x^{i,j}(\xi)-x_{i,j}\right]\cdot\nabla u(x_{i,j}) + \displaystyle\int_0^1 (1-t)(x^{i,j}(\xi)-x_{i,j})^tH_{\gamma_{x^{i,j}(\xi)}(t)}u (x^{i,j}(\xi)-x_{i,j}) \dt
+	\]
+	Ainsi, en utilisant (\ref{eq:xij}) on a :\\
+	\hspace*{-.8cm}$u(x^{i,j}(\xi)) = \dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \left[x^{i,j}(\xi)-x_{i,j}\right]\cdot\nabla u(x_{i,j}) + \displaystyle\int_0^1 (1-t)(x^{i,j}(\xi)-x_{i,j})^tH_{\gamma_{x^{i,j}(\xi)}(t)}u (x^{i,j}(\xi)-x_{i,j}) \dt - R_1^{i,j}$\\
+	
+	\newpage
+	
+	Et en intégrant : \\
+	$\begin{aligned}
+		\displaystyle\int_a^b u(x^{i,j}(\xi))d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} &+ \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\nabla u(x_{i,j}) \\
+		&+ \displaystyle\int_0^1 (1-t)\int_a^b (x^{i,j}(\xi)-x_{i,j})^tH_{\gamma_{x^{i,j}(\xi)}(t)}u (x^{i,j}(\xi)-x_{i,j})d\xi \dt - R_1^{i,j}
+	\end{aligned}$
+	
+	Où $\lambda_{i,j} = \abs{\Gamma_{i,j}}$.\\
+	
+	On pose :
+	
+	\enc{black}{\begin{equation}\label{eq:R2}
+		R_2^{i,j} = \displaystyle\int_0^1 (1-t)\int_a^b (x^{i,j}(\xi)-x_{i,j})^tH_{\gamma_{x^{i,j}(\xi)}(t)}u (x^{i,j}(\xi)-x_{i,j})d\xi \dt
+	\end{equation}}
+	
+	Ainsi : \begin{equation}\label{eq:somme}
+		\displaystyle\int_a^b u(x^{i,j}(\xi))d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\nabla u(x_{i,j}) + R_2^{i,j} - R_1^{i,j}
+	\end{equation}
+	
+	Effectuons un dernier d.l. : $\begin{aligned}[t]
+		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u &= \dfrac1{\abs{C_i}}\int_{C_i} \left[\nabla u(x_{i,j}) + \int_0^1 (1-t)H_{\gamma_x(t)}u \times x \dt\right]\dx\\
+		&=\nabla u(x_{i,j}) + \int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} H_{\gamma_x(t)}u\times x\dx
+	\end{aligned}$\\
+	
+	Ainsi : 
+	\begin{equation}\label{eq:grad}
+		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u =\nabla u(x_{i,j}) + \int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} H_{\gamma_x(t)}u\times x\dx
+	\end{equation}
+	
+	Et en injectant (\ref{eq:grad}) dans (\ref{eq:somme}) on obtient :
+	\[
+	\displaystyle\int_a^b u(x^{i,j}(\xi))d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\left(\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u- \lambda_{i,j}\int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} H_{\gamma_x(t)}u\times x\dx\right) + R_2^{i,j} - R_1^{i,j}
+	\]
+	
+	On pose :
+	
+	\enc{black}{\begin{equation}\label{eq:R3}
+			R_3^{i,j} = \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\displaystyle\int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} H_{\gamma_x(t)}u\times x\dx
+	\end{equation}}
+
+	Ce qui permet d'écrire : \begin{equation}\label{eq:somme_reecrite}
+		\displaystyle\int_a^b u(x^{i,j}(\xi))d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u + R_2^{i,j} - R_1^{i,j} - R_3^{i,j}
+	\end{equation}
+	
+	
+	Finalement en injectant (\ref{eq:somme_reecrite}) dans (\ref{eq:objectif}), on obtient :
+	
+	\begin{equation}\label{eq:preque_final}
+		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}}n_{i,j} + \left[\lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u\right] n_{i,j} + \left[R_2^{i,j} - R_1^{i,j} - R_3^{i,j}\right] n_{i,j}
+	\end{equation}
+	
+	Et on pose :
+	
+	\enc{black}{\begin{equation}\label{eq:R4}
+		R_4^{(i)} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[R_2^{i,j} - R_1^{i,j} - R_3^{i,j}\right] n_{i,j}
+	\end{equation}}
+
+	Ce qui permet d'écrire : 
+	
+	\begin{equation}\label{eq:final}
+		\overline{\nabla u(x_i)} = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \left[\lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}}n_{i,j} + \left[\lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\overline{\nabla u(x_i)}\right] n_{i,j}\right] + R_4^{(i)}
+	\end{equation}
+	
+	où $\overline{\nabla u(x_i)} = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i}\nabla u$.
+	
+	On peut le reformuler de la manière suivante :
+	
+	\begin{equation}\label{eq:reformulation_final}
+		B_i\overline{\nabla u(x_i)} = \left(\dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}}n_{i,j}\right) + R_4^{(i)}
+	\end{equation}
+	
+	où $B_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}n_{i,j}\otimes\left(\bar x_{i,j}-x_{i,j}\right)$
+	
+	
+\end{document}

@@ -12,16 +12,12 @@ k2 = 0.169 # 0.169 nombre de Love de Mars : https://arxiv.org/html/2405.05519v1
 a0 = 9377e3 # demi-grand axe phobos (en mètres)
 omega_p = 2*np.pi/(24.622962*3600) # vitesse de rotation de Mars (rad/s)
 lim_roche = 2.2*R # distance de Roche pour Phobos (en mètres) : https://www.insu.cnrs.fr/fr/cnrsinfo/phobos-la-lune-condamnee-pourquoi-mars-va-eroder-puis-disloquer-son-satellite
-a_min = 3000e3
-alpha = [0.2, 0.3, 0.4] # Exposant de la loi de puissance
+a_min = R
 Q = 80
 
-T = 4e7 * 365.25 * 24 * 3600 # 50 millions d'années en secondes
-index = 0 # index pour alpha = 0.2
-Alpha = alpha[index]
-dt = 10**2 # pas de temps en années
-
-#------------ FONCTIONS ------------
+'''*******************************************
+                    FONCTIONS
+ ******************************************'''
 
 def E(alpha) : # sec/rad (Q = E^alpha X^alpha)
     match alpha :
@@ -72,61 +68,106 @@ def euler_explicite_Kaula(a0, T, dt) :
     return np.array(t), np.array(a)
 
 def da_dt_for_solve_ivp(t, a):
-    return [da_dt(a, Alpha)]  # solve_ivp attend un tableau
+    alpha = 0.2
+    return [da_dt(a, alpha)]  # solve_ivp attend un tableau
 
-#------------------- VISUALISATION CONSTANTE --------------
+'''********************************************************
+            VISUALISATION et CHOIX DES CONSTANTES
+********************************************************'''
 
+alpha = float(input("\nChoisir une valeur de alpha (0.2, 0.3 ou 0.4) : "))
+dt = float(input("Choisir un pas de temps dt (en année) (conseil : dt >= 100) : "))
+T = float(input("Choisir un temps (en Ma) de simulation (conseil T > 30 Ma) : "))
+
+T = T * 1e6 * 365.25 * 24 * 3600 # 50 millions d'années en secondes
 dt = dt * 365.25 * 24 * 3600 # conversion du pas de temps en secondes
-print("\n Pour alpha = 0.2")
-print(f"Pas de temps : {dt:E} secondes.")
-print(f"Pas de temps : {dt/(3600*24*365.25):E} années.")
-print(f"Nombre de points : {int(T/dt):E}.")
+print(f"Nombre de points : {int(T/dt):E}.\n")
 
-# ------------- RESOLUTION -----------------------
 
-t,a = euler_explicite(a0, Alpha, T, dt)
-sol_ref = solve_ivp(
+'''********************************************************
+                    RESOLUTION 
+********************************************************'''
+
+tK,aK = euler_explicite_Kaula(a0, T, dt)
+t2,a2 = euler_explicite(a0, 0.2, T, dt)
+t3,a3 = euler_explicite(a0, 0.3, T, dt)
+t4,a4 = euler_explicite(a0, 0.4, T, dt)
+
+sol_ref_02 = solve_ivp(
     da_dt_for_solve_ivp,
     t_span=(0, T),
     y0=[a0],
     method='RK45',
-    rtol=1e-12,  # Tolérance relative très stricte
-    atol=1e-9,   # Tolérance absolue (1 mm)
+    rtol=1e-12, 
+    atol=1e-9,   
     dense_output=True
 )
-a_RK45 = sol_ref.sol(t)[0]
-# ----------------- Calcul du moment de la limite de a_min et Erreur absolue ------------------------------
+a_RK45 = sol_ref_02.sol(t2)[0]
 
-zero_euler = np.argmax(a < lim_roche)
+'''******************************************************************************
+            Calcul de : 
+            - moment où on atteint lim_roche
+            - Erreur absolue
+*******************************************************************************'''
+
+zero_euler = np.argmax(a2 < lim_roche)
 zero_ref = np.argmax(a_RK45 < lim_roche)
-print(f"Phobos atteint la Roche après {t[zero_euler]/(365.25*24*3600e6):.6f} millions d'années.")
-print(f"Phobos atteint la Roche après {t[zero_ref]/(365.25*24*3600e6):.6f} millions d'années (référence RK45).")
-print(f"----> Différence entre les deux méthodes : {(t[zero_euler] - t[zero_ref])/(365.25*24*3600e6):.6f} millions d'années.")
+print(f"Phobos atteint la Roche après {t2[zero_euler]/(365.25*24*3600e6):.2f} millions d'années.")
+print(f"Phobos atteint la Roche après {t2[zero_ref]/(365.25*24*3600e6):.2f} millions d'années (référence RK45).")
+print(f"----> Différence entre les deux méthodes : {(t2[zero_euler] - t2[zero_ref])/(365.25*24*3600e6):.3E} millions d'années.")
 
-ind_roche = np.min([np.argmax(a <= lim_roche),np.argmax(a_RK45 <= lim_roche)])
+ind_roche = np.min([np.argmax(a2 <= lim_roche),np.argmax(a_RK45 <= lim_roche)])
 print(f"\nTemps = [0; T]")
-print(f" ---> sup |met_Euler - met_RK45| = {np.max(np.abs(a - a_RK45)):.6f} mètres.")
-print(f"Temps = [0; T_(a_min)]")
-print(f" ---> sup |met_Euler - met_RK45| = {np.max(np.abs(a[0:ind_roche] - a_RK45[0:ind_roche])):.6f} mètres.")
+print(f" ---> sup |met_Euler - met_RK45| = {np.max(np.abs(a2 - a_RK45)):.6f} mètres.")
+print(f"Temps = [0; T_(roche)]")
+print(f" ---> sup |met_Euler - met_RK45| = {np.max(np.abs(a2[0:ind_roche] - a_RK45[0:ind_roche])):.6f} mètres.")
 
-#----------------- AFFICHAGE DES GRAPHIQUES ------------------
 
-tK,aK = euler_explicite_Kaula(a0, T, dt)
-t3,a3 = euler_explicite(a0, 0.3, T, dt)
-t4,a4 = euler_explicite(a0, 0.4, T, dt)
+'''************************************************************
+                    AFFICHAGE DES GRAPHIQUES
+************************************************************'''
 
-Delta = Delta_t(a, Alpha)
+Delta = Delta_t(a2, 0.2)
 DeltaK = Delta_t(aK,0)
 Delta3 = Delta_t(a3,0.3)
 Delta4 = Delta_t(a4,0.4)
 
+chi = X(a2)
+chi3 = X(a3)
+chi4 = X(a4)
+
+delta = Delta*chi/2
+delta3 = Delta3*chi3/2
+delta4 = Delta4*chi4/2
+
+a_s = 365.25*24*3600
+
 plt.figure()
-plt.plot(t/(365.25*24*3600e6), a_RK45*10**(-3), label="(RK45) alpha = 0.2")
+plt.plot(t2/(365.25*24*3600e6), delta, label="alpha = 0.2")
+plt.plot(t3/(365.25*24*3600e6), delta3, label="alpha = 0.3")
+plt.plot(t4/(365.25*24*3600e6), delta4, label="alpha = 0.4")
+plt.xlabel("Temps (millilons d'années)")
+plt.ylabel("lag")
+plt.title("lag angulaire (en rad)")
+plt.grid()
+plt.legend()
+
+plt.figure()
+plt.plot(t2/(365.25*24*3600e6), chi*a_s, label="alpha = 0.2")
+plt.plot(t3/(365.25*24*3600e6), chi3*a_s, label="alpha = 0.3")
+plt.plot(t4/(365.25*24*3600e6), chi4*a_s, label="alpha = 0.4")
+plt.xlabel("Temps (millilons d'années)")
+plt.ylabel("Fréquence (en an^-1)")
+plt.title("Évolution de la fréquence principale de marée")
+plt.grid()
+plt.legend()
+
+plt.figure()
 plt.plot(tK/(365.25*24*3600e6), aK*10**(-3), label="Kaula")
-plt.plot(t/(365.25*24*3600e6), a*10**(-3), label="alpha = 0.2")
+plt.plot(t2/(365.25*24*3600e6), a2*10**(-3), label="alpha = 0.2")
 plt.plot(t3/(365.25*24*3600e6), a3*10**(-3), label="alpha = 0.3")
 plt.plot(t4/(365.25*24*3600e6), a4*10**(-3), label="alpha = 0.4")
-plt.plot(t/(365.25*24*3600e6), 10**(-3)*lim_roche*np.ones(len(t)), '--',label="Limite de a_min")
+plt.plot(t2/(365.25*24*3600e6), 10**(-3)*lim_roche*np.ones(len(t2)), '--',label="Limite de a_min")
 plt.xlabel("Temps (millilons d'années)")
 plt.ylabel("Demi-grand axe (km)")
 plt.title("Évolution du demi-grand axe de Phobos")
@@ -134,21 +175,20 @@ plt.grid()
 plt.legend()
 
 plt.figure()
-plt.plot(t/(365.25*24*3600e6), (a_RK45-a0)*10**(-3), label="(RK45) alpha = 0.2")
 plt.plot(tK/(365.25*24*3600e6), (aK-a0)*10**(-3), label="Kaula")
-plt.plot(t/(365.25*24*3600e6), (a-a0)*10**(-3), label="alpha = 0.2")
+plt.plot(t2/(365.25*24*3600e6), (a2-a0)*10**(-3), label="alpha = 0.2")
 plt.plot(t3/(365.25*24*3600e6), (a3-a0)*10**(-3), label="alpha = 0.3")
 plt.plot(t4/(365.25*24*3600e6), (a4-a0)*10**(-3), label="alpha = 0.4")
-plt.plot(t/(365.25*24*3600e6), 10**(-3)*(lim_roche-a0)*np.ones(len(t)), '--',label="Limite de a_min")
+plt.plot(t2/(365.25*24*3600e6), 10**(-3)*(lim_roche-a0)*np.ones(len(t2)), '--',label="Limite de a_min")
 plt.xlabel("Temps (millilons d'années)")
 plt.ylabel("Demi-grand axe (km)")
-plt.title("Évolution du demi-grand axe de Phobos (a-a0)")
+plt.title("Évolution du demi-grand axe de Phobos (a2-a0)")
 plt.grid()
 plt.legend()
 
 plt.figure()
 plt.plot(tK/(365.25*24*3600e6), DeltaK/60, label="Kaula")
-plt.plot(t/(365.25*24*3600e6), Delta/60, label="alpha = 0.2")
+plt.plot(t2/(365.25*24*3600e6), Delta/60, label="alpha = 0.2")
 plt.plot(t3/(365.25*24*3600e6), Delta3/60, label="alpha = 0.3")
 plt.plot(t4/(365.25*24*3600e6), Delta4/60, label="alpha = 0.4")
 plt.xlabel("Temps (millilons d'années)")

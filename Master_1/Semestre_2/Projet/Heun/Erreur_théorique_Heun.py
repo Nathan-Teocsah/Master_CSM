@@ -11,9 +11,9 @@ k2 = 0.169 # nombre de Love de Mars : https://arxiv.org/html/2405.05519v1
 a0 = 9377e3 # demi-grand axe phobos (en mètres)
 omega_p = 2*np.pi/(24.622962*3600) # vitesse de rotation de Mars (rad/s)
 lim_roche = 2.2*R # distance de Roche pour Phobos (en mètres) : https://www.insu.cnrs.fr/fr/cnrsinfo/phobos-la-lune-condamnee-pourquoi-mars-va-eroder-puis-disloquer-son-satellite
-a_min = R
+a_min = lim_roche
 alpha = 0.2 # Exposant de la loi de puissance
-dt_max = 10**5 # En année
+dt_max = 10**2 # En année
 dt = 10**2 # En année (dt < dt_max)
 
 def E(alpha) : # sec/rad (Q = E^alpha X^alpha)
@@ -97,6 +97,9 @@ print(f"On a |y_n - y(t_n)| < {C:E}*h^2")
 print("----------------------------------------")
 print(f"pour h = {dt:E} secondes :\n |y_n - y(t_n)| < {C*dt**2:E} m.")
 print(f"Nombre de points : {T/dt:.3E}")
+
+print(f"On a Err_rel = sup(|y_n - y(t_n)|) / sup(y(t_n)) < {C/np.abs(a0-T*N0):.3E}*h")
+print("----------------------------------------\n")
 
 
 

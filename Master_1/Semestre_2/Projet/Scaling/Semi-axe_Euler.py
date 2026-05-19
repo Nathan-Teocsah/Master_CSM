@@ -21,7 +21,24 @@ index = 0 # index pour alpha = 0.2
 Alpha = alpha[index]
 dt = 10**2 # pas de temps en années
 
+ordre_km = 1e-3
+
 #------------ FONCTIONS ------------
+
+def scale(T,G,R,a0,omegap,lim_roche,a_min,dt) :
+    km = 1e-3*ordre_km
+    time = 3600*24*365.25*1e6
+    T1 = T/time # seconde en milion d'année
+    G1 = G*(km)**3*(time)**2 # m. en 100 km.
+    R1 = R*km
+    a01 = a0*km
+    omegap1 = omegap*time
+    lim_roche1 = lim_roche*km
+    a_min1 = a_min*km
+    dt1 = dt/time
+    return T1,G1,R1,a01,omegap1,lim_roche1,a_min1,dt1
+
+T,G,R,a0,omega_p,lim_roche,a_min,dt = scale(T,G,R,a0,omega_p,lim_roche,a_min,dt)
 
 def E(alpha) : # sec/rad (Q = E^alpha X^alpha)
     match alpha :

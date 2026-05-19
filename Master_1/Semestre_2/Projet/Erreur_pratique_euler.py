@@ -96,6 +96,15 @@ DT = np.linspace(dt0, dt_fin, Nb_point)  # pas de temps (en années) pour l'erre
 Erreur_rel = np.zeros(Nb_point) # tableau pour stocker les erreurs
 Erreur = np.zeros(Nb_point) # tableau pour stocker les erreurs
 
+def Sup(a) :
+    ind = 0
+    for i in range(len(a)) :
+        if a[i] >= a_min :
+            ind = ind + 1
+        else :
+            break
+    return ind
+
 temps = np.zeros(Nb_point)
 temps_total=time.time()
 for i in range(Nb_point) :
@@ -103,10 +112,13 @@ for i in range(Nb_point) :
     temps[i] = time.time()
     t,a = euler_explicite(a0, Alpha, T, dt)
     temps[i] = time.time() - temps[i]
-    ind_min = np.min([np.argmax(a <= a_min),np.argmax(sol_ref.sol(t)[0] <= a_min)])
+    ind_min = np.min([Sup(a),Sup(sol_ref.sol(t)[0])])
+
     Erreur[i] = np.max(np.abs(a[0:ind_min] - sol_ref.sol(t)[0][0:ind_min]))
+
     Erreur_rel[i] = Erreur[i]/np.max(np.abs(sol_ref.sol(t)[0][0:ind_min]))
-    print(f"\rprogression : {(i+1)/Nb_point*100:.2f} % --- Erreur_rel = {Erreur_rel[i]:.2E}", end='', file=sys.stdout)
+    
+    print(f"\rprogression : {(i+1)/Nb_point*100:.2f} % --- Erreur_rel = {Erreur_rel[i]:.2E} -- dt = {dt/(3600*24*365.25):.0f} ans", end='', file=sys.stdout)
 
 print(f"\nTemps total = {time.time()-temps_total:.2f} s.")
 
@@ -125,8 +137,8 @@ model.fit(x, y)
 
 # Get model parameters
 print("\n---------- Erreur absolue -----------")
-print(f"---> Ordre de convergence : {model.coef_[0]:.2E}")
-print(f"Estimation de C : |y_n-y(t_n)| <= C*h^{model.coef_[0]:.2E}")
+print(f"Estimation de Ordre et C : |y_n-y(t_n)| <= C * h^Ordre")
+print(f"---> Ordre = {model.coef_[0]:.2E}")
 print(f"---> C = {np.exp(model.intercept_):.2E}")
 
 #-------------------------- Calcul coef erreur_rel ---------------
@@ -135,21 +147,55 @@ print(f"---> C = {np.exp(model.intercept_):.2E}")
 x_rel = np.log(DT).reshape(-1, 1)  # Reshape for scikit-learn
 y_rel = np.log(Erreur_rel)
 
-# Create model instance
-model_rel = LinearRegression()
+Nb_ordre = 5
+
+Ordre = np.zeros(Nb_ordre-1)
+Taille_I = np.zeros(Nb_ordre-1)
+n = len(x_rel)//Nb_ordre
+for i in range(1,Nb_ordre):
+    model.fit(x_rel[0:i*n], y_rel[0:i*n])
+    Ordre[i-1] = model.coef_[0]
+    Taille_I[i-1] = DT[i*n] - DT[0]
 
 # Fit the model
-model_rel.fit(x_rel, y_rel)
+model.fit(x_rel, y_rel)
 
 # Get model parameters
 print("\n---------- Erreur relative -----------")
-print(f"---> C = {np.exp(model_rel.intercept_):.2E}")
+print(f"Estimation de Ordre et C : |y_n-y(t_n)|/sup|y| <= C * h^Ordre")
+print(f"---> Ordre = {model.coef_[0]:.2E}")
+print(f"---> C = {np.exp(model.intercept_):.2E}")
+
+
+# Coefficient régression evolution ORDRE
+# Sample data
+Taille_I = (Taille_I-Taille_I[0])/(np.max(Taille_I)-Taille_I[0])
+x_ordre = Taille_I.reshape(-1, 1)  # Reshape for scikit-learn
+y_ordre = Ordre
+
+# Fit the model
+model.fit(x_ordre, y_ordre)
+
+print("\n---------- Evolution ordre -----------")
+print(f"Estimation de Ordre et C : Ordre = A * taille_I + B")
+print(f"---> A = {model.coef_[0]:.2E}")
+print(f"---> B = {model.intercept_:.2E}")
+
+
+#----------------- GRAPHIQUE -----------------------------------
+
+plt.figure()
+plt.plot(Taille_I, Ordre, '-+')
+plt.xlabel("Taille de l'intervalle re-normalisé entre 0 et 1")
+plt.ylabel("Ordre de convergence")
+plt.title("Ordre de convergence pour la méthode de Euler")
+plt.grid()
 
 plt.figure()
 plt.plot(DT/(365.25*24*3600), Erreur*1e-3)
 plt.xlabel("pas de temps (années)")
 plt.ylabel("Erreur (en km)")
-plt.title("Erreur (en norme infinie) pour la méthode de Euler")
+plt.title("Erreur (en norme infinie) pour la méthode d'Euler")
 plt.xscale("log")
 plt.yscale("log")
 plt.grid()
@@ -158,7 +204,7 @@ plt.figure()
 plt.plot(DT/(365.25*24*3600), Erreur_rel)
 plt.xlabel("pas de temps (années)")
 plt.ylabel("Erreur relative")
-plt.title("Erreur relative (en norme infinie) pour la méthode Euler")
+plt.title("Erreur relative (en norme infinie) pour la méthode d'Euler")
 plt.xscale("log")
 plt.yscale("log")
 plt.grid()
