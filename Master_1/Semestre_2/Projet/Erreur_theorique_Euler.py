@@ -148,9 +148,10 @@ plt.grid()
 plt.legend()
 
 # Tracer de la courbe f(a) pour alpha = 0.2
+Int_a = np.linspace(lim_roche,a0,1000)
 plt.figure()
-plt.plot(Intervalle_a, f(Intervalle_a,C0,C1), label="f(a)")
-plt.xlabel("a (m)")
+plt.plot(Int_a*1e-3, f(Int_a,C0,C1), label="f(a)")
+plt.xlabel("a (km)")
 plt.ylabel("f(a)")
 plt.title(f"Fonction f(a) pour alpha = {alpha}")
 plt.grid()

@@ -15,7 +15,7 @@ k2 = 0.169 # 0.169 nombre de Love de Mars : https://arxiv.org/html/2405.05519v1
 omega_p = 2*np.pi/(24.622962*3600) # vitesse de rotation de Mars (rad/s)
 a0 = 9377e3 # demi-grand axe phobos (en mètres)
 lim_roche = 2.2*R# distance de Roche pour Phobos (en mètres) : https://www.insu.cnrs.fr/fr/cnrsinfo/phobos-la-lune-condamnee-pourquoi-mars-va-eroder-puis-disloquer-son-satellite
-a_min = R
+a_min = lim_roche
 alpha = [0.2, 0.3, 0.4] # Exposant de la loi de puissance
 Q = 80
 
@@ -87,7 +87,7 @@ print(f"a_min = {a_min:.3E} m.")
 print(f"lim_roche = {lim_roche:.3E} m.")
 
 print("\n Calcul de l'erreur pour différents pas")
-Nb_point = 10**3 # nombre de points pour l'erreur
+Nb_point = 10**2 # nombre de points pour l'erreur
 dt0 = 10**2  # pas de temps initial pour l'erreur (en secondes)
 dt_fin = 10**4
 
@@ -98,6 +98,15 @@ DT = np.linspace(dt0, dt_fin, Nb_point)  # pas de temps (en années) pour l'erre
 Erreur_rel = np.zeros(Nb_point) # tableau pour stocker les erreurs
 Erreur = np.zeros(Nb_point) # tableau pour stocker les erreurs
 
+def Sup(a) :
+    ind = 0
+    for i in range(len(a)) :
+        if a[i] >= a_min :
+            ind = ind + 1
+        else :
+            break
+    return ind
+
 temps = np.zeros(Nb_point)
 temps_total=time.time()
 for i in range(Nb_point) :
@@ -105,7 +114,7 @@ for i in range(Nb_point) :
     temps[i] = time.time()
     t,a = euler_explicite(a0, Alpha, T, dt)
     temps[i] = time.time() - temps[i]
-    ind_min = np.min([np.argmax(a <= a_min),np.argmax(sol_ref.sol(t)[0] <= a_min)])
+    ind_min = np.min([Sup(a),Sup(sol_ref.sol(t)[0])])
     Erreur[i] = np.max(np.abs(a[0:ind_min] - sol_ref.sol(t)[0][0:ind_min]))
     Erreur_rel[i] = Erreur[i]/np.max(np.abs(sol_ref.sol(t)[0][0:ind_min]))
     print(f"\rprogression : {(i+1)/Nb_point*100:.2f} % --- Erreur_rel = {Erreur_rel[i]:.2E}", end='', file=sys.stdout)
@@ -151,7 +160,7 @@ plt.figure()
 plt.plot(DT/(365.25*24*3600), Erreur*1e-3)
 plt.xlabel("pas de temps (années)")
 plt.ylabel("Erreur (en km)")
-plt.title("Erreur (en norme infinie) pour la méthode de Heun")
+plt.title("Graphique log-log \nErreur (en norme infinie) pour la méthode de Heun")
 plt.xscale("log")
 plt.yscale("log")
 plt.grid()
@@ -160,7 +169,7 @@ plt.figure()
 plt.plot(DT/(365.25*24*3600), Erreur_rel)
 plt.xlabel("pas de temps (années)")
 plt.ylabel("Erreur relative")
-plt.title("Erreur relative (en norme infinie) pour la méthode de Heun")
+plt.title("Graphique log-log \nErreur relative (en norme infinie) pour la méthode de Heun")
 plt.xscale("log")
 plt.yscale("log")
 plt.grid()
@@ -169,7 +178,7 @@ plt.figure()
 plt.plot(DT/(365.25*24*3600), temps)
 plt.xlabel("pas de temps (années)")
 plt.ylabel("Temps (s.)")
-plt.title("Temps d'execution de la méthode de Heun")
+plt.title("Graphique log-log \nTemps d'execution de la méthode de Heun")
 plt.xscale("log")
 plt.yscale("log")
 plt.grid()

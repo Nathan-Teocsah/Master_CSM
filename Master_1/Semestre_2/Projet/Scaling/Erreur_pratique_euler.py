@@ -15,21 +15,36 @@ k2 = 0.169 # 0.169 nombre de Love de Mars : https://arxiv.org/html/2405.05519v1
 omega_p = 2*np.pi/(24.622962*3600) # vitesse de rotation de Mars (rad/s)
 a0 = 9377e3 # demi-grand axe phobos (en mètres)
 lim_roche = 2.2*R# distance de Roche pour Phobos (en mètres) : https://www.insu.cnrs.fr/fr/cnrsinfo/phobos-la-lune-condamnee-pourquoi-mars-va-eroder-puis-disloquer-son-satellite
-a_min = lim_roche
+a_min = R
 alpha = [0.2, 0.3, 0.4] # Exposant de la loi de puissance
 Q = 80
 
 T = 3.5e7 * 365.25 * 24 * 3600 # 50 millions d'années en secondes
 Alpha = alpha[0]
 
+ordre_km = 1e-2
+
 #---------------------------- Fonctions --------------------
+
+def scale_tout(T,G,R,a0,omegap,lim_roche,a_min) :
+    km = 1e-3*ordre_km
+    time = 3600*24*365.25*1e6
+    T1 = T/time # seconde en milion d'année
+    G1 = G*(km)**3*(time)**2 # m. en 100 km.
+    R1 = R*km
+    a01 = a0*km
+    omegap1 = omegap*time
+    lim_roche1 = lim_roche*km
+    a_min1 = a_min*km
+    return T1,G1,R1,a01,omegap1,lim_roche1,a_min1
+
+T,G,R,a0,omega_p,lim_roche,a_min = scale_tout(T,G,R,a0,omega_p,lim_roche,a_min)
 
 def E(alpha) : # sec/rad (Q = E^alpha X^alpha)
     match alpha :
-        case 0.2 : return  1201*10**5*24*3600
-        case 0.3 : return 81028*24*3600
-        case 0.4 : return 2104*24*3600
-        case 0 : return 2*Q
+        case 0.2 : return  1201*10**5 /365.25 * 1e-6
+        case 0.3 : return 81028*24 /365.25 * 1e-6
+        case 0.4 : return 2104*24 /365.25 * 1e-6
 
 def n(a) : # fréquence orbitale de Phobos (rad/s)  
     return np.sqrt(G*(M0+m)/a**3)
@@ -80,21 +95,35 @@ sol_ref = solve_ivp(
 
 #---------------------- Calcul de l'erreur ----------------------
 
-print(f"Temps de simulation T = {T:.3E} secondes.")
-print(f"a_min = {a_min:.3E} m.")
-print(f"lim_roche = {lim_roche:.3E} m.")
+print(f"Temps de simulation T = {T:.3E} Ma")
+print(f"a_min = {a_min/ordre_km:.3E} km")
+print(f"lim_roche = {lim_roche/ordre_km:.3E} km")
 
 print("\n Calcul de l'erreur pour différents pas")
-Nb_point = 10**3 # nombre de points pour l'erreur
-dt0 = 10**2  # pas de temps initial pour l'erreur (en secondes)
-dt_fin = 10**4
+Nb_point = 100 # nombre de points pour l'erreur
+dt0 = 1e2 * 1e-6  # pas de temps initial pour l'erreur (en millions d'années)
+dt_fin = 1e4 * 1e-6
 
-dt_fin = dt_fin * 365.25 * 24 * 3600 # conversion du pas de temps final en secondes
-dt0 = dt0 * 365.25 * 24 * 3600 # conversion du pas de temps initial en secondes
 DT = np.linspace(dt0, dt_fin, Nb_point)  # pas de temps (en années) pour l'erreur
 
 Erreur_rel = np.zeros(Nb_point) # tableau pour stocker les erreurs
 Erreur = np.zeros(Nb_point) # tableau pour stocker les erreurs
+
+def Count(a) :
+    c = 0
+    for y in a :
+        if y >= a_min :
+            c = c + 1
+    return c
+
+def Sup(a) :
+    ind = 0
+    for i in range(len(a)) :
+        if a[i] >= a_min :
+            ind = ind + 1
+        else :
+            break
+    return ind
 
 temps = np.zeros(Nb_point)
 temps_total=time.time()
@@ -103,7 +132,7 @@ for i in range(Nb_point) :
     temps[i] = time.time()
     t,a = euler_explicite(a0, Alpha, T, dt)
     temps[i] = time.time() - temps[i]
-    ind_min = np.min([np.argmax(a <= a_min),np.argmax(sol_ref.sol(t)[0] <= a_min)])
+    ind_min = np.min([Sup(a),Sup(sol_ref.sol(t)[0])])
     Erreur[i] = np.max(np.abs(a[0:ind_min] - sol_ref.sol(t)[0][0:ind_min]))
     Erreur_rel[i] = Erreur[i]/np.max(np.abs(sol_ref.sol(t)[0][0:ind_min]))
     print(f"\rprogression : {(i+1)/Nb_point*100:.2f} % --- Erreur_rel = {Erreur_rel[i]:.2E}", end='', file=sys.stdout)
@@ -127,7 +156,7 @@ model.fit(x, y)
 print("\n---------- Erreur absolue -----------")
 print(f"---> Ordre de convergence : {model.coef_[0]:.2E}")
 print(f"Estimation de C : |y_n-y(t_n)| <= C*h^{model.coef_[0]:.2E}")
-print(f"---> C = {np.exp(model.intercept_):.2E}")
+print(f"---> C = {np.exp(model.intercept_)/ordre_km:.2E} km/Ma")
 
 #-------------------------- Calcul coef erreur_rel ---------------
 
@@ -146,28 +175,28 @@ print("\n---------- Erreur relative -----------")
 print(f"---> C = {np.exp(model_rel.intercept_):.2E}")
 
 plt.figure()
-plt.plot(DT/(365.25*24*3600), Erreur*1e-3)
-plt.xlabel("pas de temps (années)")
-plt.ylabel("Erreur (en km)")
-plt.title("Erreur (en norme infinie) pour la méthode de Heun")
+plt.plot(DT, Erreur/ordre_km)
+plt.xlabel("pas de temps (Ma))")
+plt.ylabel("Erreur (km)")
+plt.title("Erreur (en norme infinie) pour la méthode de Euler")
 plt.xscale("log")
 plt.yscale("log")
 plt.grid()
 
 plt.figure()
-plt.plot(DT/(365.25*24*3600), Erreur_rel)
-plt.xlabel("pas de temps (années)")
+plt.plot(DT, Erreur_rel)
+plt.xlabel("pas de temps (Ma)")
 plt.ylabel("Erreur relative")
-plt.title("Erreur relative (en norme infinie) pour la méthode de Heun")
+plt.title("Erreur relative (en norme infinie) pour la méthode de Euler")
 plt.xscale("log")
 plt.yscale("log")
 plt.grid()
 
 plt.figure()
-plt.plot(DT/(365.25*24*3600), temps)
+plt.plot(DT, temps)
 plt.xlabel("pas de temps (années)")
 plt.ylabel("Temps (s.)")
-plt.title("Temps d'execution de la méthode de Heun")
+plt.title("Temps d'execution de la méthode de Euler")
 plt.xscale("log")
 plt.yscale("log")
 plt.grid()
