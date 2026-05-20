@@ -72,7 +72,7 @@
 	On veut trouver une expression de $\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u$ à partir des $u_k$ :
 	
 	\begin{equation}\label{eq:objectif}
-		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u = \dfrac1{\abs{C_i}}\int_{\partial C_i} u(x)n(x) \dx = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[\int_a^b u(x^{i,j}(\xi))d\xi\right] n_{i,j}
+		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u = \dfrac1{\abs{C_i}}\int_{\partial C_i} u(x)n(x) \dx = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[\int_{\Gamma_{i,j}} u(\xi)d\xi\right] n_{i,j}
 	\end{equation}
 	
 	Où $ x^{i,j} : [a,b]  \to \Gamma_{i,j}$ est une paramétrisation de $\Gamma_{i,j}$.\\
@@ -109,19 +109,19 @@
 		\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} = u(x_{i,j}) + R_1^{i,j}
 	\end{equation}\\
 	
-	Effectuons cette fois un d.l. sur $x(\xi)$ : 	
+	Effectuons cette fois un d.l. sur $\xi$ : 	
 	\[
-	u(x^{i,j}(\xi)) = u(x_{i,j}) + \left[x^{i,j}(\xi)-x_{i,j}\right]\cdot\nabla u(x_{i,j}) + \displaystyle\int_0^1 (1-t)(x^{i,j}(\xi)-x_{i,j})^tH_{\gamma_{x^{i,j}(\xi)}(t)}u (x^{i,j}(\xi)-x_{i,j}) \dt
+	u(\xi) = u(x_{i,j}) + \left[\xi-x_{i,j}\right]\cdot\nabla u(x_{i,j}) + \displaystyle\int_0^1 (1-t)(\xi-x_{i,j})^tH_{\gamma_{\xi}(t)}u (\xi-x_{i,j}) \dt
 	\]
 	Ainsi, en utilisant (\ref{eq:xij}) on a :\\
-	\hspace*{-.8cm}$u(x^{i,j}(\xi)) = \dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \left[x^{i,j}(\xi)-x_{i,j}\right]\cdot\nabla u(x_{i,j}) + \displaystyle\int_0^1 (1-t)(x^{i,j}(\xi)-x_{i,j})^tH_{\gamma_{x^{i,j}(\xi)}(t)}u (x^{i,j}(\xi)-x_{i,j}) \dt - R_1^{i,j}$\\
+	\hspace*{-.8cm}$u(\xi) = \dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \left[\xi-x_{i,j}\right]\cdot\nabla u(x_{i,j}) + \displaystyle\int_0^1 (1-t)(\xi-x_{i,j})^tH_{\gamma_{\xi}(t)}u (\xi-x_{i,j}) \dt - R_1^{i,j}$\\
 	
 	\newpage
 	
 	Et en intégrant : \\
 	$\begin{aligned}
-		\displaystyle\int_a^b u(x^{i,j}(\xi))d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} &+ \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\nabla u(x_{i,j}) \\
-		&+ \displaystyle\int_0^1 (1-t)\int_a^b (x^{i,j}(\xi)-x_{i,j})^tH_{\gamma_{x^{i,j}(\xi)}(t)}u (x^{i,j}(\xi)-x_{i,j})d\xi \dt - R_1^{i,j}
+		\displaystyle\int_{\Gamma_{i,j}} u(\xi)d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} &+ \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\nabla u(x_{i,j}) \\
+		&+ \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} (\xi-x_{i,j})^tH_{\gamma_{\xi}(t)}u (\xi-x_{i,j})d\xi \dt - R_1^{i,j}
 	\end{aligned}$
 	
 	Où $\lambda_{i,j} = \abs{\Gamma_{i,j}}$.\\
@@ -129,11 +129,11 @@
 	On pose :
 	
 	\enc{black}{\begin{equation}\label{eq:R2}
-		R_2^{i,j} = \displaystyle\int_0^1 (1-t)\int_a^b (x^{i,j}(\xi)-x_{i,j})^tH_{\gamma_{x^{i,j}(\xi)}(t)}u (x^{i,j}(\xi)-x_{i,j})d\xi \dt
+		R_2^{i,j} = \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} (\xi-x_{i,j})^tH_{\gamma_{\xi}(t)}u (\xi-x_{i,j})d\xi \dt
 	\end{equation}}
 	
 	Ainsi : \begin{equation}\label{eq:somme}
-		\displaystyle\int_a^b u(x^{i,j}(\xi))d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\nabla u(x_{i,j}) + R_2^{i,j} - R_1^{i,j}
+		\displaystyle\int_{\Gamma_{i,j}} u(\xi)d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\nabla u(x_{i,j}) + R_2^{i,j} - R_1^{i,j}
 	\end{equation}
 	
 	Effectuons un dernier d.l. : $\begin{aligned}[t]
@@ -148,7 +148,7 @@
 	
 	Et en injectant (\ref{eq:grad}) dans (\ref{eq:somme}) on obtient :
 	\[
-	\displaystyle\int_a^b u(x^{i,j}(\xi))d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\left(\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u- \lambda_{i,j}\int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} H_{\gamma_x(t)}u\times x\dx\right) + R_2^{i,j} - R_1^{i,j}
+	\displaystyle\int_{\Gamma_{i,j}} u(\xi)d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\left(\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u- \lambda_{i,j}\int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} H_{\gamma_x(t)}u\times x\dx\right) + R_2^{i,j} - R_1^{i,j}
 	\]
 	
 	On pose :
@@ -158,13 +158,13 @@
 	\end{equation}}
 
 	Ce qui permet d'écrire : \begin{equation}\label{eq:somme_reecrite}
-		\displaystyle\int_a^b u(x^{i,j}(\xi))d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u + R_2^{i,j} - R_1^{i,j} - R_3^{i,j}
+		\displaystyle\int_{\Gamma_{i,j}} u(\xi)d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u + R_2^{i,j} - R_1^{i,j} - R_3^{i,j}
 	\end{equation}
 	
 	
 	Finalement en injectant (\ref{eq:somme_reecrite}) dans (\ref{eq:objectif}), on obtient :
 	
-	\begin{equation}\label{eq:preque_final}
+	\hspace*{-2cm}\begin{equation}\label{eq:preque_final}
 		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}}n_{i,j} + \left[\lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u\right] n_{i,j} + \left[R_2^{i,j} - R_1^{i,j} - R_3^{i,j}\right] n_{i,j}
 	\end{equation}
 	
@@ -192,5 +192,19 @@
 	
 	\enc{black}{
 	\textbf{\underline{Question :}} Est ce que l'inversibilité de $B_i$ n'a en fait aucune incidence sur la convergence du gradient discret ? (peu importe qu'il y ait plusieurs solution si toutes ces solutions convergent strictement de la même manière vers le vrai gradient)}
+	
+	\subsection{Simplification "naïve"}
+	
+	Supposons que la hessienne de $u$ est majoré sur le domaine $\Omega$. Notons $M$ un majorant de la hessienne de $u$. Et d'après (\ref{eq:R1}), (\ref{eq:R2}) et (\ref{eq:R3}) :
+	
+	\begin{equation}\label{eq:maj_naiv_R1}
+		\abs{R_3^{i,j}} \leq \dfrac M{4d_{i,j}}\left[d_{j,ij}\displaystyle\int_{C_i} |\!|x-x_{i,j}|\!|^2\dx + d_{i,ij}\displaystyle\int_{C_j} |\!|x-x_{i,j}|\!|^2\dx\right]
+	\end{equation}
+	\begin{equation}\label{eq:maj_naiv_R2}
+		\abs{R_3^{i,j}} \leq \dfrac{M}2\displaystyle\int_{\Gamma_{i,j}} |\!|\xi-x_{i,j}|\!|^2d\xi
+	\end{equation}
+	\begin{equation}\label{eq:maj_naiv_R3}
+		\abs{R_3^{i,j}} \leq \dfrac{\lambda_{i,j}M}2\abs{\left(\bar x_{i,j}-x_{i,j}\right)\cdot x_i}
+	\end{equation}
 	
 \end{document}

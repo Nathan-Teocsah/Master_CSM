@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  19 MAY 2026 17:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  20 MAY 2026 16:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1656,7 +1656,7 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-</home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg, id=51, 1204.5pt x 612.28
+</home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg, id=55, 1204.5pt x 612.28
 75pt>
 File: /home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg Graphic file (type j
 pg)
@@ -1811,12 +1811,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 139--143
  []
 
 
-Overfull \hbox (25.15028pt too wide) detected at line 152
-[][] \OML/lmm/m/it/12 u\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x[]\OT1/lmr/m/n/12 (\O
-ML/lmm/m/it/12 ^^X\OT1/lmr/m/n/12 ))\OML/lmm/m/it/12 d^^X \OT1/lmr/m/n/12 = \OM
-L/lmm/m/it/12 ^^U[][] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 ^^U[] [] \OMS/lmsy/m/n
-/12 ^^A [] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 R[] \OMS/lmsy/m/n/12 ^^@ \OML/lmm
-/m/it/12 R[]
+Overfull \hbox (5.77739pt too wide) detected at line 152
+[][] \OML/lmm/m/it/12 u\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^X\OT1/lmr/m/n/12 )\O
+ML/lmm/m/it/12 d^^X \OT1/lmr/m/n/12 = \OML/lmm/m/it/12 ^^U[][] \OT1/lmr/m/n/12 
++ \OML/lmm/m/it/12 ^^U[] [] \OMS/lmsy/m/n/12 ^^A [] \OT1/lmr/m/n/12 + \OML/lmm/
+m/it/12 R[] \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 R[]
  []
 
 
@@ -1838,7 +1837,7 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 194--195
 \openout7 = `document.thm'.
 
 [4]
-runsystem(latexminted cleantemp  --timestamp 20260519170841 FDC3BDEFB79CEC8EB82
+runsystem(latexminted cleantemp  --timestamp 20260520164958 FDC3BDEFB79CEC8EB82
 11D2499E04704)...executed safely (allowed).
 
  (./document.aux)
@@ -1847,13 +1846,13 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: CFD19A4DE3D77BD089364E378E4A006C;340.
+(rerunfilecheck)             Checksum: ADB00A59660300AAA8377D58FAF69D14;513.
  ) 
 Here is how much of TeX's memory you used:
- 53985 strings out of 467538
- 1276054 string characters out of 5419551
+ 53993 strings out of 467538
+ 1276165 string characters out of 5419551
  1972686 words of memory out of 5000000
- 82008 multiletter control sequences out of 15000+600000
+ 82012 multiletter control sequences out of 15000+600000
  679084 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,10n,131p,869b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1863,14 +1862,13 @@ ve/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/te
 xmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/f
 onts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
 public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/l
-mr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></u
-sr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/tex
-live/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/
-texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on document.pdf (5 pages, 199902 bytes).
+mr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/t
+exlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
+Output written on document.pdf (5 pages, 199317 bytes).
 PDF statistics:
- 165 PDF objects out of 1000 (max. 8388607)
- 108 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
- 178 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 171 PDF objects out of 1000 (max. 8388607)
+ 116 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 186 words of extra memory for PDF output out of 10000 (max. 10000000)
 
