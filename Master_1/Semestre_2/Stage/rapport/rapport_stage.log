@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  26 MAY 2026 12:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  26 MAY 2026 15:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1655,7 +1655,7 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-</home/maenwe/Master_CSM/modèle_cours_latex/logo.png, id=59, 336.25626pt x 150
+</home/maenwe/Master_CSM/modèle_cours_latex/logo.png, id=67, 336.25626pt x 150
 .5625pt>
 File: /home/maenwe/Master_CSM/modèle_cours_latex/logo.png Graphic file (type p
 ng)
@@ -1746,117 +1746,117 @@ l.68 	\newpage
 Package marginnote Info: Using workaround for absolute page number on input lin
 e 68.
  [1{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/l
-ocal/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2
-025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2025/texmf-
+ocal/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texli
+ve/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2025/texmf-
 dist/fonts/enc/dvips/lm/lm-mathex.enc}]
 Package marginnote Info: Using workaround for absolute page number on input lin
-e 112.
+e 109.
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--127
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
 
  []
 
 
-Overfull \hbox (17.39041pt too wide) in paragraph at lines 130--137
+Underfull \hbox (badness 10000) in paragraph at lines 127--131
+
+ []
+
+
+Overfull \hbox (17.39041pt too wide) in paragraph at lines 134--141
 []|  $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--143
+Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
- []
-
-
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 165--166
-[]$[]$ 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 171--175
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 169--170
+[]$[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--179
 
  []
 
 
-Overfull \hbox (8.50175pt too wide) detected at line 187
+Overfull \hbox (8.40273pt too wide) detected at line 191
 [][]
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 193--194
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 197--198
 []$[]$ 
  []
 
 
-Overfull \hbox (3.46072pt too wide) detected at line 204
+Overfull \hbox (4.79337pt too wide) detected at line 208
 [][][][] [][] [] \OT1/lmr/m/n/12 = [] [] \OML/lmm/m/it/12 ^^U[][][] \OT1/lmr/m/
 n/12 + [] [] + [] []
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 210--211
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 214--215
 []$[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--219
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
 
  []
 
-[3]
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 233--235
+[3] [4]
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 237--239
  $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
 
  []
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 284--285
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 286--287
 
  []
 
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 303--304
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
+
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 307--308
 []$[]$ 
  []
 
 Package hyperref Info: bookmark level for unknown rmq defaults to 0 on input li
-ne 309.
+ne 313.
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 3
-17.
+21.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd)
-Overfull \hbox (3.0pt too wide) in paragraph at lines 315--318
+Overfull \hbox (3.0pt too wide) in paragraph at lines 319--322
  $[]$ 
  []
 
 
-Overfull \hbox (147.10774pt too wide) in paragraph at lines 309--319
+Overfull \hbox (147.10774pt too wide) in paragraph at lines 313--323
 [][][] 
  []
 
-[5]
+[6]
 \tf@thm=\write7
 \openout7 = `rapport_stage.thm'.
 
- [6]
-runsystem(latexminted cleantemp  --timestamp 20260526125621 70EB0860D85E06B3372
+ [7]
+runsystem(latexminted cleantemp  --timestamp 20260526153349 70EB0860D85E06B3372
 592403C3FF571)...executed safely (allowed).
 
  (./rapport_stage.aux)
@@ -1864,36 +1864,40 @@ runsystem(latexminted cleantemp  --timestamp 20260526125621 70EB0860D85E06B3372
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
-Package rerunfilecheck Info: File `rapport_stage.out' has not changed.
-(rerunfilecheck)             Checksum: B6364203733CA9538866A6369DA28231;626.
+
+
+Package rerunfilecheck Warning: File `rapport_stage.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `rapport_stage.out':
+(rerunfilecheck)             Before: FA59237BCBA55999E940924192E4BE93;772
+(rerunfilecheck)             After:  24CE424A0EDACA8B1670D5474A5D06CB;815.
  ) 
 Here is how much of TeX's memory you used:
- 54066 strings out of 467538
- 1277672 string characters out of 5419551
+ 54071 strings out of 467538
+ 1277738 string characters out of 5419551
  1973701 words of memory out of 5000000
- 82062 multiletter control sequences out of 15000+600000
+ 82064 multiletter control sequences out of 15000+600000
  689877 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,11n,131p,874b,917s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
-cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive
-/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/tex
-mf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fo
-nts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
-public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/l
-mmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmib10.pfb>
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmib7.pfb></usr/loca
-l/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2
-025/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2025/texmf-d
-ist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
-pe1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public
-/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.
-pfb>
-Output written on rapport_stage.pdf (8 pages, 249255 bytes).
+cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texli
+ve/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/f
+onts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/l
+mr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr17.pfb></
+usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/te
+xlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025
+/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dis
+t/fonts/type1/public/lm/lmsy8.pfb>
+Output written on rapport_stage.pdf (9 pages, 221503 bytes).
 PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
- 168 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
- 194 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 239 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 210 words of extra memory for PDF output out of 10000 (max. 10000000)
 

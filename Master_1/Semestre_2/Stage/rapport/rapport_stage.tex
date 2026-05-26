@@ -72,48 +72,52 @@
 	
 	\section{Introduction}
 	
+	\subsection{Contexte}
+	
 	Ce stage s'est déroulé au sein de l'Institut de Recherche Mathématique de Rennes (IRMAR), un
 	laboratoire de recherche fondamentale et appliquée en mathématiques, rattaché à l'Université de Rennes et au CNRS. L'IRMAR couvre un large spectre de thématiques, allant de l'analyse et la géométrie à la modélisation numérique et aux statistiques. Le stage a bénéficié du soutien financier du Centre Henri Lebesgue, un centre de recherche mathématique interrégional qui vise à promouvoir l'excellence scientifique, à renforcer la collaboration entre chercheurs et à soutenir la formation par la recherche dans le domaine des mathématiques.
 	\par Le sujet de ce stage porte sur l'étude de la consistance de gradients discrets sur des maillages anisotrope (non structuré) en deux dimensions. Un maillage est dit anisotrope lorsqu'il présente des cellules allongées ou déformées dans certaines directions, contrairement à un maillage isotrope où les cellules sont régulières et uniformes. La structure du maillage et la façon dont on le mesure impacte directement l'erreur de consistance de gradients discrets.
 	\par Dans le cadre de la méthode des volumes finis, pour obtenir des solutions plus précises il est utile de considérer le gradient de la solution, un gradient discret puisque qu'on le considère constant sur chaque maille du maillage. Une question émerge naturellement de ces considérations : ce gradient que nous avons définis, converge t'il et à quel ordre ?\\
 	Cela fournis des contraintes sur le maillage pour permettre à ce gradient discret de converger.
 	
+	\subsection{Figures}
+	
 	\section{Expression de l'erreur}
 	
 	\subsection{Expression exacte de l'erreur}
 	
-	On note $\mathbf{\nabla u}_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \mathbf{\nabla u}$.
+	On note $ {\nabla u}_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u}$.
 	
-	Et nous considérons, $\mathbf{\overline{\mathbf{\nabla u}(x_i)}}$, solution de (sous réserve qu'il y en ai une) :
+	Et nous considérons, $ {\overline{ {\nabla u}(x_i)}}$, solution de (sous réserve qu'il y en ai une) :
 	
 	\begin{equation}
-		B_i\mathbf{\overline{\mathbf{\nabla u}(x_i)}} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}}\mathbf{n_{i,j}}
+		B_i {\overline{ {\nabla u}(x_i)}} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}
 	\end{equation}
 	
-	où $B_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\mathbf{n_{i,j}}\otimes\left(\mathbf{\bar x_{i,j}-x_{i,j}}\right)$ et $u_k = \dfrac1{\abs{C_k}}\displaystyle\int_{C_k} u$.
+	où $B_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j} {n_{i,j}}\otimes\left( {\bar x_{i,j}-x_{i,j}}\right)$ et $u_k = \dfrac1{\abs{C_k}}\displaystyle\int_{C_k} u$.
 	
 	\begin{tcolorbox}[title=\textbf{Objectif}]
 		\begin{center}
-			Nous allons étudier l'erreur $\mathbf{R^{(i)}} = B_i\mathbf{\nabla u}_i - B_i\mathbf{\overline{\mathbf{\nabla u}(x_i)}}$
+			Nous allons étudier l'erreur $ {R^{(i)}} = B_i {\nabla u}_i - B_i {\overline{ {\nabla u}(x_i)}}$
 		\end{center}
 	\end{tcolorbox}	
 	
-	On veut trouver une expression de $\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \mathbf{\nabla u}$ à partir des $u_k$ :
+	On veut trouver une expression de $\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u}$ à partir des $u_k$ :
 	
 	\begin{equation}\label{eq:objectif}
-		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \mathbf{\nabla u} = \dfrac1{\abs{C_i}}\int_{\partial C_i} u(\mathbf x)\mathbf{n(x)} \mathrm d\mathbf x = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[\int_{\Gamma_{i,j}} u(\bm\xi)d\bm\xi\right] \mathbf{n_{i,j}}
+		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} = \dfrac1{\abs{C_i}}\int_{\partial C_i} u(  x) {n(x)} \mathrm d  x = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[\int_{\Gamma_{i,j}} u( \xi)d \xi\right]  {n_{i,j}}
 	\end{equation}
 	
 	Où $ x^{i,j} : [a,b]  \to \Gamma_{i,j}$ est une paramétrisation de $\Gamma_{i,j}$.
 	
 	Effectuons un d.l. :
 	\[
-	u(\mathbf x) = u(\mathbf x_{i,j}) + \left[\mathbf{x-x_{i,j}}\right]\cdot\mathbf{\nabla u}(x_{i,j}) + \displaystyle\int_0^1 (1-t)(\mathbf{x-x_{i,j}})^tH_{\gamma_{x}(t)}u (\mathbf{x-x_{i,j}}) \dt
+	u(  x) = u(  x_{i,j}) + \left[ {x-x_{i,j}}\right]\cdot {\nabla u}(x_{i,j}) + \displaystyle\int_0^1 (1-t)( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}}) \dt
 	\]
 	
 	où $\gamma_x(t) = tx_{i,j} + (1-t)x$.\\
 	
-	Ainsi : $u_k = \dfrac1{\abs{C_k}}\displaystyle\int_{C_k} u = u(\mathbf x_{i,j}) + \left[\mathbf x_k-\mathbf x_{i,j}\right]\cdot\mathbf{\nabla u}(x_{i,j}) + \int_0^1 \dfrac{(1-t)}{C_k}\int_{C_k}(\mathbf{x-x_{i,j}})^tH_{\gamma_{x}(t)}u (\mathbf{x-x_{i,j}})\mathrm d\mathbf x \dt$\\
+	Ainsi : $u_k = \dfrac1{\abs{C_k}}\displaystyle\int_{C_k} u = u(  x_{i,j}) + \left[  x_k-  x_{i,j}\right]\cdot {\nabla u}(x_{i,j}) + \int_0^1 \dfrac{(1-t)}{C_k}\int_{C_k}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x \dt$\\
 	Pour $k \in \{i,j\}$.
 	
 	On a ainsi : 
@@ -122,7 +126,7 @@
 	
 	$\begin{aligned}
 		&\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}}\\
-		 = & u(\mathbf x_{i,j}) + \displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\left[\dfrac{d_{j,ij}}{C_i}\int_{C_i}(\mathbf{x-x_{i,j}})^tH_{\gamma_{x}(t)}u (\mathbf{x-x_{i,j}})\mathrm d\mathbf x + \dfrac{d_{i,ij}}{C_j}\int_{C_j}(\mathbf{x-x_{i,j}})^tH_{\gamma_{x}(t)}u (\mathbf{x-x_{i,j}})\mathrm d\mathbf x\right] \dt
+		 = & u(  x_{i,j}) + \displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\left[\dfrac{d_{j,ij}}{C_i}\int_{C_i}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x + \dfrac{d_{i,ij}}{C_j}\int_{C_j}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x\right] \dt
 	\end{aligned}$\\
 	
 	On pose :
@@ -132,26 +136,26 @@
 		\vspace{-.5cm}
 		
 		\begin{equation}\label{eq:R1}
-			R_1^{i,j} = \displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\left[\dfrac{d_{j,ij}}{C_i}\int_{C_i}(\mathbf{x-x_{i,j}})^tH_{\gamma_{x}(t)}u (\mathbf{x-x_{i,j}})\mathrm d\mathbf x + \dfrac{d_{i,ij}}{C_j}\int_{C_j}(\mathbf{x-x_{i,j}})^tH_{\gamma_{x}(t)}u (\mathbf{x-x_{i,j}})\mathrm d\mathbf x\right] \dt
+			R_1^{i,j} = \displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\left[\dfrac{d_{j,ij}}{C_i}\int_{C_i}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x + \dfrac{d_{i,ij}}{C_j}\int_{C_j}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x\right] \dt
 	\end{equation}}
 	
 	
 	Ainsi : \\
 	\begin{equation}\label{eq:xij}
-		\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} = u(\mathbf x_{i,j}) + R_1^{i,j}
+		\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} = u(  x_{i,j}) + R_1^{i,j}
 	\end{equation}\\
 	
-	Effectuons cette fois un d.l. sur $\bm\xi$ : 	
+	Effectuons cette fois un d.l. sur $ \xi$ : 	
 	\[
-	u(\bm\xi) = u(\mathbf x_{i,j}) + \left[\bm\xi-\mathbf x_{i,j}\right]\cdot\mathbf{\nabla u}(\mathbf x_{i,j}) + \displaystyle\int_0^1 (1-t)(\bm\xi-\mathbf x_{i,j})^tH_{\gamma_{\bm\xi}(t)}u (\bm\xi-\mathbf x_{i,j}) \dt
+	u( \xi) = u(  x_{i,j}) + \left[ \xi-  x_{i,j}\right]\cdot {\nabla u}(  x_{i,j}) + \displaystyle\int_0^1 (1-t)( \xi-  x_{i,j})^tH_{\gamma_{ \xi}(t)}u ( \xi-  x_{i,j}) \dt
 	\]
 	Ainsi, en utilisant (\ref{eq:xij}) on a :	
-	\[u(\bm\xi) = \dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \left[\bm\xi-\mathbf x_{i,j}\right]\cdot\mathbf{\nabla u}(\mathbf x_{i,j}) + \displaystyle\int_0^1 (1-t)(\bm\xi-\mathbf x_{i,j})^tH_{\gamma_{\bm\xi}(t)}u (\bm\xi-\mathbf x_{i,j}) \dt - R_1^{i,j}\]
+	\[u( \xi) = \dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \left[ \xi-  x_{i,j}\right]\cdot {\nabla u}(  x_{i,j}) + \displaystyle\int_0^1 (1-t)( \xi-  x_{i,j})^tH_{\gamma_{ \xi}(t)}u ( \xi-  x_{i,j}) \dt - R_1^{i,j}\]
 	
 	Et en intégrant : 
 	\[\begin{aligned}
-		\displaystyle\int_{\Gamma_{i,j}} u(\bm\xi)d\bm\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} &+ \lambda_{i,j}\left(\mathbf{\bar x_{i,j}-\mathbf x_{i,j}}\right)\cdot\mathbf{\nabla u}(\mathbf x_{i,j}) \\
-		&+ \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} (\bm\xi-x_{i,j})^tH_{\gamma_{\bm\xi}(t)}u (\bm\xi-\mathbf x_{i,j})d\bm\xi \dt - \lambda_{i,j}R_1^{i,j}
+		\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} &+ \lambda_{i,j}\left( {\bar x_{i,j}-  x_{i,j}}\right)\cdot {\nabla u}(  x_{i,j}) \\
+		&+ \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} ( \xi-x_{i,j})^tH_{\gamma_{ \xi}(t)}u ( \xi-  x_{i,j})d \xi \dt - \lambda_{i,j}R_1^{i,j}
 	\end{aligned}\]
 	
 	Où $\lambda_{i,j} = \abs{\Gamma_{i,j}}$.
@@ -161,73 +165,73 @@
 	On pose :
 	
 	\enc{black}{\begin{equation}\label{eq:R2}
-			R_2^{i,j} = \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} (\bm\xi-\mathbf x_{i,j})^tH_{\gamma_{\bm\xi}(t)}u (\bm\xi-\mathbf x_{i,j})d\bm\xi \dt
+			R_2^{i,j} = \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} ( \xi-  x_{i,j})^tH_{\gamma_{ \xi}(t)}u ( \xi-  x_{i,j})d \xi \dt
 	\end{equation}}
 	
 	Ainsi : \begin{equation}\label{eq:somme}
-		\displaystyle\int_{\Gamma_{i,j}} u(\bm\xi)d\bm\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\mathbf{\bar x_{i,j}-\mathbf x_{i,j}}\right)\cdot\mathbf{\nabla u}(\mathbf x_{i,j}) + R_2^{i,j} - \lambda_{i,j}R_1^{i,j}
+		\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left( {\bar x_{i,j}-  x_{i,j}}\right)\cdot {\nabla u}(  x_{i,j}) + R_2^{i,j} - \lambda_{i,j}R_1^{i,j}
 	\end{equation}
 	
 	Effectuons un dernier d.l. : $\begin{aligned}[t]
-		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \mathbf{\nabla u} &= \dfrac1{\abs{C_i}}\int_{C_i} \left[\mathbf{\nabla u}(\mathbf x_{i,j}) + \int_0^1 (1-t)H_{\gamma_x(t)}u \times x \dt\right]\mathrm d\mathbf x\\
-		&=\mathbf{\nabla u}(\mathbf x_{i,j}) + \int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} (\mathbf{x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d\mathbf x
+		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} &= \dfrac1{\abs{C_i}}\int_{C_i} \left[ {\nabla u}(  x_{i,j}) + \int_0^1 (1-t)H_{\gamma_x(t)}u \times x \dt\right]\mathrm d  x\\
+		&= {\nabla u}(  x_{i,j}) + \int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} ( {x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d  x
 	\end{aligned}$\\
 	
 	Ainsi : 
 	\begin{equation}\label{eq:grad}
-		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \mathbf{\nabla u} =\mathbf{\nabla u}(\mathbf x_{i,j}) + \int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} (\mathbf{x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d\mathbf x
+		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} = {\nabla u}(  x_{i,j}) + \int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} ( {x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d  x
 	\end{equation}
 	
 	Et en injectant (\ref{eq:grad}) dans (\ref{eq:somme}) on obtient :
 	\[
 	\begin{aligned}
-		&\displaystyle\int_{\Gamma_{i,j}} u(\bm\xi)d\bm\xi \\
-		=& \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\mathbf{\bar x_{i,j}-x_{i,j}}\right)\cdot\left(\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \mathbf{\nabla u}- \lambda_{i,j}\int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} (\mathbf{x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d\mathbf x\right) + R_2^{i,j} - \lambda_{i,j}R_1^{i,j}
+		&\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi \\
+		=& \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\left(\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u}- \lambda_{i,j}\int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} ( {x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d  x\right) + R_2^{i,j} - \lambda_{i,j}R_1^{i,j}
 	\end{aligned}
 	\]
 	
 	On pose :
 	
 	\enc{black}{\begin{equation}\label{eq:R3}
-			R_3^{i,j} = \lambda_{i,j}\left(\mathbf{\bar x_{i,j}-x_{i,j}}\right)\cdot\displaystyle\int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} (\mathbf{x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d\mathbf x
+			R_3^{i,j} = \lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\displaystyle\int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} ( {x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d  x
 	\end{equation}}
 	
 	Ce qui permet d'écrire : \begin{equation}\label{eq:somme_reecrite}
-		\displaystyle\int_{\Gamma_{i,j}} u(\bm\xi)d\bm\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\mathbf{\bar x_{i,j}-x_{i,j}}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \mathbf{\nabla u} + R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}
+		\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} + R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}
 	\end{equation}
 	
 	
 	Finalement en injectant (\ref{eq:somme_reecrite}) dans (\ref{eq:objectif}), on obtient :
 	
 	\begin{equation}\label{eq:preque_final}
-		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \mathbf{\nabla u} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}}\mathbf{n_{i,j}} + \left[\lambda_{i,j}\left(\mathbf{\bar x_{i,j}-x_{i,j}}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \mathbf{\nabla u}\right] \mathbf{n_{i,j}} + \left[R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}\right] \mathbf{n_{i,j}}
+		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}} + \left[\lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u}\right]  {n_{i,j}} + \left[R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}\right]  {n_{i,j}}
 	\end{equation}
 	
 	Et on pose :
 	
 	\enc{black}{\begin{equation}\label{eq:R4}
-			\mathbf{\mathbf{R^{(i)}}} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}\right] \mathbf{\mathbf{n_{i,j}}}
+			 { {R^{(i)}}} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}\right]  { {n_{i,j}}}
 	\end{equation}}
 	
 	Ce qui permet d'écrire : 
 	
 	\begin{equation}\label{eq:final}
-		\mathbf{\nabla u}_i = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \left[\lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}}\mathbf{n_{i,j}} + \left[\lambda_{i,j}\left(\mathbf{\bar x_{i,j}-x_{i,j}}\right)\cdot\mathbf{\overline{\mathbf{\nabla u}(x_i)}}\right] \mathbf{n_{i,j}}\right] + \mathbf{R^{(i)}}
+		 {\nabla u}_i = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \left[\lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}} + \left[\lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot {\overline{ {\nabla u}(x_i)}}\right]  {n_{i,j}}\right] +  {R^{(i)}}
 	\end{equation}
 	
-	où $\mathbf{\nabla u}_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i}\mathbf{\nabla u}$.\\
+	où $ {\nabla u}_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i} {\nabla u}$.\\
 	
-	On rappelle que $B_i \mathbf{\nabla u}_i = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}}\mathbf{n_{i,j}}$
+	On rappelle que $B_i  {\overline{\nabla u(x_i)}} = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}$
 	
 	\newpage
 	
 	On peut le reformuler de la manière suivante :
 	
 	\begin{equation}\label{eq:reformulation_final}
-		B_i\mathbf{\overline{\mathbf{\nabla u}(x_i)}} = B_i \mathbf{\nabla u}_i + \mathbf{R^{(i)}}
+		B_i  {\nabla u}_i = B_i  {\overline{ {\nabla u}(x_i)}}+  {R^{(i)}}
 	\end{equation}
 	
-	où $B_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\mathbf{n_{i,j}}\otimes\left(\mathbf{\bar x_{i,j}-x_{i,j}}\right)$
+	où $B_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j} {n_{i,j}}\otimes\left( {\bar x_{i,j}-x_{i,j}}\right)$
 	
 
 	\noindent\enc{black}{
@@ -240,13 +244,13 @@
 	Puisque nous n'avons aucune information sur une quelconque relation que vérifierait $u$ nous supposons que la hessienne de $u$ est majoré sur le domaine $\Omega = \bigcup_{i \in \mathcal T} C_i$. Notons $M$ un majorant de la hessienne de $u$. Et d'après (\ref{eq:R1}), (\ref{eq:R2}) et (\ref{eq:R3}) :
 	
 	\begin{equation}\label{eq:maj_naiv_R1}
-		\abs{R_1^{i,j}} \leq \frac M{4d_{i,j}}\left[\frac{d_{j,ij}}{\abs{C_i}}\displaystyle\int_{C_i} |\!|\mathbf{x-x_{i,j}}|\!|^2\mathrm d\mathbf x + \frac{d_{i,ij}}{\abs{C_j}}\displaystyle\int_{C_j} |\!|\mathbf{x-x_{i,j}}|\!|^2\mathrm d\mathbf x\right]
+		\abs{R_1^{i,j}} \leq \frac M{4d_{i,j}}\left[\frac{d_{j,ij}}{\abs{C_i}}\displaystyle\int_{C_i} |\!| {x-x_{i,j}}|\!|^2\mathrm d  x + \frac{d_{i,ij}}{\abs{C_j}}\displaystyle\int_{C_j} |\!| {x-x_{i,j}}|\!|^2\mathrm d  x\right]
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R2}
-		\abs{R_2^{i,j}} \leq \dfrac{M}2\displaystyle\int_{\Gamma_{i,j}} |\!|\mathbf{\bm\xi-x_{i,j}}|\!|^2d\bm\xi
+		\abs{R_2^{i,j}} \leq \dfrac{M}2\displaystyle\int_{\Gamma_{i,j}} |\!| { \xi-x_{i,j}}|\!|^2d \xi
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R3}
-		\abs{R_3^{i,j}} \leq \dfrac{\lambda_{i,j}M}2|\!|\mathbf{\bar x_{i,j}-x_{i,j}}|\!|\cdot \frac1{\abs{C_i}}\int_{C_i}|\!|\mathbf{x-  x_{i,j}} |\!|\dx
+		\abs{R_3^{i,j}} \leq \dfrac{\lambda_{i,j}M}2|\!| {\bar x_{i,j}-x_{i,j}}|\!|\cdot \frac1{\abs{C_i}}\int_{C_i}|\!| {x-  x_{i,j}} |\!|\dx
 	\end{equation}
 	
 	Avec la définition : $h = \underset{i,j\in \mathcal T}\max d(x_i,x_j)$, il existe des exemples de maillages tels que le majorant \ref{eq:maj_naiv_R2} soit d'ordre moins élevé que $h^2$ voir même explose (prendre 2 rectangles accolés de taille $h\times e^{1/h}$).\\
@@ -269,7 +273,7 @@
 	Ainsi en injectant (\ref{eq:maj_naiv_R1_par_h}), (\ref{eq:maj_naiv_R2_par_h}) et (\ref{eq:maj_naiv_R3_par_h}) dans (\ref{eq:R4}) on obtient (pour $N_{max} = \underset{i\in\mathcal T}\max\left[ \text{Card}\left(N_i\right)\right]$) :
 	
 	\begin{equation}\label{eq:max_naiv_R4}
-		|\!|\mathbf{R^{(i)}}|\!| \leq \frac1{\abs{C_i}}\frac{3MN_{max}}2h^3
+		|\!| {R^{(i)}}|\!| \leq \frac1{\abs{C_i}}\frac{3MN_{max}}2h^3
 	\end{equation}
 	
 	\vspace{-.2cm}
@@ -299,7 +303,7 @@
 	Avec ce nouveau $h$, on obtient :
 	
 	\enc{black}{\begin{equation}\label{eq:max_naiv_R4_par_nouv_h}
-		|\!|\mathbf{R^{(i)}}|\!| \leq \frac{3MN_{max}}2h
+		|\!| {R^{(i)}}|\!| \leq \frac{3MN_{max}}2h
 	\end{equation}}
 	
 	
