@@ -113,16 +113,16 @@
 	\[
 	u(\xi) = u(x_{i,j}) + \left[\xi-x_{i,j}\right]\cdot\nabla u(x_{i,j}) + \displaystyle\int_0^1 (1-t)(\xi-x_{i,j})^tH_{\gamma_{\xi}(t)}u (\xi-x_{i,j}) \dt
 	\]
-	Ainsi, en utilisant (\ref{eq:xij}) on a :\\
-	\hspace*{-.8cm}$u(\xi) = \dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \left[\xi-x_{i,j}\right]\cdot\nabla u(x_{i,j}) + \displaystyle\int_0^1 (1-t)(\xi-x_{i,j})^tH_{\gamma_{\xi}(t)}u (\xi-x_{i,j}) \dt - R_1^{i,j}$\\
+	Ainsi, en utilisant (\ref{eq:xij}) on a :	
+	\[u(\xi) = \dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \left[\xi-x_{i,j}\right]\cdot\nabla u(x_{i,j}) + \displaystyle\int_0^1 (1-t)(\xi-x_{i,j})^tH_{\gamma_{\xi}(t)}u (\xi-x_{i,j}) \dt - R_1^{i,j}\]
 	
 	\newpage
 	
-	Et en intégrant : \\
-	$\begin{aligned}
+	Et en intégrant : 
+	\[\begin{aligned}
 		\displaystyle\int_{\Gamma_{i,j}} u(\xi)d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} &+ \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\nabla u(x_{i,j}) \\
-		&+ \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} (\xi-x_{i,j})^tH_{\gamma_{\xi}(t)}u (\xi-x_{i,j})d\xi \dt - R_1^{i,j}
-	\end{aligned}$
+		&+ \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} (\xi-x_{i,j})^tH_{\gamma_{\xi}(t)}u (\xi-x_{i,j})d\xi \dt - \lambda_{i,j}R_1^{i,j}
+	\end{aligned}\]
 	
 	Où $\lambda_{i,j} = \abs{\Gamma_{i,j}}$.\\
 	
@@ -133,45 +133,50 @@
 	\end{equation}}
 	
 	Ainsi : \begin{equation}\label{eq:somme}
-		\displaystyle\int_{\Gamma_{i,j}} u(\xi)d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\nabla u(x_{i,j}) + R_2^{i,j} - R_1^{i,j}
+		\displaystyle\int_{\Gamma_{i,j}} u(\xi)d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\nabla u(x_{i,j}) + R_2^{i,j} - \lambda_{i,j}R_1^{i,j}
 	\end{equation}
 	
 	Effectuons un dernier d.l. : $\begin{aligned}[t]
 		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u &= \dfrac1{\abs{C_i}}\int_{C_i} \left[\nabla u(x_{i,j}) + \int_0^1 (1-t)H_{\gamma_x(t)}u \times x \dt\right]\dx\\
-		&=\nabla u(x_{i,j}) + \int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} H_{\gamma_x(t)}u\times x\dx
+		&=\nabla u(x_{i,j}) + \int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} (x-x_{i,j})^tH_{\gamma_x(t)}u\dx
 	\end{aligned}$\\
 	
 	Ainsi : 
 	\begin{equation}\label{eq:grad}
-		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u =\nabla u(x_{i,j}) + \int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} H_{\gamma_x(t)}u\times x\dx
+		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u =\nabla u(x_{i,j}) + \int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} (x-x_{i,j})^tH_{\gamma_x(t)}u\dx
 	\end{equation}
 	
 	Et en injectant (\ref{eq:grad}) dans (\ref{eq:somme}) on obtient :
 	\[
-	\displaystyle\int_{\Gamma_{i,j}} u(\xi)d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\left(\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u- \lambda_{i,j}\int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} H_{\gamma_x(t)}u\times x\dx\right) + R_2^{i,j} - R_1^{i,j}
+	\begin{aligned}
+		&\displaystyle\int_{\Gamma_{i,j}} u(\xi)d\xi \\
+		=& \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\left(\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u- \lambda_{i,j}\int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} (x-x_{i,j})^tH_{\gamma_x(t)}u\dx\right) + R_2^{i,j} - \lambda_{i,j}R_1^{i,j}
+	\end{aligned}
 	\]
 	
 	On pose :
 	
 	\enc{black}{\begin{equation}\label{eq:R3}
-			R_3^{i,j} = \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\displaystyle\int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} H_{\gamma_x(t)}u\times x\dx
+			R_3^{i,j} = \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\displaystyle\int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} (x-x_{i,j})^tH_{\gamma_x(t)}u\dx
 	\end{equation}}
 
 	Ce qui permet d'écrire : \begin{equation}\label{eq:somme_reecrite}
-		\displaystyle\int_{\Gamma_{i,j}} u(\xi)d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u + R_2^{i,j} - R_1^{i,j} - R_3^{i,j}
+		\displaystyle\int_{\Gamma_{i,j}} u(\xi)d\xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u + R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}
 	\end{equation}
 	
 	
 	Finalement en injectant (\ref{eq:somme_reecrite}) dans (\ref{eq:objectif}), on obtient :
 	
-	\hspace*{-2cm}\begin{equation}\label{eq:preque_final}
-		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}}n_{i,j} + \left[\lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u\right] n_{i,j} + \left[R_2^{i,j} - R_1^{i,j} - R_3^{i,j}\right] n_{i,j}
+	\begin{equation}\label{eq:preque_final}
+		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}}n_{i,j} + \left[\lambda_{i,j}\left(\bar x_{i,j}-x_{i,j}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u\right] n_{i,j} + \left[R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}\right] n_{i,j}
 	\end{equation}
+	
+	\newpage
 	
 	Et on pose :
 	
 	\enc{black}{\begin{equation}\label{eq:R4}
-		R_4^{(i)} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[R_2^{i,j} - R_1^{i,j} - R_3^{i,j}\right] n_{i,j}
+		R_4^{(i)} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}\right] n_{i,j}
 	\end{equation}}
 
 	Ce qui permet d'écrire : 
@@ -193,18 +198,74 @@
 	\enc{black}{
 	\textbf{\underline{Question :}} Est ce que l'inversibilité de $B_i$ n'a en fait aucune incidence sur la convergence du gradient discret ? (peu importe qu'il y ait plusieurs solution si toutes ces solutions convergent strictement de la même manière vers le vrai gradient)}
 	
-	\subsection{Simplification "naïve"}
+	\subsection{Majoration "naïve"}
 	
 	Supposons que la hessienne de $u$ est majoré sur le domaine $\Omega$. Notons $M$ un majorant de la hessienne de $u$. Et d'après (\ref{eq:R1}), (\ref{eq:R2}) et (\ref{eq:R3}) :
 	
 	\begin{equation}\label{eq:maj_naiv_R1}
-		\abs{R_3^{i,j}} \leq \dfrac M{4d_{i,j}}\left[d_{j,ij}\displaystyle\int_{C_i} |\!|x-x_{i,j}|\!|^2\dx + d_{i,ij}\displaystyle\int_{C_j} |\!|x-x_{i,j}|\!|^2\dx\right]
+		\abs{R_1^{i,j}} \leq \frac M{4d_{i,j}}\left[\frac{d_{j,ij}}{\abs{C_i}}\displaystyle\int_{C_i} |\!|x-x_{i,j}|\!|^2\dx + \frac{d_{i,ij}}{\abs{C_j}}\displaystyle\int_{C_j} |\!|x-x_{i,j}|\!|^2\dx\right]
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R2}
-		\abs{R_3^{i,j}} \leq \dfrac{M}2\displaystyle\int_{\Gamma_{i,j}} |\!|\xi-x_{i,j}|\!|^2d\xi
+		\abs{R_2^{i,j}} \leq \dfrac{M}2\displaystyle\int_{\Gamma_{i,j}} |\!|\xi-x_{i,j}|\!|^2d\xi
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R3}
-		\abs{R_3^{i,j}} \leq \dfrac{\lambda_{i,j}M}2\abs{\left(\bar x_{i,j}-x_{i,j}\right)\cdot x_i}
+		\abs{R_3^{i,j}} \leq \dfrac{\lambda_{i,j}M}2|\!|\bar x_{i,j}-x_{i,j}|\!|\cdot \frac1{\abs{C_i}}\int_{C_i}|\!|x-  x_{i,j} |\!|\dx
 	\end{equation}
 	
+	Avec la définition : $h = \underset{i,j\in \mathcal T}\max d(x_i,x_j)$, il existe des exemples de maillages tels que le majorant \ref{eq:maj_naiv_R2} soit d'ordre moins élevé que $h^2$ voir même explose (prendre 2 rectangles accolés de taille $h\times e^{1/h}$).\\
+	
+	\textbf{\underline{Ici le problème vient de :}} $\longrightarrow$ La longueur de $\Gamma_{i,j}$  n'est pas contrôlé par $h$.
+	
+	\newpage
+	
+	Supposons que \underline{$h$} ne soit pas égal à $\max_{i,j} d(x_i,x_j)$ mais à \underline{$\max_{i\in\mathcal T}\max_{j\in \mathcal N_i}\sup_{a_i\in C_i,a_j\in C_j} d(a_i,a_j)$}. \\ On aura alors :
+	
+	\begin{equation}\label{eq:maj_naiv_R1_par_h}
+		\abs{R_1^{i,j}} \leq \dfrac {M}2h^2
+	\end{equation}
+	\begin{equation}\label{eq:maj_naiv_R2_par_h}
+		\abs{R_2^{i,j}} \leq \dfrac{M}2h^3
+	\end{equation}
+	\begin{equation}\label{eq:maj_naiv_R3_par_h}
+		\abs{R_3^{i,j}} \leq \dfrac{M}2 h^3
+	\end{equation}
+	
+	
+	Ainsi en injectant (\ref{eq:maj_naiv_R1_par_h}), (\ref{eq:maj_naiv_R2_par_h}) et (\ref{eq:maj_naiv_R3_par_h}) dans (\ref{eq:R4}) on obtient :
+	
+	\begin{equation}\label{eq:max_naiv_R4}
+		|\!|R_4^i|\!| \leq \frac1{\abs{C_i}}\frac{3MN}2h^3
+	\end{equation}
+	
+	Cependant nous avons de nouveau un problème, on ne peut pas contrôler la taille de $C_i$ à l'aide de $h$ (que ce soit par la seconde définition ou par la définition originale), en effet, prenons deux rectangles $C_1$ et $C_2$ accolés de taille $\varepsilon\times\varepsilon^2$, on aura alors : $h(\varepsilon) = \varepsilon\sqrt{4\varepsilon^2+1} \underset{\varepsilon\to0} \varepsilon$ et l'aire d'un rectangle : $\abs{C_i} = \varepsilon^3 \sim h^3$. 
+	\par Ainsi $\dfrac1{\abs{C_i}}\dfrac{3MN}2h^3 \sim \dfrac{3MN}2$, on majore donc seulement l'erreur et on ne sait pas si elle tend vers 0, on peut même faire pire en choisissant des rectangle de taille $\varepsilon\times\varepsilon^n$ (pour $n \geq 2$).\\
+	
+	\textbf{\underline{Ici le problème vient de :}} $\longrightarrow$  l'aire des $C_i$ n'est pas contrôlé par $h$.\\
+	
+	Un solution simple pourrait être de chercher comment contrôler la borne inférieur de l'aire des $C_i$, on voudrait que  : 	
+	\[\begin{aligned}
+		&Ch^2 \leq \abs{C_i}\\
+		\iff& \sqrt C h \leq \sqrt{\abs{C_i}} \\
+		\iff & \dfrac{\sqrt C}{\sqrt{\abs{C_i}}} \leq \dfrac1h
+	\end{aligned}\]
+	
+	Donc il pourrait être intéressant de rajouter $\max\dfrac1{\sqrt{\abs{C_i}}}$ dans la définition de $h$ :
+	
+	\[
+	h = \max\left\{\max_{i\in\mathcal T} \dfrac1{\sqrt{\abs{C_i}}},\max_{i\in\mathcal T}\max_{j\in \mathcal N_i}\sup_{a_i\in C_i,a_j\in C_j} d(a_i,a_j)\right\}
+	\]
+	
+	Avec ce nouveau $h$, on obtient :
+	\begin{equation}\label{eq:max_naiv_R4_par_nouv_h}
+		|\!|R_4^i|\!| \leq \frac{3MN}2h
+	\end{equation}
+	
+	
+	Pour éviter de changer de définition, pour passer d'un pas $h_1$ à un pas $h_2<h_1$ il faudrait transformer le maillage en une application $\varphi_\varepsilon$ ($h_2 = \varepsilon h_1$) qui ne déforme pas (trop) le maillage (qu'il transforme les dimensions des polygone à peu près uniformément) : 
+	
+	\vspace{.2cm}
+	
+	\noindent\enc{black}{\begin{center}
+		$\varphi_\varepsilon = \varepsilon M(\varepsilon)$ \hspace{.5cm} où $M(\varepsilon) \in GL_2(\R)$ et $M(\varepsilon)\sim K \in GL_2(\R)$
+	\end{center}}
 \end{document}

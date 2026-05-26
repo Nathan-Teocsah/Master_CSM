@@ -1,4 +1,4 @@
 \babel@toc {french}{}\relax 
 \contentsline {section}{\numberline {1}Expression du reste}{2}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Expression exacte du reste}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Simplification "naïve"}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.2}Majoration "naïve"}{4}{subsection.1.2}%
