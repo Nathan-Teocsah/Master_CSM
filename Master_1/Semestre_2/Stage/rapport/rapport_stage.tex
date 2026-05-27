@@ -223,8 +223,6 @@
 	
 	On rappelle que $B_i  {\overline{\nabla u(x_i)}} = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}$
 	
-	\newpage
-	
 	On peut le reformuler de la manière suivante :
 	
 	\begin{equation}\label{eq:reformulation_final}
@@ -257,55 +255,56 @@
 	
 	\textbf{\underline{Ici le problème vient de :}} $\longrightarrow$ La longueur de $\Gamma_{i,j}$  n'est pas contrôlé par $h$.
 	
-	Supposons que $h$ ne soit pas égal à $\max_{i,j} d(x_i,x_j)$ mais à \fbox{$h = \max_{i\in\mathcal T}\max_{j\in \mathcal N_i}\sup_{a_i\in C_i,a_j\in C_j} d(a_i,a_j)$}. \\ On aura alors :
+	\noindent Posons $h_1 = \underset{i\in\mathcal T}\max\;\underset{j\in \mathcal N_i}\max\;\mathrm{diam}\left(C_i\cup C_j\right)$ \\
+	Où $\mathrm{diam}(A) = \sup\left\{d(x,y); (x,y)\in A^2\right\}$.\\
+	On aura alors :
 	
 	\begin{equation}\label{eq:maj_naiv_R1_par_h}
-		\abs{R_1^{i,j}} \leq \dfrac {M}2h^2
+		\abs{R_1^{i,j}} \leq \dfrac {M}2h_1^2
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R2_par_h}
-		\abs{R_2^{i,j}} \leq \dfrac{M}2h^3
+		\abs{R_2^{i,j}} \leq \dfrac{M}2h_1^3
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R3_par_h}
-		\abs{R_3^{i,j}} \leq \dfrac{M}2 h^3
+		\abs{R_3^{i,j}} \leq \dfrac{M}2 h_1^3
 	\end{equation}
 	
 	
-	Ainsi en injectant (\ref{eq:maj_naiv_R1_par_h}), (\ref{eq:maj_naiv_R2_par_h}) et (\ref{eq:maj_naiv_R3_par_h}) dans (\ref{eq:R4}) on obtient (pour $N_{max} = \underset{i\in\mathcal T}\max\left[ \text{Card}\left(N_i\right)\right]$) :
+	Ainsi en injectant (\ref{eq:maj_naiv_R1_par_h}), (\ref{eq:maj_naiv_R2_par_h}) et (\ref{eq:maj_naiv_R3_par_h}) dans (\ref{eq:R4}) on obtient (pour $N_{max} = \underset{i\in\mathcal T}\max \hspace{.1cm}\text{Card}\left(N_i\right)$) :
 	
 	\begin{equation}\label{eq:max_naiv_R4}
-		|\!| {R^{(i)}}|\!| \leq \frac1{\abs{C_i}}\frac{3MN_{max}}2h^3
+		|\!| {R^{(i)}}|\!| \leq \frac1{\abs{C_i}}\frac{3MN_{max}}2h_1^3
 	\end{equation}
 	
 	\vspace{-.2cm}
 	
-	En pratique $N_{max}$ ne dépend pas de $h$.
+	En pratique $N_{max}$ ne dépend pas du nombre de polygones $C_i$ ou de ses dimensions.
 	
-	\newpage
+	Cependant nous avons de nouveau un problème, on ne peut pas contrôler la taille de $C_i$ à l'aide de $h$ (que ce soit par la seconde définition ou par la définition originale), en effet, prenons deux rectangles $C_1$ et $C_2$ accolés de taille $\varepsilon\times\varepsilon^2$, on aura alors : $h_1(\varepsilon) = \varepsilon\sqrt{4\varepsilon^2+1} \underset{\varepsilon\to0}\sim \varepsilon$ et l'aire d'un rectangle : $\abs{C_i} = \varepsilon^3 \sim h_1^3$. 
+	\par Ainsi $\dfrac1{\abs{C_i}}\dfrac{3MN}2h_1^3 \sim \dfrac{3MN}2$, on majore donc seulement l'erreur et on ne sait pas si elle tend vers 0, on peut même faire pire en choisissant des rectangle de taille $\varepsilon\times\varepsilon^n$ (pour $n \geq 2$).\\
 	
-	Cependant nous avons de nouveau un problème, on ne peut pas contrôler la taille de $C_i$ à l'aide de $h$ (que ce soit par la seconde définition ou par la définition originale), en effet, prenons deux rectangles $C_1$ et $C_2$ accolés de taille $\varepsilon\times\varepsilon^2$, on aura alors : $h(\varepsilon) = \varepsilon\sqrt{4\varepsilon^2+1} \underset{\varepsilon\to0} \varepsilon$ et l'aire d'un rectangle : $\abs{C_i} = \varepsilon^3 \sim h^3$. 
-	\par Ainsi $\dfrac1{\abs{C_i}}\dfrac{3MN}2h^3 \sim \dfrac{3MN}2$, on majore donc seulement l'erreur et on ne sait pas si elle tend vers 0, on peut même faire pire en choisissant des rectangle de taille $\varepsilon\times\varepsilon^n$ (pour $n \geq 2$).\\
+	\textbf{\underline{Ici le problème vient de :}} $\longrightarrow$  l'aire des $C_i$ n'est pas contrôlé par $h_1$.\\
 	
-	\textbf{\underline{Ici le problème vient de :}} $\longrightarrow$  l'aire des $C_i$ n'est pas contrôlé par $h$.\\
+	Un solution simple pourrait être d'intégrer le terme $\dfrac1{\sqrt{\abs{C_i}}}$ :
 	
-	Un solution simple pourrait être de chercher comment contrôler la borne inférieur de l'aire des $C_i$, on voudrait que  : 	
-	\[\begin{aligned}
-		&Ch^2 \leq \abs{C_i}\\
-		\iff& \sqrt C h \leq \sqrt{\abs{C_i}} \\
-		\iff & \dfrac{\sqrt C}{\sqrt{\abs{C_i}}} \leq \dfrac1h
-	\end{aligned}\]
+	\begin{equation}\label{eq:nv_h}
+		h_2 = \max\left\{h_1,\dfrac{h_1}{\underset{k\in \mathcal T}\min\;\sqrt{\abs{C_k}}}\right\}
+	\end{equation}
 	
-	Donc il pourrait être intéressant de rajouter $\dfrac1{\max\dfrac1{\sqrt{\abs{C_i}}}} = \min\sqrt{\abs{C_i}}$ dans la définition de $h$ :
+	Ainsi, en reprenant l'exemple précédent : $h_2(\varepsilon) \underset{\varepsilon\to0}\sim \dfrac1{\varepsilon^2}$, cela traduit bien le fait que le pas $h_2$ augmente lorsque $\varepsilon$ diminue.
 	
-	\[
-	h = \max\left\{\min_{i\in\mathcal T} \sqrt{\abs{C_i}},\max_{i\in\mathcal T}\max_{j\in \mathcal N_i}\sup_{a_i\in C_i,a_j\in C_j} d(a_i,a_j)\right\}
-	\]
 	
 	Avec ce nouveau $h$, on obtient :
 	
-	\enc{black}{\begin{equation}\label{eq:max_naiv_R4_par_nouv_h}
-		|\!| {R^{(i)}}|\!| \leq \frac{3MN_{max}}2h
-	\end{equation}}
+	\begin{equation}\label{eq:max_naiv_R4}
+		|\!| {R^{(i)}}|\!| \leq \frac{h_1^2}{\abs{C_i}}\frac{3MN_{max}}2h_1 \leq h_2^2\frac{3MN_{max}}2h_1  =  \frac{3MN_{max}}2h_2^3
+	\end{equation}
 	
+	Finalement :
+	
+	\begin{equation}
+		|\!| {R^{(i)}}|\!| \leq \frac{3MN_{max}}2h_2^3
+	\end{equation}
 	
 	\vspace{1cm}
 	
