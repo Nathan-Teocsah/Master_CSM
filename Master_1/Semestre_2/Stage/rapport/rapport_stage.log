@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  26 MAY 2026 15:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  27 MAY 2026 12:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1547,6 +1547,9 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (./rapport_stage.aux
 Package babel Info: 'french' activates 'french' shorthands.
 (babel)             Reported on input line 12.
+
+LaTeX Warning: Label `eq:max_naiv_R4' multiply defined.
+
 )
 \openout1 = `rapport_stage.aux'.
 
@@ -1812,51 +1815,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 222--223
 
  []
 
-[3] [4]
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 237--239
+[3]
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 235--237
  $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--257
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
 
  []
 
-[5]
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 286--287
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 288--289
-
- []
-
-
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 307--308
-[]$[]$ 
- []
-
 Package hyperref Info: bookmark level for unknown rmq defaults to 0 on input li
-ne 313.
+ne 312.
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 3
-21.
+20.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd)
-Overfull \hbox (3.0pt too wide) in paragraph at lines 319--322
+Overfull \hbox (3.0pt too wide) in paragraph at lines 318--321
  $[]$ 
  []
 
 
-Overfull \hbox (147.10774pt too wide) in paragraph at lines 313--323
+Overfull \hbox (147.10774pt too wide) in paragraph at lines 312--322
 [][][] 
  []
 
-[6]
+[5]
 \tf@thm=\write7
 \openout7 = `rapport_stage.thm'.
 
- [7]
-runsystem(latexminted cleantemp  --timestamp 20260526153349 70EB0860D85E06B3372
+ [6]
+runsystem(latexminted cleantemp  --timestamp 20260527120628 70EB0860D85E06B3372
 592403C3FF571)...executed safely (allowed).
 
  (./rapport_stage.aux)
@@ -1866,19 +1864,16 @@ L3 programming layer <2025-11-06>
  ***********
 
 
-Package rerunfilecheck Warning: File `rapport_stage.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: Checksums for `rapport_stage.out':
-(rerunfilecheck)             Before: FA59237BCBA55999E940924192E4BE93;772
-(rerunfilecheck)             After:  24CE424A0EDACA8B1670D5474A5D06CB;815.
+Package rerunfilecheck Info: File `rapport_stage.out' has not changed.
+(rerunfilecheck)             Checksum: 24CE424A0EDACA8B1670D5474A5D06CB;815.
  ) 
 Here is how much of TeX's memory you used:
- 54071 strings out of 467538
- 1277738 string characters out of 5419551
+ 54073 strings out of 467538
+ 1277743 string characters out of 5419551
  1973701 words of memory out of 5000000
- 82064 multiletter control sequences out of 15000+600000
+ 82065 multiletter control sequences out of 15000+600000
  689877 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,11n,131p,874b,917s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1894,10 +1889,10 @@ usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/te
 xlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025
 /texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dis
 t/fonts/type1/public/lm/lmsy8.pfb>
-Output written on rapport_stage.pdf (9 pages, 221503 bytes).
+Output written on rapport_stage.pdf (8 pages, 221393 bytes).
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
- 173 compressed objects within 2 object streams
- 39 named destinations out of 1000 (max. 500000)
+ 237 PDF objects out of 1000 (max. 8388607)
+ 172 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
  210 words of extra memory for PDF output out of 10000 (max. 10000000)
 
