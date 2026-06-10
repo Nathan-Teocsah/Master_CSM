@@ -554,7 +554,29 @@ Pour tester ce gradient discret, il a été choisi de prendre un domaine $\Omega
 	\end{enumerate}
 \end{enumerate}
 
-Le domaine $\Omega$ n'étant pas ouvert, et de plus à terme l'objectif est de résoudre des problème sur le plan en entier, il a été choisi de mettre des conditions au bord périodique. De plus la fonction test choisi étant une gaussienne centré au centre du maillage, $(x_c,y_c) = (5,5)$, la fonction prends au bord du domaine des valeurs très proche de 0, rendant nul les erreurs au bords du domaine, permettant ainsi de ne pas prendre en compte les conditions de bords.
+Le domaine $\Omega$ n'étant pas ouvert, et de plus à terme l'objectif est de résoudre des problème sur le plan en entier, il a été choisi de mettre des conditions de bord périodique. De plus la fonction test choisi étant une gaussienne centré au centre du maillage, $(x_c,y_c) = (5,5)$, la fonction prends au bord du domaine des valeurs très proche de 0, rendant nul les erreurs au bords du domaine, permettant ainsi de ne pas prendre en compte les conditions de bords.
+
+\subsection{Maillage cartésien}
+
+Pour obtenir l'ordre de convergence, il est généré plusieurs maillages en faisant varier le nombre de cellules. Voici un exemple d'un tel maillage pour $N=10$ points sur chaque côtés :
+
+IMAGE D'UN EXEMPLE D'UN MAILLAGE CARTESIEN\\\\
+
+Voici les erreurs en fonction du pas :
+
+IMAGE DES ERREURS\\\\
+
+L'ordre 2 est bien retrouvé en faisant une régression linéaire sur le logarithme de l'erreur.
+
+\subsection{Maillage de Delaunay}
+
+Ici, pour obtenir l'ordre de convergence, il est fait de même que pour le cas des maillages cartésiens : le nombre de cellules est augmenté. Voici un exemple de maillage pour peu de cellules :
+
+IMAGE D'UN MAILLAGE DE DELAUNAY\\\\
+
+
+
+\subsection{Maillage cartésien déformé}
 
 
 
