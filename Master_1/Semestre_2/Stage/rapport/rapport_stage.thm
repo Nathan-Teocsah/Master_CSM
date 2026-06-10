@@ -1,1 +1,8 @@
-\contentsline {rmq}{{Remarque}{1}{}}{5}{Remark.1}%
+\contentsline {lm}{{Lemme}{1}{Détermination de $u(x_{i,j})$}}{4}{Lemma.1}%
+\contentsline {dem}{{Preuve}{1}{}}{4}{Proof.1}%
+\contentsline {lm}{{Lemme}{2}{Expression intermédiaire de $\displaystyle \int _{\Gamma _{i,j}} u( \xi )\mathrm d \xi $}}{4}{Lemma.2}%
+\contentsline {dem}{{Preuve}{2}{}}{5}{Proof.2}%
+\contentsline {lm}{{Lemme}{3}{Expression de $\displaystyle \int _{\Gamma _{i,j}} u( \xi )\mathrm d \xi $}}{5}{Lemma.3}%
+\contentsline {dem}{{Preuve}{3}{}}{5}{Proof.3}%
+\contentsline {lm}{{Lemme}{4}{}}{9}{Lemma.4}%
+\contentsline {dem}{{Preuve}{4}{}}{9}{Proof.4}%

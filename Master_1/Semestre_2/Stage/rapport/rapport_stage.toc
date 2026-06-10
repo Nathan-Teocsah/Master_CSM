@@ -1,7 +1,9 @@
 \babel@toc {french}{}\relax 
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Contexte}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Figures}{1}{subsection.1.2}%
-\contentsline {section}{\numberline {2}Expression de l'erreur}{1}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Expression exacte de l'erreur}{1}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Majoration "naïve"}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {1.2}Modélisation du problème}{1}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Erreur de consistance du gradient discret}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Expression exacte de l'erreur}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Majoration de l'erreur}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Mesure de l'erreur consistance}{8}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Tests numériques}{9}{section.3}%
