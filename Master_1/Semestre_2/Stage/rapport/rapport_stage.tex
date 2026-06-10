@@ -522,7 +522,39 @@
 	
 \section{Tests numériques}
 
-Un premier test à été effectué sur des maillages structuré constitué de $N$ carrés de taille $\frac{10}N$.
+\subsection{Objectifs}
+
+L'objectif est ici de confirmer sur différents maillages les ordres de convergences trouvé pour le pas $h_2$ dont la formule est donné en (\ref{eq:nv_h}). L'objectif est ici de mesurer l'erreur $E_k(h_2) = \max_{i\in\mathcal T} |\!| \overline{\nabla u(x_i)} - \nabla u_i |\!|_k $ où $k = 1$ ce qui permet de moyenné l'erreur et de retrouver l'ordre plus facilement, $k = 2$ pour la moyenne quadratique et est plus sensible encore, et, pour $k=\infty$ pour l'erreur en norme infinie qui donne une mesure de l'erreur encore plus fine et ainsi beaucoup plus sensible. L'objectif est de retrouver : $E_k(h_2) = \mathcal O(h_2)$.\\
+
+La fonction $u$ choisie pour estimer l'erreur est bien connue et très régulière : 
+\[u(x,y) = \exp\left(\dfrac{(x-x_c)^2+(y-y_c)^2}{2\sigma^2}\right),\]
+c'est une gaussienne centré en $(x_c,y_c)$ et de variance $\sigma^2$. Elle est donc clairement d'ordre $\mathcal C^2$.\\
+De plus, le gradient de cette fonction est très bien connu :
+\[
+\nabla u(x,y) = u(x,y)\begin{bmatrix}
+	-\frac{x-x_c}{\sigma^2}\\
+	-\frac{y-x_c}{\sigma^2}
+\end{bmatrix}
+\]
+Ainsi les $u_i$ et $\nabla u_i$ sont connus avec exactitude et permet ainsi de mesurer l'erreur avec exactitude.
+
+\subsection{Matériels}
+
+Pour tester ce gradient discret, il a été choisi de prendre un domaine $\Omega$ à mailler de forme carré : $ \Omega = [0,\;10]\times[0,\;10]$ sur lequel a été appliqué différents maillages dans cet ordre :
+\begin{enumerate}
+	\item Maillage cartésien (des rectangles de taille $\frac N{10}$ par $\frac M{10}$).
+	\item Maillage avec une triangulation de type Delaunay généré à l'aide du mailleur FreeFem++.
+	\item Maillage cartésien déformé qui se construit de la manière suivante :
+	\begin{enumerate}
+		\item construction d'un maillage cartésien comme en 1,
+		\item Déformation des points à l'aide d'une variable aléatoire $r$ uniformément distribué sur $[-1,\;1]$, de $\Delta x = \frac N{10}$, de $\Delta y = \frac M{10}$ et d'un facteur de déformation $\varphi \in [0,\; 1]$ : 
+		\[
+			P^{perturbe}_{i,j} = P_{i,j} + \varphi r \left(\frac{\Delta x}2,\; \frac{\Delta y}2 \right)^t
+		\]
+	\end{enumerate}
+\end{enumerate}
+
+Le domaine $\Omega$ n'étant pas ouvert, et de plus à terme l'objectif est de résoudre des problème sur le plan en entier, il a été choisi de mettre des conditions au bord périodique. De plus la fonction test choisi étant une gaussienne centré au centre du maillage, $(x_c,y_c) = (5,5)$, la fonction prends au bord du domaine des valeurs très proche de 0, rendant nul les erreurs au bords du domaine, permettant ainsi de ne pas prendre en compte les conditions de bords.
 
 
 
