@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  10 JUN 2026 12:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  10 JUN 2026 23:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1658,7 +1658,7 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-</home/maenwe/Master_CSM/modèle_cours_latex/logo.png, id=83, 336.25626pt x 150
+</home/maenwe/Master_CSM/modèle_cours_latex/logo.png, id=95, 336.25626pt x 150
 .5625pt>
 File: /home/maenwe/Master_CSM/modèle_cours_latex/logo.png Graphic file (type p
 ng)
@@ -1930,12 +1930,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 527--528
 
  []
 
-[9] [10]
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 563--564
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 563--564
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 567--568
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 567--568
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 575--576
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 575--576
+
+ []
+
+[11]
 \tf@thm=\write7
 \openout7 = `rapport_stage.thm'.
 
- [11]
-runsystem(latexminted cleantemp  --timestamp 20260610124735 70EB0860D85E06B3372
+ [12]
+runsystem(latexminted cleantemp  --timestamp 20260610230052 70EB0860D85E06B3372
 592403C3FF571)...executed safely (allowed).
 
  (./rapport_stage.aux)
@@ -1948,13 +1978,13 @@ L3 programming layer <2025-11-06>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `rapport_stage.out' has not changed.
-(rerunfilecheck)             Checksum: 0B91653722E6F0CFE9E49CA99F7CF486;1589.
+(rerunfilecheck)             Checksum: 8E3004172373903305CCDF70927E8436;2110.
  ) 
 Here is how much of TeX's memory you used:
- 54223 strings out of 467538
- 1280352 string characters out of 5419551
+ 54230 strings out of 467538
+ 1280449 string characters out of 5419551
  1974701 words of memory out of 5000000
- 82182 multiletter control sequences out of 15000+600000
+ 82185 multiletter control sequences out of 15000+600000
  692672 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,14n,131p,918b,970s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1973,10 +2003,10 @@ ist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
 pe1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/l
 m/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.p
 fb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on rapport_stage.pdf (13 pages, 295548 bytes).
+Output written on rapport_stage.pdf (14 pages, 297723 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
- 263 compressed objects within 3 object streams
- 73 named destinations out of 1000 (max. 500000)
- 242 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 362 PDF objects out of 1000 (max. 8388607)
+ 281 compressed objects within 3 object streams
+ 77 named destinations out of 1000 (max. 500000)
+ 266 words of extra memory for PDF output out of 10000 (max. 10000000)
 
