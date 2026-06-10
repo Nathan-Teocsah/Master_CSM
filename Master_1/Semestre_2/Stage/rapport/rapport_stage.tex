@@ -29,15 +29,14 @@
 		\rule{\linewidth}{0.5mm} \\[0.4cm]
 		
 		% Titre
-		{\color{bleuTitre} \Huge \bfseries Rapport de stage} \\[0.4cm]
+		{\color{bleuTitre} \Huge \bfseries Consistance de gradients discrets sur des maillages non-structurés 2D} \\[0.4cm]
 		
 		% Filet horizontal du bas
 		\rule{\linewidth}{0.5mm}
 		
 		\vspace{1.5cm}
 		
-		{\Large Consistance de gradients discrets sur des
-			maillages non-structurés 2D}
+		{\Large Rapport de stage}
 		
 		\vfill
 		
@@ -70,195 +69,313 @@
 	\pagenumbering{arabic}
 	\setcounter{page}{1}
 	
-	\section{Introduction}
+	\section{Introduction}	
 	
 	\subsection{Contexte}
 	
 	Ce stage s'est déroulé au sein de l'Institut de Recherche Mathématique de Rennes (IRMAR), un
 	laboratoire de recherche fondamentale et appliquée en mathématiques, rattaché à l'Université de Rennes et au CNRS. L'IRMAR couvre un large spectre de thématiques, allant de l'analyse et la géométrie à la modélisation numérique et aux statistiques. Le stage a bénéficié du soutien financier du Centre Henri Lebesgue, un centre de recherche mathématique interrégional qui vise à promouvoir l'excellence scientifique, à renforcer la collaboration entre chercheurs et à soutenir la formation par la recherche dans le domaine des mathématiques.
-	\par Le sujet de ce stage porte sur l'étude de la consistance de gradients discrets sur des maillages anisotrope (non structuré) en deux dimensions. Un maillage est dit anisotrope lorsqu'il présente des cellules allongées ou déformées dans certaines directions, contrairement à un maillage isotrope où les cellules sont régulières et uniformes. La structure du maillage et la façon dont on le mesure impacte directement l'erreur de consistance de gradients discrets.
-	\par Dans le cadre de la méthode des volumes finis, pour obtenir des solutions plus précises il est utile de considérer le gradient de la solution, un gradient discret puisque qu'on le considère constant sur chaque maille du maillage. Une question émerge naturellement de ces considérations : ce gradient que nous avons définis, converge t'il et à quel ordre ?\\
-	Cela fournis des contraintes sur le maillage pour permettre à ce gradient discret de converger.
+	\par Dans le cadre des méthodes aux volumes finis, il est très intéressant de considérer le gradient de la solution discrète au pas $n$ pour pouvoir calculer la solution discrète au pas $n+1$ tel qu'il est fait dans la méthode d'Euler.
+	\par Le sujet de ce stage porte sur l'étude de la consistance d'un gradient discret local défini dans l'article \cite{ludo} sur des maillages anisotrope non structuré en deux dimensions. Un maillage est dit anisotrope lorsqu'il présente des cellules allongées ou déformées dans certaines directions, contrairement à un maillage isotrope où les cellules sont régulières et uniformes. 
+	\par Bien que les maillages anisotropes soient plus complexes à manipuler, de nombreux domaines à mailler, tels que des ailes d'avions par exemple, impose d'utiliser des maillages anisotropes pour pouvoir espérer les mailler, c'est pour cela que l'étude est faite sur un carré maillé par un maillage anisotrope.
+	\par La structure du maillage (les angles formés et les longueurs des segments) et la façon dont est mesuré de ce maillage, impacte directement l'erreur de consistance de gradients discrets.	
+	\par Une question émerge naturellement de ces considérations : 
+	\begin{center}
+		Ce gradient discret converge t'il et à quel ordre ?
+	\end{center}
 	
-	\subsection{Figures}
+	\subsection{Modélisation du problème}
 	
-	\section{Expression de l'erreur}
+	\begin{center}
+		\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm, scale = 0.6]
+			\clip(1.38,2.770816326530614) rectangle (15.776381418092914,12.74);
+			\draw [line width=1.pt] (8.58,10.26)-- (8.8,4.78);
+			\draw [line width=1.pt] (8.8,4.78)-- (3.72,4.74);
+			\draw [line width=1.pt] (8.8,4.78)-- (12.42,3.02);
+			\draw [line width=1.pt] (5.,12.)-- (8.58,10.26);
+			\draw [line width=1.pt] (8.58,10.26)-- (13.74,11.74);
+			\draw [line width=1.pt,dash pattern=on 1.5pt off 1.5pt] (6.08,8.84)-- (11.78,7.84);
+			\draw (5.476625916870418,5.644081632653063) node[anchor=north west] {$C_i$};
+			\draw (10.702151589242057,5.644081632653063) node[anchor=north west] {$C_j$};
+			\draw [->,line width=0.8pt] (8.712203119196165,6.966940485477385) -- (9.631492956467849,7.003846281864205);
+			\draw[color=black] (9.631492956467849,7.003846281864205) node[above] {$n_{ij}$};
+			%% \draw[color=black] (8.840048899755503,7.15) node[above left] {$\Gamma_{ij}$};
+			\draw [fill=black] (6.08,8.84) circle (2.0pt);
+			%% \draw[decorate,decoration={brace}] (6.1632762836185835,10.05826530612245) -- (11.865965770171153,9.057857142857145);
+			\draw[color=black] (6.1632762836185835,9.05826530612245) node {$x_i$};
+			\draw [fill=black] (11.78,7.84) circle (2.0pt);
+			\draw[color=black] (11.865965770171153,8.057857142857145) node {$x_j$};
+			\draw [fill=black] (8.65514444157854,8.388220273407274) circle (2.0pt);
+			\draw[color=black] (8.735305623471884,8.581326530612246) node[above right, yshift = -0.2cm] {$x_{ij}$};
+			%node[above,xshift=-0.5cm, yshift=-0.2cm] {$x_{ij}$};
+			\draw [fill=black] (8.69,7.52) circle (2.0pt);
+			\draw[color=black] (8.770220048899757,7.70887755102041) node[above,xshift=-0.5cm, yshift=-0.5cm] {$\overline{x}_{ij}$};
+			%% \draw [fill=xdxdff] (8.778392298328422,5.318228205273862) circle (2.5pt);
+			\draw[color=black] (8.863325183374085,5.53357142857143) node[right] {$\Gamma_{ij}$};
+		\end{tikzpicture}
+		\captionof{figure}{Interface orientée $\Gamma_{ij}$ localisée entre deux cellules $C_i$ et $C_j$ d'un maillage non structuré $\mathcal{T}$ dans lequel $ \overline{x}_{ij}$ est le milieu de $\Gamma_{ij}$ avec $x_{ij} = \Gamma_{ij} \cap [x_i, x_j]$ où $x_i$ et $x_j$ sont les centres de gravités des cellules $C_i$ et $C_j$ respectivement.}
+		\label{fig:EdgeWithGrandeurs}
+	\end{center}
 	
-	\subsection{Expression exacte de l'erreur}
+	Soit $\lambda_1$ la mesure de Lebesgue sur $\R$, et, $\lambda_2$ la mesure de Lebesgue sur $\R^2$ et $\left\{C_i; i\in [\![1,N]\!]  \right\} = \mathcal T$ un ensemble de polygone tel que les $C_i$ forment un pavage de $\R^2$. \par Puisque $\mathcal T$ permet de former un pavage du plan, pour tout $i \not= j$, $\Gamma_{i,j} = C_i \cap C_j$ (muni d'une orientation, de $C_i$ vers $C_j$) est soit vide, soit contient un unique point, soit est un segment. Ainsi pour tout $i \in \mathcal T$ et $j \in \mathcal N_i = \left\{j \in \mathcal T;\; \lambda_1\left(\Gamma_{i,j}\right)>0\right\}$, le vecteur $n$ est constant sur $\Gamma_{i,j}$ où $n(x)$ est unitaire, normal à $\Gamma_{i,j}$ en $x \in \Gamma_{i,j}$ et orienté de $C_i$ vers $C_j$. Dans la suite $n\Big|_{\Gamma_{i,j}}$ est noté $n_{i,j}$.\\
 	
-	On note $ {\nabla u}_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u}$.
+	Par abus de notation, $\lambda_1(\cdot)$ et $\lambda_2(\cdot)$ sont notés de la même manière : $|\cdot|$. Et par abus de notation, il est noté $i \in \mathcal T$ pour $C_i \in \mathcal T$.\\
 	
-	Et nous considérons, $ {\overline{ {\nabla u}(x_i)}}$, solution de (sous réserve qu'il y en ai une) :
-	
+	Dans la modélisation discrète de $u$ est pris constant sur chaque cellule $C_i$ et la valeur choisie est :
 	\begin{equation}
-		B_i {\overline{ {\nabla u}(x_i)}} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}
+		u_k = \dfrac1{\abs{C_k}}\displaystyle\int_{C_k} u(x)\dx,
 	\end{equation}
 	
-	où $B_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j} {n_{i,j}}\otimes\left( {\bar x_{i,j}-x_{i,j}}\right)$ et $u_k = \dfrac1{\abs{C_k}}\displaystyle\int_{C_k} u$.
+	Pour la suite il est nécessaire d'introduire les deux quantités suivantes pour $i \in \mathcal T$, $j \in \mathcal{N}_i$ et $k \in \{i,j\}$ :	
+	\begin{equation}
+		d_{i,j} = d(x_i,x_j),
+	\end{equation}
+	\begin{equation}
+		d_{k,ij} = d(x_k,x_{i,j}).
+	\end{equation}
+	\begin{equation}
+		\lambda_{i,j} = \abs{\Gamma_{i,j}},
+	\end{equation}
 	
-	\begin{tcolorbox}[title=\textbf{Objectif}]
-		\begin{center}
-			Nous allons étudier l'erreur $ {R^{(i)}} = B_i {\nabla u}_i - B_i {\overline{ {\nabla u}(x_i)}}$
-		\end{center}
-	\end{tcolorbox}	
+	et de la matrice de $\mathcal M_{2,2}(\R)$ suivante :
+	et \begin{equation}
+		M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j} {n_{i,j}}\otimes\left( {\bar x_{i,j}-x_{i,j}}\right),
+	\end{equation}
 	
-	On veut trouver une expression de $\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u}$ à partir des $u_k$ :
+	Soit $\overline{ {\nabla u}(x_i)} \in \R^2$ vérifiant :
+	\begin{equation}
+		M_i \overline{ {\nabla u}(x_i)} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}},
+	\end{equation}
+	
+	Il sera démontré par la suite que $M_i\overline{ {\nabla u}(x_i)} $ approche la quantité $M_i\nabla u_i$ à l'ordre 1, où $\nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  \nabla u(x) \dx$, pour un pas d'espace $h$ qui sera déterminé dans les sections \ref{sec:erreur_exacte} et \ref{sec:maj_erreur}.
+	
+	
+	
+	\newpage
+	
+	\section{Erreur de consistance du gradient discret}
+	
+	\subsection{Expression exacte de l'erreur}\label{sec:erreur_exacte}
+	
+	\hspace{1cm}Dans toute la suite il sera supposé que la fonction $u$ sur laquelle l'étude du gradient discret sera faite pour $u \in \mathcal{C}^2(\R,\R)$. Soit $i \in \mathcal T$.
+	
+	Avant d'étudier l'erreur de convergence : $\overline{\nabla u(x_i)} - \nabla u_i$. La matrice $M_i$ ayant bien sûr un rôle dans l'étude de cette erreur de convergence, et son étude n'étant pas aisé rendant l'étude de $\overline{\nabla u(x_i)} - \nabla u_i$ plus complexe, il semble plus opportun de commencer par étudier $M_i\overline{\nabla u(x_i)} - M_i\nabla u_i$ qui possède une expression plus simple à étudier.
+	
+	\textbf{\underline{Objectif :}} Exprimer explicitement l'erreur $E^{(i)} = M_i\overline{\nabla u_(x_i)}-M_i \nabla u_i$.
+	
+	Pour pouvoir donner une expression manipulable de l'erreur, il faut exprimer $M_i\nabla u_i$ en fonctions des mêmes données : les $u_i$, $n_{i,j}$, $d_{k,ij}$, $d_{i,j}$ et $\lambda_{i,j}$.
+	
+	Pour cela, il semble être justifié d'utiliser le théorème de Green-Ostrogradski pour projeter les données sur le bord de la cellule $C_i$ :
 	
 	\begin{equation}\label{eq:objectif}
-		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} = \dfrac1{\abs{C_i}}\int_{\partial C_i} u(  x) {n(x)} \mathrm d  x = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[\int_{\Gamma_{i,j}} u( \xi)d \xi\right]  {n_{i,j}}
+		\nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} = \dfrac1{\abs{C_i}}\int_{\partial C_i} u(  x) {n(x)} \mathrm d  x = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[\int_{\Gamma_{i,j}} u( \xi)d \xi\right]  {n_{i,j}}.
 	\end{equation}
 	
-	Où $ x^{i,j} : [a,b]  \to \Gamma_{i,j}$ est une paramétrisation de $\Gamma_{i,j}$.
+	Soit $j \in \mathcal N_i$.
 	
-	Effectuons un d.l. :
-	\[
-	u(  x) = u(  x_{i,j}) + \left[ {x-x_{i,j}}\right]\cdot {\nabla u}(x_{i,j}) + \displaystyle\int_0^1 (1-t)( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}}) \dt
-	\]
+	Il reste à estimer le terme à l'intérieur de la somme : $\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi$.\\
 	
-	où $\gamma_x(t) = tx_{i,j} + (1-t)x$.\\
+	Soit $\gamma_x(t) = tx_{i,j} + (1-t)x$.\\	
 	
-	Ainsi : $u_k = \dfrac1{\abs{C_k}}\displaystyle\int_{C_k} u = u(  x_{i,j}) + \left[  x_k-  x_{i,j}\right]\cdot {\nabla u}(x_{i,j}) + \int_0^1 \dfrac{(1-t)}{C_k}\int_{C_k}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x \dt$\\
-	Pour $k \in \{i,j\}$.
+	En utilisant un développement de Taylor-Lagrange avec reste intégrale entre $x_{i,j}$ et $x \in C_i\cup C_j$ :
 	
-	On a ainsi : 
+	\begin{equation}\label{eq:premier_dl}
+		u(  x) = u(  x_{i,j}) + \left[ {x-x_{i,j}}\right]\cdot {\nabla u}(x_{i,j}) + \displaystyle\int_0^1 (1-t)( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}}) \dt
+	\end{equation}
 	
-	\vspace{.2cm}
 	
-	$\begin{aligned}
-		&\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}}\\
-		 = & u(  x_{i,j}) + \displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\left[\dfrac{d_{j,ij}}{C_i}\int_{C_i}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x + \dfrac{d_{i,ij}}{C_j}\int_{C_j}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x\right] \dt
-	\end{aligned}$\\
+	Ainsi pour $\xi \in \Gamma_{i,j}$ :
+	\[u( \xi) = u(x_{i,j}) + \left[ \xi-  x_{i,j}\right]\cdot {\nabla u}(  x_{i,j}) + \displaystyle\int_0^1 (1-t)( \xi-  x_{i,j})^tH_{\gamma_{ \xi}(t)}u ( \xi-  x_{i,j}) \dt \]
 	
-	On pose :
-	
-	\hspace*{-.5cm}\enc[19.4cm]{black}{
+	Et finalement :
+	\begin{equation}\label{eq:terme_de_bord}
+		\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi = \lambda_{i,j}u(x_{i,j}) + \lambda_{i,j}\left( {\bar x_{i,j}-  x_{i,j}}\right)\cdot {\nabla u}(  x_{i,j}) + \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} ( \xi-x_{i,j})^tH_{\gamma_{ \xi}(t)}u ( \xi-  x_{i,j})d \xi \dt
+   \end{equation}
+   
+   \newpage
+   
+   Pour terminer $u(x_{i,j})$ doit être exprimer en fonctions des données $u_k$ pour tout $k \in \mathcal T$ :
+   
+   \begin{lm}[Détermination de $u(x_{i,j})$]
+	   	\begin{equation}\label{eq:xij}
+	   		\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} = u(  x_{i,j}) + R_1^{i,j},
+	   	\end{equation}
+	   	avec : 
+	   	
+	   \hspace*{2cm}\begin{minipage}{13cm} 
+	   	\begin{equation}\label{eq:R1}
+	   		\begin{aligned}
+	   			R_1^{i,j} =\displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\bigg[&\dfrac{d_{j,ij}}{C_i}\int_{C_i}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x\\
+	   			&+\dfrac{d_{i,ij}}{C_j}\int_{C_j}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x\bigg] \dt .
+	   		\end{aligned}
+	   	\end{equation}
+	   	\end{minipage}
+	   	
+	   	\vspace{-.5cm}
+   \end{lm}
+
+   \begin{dem}\begin{minipage}{18.5cm}
+   		En intégrant l'expression donné en (\ref{eq:premier_dl}) sur $C_k$ pour $k \in\{i,j\}$ :
+   	\end{minipage}
+   	
+	   	\noindent\begin{minipage}{18.5cm}
+	   	$u_k = \dfrac1{\abs{C_k}}\displaystyle\int_{C_k} u = u(  x_{i,j}) + \left[  x_k-  x_{i,j}\right]\cdot {\nabla u}(x_{i,j}) + \int_0^1 \dfrac{(1-t)}{C_k}\int_{C_k}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x \dt.$\\
 		
-		\vspace{-.5cm}
+		ainsi en utilisant le fait que $x_i-x_{i,j}$ et $x_j-x_{i,j}$ sont colinéaires : 
+		\begin{equation}\label{eq:ponderation}
+			\begin{aligned}
+			\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} = u(  x_{i,j}) + \displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\bigg[&\dfrac{d_{j,ij}}{C_i}\int_{C_i}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x\\
+			& + \dfrac{d_{i,ij}}{C_j}\int_{C_j}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x\bigg] \dt,
+		\end{aligned}
+		\end{equation}
 		
-		\begin{equation}\label{eq:R1}
-			R_1^{i,j} = \displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\left[\dfrac{d_{j,ij}}{C_i}\int_{C_i}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x + \dfrac{d_{i,ij}}{C_j}\int_{C_j}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x\right] \dt
-	\end{equation}}
+		avec :
+		\[R_1^{i,j} = \displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\left[\dfrac{d_{j,ij}}{C_i}\int_{C_i}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x + \dfrac{d_{i,ij}}{C_j}\int_{C_j}( {x-x_{i,j}})^tH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x\right] \dt,\]
+		
+		et en utilisant (\ref{eq:ponderation}) :
+		\[\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} = u(  x_{i,j}) + R_1^{i,j}\]
+		\end{minipage}
+	 \end{dem}
+	 
+	 Il est maintenant possible d'obtenir une première expression de $\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi$ à l'aide des $u_k$, de la hessienne de $u$ et du gradient (${\nabla u}(x_{i,j})$) de $u$ qui restera à exprimer en fonction des données $u_k$ :
+	 
+	 \begin{lm}[Expression intermédiaire de $\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi$]	 	
+	 	\hspace*{-.8cm}\begin{minipage}{18.5cm}
+	 		\begin{equation}\label{eq:somme}
+	 			\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left( {\bar x_{i,j}-  x_{i,j}}\right)\cdot {\nabla u}(  x_{i,j}) + R_2^{i,j} - \lambda_{i,j}R_1^{i,j}.
+	 		\end{equation}
+	 	\end{minipage}
+	 	
+	 	\begin{minipage}{15.5cm}
+	 	où :
+	 	\begin{equation}\label{eq:R2}
+	 		R_2^{i,j} = \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} ( \xi-  x_{i,j})^tH_{\gamma_{ \xi}(t)}u ( \xi-  x_{i,j})d \xi \dt.
+	 	\end{equation}
+	 	
+	 	\end{minipage}
+	 \end{lm}
+
+	\begin{dem}\begin{minipage}{18.5cm}
+			 En intégrant (\ref{eq:xij}), il vient :
+		\end{minipage}
+		
+		\noindent\begin{minipage}{18.5cm}
+			
+		\[\begin{aligned}
+			\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} &+ \lambda_{i,j}\left( {\bar x_{i,j}-  x_{i,j}}\right)\cdot {\nabla u}(  x_{i,j}) \\
+			&+ \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} ( \xi-x_{i,j})^tH_{\gamma_{ \xi}(t)}u ( \xi-  x_{i,j})d \xi \dt - \lambda_{i,j}R_1^{i,j},
+		\end{aligned}\]
+		
+		et avec :
+		\[R_2^{i,j} = \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} ( \xi-  x_{i,j})^tH_{\gamma_{ \xi}(t)}u ( \xi-  x_{i,j})d \xi \dt,\]
+		
+		il vient : 
+		\[
+			\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left( {\bar x_{i,j}-  x_{i,j}}\right)\cdot {\nabla u}(  x_{i,j}) + R_2^{i,j} - \lambda_{i,j}R_1^{i,j}.
+		\]
+		\end{minipage}
+	\end{dem}
 	
 	
-	Ainsi : \\
-	\begin{equation}\label{eq:xij}
-		\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} = u(  x_{i,j}) + R_1^{i,j}
-	\end{equation}\\
+	Le problème restant pour déterminer $\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi$ est d'exprimer $\nabla u(x_{i,j})$ en fonctions des données $u_k$ et de la hessienne de $u$ :
 	
-	Effectuons cette fois un d.l. sur $ \xi$ : 	
-	\[
-	u( \xi) = u(  x_{i,j}) + \left[ \xi-  x_{i,j}\right]\cdot {\nabla u}(  x_{i,j}) + \displaystyle\int_0^1 (1-t)( \xi-  x_{i,j})^tH_{\gamma_{ \xi}(t)}u ( \xi-  x_{i,j}) \dt
-	\]
-	Ainsi, en utilisant (\ref{eq:xij}) on a :	
-	\[u( \xi) = \dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \left[ \xi-  x_{i,j}\right]\cdot {\nabla u}(  x_{i,j}) + \displaystyle\int_0^1 (1-t)( \xi-  x_{i,j})^tH_{\gamma_{ \xi}(t)}u ( \xi-  x_{i,j}) \dt - R_1^{i,j}\]
+	\begin{lm}[Expression de $\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi$]
+		\hspace*{-.8cm}\begin{minipage}{18.5cm}
+			\begin{equation}\label{eq:somme_reecrite}
+				\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} + R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j},
+			\end{equation}
+		\end{minipage}
+		
+		\noindent\begin{minipage}{15.5cm}
+			où :
+			\begin{equation}\label{eq:R3}
+				R_3^{i,j} = \lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\displaystyle\int_0^1 \dfrac{1}{\abs{C_i}}\int_{C_i} ( {x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d  x
+			\end{equation}
+			
+		\end{minipage}
+	\end{lm}
+	\begin{dem} \begin{minipage}[t]{16cm}
+			En utilisant un développement limité avec reste un intégrale, il est possible de déterminer une expression de $\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u}$ :
+		\end{minipage}
+		\[\begin{aligned}[t]
+			\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} &= \dfrac1{\abs{C_i}}\int_{C_i} \left[ {\nabla u}(  x_{i,j}) + \int_0^1 H_{\gamma_x(t)}u \times x \dt\right]\mathrm d  x = {\nabla u}(  x_{i,j}) + \int_0^1 \dfrac{1}{\abs{C_i}}\int_{C_i} ( {x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d  x
+		\end{aligned}\]
+		
+		Ainsi : 
+		\begin{equation}\label{eq:grad}
+			\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} = {\nabla u}(  x_{i,j}) + \int_0^1 \dfrac{1}{\abs{C_i}}\int_{C_i} ( {x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d  x
+		\end{equation}
+		
+		Et en injectant (\ref{eq:grad}) dans (\ref{eq:somme}) on obtient :
+		\[
+		\begin{aligned}
+			\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}}& + \lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\left(\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u}- \lambda_{i,j}\int_0^1 \dfrac{1}{\abs{C_i}}\int_{C_i} ( {x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d  x\right)\\
+			& + R_2^{i,j} - \lambda_{i,j}R_1^{i,j},
+		\end{aligned}
+		\]
+		
+		avec :
+		\[R_3^{i,j} = \lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\displaystyle\int_0^1 \dfrac{1}{\abs{C_i}}\int_{C_i} ( {x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d x,\]
+		
+		ce qui permet d'écrire : 
+		\[\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} + R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}.\]
+	\end{dem}
 	
-	Et en intégrant : 
-	\[\begin{aligned}
-		\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} &+ \lambda_{i,j}\left( {\bar x_{i,j}-  x_{i,j}}\right)\cdot {\nabla u}(  x_{i,j}) \\
-		&+ \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} ( \xi-x_{i,j})^tH_{\gamma_{ \xi}(t)}u ( \xi-  x_{i,j})d \xi \dt - \lambda_{i,j}R_1^{i,j}
-	\end{aligned}\]
-	
-	Où $\lambda_{i,j} = \abs{\Gamma_{i,j}}$.
-	
-	\vspace{.2cm}
-	
-	On pose :
-	
-	\enc{black}{\begin{equation}\label{eq:R2}
-			R_2^{i,j} = \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} ( \xi-  x_{i,j})^tH_{\gamma_{ \xi}(t)}u ( \xi-  x_{i,j})d \xi \dt
-	\end{equation}}
-	
-	Ainsi : \begin{equation}\label{eq:somme}
-		\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left( {\bar x_{i,j}-  x_{i,j}}\right)\cdot {\nabla u}(  x_{i,j}) + R_2^{i,j} - \lambda_{i,j}R_1^{i,j}
-	\end{equation}
-	
-	Effectuons un dernier d.l. : $\begin{aligned}[t]
-		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} &= \dfrac1{\abs{C_i}}\int_{C_i} \left[ {\nabla u}(  x_{i,j}) + \int_0^1 (1-t)H_{\gamma_x(t)}u \times x \dt\right]\mathrm d  x\\
-		&= {\nabla u}(  x_{i,j}) + \int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} ( {x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d  x
-	\end{aligned}$\\
-	
-	Ainsi : 
-	\begin{equation}\label{eq:grad}
-		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} = {\nabla u}(  x_{i,j}) + \int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} ( {x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d  x
-	\end{equation}
-	
-	Et en injectant (\ref{eq:grad}) dans (\ref{eq:somme}) on obtient :
-	\[
-	\begin{aligned}
-		&\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi \\
-		=& \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\left(\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u}- \lambda_{i,j}\int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} ( {x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d  x\right) + R_2^{i,j} - \lambda_{i,j}R_1^{i,j}
-	\end{aligned}
-	\]
-	
-	On pose :
-	
-	\enc{black}{\begin{equation}\label{eq:R3}
-			R_3^{i,j} = \lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\displaystyle\int_0^1 \dfrac{1-t}{\abs{C_i}}\int_{C_i} ( {x-x_{i,j}})^tH_{\gamma_x(t)}u\mathrm d  x
-	\end{equation}}
-	
-	Ce qui permet d'écrire : \begin{equation}\label{eq:somme_reecrite}
-		\displaystyle\int_{\Gamma_{i,j}} u( \xi)d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} + R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}
-	\end{equation}
-	
-	
-	Finalement en injectant (\ref{eq:somme_reecrite}) dans (\ref{eq:objectif}), on obtient :
-	
+	Finalement en injectant (\ref{eq:somme_reecrite}) dans (\ref{eq:objectif}), il vient :
 	\begin{equation}\label{eq:preque_final}
-		\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}} + \left[\lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u}\right]  {n_{i,j}} + \left[R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}\right]  {n_{i,j}}
+		\begin{aligned}
+			\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}} &+ \left[\lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u}\right]  {n_{i,j}}\\
+			& + \left[R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}\right]  {n_{i,j}}.
+		\end{aligned}
 	\end{equation}
 	
-	Et on pose :
+	Et en posant :
+	\begin{equation}\label{eq:R4}
+			 { {R^{(i)}}} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}\right]  { {n_{i,j}}},
+	\end{equation}
 	
-	\enc{black}{\begin{equation}\label{eq:R4}
-			 { {R^{(i)}}} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}\right]  { {n_{i,j}}}
-	\end{equation}}
-	
-	Ce qui permet d'écrire : 
+	cela permet de ré-écrire (\ref{eq:preque_final}) : 
 	
 	\begin{equation}\label{eq:final}
-		 {\nabla u}_i = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \left[\lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}} + \left[\lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot {\overline{ {\nabla u}(x_i)}}\right]  {n_{i,j}}\right] +  {R^{(i)}}
+		 {\nabla u}_i = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \left[\lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}} + \left[\lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot {\overline{ {\nabla u}(x_i)}}\right]  {n_{i,j}}\right] +  {R^{(i)}},
 	\end{equation}
 	
 	où $ {\nabla u}_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i} {\nabla u}$.\\
 	
-	On rappelle que $B_i  {\overline{\nabla u(x_i)}} = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}$
+	Pour rappel : $M_i  {\overline{\nabla u(x_i)}} = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}},$
 	
-	On peut le reformuler de la manière suivante :
+	il vient alors la reformulation suivante :
 	
 	\begin{equation}\label{eq:reformulation_final}
-		B_i  {\nabla u}_i = B_i  {\overline{ {\nabla u}(x_i)}}+  {R^{(i)}}
+		M_i  {\nabla u}_i = M_i  {\overline{ {\nabla u}(x_i)}}+  {R^{(i)}}.
 	\end{equation}
 	
-	où $B_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j} {n_{i,j}}\otimes\left( {\bar x_{i,j}-x_{i,j}}\right)$
+	\newpage
 	
-
-	\noindent\enc{black}{
-		\textbf{\underline{Question :}} Est ce que l'inversibilité de $B_i$ n'a en fait aucune incidence sur la convergence du gradient discret ? (peu importe qu'il y ait plusieurs solution si toutes ces solutions convergent strictement de la même manière vers le vrai gradient)}
+	\subsection{Majoration de l'erreur}\label{sec:maj_erreur}
 	
-	\subsection{Majoration "naïve"}
+	Dans l'article \cite{ludo}, le pas d'espace $h$ a été défini comme : $h = \underset{i\in \mathcal T}\max\;\underset{j\in \mathcal N_i}\max d(x_i,x_j)$, il reste à étudier son influence sur l'erreur.
 	
-	Dans l'article \cite{ludo}, le pas d'espace $h$ a été défini comme : $h = \max_{i,j\in \mathcal T} d(x_i,x_j)$, étudions son influence sur une majoration naïve.
-	
-	Puisque nous n'avons aucune information sur une quelconque relation que vérifierait $u$ nous supposons que la hessienne de $u$ est majoré sur le domaine $\Omega = \bigcup_{i \in \mathcal T} C_i$. Notons $M$ un majorant de la hessienne de $u$. Et d'après (\ref{eq:R1}), (\ref{eq:R2}) et (\ref{eq:R3}) :
+	Puisque aucune hypothèse n'a été faite sur $u$ en dehors du fait que c'est une fonction de $\mathcal C^2(\R,\R)$, il sera supposé que la hessienne de $u$ est majoré sur un domaine $\Omega$ contenant $\bigcup_{i \in \mathcal T} C_i$. Soit $M$ un majorant de la hessienne de $u$. Ainsi d'après (\ref{eq:R1}), (\ref{eq:R2}) et (\ref{eq:R3}) :
 	
 	\begin{equation}\label{eq:maj_naiv_R1}
-		\abs{R_1^{i,j}} \leq \frac M{4d_{i,j}}\left[\frac{d_{j,ij}}{\abs{C_i}}\displaystyle\int_{C_i} |\!| {x-x_{i,j}}|\!|^2\mathrm d  x + \frac{d_{i,ij}}{\abs{C_j}}\displaystyle\int_{C_j} |\!| {x-x_{i,j}}|\!|^2\mathrm d  x\right]
+		\abs{R_1^{i,j}} \leq \frac M{4d_{i,j}}\left[\frac{d_{j,ij}}{\abs{C_i}}\displaystyle\int_{C_i} |\!| {x-x_{i,j}}|\!|^2\mathrm d  x + \frac{d_{i,ij}}{\abs{C_j}}\displaystyle\int_{C_j} |\!| {x-x_{i,j}}|\!|^2\mathrm d  x\right],
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R2}
-		\abs{R_2^{i,j}} \leq \dfrac{M}2\displaystyle\int_{\Gamma_{i,j}} |\!| { \xi-x_{i,j}}|\!|^2d \xi
+		\abs{R_2^{i,j}} \leq \frac M2\displaystyle\int_{\Gamma_{i,j}} |\!| { \xi-x_{i,j}}|\!|^2d \xi,
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R3}
-		\abs{R_3^{i,j}} \leq \dfrac{\lambda_{i,j}M}2|\!| {\bar x_{i,j}-x_{i,j}}|\!|\cdot \frac1{\abs{C_i}}\int_{C_i}|\!| {x-  x_{i,j}} |\!|\dx
+		\abs{R_3^{i,j}} \leq \lambda_{i,j}M|\!| {\bar x_{i,j}-x_{i,j}}|\!|\cdot \frac1{\abs{C_i}}\int_{C_i}|\!| {x-  x_{i,j}} |\!|\dx.
 	\end{equation}
 	
-	Avec la définition : $h = \underset{i,j\in \mathcal T}\max d(x_i,x_j)$, il existe des exemples de maillages tels que le majorant \ref{eq:maj_naiv_R2} soit d'ordre moins élevé que $h^2$ voir même explose (prendre 2 rectangles accolés de taille $h\times e^{1/h}$).\\
+	Avec la définition de $h$, il existe des \textbf{exemples de maillages} tels que le majorant (\ref{eq:maj_naiv_R2}) soit \textbf{d'ordre moins élevé que $h^2$ voir même explose} (prendre 2 rectangles accolés de taille $h\times e^{1/h}$).\\
 	
-	\textbf{\underline{Ici le problème vient de :}} $\longrightarrow$ La longueur de $\Gamma_{i,j}$  n'est pas contrôlé par $h$.
+	\textbf{\underline{Ici le problème vient de :}} $\longrightarrow$ La longueur de $\Gamma_{i,j}$  n'est pas contrôlé par $h$.\\
 	
-	\noindent Posons $h_1 = \underset{i\in\mathcal T}\max\;\underset{j\in \mathcal N_i}\max\;\mathrm{diam}\left(C_i\cup C_j\right)$ \\
-	Où $\mathrm{diam}(A) = \sup\left\{d(x,y); (x,y)\in A^2\right\}$.\\
-	On aura alors :
+	\noindent Soit $h_1 = \underset{i\in\mathcal T}\max\;\underset{j\in \mathcal N_i}\max\;\mathrm{diam}\left(C_i\right)+\mathrm{diam}\left(C_j\right)$, il a été choisi de prendre $\mathrm{diam}\left(C_i\right)+\mathrm{diam}\left(C_j\right)$ car il est plus simple, numériquement, de considérer cette quantité plutôt que celle-ci : $\mathrm{diam}\left(C_i\cup C_j\right)$ qui, elle, permet de contrôler plus finement $\abs{\Gamma_{i,j}}$\\
+	Où $\mathrm{diam}(A) = \sup\left\{d(x,y); (x,y)\in A^2\right\}$.
 	
+	Il vient alors :
 	\begin{equation}\label{eq:maj_naiv_R1_par_h}
 		\abs{R_1^{i,j}} \leq \dfrac {M}2h_1^2
 	\end{equation}
@@ -266,69 +383,161 @@
 		\abs{R_2^{i,j}} \leq \dfrac{M}2h_1^3
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R3_par_h}
-		\abs{R_3^{i,j}} \leq \dfrac{M}2 h_1^3
+		\abs{R_3^{i,j}} \leq M h_1^3
 	\end{equation}
 	
 	
 	Ainsi en injectant (\ref{eq:maj_naiv_R1_par_h}), (\ref{eq:maj_naiv_R2_par_h}) et (\ref{eq:maj_naiv_R3_par_h}) dans (\ref{eq:R4}) on obtient (pour $N_{max} = \underset{i\in\mathcal T}\max \hspace{.1cm}\text{Card}\left(N_i\right)$) :
 	
 	\begin{equation}\label{eq:max_naiv_R4}
-		|\!| {R^{(i)}}|\!| \leq \frac1{\abs{C_i}}\frac{3MN_{max}}2h_1^3
+		|\!| {R^{(i)}}|\!| \leq \frac{MN_{max}}{\abs{C_i}}h_1^3
 	\end{equation}
 	
 	\vspace{-.2cm}
 	
-	En pratique $N_{max}$ ne dépend pas du nombre de polygones $C_i$ ou de ses dimensions.
+	En pratique $N_{max}$ ne dépend pas du nombre de polygones $C_i$ ou de ses dimensions, ce qui permet de le considérer comme constante du problème.
 	
-	Cependant nous avons de nouveau un problème, on ne peut pas contrôler la taille de $C_i$ à l'aide de $h$ (que ce soit par la seconde définition ou par la définition originale), en effet, prenons deux rectangles $C_1$ et $C_2$ accolés de taille $\varepsilon\times\varepsilon^2$, on aura alors : $h_1(\varepsilon) = \varepsilon\sqrt{4\varepsilon^2+1} \underset{\varepsilon\to0}\sim \varepsilon$ et l'aire d'un rectangle : $\abs{C_i} = \varepsilon^3 \sim h_1^3$. 
-	\par Ainsi $\dfrac1{\abs{C_i}}\dfrac{3MN}2h_1^3 \sim \dfrac{3MN}2$, on majore donc seulement l'erreur et on ne sait pas si elle tend vers 0, on peut même faire pire en choisissant des rectangle de taille $\varepsilon\times\varepsilon^n$ (pour $n \geq 2$).\\
+	Cependant il y a de nouveau un \textbf{problème}, \textbf{il n'est pas possible de contrôler la taille de $C_i$ à l'aide de $h$} (que ce soit par la seconde définition ou par la définition originale de l'article \cite{ludo}), en effet, en prenant deux rectangles $C_1$ et $C_2$ accolés de taille $\varepsilon\times\varepsilon^2$, on aura alors : $h_1(\varepsilon) = \varepsilon\sqrt{4\varepsilon^2+1} \underset{\varepsilon\to0}\sim \varepsilon$ et l'aire d'un rectangle : $\abs{C_i} = \varepsilon^3 \sim h_1^3$. 
+	\par Ainsi $\dfrac{MN_{max}}{\abs{C_i}}h_1^3 \sim MN_{max}$, il n'est pas possible de savoir, avec cette majoration, si l'erreur tend vers 0, on peut même faire pire en choisissant des rectangle de taille $\varepsilon\times\varepsilon^n$ (pour $n \geq 2$).\\
 	
 	\textbf{\underline{Ici le problème vient de :}} $\longrightarrow$  l'aire des $C_i$ n'est pas contrôlé par $h_1$.\\
 	
-	Un solution simple pourrait être d'intégrer le terme $\dfrac1{\sqrt{\abs{C_i}}}$ :
+	Un solution simple pourrait être d'intégrer le terme $\dfrac1{\abs{C_i}}$ :
 	
 	\begin{equation}\label{eq:nv_h}
-		h_2 = \max\left\{h_1,\dfrac{h_1}{\underset{k\in \mathcal T}\min\;\sqrt{\abs{C_k}}}\right\}
+		h_2 = \dfrac{h_1^3}{\underset{k\in \mathcal T}\min\;\abs{C_k}}
 	\end{equation}
 	
-	Ainsi, en reprenant l'exemple précédent : $h_2(\varepsilon) \underset{\varepsilon\to0}\sim \dfrac1{\varepsilon^2}$, cela traduit bien le fait que le pas $h_2$ augmente lorsque $\varepsilon$ diminue.
+	Ainsi, en reprenant l'exemple précédent : $h_2(\varepsilon) \underset{\varepsilon\to0}\sim 1$, cela traduit le fait que le pas $h_2$ ne diminue pas lorsque $\varepsilon$ diminue, ainsi avec cette nouvelle mesure du pas, cet exemple montre que le pas ne diminue pas. Et pour 2 carrés de taille $\varepsilon$ accolés : $h_1(\varepsilon) = \sqrt{5}\varepsilon$ et $h_2(\varepsilon) = h_1(\varepsilon)$.
 	
 	
-	Avec ce nouveau $h$, on obtient :
+	Avec ce nouveau $h$, il est possible d'avoir naturellement à partir de (\ref{eq:max_naiv_R4}) :
 	
 	\begin{equation}\label{eq:max_naiv_R4}
-		|\!| {R^{(i)}}|\!| \leq \frac{h_1^2}{\abs{C_i}}\frac{3MN_{max}}2h_1 \leq h_2^2\frac{3MN_{max}}2h_1  =  \frac{3MN_{max}}2h_2^3
+		|\!| {R^{(i)}}|\!| \leq MN_{max}h_2
 	\end{equation}
 	
-	Finalement :
+\subsection{Mesure de l'erreur consistance}
+
+	Rappel de l'expression de la matrice $M_i$ :
+	\begin{center}
+		$M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j} {n_{i,j}}\otimes\left( {\bar x_{i,j}-x_{i,j}}\right)$
+	\end{center}
 	
-	\begin{equation}
-		|\!| {R^{(i)}}|\!| \leq \frac{3MN_{max}}2h_2^3
-	\end{equation}
+	Pour estimer les coefficients de $M_i^{-1}$ il est important de connaître les ordre des grandeurs dans la somme en jeu dans la définition de $M_i$, il reste à essayer d'estimer $\bar x_{i,j}-x_{i,j}$ par une donnée scalaire. Pour cela il peut-être utile de commencer se représenter le problème par un schéma :
 	
-	\vspace{1cm}
+	\begin{center}
+		\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm, scale = 0.6]
+			\clip(-5,-5) rectangle (5.,5.);
+			\draw [line width=1.pt] (-2,5.)-- (2,-5.);
+			\draw[color=black] (-1.8,3.9) node[above left] {$\Gamma_{ij}$};
+			\draw [line width=1.pt,dash pattern=on 1.5pt off 1.5pt] (-3,-2)-- (4,-3);
+			\draw [color=red][->,line width=0.8pt] (0.,0.) -- (0.92847669,0.37139068);
+			\draw[color=red] (0.92847669,0.37139068) node[right] {$n_{ij}$};
+			\draw [color=red][->,line width=0.8pt] (0.,0.) -- (-0.37139068,0.92847669);
+			\draw[color=red] (-0.37139068,0.92847669) node[left] {$n_{ij}^{\bot}$};
+			\draw [color=blue][line width=0.8pt] (0.,0.) -- (1.03,-2.57);
+			\draw[color=blue] (1.6,-1.) node[left] {$\delta_{ij}$};
+			
+			% Point
+			\draw (-4,2) node[anchor=north west] {$C_i$};
+			\draw (3,2) node[anchor=north west] {$C_j$};
+			\draw[color=black] (-3,-2) node[above right] {$x_i$};
+			\draw [fill=black] (-3,-2) circle (2.0pt);
+			\draw[color=black] (4,-3) node[above right] {$x_j$};
+			\draw [fill=black] (4,-3) circle (2.0pt);
+			\draw[color=black] (0.,0.) node[below left] {$\overline{x}_{ij}$};
+			\draw [fill=black] (0.,0.) circle (2.0pt);
+			\draw[color=black] (1.03,-2.57) node[below left] {$x_{ij}$};
+			\draw [fill=black] (1.03,-2.57) circle (2.0pt);
+			%% \draw [fill=xdxdff] (8.778392298328422,5.318228205273862) circle (2.5pt);
+			\draw[color=black] (8.863325183374085,5.53357142857143) node[right] {$\Gamma_{ij}$};
+			%% Base cartésienne
+			\draw [color=black][->,line width=0.8pt] (-4,-4) -- (-3,-4);
+			\draw [color=black][->,line width=0.8pt] (-4,-4) -- (-4,-3);
+			\draw[color=black] (-3,-4) node[ right] {$e_x$};
+			\draw[color=black] (-4,-3) node[ left] {$e_y$};
+		\end{tikzpicture}
+		\captionof{figure}{Interface orientée $\Gamma_{ij}$ localisée entre deux cellules $C_i$ et $C_j$ d'un maillage non structuré $\mathcal{T}$ dont  le vecteur normal et son orthogonal sont représentés.}
+		\label{fig:EdgeWithGrandeurs_VecNormal}
+	\end{center}
 	
-	\begin{rmq}
-	\begin{minipage}[t]{15cm}
-		Pour éviter de changer de définition, pour passer d'un pas $h_1$ à un pas $h_2<h_1$,\\ 
-		il faudrait transformer le maillage en une application $\varphi_\varepsilon$ ($h_2 = \varepsilon h_1$) qui ne déforme pas (trop) le maillage (qu'il transforme les dimensions des polygone à peu près uniformément) : 
+	Il est important de remarquer que puisque $n_{i,j}$ est orthogonal à $\Gamma_{i,j}$, ainsi $\bar x_{i,j} - x_{i,j}$ est colinéaire à $n_{i,j}^\perp$. Ainsi il existe un unique réel $\delta_{i,j}$ qui vérifie $\bar x_{i,j}-x_{i,j} = \delta_{i,j}n_{i,j}^\perp$.\\
+	Ainsi $M_i$ se reformule de la manière suivante :
+	\begin{center}
+		$M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\delta_{i,j} {n_{i,j}}\otimes n_{i,j}^\perp$
+	\end{center}
+
+	A partir de là il est possible d'obtenir une première propriété sur $M_i$ :
+	
+	\begin{lm}
+		\begin{minipage}[t]{17cm}
+			Soit $M_i(\mathcal T)$ la matrice $M_i$ associées au maillage $\mathcal T$.
+		\end{minipage}
 		
-		\vspace{.2cm}
+		\noindent\begin{minipage}{18.5cm}
+			Si $h_\Omega$ est une homothétie de rapport $k > 0$ alors : 
+			\[
+				M_i(h_\Omega\mathcal(\mathcal T)) = M_i(\mathcal T)
+			\]
+		\end{minipage}
+	\end{lm}
+	\begin{dem}
+		\begin{minipage}[t]{15cm}
+			Soit $C_i \in \mathcal T$. Puisque toute homothétie conserve les angles et pour tout segment $I$
+		\end{minipage}
 		
-		\noindent\enc{black}{\begin{center}
-				$\varphi_\varepsilon = \varepsilon M(\varepsilon)$ \hspace{.5cm} où $M(\varepsilon) \in GL_2(\R)$ et $M(\varepsilon)\sim K \in GL_2(\R)$
-		\end{center}}
-	\end{minipage}
-	\end{rmq}
+		\noindent\begin{minipage}{18.5cm}
+		 et surface $S$ :
+		 \begin{enumerate}
+		 	\item $\abs{h_\Omega(I)} = k\abs{I}$
+		 	\item $\abs{h_\Omega(S)} = k^2\abs{S}$
+		 \end{enumerate}
+		 Soit $ \delta(C_i,C_i\cup C_j) = \delta_{i,j} $.\\
+		 Puisque $k > 0$, $h_\Omega$ conserve aussi le sens des vecteurs, il suit la relation suivante : 
+		 \[
+		 	\delta(h_\Omega(C_i),h_\Omega(C_i) \cup h_\Omega(C_j)) =  \delta(h_\Omega(C_i),h_\Omega(C_i \cup C_j)) = k\delta_{i,j}
+		 \]
+		 Ainsi :
+		\[
+			\dfrac{\abs{h_\Omega(\Gamma_{i,j})}\delta(h_\Omega(C_i)\cup h_\Omega(C_j))}{\abs{h_\Omega(C_i)}} = \dfrac{k^2\lambda_{i,j}\delta_{i,j}}{k^2\abs{C_i}} = \dfrac{\lambda_{i,j}\delta_{i,j}}{\abs{C_i}}
+		\]
+		Puisque $h_{\Omega}$ conserve le sens et la direction, $h_\Omega(\mathcal T)$ est un maillage et $h_\Omega(C_j)$ est un voisin de $h_\Omega(C_i)$, si et seulement si, $C_j$ est un voisin de $C_i$. Ainsi :
+		\[
+			\begin{aligned}
+				M_i(h_\Omega(\mathcal T)) &= I_2 - \dfrac1{\abs{h_\Omega(C_i)}}\displaystyle\sum_{j \in \mathcal N_i} \abs{h_\Omega(\Gamma_{i,j})}\delta(h_\Omega(C_i),h_\Omega(C_i)\cup h_\Omega(C_j)) n_{i,j}\otimes n_{i,j}^\perp\\
+				&=I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\delta_{i,j} n_{i,j}\otimes n_{i,j}^\perp\\
+				&= M_i(\mathcal T)
+			\end{aligned}
+		\]
+		\end{minipage}
+	\end{dem}
+	
+	Ce qui montre que ce qui influence la valeurs des coefficients de $M_i$ n'est pas les distances des cellules du maillage mais les angles dans chaque cellules et entre chaque cellules. Ce qui est d'autant plus clair à l'aide de la formule (29) donné par \cite{florent}, en notant $\theta_{i,j}$ l'unique angle tel que $n_{i,j} = \cos(\theta_{i,j}) e_x + \sin(\theta_{i,j})e_y$ et $\alpha_{i,j} = \frac{\lambda_{i,j}\delta_{i,j}}{\abs{C_i}}$ :
+	\[
+		\det(M_i) = 1 + \displaystyle\sum_{1\leq j < k \leq \mathcal N_i} \alpha_{i,j}\alpha_{i,k}\sin^2(\theta_{i,j}-\theta_{i,k})
+	\]
+	
+	
+	
+\section{Tests numériques}
+
+Un premier test à été effectué sur des maillages structuré constitué de $N$ carrés de taille $\frac{10}N$.
+
+
+
 
 \newpage
 
 \begin{thebibliography}{99}	
 	\bibitem{ludo}
-	L. Martaud.,
+	L. Martaud,
 	Global entropy stability for a class of unlimited second-order schemes for 2D hyper-bolic systems of conservation laws on unstructured meshes.
 	 Journal of Computational Physics,
 	487 :112176, 2023.
-		
+	
+	\bibitem{florent}
+	P. Florent,
+	Étude de l'anisotropie locale de maillages non-structurés 2D.
 \end{thebibliography}
 \end{document}
