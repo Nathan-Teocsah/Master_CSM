@@ -1,21 +1,22 @@
-\contentsline {lm}{{Lemme}{1}{Détermination de $u(x_{i,j})$}}{4}{Lemma.1}%
-\contentsline {dem}{{Preuve}{1}{}}{4}{Proof.1}%
-\contentsline {lm}{{Lemme}{2}{Expression intermédiaire de $\displaystyle \int _{\Gamma _{i,j}} u( \xi )\mathrm d \xi $}}{4}{Lemma.2}%
-\contentsline {dem}{{Preuve}{2}{}}{5}{Proof.2}%
-\contentsline {lm}{{Lemme}{3}{Expression de $\displaystyle \int _{\Gamma _{i,j}} u( \xi )\mathrm d \xi $}}{5}{Lemma.3}%
-\contentsline {dem}{{Preuve}{3}{}}{5}{Proof.3}%
-\contentsline {lm}{{Lemme}{4}{}}{9}{Lemma.4}%
-\contentsline {dem}{{Preuve}{4}{}}{9}{Proof.4}%
-\contentsline {lm}{{Lemme}{5}{}}{10}{Lemma.5}%
-\contentsline {lm}{{Lemme}{6}{}}{11}{Lemma.6}%
-\contentsline {dem}{{Preuve}{5}{}}{11}{Proof.5}%
-\contentsline {lm}{{Lemme}{7}{}}{12}{Lemma.7}%
-\contentsline {dem}{{Preuve}{6}{}}{12}{Proof.6}%
-\contentsline {lm}{{Lemme}{8}{}}{13}{Lemma.8}%
-\contentsline {dem}{{Preuve}{7}{}}{13}{Proof.7}%
-\contentsline {lm}{{Lemme}{9}{}}{13}{Lemma.9}%
-\contentsline {lm}{{Lemme}{10}{}}{13}{Lemma.10}%
-\contentsline {lm}{{Lemme}{11}{}}{14}{Lemma.11}%
-\contentsline {lm}{{Lemme}{12}{}}{14}{Lemma.12}%
-\contentsline {lm}{{Lemme}{13}{}}{14}{Lemma.13}%
-\contentsline {lm}{{Lemme}{14}{}}{14}{Lemma.14}%
+\contentsline {lm}{{Lemme}{1}{Détermination de $u(x_{i,j})$}}{5}{Lemma.1}%
+\contentsline {dem}{{Preuve}{1}{}}{5}{Proof.1}%
+\contentsline {lm}{{Lemme}{2}{Expression intermédiaire de $\displaystyle \int _{\Gamma _{i,j}} u( \xi )\mathrm d \xi $}}{5}{Lemma.2}%
+\contentsline {dem}{{Preuve}{2}{}}{6}{Proof.2}%
+\contentsline {lm}{{Lemme}{3}{Expression de $\displaystyle \int _{\Gamma _{i,j}} u( \xi )\mathrm d \xi $}}{6}{Lemma.3}%
+\contentsline {dem}{{Preuve}{3}{}}{6}{Proof.3}%
+\contentsline {lm}{{Lemme}{4}{}}{10}{Lemma.4}%
+\contentsline {dem}{{Preuve}{4}{}}{10}{Proof.4}%
+\contentsline {lm}{{Lemme}{5}{}}{11}{Lemma.5}%
+\contentsline {lm}{{Lemme}{6}{}}{12}{Lemma.6}%
+\contentsline {dem}{{Preuve}{5}{}}{12}{Proof.5}%
+\contentsline {lm}{{Lemme}{7}{}}{13}{Lemma.7}%
+\contentsline {dem}{{Preuve}{6}{}}{13}{Proof.6}%
+\contentsline {lm}{{Lemme}{8}{}}{14}{Lemma.8}%
+\contentsline {dem}{{Preuve}{7}{}}{14}{Proof.7}%
+\contentsline {lm}{{Lemme}{9}{}}{14}{Lemma.9}%
+\contentsline {dem}{{Preuve}{8}{}}{14}{Proof.8}%
+\contentsline {lm}{{Lemme}{10}{}}{15}{Lemma.10}%
+\contentsline {lm}{{Lemme}{11}{}}{15}{Lemma.11}%
+\contentsline {lm}{{Lemme}{12}{}}{15}{Lemma.12}%
+\contentsline {lm}{{Lemme}{13}{}}{15}{Lemma.13}%
+\contentsline {lm}{{Lemme}{14}{}}{16}{Lemma.14}%
