@@ -1,21 +1,11 @@
 \babel@toc {french}{}\relax 
-\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Contexte}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Modélisation du problème}{1}{subsection.1.2}%
-\contentsline {section}{\numberline {2}Erreur de consistance du gradient discret}{3}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Expression exacte de l'erreur}{3}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Majoration de l'erreur}{7}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Mesure de l'erreur consistance}{8}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Majoration de $M_i^{-1}$}{10}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Maillage Triangulaire}{10}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Tests numériques}{15}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Objectifs}{15}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Matériels}{15}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Maillage cartésien}{16}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Maillage cartésien déformé}{16}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Coefficient de déformation $\varphi = 0.2$}{17}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Coefficient de déformation $\varphi = 0.5$}{17}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Coefficient de déformation $\varphi = 0.8$}{18}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}Coefficient de déformation $\varphi = 0.9$}{18}{subsubsection.3.4.4}%
-\contentsline {subsubsection}{\numberline {3.4.5}Observations}{19}{subsubsection.3.4.5}%
-\contentsline {subsection}{\numberline {3.5}Maillage de Delaunay}{19}{subsection.3.5}%
+\contentsline {section}{\numberline {1}Remerciements}{1}{section.1}%
+\contentsline {section}{\numberline {2}Introduction}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Contexte}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Gradients discrets local pour la méthode des volumes finis}{2}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Erreur de consistance du gradient discret}{4}{section.3}%
+\contentsline {section}{\numberline {4}Tests numériques}{16}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Objectifs}{16}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Matériels}{16}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Tests numériques}{17}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Conclusions et limites}{20}{section.5}%
