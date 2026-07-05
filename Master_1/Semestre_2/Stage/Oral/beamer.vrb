@@ -1,0 +1,75 @@
+\frametitle{Résultats : fonction anisotrope}
+\only<1>{
+			\begin{figure}
+				\centering
+				\includegraphics[scale=.6]{image/carre_ani.png}
+				\caption{Maillage cartésien ($\varphi = 0$).}
+		\end{figure}}
+		
+		\only<2>{
+			\begin{figure}
+				\centering
+				\includegraphics[scale=.6]{image/deforme_05_ani.png}
+				\caption{Maillage cartésien déformé de déformation $\varphi = 0.5$.}
+		\end{figure}}
+		
+		\only<3>{
+			\begin{figure}
+				\centering
+				\includegraphics[scale=.6]{image/deforme_09_ani.png}
+				\caption{Maillage cartésien déformé de déformation $\varphi = 0.9$.}
+		\end{figure}}
+		
+		\only<4>{
+			\begin{figure}
+				\centering
+				\includegraphics[scale=.6]{image/ffm_ani.png}
+				\caption{Maillage de Delaunay.}
+		\end{figure}}
+		
+		\only<5>{
+			
+			\vspace{-.25cm}
+			
+			\begin{figure}
+				\begin{subfigure}{.4\textwidth}
+					\centering
+					\includegraphics[scale=.3]{image/carre_ani.png}
+					\caption{$\varphi = 0$.}
+				\end{subfigure}
+				\begin{subfigure}{.4\textwidth}
+					\centering
+					\includegraphics[scale=.3]{image/deforme_05_ani.png}
+					\caption{$\varphi = 0.5$.}
+				\end{subfigure}
+				\begin{subfigure}{.4\textwidth}
+					\centering
+					\includegraphics[scale=.3]{image/deforme_09_ani.png}
+					\caption{$\varphi = 0.9$.}
+				\end{subfigure}
+				\begin{subfigure}{.4\textwidth}
+					\centering
+					\includegraphics[scale=.3]{image/ffm_ani.png}
+					\caption{Delaunay.}
+				\end{subfigure}
+		\end{figure}}
+	
+		\only<6>{
+			\centering
+			
+			Ordre de convergence :
+			
+			\vspace{.5cm}
+			
+			\begin{center}
+				\begin{NiceTabular}{cccc}
+					Maillage & $\mathrm L^1$ & $\mathrm L^2$ & $\mathrm L^\infty$ \\
+					\hline
+					$\varphi=0$ & 1.600 & 1.621 & 1.636 \\
+					$\varphi=0.5$ & 1.175 & 1.188 & 1.376 \\
+					$\varphi=0.9$ & 1.105 & 1.115 & 0.101 \\
+					Delaunay & - & - & -
+				\end{NiceTabular}
+			\end{center}
+			
+		}

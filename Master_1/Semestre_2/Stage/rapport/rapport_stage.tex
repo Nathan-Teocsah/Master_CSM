@@ -73,21 +73,20 @@
 	
 	\section{Remerciements}
 	
-	En premier lieu, je tiens à remercier Le Centre Henri Lebesgue, qui a financé ce stage. En second lieu, je tiens tout particulièrement à remercier Ludovic Martaud, le tuteur de se stage, qui a été d'une grande aide et m'a guidé tout au long de se stage. Il a su mettre en lumière les points importants de ce stage et les mettre en valeur. Finalement, je tiens aussi à remercier Loïc Le Marrec, sans qui, cette offre de stage ne me serait pas parvenue et pour son accompagnement, et son regard extérieur au stage, très utile.
+	En premier lieu, je tiens à remercier Le Centre Henri Lebesgue, qui a financé ce stage. En second lieu, je tiens tout particulièrement à remercier Ludovic Martaud, le tuteur de ce stage, qui a été d'une grande aide et m'a guidé tout au long de se stage. Il a su mettre en lumière les points importants de ce stage et les mettre en valeurs. Je tiens aussi à remercier Loïc Le Marrec, sans qui, cette offre de stage ne me serait pas parvenue et pour son accompagnement, et son regard extérieur au stage très utile.
 	
 	\newpage
-	\section{Introduction}	
-
-	
-	\subsection{Contexte}
+	\section{Contexte}
 	
 	Ce stage s'est déroulé au sein de l'Institut de Recherche Mathématique de Rennes (IRMAR), un
 	laboratoire de recherche fondamentale et appliquée en mathématiques, rattaché à l'Université de Rennes et au CNRS. L'IRMAR couvre un large spectre de thématiques, allant de l'analyse et la géométrie à la modélisation numérique et aux statistiques. Le stage a bénéficié du soutien financier du Centre Henri Lebesgue, un centre de recherche mathématique interrégional qui vise à promouvoir l'excellence scientifique, à renforcer la collaboration entre chercheurs et à soutenir la formation par la recherche dans le domaine des mathématiques.
-	\par Le sujet de ce stage porte sur l'étude de la consistance d'un gradient discret local défini dans l'article \cite{ludo} sur des maillages non structuré en deux dimensions d'espace. Le terme "non-structuré" fait référence au fait que pour une cellule donné il n'est pas possible de définir "la cellule du haut", "la cellule de gauche", etc. Les maillages non structurés permettent s'adaptent aux géométries quelconques ce qui permet de mailler des formes réaliste. Mais cette généralité entraîne des complexités, tels que la façon de définir un ou des gradients discrets ou encore de définir un pas d'espace. Cette dernière considération est importante, car c'est le pas qui va permettre de quantifier l'erreur lors du calculs du gradient discret. Une telle proposition a été faite dans \cite{ludo} pour définir un ensemble de gradients discrets, local, auquel a été associé une première proposition d'un pas qui pourrait quantifier l'erreur associé à ce gradient. L'objectif de ce stage est d'examiner cette proposition de pas et d'en fournir une meilleurs si elle s'avère insuffisante pour quantifier l'erreur.
+	\par Le sujet de ce stage porte sur l'étude de la consistance d'un gradient discret local défini dans l'article \cite{ludo} sur des maillages non structuré en deux dimensions d'espace. Le terme "non-structuré" fait référence au fait que pour une cellule donné il n'est pas possible de définir "la cellule du haut", "la cellule de gauche", etc. Les maillages non structurés s'adaptent aux géométries quelconques, ce qui permet de mailler des formes réalistes. Mais cette généralité entraîne des complexités, tels que la façon de définir un ou des gradients discrets ou encore de définir un pas d'espace. Cette dernière considération est importante, car c'est le pas qui va permettre de quantifier l'erreur lors du calculs du gradient discret. Une telle proposition a été faite dans \cite{ludo} pour définir un ensemble de gradients discrets, local, auquel a été associé une première proposition d'un pas qui pourrait quantifier l'erreur associé à ce gradient. L'objectif de ce stage est d'examiner cette proposition de pas et d'en fournir une meilleurs si elle s'avère insuffisante pour quantifier l'erreur du gradient discret proposé.
 	
-	\subsection{Gradients discrets local pour la méthode des volumes finis}\label{sec:notations}
+	\newpage
 	
-	Le plan $\R^2$ est pavé à l'aide de $N$ cellules polygonale $C_i$ de surface $\abs{C_i}$, l'ensemble de $C_i$ est noté $\mathcal T = \left\{C_i;\,i\in[\![1,N]\!]\right\}$. Ci-dessous est représenté l'interface orienté $\Gamma_{i,j} = C_i \cap C_j$, de longueur $\abs{\Gamma_{i,j}}$ entre deux cellules $C_i$ et $C_j$ :
+	\section{Gradients discrets local pour la méthode des volumes finis}\label{sec:notations}
+	
+	Le plan $\R^2$ est pavé à l'aide de $N$ cellules polygonale $C_i$ de surface $\abs{C_i}$ et l'ensemble des $C_i$ est noté $\mathcal T = \left\{C_i;\,i\in[\![1,N]\!]\right\}$. Ci-dessous est représenté l'interface orienté $\Gamma_{i,j} = C_i \cap C_j$, de longueur $\abs{\Gamma_{i,j}}$ entre deux cellules $C_i$ et $C_j$ :
 	
 	\begin{center}
 		\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm, scale = 0.6]
@@ -142,12 +141,12 @@
 	\end{equation}
 	où $I_2$ est la matrice identité et $\otimes$ est le produit tensoriel.
 	
-	Étant donné une liste de réels $(u_i)_{i \in \mathcal T}$ provenant d'une fonction $u \in \mathcal C^2(\R^2,\R)$, la modélisation discrète du gradient de $u$, $\overline{ {\nabla u}(x_i)} \in \R^2$, est pris constante sur chaque maille $C_i$. Sous réserve d'existence de $M_i^{-1}$,  $\overline{ {\nabla u}(x_i)}$ est défini par :
+	Pour $u \in \mathcal C^2(\R^2,\R)$, la modélisation discrète du gradient de $u$, $\overline{ {\nabla u}(x_i)} \in \R^2$, est pris constante sur chaque maille $C_i$. Sous réserve d'existence de $M_i^{-1}$, étant donné une liste de réels $(u_i)_{i \in \mathcal T}$ provenant de $u$ $\overline{ {\nabla u}(x_i)}$ est défini par :
 	\begin{equation}\label{eq:grad_discret}
 		M_i \overline{ {\nabla u}(x_i)} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}},
 	\end{equation}
 	
-	L'objectif de ce stage est d'étudier la consistance des ces gradients discrets $\overline{ {\nabla u}(x_i)}$.
+	L'objectif de ce stage est d'étudier la consistance des ces gradients discrets $\overline{ {\nabla u}(x_i)}$ pour un pas d'espace $h$ à définir.
 	
 	
 	
@@ -155,7 +154,7 @@
 	
 	\section{Erreur de consistance du gradient discret}
 	
-		Étant donné une fonction $u \in \mathcal C^2(\R^2,\R)$, la modélisation discrète de $u$ est pris constante sur chaque maille $C_i$ du maillage $\mathcal T$. Cette valeur est noté $u_i$ pour la maille $C_i$ :
+		Étant donné une fonction $u \in \mathcal C^2(\R^2,\R)$, la modélisation discrète de $u$ est pris constante sur chaque maille $C_i$ du maillage $\mathcal T$. Cette valeur est notée $u_i$ pour la maille $C_i$ :
 	\begin{equation}
 		u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i} u(x)\dx,
 	\end{equation}
@@ -190,10 +189,12 @@
 	   	\begin{equation}\label{eq:xij}
 	   		\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} = u(  x_{i,j}) + R_1^{i,j},
 	   	\end{equation}
-	   	avec : 
-	   	\begin{equation}\label{eq:R1}
-	   			R_1^{i,j} =\displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\left[\dfrac{d_{j,ij}}{\abs{C_i}}\int_{C_i}( {x-x_{i,j}})^TH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x +\dfrac{d_{i,ij}}{\abs{C_j}}\int_{C_j}( {x-x_{i,j}})^TH_{\gamma_{x}(t)}u ( {x-x_{i,j}})\mathrm d  x\right] \dt .
+	   	avec : \\
+	   	\begin{minipage}{19.5cm}
+	   		\begin{equation}\label{eq:R1}
+	   			\hspace{-1cm}R_1^{i,j} =\displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\left[\dfrac{d_{j,ij}}{\abs{C_i}}\int_{C_i}( {x-x_{i,j}})^T\left(H_{\gamma_{x}(t)}u\right) ( {x-x_{i,j}})\mathrm d  x +\dfrac{d_{i,ij}}{\abs{C_j}}\int_{C_j}( {x-x_{i,j}})^T\left(H_{\gamma_{x}(t)}u\right) ( {x-x_{i,j}})\mathrm d  x\right] \dt .
 	   	\end{equation}
+	   	\end{minipage}
    \end{lm}
 
    \begin{proof}
@@ -223,7 +224,7 @@
 	 	\begin{minipage}{15.5cm}
 	 	où :
 	 	\begin{equation}\label{eq:R2}
-	 		R_2^{i,j} = \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} ( \xi-  x_{i,j})^TH_{\gamma_{ \xi}(t)}u ( \xi-  x_{i,j})\mathrm\, d \xi \dt.
+	 		R_2^{i,j} = \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} ( \xi-  x_{i,j})^T\left(H_{\gamma_{ \xi}(t)}u\right) ( \xi-  x_{i,j})\mathrm\, d \xi \dt.
 	 	\end{equation}
 	 	
 	 	\end{minipage}
@@ -304,22 +305,22 @@
 		Puisque $M_i  {\overline{\nabla u(x_i)}} = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}$, en injectant cette expression dans l'expression précédente, il vient le résultat attendu.
 	\end{proof}
 	
-	Le deuxième objectif est maintenant d'obtenir une majoration de $M_i^{-1}R^{(i)}$ en fonction d'un pas $h$ à déterminer et de la norme de $M_i^{-1}$.
+	Le deuxième objectif est maintenant d'obtenir une majoration de $M_i^{-1}R^{(i)}$ en fonction d'un pas $h$ à déterminer et de la norme subordonnée de $M_i^{-1}$.
 	
 	\newpage
 	
 	Dans l'article \cite{ludo}, le pas d'espace $h$ a été défini comme : $h = \underset{i\in \mathcal T}\max\;\underset{j\in \mathcal N_i}\max d(x_i,x_j)$, il reste à étudier son influence sur l'erreur.
 	
-	Puisque aucune hypothèse n'a été faite sur $u$ en dehors du fait que c'est une fonction de $\mathcal C^2(\R,\R)$, il sera supposé que la hessienne de $u$ est majoré. Pour $H$ un majorant de la hessienne de $u$, d'après (\ref{eq:R1}), (\ref{eq:R2}) et (\ref{eq:R3}), il vient :
+	Puisque aucune hypothèse n'a été faite sur $u$ en dehors du fait que c'est une fonction de $\mathcal C^2(\R,\R)$, il n'est à priori pas possible d'affirmer plus que ce qui est déjà fait. C'est pourquoi, il sera supposé que la hessienne de $u$ est majoré. Pour $H$ un majorant de la hessienne de $u$, d'après (\ref{eq:R1}), (\ref{eq:R2}) et (\ref{eq:R3}), il vient :
 	
 	\begin{equation}\label{eq:maj_naiv_R1}
-		\abs{R_1^{i,j}} \leq \frac M{4d_{i,j}}\left[\frac{d_{j,ij}}{\abs{C_i}}\displaystyle\int_{C_i} |\!| {x-x_{i,j}}|\!|^2\mathrm d  x + \frac{d_{i,ij}}{\abs{C_j}}\displaystyle\int_{C_j} |\!| {x-x_{i,j}}|\!|^2\mathrm d  x\right],
+		\abs{R_1^{i,j}} \leq \frac H{4d_{i,j}}\left[\frac{d_{j,ij}}{\abs{C_i}}\displaystyle\int_{C_i} |\!| {x-x_{i,j}}|\!|^2\mathrm d  x + \frac{d_{i,ij}}{\abs{C_j}}\displaystyle\int_{C_j} |\!| {x-x_{i,j}}|\!|^2\mathrm d  x\right],
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R2}
-		\abs{R_2^{i,j}} \leq \frac M2\displaystyle\int_{\Gamma_{i,j}} |\!| { \xi-x_{i,j}}|\!|^2\mathrm d \xi,
+		\abs{R_2^{i,j}} \leq \frac H2\displaystyle\int_{\Gamma_{i,j}} |\!| { \xi-x_{i,j}}|\!|^2\mathrm d \xi,
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R3}
-		\abs{R_3^{i,j}} \leq \lambda_{i,j}M|\!| {\bar x_{i,j}-x_{i,j}}|\!|\cdot \frac1{\abs{C_i}}\int_{C_i}|\!| {x-  x_{i,j}} |\!|\dx,
+		\abs{R_3^{i,j}} \leq \lambda_{i,j}H|\!| {\bar x_{i,j}-x_{i,j}}|\!|\cdot \frac1{\abs{C_i}}\int_{C_i}|\!| {x-  x_{i,j}} |\!|\dx,
 	\end{equation}
 	où $|\!| \cdot |\!|$ est une norme sur $\R^2$.
 	
@@ -335,17 +336,17 @@
 		\abs{R_1^{i,j}} \leq \dfrac {H}{2}\;\dfrac{\underset{k\in \mathcal T}\min \abs{C_k}}{\underset{i\in\mathcal T}\max\;\underset{j\in \mathcal N_i}\max\;\mathrm{diam}\left(C_i\right)+\mathrm{diam}\left(C_j\right)}\; h
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R2_par_h}
-		\abs{R_2^{i,j}} \leq \dfrac{H}{2\underset{i\in\mathcal T}\max\;\underset{j\in \mathcal N_i}\max\;\mathrm{diam}\left(C_i\right)+\mathrm{diam}\left(C_j\right)}\; h
+		\abs{R_2^{i,j}} \leq \dfrac{H\underset{k\in \mathcal T}\min \abs{C_k}}{2}\; h
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R3_par_h}
-		\abs{R_3^{i,j}} \leq \dfrac H{\underset{i\in\mathcal T}\max\;\underset{j\in \mathcal N_i}\max\;\mathrm{diam}\left(C_i\right)+\mathrm{diam}\left(C_j\right)}\; h
+		\abs{R_3^{i,j}} \leq H\underset{k\in \mathcal T}\min \abs{C_k}\; h
 	\end{equation}
 	
 	
-	Ainsi en injectant (\ref{eq:maj_naiv_R1_par_h}), (\ref{eq:maj_naiv_R2_par_h}) et (\ref{eq:maj_naiv_R3_par_h}) dans (\ref{eq:R4}) on obtient (pour $N_{max} = \underset{i\in\mathcal T}\max \hspace{.1cm}\text{Card}\left(N_i\right)$) :
+	Ainsi en injectant (\ref{eq:maj_naiv_R1_par_h}), (\ref{eq:maj_naiv_R2_par_h}) et (\ref{eq:maj_naiv_R3_par_h}) dans (\ref{eq:reformulation_final})  on obtient (pour $N_{max} = \underset{i\in\mathcal T}\max \hspace{.1cm}\text{Card}\left(N_i\right)$) :
 	
 	\begin{equation}\label{eq:max_naiv_R4}
-		|\!| \nabla u_i - \overline{\nabla u(x_i)} |\!| = |\!| M_i^{-1}R^{(i)}|\!| \leq |\!|M_i^{-1}|\!| HN_{max}h
+		|\!| \nabla u_i - \overline{\nabla u(x_i)} |\!| = |\!| M_i^{-1}R^{(i)}|\!| \leq 2|\!|M_i^{-1}|\!| HN_{max}h
 	\end{equation}
 	
 	\newpage
@@ -388,7 +389,7 @@
 			\draw[color=black] (-3,-4) node[ right] {$e_x$};
 			\draw[color=black] (-4,-3) node[ left] {$e_y$};
 		\end{tikzpicture}
-		\captionof{figure}{Interface $\Gamma_{i,j}$ entre les cellules $C_i$ et $C_j$. Le vecteur $n_{i,j}^\perp$ est une vecteur unitaire normale à $n_{i,j}$. La quantité (signé) $\delta_{i,j}$ représente le produit scalaire entre $\bar x_{i,j}-x_{i,j}$ et $n_{i,j}^\perp$.}
+		\captionof{figure}{Interface $\Gamma_{i,j}$ entre les cellules $C_i$ et $C_j$. Le vecteur $n_{i,j}^\perp$ est un vecteur unitaire normal à $n_{i,j}$. La quantité (signé) $\delta_{i,j}$ représente le produit scalaire entre $\bar x_{i,j}-x_{i,j}$ et $n_{i,j}^\perp$.}
 		\label{fig:EdgeWithGrandeurs_VecNormal}
 	\end{center}
 	
@@ -398,12 +399,12 @@
 		$M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\delta_{i,j} {n_{i,j}}\otimes n_{i,j}^\perp$.
 	\end{center}
 	
-	En adoptant la notation suivante : toute matrice $M_i$ associées au maillage $\mathcal T$ et à la cellule $C_i$ est notée $M_i(\mathcal T)$ il est possible, à partir de là, d'obtenir la propriété précédemment évoqué de l'invariance par homothétie de $M_i$ :
+	En adoptant la notation suivante : toute matrice $M_i$ associées au maillage $\mathcal T$ et à la cellule $C_i$ est notée $M_i(\mathcal T)$, il est possible à partir de là, d'obtenir la propriété précédemment évoqué de l'invariance par homothétie de $M_i$ :
 	
 	\begin{lm}
-		Étant donné $\mathcal T_1$ et $\mathcal T_2$ deux maillages qui pavent le plan $\R^2$ et tel qu'il existe deux cellules, $\overline{C_{i_1}} \in \mathcal T_1$, $C_{i_2} \in \mathcal T_2$, et $h_k$ une homothétie de rapport $k > 0$  tel que $h_k(\mathcal T_)=h_k(\mathcal T_2)$. Alors, il vient l'égalité suivante : 
+		Étant donné $\mathcal T_1$ et $\mathcal T_2$ deux maillages qui pavent le plan $\R^2$ et $h_k$ une homothétie de rapport $k > 0$  tel que $h_k(\mathcal T_1)=h_k(\mathcal T_2)$. Alors, pour toute cellule $\overline{C_{i_1}} \in \mathcal T_1$ et $C_{i_2} \in \mathcal T_2$ tel que $h_k(\overline{C_{i_1}}) = C_{i_2}$ il vient : 
 		\[ 
-		M_{i_1}(\mathcal T_1) = M_{i_2}(\mathcal T_2)
+		M_{i_1}(\mathcal T_1) = M_{i_2}(\mathcal T_2).
 		\]
 		\vspace*{-1cm}
 	\end{lm}
@@ -418,18 +419,18 @@
 		\[\begin{aligned}
 			M_{i_2}(\mathcal T_2) &= I_2 - \dfrac1{\abs{C_{i_2}}}\displaystyle\sum_{j \in \mathcal N_{i_2}(\mathcal T_2)} \lambda_{i_2,j}(\mathcal T_2)\delta_{i_2,j}(\mathcal T_2) n_{i_2,j}(\mathcal T_2)\otimes n_{i_2,j}(\mathcal T_2)^\perp\\
 			&= I_2 - \dfrac1{\abs{h_\Omega(\overline{C_{i_1}})}}\displaystyle\sum_{j \in \mathcal N_{i_1}(\mathcal T_1)} \abs{h_\Omega(\Gamma_{i_1,j}(\mathcal T_1))}\delta(h_\Omega(\overline{C_{i_1}}),h_\Omega(\overline{C_{i_1}})\cup h_\Omega(\overline{C_j}))\; n_{i_1,j}(\mathcal T_1)\otimes n_{i_1,j}(\mathcal T_1)^\perp\\
-			&=I_2 - \dfrac1{\abs{\overline{C_{i_1}}}}\displaystyle\sum_{j \in \mathcal N_{i_1}(\mathcal T_1)} \lambda_{i_1,j}(\mathcal T_1)\delta_{i_1,j}(\mathcal T_1) n_{i_1,j}(\mathcal T_1)\otimes n_{i_1,j}(\mathcal T_1)^\perp = M_{i_1}(\mathcal T_1)
+			&=I_2 - \dfrac1{\abs{\overline{C_{i_1}}}}\displaystyle\sum_{j \in \mathcal N_{i_1}(\mathcal T_1)} \lambda_{i_1,j}(\mathcal T_1)\delta_{i_1,j}(\mathcal T_1) n_{i_1,j}(\mathcal T_1)\otimes n_{i_1,j}(\mathcal T_1)^\perp = M_{i_1}(\mathcal T_1).
 		\end{aligned}\]
 		\vspace*{-1cm}
 	\end{proof}
 	
-	Ainsi, en raffinant le pas d'un maillage uniquement à l'aide d'une homothétie, la matrice $M_i$ reste constante quelque soit le maillage. De plus, à l'aide de la formule (29) donné par \cite{florent}, en notant $\theta_{i,j} \in [-\pi,\,\pi]$ l'unique angle tel que $n_{i,j} = \cos(\theta_{i,j}) e_x + \sin(\theta_{i,j})e_y$ et $\alpha_{i,j} = \frac{\lambda_{i,j}\delta_{i,j}}{\abs{C_i}}$ :
+	Ainsi, en raffinant le pas d'un maillage uniquement à l'aide d'une homothétie, il vient une suite de maillage $\left(\mathcal T_n\right)$ et la suite de matrice $\left(M_{i_n}\right)$ (où pour tout $m \geq 0$, $h_k(C_{i_m}) = h_k(C_{i_{m+1}})$) reste constante. De plus, à l'aide de la formule (29) donné par \cite{florent}, en notant $\theta_{i,j} \in [-\pi,\,\pi]$ l'unique angle tel que $n_{i,j} = \cos(\theta_{i,j}) e_x + \sin(\theta_{i,j})e_y$ et $\alpha_{i,j} = \frac{\lambda_{i,j}\delta_{i,j}}{\abs{C_i}}$ :
 	\[
 	\det(M_i) = 1 + \displaystyle\sum_{1\leq j < k \leq \abs{\mathcal N_i}} \alpha_{i,j}\alpha_{i,k}\sin^2(\theta_{i,j}-\theta_{i,k}),
 	\]
 	il semble que la matrice $M_i$ ne soit influencé que par la "forme" du maillage.\\	
 	
-	Il reste maintenant à estimer la quantité $|\!|M_i^{-1}|\!|$ en fonction des données du problème, une première étape consiste à réduire le problème à celui de minorer $\det(M_i)$	:
+	Il reste maintenant à estimer la quantité $|\!|M_i^{-1}|\!|$ , une première étape consiste à réduire le problème à celui de minorer $\det(M_i)$	:
 	
 	\begin{lm}\label{lm:maj_gen_Mi}
 		Pour $\mathcal T$ un maillage, $i \in \mathcal T$ et $\alpha_i = \underset{j \in \mathcal N_i}\sum \alpha_{i,j}$. Si $M_i$ est inversible, alors :
@@ -493,8 +494,8 @@
 		Ainsi, en injectant la relation précédente dans \eqref{eq:maj_rayon} (avec $A=M_i$), il vient le résultat attendu.
 	\end{proof}
 
-	
-	Et finalement, il ne reste plus qu'à déterminer un minorant strictement positif de $\det(M_i)$ et à majorer les $\alpha_i$. Ce n'est pas possible dans le cas général, il n'est à priori pas possible sans condition supplémentaire, d'empêcher $\det(M_i)$ de tendre vers 0 ou $\alpha_i$ de tendre vers $+\infty$ : prendre 2 triangles rectangles accolés sur le même côté adjacent à l'angle droit de taille $\varepsilon\times\varepsilon^{1.5}$, dans ce cas (ce qui est justifié par ce qui suit), le déterminant est minoré et majoré (lemme \ref{lm:maj_det}) mais $\abs{\alpha_{i,j}} \geq \frac1{\sqrt\varepsilon}$ et le pas $h(\varepsilon) = \frac{2(\sqrt{\varepsilon^2 + \varepsilon})^3 }{\varepsilon^2\sqrt{\varepsilon}} \underset{\varepsilon\to 0}{\sim} \frac{2\varepsilon^3}{\varepsilon^{2.5}} = 2\sqrt\varepsilon$ tends vers 0 lorsque $\varepsilon \to 0$ donc $|\!|M_i^{-1}|\!|_2 \underset{\varepsilon\to 0}\longrightarrow +\infty$.
+	\label{sec:contre-exemple}
+	Et finalement, il ne reste plus qu'à déterminer un minorant strictement positif de $\det(M_i)$ et à majorer les $\alpha_i$. Ce n'est pas possible dans le cas général, il n'est à priori pas possible sans condition supplémentaire, d'empêcher $\det(M_i)$ de tendre vers 0 ou $\alpha_i$ de tendre vers $+\infty$ : prendre 2 triangles rectangles accolés sur le même côté adjacent à l'angle droit de taille $\varepsilon\times\varepsilon^{1.5}$, dans ce cas le déterminant est borné (lemme \ref{lm:maj_det}) mais $\abs{\alpha_{i,j}} \geq \frac1{\sqrt\varepsilon}$ et le pas $h(\varepsilon) = \frac{2(\sqrt{\varepsilon^2 + \varepsilon})^3 }{\varepsilon^2\sqrt{\varepsilon}} \underset{\varepsilon\to 0}{\sim} \frac{2\varepsilon^3}{\varepsilon^{2.5}} = 2\sqrt\varepsilon$ tends vers 0 lorsque $\varepsilon \to 0$ donc $|\!|M_i^{-1}|\!|_2 \underset{\varepsilon\to 0}\longrightarrow +\infty$.
 	
 	\begin{center}
 		\begin{tikzpicture}[thick]
@@ -800,7 +801,7 @@
 		\end{equation}
 	\end{proof}content
 	
-	Pour pouvoir donner une majoration intéressante de $M_i^{-1}$, il reste à savoir s'il est possible de majorer les $\abs{\alpha_{i,j}}$, ce qui va dépendre fortement decontent l'angle minimum atteint.
+	Pour pouvoir donner une majoration intéressante de $M_i^{-1}$, il reste à savoir s'il est possible de majorer les $\abs{\alpha_{i,j}}$, ce qui va dépendre fortement de l'angle minimum atteint.
 	
 	\begin{lm}\label{lm:angle_min}
 		Pour $\mathcal T$ un maillage triangulaire.	S'il existe $\mu_{\min} > 0$ tel que pour tout $i \in \mathcal T$ et $j \not = k \in \mathcal T$, $\mu_{i,jk} \geq \mu_{\min}$ :
@@ -831,19 +832,19 @@
 	\begin{proof}
 		D'après les lemmes \ref{lm:maj_gen_Mi}, \ref{lm:maj_det} et \ref{lm:angle_min}, il vient :
 		\[
-			|\!|M_i^{-1}|\!|_2 \leq \sqrt{\dfrac{2+\left(\frac{3}{3\sin^2(\theta_{\min})}\right)^2 - \frac43}{\frac49}} = \sqrt{1.5+\frac{2.25}{\sin^4(\theta_{\min})}}.
+			|\!|M_i^{-1}|\!|_2 \leq \sqrt{\dfrac{2+\left(\frac{3}{3\sin^2(\mu_{\min})}\right)^2 - \frac43}{\frac49}} = \sqrt{1.5+\frac{2.25}{\sin^4(\mu_{\min})}}.
 		\]
 	\end{proof}
 	
 	IL est maintenant possible d'appliquer ce résultat à l'erreur de consistance :
 	
-	\begin{lm}
+	\begin{lm}\label{lm:maj_erreur}
 		Pour $\mathcal T$ un maillage triangulaire.\\
 		\begin{minipage}[t]{18.5cm}
 			Si l'union de tout couple de triangles voisins est convexe et il existe $\mu_{\min} > 0$, tel que pour tout $i \in \mathcal T$, $j \not = k \in \mathcal N_i$, $\mu_{i,jk} \geq \mu_{\min}$. Alors pour tout $i \in \mathcal T$,
 		\end{minipage}
 		\begin{equation}
-			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!|_2 \leq \sqrt{1.5+\frac{2.25}{\sin^4(\mu_{\min})}}HN_{\max}\, h.
+			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!|_2 \leq 6\sqrt{1.5+\frac{2.25}{\sin^4(\mu_{\min})}}H\, h.
 		\end{equation}
 	\end{lm}
 	\begin{proof}
@@ -852,8 +853,17 @@
 	
 	Il est possible pour certains types de maillages, de fournir la valeur d'une borne, notamment pour les maillage de Delaunay raffinés, il est possible suivant plus ou moins de contrainte d'imposer un angle minimum, quelque soit le nombre de cellules, globalement cette angle vaut $\mu_{\min} = 26.5^{\circ}$ (voir \cite{mesh}). Pour cette valeur il vient :	
 	\[
-		|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!| \leq 7.64HN_{\max}\, h
+		|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!| \leq 45.8 H\, h.
 	\]
+	
+	
+	Il est possible d'obtenir un résultat de majoration de l'erreur avec une hypothèse, plus simple mais plus restrictive, détaillé dans le théorème \ref{thm:thm2}, pour cela il est nécessaire d'introduire un nouveau pas de maillage $h_1 = \underset{i\in\mathcal T}\max\underset{j\in\mathcal N_i}\max \mathrm{diam}(C_i)+\mathrm{diam}(C_j)$  :
+	\begin{lm}\label{thm:thm2}
+		Pour $(\mathcal T_n)_n$ une suite de maillage telle que $h(\mathcal T_n) \underset{n \to + \infty}\longrightarrow 0$. Si il existe $C > 0$ et $c > 0$ tels que pour tout $n \in \N$, $ch_1(\mathcal T_n) \leq h(\mathcal T_n) \leq Ch_1(\mathcal T_n)$, alors :
+		\begin{equation}
+			content
+		\end{equation}
+	\end{lm}
 	
 	
 	Il reste maintenant à éprouver ce schéma numérique sur différents maillages, ne respectant pas nécessairement la condition de convexité ou celle de l'angle minimum.
@@ -894,9 +904,11 @@ Pour tester ce gradient discret \eqref{eq:grad_discret}, il a été choisi de pr
 
 Le domaine $\Omega$ n'étant pas ouvert, et les conditions de bord n'ayant pas été défini, ni étudié, il a été choisi de mettre des conditions de bord périodique. La fonction test choisi étant une gaussienne centré au centre du maillage, $(x_c,y_c) = (5,5)$, la fonction prends au bord du domaine des valeurs très proche de 0, rendant nul les erreurs au bords du domaine, permettant ainsi de ne pas prendre en compte les conditions de bords.
 
+\vspace{-.5cm}
+
 \begin{center}
 	\includegraphics[scale=.08]{image/gradient.png}
-	\captionof{figure}{Gaussienne sur $\Omega$ pour $\sigma=1$}oooO 
+	\captionof{figure}{Gaussienne sur $\Omega$ pour $\sigma=1$}
 \end{center}
 
 \subsection{Tests numériques}
@@ -910,12 +922,12 @@ La figure \ref{fig:cartesien} fournis deux exemples de maillage cartésien défo
 \begin{figure}[h]
 	\begin{subfigure}{0.5\textwidth}
 		\centering
-	\includegraphics[scale=.4]{image/maillage_carre.png}
+	\includegraphics[scale=.2]{image/maillage_carre.png}
 	\caption{Maillage cartésien de déformation $\varphi = 0$}
 	\end{subfigure}
 	\begin{subfigure}{0.5\textwidth}
 		\centering
-		\includegraphics[scale=0.4]{image/maillage_deforme_09.png}
+		\includegraphics[scale=0.2]{image/maillage_deforme_09.png}
 		\caption{Millage cartésien de déformation $\varphi = 0.9$}
 	\end{subfigure}
 	\caption{Exemple de maillage cartésien déformé}
@@ -924,7 +936,6 @@ La figure \ref{fig:cartesien} fournis deux exemples de maillage cartésien défo
 
 Il peut être remarqué que les maillage cartésiens correspondent exactement aux maillages cartésien déformé de coefficient de déformation $\varphi = 0$.
 
-\newpage
 Ci-dessous se trouve les différents courbes pour les déformations suivantes, $\varphi$ = 0.2, 0.5, 0.8 et 0.9.
 \begin{figure}[!h]
 	\begin{subfigure}{\textwidth}
@@ -1006,7 +1017,7 @@ Ici, pour obtenir l'ordre de convergence, il est fait de même que pour le cas d
 \begin{figure}[!h]
 	\begin{subfigure}{0.45\textwidth}
 		\centering
-	\includegraphics[scale=0.27]{image/maillage_ffm.png}
+	\includegraphics[scale=0.3]{image/maillage_ffm.png}
 	\caption{Triangulation de Delaunay}
 	\label{fig:delaunay}
 	\end{subfigure}
@@ -1029,7 +1040,10 @@ L'ordre de convergence de \textbf{1} pour les normes $\mathrm L^1$, $\mathrm L^2
 
 \section{Conclusions et limites}
 
-Pour conclure, le pas nouvellement définie en \eqref{eq:nv_h} permet de conclure quand à la convergence de $M_i\nabla u_i - M_i\overline{\nabla u(x_i)}$ et sur son ordre de convergence, mais il n'est pas suffisant pour conclure de le fait que $|\!|M_i^{-1}|\!|_2$ est borné, il y a des raisons de penser que ceci ne l'est pas forcément pour certaines suites de maillages. Cependant, il a pu être dégagé deux conditions sur les maillages triangulaire qui assurent l'inversibilité de la matrice $M_i$ et du caractère borné de $|\!|M_i^{-1}|\!|_2$ pour une borne indépendant de $h$, ceci a été examiné à la section \ref{sec:inversion_Mi}. Lors des tests numérique, il a été observé une certaine difficulté à diminuer le pas $h$ du maillage plus les maillages était déformés, cela conduit à suggérer d'examiner plus précisément la manière dot i serait possible pour un pas $h$ donné de généré un maillage ayant un pas autant ou moindre que ce pas $h$. De plus les tests sur des fonctions tests à variations rapides montrent que la convergence du schéma est beaucoup plus lentes, elles demandent de raffiner d'autant plus le maillage pour obtenir des erreurs comparable.
+Pour conclure, le pas nouvellement définie en \eqref{eq:nv_h} permet de conclure quand à la convergence de $M_i\nabla u_i - M_i\overline{\nabla u(x_i)}$ et sur son ordre de convergence, mais il n'est pas suffisant pour conclure que $|\!|M_i^{-1}|\!|_2$ est borné, un exemple le démontrant est exposé en \ref{sec:contre-exemple}. Cependant, il a pu être dégagé deux conditions sur les maillages triangulaire qui assurent l'inversibilité de la matrice $M_i$ et du caractère borné de $|\!|M_i^{-1}|\!|_2$ pour une borne indépendant de $h$, ceci a été examiné à la section \ref{sec:inversion_Mi}. Lors des tests numérique, il a été observé une certaine difficulté à diminuer le pas $h$ du maillage plus les maillages était déformés. Cela conduit à suggérer d'examiner si pour un pas $h$ donné, il est possible de générer un maillage ayant un pas autant ou moindre que ce pas $h$. D'autre part, des tests sur des fonctions à variations rapides (par exemple une fonction plateaux sur $\R^2$ de la forme : $u(x,y) = \begin{cases}
+	e^{\frac1{(x-x_c)^2 + (y-y_c)^2 - r^2}} & \text{si } (x-x_c)^2+(y-y_c)^2 < r^2\\
+	0 & \text{sinon}
+\end{cases}$ ou une fonction de la forme : $u(x,y) =\left(\sin(\pi x)\cos(3\pi x + 0.5 \pi) + \sin(xy\pi) + \pi\sin(2\pi xy)\right)\mathrm {gauss}(x,y)$) ont été réalisés et montrent que la convergence du schéma est beaucoup plus lentes, elles demandent de raffiner le maillage beaucoup plus que pour le cas de la Gaussienne pour obtenir des erreurs comparable, cela est dû à une hessienne dont la norme est très élevé, rendant le contrôle de l'erreur donné par le lemme \ref{lm:maj_erreur} inexploitable.
 
 
 

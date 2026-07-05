@@ -1,11 +1,10 @@
 \babel@toc {french}{}\relax 
 \contentsline {section}{\numberline {1}Remerciements}{1}{section.1}%
-\contentsline {section}{\numberline {2}Introduction}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Contexte}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Gradients discrets local pour la méthode des volumes finis}{2}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Erreur de consistance du gradient discret}{4}{section.3}%
-\contentsline {section}{\numberline {4}Tests numériques}{16}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Objectifs}{16}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Matériels}{16}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Tests numériques}{17}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Conclusions et limites}{20}{section.5}%
+\contentsline {section}{\numberline {2}Contexte}{2}{section.2}%
+\contentsline {section}{\numberline {3}Gradients discrets local pour la méthode des volumes finis}{3}{section.3}%
+\contentsline {section}{\numberline {4}Erreur de consistance du gradient discret}{4}{section.4}%
+\contentsline {section}{\numberline {5}Tests numériques}{16}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Objectifs}{16}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Matériels}{16}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Tests numériques}{17}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Conclusions et limites}{20}{section.6}%
