@@ -4,8 +4,9 @@
 \contentsline {section}{\numberline {3}Gradients discrets local pour la méthode des volumes finis}{2}{section.3}%
 \contentsline {section}{\numberline {4}Erreur de consistance du gradient discret}{3}{section.4}%
 \contentsline {section}{\numberline {5}Définition du pas d'espace}{6}{section.5}%
-\contentsline {section}{\numberline {6}Tests numériques}{16}{section.6}%
+\contentsline {section}{\numberline {6}Tests numériques}{17}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Objectifs}{17}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Matériels}{17}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Tests numériques}{18}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Conclusions et limites}{20}{section.7}%
+\contentsline {section}{\numberline {7}Conclusions et limites}{21}{section.7}%
+\contentsline {section}{\numberline {8}Annexe}{21}{section.8}%

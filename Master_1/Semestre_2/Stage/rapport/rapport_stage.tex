@@ -207,7 +207,7 @@
 	 	\end{minipage}
 	 \end{lm}
 
-	\begin{proof} En injectant (\ref{eq:xij}) dans \eqref{eq:premier_dl}, il vient :			
+	\begin{proof} En injectant (\ref{eq:xij}) dans \eqref{eq:premier_dl}, l'égalité suivante est vérifiée :			
 		\[
 			\begin{aligned}
 				\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} &+ \lambda_{i,j}\left( {\bar x_{i,j}-  x_{i,j}}\right)\cdot {\nabla u}(  x_{i,j}) \\
@@ -364,7 +364,7 @@
 	
 	
 	\label{sec:inversion_Mi}
-	Une chose importante à remarquer est qu'une homothétie de rapport $0< k < 1$ diminue le pas $h$ d'un rapport $k$, mais ce n'est pas le cas de $M_i$. C'est ce qui sera montré dans la suite. Pour cela, il faut fournir une reformulation de $M_i$, et plus précisément du terme $\bar x_{i,j} - x_{i,j}$. Le schéma \ref{fig:EdgeWithGrandeurs_VecNormal} illustre la situation.
+	Il est à remarquer qu'une homothétie de rapport $0< k < 1$ diminue le pas $h$ d'un rapport $k$, mais ce n'est pas le cas de $M_i$. L'objectif de ce qui suit est de justifier l'affirmation précédente. Pour cela, il faut fournir une reformulation de $M_i$, et plus précisément du terme $\bar x_{i,j} - x_{i,j}$. Le schéma \ref{fig:EdgeWithGrandeurs_VecNormal} illustre la situation.
 	
 	\begin{center}
 		\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm, scale = 0.6]
@@ -398,48 +398,55 @@
 			\draw[color=black] (-3,-4) node[ right] {$e_x$};
 			\draw[color=black] (-4,-3) node[ left] {$e_y$};
 		\end{tikzpicture}
-		\captionof{figure}{Interface $\Gamma_{i,j}$ entre les cellules $C_i$ et $C_j$. Le vecteur $n_{i,j}^\perp$ est un vecteur unitaire normal à $n_{i,j}$. La quantité (signé) $\delta_{i,j}$ représente le produit scalaire entre $\bar x_{i,j}-x_{i,j}$ et $n_{i,j}^\perp$.}
+		\captionof{figure}{Interface $\Gamma_{i,j}$ entre les cellules $C_i$ et $C_j$. Le vecteur $n_{i,j}^\perp$ est un vecteur unitaire normal à $n_{i,j}$. La quantité signé $\delta_{i,j}$ représente le produit scalaire entre $\bar x_{i,j}-x_{i,j}$ et $n_{i,j}^\perp$.}
 		\label{fig:EdgeWithGrandeurs_VecNormal}
 	\end{center}
 	
-	Il est important de remarquer que puisque $n_{i,j}$ est orthogonal à $\Gamma_{i,j}$, il vient que  $\bar x_{i,j} - x_{i,j}$ est colinéaire à $n_{i,j}^\perp$. Ainsi il existe un unique réel $\delta_{i,j}$ qui vérifie $\bar x_{i,j}-x_{i,j} = \delta_{i,j}n_{i,j}^\perp$.\\
+	Il est important de remarquer que puisque $n_{i,j}$ est orthogonal à $\Gamma_{i,j}$, $\bar x_{i,j} - x_{i,j}$ est colinéaire à $n_{i,j}^\perp$. Ainsi il existe un unique réel $\delta_{i,j}$ qui vérifie $\bar x_{i,j}-x_{i,j} = \delta_{i,j}n_{i,j}^\perp$.\\
 	Ainsi $M_i$ se reformule de la manière suivante :
 	\begin{center}
 		$M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\delta_{i,j} {n_{i,j}}\otimes n_{i,j}^\perp$.
 	\end{center}
 	
-	En adoptant la notation suivante : toute matrice $M_i$ associées au maillage $\mathcal T$ et à la cellule $C_i$ est notée $M_i(\mathcal T)$, il est possible à partir de là, d'obtenir la propriété précédemment évoqué de l'invariance par homothétie de $M_i$ :
+	En adoptant la notation suivante : toute matrice $M_i$ associées au maillage $\mathcal T$ et à la cellule $C_i$ est notée $M_i(\mathcal T)$, il est possible d'obtenir la propriété précédemment évoqué de l'invariance par homothétie de $M_i$ :
 	
-	\begin{lm}
-		Étant donné $\mathcal T_1$ et $\mathcal T_2$ deux maillages qui pavent le plan $\R^2$ et $h_k$ une homothétie de rapport $k > 0$  tel que $h_k(\mathcal T_1)=h_k(\mathcal T_2)$. Alors, pour toute cellule $\overline{C_{i_1}} \in \mathcal T_1$ et $C_{i_2} \in \mathcal T_2$ tel que $h_k(\overline{C_{i_1}}) = C_{i_2}$ il vient : 
+	\begin{lm}\label{lm:invariance_Mi}
+		Étant donné $\mathcal T_1$ et $\mathcal T_2$ deux maillages du plan $\R^2$ et $f_k$ une homothétie de rapport $k > 0$  tels que $f_k(\mathcal T_1)=\mathcal T_2$. Alors, pour toute cellule $\overline{C_{i_1}} \in \mathcal T_1$ et $C_{i_2} = f_k^{-1}(\overline{C_{i_1}}) \in \mathcal T_2$, l'égalité suivante est vérifiée : 
 		\[ 
 		M_{i_1}(\mathcal T_1) = M_{i_2}(\mathcal T_2).
 		\]
 		\vspace*{-1cm}
 	\end{lm}
 	\begin{proof}
-		Puisque toute homothétie conserve les angles et pour tout segment $I$ et toute surface $S$, il vient : $\abs{h_\Omega(I)} = k\abs{I}$ et $\abs{h_\Omega(S)} = k^2\abs{S}$.
-		Soit $ \delta(C_i,C_i\cup C_j) = \delta_{i,j} $.\\
-		Puisque $k > 0$, $h_\Omega$ conserve aussi le sens des vecteurs, il suit la relation suivante :\\
-		\hspace*{4cm}$\delta(h_\Omega(C_i),h_\Omega(C_i) \cup h_\Omega(C_j)) =  \delta(h_\Omega(C_i),h_\Omega(C_i \cup C_j)) = k\delta_{i,j}.$
+		Dans la suite tout élément géométrique, $geo$, relatif à la cellule $\overline{C_{i_1}}$ est noté $\overline{geo}$. Puisque toute homothétie conserve les angles et pour tout segment $I$ et toute surface $S$, il suit les égalités suivantes : $\abs{f_k(I)} = k\abs{I}$ et $\abs{f_k(S)} = k^2\abs{S}$. Puisque $k > 0$, $f_k$ conserve aussi le sens des vecteurs, il suit la relation suivante :
+		\[
+				\delta_{i_2,j} = k\,\overline{\delta_{i_1,j}}.
+		\]
 				
-		Ainsi : $\dfrac{\abs{h_\Omega(\Gamma_{i,j})}\delta(h_\Omega(C_i)\cup h_\Omega(C_j))}{\abs{h_\Omega(C_i)}} = \dfrac{k^2\lambda_{i,j}\delta_{i,j}}{k^2\abs{C_i}} = \dfrac{\lambda_{i,j}\delta_{i,j}}{\abs{C_i}}$. Puisque $h_k$ conserve le sens et la direction, il vient $n_{i_1,j}(\mathcal T_1) = n_{i_2,j}(\mathcal T_2)$. Et finalement :
-		\vspace{-.5cm}
+		Ainsi : $\dfrac{\lambda_{i_2,j}\,\delta_{i_2,j}}{C_{i_2}} = \dfrac{\abs{f_k(\overline{\Gamma_{i_1,j}})}\,k\overline{\delta_{i_1,j}}}{\abs{f_k(\overline{C_{i_1}})}} = \dfrac{k^2\overline{\lambda_{i_1,j}}\,\overline{\delta_{i_1,j}}}{k^2\overline{\abs{C_{i_1}}}} = \dfrac{\overline{\lambda_{i_1,j}}\,\overline{\delta_{i_1,j}}}{\overline{\abs{C_{i_1}}}}$. Puisque $f_k$ conserve le sens et la direction, $\overline{n_{i_1,j}} = n_{i_2,j}$. Finalement :
 		\[\begin{aligned}
-			M_{i_2}(\mathcal T_2) &= I_2 - \dfrac1{\abs{C_{i_2}}}\displaystyle\sum_{j \in \mathcal N_{i_2}(\mathcal T_2)} \lambda_{i_2,j}(\mathcal T_2)\delta_{i_2,j}(\mathcal T_2) n_{i_2,j}(\mathcal T_2)\otimes n_{i_2,j}(\mathcal T_2)^\perp\\
-			&= I_2 - \dfrac1{\abs{h_\Omega(\overline{C_{i_1}})}}\displaystyle\sum_{j \in \mathcal N_{i_1}(\mathcal T_1)} \abs{h_\Omega(\Gamma_{i_1,j}(\mathcal T_1))}\delta(h_\Omega(\overline{C_{i_1}}),h_\Omega(\overline{C_{i_1}})\cup h_\Omega(\overline{C_j}))\; n_{i_1,j}(\mathcal T_1)\otimes n_{i_1,j}(\mathcal T_1)^\perp\\
-			&=I_2 - \dfrac1{\abs{\overline{C_{i_1}}}}\displaystyle\sum_{j \in \mathcal N_{i_1}(\mathcal T_1)} \lambda_{i_1,j}(\mathcal T_1)\delta_{i_1,j}(\mathcal T_1) n_{i_1,j}(\mathcal T_1)\otimes n_{i_1,j}(\mathcal T_1)^\perp = M_{i_1}(\mathcal T_1).
+			M_{i_2} &= I_2 - \dfrac1{\abs{C_{i_2}}}\displaystyle\sum_{j \in \mathcal N_{i_2}} \lambda_{i_2,j}\delta_{i_2,j} n_{i_2,j}\otimes n_{i_2,j}^\perp\\
+			&= I_2 - \displaystyle\sum_{j \in \mathcal N_{i_2}} \dfrac{\lambda_{i_2,j}\delta_{i_2,j}}{\abs{C_{i_2}}} n_{i_2,j}\otimes n_{i_2,j}^\perp\\
+			&= I_2 - \displaystyle\sum_{j \in \mathcal \overline{N_{i_1}}} \dfrac{\overline{\lambda_{i_1,j}}\,\overline{\delta_{i_1,j}}}{\abs{\overline{C_{i_1}}}}\; \overline{n_{i_1,j}}\otimes \overline{n_{i_1,j}}^\perp\\
+			&=\overline{M_{i_1}}
 		\end{aligned}\]
-		\vspace*{-1cm}
 	\end{proof}
 	
-	Ainsi, en raffinant le pas d'un maillage uniquement à l'aide d'une homothétie, il vient une suite de maillage $\left(\mathcal T_n\right)$ et la suite de matrice $\left(M_{i_n}\right)$ (où pour tout $m \geq 0$, $h_k(C_{i_m}) = h_k(C_{i_{m+1}})$) reste constante. De plus, à l'aide de la formule (29) donné par \cite{florent}, en notant $\theta_{i,j} \in [-\pi,\,\pi]$ l'unique angle tel que $n_{i,j} = \cos(\theta_{i,j}) e_x + \sin(\theta_{i,j})e_y$ et $\alpha_{i,j} = \frac{\lambda_{i,j}\delta_{i,j}}{\abs{C_i}}$ :
+	Ainsi, en appliquant une homothétie $f_k$ de rapport $k \in ]0;\,1[$ à un maillage $\mathcal T_0$ du plan il vient une suite de maillage $(\mathcal T_n)_{n \in \N}$ telle que, $f_k(\mathcal T_n) = \mathcal T_{n+1}$ et $h(\mathcal{T}_n) = k^n h(\mathcal T_0)$. Par suite $\left(h(\mathcal T_n)\right)_{n\in \N}$ est une suite strictement décroissante et tends vers 0 et, pour $M_i$ la matrice associée à la cellule $C_i \in h(\mathcal T_0)$, $M_i$ est aussi la matrice associée à $f_k^{(n)}(C_i)$ d'après le lemme \ref{lm:invariance_Mi}, où $f_k^{(n)}$ est définie par récurrence : $f_k^{(n+1)} = f_k \circ f_k^{(n)}$ et $f_k^{(0)} = f_k$. Ainsi, si pour tout $i \in \mathcal T_0$, $M_i$ est inversible, alors en notant $\nabla u_{i,n}$ le gradient de $u$ et $\overline{\nabla u(x_i)}_n$ le gradient discret pour le maillage $\mathcal T_n$, d'après \eqref{eq:max_naiv_R4} l’inégalité suivante est satisfaite :
 	\[
-	\det(M_i) = 1 + \displaystyle\sum_{1\leq j < k \leq \abs{\mathcal N_i}} \alpha_{i,j}\alpha_{i,k}\sin^2(\theta_{i,j}-\theta_{i,k}),
+		|\!|\nabla u_{i,n} - \overline{\nabla u(x_i)}_n|\!| \leq 2|\!|M_i^{-1}|\!|\, |\!|\nabla^2 u|\!|_\infty\, N_{\max}h(\mathcal T_0)\; k^n.
 	\]
-	il semble que la matrice $M_i$ ne soit influencé que par la "forme" du maillage.\\	
-	
-	Il reste maintenant à estimer la quantité $|\!|M_i^{-1}|\!|$ , une première étape consiste à réduire le problème à celui de minorer $\det(M_i)$	:
+	De plus, à l'aide de la formule (29) donné par \cite{florent}, en notant $\theta_{i,j} \in [-\pi,\,\pi]$ l'unique angle tel que $n_{i,j} = \cos(\theta_{i,j}) e_x + \sin(\theta_{i,j})e_y$ et $\alpha_{i,j} = \frac{\lambda_{i,j}\delta_{i,j}}{\abs{C_i}}$ et $\alpha_i = \displaystyle\sum_{j \in \mathcal N_i} \alpha_{i,j}$ :
+	\begin{equation}\label{eq:det_Mi}
+		\det(M_i) = 1 + \displaystyle\sum_{1\leq j < k \leq \abs{\mathcal N_i}} \alpha_{i,j}\alpha_{i,k}\sin^2(\theta_{i,j}-\theta_{i,k}),
+	\end{equation}
+	\begin{equation}\label{eq:matrice_Mi}
+		M_i = \begin{bmatrix}\displaystyle
+			1+\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\sin(2\theta_{i,j}) &\displaystyle -\frac{\alpha_i}2-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\cos(2\theta_{i,j})\\
+			\displaystyle\frac{\alpha_i}2-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\cos(2\theta_{i,j}) & \displaystyle 1-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\sin(2\theta_{i,j})
+		\end{bmatrix},
+	\end{equation}
+	où $\abs{\mathcal N_i}$ est le cardinal de $\mathcal N_i$, il est justifié de dire que la matrice $M_i$ n'est influencé que par la forme du maillage qui est donné par les angles $\theta_{i,j}$. L'objectif du reste de cette Section est d'estimer la quantité $|\!|M_i^{-1}|\!|$ pour pouvoir donner une majoration de l'erreur de consistance à l'aide du pas $h$ et des données du problème, une première étape consiste à réduire le problème à celui de minorer $\det(M_i)$ et de majorer $\alpha_i$ :
 	
 	\begin{lm}\label{lm:maj_gen_Mi}
 		Pour $\mathcal T$ un maillage, $i \in \mathcal T$ et $\alpha_i = \underset{j \in \mathcal N_i}\sum \alpha_{i,j}$. Si $M_i$ est inversible, alors :
@@ -449,29 +456,16 @@
 		\end{equation}
 	\end{lm}
 	\begin{proof}
-		Il vient : $|\!|M_i^{-1}|\!|_2 = \sqrt{\rho\left(M_i^{-1}\left(M_i^{-1}\right)^T\right)}$, où $\rho(A)$ est le rayon spectrale d'une matrice donnée $A$ inversible. Et $M_i$ est de la forme : $M_i = \begin{bmatrix}
-			1+\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\sin(2\theta_{i,j}) & -\frac{\alpha_i}2-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\cos(2\theta_{i,j})\\
-			\frac{\alpha_i}2-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\cos(2\theta_{i,j}) &  1-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\sin(2\theta_{i,j})
-		\end{bmatrix},$ \\où $\alpha_i = \sum_{j=0}^{\abs{\mathcal N_i}} \alpha_{i,j}$, et, $\alpha_{i,j}$ et $\theta_{i,j}$ sont donnés plus haut. 
-		
-		Pour une matrice inversible donnée $A \in \mathrm{GL}_2(\R)$ et $0<\lambda_1 \leq \lambda_2$ les valeurs propres de $AA^T$, on sait que :
-		\begin{equation}\label{eq:rel_val_prop}
-			\lambda_1+\lambda_2 = \mathrm{tr}(AA^T),\; \lambda_1\lambda_2 = \det(AA^T) = \det(A)^2.
-		\end{equation}
-		Cette formulation implique $\lambda_2 \leq \mathrm{tr}(AA^T)$ et on obtient par conséquent :
-		\begin{equation}\label{eq:maj_val_prop}
-			\lambda_1 \geq \dfrac{\mathrm{tr}(AA^T)}{\det(A)^2}
-		\end{equation}
-		Comme $1/\lambda_1$ correspond au rayon spectral $ \left(AA^T\right)^{-1} = \left(A^{-1}\right)^TA^{-1}$, il suit :
-		\begin{equation}\label{eq:maj_rayon}
-			\rho\left( A^{-1}\left(A^{-1}\right)^T  \right) \leq \dfrac{\mathrm{tr}(AA^T)}{\det(A)^2}
-		\end{equation}
-		Si la matrice $A$ générique est écrite sous la forme : $A = \begin{bmatrix}
+		Puisque $M_i$ est inversible, d'après le lemme \ref{lm:rayon_spec}, l'inégalité qui suit est satisfaite :
+		\[
+			|\!|M_i^{-1}|\!|_2 \leq \sqrt{\dfrac{\mathrm{tr}(M_iM_i^T)}{\det(M_i)^2}}.
+		\]
+		Si la matrice $M_i$ est de la forme $M_i = \begin{bmatrix}
 			a & b\\
 			c & d
 		\end{bmatrix}$, alors par un calcul direct il vient :
 		\begin{equation}\label{eq:tr_A}
-			\mathrm{tr}(A^TA) = a^2 + b^2 + c^2 + d^2.
+			\mathrm{tr}(M_iM_i^T) = a^2 + b^2 + c^2 + d^2.
 		\end{equation}
 		Pour appliquer l'inégalité \eqref{eq:maj_rayon} à $M_i$, il est nécessaire de calculer les quantités suivante :
 		\begin{equation}
@@ -496,16 +490,15 @@
 			=&2+\frac{\alpha_i^2}2 + \frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}^2+ \frac12\sum_{\underset{k<j}{j,k=1}}^{\abs{\mathcal N_i}} \alpha_{i,j}\alpha_{i,k}(1-2\sin^2(\theta_{i,j}-\theta_{i,k}))\\
 			=&2+\alpha_i^2 - \sum_{\underset{k<j}{j,k=1}}^{\abs{\mathcal N_i}} \alpha_{i,j}\alpha_{i,k}\sin^2(\theta_{i,j}-\theta_{i,k}).
 		\end{aligned}$
-		Or d'après l'expression du déterminant explicité dans \cite{florent}, il vient :
+		Or d'après l'expression du déterminant explicité en \eqref{eq:det_Mi}, l'égalité suivante est vérifiée :
 		\begin{equation}
-			\mathrm{tr}(M_iM_i^T) = 2+\alpha_i^2 + \det(M_i)
+			\mathrm{tr}(M_iM_i^T) = 2+\alpha_i^2 + \det(M_i).
 		\end{equation}
 		Ainsi, en injectant la relation précédente dans \eqref{eq:maj_rayon} (avec $A=M_i$), il vient le résultat attendu.
 	\end{proof}
 
 	\label{sec:contre-exemple}
-	Et finalement, il ne reste plus qu'à déterminer un minorant strictement positif de $\det(M_i)$ et à majorer les $\alpha_i$. Ce n'est pas possible dans le cas général, il n'est à priori pas possible sans condition supplémentaire, d'empêcher $\det(M_i)$ de tendre vers 0 ou $\alpha_i$ de tendre vers $+\infty$ : prendre 2 triangles rectangles accolés sur le même côté adjacent à l'angle droit de taille $\varepsilon\times\varepsilon^{1.5}$, dans ce cas le déterminant est borné (lemme \ref{lm:maj_det}) mais $\abs{\alpha_{i,j}} \geq \frac1{\sqrt\varepsilon}$ et le pas $h(\varepsilon) = \frac{2(\sqrt{\varepsilon^2 + \varepsilon})^3 }{\varepsilon^2\sqrt{\varepsilon}} \underset{\varepsilon\to 0}{\sim} \frac{2\varepsilon^3}{\varepsilon^{2.5}} = 2\sqrt\varepsilon$ tends vers 0 lorsque $\varepsilon \to 0$ donc $|\!|M_i^{-1}|\!|_2 \underset{\varepsilon\to 0}\longrightarrow +\infty$.
-	
+	Et finalement, il ne reste plus qu'à déterminer un minorant strictement positif de $\det(M_i)$ et à majorer les $\alpha_i$. Ce n'est pas possible dans le cas général, il n'est pas possible sans condition supplémentaire, d'empêcher $\alpha_i$ de tendre vers $+\infty$, le contre-exemple qui suit justifie cette affirmation. Pour $\mathcal T$ un maillage contenant deux cellules : deux triangles rectangles accolés sur le même côté adjacent à l'angle droit de taille $\varepsilon\times\varepsilon^{1.5}$ où $\varepsilon>0$ est un paramètre contrôlant la taille des cellules, la figure \ref{fig:contre_exemple_2} illustre la situation. 	
 	\begin{center}
 		\begin{tikzpicture}[thick]
 			\coordinate (A) at (0,0);
@@ -514,12 +507,14 @@
 			\coordinate (C2) at (0,-2);
 			\coordinate (G1) at (barycentric cs:A=1,B=1,C1=1);
 			\coordinate (G2) at (barycentric cs:A=1,B=1,C2=1);
+			\coordinate (L) at (barycentric cs:A=1,B=1);
+			\coordinate (h) at (barycentric cs:A=1,C1=1);
 			\draw (A)--(B)--(C1)--cycle;
 			\draw (A)--(B)--(C2)--cycle;
 			\draw[name path=ligne 1] (A)--(B);
 			\draw[name path=ligne 2] (G1)--(G2);
 			\fill[red,name intersections={of=ligne 1 and ligne 2,total=\t}]
-			\foreach \s in {1,...,\t}{(intersection-\s) circle (2pt) node [above left] {$x_{i,j}$}};
+			\foreach \s in {1,...,\t}{(intersection-\s) circle (2pt) node [above left] {$x_{1,2}$}};
 			
 			\node [left] at (A) {$A$};
 			\node [right] at (B) {$B$};
@@ -527,6 +522,8 @@
 			\node [below] at (C2) {$C_2$};
 			\node [above] at (G1) {$G_1$};
 			\node [below] at (G2) {$G_2$};
+			\node [left] at (h) {$\varepsilon^{1.5}$};
+			\node [above right] at (L) {$\varepsilon$};
 			
 			\draw[fill=black] (A) circle (0.05cm);
 			\draw[fill=black] (B) circle (0.05cm);
@@ -535,15 +532,41 @@
 			\draw[fill=black] (G1) circle (0.05cm);
 			\draw[fill=black] (G2) circle (0.05cm);
 		\end{tikzpicture}
-		\captionof{figure}{Contre-exemple : $\alpha_i \to + \infty$}
+		\captionof{figure}{Maillage $\mathcal T$ constitués de deux triangle rectangles de taille $\varepsilon\times \varepsilon^{1.5}$. Avec, respectivement, $G_1$ et $G_2$ le centre de gravité de $ABC_1$ et $ABC_2$.}
+		\label{fig:contre_exemple_2}
 	\end{center}
+	Puisque l'union de ces deux cellules est convexe, d'après le lemme \ref{lm:maj_det}, le déterminant est borné et le pas $h = \dfrac{\left(\mathrm{diam}(ABC_1)+\mathrm{diam}(ABC_2)\right)^3}{\abs{ABC_1}} = \dfrac{16\,\varepsilon^{1.5}\left(\sqrt{\varepsilon^2 + \varepsilon}\right)^3 }{\varepsilon^{2.5}} \underset{\varepsilon\to 0}{\sim} \dfrac{16\varepsilon^3}{\varepsilon} = 16\varepsilon^2$ tends vers 0 lorsque $\varepsilon \to 0$.\\
+	Cependant $\abs{\alpha_1} = \abs{\displaystyle\sum_{j \in \mathcal N_1} \alpha_{1,j}} = \abs{\alpha_{1,1}}$, donc :
+	\[
+	\begin{aligned}
+		\abs{\alpha_{1}} = \dfrac{\abs{\delta_{1,1}}\lambda_{1,1}}{\abs{ABC_1}} & = \dfrac{2\abs{AB/2 - Ax_{1,2}}\varepsilon}{\varepsilon^{2.5}}\\
+		& = \dfrac{2\abs{\varepsilon/2 - \varepsilon/3}}{\varepsilon^{1.5}}\\
+		& = \dfrac{2\varepsilon}{6\varepsilon^{1.5}} = \dfrac1{3\sqrt{\varepsilon}},
+	\end{aligned}
+	\]
+	or, pour $f(\varepsilon) = \dfrac{16\,\varepsilon^{1.5}\left(\sqrt{\varepsilon^2 + \varepsilon}\right)^3 }{\varepsilon^{2.5}}$, $f'(\varepsilon) = \dfrac{32\varepsilon\sqrt{\varepsilon^2+\varepsilon}+8\sqrt{\varepsilon^2+\varepsilon}}{\varepsilon} > 0$. Ainsi $\varepsilon \underset{h \to 0}\longrightarrow 0$, donc $\abs{\alpha_1} \underset{h \to 0}\longrightarrow +\infty$. Ce qui justifie l'affirmation : en général il n'est pas possible de majorer $\alpha_i$. Avec cet exemple il est également possible de montrer que en général il n'est pas possible de majorer $|\!|M_i^{-1}|\!|_2$. En effet, pour cet exemple $\theta_{1,1} = \pi/2$, et ainsi $M_1^{-1}$ est de la forme :
+	\[
+		\begin{aligned}
+			M_1^{-1} &= 
+		\dfrac1{\det(M_1)}\begin{bmatrix}
+			\displaystyle
+			 1-\frac12\sum_{j=1}^{\abs{\mathcal N_1}} \alpha_{1,j}\sin(2\theta_{1,j}) &\displaystyle \frac{\alpha_1}2+\frac12\sum_{j=1}^{\abs{\mathcal N_1}} \alpha_{1,j}\cos(2\theta_{1,j})\\
+			\displaystyle-\frac{\alpha_i}2+\frac12\sum_{j=1}^{\abs{\mathcal N_1}} \alpha_{1,j}\cos(2\theta_{1,j}) & \displaystyle 1+\frac12\sum_{j=1}^{\abs{\mathcal N_1}} \alpha_{1,j}\sin(2\theta_{1,j})
+		\end{bmatrix}\\
+		&= 
+		\dfrac1{\det(M_1)}\begin{bmatrix}
+			1 &\frac{\alpha_1}2-\frac12 \alpha_{1,1}\\
+			-\frac{\alpha_1}2-\frac12 \alpha_{1,1}& 1
+		\end{bmatrix}\\
+		&=\dfrac1{\det(M_1)}\begin{bmatrix}
+			1 & 0\\
+			-\alpha_1& 1
+		\end{bmatrix}.
+		\end{aligned}
+	\]
+	Ainsi, d'après le lemme \ref{lm:maj_det}, $|\!|M_1^{-1}|\!|_2 \geq \dfrac34 \sqrt{1+\alpha_1^2}$. Donc $|\!|M_1^{-1}|\!|_2 \underset{h \to 0}{\longrightarrow} + \infty$.
 	
-	L'objectif va ici être de montrer sous la condition suivante : le maillage est triangulaire, toute union de deux triangles voisins est convexe et ne contenant pas de triangle plat, le résultat suivant : $\det(M_i) \geq \frac23$.\\
-	
-	Pour obtenir ce résultat il faut pouvoir estimer précisément la valeur de $\alpha_{i,j} = \dfrac{\delta_{i,j}\lambda_{i,j}}{\abs{C_i}}$. Puisque $\lambda_{i,j}$ et $\abs{C_i}$ sont des données du maillages, il reste à déterminer $\delta_{i,j}$. Or $\abs{\delta_{i,j}} = |\!|x_{i,j}-\bar x_{i,j}|\!|$. Ce qui revient à étudier le système suivant.\\
-	
-	Soient $ABC_1$ et $ABC_2$ deux triangles non plats, $G_1$ et $G_2$ les centres de gravités de $ABC_1$ et $ABC_2$ respectivement, et $I$ le point d'intersection entre $[G_1G_2]$ et $[AB]$.
-	
+	L'objectif va ici être de montrer que si le maillage est triangulaire, toute union de deux triangles voisins est convexe et ne contient pas de triangle plat, alors : $\det(M_i) \geq \frac23$. Pour obtenir ce résultat il faut pouvoir estimer précisément la valeur de $\alpha_{i,j} = \dfrac{\delta_{i,j}\lambda_{i,j}}{\abs{C_i}}$. Puisque $\lambda_{i,j}$ et $\abs{C_i}$ sont des données du maillages, il reste à déterminer $\delta_{i,j}$. Pour deux cellules triangulaires non plates $T_i = ABC_1$ et $T_j = ABC_2$, la figure \ref{fig:cellule_triangulaire} illustre la situation. 
 	\begin{center}
 		\begin{tikzpicture}[thick]
 			\coordinate (A) at (0,0);
@@ -584,11 +607,11 @@
 			\draw[fill=black] (G2) circle (0.05cm);
 		\end{tikzpicture}
 		\captionof{figure}{Deux triangles $ABC_1$ et $ABC_2$ de centre de gravité $G_1$ et $G_2$ respectivement. Et $\alpha_i,\beta_i \in ]0,\pi[$.}
+		\label{fig:cellule_triangulaire}
 	\end{center}
+	En notant $G_1$ et $G_2$ les centres de gravités de $ABC_1$ et $ABC_2$ respectivement, et $I$ le point d'intersection entre $[G_1G_2]$ et $[AB]$, l'égalité suivante est justifiée : $\abs{\delta_{i,j}} = |\!|x_{i,j}-\bar x_{i,j}|\!| = \abs{AB/2 - AI} = \abs{AB/2 - BI}$. Dans un premier temps il est nécessaire d'obtenir une expression de $\abs{\frac{AB}2-AI} = \max\{\frac{AB}2-AI,\,\frac{AB}2-BI\}$ qui est obtenu en choisissant correctement le repère dans lequel est placé le quadrilatère $AC_1BC_2$. C'est ce qui est fait dans le lemme suivant dans lequel les notations suivantes sont adoptées : pour tout $k \in \N$ et $\mu_1,\mu_2 \in \R$, $\mu_k := \mu_{r+1}$, où $r$ est le reste de la division euclidienne de $k$ par 2. L'entier $k$ permettra par la suite de choisir la bonne configuration pour obtenir l'inégalité $\abs{\frac{AB}2-AI} \leq \frac{AB}6$ du lemme \ref{lm:maj_delta_triangle}.
 	
-	Dans un premier temps il est nécessaire d'obtenir une expression de $\abs{\frac{AB}2-AI} = \max\{\frac{AB}2-AI,\,\frac{AB}2-BI\}$ qui obtenu en choisissant correctement le repères dans lequel est placé le quadrilatère $AC_1BC_2$. C'est ce qui est fait dans le lemme suivant dans lequel les notations suivantes sont adoptées : pour tout $n \in \N$ et $\mu_1,\mu_2 \in \R$, $\mu_n := \mu_{r+1}$, où $r$ est le reste de la division euclidienne de $n$ par 2.
-	
-	\begin{lm}
+	\begin{lm}\label{lm:equation_delta}
 		En ce plaçant dans le contexte précédent, pour $k \in \{1,2\}$ :
 		
 		\noindent\begin{minipage}{15.5cm}
@@ -602,10 +625,7 @@
 		\end{minipage}
 	\end{lm}
 	\begin{proof}
-			Il sera d'abord traité le cas : $k=1$ pour l'équation (\ref{eq:delta_angle_gauche}), les autres suivants par symétrie. Il est possible de décrire les deux triangles à l'aide de coordonnées cartésienne. En effectuant une rotation et translation il est possible de supposer que $A=(0,0)$, $y_B = 0$ et $x_B >0$. Et à l'aide d'une symétrie axiale, il est possible de supposer sans restriction que $y_{C_1} > 0 > y_{C_2}$.\\
-			
-			Dans ce repère il possible d'écrire $G_1$ et $G_2$ en fonction de celle de $A,B,C_1$ et $C_2$ :\\ $G_k = \dfrac13\left(A+B+C_k\right) = \left(\frac{x_B+x_{C_k}}3,\frac{y_{C_k}}3\right)$. Pour déterminer les coordonnées de $I$, il suffit de paramétrer le segment $[G_1,G_2]$ de la manière suivante : $l(t) = (l_x(t),l_y(t)) = (1-t)G_1 + tG_2$ et de chercher $t_0$ de sorte que $l_y(t_0) = 0$.
-			
+			Il sera d'abord traité le cas : $k=1$ pour l'équation (\ref{eq:delta_angle_gauche}), les autres suivants par symétrie. Il est possible de décrire les deux triangles à l'aide de coordonnées cartésienne. En effectuant une rotation et translation il est possible de supposer que $A=(0,0)$, $y_B = 0$ et $x_B >0$. Et à l'aide d'une symétrie axiale, il est possible de supposer sans restriction que $y_{C_1} > 0 > y_{C_2}$. Dans ce repère il possible d'écrire $G_1$ et $G_2$ en fonction de $A,B,C_1$ et $C_2$ :\\ $G_k = \dfrac13\left(A+B+C_k\right) = \left(\frac{x_B+x_{C_k}}3,\frac{y_{C_k}}3\right)$. Pour déterminer les coordonnées de $I$, il suffit de paramétrer le segment $[G_1,G_2]$ de la manière suivante : $l(t) = (l_x(t),l_y(t)) = (1-t)G_1 + tG_2$ et de chercher $t_0$ de sorte que $l_y(t_0) = 0$.
 			\[\begin{aligned}
 					 && l_y(t_0) &=0,\\
 				\iff && (1-t_0)y_{G_1} + t_0 y_{G_2} &= 0,\\
@@ -613,18 +633,17 @@
 				\iff && t_0(y_{C_2}-y_{C_1})&=-y_{C_1},\\
 				\iff && t_0&=\dfrac{-y_{C_1}}{y_{C_2}-y_{C_1}}.
 			\end{aligned}\]
-			Ainsi, $x_I = l_x(t_0) = t_0(x_{G_2}-x_{G_1}) + x_{G_1} = -\dfrac{y_{C_1}}3\dfrac{x_{C_2}-x_{C_1}}{y_{C_2}-y_{C_1}} + \dfrac{x_B+x_{C_1}}3$. Et donc : 
+			Ainsi, $x_I = l_x(t_0) = t_0(x_{G_2}-x_{G_1}) + x_{G_1} = -\dfrac{y_{C_1}}3\dfrac{x_{C_2}-x_{C_1}}{y_{C_2}-y_{C_1}} + \dfrac{x_B+x_{C_1}}3$, et donc : 
 			\[\frac{AB}2 - AI = \frac{x_B}2 - x_I = \dfrac{x_B-2x_{C_1}}6 + \dfrac{y_{C_1}}3\dfrac{x_{C_2}-x_{C_1}}{y_{C_2}-y_{C_1}}.\]
-			En utilisant la formule du sinus et cosinus, il vient : 
+			En utilisant la définition géométrique du sinus et cosinus, les égalités qui suivent sont vérifiées : 
 			\[\begin{aligned}
 				\frac{AB}2 - AI &= \dfrac{AB-2AC_1\cos(\alpha_1)}6 + \dfrac{AC_1\sin(\alpha_1)}3\dfrac{AC_2\cos(\alpha_2)-AC_1\cos(\alpha_1)}{-AC_2\sin(\alpha_2)-AC_1\sin(\alpha_1)}\\
 			& = \dfrac{AB-2AC_1\cos(\alpha_1)}6 - \dfrac{AC_1\sin(\alpha_1)}3\dfrac{AC_2\cos(\alpha_2)-AC_1\cos(\alpha_1)}{AC_2\sin(\alpha_2)+AC_1\sin(\alpha_1)}
 			\end{aligned}\]
-			
 			Par symétrie il vient les 3 autres équations.
 	\end{proof}
 	
-	En testant différentes configurations sur un logiciel de géométrie dynamique il vient assez naturellement de constater qu'une condition intéressante est la convexité du quadrilatère $AC_1BC_2$, il vient alors $\abs{AB/2-AI} \leq \frac{AB}6$. C'est ce qui est démontré ci-dessous.
+	 En supposant la convexité du quadrilatère $AC_1BC_2$, la quantité $\abs{\delta_{i,j}} = \abs{AB/2-AI}$ est alors majoré par $\lambda_{i,j}/6 = AB/6$, c'est ce qui est démontré ci-dessous.
 	
 	\begin{lm}\label{lm:maj_delta_triangle}
 		Si le quadrilatère $AC_1BC_2$ est convexe alors :
@@ -638,57 +657,93 @@
 			\abs{\frac{AB}2-AI} = \dfrac{AB-2AC_k\cos(\alpha_k)}6 - \dfrac{AC_k\sin(\alpha_k)}3\dfrac{AC_{k+1}\cos(\alpha_{k+1})-AC_k\cos(\alpha_k)}{AC_{k+1}\sin(\alpha_{k+1})+AC_k\sin(\alpha_k)}.
 		\]
 		
-		Ainsi pour trouver un majorant $\abs{AB/2-AI}$ il convient de minimiser $\dfrac{AC_{k+1}\cos(\alpha_{k+1})-AC_k\cos(\alpha_k)}{AC_{k+1}\sin(\alpha_{k+1})+AC_k\sin(\alpha_k)}$ en la variable $\alpha_{k+1}$ car $\sin(\alpha_k)\geq 0$.\\
-		Il faut donc étudier la fonction suivante : $f(x) = \dfrac{AC_{k+1}\cos(x)-AC_k\cos(\alpha_{k+1})}{AC_{k+1}\sin(x)+AC_k\sin(\alpha_k)}$ qui est continue et dérivable :
+		Ainsi pour trouver un majorant $\abs{AB/2-AI}$ il convient de minimiser $\dfrac{AC_{k+1}\cos(\alpha_{k+1})-AC_k\cos(\alpha_k)}{AC_{k+1}\sin(\alpha_{k+1})+AC_k\sin(\alpha_k)}$ en la variable $\alpha_{k+1}$ car $\sin(\alpha_k)\geq 0$. La fonction $f$ est continue et dérivable,
 		\[
 			\begin{aligned}
-				&\left(AC_{k+1}\sin(x)+AC_k\sin(\alpha_k)\right)^2f'(x) \\
-				=& -AC_2\sin(x)\left(AC_{k+1}\sin(x)+AC_k\sin(\alpha_k)\right) - AC_{k+1}\cos(x)\left(AC_{k+1}\cos(x)-AC_k\cos(\alpha_k)\right)\\
-				=&-AC_{k+1}^2\left(\cos(x)^2+\sin(x)^2\right) + AC_kAC_{k+1}\left(\cos(\alpha_k)\cos(\alpha_{k+1})-\sin(\alpha_k)\sin(\alpha_{k+1})\right)\\
-				=&-AC_{k+1}^2 + AC_kAC_{k+1}\cos(\alpha_k+\alpha_{k+1})\\
-				=&AC_{k+1}(AC_k\cos(\alpha_k+\alpha_{k+1})-AC_{k+1})
+				&f'(x) \geq 0 \\
+				\iff& -AC_2\sin(x)\left(AC_{k+1}\sin(x)+AC_k\sin(\alpha_k)\right) - AC_{k+1}\cos(x)\left(AC_{k+1}\cos(x)-AC_k\cos(\alpha_k)\right) \geq 0\\
+				\iff &-AC_{k+1}^2\left(\cos(x)^2+\sin(x)^2\right) + AC_kAC_{k+1}\left(\cos(\alpha_k)\cos(\alpha_{k+1})-\sin(\alpha_k)\sin(\alpha_{k+1})\right) \geq 0\\
+				\iff&-AC_{k+1}^2 + AC_kAC_{k+1}\cos(\alpha_k+\alpha_{k+1}) \geq 0\\
+				\iff&AC_k\cos(\alpha_k+\alpha_{k+1})-AC_{k+1} \geq 0
 			\end{aligned}
 		\]
-		Si $\alpha_1+\alpha_2 \geq \pi/2$, alors $\cos(\alpha_1+\alpha_2) \leq 0$. Et si $\alpha_1+\alpha_2 \leq \pi/2$, il est possible de choisir $k$ de sorte que $AC_k\cos(\alpha_k+\alpha_{k+1})-AC_{k+1} \leq 0$, car si $AC_1\cos(\alpha_1+\alpha_2)-AC_2 > 0$ et $AC_2\cos(\alpha_1+\alpha_2)-AC_1 > 0$, alors $AC_1\cos(\alpha_1+\alpha_2)^2 \geq AC_2\cos(\alpha_1+\alpha_2) > AC_1$, ce qui implique : $AC_1\cos(\alpha_1+\alpha_2) > AC_1$, ce qui est absurde. Il est ainsi possible de choisir un tel $k \in \{1,2\}$. Ainsi :
+		Il est possible de choisir $k$ de sorte que $AC_k\cos(\alpha_k+\alpha_{k+1})-AC_{k+1} \leq 0$, car si $AC_1\cos(\alpha_1+\alpha_2)-AC_2 > 0$ et $AC_2\cos(\alpha_1+\alpha_2)-AC_1 > 0$, alors $AC_1\cos(\alpha_1+\alpha_2)^2 \geq AC_2\cos(\alpha_1+\alpha_2) > AC_1$, ce qui implique : $AC_1\cos(\alpha_1+\alpha_2) > AC_1$, ce qui est absurde. Il est ainsi possible de choisir un tel $k \in \{1,2\}$. Ainsi :
 		\[
 		\begin{aligned}
 			\abs{\frac{AB}2 - AI} &\leq \dfrac{AB-2AC_1\cos(\alpha_1)}6 - \dfrac{AC_1\sin(\alpha_1)}3f(\pi-\alpha_1),\\
 			&\leq \dfrac{AB-2AC_1\cos(\alpha_1)}6 + \dfrac{AC_1\sin(\alpha_1)}3\dfrac{AC_2\cos(\alpha_1)+AC_1\cos(\alpha_1)}{AC_2\sin(\alpha_1)+AC_1\sin(\alpha_1)},\\
-			&\leq \dfrac{AB-2AC_1\cos(\alpha_1)}6 + \dfrac{AC_1\cos(\alpha_1)}3,\\
-			&\leq \dfrac{AB}6.
+			&\leq \dfrac{AB-2AC_1\cos(\alpha_1)}6 + \dfrac{AC_1\cos(\alpha_1)}3 \leq \dfrac{AB}6.
 		\end{aligned}
 		\]
 	\end{proof}
 	
 	
 	
-	De ce lemme, il est immédiatement possible de déduire la majoration suivante :
+	En traduisant le lemme \ref{lm:maj_delta_triangle} à 2 cellules voisines $C_i$ et $C_j$, il est alors possible d'appliquer ce lemme à $\delta_{i,j}$. La figure \ref{fig:cellule_triangulaire_applique} illustre la situation.
+	
+	\begin{center}
+		\begin{tikzpicture}[thick]
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (5,0);
+			\coordinate (C1) at (1,2);
+			\coordinate (C2) at (3,-1.5);
+			\coordinate (C3) at (3.5,2);
+			\coordinate (C4) at (-2,0.5);
+			\coordinate (M1) at (barycentric cs:A=1,B=1);
+			\coordinate (Cell1) at (barycentric cs:A=1,B=1,C1=1);
+			\coordinate (Cell2) at (barycentric cs:A=1,B=1,C2=1.5);
+			\draw (A)--(B)--(C1)--cycle;
+			\draw[dotted] (A)--(B)--(C2)--cycle;
+			\draw[dotted] (C1)--(B)--(C3)--cycle;
+			\draw[dotted] (C4)--(A)--(C1)--cycle;
+			\draw (M1) node [above] {$\Gamma_{i,j}$};
+			
+			\node [below left] at (A) {$A$};
+			\node [right] at (B) {$B$};
+			\node [above] at (C1) {$C_1$};
+			\node [below] at (C2) {$C_2$};	
+			\node [above left] at (Cell1) {$T_1$};
+			\node [left] at (Cell2) {$T_2$};	
+		\end{tikzpicture}
+		\captionof{figure}{Illustration de l'interface $\Gamma_{i,j}$ entre deux cellules $T_i$ et $T_j$.}
+		\label{fig:cellule_triangulaire_applique}
+	\end{center}
 	
 	\begin{lm}\label{lm:maj_delta}
 		\begin{minipage}[t]{15cm}
-			Pour $\mathcal T$ une triangulation telle que l'union tout couple de triangles voisins est convexe, alors pour tout $i \in \mathcal T$ et $j \in \mathcal N_i$ :
+			Pour $\mathcal T$ une triangulation telle que toute union de deux triangles voisins est convexe, alors pour tout $i \in \mathcal T$ et $j \in \mathcal N_i$ :
 		\end{minipage}
 		\begin{equation}
-			|\!|x_{i,j} - \bar x_{i,j}|\!| \leq \frac{\lambda_{i,j}}6.
+			\abs{\delta_{i,j}} \leq \frac{\lambda_{i,j}}6.
 		\end{equation}
 	\end{lm}
 	\begin{proof}
-			 En notant $A$ et $B$ les sommets de $\Gamma_{i,j}$, $C_1$ le sommet opposé à $\Gamma_{i,j}$ de $T_i$, $C_2$ le sommet opposé à $\Gamma_{i,j}$ de $T_j$, il vient alors : $|\!|x_{i,j} -\bar x_{i,j}|\!| = |\!| x_{i,j}-A - (\bar x_{i,j}-A)|\!| = \abs{Ax_{i,j}-A\bar x_{i,j}}$, car $A$, $x_{i,j}$ et $\bar x_{i,j}$ sont alignés. Or $A\bar x_{i,j} = AB/2$. Donc $|\!|x_{i,j} -\bar x_{i,j}|\!| = \abs{AB/2-A\bar x_{i,j}}$. Ainsi d'après le lemme \ref{lm:maj_delta_triangle} : $\abs{AB/2-A\bar x_{i,j}}\leq \frac{AB}6 = \frac{\lambda_{i,j}}6 $ .\\
-			Finalement, $|\!|x_{i,j} -\bar x_{i,j}|\!| \leq \frac{\lambda_{i,j}}6$.
+			 En notant $A$ et $B$ les sommets de $\Gamma_{i,j}$, $C_1$ le sommet opposé à $\Gamma_{i,j}$ de $T_i$, $C_2$ le sommet opposé à $\Gamma_{i,j}$ de $T_j$, il vient alors : $\abs{\delta_{i,j}} = |\!|x_{i,j} -\bar x_{i,j}|\!| = |\!| x_{i,j}-A - (\bar x_{i,j}-A)|\!| = \abs{Ax_{i,j}-A\bar x_{i,j}}$, car $A$, $x_{i,j}$ et $\bar x_{i,j}$ sont alignés. Cependant $A\bar x_{i,j} = AB/2$. Donc $|\!|x_{i,j} -\bar x_{i,j}|\!| = \abs{AB/2-A\bar x_{i,j}}$. Ainsi d'après le lemme \ref{lm:maj_delta_triangle} : $\abs{AB/2-A\bar x_{i,j}}\leq \frac{AB}6 = \frac{\lambda_{i,j}}6 $ . Finalement, $\abs{\delta_{i,j}} \leq \frac{\lambda_{i,j}}6$.
 	\end{proof}
 	
-	Il est maintenant possible de majorer $\abs{\alpha_{i,j}\alpha_{i,k}}$ à l'aide de la notation suivante :
+	L'objectif de minorer $\det(M_i)$ est presque atteint, pour cela, il faut s'aider de l'équation \eqref{eq:det_Mi} qui permet d'obtenir : $\abs{\det(M_i)-1} \leq \displaystyle\sum_{1\leq j < k \leq \abs{\mathcal N_i}} \abs{\alpha_{i,j}\alpha_{i,k}}\sin^2(\theta_{i,j}-\theta_{i,k})$. Il reste donc à majorer $\abs{\alpha_{i,j}\alpha_{i,k}}$, ce qui est fait à l'aide du lemme \ref{lm:maj_delta} et à l'aide de la notation suivante :
 	
 	\begin{center}
 		\begin{tikzpicture}[thick]
 			\coordinate (A) at (0,0);
 			\coordinate (B) at (5,0);
 			\coordinate (C1) at (1,3);
+			\coordinate (C2) at (3,-2);
+			\coordinate (C3) at (-2,1);
 			\coordinate (M1) at (barycentric cs:A=1,B=1);
-			\coordinate (M2) at (barycentric cs:A=1,C1=1);
+			\coordinate (M2) at (barycentric cs:A=1,C1=2);
+			\coordinate (Cell1) at (barycentric cs:A=1,B=1,C1=1);
+			\coordinate (Cell2) at (barycentric cs:A=1,B=1,C2=1);
+			\coordinate (Cell3) at (barycentric cs:A=1,C1=1,C3=1);
 			\draw (A)--(B)--(C1)--cycle;
-			\draw (M1) node [below] {$\Gamma_{i,j}$};
-			\draw (M2) node [above left] {$\Gamma_{i,k}$};
+			\draw[dotted] (A)--(B)--(C2)--cycle;
+			\draw[dotted] (A)--(C1)--(C3)--cycle;
+			\draw (M1) node [above right] {$\Gamma_{i,j}$};
+			\draw (M2) node [right] {$\Gamma_{i,k}$};
+			
+			\node at (Cell1) {$C_i$};
+			\node at (Cell2) {$C_j$};
+			\node at (Cell3) {$C_k$};
 			
 			\tkzMarkAngle[fill= orange,size=1.1cm,opacity=.4](B,A,C1)
 			\tkzLabelAngle[pos = 0.65](B,A,C1){$\mu_{i,jk}$}
@@ -698,7 +753,7 @@
 	\end{center}
 
 	\begin{lm}\label{lm:majoration_produit_alpha}
-			Pour $\mathcal T$ un maillage triangulaire telle que l'union de tout couple de triangles voisins est convexe. Pour tout $k,j \in \mathcal N_i$ tel que $k \not = j$,
+			Pour $\mathcal T$ un maillage triangulaire telle que toute union de deux triangles voisins est convexe. Pour tout $k,j \in \mathcal N_i$ tel que $k \not = j$,
 		\begin{equation}
 			\abs{\alpha_{i,j}\alpha_{i,k}} \leq \dfrac{1}{9\sin^2(\mu_{i,jk})}.
 		\end{equation}
@@ -715,7 +770,7 @@
 	\newcommand{\Ap}{\mathrm{Angle}^+}
 	\newcommand{\Am}{\mathrm{Angle}^-}
 	
-	Avant passer à la minoration du déterminant, il est nécessaire de faire le lien entre $\sin^2(\mu_{j,k})$ et $\sin^2(\theta_{i,j}-\theta_{i,k})$. Pour cela, il est nécessaire d'introduire les deux notations suivantes : $\Ap(\vec u, \vec v) \in [0,\,2\pi]$ (resp. $\Am(\vec u, \vec v) \in [-2\pi,\,0]$) l'angle entre $u$ et $v$ dans le sens trigonométrique et respectivement dans le sens horaire.
+	Avant passer à la minoration du déterminant, il est nécessaire de faire le lien entre $\sin^2(\mu_{j,k})$ et $\sin^2(\theta_{i,j}-\theta_{i,k})$.
 	
 	\begin{lm}\label{lm:egalite_angle}
 			Si $\mathcal T$ un maillage, alors pour tout $j, k \in \mathcal T$, tel que $j \not= k$ :
@@ -725,7 +780,8 @@
 	\end{lm}
 	\begin{proof}
 		Il ne sera traité que le cas où $\theta_{i,j}\theta_{i,k} < 0$, le cas où $\theta_{i,j}\theta_{i,k} \geq 0$ se traitant de la même manière.\\
-		Il est noté $\theta_{\min} = \min(\theta_{i,j}) < 0$ et $\theta_{\max} = \max(\theta_{i,j},\theta_{i,k}) > 0$. Le schéma ci-dessous représente la situation :
+		Il est nécessaire d'introduire les deux notations suivantes : $\Ap(\vec u, \vec v) \in [0,\,2\pi]$ (resp. $\Am(\vec u, \vec v) \in [-2\pi,\,0]$) l'angle entre $u$ et $v$ dans le sens trigonométrique et respectivement dans le sens horaire.
+		Il est noté $\theta_{\min} = \min(\theta_{i,j},\theta_{i,k}) < 0$ et $\theta_{\max} = \max(\theta_{i,j},\theta_{i,k}) > 0$. Le schéma \ref{fig;angle} représente la situation.
 		\begin{center}
 			\begin{tikzpicture}[thick]
 				\coordinate (A) at (0,0);
@@ -765,7 +821,8 @@
 				\draw[fill=black] (pC1) circle (0.05cm);	
 				\draw[fill=black] (pB) circle (0.05cm);	
 			\end{tikzpicture}
-			\captionof{figure}{Cellule $C_i$ représenté avec les interfaces $\Gamma_{i,j} = [AB]$ et $\Gamma_{i,k}=[AC]$. Le vecteur $\overrightarrow{AD}$ (resp. $\overrightarrow{AE}$) est le vecteur $n_{i,j}$ (resp. $n_{i,k}$). Et $I$ est un point placé sur l'abscisse avec une abscisse positive, où $A$ est le centre du repère.}
+			\captionof{figure}{Cellule $C_i$ représenté avec les interfaces $\Gamma_{i,j} = [AB]$ et $\Gamma_{i,k}=[AC]$. Le vecteur $\overrightarrow{AD}$ (resp. $\overrightarrow{AE}$) est le vecteur $n_{i,j}$ (resp. $n_{i,k}$). De plus $I$ est un point placé sur l'abscisse avec une abscisse positive, où $A$ est le centre du repère.}
+			\label{fig:angle}
 		\end{center}
 		Ainsi, d'après les notations définies ci-dessus, il vient : $\Ap(\overrightarrow{AI},\overrightarrow{AD}) = \theta_{i,j}$ et $\Am(\overrightarrow{AI},\overrightarrow{AE}) = \theta_{i,k}$.
 		
@@ -776,7 +833,7 @@
 		\end{aligned}$ \\
 		
 		et, $\Ap(\overrightarrow{AE},\overrightarrow{AC}) = 2\pi-\Ap(\overrightarrow{AC},\overrightarrow{AE}) = 2\pi-\pi/2$, car l'angle $\Ap(\overrightarrow{AE},\overrightarrow{AC})+\Ap(\overrightarrow{AC},\overrightarrow{AE})$ correspond à un demie-tour (un angle de $2\pi$).\\
-		Or $\Ap(\overrightarrow{AE},\overrightarrow{AB}) + \Ap(\overrightarrow{AB},\overrightarrow{AC}) = \Ap(\overrightarrow{AE},\overrightarrow{AC})$, ainsi en combinant les 2 égalités antérieur à l'égalité précédente, il vient : $\begin{aligned}[t]
+		Cependant $\Ap(\overrightarrow{AE},\overrightarrow{AB}) + \Ap(\overrightarrow{AB},\overrightarrow{AC}) = \Ap(\overrightarrow{AE},\overrightarrow{AC})$, ainsi en combinant les 2 égalités antérieur à l'égalité précédente, il vient : $\begin{aligned}[t]
 			\Ap(\overrightarrow{AB},\overrightarrow{AC}) &= \Ap(\overrightarrow{AE},\overrightarrow{AC})-\Ap(\overrightarrow{AE},\overrightarrow{AB})\\
 			& = 2\pi-\pi/2 - \theta_{\max}+\theta_{\min}-\pi/2\\
 			& = \pi + \theta_{\min}-\theta_{\max}.
@@ -784,7 +841,7 @@
 		Ainsi $\begin{aligned}[t]
 			\sin^2(\mu_{i,jk}) &= \sin^2(\Ap(\overrightarrow{AB},\overrightarrow{AC}))\\
 			& = \sin^2(\pi+\theta_{\min}-\theta_{\max})\\
-			& = \sin^2(\theta_{max}-\theta_{\min})\\
+			& = \sin^2(\theta_{\max}-\theta_{\min})\\
 			& = \sin^2(\theta_{i,j}-\theta_{i,k}).
 		\end{aligned}$
 		
@@ -794,7 +851,7 @@
 	Il est maintenant possible de minorer le déterminant de $M_i$.
 	
 	\begin{lm}\label{lm:maj_det}
-			Pour $\mathcal T$ un maillage triangulaire telle que l'union de tout couple de triangles voisins est convexe. Alors pour tout $i \in\mathcal{T}$ et $j \in \mathcal N_i$ :
+			Pour $\mathcal T$ un maillage triangulaire telle que toute union de deux triangles voisins est convexe. Pour tout $i \in\mathcal{T}$ et $j \in \mathcal N_i$ :
 		\begin{equation}
 			\frac23 \leq \det(M_i) \leq \dfrac43.
 		\end{equation}
@@ -804,7 +861,7 @@
 		\begin{equation}\label{eq:abs_det}
 			\abs{\det(M_i)-1} \leq \sum_{1\leq j < k \leq 3} \dfrac1{9\sin^2(\mu_{i,jk})}\sin^2(\mu_{i,jk}) \leq  \frac13.
 		\end{equation}
-		Or, si $\abs{x} \leq y$, alors $-y\leq x \geq y$. Ainsi, en utilisant \eqref{eq:abs_det}, il vient :
+		Or, si $\abs{x} \leq y$, alors $-y\leq x \leq y$. Ainsi, en utilisant \eqref{eq:abs_det}, il vient :
 		\begin{equation}
 			\frac23 = 1-\frac13 \leq \det(M_i) \leq 1+\frac13 = \frac43.
 		\end{equation}
@@ -820,20 +877,18 @@
 			\]
 	\end{lm}
 	\begin{proof}
-		Pour $\{i,j,r\} = \{1,2,3\}$, d'après la loi des sinus il vient :
+		Pour $\{j,k,r\} = \{1,2,3\}$ une numérotation locale des voisins de $C_i$, d'après la loi des sinus il vient :
 		\begin{equation}
 			\frac{\sin(\mu_{i,kr})}{\lambda_{i,j}} = \frac{\sin(\mu_{i,jr})}{\lambda_{i,k}}.
 		\end{equation}
 		Et ainsi, d'après la preuve du lemme \ref{lm:majoration_produit_alpha}, il vient : $\abs{\alpha_{i,j}} \leq \frac{\lambda_{i,j}}{3\lambda_{i,k}\sin(\mu_{i,jk})} \leq \frac{\sin(\mu_{i,kr})}{3\sin(\mu_{i,jr})\sin(\mu_{i,jk})} \leq \frac1{3\sin^2(\mu_{\min})}$
 	\end{proof}
 	
-	Il est maintenant possible de fournir une majoration intéressante de $M_i{-1}$ sous certaines conditions qui sont détaillés ci-dessous :
+	Pour une suite de maillage $(\mathcal T_n)$telle que le pas $h(\mathcal T_n)$ tends vers 0, ce lemme montre que si aucune suite de triangles, $T_n \in \mathcal T_n$, ne tendent vers un triangle plat, alors $\alpha_{i,j}$ est borné et donc $\alpha_i$ l'est aussi. Il est maintenant possible de fournir une majoration de $M_i^{-1}$ sous certaines conditions qui sont détaillés ci-dessous :
 	
 	\begin{lm}\label{lm:maj_Mi_opti}
 		Pour $\mathcal T$ un maillage triangulaire.\\
-		\begin{minipage}[t]{18.5cm}
-			Si l'union de tout couple de triangles voisins est convexe et il existe $\mu_{\min} > 0$, tel que pour tout $i \in \mathcal T$, $j \not = k \in \mathcal N_i$, $\mu_{i,jk} \geq \mu_{\min}$. Alors pour tout $i \in \mathcal T$,
-		\end{minipage}
+		Si toute union de deux triangles voisins est convexe et qu'il existe $\mu_{\min} > 0$, tel que pour tout $i \in \mathcal T$, $j \not = k \in \mathcal N_i$, $\mu_{i,jk} \geq \mu_{\min}$. Alors pour tout $i \in \mathcal T$,
 		\begin{equation}
 			|\!|M_i^{-1}|\!|_2 \leq \sqrt{1.5+\frac{2.25}{\sin^4(\mu_{\min})}}.
 		\end{equation}
@@ -847,53 +902,54 @@
 	
 	IL est maintenant possible d'appliquer ce résultat à l'erreur de consistance :
 	
-	\begin{lm}\label{lm:maj_erreur}
+	\begin{thm}\label{lm:maj_erreur}
 		Pour $\mathcal T$ un maillage triangulaire.\\
-		\begin{minipage}[t]{18.5cm}
-			Si l'union de tout couple de triangles voisins est convexe et il existe $\mu_{\min} > 0$, tel que pour tout $i \in \mathcal T$, $j \not = k \in \mathcal N_i$, $\mu_{i,jk} \geq \mu_{\min}$. Alors pour tout $i \in \mathcal T$,
-		\end{minipage}
+		Si toute union de deux triangles voisins est convexe et qu'il existe $\mu_{\min} > 0$, tel que pour tout $i \in \mathcal T$, $j \not = k \in \mathcal N_i$, $\mu_{i,jk} \geq \mu_{\min}$. Alors pour tout $i \in \mathcal T$,
 		\begin{equation}
 			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!|_2 \leq 6\sqrt{1.5+\frac{2.25}{\sin^4(\mu_{\min})}}H\, h.
 		\end{equation}
-	\end{lm}
+	\end{thm}
 	\begin{proof}
 		En appliquant le lemme \ref{lm:maj_Mi_opti} à \eqref{eq:max_naiv_R4}, il vient le résultat attendu.
 	\end{proof}
 	
-	Il est possible pour certains types de maillages, de fournir la valeur d'une borne, notamment pour les maillage de Delaunay raffinés, il est possible suivant plus ou moins de contrainte d'imposer un angle minimum, quelque soit le nombre de cellules, globalement cette angle vaut $\mu_{\min} = 26.5^{\circ}$ (voir \cite{mesh}). Pour cette valeur il vient :	
+	Il est possible pour certains types de maillages, de fournir la valeur d'une borne, notamment pour les maillage de Delaunay raffinés, il est possible suivant plus ou moins de contrainte d'imposer un angle minimum, quelque soit le nombre de cellules, globalement cette angle vaut $\mu_{\min} = 26.5^{\circ}$ (voir l'abstract de \cite{mesh}). Pour cette valeur il vient :	
 	\[
 		|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!| \leq 45.8 H\, h.
-	\]
+	\]	
 	
-	
-	Il est possible d'obtenir un résultat de majoration de l'erreur avec une hypothèse, plus simple mais plus restrictive, détaillé dans le théorème \ref{thm:thm2}, pour cela il est nécessaire d'introduire un nouveau pas de maillage $h_1 = \underset{i\in\mathcal T}\max\underset{j\in\mathcal N_i}\max \mathrm{diam}(C_i)+\mathrm{diam}(C_j)$  :
-	\begin{lm}\label{thm:thm2}
-		Pour $(\mathcal T_n)_n$ une suite de maillage telle que $h(\mathcal T_n) \underset{n \to + \infty}\longrightarrow 0$. Si il existe $C > 0$ et $c > 0$ tels que pour tout $n \in \N$, $ch_1(\mathcal T_n) \leq h(\mathcal T_n) \leq Ch_1(\mathcal T_n)$, alors :
-		\begin{equation}
-			content
-		\end{equation}
-	\end{lm}
-	
-	
-	Il reste maintenant à éprouver ce schéma numérique sur différents maillages, ne respectant pas nécessairement la condition de convexité ou celle de l'angle minimum.
+	Il reste maintenant à éprouver cette quantification sur différents maillages, ne respectant pas nécessairement la condition de convexité ou celle de l'angle minimum.
 	
 \section{Tests numériques}
 
 \subsection{Objectifs}
 
-L'objectif est ici de confirmer sur différents maillages les ordres de convergences trouvé pour le pas $h$ dont la formule est donné en (\ref{eq:nv_h}) : ordre 1 pour les maillage non structurés et ordre 2 pour les maillages cartésiens (résultat obtenu dans \cite{florent}).
+L'objectif est ici de confirmer sur différents maillages les ordres de convergences trouvé pour le pas $h$ dont la formule est donné en (\ref{eq:def_pas}) : ordre 1 pour les maillage non structurés et ordre 2 pour les maillages cartésiens (résultat obtenu dans l'annexe de \cite{florent}). 
 
-La fonction $u$ choisie pour estimer l'erreur est la gaussienne définie sur $\R^2$, qui est une fonction $\mathcal{C}^\infty(\R^2,\R)$ : 
-\[u(x,y) = \exp\left(\dfrac{(x-x_c)^2+(y-y_c)^2}{2\sigma^2}\right),\]
-c'est une gaussienne centré en $(x_c,y_c)$ et de variance $\sigma^2$. Elle est donc clairement d'ordre $\mathcal C^2$.\\
-De plus, le gradient de cette fonction est :
+Les deux fonctions test choisies pour estimer l'erreur sont des fonction de classe $\mathcal C^\infty(\R^2,\R)$: \\
+Fonction test $u_1$ :
 \[
-\nabla u(x,y) = u(x,y)\begin{bmatrix}
+	u^1(x,y) = \exp\left(\dfrac{(x-x_c)^2+(y-y_c)^2}{2\sigma^2}\right),\; et,\; \nabla u^1(x,y) = u^1(x,y)\begin{bmatrix}
 	-\frac{x-x_c}{\sigma^2}\\
 	-\frac{y-x_c}{\sigma^2}
-\end{bmatrix}.
+\end{bmatrix},
 \]
-Ainsi les $\nabla u_i$ sont connus avec exactitude et permetent ainsi de mesurer l'erreur.
+
+Fonction test $u_2$ :
+\[
+\begin{aligned}
+	u^2(x,y) &= \begin{cases}
+	\exp\left(\frac1{\frac{(x-x_c)^2 + (y-y_c)^2}{r^2} - 1}\right) & \text{si } (x-x_c)^2+(y-y_c)^2 < r^2\\
+	0 & \text{sinon}
+\end{cases}\\
+&,\,et,\\
+\nabla u^2(x,y) &= u^2(x,y)\begin{bmatrix}
+	-2\dfrac{x-x_c}{(x-x_c)^2+(y-y_c)^2-r^2}\\
+	-2\dfrac{y-x_c}{(x-x_c)^2+(y-y_c)^2-r^2}
+\end{bmatrix},
+\end{aligned}
+\]
+Ainsi les $\nabla u_i$ sont connus avec exactitude et permettent ainsi de mesurer l'erreur.
 
 \subsection{Matériels}
 
@@ -911,14 +967,23 @@ Pour tester ce gradient discret \eqref{eq:grad_discret}, il a été choisi de pr
 	\item maillage avec une triangulation de type Delaunay généré à l'aide du mailleur FreeFem++.
 \end{enumerate}
 
-Le domaine $\Omega$ n'étant pas ouvert, et les conditions de bord n'ayant pas été défini, ni étudié, il a été choisi de mettre des conditions de bord périodique. La fonction test choisi étant une gaussienne centré au centre du maillage, $(x_c,y_c) = (5,5)$, la fonction prends au bord du domaine des valeurs très proche de 0, rendant nul les erreurs au bords du domaine, permettant ainsi de ne pas prendre en compte les conditions de bords.
+Le domaine $\Omega$ n'étant pas ouvert, et les conditions de bord n'ayant pas été défini, ni étudié, il a été choisi de mettre des conditions de bord périodique. Les fonctions test ayant été choisis pour leur propriété de forte décroissance sur le bord, ce qui peut être observé sur les figures \ref{fig:}, ces fonctions prennent au bord du domaine des valeurs très proche de 0, en dessous du 0 machine, rendant nul les erreurs au bords du domaine.
 
 \vspace{-.5cm}
 
-\begin{center}
-	\includegraphics[scale=.08]{image/gradient.png}
-	\captionof{figure}{Gaussienne sur $\Omega$ pour $\sigma=1$}
-\end{center}
+\begin{figure}
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[scale=.08]{image/gradient.png}
+		\caption{Gaussienne $u^1$ pour $\sigma=1$.}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[scale=.22]{image/plateau.png}
+		\caption{Fonction plateau $u^2$.}
+	\end{subfigure}
+	\captionof{figure}{Fonctions tests sur $[0,\,10]\times[0,\,10]$.}
+\end{figure}
 
 \subsection{Tests numériques}
 
@@ -1049,11 +1114,34 @@ L'ordre de convergence de \textbf{1} pour les normes $\mathrm L^1$, $\mathrm L^2
 
 \section{Conclusions et limites}
 
-Pour conclure, le pas nouvellement définie en \eqref{eq:nv_h} permet de conclure quand à la convergence de $M_i\nabla u_i - M_i\overline{\nabla u(x_i)}$ et sur son ordre de convergence, mais il n'est pas suffisant pour conclure que $|\!|M_i^{-1}|\!|_2$ est borné, un exemple le démontrant est exposé en \ref{sec:contre-exemple}. Cependant, il a pu être dégagé deux conditions sur les maillages triangulaire qui assurent l'inversibilité de la matrice $M_i$ et du caractère borné de $|\!|M_i^{-1}|\!|_2$ pour une borne indépendant de $h$, ceci a été examiné à la section \ref{sec:inversion_Mi}. Lors des tests numérique, il a été observé une certaine difficulté à diminuer le pas $h$ du maillage plus les maillages était déformés. Cela conduit à suggérer d'examiner si pour un pas $h$ donné, il est possible de générer un maillage ayant un pas autant ou moindre que ce pas $h$. D'autre part, des tests sur des fonctions à variations rapides (par exemple une fonction plateaux sur $\R^2$ de la forme : $u(x,y) = \begin{cases}
+Pour conclure, le pas nouvellement définie en \eqref{eq:def_pas} permet de conclure quand à la convergence de $M_i\nabla u_i - M_i\overline{\nabla u(x_i)}$ et sur son ordre de convergence, mais il n'est pas suffisant pour conclure que $|\!|M_i^{-1}|\!|_2$ est borné, un exemple le démontrant est exposé en \ref{sec:contre-exemple}. Cependant, il a pu être dégagé deux conditions sur les maillages triangulaire qui assurent l'inversibilité de la matrice $M_i$ et du caractère borné de $|\!|M_i^{-1}|\!|_2$ pour une borne indépendant de $h$, ceci a été examiné à la section \ref{sec:inversion_Mi}. Lors des tests numérique, il a été observé une certaine difficulté à diminuer le pas $h$ du maillage plus les maillages était déformés. Cela conduit à suggérer d'examiner si pour un pas $h$ donné, il est possible de générer un maillage ayant un pas autant ou moindre que ce pas $h$. D'autre part, des tests sur des fonctions à variations rapides (par exemple une fonction plateaux sur $\R^2$ de la forme : $u(x,y) = \begin{cases}
 	e^{\frac1{(x-x_c)^2 + (y-y_c)^2 - r^2}} & \text{si } (x-x_c)^2+(y-y_c)^2 < r^2\\
 	0 & \text{sinon}
 \end{cases}$ ou une fonction de la forme : $u(x,y) =\left(\sin(\pi x)\cos(3\pi x + 0.5 \pi) + \sin(xy\pi) + \pi\sin(2\pi xy)\right)\mathrm {gauss}(x,y)$) ont été réalisés et montrent que la convergence du schéma est beaucoup plus lentes, elles demandent de raffiner le maillage beaucoup plus que pour le cas de la Gaussienne pour obtenir des erreurs comparable, cela est dû à une hessienne dont la norme est très élevé, rendant le contrôle de l'erreur donné par le lemme \ref{lm:maj_erreur} inexploitable.
 
+\section{Annexe}
+
+\begin{lm}\label{lm:rayon_spec}
+	Étant donné une matrice $A \in \mathrm{GL}_(\R)$, l'inéquation suivante est vérifiée :
+	\begin{equation}
+		|\!|A^{-1}|\!|_2 \leq \sqrt{\dfrac{\mathrm{tr}(AA^T)}{\det(A)^2}}.
+	\end{equation}
+\end{lm}
+\begin{proof}
+	Pour une matrice inversible donnée $A \in \mathrm{GL}_2(\R)$ et $0<\lambda_1 \leq \lambda_2$ les valeurs propres de $AA^T$, on sait que :
+	\begin{equation}\label{eq:rel_val_prop}
+		\lambda_1+\lambda_2 = \mathrm{tr}(AA^T),\; \lambda_1\lambda_2 = \det(AA^T) = \det(A)^2.
+	\end{equation}
+	Cette formulation implique $\lambda_2 \leq \mathrm{tr}(AA^T)$ et on obtient par conséquent :
+	\begin{equation}\label{eq:maj_val_prop}
+		\lambda_1 \geq \dfrac{\mathrm{tr}(AA^T)}{\det(A)^2}.
+	\end{equation}
+	Comme $1/\lambda_1$ correspond au rayon spectral $ \left(AA^T\right)^{-1} = \left(A^{-1}\right)^TA^{-1}$, il suit :
+	\begin{equation}\label{eq:maj_rayon}
+		|\!|A^{-1}|\!|_2^2 = \rho\left( A^{-1}\left(A^{-1}\right)^T  \right) \leq \dfrac{\mathrm{tr}(AA^T)}{\det(A)^2},
+	\end{equation}
+	où $\rho(A^{-1}\left(A^{-1}\right)^T)$ est le rayon spectrale de $A^{-1}\left(A^{-1}\right)^T$.
+\end{proof}
 
 
 \newpage
