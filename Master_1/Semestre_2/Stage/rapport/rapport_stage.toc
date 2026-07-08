@@ -1,10 +1,11 @@
 \babel@toc {french}{}\relax 
 \contentsline {section}{\numberline {1}Remerciements}{1}{section.1}%
 \contentsline {section}{\numberline {2}Contexte}{2}{section.2}%
-\contentsline {section}{\numberline {3}Gradients discrets local pour la méthode des volumes finis}{3}{section.3}%
-\contentsline {section}{\numberline {4}Erreur de consistance du gradient discret}{4}{section.4}%
-\contentsline {section}{\numberline {5}Tests numériques}{16}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Objectifs}{16}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Matériels}{16}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Tests numériques}{17}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Conclusions et limites}{20}{section.6}%
+\contentsline {section}{\numberline {3}Gradients discrets local pour la méthode des volumes finis}{2}{section.3}%
+\contentsline {section}{\numberline {4}Erreur de consistance du gradient discret}{3}{section.4}%
+\contentsline {section}{\numberline {5}Définition du pas d'espace}{6}{section.5}%
+\contentsline {section}{\numberline {6}Tests numériques}{16}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Objectifs}{17}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Matériels}{17}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Tests numériques}{18}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Conclusions et limites}{20}{section.7}%
