@@ -1011,7 +1011,7 @@ La figure \ref{fig:cartesien} fournis deux exemples de maillages quadrangulaire 
 \end{figure}
 
 
-Ci-dessous se trouve les différents courbes pour les déformations suivantes, $\varphi$ = 0, 0.5 et 0.9. Sur l'axes des abscisses se trouve le pas de chaque maillage testé, le pas étant celui défini en \eqref{eq:def_pas}, les contributions au code fournis ont étés de coder ce nouveau pas, au travers du codage du diamètre d'une cellule, de coder l'erreur global du gradient pour les trois normes choisies pour mesurer l'erreur, de coder d'autres fonctions tests et de coder un script vérifiant la validité de la condition de convexité énoncé par le théorème \ref{thm:maj_erreur}. Le post-traitement suivant a été appliqué aux résultats : après avoir rangé dans l'ordre décroissant en pas d'espace les maillages, il a été supprimé ceux dont le nombre de cellules n'augmentait pas, pour un phénomène de lissage, non expliqué, des courbes, permettant de calculer plus finement l'ordre de convergence.
+Ci-dessous se trouve les différents courbes pour les déformations suivantes, $\varphi$ = 0, 0.5 et 0.9. Sur l'axes des abscisses se trouve le pas de chaque maillage testé, le pas étant celui défini en \eqref{eq:def_pas}, les contributions au code fournis ont étés de coder ce nouveau pas, au travers du codage du diamètre d'une cellule, de coder l'erreur global du gradient pour les trois normes choisies pour mesurer l'erreur, de coder d'autres fonctions tests et de coder un script vérifiant la validité de la condition de convexité énoncé par le théorème \ref{thm:maj_erreur}. Pour les maillages cartésiens, l'ordre de convergence à été calculé en prenant les 2 pas le plus fins des maillages générés et en calculant le coefficient directeur associé à ces 2 pas. Cette méthode a été choisi car les maillages sont symétrique, ainsi doubler le nombre de points revient à diviser $h$ par deux. Pour les autres types de maillage, c'est une régression linéaire qui a été utilisé.
 
 \textbf{$\to$ Fonction test $u^1$.}
 
@@ -1035,6 +1035,8 @@ Ci-dessous se trouve les différents courbes pour les déformations suivantes, $
 	\end{subfigure}
 	\caption{Courbes de convergence en échelle logarithmique pour $u^1$}
 \end{figure}
+
+\vspace{-.5cm}
 
 Le tableau \ref{tab:ordre_u1} représente les ordres de convergences associés aux différents types de maillages illustrés ci-dessus pour la fonction test $u_1$.
 
@@ -1200,8 +1202,8 @@ L'ordre de convergence de 1 pour les normes $|\!|\cdot|\!|_1$, $|\!|\cdot|\!|_2$
 	},
 	]{
 		phi erreur1 erreur2 erreur3
-		 1 1.144 1.149 0.996
-		 2 1.144 1.148 0.996	
+		 1 1.266 1.256 1.135
+		 2 1.347 1.205 0.804
 	}
 	\caption{Ordre de convergence pour $u_2$}
 	\label{tab:ffm}
@@ -1211,7 +1213,6 @@ De plus les conditions de convexités et d'angle minimums, l'angle minimum mesur
 \section{Conclusions et limites}
 
 En conclusion, il a pu être démontré que pour des maillage triangulaire avec une condition de convexité et d'angle minimum, les conditions sont détaillées dans le théorème \ref{thm:maj_erreur}, l'erreur de consistance, en norme infini, converge en ordre 1. Cette hypothèse a de plus été vérifié, mais non démontré, pour les maillages quadrangulaire, et lorsque cette hypothèse est vérifié, pour les maillages de Delaunay et les maillages quadrangulaires de déformation inférieur à 0.5, la convergence de l'erreur de consistance a pu être mesuré numériquement. Cependant lorsque cette dernière condition n'est pas vérifiée, il a été constaté une dégradation importante de l'erreur de convergence pour la norme $|\!|\cdot|\!|_\infty$. De plus, il n'est pas assuré qu'en augmentant le nombre de cellules, le pas du maillage diminue, ce dernier peut augmenter, voir l'annexe \ref{sec:augm_pas}, cela conduit a suggérer d'examiner si pour un pas $h_0$ donné, il est possible de généré un maillage $\mathcal T$ ayant un pas $h(\mathcal T)$ vérifiant : $h(\mathcal T) \leq h_0$.
-
 
 \section{Annexe}
 

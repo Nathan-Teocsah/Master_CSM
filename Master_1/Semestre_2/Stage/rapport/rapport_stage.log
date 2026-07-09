@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  9 JUL 2026 18:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  9 JUL 2026 20:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2018,32 +2018,32 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 1021--1036
 <image/carre_plateau.png, id=398, 462.528pt x 310.761pt>
 File: image/carre_plateau.png Graphic file (type png)
 <use image/carre_plateau.png>
-Package pdftex.def Info: image/carre_plateau.png  used on input line 1087.
+Package pdftex.def Info: image/carre_plateau.png  used on input line 1089.
 (pdftex.def)             Requested size: 300.63962pt x 201.99225pt.
 <image/deforme_05_plateau.png, id=399, 462.528pt x 310.761pt>
 File: image/deforme_05_plateau.png Graphic file (type png)
 <use image/deforme_05_plateau.png>
-Package pdftex.def Info: image/deforme_05_plateau.png  used on input line 1092.
+Package pdftex.def Info: image/deforme_05_plateau.png  used on input line 1094.
 
 (pdftex.def)             Requested size: 300.63962pt x 201.99225pt.
 
-Overfull \hbox (30.33842pt too wide) in paragraph at lines 1092--1093
+Overfull \hbox (30.33842pt too wide) in paragraph at lines 1094--1095
  [][] 
  []
 
 <image/deforme_09_plateau.png, id=400, 462.528pt x 310.761pt>
 File: image/deforme_09_plateau.png Graphic file (type png)
 <use image/deforme_09_plateau.png>
-Package pdftex.def Info: image/deforme_09_plateau.png  used on input line 1097.
+Package pdftex.def Info: image/deforme_09_plateau.png  used on input line 1099.
 
 (pdftex.def)             Requested size: 300.63962pt x 201.99225pt.
 
-Overfull \hbox (30.33842pt too wide) in paragraph at lines 1097--1098
+Overfull \hbox (30.33842pt too wide) in paragraph at lines 1099--1100
  [][] 
  []
 
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 1085--1100
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 1087--1102
 [] [] 
  []
 
@@ -2052,25 +2052,25 @@ me_09_plateau.png>]
 <image/maillage_ffm.png, id=413, 710.655pt x 710.655pt>
 File: image/maillage_ffm.png Graphic file (type png)
 <use image/maillage_ffm.png>
-Package pdftex.def Info: image/maillage_ffm.png  used on input line 1151.
+Package pdftex.def Info: image/maillage_ffm.png  used on input line 1153.
 (pdftex.def)             Requested size: 213.19814pt x 213.19814pt.
 <image/ffm.png, id=414, 462.528pt x 310.761pt>
 File: image/ffm.png Graphic file (type png)
 <use image/ffm.png>
-Package pdftex.def Info: image/ffm.png  used on input line 1157.
+Package pdftex.def Info: image/ffm.png  used on input line 1159.
 (pdftex.def)             Requested size: 300.63962pt x 201.99225pt.
 
-Overfull \hbox (3.30666pt too wide) in paragraph at lines 1157--1158
+Overfull \hbox (3.30666pt too wide) in paragraph at lines 1159--1160
  [][] 
  []
 
-<image/ffm_plateau.png, id=415, 476.2593pt x 315.8199pt>
+<image/ffm_plateau.png, id=415, 462.528pt x 310.761pt>
 File: image/ffm_plateau.png Graphic file (type png)
 <use image/ffm_plateau.png>
-Package pdftex.def Info: image/ffm_plateau.png  used on input line 1163.
-(pdftex.def)             Requested size: 309.56487pt x 205.28049pt.
+Package pdftex.def Info: image/ffm_plateau.png  used on input line 1165.
+(pdftex.def)             Requested size: 300.63962pt x 201.99225pt.
 
-Overfull \hbox (2.61105pt too wide) in paragraph at lines 1149--1167
+Overfull \hbox (2.61105pt too wide) in paragraph at lines 1151--1169
 [][] []
  []
 
@@ -2078,7 +2078,7 @@ Overfull \hbox (2.61105pt too wide) in paragraph at lines 1149--1167
 <image/carre_non_uniforme.png, id=431, 710.655pt x 710.655pt>
 File: image/carre_non_uniforme.png Graphic file (type png)
 <use image/carre_non_uniforme.png>
-Package pdftex.def Info: image/carre_non_uniforme.png  used on input line 1245.
+Package pdftex.def Info: image/carre_non_uniforme.png  used on input line 1246.
 
 (pdftex.def)             Requested size: 213.19814pt x 213.19814pt.
 
@@ -2086,7 +2086,7 @@ Package pdftex.def Info: image/carre_non_uniforme.png  used on input line 1245.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [22] [23 <./image/carre_non_uniforme.png>]
-runsystem(latexminted cleantemp  --timestamp 20260709181958 70EB0860D85E06B3372
+runsystem(latexminted cleantemp  --timestamp 20260709203444 70EB0860D85E06B3372
 592403C3FF571)...executed safely (allowed).
 
  (./rapport_stage.aux)
@@ -2125,7 +2125,7 @@ fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
 public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/
 lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy6.pfb>
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on rapport_stage.pdf (25 pages, 845056 bytes).
+Output written on rapport_stage.pdf (25 pages, 827030 bytes).
 PDF statistics:
  561 PDF objects out of 1000 (max. 8388607)
  438 compressed objects within 5 object streams
