@@ -121,18 +121,18 @@
 	\[
 		d_{i,j} = d(x_i,x_j),\; d_{k,ij} = d(x_k,x_{i,j}),\; \lambda_{i,j} = \abs{\Gamma_{i,j}},
 	\]
-	pour $i \in \mathcal T$, $j \in \mathcal{N}_i$ et $k \in \{i,j\}$. La matrice de $\mathcal M_{2,2}(\R^2)$, $I_2$ est la matrice identité, $\otimes$ est le produit tensoriel et la matrice de $\mathcal M_{2,2}(\R^2)$ suivante :
+	pour $i \in \mathcal T$, $j \in \mathcal{N}_i$ et $k \in \{i,j\}$. Il est aussi nécessaire d'introduire la matrice identité de $\mathcal M_{2,2}(\R^2)$, $I_2$, et, pour $\otimes$ est le produit tensoriel, la matrice de $\mathcal M_{2,2}(\R^2)$ suivante :
 	\begin{equation}\label{eq:Mi}
 		M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j} {n_{i,j}}\otimes\left( {\bar x_{i,j}-x_{i,j}}\right).
 	\end{equation}
 	
-	Pour $u \in \mathcal C^2(\R^2,\R)$, la modélisation discrète de $u$ et du gradient de $u$, $\overline{ {\nabla u}(x_i)} \in \R^2$, sont pris constants sur chaque maille $C_i$. Sous réserve d'existence de $M_i^{-1}$, $\overline{ {\nabla u}(x_i)}$ est défini par :
+	Pour $u \in \mathcal C^2(\R^2,\R)$, la modélisation discrète de $u$ et du gradient de $u$ respectivement, représenté par une liste de valeur $(u_i)_{i \in \mathcal T}$ et $(\nabla u_i)_{i\in \mathcal T}$ respectivement, sont pris constants sur chaque maille $C_i$. Sous réserve d'existence de $M_i^{-1}$, le gradient discret de $u$ noté, $\overline{ {\nabla u}(x_i)}$, est défini par :
 	\begin{equation}\label{eq:grad_discret}
 		M_i \overline{ {\nabla u}(x_i)} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}.
 	\end{equation}
-	L'objectif de ce stage est d'étudier la consistance spatial de ces gradients discrets $\overline{ {\nabla u}(x_i)}$ pour un pas d'espace $h$ à définir. La section suivante va exprimer l'écart entre les valeurs moyennes du gradient et de son approximation donnée en \eqref{eq:grad_discret}. La section qui la suit fournira une majoration en fonction du pas $h$ à définir, de la hessienne de $u$ et de $|\!|M_i^{-1}|\!|$ et enfin pour l'avant dernière section, il sera exprimé une majoration de $|\!|M_i^{-1}|\!|_2$ dans le cas des maillages triangulaires.
+	L'objectif de ce stage est d'étudier la consistance spatial de ces gradients discrets, $\overline{ {\nabla u}(x_i)}$, pour un pas d'espace $h$ à définir. La section \ref{sec:err_consistance} va exprimer l'écart entre les valeurs moyennes du gradient, $\nabla u_i$, et de son approximation donnée en \eqref{eq:grad_discret}. La section \ref{sec:def_pas} fournira une définition d'un pas $h$ permettant de quantifier l'erreur de consistance. Cette quantification fera apparaître le pas $h$, la hessienne de $u$ et la norme de $M_i^{-1}$. Enfin, il sera exprimé une majoration de $|\!|M_i^{-1}|\!|_2$ dans le cas des maillages triangulaires sous certaines conditions sur la géométrie du maillage.
 	
-	\section{Erreur de consistance du gradient discret}
+	\section{Erreur de consistance du gradient discret}\label{sec:err_consistance}
 	
 	L'objectif de cette section est d'estimer l'erreur de consistance en estimant les résidus issu de la formule \eqref{eq:grad_discret} appliquée au gradient exacte moyenné sur chaque cellule.
 	
@@ -283,9 +283,9 @@
 		Puisque $M_i  {\overline{\nabla u(x_i)}} = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}$, en injectant cette expression dans l'expression précédente, il vient le résultat attendu.
 	\end{proof}
 	
-	\textcolor{red}{La section suivante va maintenant définir un pas $h$ qui permettra d'obtenir une majoration de $|\!|M_i^{-1}R^{(i)}|\!|$, pour une norme $|\!|\cdot|\!|$, en fonction de ce pas $h$ et de la norme subordonnée de $M_i^{-1}$ dont il sera déterminé un majorant dans le cas des maillages triangulaire.}
+	La section suivante va maintenant définir un pas $h$ qui permettra d'obtenir une majoration de $|\!|M_i^{-1}R^{(i)}|\!|$, pour une norme $|\!|\cdot|\!|$, en fonction de ce pas $h$ et de la norme subordonnée de $M_i^{-1}$ dont il sera déterminé un majorant dans le cas des maillages triangulaire.
 	
-	\section{Définition du pas d'espace}
+	\section{Définition du pas d'espace}\label{sec:def_pas}
 	
 	Puisque $u$ est seulement supposé de classe $\mathcal C^2$, il n'est à priori pas possible d'affirmer plus que ce qui est déjà fait. C'est pourquoi, dans toute la suite, il sera supposé que la hessienne de $u$ est majoré.	Dans l'article \cite{ludo}, le pas d'espace $h$ a été défini comme : $h = \underset{i\in \mathcal T}\max\;\underset{j\in \mathcal N_i}\max\, d(x_i,x_j)$, cependant il ne permet pas de contrôler l'erreur $R^{(i)}$, comme il le sera montré dans la suite au travers d'un contre-exemple. Pour la suite $h$ sera défini de la manière suivante : 
 	\begin{equation}\label{eq:def_pas}
@@ -679,7 +679,7 @@
 	
 	
 	
-	En traduisant le lemme \ref{lm:maj_delta_triangle} à 2 cellules voisines $C_i$ et $C_j$, il est alors possible d'appliquer ce lemme à $\delta_{i,j}$. La figure \ref{fig:cellule_triangulaire_applique} illustre la situation.
+	En traduisant le lemme \ref{lm:maj_delta_triangle} à 2 cellules voisines, $C_i$ et $C_j$, il est alors possible d'appliquer ce lemme à $\delta_{i,j}$. La figure \ref{fig:cellule_triangulaire_applique} illustre la situation.
 	
 	\begin{center}
 		\begin{tikzpicture}[thick]
@@ -721,7 +721,7 @@
 			 En notant $A$ et $B$ les sommets de $\Gamma_{i,j}$, $C_1$ le sommet opposé à $\Gamma_{i,j}$ de $T_i$, $C_2$ le sommet opposé à $\Gamma_{i,j}$ de $T_j$, il vient alors : $\abs{\delta_{i,j}} = |\!|x_{i,j} -\bar x_{i,j}|\!| = |\!| x_{i,j}-A - (\bar x_{i,j}-A)|\!| = \abs{Ax_{i,j}-A\bar x_{i,j}}$, car $A$, $x_{i,j}$ et $\bar x_{i,j}$ sont alignés. Cependant $A\bar x_{i,j} = AB/2$. Donc $|\!|x_{i,j} -\bar x_{i,j}|\!| = \abs{AB/2-A\bar x_{i,j}}$. Ainsi d'après le lemme \ref{lm:maj_delta_triangle} : $\abs{AB/2-A\bar x_{i,j}}\leq \frac{AB}6 = \frac{\lambda_{i,j}}6 $ . Finalement, $\abs{\delta_{i,j}} \leq \frac{\lambda_{i,j}}6$.
 	\end{proof}
 	
-	L'objectif de minorer $\det(M_i)$ est presque atteint, pour cela, il faut s'aider de l'équation \eqref{eq:det_Mi} qui permet d'obtenir : $\abs{\det(M_i)-1} \leq \displaystyle\sum_{1\leq j < k \leq \abs{\mathcal N_i}} \abs{\alpha_{i,j}\alpha_{i,k}}\sin^2(\theta_{i,j}-\theta_{i,k})$. Il reste donc à majorer $\abs{\alpha_{i,j}\alpha_{i,k}}$, ce qui est fait à l'aide du lemme \ref{lm:maj_delta} et à l'aide de la notation suivante :
+	L'objectif de minorer $\det(M_i)$ est presque atteint, pour cela, il faut s'aider de la formule du déterminant donné par l'équation \eqref{eq:det_Mi}, ce qui permet d'obtenir : $\abs{\det(M_i)-1} \leq \displaystyle\sum_{1\leq j < k \leq \abs{\mathcal N_i}} \abs{\alpha_{i,j}\alpha_{i,k}}\sin^2(\theta_{i,j}-\theta_{i,k})$. Il reste donc à majorer $\abs{\alpha_{i,j}\alpha_{i,k}}$, ce qui est fait à l'aide du lemme \ref{lm:maj_delta} et à l'aide de la notation : $\mu_{i,jk}$, explicité par la figure \ref{fig:definition_angle_mu}.
 	
 	\begin{center}
 		\begin{tikzpicture}[thick]
@@ -750,6 +750,7 @@
 
 		\end{tikzpicture}
 		\captionof{figure}{Illustration d'une cellule $C_i$, avec $\mu_{i,jk} \in ]0,\pi[$ l'angle formé par $\Gamma_{i,j}$ et $\Gamma_{i,k}$.}
+		\label{fig:definition_angle_mu}
 	\end{center}
 
 	\begin{lm}\label{lm:majoration_produit_alpha}
@@ -861,7 +862,7 @@
 		\begin{equation}\label{eq:abs_det}
 			\abs{\det(M_i)-1} \leq \sum_{1\leq j < k \leq 3} \dfrac1{9\sin^2(\mu_{i,jk})}\sin^2(\mu_{i,jk}) \leq  \frac13.
 		\end{equation}
-		Or, si $\abs{x} \leq y$, alors $-y\leq x \leq y$. Ainsi, en utilisant \eqref{eq:abs_det}, il vient :
+		De plus, si $\abs{x} \leq y$, alors $-y\leq x \leq y$. Ainsi, en utilisant \eqref{eq:abs_det}, il vient :
 		\begin{equation}
 			\frac23 = 1-\frac13 \leq \det(M_i) \leq 1+\frac13 = \frac43.
 		\end{equation}
@@ -902,7 +903,7 @@
 	
 	IL est maintenant possible d'appliquer ce résultat à l'erreur de consistance :
 	
-	\begin{thm}\label{lm:maj_erreur}
+	\begin{thm}\label{thm:maj_erreur}
 		Pour $\mathcal T$ un maillage triangulaire.\\
 		Si toute union de deux triangles voisins est convexe et qu'il existe $\mu_{\min} > 0$, tel que pour tout $i \in \mathcal T$, $j \not = k \in \mathcal N_i$, $\mu_{i,jk} \geq \mu_{\min}$. Alors pour tout $i \in \mathcal T$,
 		\begin{equation}
@@ -913,7 +914,7 @@
 		En appliquant le lemme \ref{lm:maj_Mi_opti} à \eqref{eq:max_naiv_R4}, il vient le résultat attendu.
 	\end{proof}
 	
-	Il est possible pour certains types de maillages, de fournir la valeur d'une borne, notamment pour les maillage de Delaunay raffinés, il est possible suivant plus ou moins de contrainte d'imposer un angle minimum, quelque soit le nombre de cellules, globalement cette angle vaut $\mu_{\min} = 26.5^{\circ}$ (voir l'abstract de \cite{mesh}). Pour cette valeur il vient :	
+	Il est possible pour certains types de maillages, de fournir la valeur d'une borne, notamment pour les maillage de Delaunay raffinés, il est possible suivant plus ou moins de contrainte d'imposer un angle minimum, quelque soit le nombre de cellules, globalement cette angle vaut $\mu_{\min} = 26.5^{\circ}$ (voir l'abstract de \cite{mesh}). Pour cette valeur il suit :	
 	\[
 		|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!| \leq 45.8 H\, h.
 	\]	
@@ -935,7 +936,7 @@ Fonction test $u_1$ :
 \end{bmatrix},
 \]
 
-Fonction test $u_2$ :
+\noindent Fonction test $u_2$ :
 \[
 \begin{aligned}
 	u^2(x,y) &= \begin{cases}
@@ -956,6 +957,7 @@ Ainsi les $\nabla u_i$ sont connus avec exactitude et permettent ainsi de mesure
 Pour tester ce gradient discret \eqref{eq:grad_discret}, il a été choisi de prendre un domaine $\Omega$ à mailler de forme carré : $ \Omega = [0,\;10]\times[0,\;10]$ sur lequel a été appliqué différents maillages dans cet ordre :
 \begin{enumerate}
 	\item Maillage cartésien avec $N$  (resp. $M$) mailles en direction $x$ (resp. $y$), constitué de rectangles de taille $\frac N{10}$ par $\frac M{10}$).
+	\item maillage avec une triangulation de type Delaunay généré à l'aide du mailleur FreeFem++.
 	\item Maillage cartésien déformé qui se construit de la manière suivante :
 	\begin{enumerate}
 		\item construction d'un maillage cartésien comme en 1,
@@ -964,14 +966,11 @@ Pour tester ce gradient discret \eqref{eq:grad_discret}, il a été choisi de pr
 			P^{perturbe}_{i,j} = P_{i,j} + \varphi r \left(\frac{\Delta x}2,\; \frac{\Delta y}2 \right)^T,
 		\]
 	\end{enumerate}
-	\item maillage avec une triangulation de type Delaunay généré à l'aide du mailleur FreeFem++.
 \end{enumerate}
 
-Le domaine $\Omega$ n'étant pas ouvert, et les conditions de bord n'ayant pas été défini, ni étudié, il a été choisi de mettre des conditions de bord périodique. Les fonctions test ayant été choisis pour leur propriété de forte décroissance sur le bord, ce qui peut être observé sur les figures \ref{fig:}, ces fonctions prennent au bord du domaine des valeurs très proche de 0, en dessous du 0 machine, rendant nul les erreurs au bords du domaine.
+Le domaine $\Omega$ n'étant pas ouvert, et les conditions de bord n'ayant pas été défini, ni étudié, il a été choisi de mettre des conditions de bord périodique. Les fonctions test ayant été choisis pour leur propriété de forte décroissance sur le bord, ce qui peut être observé sur les figures \ref{fig:rep_graph}, ces fonctions prennent au bord du domaine des valeurs très proche de 0, en dessous du 0 machine, rendant nul les erreurs au bords du domaine.
 
-\vspace{-.5cm}
-
-\begin{figure}
+\begin{figure}[h!]
 	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[scale=.08]{image/gradient.png}
@@ -983,17 +982,20 @@ Le domaine $\Omega$ n'étant pas ouvert, et les conditions de bord n'ayant pas �
 		\caption{Fonction plateau $u^2$.}
 	\end{subfigure}
 	\captionof{figure}{Fonctions tests sur $[0,\,10]\times[0,\,10]$.}
+	\label{fig:rep_graph}
 \end{figure}
+
+\vspace{-.5cm}
 
 \subsection{Tests numériques}
 
-Pour obtenir l'ordre de convergence, il est généré plusieurs maillages en faisant varier le nombre de cellules. 
+Pour obtenir l'ordre de convergence, plusieurs maillages en faisant varier le nombre de cellules sur un code écris en C qui a été fournis pour les besoins du stage.
 
-\textbf{Maillages cartésiens déformés}
+\textbf{Maillages quadrangulaires}
 
-La figure \ref{fig:cartesien} fournis deux exemples de maillage cartésien déformé pour $N=10$ points sur chaque côtés :
+La figure \ref{fig:cartesien} fournis deux exemples de maillages quadrangulaire pour $N=10$ points sur chaque côtés.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\begin{subfigure}{0.5\textwidth}
 		\centering
 	\includegraphics[scale=.2]{image/maillage_carre.png}
@@ -1008,42 +1010,37 @@ La figure \ref{fig:cartesien} fournis deux exemples de maillage cartésien défo
 	\label{fig:cartesien}
 \end{figure}
 
-Il peut être remarqué que les maillage cartésiens correspondent exactement aux maillages cartésien déformé de coefficient de déformation $\varphi = 0$.
 
-Ci-dessous se trouve les différents courbes pour les déformations suivantes, $\varphi$ = 0.2, 0.5, 0.8 et 0.9.
+Ci-dessous se trouve les différents courbes pour les déformations suivantes, $\varphi$ = 0, 0.5 et 0.9. Sur l'axes des abscisses se trouve le pas de chaque maillage testé, le pas étant celui défini en \eqref{eq:def_pas}, les contributions au code fournis ont étés de coder ce nouveau pas, au travers du codage du diamètre d'une cellule, de coder l'erreur global du gradient pour les trois normes choisies pour mesurer l'erreur, de coder d'autres fonctions tests et de coder un script vérifiant la validité de la condition de convexité énoncé par le théorème \ref{thm:maj_erreur}. Le post-traitement suivant a été appliqué aux résultats : après avoir rangé dans l'ordre décroissant en pas d'espace les maillages, il a été supprimé ceux dont le nombre de cellules n'augmentait pas, pour un phénomène de lissage, non expliqué, des courbes, permettant de calculer plus finement l'ordre de convergence.
+
+\textbf{$\to$ Fonction test $u^1$.}
+
+\vspace{-.5cm}
+
 \begin{figure}[!h]
 	\begin{subfigure}{\textwidth}
 		\centering
 	\includegraphics[scale=.65]{image/carre.png}
-	\caption{Graphique en échelle logarithmique pour des maillages cartésiens}
-	\end{subfigure}
-	\begin{subfigure}{\textwidth/2}
-		\centering
-		\includegraphics[scale=0.65]{image/deforme_02.png}
-		\caption{Graphique en échelle logarithmique pour $\varphi = 0.2$.}
+	\caption{Maillages cartésiens}
 	\end{subfigure}
 	\begin{subfigure}{\textwidth/2}
 		\centering
 		\includegraphics[scale=0.65]{image/deforme_05.png}
-		\caption{Graphique en échelle logarithmique pour $\varphi = 0.5$.}
-	\end{subfigure}
-	\begin{subfigure}{\textwidth/2}
-		\centering
-		\includegraphics[scale=0.65]{image/deforme_08.png}
-		\caption{Graphique en échelle logarithmique pour $\varphi = 0.8$.}
+		\caption{Maillages quadrangulaires de déformation $\varphi = 0.5$.}
 	\end{subfigure}
 	\begin{subfigure}{\textwidth/2}
 		\centering
 		\includegraphics[scale=0.65]{image/deforme_09.png}
-		\caption{Graphique en échelle logarithmique pour $\varphi = 0.9$.}
+		\caption{Maillages quadrangulaires de déformation $\varphi = 0.9$.}
 	\end{subfigure}
+	\caption{Courbes de convergence en échelle logarithmique pour $u^1$}
 \end{figure}
 
-\newpage
+Le tableau \ref{tab:ordre_u1} représente les ordres de convergences associés aux différents types de maillages illustrés ci-dessus pour la fonction test $u_1$.
 
-Et ci-dessous les ordres de convergences associés :
+\vspace{-.5cm}
 
-\begin{figure}[!h]
+\begin{table}[!h]
 	\centering
 	\pgfplotstabletypeset[
 	sci zerofill,
@@ -1073,62 +1070,159 @@ Et ci-dessous les ordres de convergences associés :
 	]{
 		phi erreur1 erreur2 erreur3
 		0 1.917 1.855 1.744
-		0.2 1.413 1.357 1.034
-		0.5 1.029 0.951 0.632
-		0.8 0.964 0.862 0.416
+		0.5 1.029 0.951 0.632 
 		0.9 1.001 0.891 0.364
 	}
-	\caption{Ordre de convergence pour des maillages cartésiens déformés}
+	\caption{Ordre de convergence pour $u_1$}
+	\label{tab:ordre_u1}
+\end{table}
+
+\newpage
+
+\textbf{$\to$ Fonctions tests $u^2$.}
+
+\begin{figure}[!h]
+	\begin{subfigure}{\textwidth}
+		\centering
+		\includegraphics[scale=.65]{image/carre_plateau.png}
+		\caption{Maillages cartésiens}
+	\end{subfigure}
+	\begin{subfigure}{\textwidth/2}
+		\centering
+		\includegraphics[scale=0.65]{image/deforme_05_plateau.png}
+		\caption{Maillages quadrangulaires de déformation $\varphi = 0.5$.}
+	\end{subfigure}
+	\begin{subfigure}{\textwidth/2}
+		\centering
+		\includegraphics[scale=0.65]{image/deforme_09_plateau.png}
+		\caption{Maillages quadrangulaires de déformation $\varphi = 0.9$.}
+	\end{subfigure}
+	\caption{Courbes de convergence en échelle logarithmique pour $u^2$}
 \end{figure}
 
-Il peut être constaté que l'ordre de convergence se dégrade au fur et à mesure que l'on augmente le coefficient de déformation, seulement une soudaine dégradation de l'ordre de convergence est constaté lors du passage de $\varphi=0.8$ à $\varphi=0.9$, notamment pour la norme $\mathrm L^\infty$.
-\par De plus, il est constaté que plus le coefficient de déformation augmente plus il est difficile de raffiner le pas $h_2$, en effet, le pas minimum (pour un même échantillon de maillage, dans le sens où pour chaque déformation on a testé pour un ensemble de maillage dont le nombre de maille est le même) est de plus en plus grand.
+\begin{table}[!h]
+	\centering
+	\pgfplotstabletypeset[
+	sci zerofill,
+	precision=3,
+	columns/phi/.style={
+		column name=$\varphi$,
+	},
+	columns/erreur1/.style={
+		column name=$|\!|\cdot|\!|_1$,
+	},
+	columns/erreur2/.style={
+		column name=$|\!|\cdot|\!|_2$,
+	},
+	columns/erreur3/.style={
+		column name=$|\!|\cdot|\!|_\infty$,
+	},
+	every even row/.style={
+		before row={\rowcolor{gray!15}}
+	},
+	every head row/.style={
+		before row=\toprule,
+		after row=\midrule
+	},
+	every last row/.style={
+		after row=\bottomrule
+	},
+	]{
+		phi erreur1 erreur2 erreur3
+		0 1.972 1.925 1.920
+		0.5 0.939 0.905 0.640
+		0.9 0.949 0.840 -0.633
+	}
+	\caption{Ordre de convergence pour $u^2$}
+	\label{tab:ordre_u2}
+\end{table}
+
+Pour les deux fonctions tests, l'ordre de convergence 1, et 2 pour les maillages cartésiens, est retrouvé pour les déformations allant jusqu'à 0.5 et les maillages de Delaunay. Cependant, l'ordre de convergence pour la norme $|\!|\cdot|\!|_\infty$  est fortement dégradé pour une déformation de coefficient 0.9, cela peut s'expliquer par le fait qu'environ 10\% des cellules ne vérifient pas le critère de convexité pour cette déformation, tandis que pour une déformation de 0.5, toutes les cellules vérifient le critère de convexité. De plus il est constaté que plus le coefficient de déformation augmente plus il est difficile de raffiner le pas spatial, en effet, le pas minimum (pour un même échantillon de maillage, dans le sens où chaque déformation a été testé pour un ensemble de maillage dont le nombre de maille est le même) est de plus en plus grand.
+
+\newpage
 
 \textbf{Maillage de Delaunay}
 
-Ici, pour obtenir l'ordre de convergence, il est fait de même que pour le cas des maillages cartésiens : le nombre de cellules est augmenté. Les figures \ref{fig:delaunay} et \ref{fig:conv_delaunay} représentent respectivement un exemple de triangulation de Delaunay et les courbes de convergences associées à ce type de maillage :
+Pour obtenir l'ordre de convergence, il est fait de même que pour le cas des maillages cartésiens : le nombre de cellules est augmenté. Les figures \ref{fig:delaunay}, \ref{fig:conv_delaunay_u1} et \ref{fig:conv_delaunay_u2} représentent respectivement un exemple de triangulation de Delaunay, les courbes de convergences associées à ce type de maillage pour $u^1$ et $u^2$.
 
 \begin{figure}[!h]
 	\begin{subfigure}{0.45\textwidth}
 		\centering
 	\includegraphics[scale=0.3]{image/maillage_ffm.png}
-	\caption{Triangulation de Delaunay}
+	\caption{Maillage de Delaunay}
 	\label{fig:delaunay}
 	\end{subfigure}
 	\begin{subfigure}{0.55\textwidth}
 		\centering
 		\includegraphics[scale=0.65]{image/ffm.png}
-		\caption{Graphique en échelle logarithmique}
-		\label{fig:conv_delaunay}
+		\caption{Graphique en échelle logarithmique pour $u^1$}
+		\label{fig:conv_delaunay_u1}
 	\end{subfigure}
+	\begin{subfigure}{\textwidth}
+		\centering
+		\includegraphics[scale=0.65]{image/ffm_plateau.png}
+		\caption{Graphique en échelle logarithmique pour $u^2$}
+		\label{fig:conv_delaunay_u2}
+	\end{subfigure}
+	\caption{Maillage de Delaunay et courbe de convergence associées en échelle logarithmique.}
 \end{figure}
 
 
 
-L'ordre de convergence de \textbf{1} pour les normes $\mathrm L^1$, $\mathrm L^2$ et $\mathrm L^\infty$ est bien retrouvé :
-\begin{enumerate}
-	\item[$\star$] Pour la norme $\mathrm L^1$, l'ordre de convergence $\simeq 1,144$
-	\item[$\star$] Pour la norme $\mathrm L^2$, l'ordre de convergence $\simeq 1,149$
-	\item[$\star$] Pour la norme $\mathrm L^\infty$, l'ordre de convergence $\simeq 0,996$
-\end{enumerate}
+L'ordre de convergence de 1 pour les normes $|\!|\cdot|\!|_1$, $|\!|\cdot|\!|_2$ et $|\!|\cdot|\!|_\infty$ est bien retrouvé, ceci est illustré dans le tableau \ref{tab:ffm}.
+
+\begin{table}[!h]
+	\centering
+	\pgfplotstabletypeset[
+	sci zerofill,
+	precision=3,
+	columns/phi/.style={
+		column name=Fonction $u^k$,
+	},
+	columns/erreur1/.style={
+		column name=$|\!|\cdot|\!|_1$,
+	},
+	columns/erreur2/.style={
+		column name=$|\!|\cdot|\!|_2$,
+	},
+	columns/erreur3/.style={
+		column name=$|\!|\cdot|\!|_\infty$,
+	},
+	every even row/.style={
+		before row={\rowcolor{gray!15}}
+	},
+	every head row/.style={
+		before row=\toprule,
+		after row=\midrule
+	},
+	every last row/.style={
+		after row=\bottomrule
+	},
+	]{
+		phi erreur1 erreur2 erreur3
+		 1 1.144 1.149 0.996
+		 2 1.144 1.148 0.996	
+	}
+	\caption{Ordre de convergence pour $u_2$}
+	\label{tab:ffm}
+\end{table}
+De plus les conditions de convexités et d'angle minimums, l'angle minimum mesuré était supérieur à $27^\circ$, sont vérifiées pour les maillages de Delaunay qui ont été testés. Ces conditions permettent ainsi d'appliquer le théorème \ref{thm:maj_erreur} à ces maillages.
 
 \section{Conclusions et limites}
 
-Pour conclure, le pas nouvellement définie en \eqref{eq:def_pas} permet de conclure quand à la convergence de $M_i\nabla u_i - M_i\overline{\nabla u(x_i)}$ et sur son ordre de convergence, mais il n'est pas suffisant pour conclure que $|\!|M_i^{-1}|\!|_2$ est borné, un exemple le démontrant est exposé en \ref{sec:contre-exemple}. Cependant, il a pu être dégagé deux conditions sur les maillages triangulaire qui assurent l'inversibilité de la matrice $M_i$ et du caractère borné de $|\!|M_i^{-1}|\!|_2$ pour une borne indépendant de $h$, ceci a été examiné à la section \ref{sec:inversion_Mi}. Lors des tests numérique, il a été observé une certaine difficulté à diminuer le pas $h$ du maillage plus les maillages était déformés. Cela conduit à suggérer d'examiner si pour un pas $h$ donné, il est possible de générer un maillage ayant un pas autant ou moindre que ce pas $h$. D'autre part, des tests sur des fonctions à variations rapides (par exemple une fonction plateaux sur $\R^2$ de la forme : $u(x,y) = \begin{cases}
-	e^{\frac1{(x-x_c)^2 + (y-y_c)^2 - r^2}} & \text{si } (x-x_c)^2+(y-y_c)^2 < r^2\\
-	0 & \text{sinon}
-\end{cases}$ ou une fonction de la forme : $u(x,y) =\left(\sin(\pi x)\cos(3\pi x + 0.5 \pi) + \sin(xy\pi) + \pi\sin(2\pi xy)\right)\mathrm {gauss}(x,y)$) ont été réalisés et montrent que la convergence du schéma est beaucoup plus lentes, elles demandent de raffiner le maillage beaucoup plus que pour le cas de la Gaussienne pour obtenir des erreurs comparable, cela est dû à une hessienne dont la norme est très élevé, rendant le contrôle de l'erreur donné par le lemme \ref{lm:maj_erreur} inexploitable.
+En conclusion, il a pu être démontré que pour des maillage triangulaire avec une condition de convexité et d'angle minimum, les conditions sont détaillées dans le théorème \ref{thm:maj_erreur}, l'erreur de consistance, en norme infini, converge en ordre 1. Cette hypothèse a de plus été vérifié, mais non démontré, pour les maillages quadrangulaire, et lorsque cette hypothèse est vérifié, pour les maillages de Delaunay et les maillages quadrangulaires de déformation inférieur à 0.5, la convergence de l'erreur de consistance a pu être mesuré numériquement. Cependant lorsque cette dernière condition n'est pas vérifiée, il a été constaté une dégradation importante de l'erreur de convergence pour la norme $|\!|\cdot|\!|_\infty$. De plus, il n'est pas assuré qu'en augmentant le nombre de cellules, le pas du maillage diminue, ce dernier peut augmenter, voir l'annexe \ref{sec:augm_pas}, cela conduit a suggérer d'examiner si pour un pas $h_0$ donné, il est possible de généré un maillage $\mathcal T$ ayant un pas $h(\mathcal T)$ vérifiant : $h(\mathcal T) \leq h_0$.
+
 
 \section{Annexe}
 
 \begin{lm}\label{lm:rayon_spec}
-	Étant donné une matrice $A \in \mathrm{GL}_(\R)$, l'inéquation suivante est vérifiée :
+	Étant donné une matrice $A \in \mathrm{GL}_(\R)$, l'inégalité suivante est vérifiée :
 	\begin{equation}
 		|\!|A^{-1}|\!|_2 \leq \sqrt{\dfrac{\mathrm{tr}(AA^T)}{\det(A)^2}}.
 	\end{equation}
 \end{lm}
 \begin{proof}
-	Pour une matrice inversible donnée $A \in \mathrm{GL}_2(\R)$ et $0<\lambda_1 \leq \lambda_2$ les valeurs propres de $AA^T$, on sait que :
+	Pour une matrice inversible donnée $A \in \mathrm{GL}_2(\R)$ et $0<\lambda_1 \leq \lambda_2$ les valeurs propres de $AA^T$, les égalités suivantes sont vérifiées :
 	\begin{equation}\label{eq:rel_val_prop}
 		\lambda_1+\lambda_2 = \mathrm{tr}(AA^T),\; \lambda_1\lambda_2 = \det(AA^T) = \det(A)^2.
 	\end{equation}
@@ -1143,6 +1237,17 @@ Pour conclure, le pas nouvellement définie en \eqref{eq:def_pas} permet de conc
 	où $\rho(A^{-1}\left(A^{-1}\right)^T)$ est le rayon spectrale de $A^{-1}\left(A^{-1}\right)^T$.
 \end{proof}
 
+\label{sec:augm_pas}\noindent\textbf{Maillage cartésien avec $N=n$ et $M = n^3$.}\\
+Ce maillage correspond à $n^4$ rectangles de taille $\frac1n$ par $\frac1{n^3}$ unité de longueur. Le schéma \ref{fig:carre_deforme} est une illustration d'un tel maillage pour $n = 3$.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=.3]{image/carre_non_uniforme.png}
+	\caption{Maillage cartésien pour $N=3$ et $M=27$.}
+	\label{fig:carre_deforme}
+\end{figure}
+
+Le pas spatial d'un tel maillage vaut : $h(n) = \dfrac{8\sqrt{\frac1{n^2}+\frac1{n^6}}}{\frac1{n^4}} = 8n^3\sqrt{1+\frac1{n^4}}$. Ainsi le pas de cette suite de maillage tends vers $+\infty$ lorsque $n$ tends vers  $+\infty$. Ce qui illustre l'importance du choix du maillage pour faire faire diminuer le pas spatial du maillage définie en \eqref{eq:def_pas}.
 
 \newpage
 
