@@ -44,7 +44,7 @@
 		% Bloc Informations
 		\begin{minipage}{0.45\textwidth}
 			\begin{flushleft} \large
-				\textbf{Encadrant :} \\
+				\textbf{Encadrants :} \\
 				Ludovic \textsc{MARTAUD}\\
 				Loïc \textsc{LE MARREC}
 			\end{flushleft}
@@ -73,18 +73,18 @@
 	
 	\section{Remerciements}
 	
-	En premier lieu, je tiens à remercier Le Centre Henri Lebesgue, qui a financé ce stage. En second lieu, je tiens tout particulièrement à remercier Ludovic Martaud, le tuteur de ce stage, qui a été d'une grande aide et m'a guidé tout au long de se stage. Il a su mettre en lumière les points importants de ce stage et les mettre en valeurs. Je tiens aussi à remercier Loïc Le Marrec, sans qui, cette offre de stage ne me serait pas parvenue et pour son accompagnement, et son regard extérieur au stage très utile.
+	En premier lieu, je tiens à remercier Le Centre Henri Lebesgue, qui a financé ce stage. En second lieu, je tiens tout particulièrement à remercier Ludovic Martaud, le tuteur de ce stage, qui a été d'une grande aide et m'a guidé tout au long de se stage. Il a su mettre en lumière les points importants de ce stage et les mettre en valeurs. Je tiens aussi à remercier Loïc Le Marrec, sans qui, cette offre de stage ne me serait pas parvenue et pour son accompagnement, et son regard extérieur au stage très utile. Et bien sûr je tiens à remercier ma compagne qui m'a fournis un deuxième regard extérieur au stage.
 	
 	\newpage
 	\section{Contexte}
 	
 	Ce stage s'est déroulé au sein de l'Institut de Recherche Mathématique de Rennes (IRMAR), un
 	laboratoire de recherche fondamentale et appliquée en mathématiques, rattaché à l'Université de Rennes et au CNRS. L'IRMAR couvre un large spectre de thématiques, allant de l'analyse et la géométrie à la modélisation numérique et aux statistiques. Le stage a bénéficié du soutien financier du Centre Henri Lebesgue, un centre de recherche mathématique interrégional qui vise à promouvoir l'excellence scientifique, à renforcer la collaboration entre chercheurs et à soutenir la formation par la recherche dans le domaine des mathématiques.
-	\par Le sujet de ce stage porte sur l'étude de la consistance d'un gradient discret local défini dans l'article \cite{ludo} sur des maillages non structuré en deux dimensions d'espace. Le terme non-structuré fait référence au fait qu'il n'y a pas d'expression simple pour les positions relatives des cellules. Les maillages non structurés s'adaptent aux géométries quelconques, ce qui permet de mailler des formes réalistes. Cependant cette généralité entraîne des complexités, tels que la façon de définir un gradient discret ou encore de définir un pas d'espace. Cette dernière considération est importante, car c'est le pas qui va permettre de quantifier l'erreur lors des approximations commises. Une telle proposition a été faite dans \cite{ludo} pour définir un ensemble de gradients discrets, local, auquel a été associé une première suggestion d'un pas d'espace qui pourrait quantifier l'erreur de consistance associé à ce gradient. L'objectif de ce stage est d'examiner cette suggestion de pas d'espace et d'en fournir une meilleure si elle s'avère insuffisante
+	\par Le sujet de ce stage porte sur l'étude de la consistance d'un gradient discret local défini dans l'article \cite{ludo} sur des maillages non structuré en deux dimensions d'espace. Le terme non-structuré fait référence au fait qu'il n'y a pas d'expression simple pour les positions relatives des cellules. Les maillages non structurés s'adaptent aux géométries quelconques, ce qui permet de mailler des formes réalistes. Cependant cette généralité entraîne des complexités, telles que la façon de définir un gradient discret ou encore de définir un pas d'espace. Cette dernière considération est importante, car c'est le pas qui va permettre de quantifier l'erreur lors des approximations commises. Une telle proposition a été faite dans \cite{ludo} pour définir un ensemble de gradients discrets local, auquel a été associé une première suggestion d'un pas d'espace qui pourrait quantifier l'erreur de consistance associé à ce gradient. L'objectif de ce stage est d'examiner cette suggestion de pas d'espace et d'en fournir une meilleure si elle s'avère insuffisante
 	
 	\section{Gradients discrets local pour la méthode des volumes finis}\label{sec:notations}
 	
-	Le plan $\R^2$ est pavé à l'aide de $N$ cellules polygonales $C_i$ de surface $\abs{C_i}$ et l'ensemble des $C_i$ est noté $\mathcal T = \left\{C_i;\,i\in[\![1,N]\!]\right\}$, par abus de notation, il est noté $i \in \mathcal T$ pour $C_i \in \mathcal T$. La figure \ref{fig:EdgeWithGrandeurs} illustre l'interface orientée $\Gamma_{i,j} = C_i \cap C_j$, de longueur $\abs{\Gamma_{i,j}}$ entre deux cellules $C_i$ et $C_j$ :
+	Le plan $\R^2$ est pavé à l'aide de $N$ cellules polygonales $C_i$ de surface $\abs{C_i}$, et l'ensemble des $C_i$ est noté $\mathcal T = \left\{C_i;\,i\in[\![1,N]\!]\right\}$, par abus de notation, il est noté $i \in \mathcal T$ pour $C_i \in \mathcal T$. La figure \ref{fig:EdgeWithGrandeurs} illustre l'interface orientée $\Gamma_{i,j} = C_i \cap C_j$, de longueur $\abs{\Gamma_{i,j}}$ entre deux cellules $C_i$ et $C_j$ :
 	
 	\begin{center}
 		\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm, scale = 0.6]
@@ -113,7 +113,7 @@
 			%% \draw [fill=xdxdff] (8.778392298328422,5.318228205273862) circle (2.5pt);
 			\draw[color=black] (8.863325183374085,5.53357142857143) node[right] {$\Gamma_{ij}$};
 		\end{tikzpicture}
-		\captionof{figure}{Interface orienté $\Gamma_{i,j}$ entre deux cellules $C_i$ et $C_j$ de centre de gravité respectifs $x_i$ et $x_j$. L'orientation est donné par $n_{i,j}$, le vecteur normale à $\Gamma_{i,j}$, orienté de $C_i$ vers $C_j$. Les points $x_{i,j}$ et $\bar x_{i,j}$ sont respectivement l'intersection $\Gamma_{i,j}\cap [x_i,\,x_j]$ et le milieu de $\Gamma_{i,j}$.}
+		\captionof{figure}{Interface orientée $\Gamma_{i,j}$ entre deux cellules $C_i$ et $C_j$ de centre de gravité respectifs $x_i$ et $x_j$. L'orientation est donnée par $n_{i,j}$, le vecteur normal à $\Gamma_{i,j}$, orienté de $C_i$ vers $C_j$. Les points $x_{i,j}$ et $\bar x_{i,j}$ sont respectivement l'intersection $\Gamma_{i,j}\cap [x_i,\,x_j]$ et le milieu de $\Gamma_{i,j}$.}
 		\label{fig:EdgeWithGrandeurs}
 	\end{center}
 	
@@ -126,7 +126,7 @@
 		M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j} {n_{i,j}}\otimes\left( {\bar x_{i,j}-x_{i,j}}\right).
 	\end{equation}
 	
-	Pour $u \in \mathcal C^2(\R^2,\R)$, la modélisation discrète de $u$ et du gradient de $u$ respectivement, représenté par une liste de valeur $(u_i)_{i \in \mathcal T}$ et $(\nabla u_i)_{i\in \mathcal T}$ respectivement, sont pris constants sur chaque maille $C_i$. Sous réserve d'existence de $M_i^{-1}$, le gradient discret de $u$ noté, $\overline{ {\nabla u}(x_i)}$, est défini par :
+	Pour $u \in \mathcal C^2(\R^2,\R)$, la modélisation discrète de $u$ et du gradient de $u$ respectivement, représenté par une liste de valeur $(u_i)_{i \in \mathcal T}$ et $(\nabla u_i)_{i\in \mathcal T}$ respectivement, sont pris constants sur chaque maille $C_i$. Sous réserve d'existence de $M_i^{-1}$, le gradient discret de $u$ sur la cellule $C_i$ noté, $\overline{ {\nabla u}(x_i)}$, est défini par :
 	\begin{equation}\label{eq:grad_discret}
 		M_i \overline{ {\nabla u}(x_i)} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}.
 	\end{equation}
@@ -157,11 +157,11 @@
 		\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi = \lambda_{i,j}u(x_{i,j}) + \lambda_{i,j}\left( {\bar x_{i,j}-  x_{i,j}}\right)\cdot {\nabla u}(  x_{i,j}) + \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} ( \xi-x_{i,j})^T\nabla^2 u(\gamma_{ \xi}(t)) ( \xi-  x_{i,j})\mathrm d \xi \dt.
    \end{equation}
    
-   Il reste maintenant à ré-exprimer $u(x_{i,j})$ et $\nabla u(x_{i,j})$. Le lemme suivant permet de ré-exprimer la première quantité, $u(x_{i,j})$ : 
+   Il reste maintenant à ré-exprimer $u(x_{i,j})$ et $\nabla u(x_{i,j})$. Le lemme \ref{lm:determination_u_xij} permet de ré-exprimer la première quantité, $u(x_{i,j})$ : 
    
    
    \begin{lm}[Détermination de $u(x_{i,j})$]$ $\label{lm:determination_u_xij}\\
-   		En utilisant les notations introduite dans la Section \ref{sec:notations}, la formule \eqref{eq:xij} est vérifiée :
+   		En utilisant les notations introduites dans la Section \ref{sec:notations}, la formule \eqref{eq:xij} est vérifiée :
 	   	\begin{equation}\label{eq:xij}
 	   		\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} = u(  x_{i,j}) + R_1^{i,j},
 	   	\end{equation}
@@ -187,7 +187,7 @@
 		\end{aligned}
 		\end{equation}
 		
-		En injectant \eqref{eq:R1} dans \eqref{eq:ponderation}, il vient le résultat attendu.
+		En injectant \eqref{eq:R1} dans \eqref{eq:ponderation}, il suit le résultat attendu.
 	 \end{proof}
 	 
 	 Il est maintenant possible d'obtenir une première expression de $\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi$ à l'aide des $u_k$, de la matrice hessienne de $u$ et du gradient $\overline{\nabla u(x_{i,j})}$ :
@@ -222,7 +222,7 @@
 	Le problème restant pour déterminer $\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi$ est d'exprimer $\nabla u(x_{i,j})$ en fonctions des données $u_k$, de la matrice hessienne de $u$ et du gradient $\nabla u_i$.
 	
 	\begin{lm}[Expression de $\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi$]\label{lm:expression_terme_finale}$ $\\
-		En utilisant les notations introduite dans la Section \ref{sec:notations} et les lemmes \ref{lm:expression_int_u_xi} et \ref{lm:determination_u_xij} il vient l'expression suivante :
+		En utilisant les notations introduite dans la Section \ref{sec:notations} et les lemmes \ref{lm:expression_int_u_xi} et \ref{lm:determination_u_xij} il suit l'expression suivante :
 		\begin{equation}\label{eq:somme_reecrite}
 			\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\nabla u_i + R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j},
 		\end{equation}
@@ -280,7 +280,7 @@
 			\end{aligned}
 		\]
 		
-		Puisque $M_i  {\overline{\nabla u(x_i)}} = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}$, en injectant cette expression dans l'expression précédente, il vient le résultat attendu.
+		Puisque $M_i  {\overline{\nabla u(x_i)}} = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}$, en injectant cette expression dans l'expression précédente, il suit le résultat attendu.
 	\end{proof}
 	
 	La section suivante va maintenant définir un pas $h$ qui permettra d'obtenir une majoration de $|\!|M_i^{-1}R^{(i)}|\!|$, pour une norme $|\!|\cdot|\!|$, en fonction de ce pas $h$ et de la norme subordonnée de $M_i^{-1}$ dont il sera déterminé un majorant dans le cas des maillages triangulaire.
@@ -302,7 +302,7 @@
 	\begin{equation}\label{eq:maj_naiv_R3}
 		\abs{R_3^{i,j}} \leq \lambda_{i,j}{|\!|\nabla^2 u|\!|_\infty}\, |\!| {\bar x_{i,j}-x_{i,j}}|\!|\cdot \frac1{\abs{C_i}}\int_{C_i}|\!| {x-  x_{i,j}} |\!|\dx,
 	\end{equation}
-	où $|\!| \cdot |\!|$ est une norme sur $\R^2$. Puis, en utilisant la définition de $h$, il vient les inégalités \eqref{eq:maj_naiv_R1_par_h}, \eqref{eq:maj_naiv_R2_par_h} et \eqref{eq:maj_naiv_R3_par_h}.
+	où $|\!| \cdot |\!|$ est une norme sur $\R^2$. Puis, en utilisant la définition de $h$, il suit les inégalités \eqref{eq:maj_naiv_R1_par_h}, \eqref{eq:maj_naiv_R2_par_h} et \eqref{eq:maj_naiv_R3_par_h}.
 	
 	\begin{equation}\label{eq:maj_naiv_R1_par_h}
 		\abs{R_1^{i,j}} \leq \dfrac {|\!|\nabla^2 u|\!|_\infty}{2}\;\dfrac{\underset{k\in \mathcal T}\min \abs{C_k}}{\underset{i\in\mathcal T}\max\;\underset{j\in \mathcal N_i}\max\;\mathrm{diam}\left(C_i\right)+\mathrm{diam}\left(C_j\right)}\; h,
@@ -317,7 +317,7 @@
 	\begin{equation}\label{eq:max_naiv_R4}
 		|\!| \nabla u_i - \overline{\nabla u(x_i)} |\!| = |\!| M_i^{-1}R^{(i)}|\!| \leq 2|\!|M_i^{-1}|\!|\, |\!|\nabla^2 u|\!|_\infty\, N_{\max}\;h.
 	\end{equation}
-	Pour le pas $h$ définie en \cite{ludo} par $h = \underset{i \in \mathcal T}\max\, d(x_i,x_j)$, son contrôle de l'erreur $M_i^{-1}R^{(i)}$ est mis en défaut pour l'exemple qui suit. Pour $\mathcal T$ un maillage contenant deux cellules rectangulaires $C_1$ et $C_2$ illustrés par la figure \ref{fig:contre_exemple_1}.
+	Pour le pas $h$ définie en \cite{ludo} par $h = \underset{i \in \mathcal T}\max\,\underset{j \in \mathcal N_i}\max\, d(x_i,x_j)$, son contrôle de l'erreur $M_i^{-1}R^{(i)}$ est mis en défaut pour l'exemple qui suit. Pour $\mathcal T$ un maillage contenant deux cellules rectangulaires $C_1$ et $C_2$ illustrés par la figure \ref{fig:contre_exemple_1}.
 	
 	\begin{center}
 		\begin{tikzpicture}[thick]
@@ -348,7 +348,7 @@
 			\draw[fill=black] (B1) circle (0.05cm);
 			\draw[fill=black] (C1) circle (0.05cm);
 		\end{tikzpicture}
-		\captionof{figure}{Maillage $\mathcal{T}$ constitués de deux rectangles de taille $h \times e^{\frac1h}$.}
+		\captionof{figure}{Maillage $\mathcal{T}$ constitué de deux rectangles de taille $h \times e^{\frac1h}$.}
 		\label{fig:contre_exemple_1}
 	\end{center}
 	Le majorant de $\abs{R_2^{i,j}}$ dans l'inégalité \eqref{eq:maj_naiv_R2} tends vers $+\infty$ lorsque $h$ tends vers 0. En effet :
@@ -463,7 +463,7 @@
 		Si la matrice $M_i$ est de la forme $M_i = \begin{bmatrix}
 			a & b\\
 			c & d
-		\end{bmatrix}$, alors par un calcul direct il vient :
+		\end{bmatrix}$, alors par un calcul direct il suit :
 		\begin{equation}\label{eq:tr_A}
 			\mathrm{tr}(M_iM_i^T) = a^2 + b^2 + c^2 + d^2.
 		\end{equation}
@@ -498,7 +498,7 @@
 	\end{proof}
 
 	\label{sec:contre-exemple}
-	Et finalement, il ne reste plus qu'à déterminer un minorant strictement positif de $\det(M_i)$ et à majorer les $\alpha_i$. Ce n'est pas possible dans le cas général, il n'est pas possible sans condition supplémentaire, d'empêcher $\alpha_i$ de tendre vers $+\infty$, le contre-exemple qui suit justifie cette affirmation. Pour $\mathcal T$ un maillage contenant deux cellules : deux triangles rectangles accolés sur le même côté adjacent à l'angle droit de taille $\varepsilon\times\varepsilon^{1.5}$ où $\varepsilon>0$ est un paramètre contrôlant la taille des cellules, la figure \ref{fig:contre_exemple_2} illustre la situation. 	
+	Et finalement, il ne reste plus qu'à déterminer un minorant strictement positif de $\det(M_i)$ et à majorer les $\alpha_i$. Cependant il n'est pas possible, sans conditions supplémentaires, d'empêcher $\alpha_i$ de tendre vers $+\infty$ lorsque le pas $h$ tend vers 0, le contre-exemple qui suit justifie cette affirmation. Pour $\mathcal T$ un maillage, illustré par la figure \ref{fig:contre_exemple_2}, contenant deux cellules : deux triangles rectangles accolés sur le même côté adjacent à l'angle droit de taille $\varepsilon\times\varepsilon^{1.5}$, où $\varepsilon>0$ est un paramètre contrôlant la taille des cellules.
 	\begin{center}
 		\begin{tikzpicture}[thick]
 			\coordinate (A) at (0,0);
@@ -535,7 +535,7 @@
 		\captionof{figure}{Maillage $\mathcal T$ constitués de deux triangle rectangles de taille $\varepsilon\times \varepsilon^{1.5}$. Avec, respectivement, $G_1$ et $G_2$ le centre de gravité de $ABC_1$ et $ABC_2$.}
 		\label{fig:contre_exemple_2}
 	\end{center}
-	Puisque l'union de ces deux cellules est convexe, d'après le lemme \ref{lm:maj_det}, le déterminant est borné et le pas $h = \dfrac{\left(\mathrm{diam}(ABC_1)+\mathrm{diam}(ABC_2)\right)^3}{\abs{ABC_1}} = \dfrac{16\,\varepsilon^{1.5}\left(\sqrt{\varepsilon^2 + \varepsilon}\right)^3 }{\varepsilon^{2.5}} \underset{\varepsilon\to 0}{\sim} \dfrac{16\varepsilon^3}{\varepsilon} = 16\varepsilon^2$ tends vers 0 lorsque $\varepsilon \to 0$.\\
+	Puisque l'union de ces deux cellules est convexe, d'après le lemme \ref{lm:maj_det}, le déterminant est borné. De plus le pas $h = \dfrac{\left(\mathrm{diam}(ABC_1)+\mathrm{diam}(ABC_2)\right)^3}{\abs{ABC_1}} = \dfrac{16\,\varepsilon^{1.5}\left(\sqrt{\varepsilon^2 + \varepsilon}\right)^3 }{\varepsilon^{2.5}} \underset{\varepsilon\to 0}{\sim} \dfrac{16\varepsilon^3}{\varepsilon} = 16\varepsilon^2$ tends vers 0 lorsque $\varepsilon \to 0$.\\
 	Cependant $\abs{\alpha_1} = \abs{\displaystyle\sum_{j \in \mathcal N_1} \alpha_{1,j}} = \abs{\alpha_{1,1}}$, donc :
 	\[
 	\begin{aligned}
@@ -566,7 +566,7 @@
 	\]
 	Ainsi, d'après le lemme \ref{lm:maj_det}, $|\!|M_1^{-1}|\!|_2 \geq \dfrac34 \sqrt{1+\alpha_1^2}$. Donc $|\!|M_1^{-1}|\!|_2 \underset{h \to 0}{\longrightarrow} + \infty$.
 	
-	L'objectif va ici être de montrer que si le maillage est triangulaire, toute union de deux triangles voisins est convexe et ne contient pas de triangle plat, alors : $\det(M_i) \geq \frac23$. Pour obtenir ce résultat il faut pouvoir estimer précisément la valeur de $\alpha_{i,j} = \dfrac{\delta_{i,j}\lambda_{i,j}}{\abs{C_i}}$. Puisque $\lambda_{i,j}$ et $\abs{C_i}$ sont des données du maillages, il reste à déterminer $\delta_{i,j}$. Pour deux cellules triangulaires non plates $T_i = ABC_1$ et $T_j = ABC_2$, la figure \ref{fig:cellule_triangulaire} illustre la situation. 
+	L'objectif va ici être de montrer que si le maillage est triangulaire, toute union de deux triangles voisins est convexe et ne contient pas de triangle plat, alors : $\det(M_i) \geq \frac23$. Pour obtenir ce résultat il faut pouvoir estimer précisément la valeur de $\alpha_{i,j} = \dfrac{\delta_{i,j}\lambda_{i,j}}{\abs{C_i}}$. Puisque $\lambda_{i,j}$ et $\abs{C_i}$ sont des données du maillages, il reste à déterminer $\delta_{i,j}$. Pour deux cellules triangulaires non plates $T_i = ABC_1$ et $T_j = ABC_2$ illustré par la figure \ref{fig:cellule_triangulaire}.
 	\begin{center}
 		\begin{tikzpicture}[thick]
 			\coordinate (A) at (0,0);
@@ -609,7 +609,7 @@
 		\captionof{figure}{Deux triangles $ABC_1$ et $ABC_2$ de centre de gravité $G_1$ et $G_2$ respectivement. Et $\alpha_i,\beta_i \in ]0,\pi[$.}
 		\label{fig:cellule_triangulaire}
 	\end{center}
-	En notant $G_1$ et $G_2$ les centres de gravités de $ABC_1$ et $ABC_2$ respectivement, et $I$ le point d'intersection entre $[G_1G_2]$ et $[AB]$, l'égalité suivante est justifiée : $\abs{\delta_{i,j}} = |\!|x_{i,j}-\bar x_{i,j}|\!| = \abs{AB/2 - AI} = \abs{AB/2 - BI}$. Dans un premier temps il est nécessaire d'obtenir une expression de $\abs{\frac{AB}2-AI} = \max\{\frac{AB}2-AI,\,\frac{AB}2-BI\}$ qui est obtenu en choisissant correctement le repère dans lequel est placé le quadrilatère $AC_1BC_2$. C'est ce qui est fait dans le lemme suivant dans lequel les notations suivantes sont adoptées : pour tout $k \in \N$ et $\mu_1,\mu_2 \in \R$, $\mu_k := \mu_{r+1}$, où $r$ est le reste de la division euclidienne de $k$ par 2. L'entier $k$ permettra par la suite de choisir la bonne configuration pour obtenir l'inégalité $\abs{\frac{AB}2-AI} \leq \frac{AB}6$ du lemme \ref{lm:maj_delta_triangle}.
+	En notant $G_1$ et $G_2$ les centres de gravités respectifs de $ABC_1$ et $ABC_2$, et $I$ le point d'intersection entre $[G_1G_2]$ et $[AB]$, l'égalité suivante est justifiée : $\abs{\delta_{i,j}} = |\!|x_{i,j}-\bar x_{i,j}|\!| = \abs{AB/2 - AI} = \abs{AB/2 - BI}$. Dans un premier temps il est nécessaire d'obtenir une expression de $\abs{\frac{AB}2-AI} = \max\{\frac{AB}2-AI,\,\frac{AB}2-BI\}$ qui est obtenu en choisissant judicieusement le repère dans lequel est placé le quadrilatère $AC_1BC_2$. C'est ce qui est fait dans le lemme \ref{lm:equation_delta} dans lequel la notation suivante est adoptée : pour tout $k \in \N$ et $z_1,z_2$ deux réels, $z_k := z_{r+1}$, où $r$ est le reste de la division euclidienne de $k$ par 2. L'entier $k$ permettra par la suite de choisir la bonne configuration pour obtenir l'inégalité $\abs{\frac{AB}2-AI} \leq \frac{AB}6$ du lemme \ref{lm:maj_delta_triangle}.
 	
 	\begin{lm}\label{lm:equation_delta}
 		En ce plaçant dans le contexte précédent, pour $k \in \{1,2\}$ :
@@ -640,7 +640,7 @@
 				\frac{AB}2 - AI &= \dfrac{AB-2AC_1\cos(\alpha_1)}6 + \dfrac{AC_1\sin(\alpha_1)}3\dfrac{AC_2\cos(\alpha_2)-AC_1\cos(\alpha_1)}{-AC_2\sin(\alpha_2)-AC_1\sin(\alpha_1)}\\
 			& = \dfrac{AB-2AC_1\cos(\alpha_1)}6 - \dfrac{AC_1\sin(\alpha_1)}3\dfrac{AC_2\cos(\alpha_2)-AC_1\cos(\alpha_1)}{AC_2\sin(\alpha_2)+AC_1\sin(\alpha_1)}
 			\end{aligned}\]
-			Par symétrie il vient les 3 autres équations.
+			Par symétrie il suit les 3 autres équations.
 	\end{proof}
 	
 	 En supposant la convexité du quadrilatère $AC_1BC_2$, la quantité $\abs{\delta_{i,j}} = \abs{AB/2-AI}$ est alors majoré par $\lambda_{i,j}/6 = AB/6$, c'est ce qui est démontré ci-dessous.
@@ -652,7 +652,7 @@
 		\end{equation}
 	\end{lm} 
 	\begin{proof}
-		Dans cette preuve, il sera traité le cas où $AB/2 \geq AI$, l'autre cas se traitant strictement de la même manière en considérant : $BI = AB-AI$ à la place de $AI$. Puisque $AC_1BC_2$ est convexe, il vient que $\alpha_1+\alpha_2 \leq \pi$ (sinon $[C_1C_2]$ n'est pas dans $AC_1BC_2$). Pour $k \in\{1,2\}$, il vient :
+		Dans cette preuve, il sera traité le cas où $AB/2 \geq AI$, l'autre cas se traitant strictement de la même manière en considérant : $BI = AB-AI$ à la place de $AI$. Puisque $AC_1BC_2$ est convexe, il vient que $\alpha_1+\alpha_2 \leq \pi$ (sinon $[C_1C_2]$ n'est pas dans $AC_1BC_2$). Pour $k \in\{1,2\}$, il suit :
 		\[
 			\abs{\frac{AB}2-AI} = \dfrac{AB-2AC_k\cos(\alpha_k)}6 - \dfrac{AC_k\sin(\alpha_k)}3\dfrac{AC_{k+1}\cos(\alpha_{k+1})-AC_k\cos(\alpha_k)}{AC_{k+1}\sin(\alpha_{k+1})+AC_k\sin(\alpha_k)}.
 		\]
@@ -679,7 +679,7 @@
 	
 	
 	
-	En traduisant le lemme \ref{lm:maj_delta_triangle} à 2 cellules voisines, $C_i$ et $C_j$, il est alors possible d'appliquer ce lemme à $\delta_{i,j}$. La figure \ref{fig:cellule_triangulaire_applique} illustre la situation.
+	En traduisant le lemme \ref{lm:maj_delta_triangle} à 2 cellules voisines, $T_i$ et $T_j$, il est alors possible d'appliquer ce lemme à $\delta_{i,j}$. La figure \ref{fig:cellule_triangulaire_applique} illustre la situation.
 	
 	\begin{center}
 		\begin{tikzpicture}[thick]
@@ -702,8 +702,8 @@
 			\node [right] at (B) {$B$};
 			\node [above] at (C1) {$C_1$};
 			\node [below] at (C2) {$C_2$};	
-			\node [above left] at (Cell1) {$T_1$};
-			\node [left] at (Cell2) {$T_2$};	
+			\node [above left] at (Cell1) {$T_i$};
+			\node [left] at (Cell2) {$T_j$};	
 		\end{tikzpicture}
 		\captionof{figure}{Illustration de l'interface $\Gamma_{i,j}$ entre deux cellules $T_i$ et $T_j$.}
 		\label{fig:cellule_triangulaire_applique}
@@ -764,8 +764,8 @@
 		\begin{equation}
 			\abs{\alpha_{i,j}} \leq \dfrac{\lambda_{i,j}}{3\lambda_{i,k}\sin(\mu_{i,jk})}.
 		\end{equation}
-		Pour tout $k \in \mathcal N_i$ tel que $k \not = j$, il vient en utilisant la formule de l'aire d'un triangle : $\abs{C_i} = \frac{\lambda_{i,j}\lambda_{i,k}\sin(\mu_{i,jk})}2$. D'après le lemme \ref{lm:maj_delta}, il vient le résultat voulu.\\
-		D'après cette nouvelle inégalité, il vient : $\abs{\alpha_{i,j}\alpha_{i,k}} \leq \dfrac{\lambda_{i,j}\lambda_{i,k}}{9\lambda_{i,j}\lambda_{i,k}\sin^2(\mu_{i,jk})} = \dfrac1{9\sin^2(\mu_{i,jk})}$. Le résultat est donc obtenu.
+		Pour tout $k \in \mathcal N_i$ tel que $k \not = j$, il vient en utilisant la formule de l'aire d'un triangle : $\abs{C_i} = \frac{\lambda_{i,j}\lambda_{i,k}\sin(\mu_{i,jk})}2$. D'après le lemme \ref{lm:maj_delta}, il suit le résultat voulu.\\
+		D'après cette nouvelle inégalité, l'inégalité suivante est vérifiée : $\abs{\alpha_{i,j}\alpha_{i,k}} \leq \dfrac{\lambda_{i,j}\lambda_{i,k}}{9\lambda_{i,j}\lambda_{i,k}\sin^2(\mu_{i,jk})} = \dfrac1{9\sin^2(\mu_{i,jk})}$. Le résultat est donc obtenu.
 	\end{proof}
 	
 	\newcommand{\Ap}{\mathrm{Angle}^+}
@@ -834,7 +834,7 @@
 		\end{aligned}$ \\
 		
 		et, $\Ap(\overrightarrow{AE},\overrightarrow{AC}) = 2\pi-\Ap(\overrightarrow{AC},\overrightarrow{AE}) = 2\pi-\pi/2$, car l'angle $\Ap(\overrightarrow{AE},\overrightarrow{AC})+\Ap(\overrightarrow{AC},\overrightarrow{AE})$ correspond à un demie-tour (un angle de $2\pi$).\\
-		Cependant $\Ap(\overrightarrow{AE},\overrightarrow{AB}) + \Ap(\overrightarrow{AB},\overrightarrow{AC}) = \Ap(\overrightarrow{AE},\overrightarrow{AC})$, ainsi en combinant les 2 égalités antérieur à l'égalité précédente, il vient : $\begin{aligned}[t]
+		Cependant $\Ap(\overrightarrow{AE},\overrightarrow{AB}) + \Ap(\overrightarrow{AB},\overrightarrow{AC}) = \Ap(\overrightarrow{AE},\overrightarrow{AC})$, ainsi en combinant les 2 égalités antérieur à l'égalité précédente, l'inégalité qui suit est vérifiée : $\begin{aligned}[t]
 			\Ap(\overrightarrow{AB},\overrightarrow{AC}) &= \Ap(\overrightarrow{AE},\overrightarrow{AC})-\Ap(\overrightarrow{AE},\overrightarrow{AB})\\
 			& = 2\pi-\pi/2 - \theta_{\max}+\theta_{\min}-\pi/2\\
 			& = \pi + \theta_{\min}-\theta_{\max}.
@@ -858,7 +858,7 @@
 		\end{equation}
 	\end{lm}
 	\begin{proof}
-		D'après l'expression du déterminant de $M_i$ fournis par \cite{florent}, du lemme \ref{lm:majoration_produit_alpha} et du lemme \ref{lm:egalite_angle}, il vient :
+		D'après l'expression du déterminant de $M_i$ fournis par \cite{florent}, du lemme \ref{lm:majoration_produit_alpha} et du lemme \ref{lm:egalite_angle}, les inégalités suivantes sont vérifiées :
 		\begin{equation}\label{eq:abs_det}
 			\abs{\det(M_i)-1} \leq \sum_{1\leq j < k \leq 3} \dfrac1{9\sin^2(\mu_{i,jk})}\sin^2(\mu_{i,jk}) \leq  \frac13.
 		\end{equation}
@@ -868,7 +868,7 @@
 		\end{equation}
 	\end{proof}content
 	
-	Pour pouvoir donner une majoration intéressante de $M_i^{-1}$, il reste à savoir s'il est possible de majorer les $\abs{\alpha_{i,j}}$, ce qui va dépendre fortement de l'angle minimum atteint.
+	Pour pouvoir donner une majoration de $|\!|M_i^{-1}|\!|_2$, il reste à majorer les quantités $\abs{\alpha_{i,j}}$ pour pouvoir majorer $\abs{\alpha_i}$, ce qui va dépendre fortement de l'angle minimum atteint.
 	
 	\begin{lm}\label{lm:angle_min}
 		Pour $\mathcal T$ un maillage triangulaire.	S'il existe $\mu_{\min} > 0$ tel que pour tout $i \in \mathcal T$ et $j \not = k \in \mathcal T$, $\mu_{i,jk} \geq \mu_{\min}$ :
@@ -878,14 +878,14 @@
 			\]
 	\end{lm}
 	\begin{proof}
-		Pour $\{j,k,r\} = \{1,2,3\}$ une numérotation locale des voisins de $C_i$, d'après la loi des sinus il vient :
+		Pour $\{j,k,r\} = \{1,2,3\}$ une numérotation locale des voisins de $C_i$, d'après la loi des sinus l'égalité suivante est satisfaite :
 		\begin{equation}
 			\frac{\sin(\mu_{i,kr})}{\lambda_{i,j}} = \frac{\sin(\mu_{i,jr})}{\lambda_{i,k}}.
 		\end{equation}
 		Et ainsi, d'après la preuve du lemme \ref{lm:majoration_produit_alpha}, il vient : $\abs{\alpha_{i,j}} \leq \frac{\lambda_{i,j}}{3\lambda_{i,k}\sin(\mu_{i,jk})} \leq \frac{\sin(\mu_{i,kr})}{3\sin(\mu_{i,jr})\sin(\mu_{i,jk})} \leq \frac1{3\sin^2(\mu_{\min})}$
 	\end{proof}
 	
-	Pour une suite de maillage $(\mathcal T_n)$telle que le pas $h(\mathcal T_n)$ tends vers 0, ce lemme montre que si aucune suite de triangles, $T_n \in \mathcal T_n$, ne tendent vers un triangle plat, alors $\alpha_{i,j}$ est borné et donc $\alpha_i$ l'est aussi. Il est maintenant possible de fournir une majoration de $M_i^{-1}$ sous certaines conditions qui sont détaillés ci-dessous :
+	Pour une suite de maillage $(\mathcal T_n)$ telle que le pas $h(\mathcal T_n)$ tends vers 0, ce lemme montre que si aucune suite de triangles, $T_n \in \mathcal T_n$, ne tend vers un triangle plat, alors $\alpha_{i,j}$ est borné et donc $\alpha_i$ l'est aussi. Il est maintenant possible de fournir une majoration de $|\!|M_i^{-1}|\!|_2$ sous certaines conditions qui sont détaillés dans le lemme \ref{lm:maj_Mi_opti}.
 	
 	\begin{lm}\label{lm:maj_Mi_opti}
 		Pour $\mathcal T$ un maillage triangulaire.\\
@@ -907,7 +907,7 @@
 		Pour $\mathcal T$ un maillage triangulaire.\\
 		Si toute union de deux triangles voisins est convexe et qu'il existe $\mu_{\min} > 0$, tel que pour tout $i \in \mathcal T$, $j \not = k \in \mathcal N_i$, $\mu_{i,jk} \geq \mu_{\min}$. Alors pour tout $i \in \mathcal T$,
 		\begin{equation}
-			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!|_2 \leq 6\sqrt{1.5+\frac{2.25}{\sin^4(\mu_{\min})}}H\, h.
+			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!|_2 \leq 6\sqrt{1.5+\frac{2.25}{\sin^4(\mu_{\min})}}|\!|\nabla^2 u|\!|_\infty\, h.
 		\end{equation}
 	\end{thm}
 	\begin{proof}
@@ -916,7 +916,7 @@
 	
 	Il est possible pour certains types de maillages, de fournir la valeur d'une borne, notamment pour les maillage de Delaunay raffinés, il est possible suivant plus ou moins de contrainte d'imposer un angle minimum, quelque soit le nombre de cellules, globalement cette angle vaut $\mu_{\min} = 26.5^{\circ}$ (voir l'abstract de \cite{mesh}). Pour cette valeur il suit :	
 	\[
-		|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!| \leq 45.8 H\, h.
+		|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!| \leq 45.8 |\!|\nabla^2 u|\!|_\infty\, h.
 	\]	
 	
 	Il reste maintenant à éprouver cette quantification sur différents maillages, ne respectant pas nécessairement la condition de convexité ou celle de l'angle minimum.
@@ -968,21 +968,22 @@ Pour tester ce gradient discret \eqref{eq:grad_discret}, il a été choisi de pr
 	\end{enumerate}
 \end{enumerate}
 
-Le domaine $\Omega$ n'étant pas ouvert, et les conditions de bord n'ayant pas été défini, ni étudié, il a été choisi de mettre des conditions de bord périodique. Les fonctions test ayant été choisis pour leur propriété de forte décroissance sur le bord, ce qui peut être observé sur les figures \ref{fig:rep_graph}, ces fonctions prennent au bord du domaine des valeurs très proche de 0, en dessous du 0 machine, rendant nul les erreurs au bords du domaine.
+Le domaine $\Omega$ n'étant pas ouvert, et les conditions de bord n'ayant pas été définies, ni étudiées, il a été choisi de mettre des conditions de bord périodiques. Les fonctions test ayant été choisis pour leur propriété de forte décroissance sur le bord, ce qui peut être observé sur les figures \ref{fig:rep_graph_u1} et \ref{fig:rep_graph_u2}, ces fonctions prennent au bord du domaine des valeurs très proche de 0, rendant nul les erreurs au bords du domaine.
 
 \begin{figure}[h!]
 	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[scale=.08]{image/gradient.png}
 		\caption{Gaussienne $u^1$ pour $\sigma=1$.}
+		\label{fig:rep_graph_u1}
 	\end{subfigure}
 	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[scale=.22]{image/plateau.png}
 		\caption{Fonction plateau $u^2$.}
+		\label{fig:rep_graph_u2}
 	\end{subfigure}
 	\captionof{figure}{Fonctions tests sur $[0,\,10]\times[0,\,10]$.}
-	\label{fig:rep_graph}
 \end{figure}
 
 \vspace{-.5cm}
@@ -1073,7 +1074,7 @@ Le tableau \ref{tab:ordre_u1} représente les ordres de convergences associés a
 		phi erreur1 erreur2 erreur3
 		0 1.917 1.855 1.744
 		0.5 1.029 0.951 0.632 
-		0.9 1.001 0.891 0.364
+		0.9 0.971 0.508 -1.454
 	}
 	\caption{Ordre de convergence pour $u_1$}
 	\label{tab:ordre_u1}
@@ -1133,34 +1134,32 @@ Le tableau \ref{tab:ordre_u1} représente les ordres de convergences associés a
 		phi erreur1 erreur2 erreur3
 		0 1.972 1.925 1.920
 		0.5 0.939 0.905 0.640
-		0.9 0.949 0.840 -0.633
+		0.9 0.983 0.882 -0.537
 	}
 	\caption{Ordre de convergence pour $u^2$}
 	\label{tab:ordre_u2}
 \end{table}
 
-Pour les deux fonctions tests, l'ordre de convergence 1, et 2 pour les maillages cartésiens, est retrouvé pour les déformations allant jusqu'à 0.5 et les maillages de Delaunay. Cependant, l'ordre de convergence pour la norme $|\!|\cdot|\!|_\infty$  est fortement dégradé pour une déformation de coefficient 0.9, cela peut s'expliquer par le fait qu'environ 10\% des cellules ne vérifient pas le critère de convexité pour cette déformation, tandis que pour une déformation de 0.5, toutes les cellules vérifient le critère de convexité. De plus il est constaté que plus le coefficient de déformation augmente plus il est difficile de raffiner le pas spatial, en effet, le pas minimum (pour un même échantillon de maillage, dans le sens où chaque déformation a été testé pour un ensemble de maillage dont le nombre de maille est le même) est de plus en plus grand.
-
-\newpage
-
 \textbf{Maillage de Delaunay}
 
 Pour obtenir l'ordre de convergence, il est fait de même que pour le cas des maillages cartésiens : le nombre de cellules est augmenté. Les figures \ref{fig:delaunay}, \ref{fig:conv_delaunay_u1} et \ref{fig:conv_delaunay_u2} représentent respectivement un exemple de triangulation de Delaunay, les courbes de convergences associées à ce type de maillage pour $u^1$ et $u^2$.
 
+\newpage
+
 \begin{figure}[!h]
-	\begin{subfigure}{0.45\textwidth}
+	\begin{subfigure}{\textwidth}
 		\centering
 	\includegraphics[scale=0.3]{image/maillage_ffm.png}
 	\caption{Maillage de Delaunay}
 	\label{fig:delaunay}
 	\end{subfigure}
-	\begin{subfigure}{0.55\textwidth}
+	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[scale=0.65]{image/ffm.png}
 		\caption{Graphique en échelle logarithmique pour $u^1$}
 		\label{fig:conv_delaunay_u1}
 	\end{subfigure}
-	\begin{subfigure}{\textwidth}
+	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[scale=0.65]{image/ffm_plateau.png}
 		\caption{Graphique en échelle logarithmique pour $u^2$}
@@ -1168,10 +1167,6 @@ Pour obtenir l'ordre de convergence, il est fait de même que pour le cas des ma
 	\end{subfigure}
 	\caption{Maillage de Delaunay et courbe de convergence associées en échelle logarithmique.}
 \end{figure}
-
-
-
-L'ordre de convergence de 1 pour les normes $|\!|\cdot|\!|_1$, $|\!|\cdot|\!|_2$ et $|\!|\cdot|\!|_\infty$ est bien retrouvé, ceci est illustré dans le tableau \ref{tab:ffm}.
 
 \begin{table}[!h]
 	\centering
@@ -1208,11 +1203,12 @@ L'ordre de convergence de 1 pour les normes $|\!|\cdot|\!|_1$, $|\!|\cdot|\!|_2$
 	\caption{Ordre de convergence pour $u_2$}
 	\label{tab:ffm}
 \end{table}
-De plus les conditions de convexités et d'angle minimums, l'angle minimum mesuré était supérieur à $27^\circ$, sont vérifiées pour les maillages de Delaunay qui ont été testés. Ces conditions permettent ainsi d'appliquer le théorème \ref{thm:maj_erreur} à ces maillages.
+
+Les conditions de convexités et d'angle minimums, l'angle minimum mesuré était supérieur à $27^\circ$, sont vérifiées pour les maillages de Delaunay qui ont été testés. Ces conditions permettent ainsi d'appliquer le théorème \ref{thm:maj_erreur} aux maillages de Delaunay. Pour les deux fonctions tests, l'ordre de convergence est de 1, et 2 pour les maillages cartésiens, est retrouvé pour les déformations allant jusqu'à 0.5 et les maillages de Delaunay. Cependant, l'ordre de convergence pour la norme $|\!|\cdot|\!|_\infty$  est fortement dégradé pour une déformation de coefficient 0.9, cela peut s'expliquer par le fait qu'environ 10\% des cellules ne vérifient pas le critère de convexité pour cette déformation, tandis que pour une déformation de 0.5, toutes les cellules vérifient le critère de convexité. De plus il est constaté que plus le coefficient de déformation augmente plus il est difficile de raffiner le pas spatial, en effet, le pas minimum (pour un même échantillon de maillage, dans le sens où chaque déformation a été testé pour un ensemble de maillage dont le nombre de maille est le même) est de plus en plus grand. 
 
 \section{Conclusions et limites}
 
-En conclusion, il a pu être démontré que pour des maillage triangulaire avec une condition de convexité et d'angle minimum, les conditions sont détaillées dans le théorème \ref{thm:maj_erreur}, l'erreur de consistance, en norme infini, converge en ordre 1. Cette hypothèse a de plus été vérifié, mais non démontré, pour les maillages quadrangulaire, et lorsque cette hypothèse est vérifié, pour les maillages de Delaunay et les maillages quadrangulaires de déformation inférieur à 0.5, la convergence de l'erreur de consistance a pu être mesuré numériquement. Cependant lorsque cette dernière condition n'est pas vérifiée, il a été constaté une dégradation importante de l'erreur de convergence pour la norme $|\!|\cdot|\!|_\infty$. De plus, il n'est pas assuré qu'en augmentant le nombre de cellules, le pas du maillage diminue, ce dernier peut augmenter, voir l'annexe \ref{sec:augm_pas}, cela conduit a suggérer d'examiner si pour un pas $h_0$ donné, il est possible de généré un maillage $\mathcal T$ ayant un pas $h(\mathcal T)$ vérifiant : $h(\mathcal T) \leq h_0$.
+En conclusion, il a pu être démontré pour des maillages triangulaires avec une condition de convexité et d'angle minimum, les conditions sont détaillées dans le théorème \ref{thm:maj_erreur}, que l'erreur de consistance en norme infini converge en ordre 1. Ce résultat a de plus été vérifié, mais non démontré, pour les maillages quadrangulaire, et lorsque cette hypothèse est vérifié, pour les maillages de Delaunay et les maillages quadrangulaires de déformation inférieur à 0.5, la convergence de l'erreur de consistance a pu être mesuré numériquement. Cependant lorsque cette dernière condition n'est pas vérifiée, il a été constaté une dégradation importante de l'erreur de convergence pour la norme $|\!|\cdot|\!|_\infty$. De plus, il n'est pas assuré qu'en augmentant le nombre de cellules, le pas du maillage diminue, rien n'empêche ce dernier d'augmenter sans condition supplémentaire sur la façon de générer un maillage, voir l'annexe \ref{sec:augm_pas}. Cela conduit a suggérer d'examiner si pour un pas $h_0$ donné, il est possible de générer un maillage $\mathcal T$ ayant un pas $h(\mathcal T)$ vérifiant : $h(\mathcal T) \leq h_0$.
 
 \section{Annexe}
 
