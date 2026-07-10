@@ -26,10 +26,16 @@
 	
 	\setcounter{framenumber}{-1}
 	
-	%Slide 0
+	%Slide -1
 	\frame{\titlepage}
 	
+	%Slide 0
+	\begin{frame}{Plan}
+		\tableofcontents
+	\end{frame}
+	
 	%Slide 1
+	\section{Introduction}
 	\begin{frame}{Introduction}
 		\begin{itemize}
 			\item Maillages non-structuré ?\pause \hspace{.2cm} $\to$ \begin{minipage}[t]{6cm}
@@ -52,6 +58,7 @@
 	\end{frame}
 	
 	%Slide 2
+	\section{Prérequis}
 	\begin{frame}{Prérequis}
 		\only<1-7>{
 		\underline{\textbf{Maillage :}} \begin{minipage}[t]{12cm}
@@ -276,24 +283,23 @@
 					\draw[color=black] (8.863325183374085,5.53357142857143) node[right] {$\Gamma_{ij}$};
 				\end{tikzpicture}
 			}
-			\only<8>{
-				\vspace{1cm}
-				\underline{Matrice $M_i \in \mathcal M_{2,2}(\mathbb{R})$ associée à la cellule $C_i$ :}
-				\begin{equation}\label{eq:Mi}
-					M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j} {n_{i,j}}\otimes\left( {\bar x_{i,j}-x_{i,j}}\right),
-			\end{equation}}
 			\only<1-7>{\captionof{figure}{Interface $\Gamma_{ij}$ de longueur $\lambda_{i,j}$.}}
 		\end{center}
 	\end{frame}
 	
 	%Slide 3
+	\section{Gradients discrets local pour la méthode des volumes finis}
 	\begin{frame}{Gradients discrets local pour la méthode des volumes finis}
 		
 		Pour $u \in \mathcal C^2(\mathbb R^2,\mathbb R)$ \pause $\to$ une liste $(u_i)$\pause\\
 		Sous la condition que $M_i$ soit inversible, $\overline{\nabla u(x_i)}$ est défini par :
 		\begin{equation}\label{eq:grad_discret}
-			M_i \overline{ {\nabla u}(x_i)} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}.
-		\end{equation}
+			M_i \overline{ {\nabla u}(x_i)} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}},
+		\end{equation}\pause
+		
+		\vspace{.5cm}
+		
+		où $M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j} {n_{i,j}}\otimes\left( {\bar x_{i,j}-x_{i,j}}\right).$
 	\end{frame}
 	
 	%Slide 4
@@ -348,12 +354,17 @@
 	
 	%Slide 5
 	\newcommand{\dx}{\mathrm dx}
+	\section{Majoration de l'erreur}
 	\begin{frame}{Majoration de l'erreur}
 		\only<1>{\begin{center}
 				La modélisation discrète du gradient de $u$, $\nabla u_i$, est définie par :
 				\vspace{.5cm}
 				
-				$\nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u(x) \mathrm dx$
+				$u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i} u(x)\, \dx$
+				
+				\vspace{.5cm}
+				
+				$\nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u(x)\, \mathrm dx$
 		\end{center}}
 		\only<2>{
 			\begin{center}
@@ -372,7 +383,7 @@
 		
 		\vspace{.2cm}
 		
-		Majorations des erreurs pour \only<3-4>{$h = \max_i \max_{j \in \mathcal N_i} d(x_i,x_j)$}\only<5>{$\textcolor{red}{h = \max_i \max_{j \in \mathcal N_i} d(x_i,x_j)}$}\only<6>{$\textcolor{blue}{h = \max_i \max_{j \in \mathcal N_i} \mathrm{diam}(C_i)+\mathrm{diam}(C_j)}$}\only<7-8>{$h = \max_i \max_{j \in \mathcal N_i} \mathrm{diam}(C_i)+\mathrm{diam}(C_j)$}\only<9>{$\textcolor{red}{h = \max_i \max_{j \in \mathcal N_i} \mathrm{diam}(C_i)+\mathrm{diam}(C_j)}$}\only<10>{$\textcolor{blue}{h = \dfrac{\left(\max_i \max_{j \in \mathcal N_i} \mathrm{diam}(C_i)+\mathrm{diam}(C_j)\right)^3}{\min_i \abs{C_i}}}$}\only<11->{$h = \dfrac{\left(\max_i \max_{j \in \mathcal N_i} \mathrm{diam}(C_i)+\mathrm{diam}(C_j)\right)^3}{\min_i \abs{C_i}}$} :
+		Majorations des erreurs pour \only<3-4>{$h = \max_i \max_{j \in \mathcal N_i} d(x_i,x_j)$}\only<5>{$\textcolor{red}{h = \max_i \max_{j \in \mathcal N_i} d(x_i,x_j)}$}\only<6>{$\textcolor{blue}{h = \dfrac{\left(\max_i \max_{j \in \mathcal N_i} \mathrm{diam}(C_i)+\mathrm{diam}(C_j)\right)^3}{\min_i \abs{C_i}}}$}\only<7->{$h = \dfrac{\left(\max_i \max_{j \in \mathcal N_i} \mathrm{diam}(C_i)+\mathrm{diam}(C_j)\right)^3}{\min_i \abs{C_i}}$} :
 		
 		\only<3-7>{
 		\begin{equation}\label{eq:maj_naiv_R1}
@@ -398,23 +409,11 @@
 	
 		\only<8>{
 			\vspace{1cm}
-		\begin{equation}
-			|\!| {R^{(i)}}|\!| \leq 2HN_{max}\frac{h^3}{\abs{C_i}}
-		\end{equation}
-		}
-		\only<9>{
-			\vspace{1cm}
-			\begin{equation}
-				\textcolor{red}{|\!| {R^{(i)}}|\!| \leq 2{|\!|\nabla^2 u|\!|_\infty}N_{max}\frac{h^3}{\abs{C_i}}}
-			\end{equation}
-		}
-		\only<10>{
-			\vspace{1cm}
 			\begin{equation}\label{eq:max_naiv_R4}
 				|\!| {R^{(i)}}|\!| \leq 2{|\!|\nabla^2 u|\!|_\infty}N_{max}h
 			\end{equation}
 		}
-		\only<11-12>{
+		\only<9-10>{
 		\vspace{1cm}
 		
 		\begin{center}
@@ -422,11 +421,11 @@
 			
 			\vspace{.2cm}
 			
-			\only<12>{
+			\only<10>{
 			$\big\Downarrow$
 			}
 		\end{center}
-		\only<12>{
+		\only<10>{
 		\begin{equation}
 			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!| \leq 2|\!|M_i^{-1}|\!| {|\!|\nabla^2 u|\!|_\infty}N_{\max}\, h
 		\end{equation}}
@@ -495,6 +494,7 @@
 	
 	%Slide 7
 	\begin{frame}{Majoration de $|\!|M_i^{-1}|\!|_2$ : cas général}
+		Puisque $M_i \in \mathcal M_{2,2}(\mathbb{R})$, on a le résultat suivant.\pause\\
 		Si $M_i$ est inversible, alors :
 	
 	\begin{equation}
@@ -529,7 +529,11 @@
 				\implies & \abs{\alpha_{i,j}} \leq \dfrac1{3\sin^2(\mu_{\min})} \\
 				\implies &  \abs{\alpha_i} \leq \dfrac1{\sin^2(\mu_{\min})}
 			\end{aligned}$
-		\end{center}
+		\end{center}\pause
+		
+		\vspace{1cm}
+		
+		Maillage de Delaunay $\implies$ $\mu_{\min} \geq 26.5^\circ$
 	\end{frame}
 	
 	%Slide 9
@@ -589,17 +593,38 @@
 		
 		\begin{equation}
 			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!|_2 \leq 6\sqrt{1.5+\frac{2.25}{\sin^4(\mu_{\min})}}{|\!|\nabla^2 u|\!|_\infty}\, h.
-		\end{equation}\pause
+		\end{equation}
+	\end{frame}
+	
+	\section{Tests numériques}
+	\begin{frame}{Tests numériques : Maillages}
+		\begin{figure}[h]
+			\begin{subfigure}{0.3\textwidth}
+				\centering
+				\includegraphics[scale=.15]{image/maillage_carre.png}
+				\caption{Maillage cartésien}
+			\end{subfigure}\pause
+			\begin{subfigure}{0.3\textwidth}
+				\centering
+				\includegraphics[scale=.15]{image/maillage_ffm.png}
+				\caption{Maillage de Delaunay}
+			\end{subfigure}\pause
+			\begin{subfigure}{0.35\textwidth}
+				\centering
+				\includegraphics[scale=.15]{image/maillage_deforme_09.png}
+				\caption{Maillage cartésien déformé}
+			\end{subfigure}
+		\end{figure}\pause
 		
-		\vspace{1cm}
+		\vspace{.5cm}
 		
-		$\implies$ Maille de Delaunay : $\mu_{\min} \geq 26.5^\circ$\pause $\implies$ $|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!| \leq 40.8 {|\!|\nabla^2 u|\!|_\infty}\, h$.
+		\underline{Condition de bord :} périodique\pause $\implies$ même valeur en haut et en bas, à gauche et à droite.
 	\end{frame}
 	
 	
-	\begin{frame}{Tests numérique : Fonctions tests}
+	\begin{frame}{Tests numériques : Fonctions tests}
 		\begin{itemize}
-			\only<1,2,4>{\item Gaussienne : $\mathrm{gauss}(x,y) = \exp\left(\dfrac{(x-x_c)^2+(y-y_c)^2}{2\sigma^2}\right)$\\
+			\only<1,2>{\item Gaussienne : $\mathrm{gauss}(x,y) = \exp\left(\dfrac{(x-x_c)^2+(y-y_c)^2}{2\sigma^2}\right)$\\
 			\only<1>{
 				\vspace{.5cm}
 				\centering
@@ -607,24 +632,8 @@
 				\captionof{figure}{Gaussienne.}
 			}
 			
-			\vspace{.5cm}}
-			
-			\only<2-4>{
-			\item Fonction anisotrope et fortement oscillante :
-			
-			\vspace{.2cm}
-			
-			 $u_1(x,y) = \left(\sin(\pi x)\cos(3\pi x + 0.5 \pi) + \sin(xy\pi) + \pi\sin(2\pi xy)\right)\mathrm {gauss}(x,y)$\\
-			 \only<3>{
-			 	\vspace{.5cm}
-			 	\centering
-			 	\includegraphics[scale=.2]{image/ani.png}
-			 	\captionof{figure}{Fonction anisotrope.}
-			 }
-			 
-			 \vspace{.5cm}}
-			 
-			 \only<4->{\item Fonction plateau :
+			\vspace{.5cm}}			 
+			 \only<2->{\item Fonction plateau :
 			 
 			 \vspace{.2cm}
 			 
@@ -633,7 +642,7 @@
 			 	0 & \text{sinon}
 			 \end{cases}$
 			 
-			 \only<5>{
+			 \only<3>{
 			 	\vspace{.5cm}
 			 	\centering
 			 	\includegraphics[scale=.18]{image/plateau.png}
@@ -641,28 +650,7 @@
 			 }}
 		\end{itemize}
 	\end{frame}
-	
-	
-	\begin{frame}{Tests numérique : Maillages}
-		\begin{figure}[h]
-			\begin{subfigure}{0.3\textwidth}
-				\centering
-				\includegraphics[scale=.15]{image/maillage_carre.png}
-				\caption{Maillage cartésien}
-			\end{subfigure}\pause
-			\begin{subfigure}{0.35\textwidth}
-				\centering
-				\includegraphics[scale=.15]{image/maillage_deforme_09.png}
-				\caption{Maillage cartésien déformé}
-			\end{subfigure}\pause
-			\begin{subfigure}{0.3\textwidth}
-				\centering
-				\includegraphics[scale=.15]{image/maillage_ffm.png}
-				\caption{Maillage de Delaunay}
-			\end{subfigure}
-		\end{figure}
-	\end{frame}
-	
+		
 	
 	\begin{frame}{Résultats : gaussienne}
 		\only<1>{
@@ -672,55 +660,28 @@
 			\caption{Maillage cartésien ($\varphi = 0$).}
 		\end{figure}}
 	
-		\only<2>{
+		\only<3>{
 			\begin{figure}
 				\centering
 				\includegraphics[scale=.6]{image/deforme_05.png}
 				\caption{Maillage cartésien déformé de déformation $\varphi = 0.5$.}
 		\end{figure}}
 	
-		\only<3>{
+		\only<4>{
 			\begin{figure}
 				\centering
 				\includegraphics[scale=.6]{image/deforme_09.png}
 				\caption{Maillage cartésien déformé de déformation $\varphi = 0.9$.}
 		\end{figure}}
 	
-		\only<4>{
+		\only<2>{
 			\begin{figure}
 				\centering
 				\includegraphics[scale=.6]{image/ffm.png}
 				\caption{Maillage de Delaunay.}
 		\end{figure}}
-		
-		\only<5>{
-			
-			\vspace{-.25cm}
-			
-		\begin{figure}
-			\begin{subfigure}{.4\textwidth}
-				\centering
-				\includegraphics[scale=.3]{image/carre.png}
-				\caption{$\varphi = 0$.}
-			\end{subfigure}
-			\begin{subfigure}{.4\textwidth}
-				\centering
-				\includegraphics[scale=.3]{image/deforme_05.png}
-				\caption{$\varphi = 0.5$.}
-			\end{subfigure}
-			\begin{subfigure}{.4\textwidth}
-				\centering
-				\includegraphics[scale=.3]{image/deforme_09.png}
-				\caption{$\varphi = 0.9$.}
-			\end{subfigure}
-			\begin{subfigure}{.4\textwidth}
-				\centering
-				\includegraphics[scale=.3]{image/ffm.png}
-				\caption{Delaunay.}
-			\end{subfigure}
-		\end{figure}}
 	
-		\only<6>{
+		\only<5>{
 			\centering
 			
 			Ordre de convergence :
@@ -728,95 +689,20 @@
 			\vspace{.5cm}
 			
 		\begin{NiceTabular}{cccc}
-			Maillage & $\mathrm L^1$ & $\mathrm L^2$ & $\mathrm L^\infty$ \\
+			\CodeBefore
+				\rowcolor{red!15}{1-2}
+				\rowcolor{blue!15}{4,6}
+			\Body
+			\Block[C]{2-1}{Maillage} & \Block[C]{2-1}{$\mathrm L^1$} & \Block[C]{2-1}{$\mathrm L^2$} & \Block[C]{2-1}{$\mathrm L^\infty$} \\
+			& & & \\
 			\hline
 			$\varphi=0$ & 1.917 & 1.855 & 1.744 \\
+			Delaunay & 1.266 & 1.205 & 0.804 \\
 			$\varphi=0.5$ & 1.029 & 0.951 & 0.632 \\
-			$\varphi=0.9$ & 1.001 & 0.891 & 0.364 \\
-			Delaunay & 1.144 & 1.149 & 0.996
+			$\varphi=0.9$ & 0.971 & 0.508 & -1.454
 		\end{NiceTabular}
 		}
-	\end{frame}
-	
-	
-	\begin{frame}[fragile]{Résultats : fonction anisotrope}
-		\only<1>{
-			\begin{figure}
-				\centering
-				\includegraphics[scale=.6]{image/carre_ani.png}
-				\caption{Maillage cartésien ($\varphi = 0$).}
-		\end{figure}}
-		
-		\only<2>{
-			\begin{figure}
-				\centering
-				\includegraphics[scale=.6]{image/deforme_05_ani.png}
-				\caption{Maillage cartésien déformé de déformation $\varphi = 0.5$.}
-		\end{figure}}
-		
-		\only<3>{
-			\begin{figure}
-				\centering
-				\includegraphics[scale=.6]{image/deforme_09_ani.png}
-				\caption{Maillage cartésien déformé de déformation $\varphi = 0.9$.}
-		\end{figure}}
-		
-		\only<4>{
-			\begin{figure}
-				\centering
-				\includegraphics[scale=.6]{image/ffm_ani.png}
-				\caption{Maillage de Delaunay.}
-		\end{figure}}
-		
-		\only<5>{
-			
-			\vspace{-.25cm}
-			
-			\begin{figure}
-				\begin{subfigure}{.4\textwidth}
-					\centering
-					\includegraphics[scale=.3]{image/carre_ani.png}
-					\caption{$\varphi = 0$.}
-				\end{subfigure}
-				\begin{subfigure}{.4\textwidth}
-					\centering
-					\includegraphics[scale=.3]{image/deforme_05_ani.png}
-					\caption{$\varphi = 0.5$.}
-				\end{subfigure}
-				\begin{subfigure}{.4\textwidth}
-					\centering
-					\includegraphics[scale=.3]{image/deforme_09_ani.png}
-					\caption{$\varphi = 0.9$.}
-				\end{subfigure}
-				\begin{subfigure}{.4\textwidth}
-					\centering
-					\includegraphics[scale=.3]{image/ffm_ani.png}
-					\caption{Delaunay.}
-				\end{subfigure}
-		\end{figure}}
-	
-		\only<6>{
-			\centering
-			
-			Ordre de convergence :
-			
-			\vspace{.5cm}
-			
-			\begin{center}
-				\begin{NiceTabular}{cccc}
-					Maillage & $\mathrm L^1$ & $\mathrm L^2$ & $\mathrm L^\infty$ \\
-					\hline
-					$\varphi=0$ & 1.600 & 1.621 & 1.636 \\
-					$\varphi=0.5$ & 1.175 & 1.188 & 1.376 \\
-					$\varphi=0.9$ & 1.105 & 1.115 & 0.101 \\
-					Delaunay & - & - & -
-				\end{NiceTabular}
-			\end{center}
-			
-		}
-	\end{frame}
-	
-	
+	\end{frame}	
 	
 	
 	\begin{frame}{Résultats : fonction plateau}
@@ -827,21 +713,21 @@
 				\caption{Maillage cartésien ($\varphi = 0$).}
 		\end{figure}}
 		
-		\only<2>{
+		\only<3>{
 			\begin{figure}
 				\centering
 				\includegraphics[scale=.6]{image/deforme_05_plateau.png}
 				\caption{Maillage cartésien déformé de déformation $\varphi = 0.5$.}
 		\end{figure}}
 		
-		\only<3>{
+		\only<4>{
 			\begin{figure}
 				\centering
 				\includegraphics[scale=.6]{image/deforme_09_plateau.png}
 				\caption{Maillage cartésien déformé de déformation $\varphi = 0.9$.}
 		\end{figure}}
 		
-		\only<4>{
+		\only<2>{
 			\begin{figure}
 				\centering
 				\includegraphics[scale=.6]{image/ffm_plateau.png}
@@ -849,33 +735,6 @@
 		\end{figure}}
 		
 		\only<5>{
-			
-			\vspace{-.25cm}
-			
-			\begin{figure}
-				\begin{subfigure}{.4\textwidth}
-					\centering
-					\includegraphics[scale=.3]{image/carre_plateau.png}
-					\caption{$\varphi = 0$.}
-				\end{subfigure}
-				\begin{subfigure}{.4\textwidth}
-					\centering
-					\includegraphics[scale=.3]{image/deforme_05_plateau.png}
-					\caption{$\varphi = 0.5$.}
-				\end{subfigure}
-				\begin{subfigure}{.4\textwidth}
-					\centering
-					\includegraphics[scale=.3]{image/deforme_09_plateau.png}
-					\caption{$\varphi = 0.9$.}
-				\end{subfigure}
-				\begin{subfigure}{.4\textwidth}
-					\centering
-					\includegraphics[scale=.3]{image/ffm_plateau.png}
-					\caption{Delaunay.}
-				\end{subfigure}
-		\end{figure}}
-	
-		\only<6>{
 		\centering
 		
 		Ordre de convergence :
@@ -883,12 +742,17 @@
 		\vspace{.5cm}
 		
 		\begin{NiceTabular}{cccc}
-			Maillage & $\mathrm L^1$ & $\mathrm L^2$ & $\mathrm L^\infty$ \\
+			\CodeBefore
+				\rowcolor{red!15}{1-2}
+				\rowcolor{blue!15}{4,6}
+			\Body
+			\Block[C]{2-1}{Maillage} & \Block[C]{2-1}{$\mathrm L^1$} & \Block[C]{2-1}{$\mathrm L^2$} & \Block[C]{2-1}{$\mathrm L^\infty$} \\
+			& & & \\
 			\hline
-			$\varphi=0$ & 1.694 & 1.426 & 0.957 \\
-			$\varphi=0.5$ & 1.116 & 1.282 & 0.723 \\
-			$\varphi=0.9$ & 0.739 & - & - \\
-			Delaunay & 1.041 &0.792 & 0.274
+			$\varphi=0$ & 1.972 & 1.925 & 1.920 \\
+			Delaunay & 1.247 &1.205 & 0.804 \\
+			$\varphi=0.5$ & 0.939 & 0.905 & 0.640 \\
+			$\varphi=0.9$ & 0.983 & 0.882 & -0.537 
 		\end{NiceTabular}
 	}
 	\end{frame}
