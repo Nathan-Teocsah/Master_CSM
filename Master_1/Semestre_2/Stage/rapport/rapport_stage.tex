@@ -834,11 +834,12 @@
 		\end{aligned}$ \\
 		
 		et, $\Ap(\overrightarrow{AE},\overrightarrow{AC}) = 2\pi-\Ap(\overrightarrow{AC},\overrightarrow{AE}) = 2\pi-\pi/2$, car l'angle $\Ap(\overrightarrow{AE},\overrightarrow{AC})+\Ap(\overrightarrow{AC},\overrightarrow{AE})$ correspond à un demie-tour (un angle de $2\pi$).\\
-		Cependant $\Ap(\overrightarrow{AE},\overrightarrow{AB}) + \Ap(\overrightarrow{AB},\overrightarrow{AC}) = \Ap(\overrightarrow{AE},\overrightarrow{AC})$, ainsi en combinant les 2 égalités antérieur à l'égalité précédente, l'inégalité qui suit est vérifiée : $\begin{aligned}[t]
+		Cependant $\Ap(\overrightarrow{AE},\overrightarrow{AB}) + \Ap(\overrightarrow{AB},\overrightarrow{AC}) = \Ap(\overrightarrow{AE},\overrightarrow{AC})$, ainsi en combinant les 2 égalités antérieur à l'égalité précédente, l'inégalité qui suit est vérifiée :\\
+		\[\begin{aligned}[t]
 			\Ap(\overrightarrow{AB},\overrightarrow{AC}) &= \Ap(\overrightarrow{AE},\overrightarrow{AC})-\Ap(\overrightarrow{AE},\overrightarrow{AB})\\
 			& = 2\pi-\pi/2 - \theta_{\max}+\theta_{\min}-\pi/2\\
 			& = \pi + \theta_{\min}-\theta_{\max}.
-		\end{aligned}$\\
+		\end{aligned}\]
 		Ainsi $\begin{aligned}[t]
 			\sin^2(\mu_{i,jk}) &= \sin^2(\Ap(\overrightarrow{AB},\overrightarrow{AC}))\\
 			& = \sin^2(\pi+\theta_{\min}-\theta_{\max})\\
@@ -919,7 +920,17 @@
 		|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!| \leq 45.8 |\!|\nabla^2 u|\!|_\infty\, h.
 	\]	
 	
+	Le cas des triangles ayant été traités, il est possible de faire de même sur des maillages quadrangulaires en s'appuyant sur le cas des maillages triangulaires. L'idée est la suivante, pour une cellule quadrangulaire convexe, la quantité $\abs{\delta_{i,j}}$ est la plus grande lorsque ce quadrangle forme un triangle. La figure \ref{fig:deux_cellules_quadrangulaire} illustre deux cellules $Q_1 = ABD_1C_1$ et $Q_2 = ABD_2C_2$ d'un un maillage $\mathcal T$ quadrangulaire tel que $C_2D_2BD_1C_1A$ est convexe.
+	
+	\begin{lm}\label{lm:majorer_delta_quadrangle}
+		content
+	\end{lm}
+	
+	
+	
 	Il reste maintenant à éprouver cette quantification sur différents maillages, ne respectant pas nécessairement la condition de convexité ou celle de l'angle minimum.
+
+\newpage	
 	
 \section{Tests numériques}
 
@@ -1014,6 +1025,8 @@ La figure \ref{fig:cartesien} fournis deux exemples de maillages quadrangulaire 
 
 Ci-dessous se trouve les différents courbes pour les déformations suivantes, $\varphi$ = 0, 0.5 et 0.9. Sur l'axes des abscisses se trouve le pas de chaque maillage testé, le pas étant celui défini en \eqref{eq:def_pas}, les contributions au code fournis ont étés de coder ce nouveau pas, au travers du codage du diamètre d'une cellule, de coder l'erreur global du gradient pour les trois normes choisies pour mesurer l'erreur, de coder d'autres fonctions tests et de coder un script vérifiant la validité de la condition de convexité énoncé par le théorème \ref{thm:maj_erreur}. Pour les maillages cartésiens, l'ordre de convergence à été calculé en prenant les 2 pas le plus fins des maillages générés et en calculant le coefficient directeur associé à ces 2 pas. Cette méthode a été choisi car les maillages sont symétrique, ainsi doubler le nombre de points revient à diviser $h$ par deux. Pour les autres types de maillage, c'est une régression linéaire qui a été utilisé.
 
+\newpage
+
 \textbf{$\to$ Fonction test $u^1$.}
 
 \vspace{-.5cm}
@@ -1037,7 +1050,7 @@ Ci-dessous se trouve les différents courbes pour les déformations suivantes, $
 	\caption{Courbes de convergence en échelle logarithmique pour $u^1$}
 \end{figure}
 
-\vspace{-.5cm}
+\vspace{2cm}
 
 Le tableau \ref{tab:ordre_u1} représente les ordres de convergences associés aux différents types de maillages illustrés ci-dessus pour la fonction test $u_1$.
 
@@ -1072,9 +1085,9 @@ Le tableau \ref{tab:ordre_u1} représente les ordres de convergences associés a
 	},
 	]{
 		phi erreur1 erreur2 erreur3
-		0 1.917 1.855 1.744
-		0.5 1.029 0.951 0.632 
-		0.9 0.971 0.508 -1.454
+		0 1.972 1.925 1.920
+		0.5 0.891 0.857 0.595
+		0.9 0.982 0.882 -0.537
 	}
 	\caption{Ordre de convergence pour $u_1$}
 	\label{tab:ordre_u1}
@@ -1102,6 +1115,8 @@ Le tableau \ref{tab:ordre_u1} représente les ordres de convergences associés a
 	\end{subfigure}
 	\caption{Courbes de convergence en échelle logarithmique pour $u^2$}
 \end{figure}
+
+\vspace{2cm}
 
 \begin{table}[!h]
 	\centering
@@ -1132,13 +1147,15 @@ Le tableau \ref{tab:ordre_u1} représente les ordres de convergences associés a
 	},
 	]{
 		phi erreur1 erreur2 erreur3
-		0 1.972 1.925 1.920
-		0.5 0.939 0.905 0.640
-		0.9 0.983 0.882 -0.537
+		0 1.996 1.996 2.008
+		0.5 1.232 1.216 1.102
+		0.9 1.032 0.871 -0.365
 	}
 	\caption{Ordre de convergence pour $u^2$}
 	\label{tab:ordre_u2}
 \end{table}
+
+\newpage
 
 \textbf{Maillage de Delaunay}
 
@@ -1197,8 +1214,8 @@ Pour obtenir l'ordre de convergence, il est fait de même que pour le cas des ma
 	},
 	]{
 		phi erreur1 erreur2 erreur3
-		 1 1.266 1.256 1.135
-		 2 1.347 1.205 0.804
+		 1 1.232 1.216 1.102
+		 2 1.352 1.143 0.620
 	}
 	\caption{Ordre de convergence pour $u_2$}
 	\label{tab:ffm}

@@ -5,6 +5,7 @@
 \usepackage{tkz-euclide}
 \usepackage{subcaption}
 \usepackage{nicematrix}
+\usepackage{geometry}
 \setbeamertemplate{caption}[numbered]
 \usetikzlibrary{intersections}
 
@@ -38,16 +39,16 @@
 	\section{Introduction}
 	\begin{frame}{Introduction}
 		\begin{itemize}
-			\item Maillages non-structuré ?\pause \hspace{.2cm} $\to$ \begin{minipage}[t]{6cm}
+			\item Maillages non-structurés ?\pause \hspace{.2cm} $\to$ \begin{minipage}[t]{6cm}
 				s'adaptent à des formes réalistes.\pause
 			\end{minipage}
-			\item Complexité :\pause
+			\item Difficultés :\pause
 			\begin{itemize}
-				\item Gradient\textbf{s} discret\textbf{s}. \pause
-				\item Pas d'espace du maillage \pause $\to$ Quantifier l'erreur.\pause
+				\item Gradient\textbf{s} discret\textbf{s}.\pause\\ 
+				$\to$ proposition de gradient discret locaux.\pause
+				\item Pas d'espace du maillage \pause $\to$ Quantifier l'erreur.\pause\\
+				$\to$ proposition de pas $h$\pause
 			\end{itemize}
-			\item Une proposition de gradient discret local.\pause
-			\item Une proposition de pas $h$ \pause $\to$ permet de mesurer l'erreur.\pause
 		\end{itemize}
 		
 		\vspace{.8cm}
@@ -288,8 +289,8 @@
 	\end{frame}
 	
 	%Slide 3
-	\section{Gradients discrets local pour la méthode des volumes finis}
-	\begin{frame}{Gradients discrets local pour la méthode des volumes finis}
+	\section{Gradients discrets locaux pour la méthode des volumes finis}
+	\begin{frame}{Gradients discrets locaux pour la méthode des volumes finis}
 		
 		Pour $u \in \mathcal C^2(\mathbb R^2,\mathbb R)$ \pause $\to$ une liste $(u_i)$\pause\\
 		Sous la condition que $M_i$ soit inversible, $\overline{\nabla u(x_i)}$ est défini par :
@@ -357,7 +358,7 @@
 	\section{Majoration de l'erreur}
 	\begin{frame}{Majoration de l'erreur}
 		\only<1>{\begin{center}
-				La modélisation discrète du gradient de $u$, $\nabla u_i$, est définie par :
+				La modélisation respective de $u$ et du gradient de $u$, est définie par :
 				\vspace{.5cm}
 				
 				$u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i} u(x)\, \dx$
@@ -482,7 +483,7 @@
 				\draw[color=black] (-3,-4) node[ right] {$e_x$};
 				\draw[color=black] (-4,-3) node[ left] {$e_y$};
 			\end{tikzpicture}
-			\captionof{figure}{Quantité (signé) $\delta_{i,j}$ représente le produit scalaire entre $\bar x_{i,j}-x_{i,j}$ et $n_{i,j}^\perp$.}
+			\captionof{figure}{Quantité signée $\delta_{i,j}$ représente le produit scalaire entre $\bar x_{i,j}-x_{i,j}$ et $n_{i,j}^\perp$.}
 			\label{fig:EdgeWithGrandeurs_VecNormal}
 		\end{center}\pause
 		
@@ -574,7 +575,7 @@
 		
 		\only<8->{
 			
-			Si tout union de triangles dans le maillage est convexe, alors :
+			Si toute union de triangles dans le maillage est convexe, alors :
 
 			
 			\begin{center}
@@ -587,7 +588,7 @@
 		
 		\vspace{-1cm}
 		
-		Si tout union de triangles dans le maillage est convexe, alors :
+		Si toute union de triangles dans le maillage est convexe, alors :
 		
 		\vspace{2cm}
 		
@@ -618,7 +619,9 @@
 		
 		\vspace{.5cm}
 		
-		\underline{Condition de bord :} périodique\pause $\implies$ même valeur en haut et en bas, à gauche et à droite.
+		\underline{Condition de bord :} périodique\pause $\implies$ \begin{minipage}[t]{6cm}
+			même valeur en haut et en bas, à gauche et à droite.
+		\end{minipage}
 	\end{frame}
 	
 	
@@ -638,7 +641,7 @@
 			 \vspace{.2cm}
 			 
 			 $u_2(x,y) = \begin{cases}
-			 	\exp\left(\frac1{(x-x_c)^2 + (y-y_c)^2 - r^2}\right) & \text{si } (x-x_c)^2+(y-y_c)^2 < r^2\\
+			 	\exp\left(\frac1{\frac{(x-x_c)^2 + (y-y_c)^2}{r^2} - 1}\right) & \text{si } (x-x_c)^2+(y-y_c)^2 < r^2\\
 			 	0 & \text{sinon}
 			 \end{cases}$
 			 
@@ -651,111 +654,113 @@
 		\end{itemize}
 	\end{frame}
 		
-	
-	\begin{frame}{Résultats : gaussienne}
+	\newgeometry{left=-.5cm, right=0cm, top=0.5cm, bottom=0.5cm}
+	\begin{frame}{\hspace{1cm}Résultats}
 		\only<1>{
-		\begin{figure}
 			\centering
-			\includegraphics[scale=.6]{image/carre.png}
-			\caption{Maillage cartésien ($\varphi = 0$).}
+		\begin{figure}
+		\begin{subfigure}{0.47\textwidth}
+			\centering
+			\includegraphics[scale=.42]{image/carre.png}
+			\caption{Gaussienne}
+		\end{subfigure}
+		\begin{subfigure}{0.45\textwidth}
+			\centering
+			\includegraphics[scale=.42]{image/carre_plateau.png}
+			\caption{Fonction plateau}
+		\end{subfigure}
+		\caption{Maillage cartésien ($\varphi = 0$).}
 		\end{figure}}
 	
 		\only<3>{
-			\begin{figure}
+		\begin{figure}
+			\begin{subfigure}{0.47\textwidth}
 				\centering
-				\includegraphics[scale=.6]{image/deforme_05.png}
-				\caption{Maillage cartésien déformé de déformation $\varphi = 0.5$.}
+				\includegraphics[scale=.42]{image/deforme_05.png}
+				\caption{Gaussienne}
+			\end{subfigure}
+			\begin{subfigure}{0.45\textwidth}
+				\centering
+				\includegraphics[scale=.42]{image/deforme_05_plateau.png}
+				\caption{Fonction plateau}
+			\end{subfigure}
+		\caption{Maillage cartésien déformé de déformation $\varphi = 0.5$.}
 		\end{figure}}
 	
 		\only<4>{
 			\begin{figure}
-				\centering
-				\includegraphics[scale=.6]{image/deforme_09.png}
+				\begin{subfigure}{0.47\textwidth}
+					\centering
+				\includegraphics[scale=.42]{image/deforme_09.png}
+				\caption{Gaussienne.}
+				\end{subfigure}
+				\begin{subfigure}{0.45\textwidth}
+					\centering
+					\includegraphics[scale=.42]{image/deforme_09_plateau.png}
+					\caption{Fonction plateau.}
+				\end{subfigure}
 				\caption{Maillage cartésien déformé de déformation $\varphi = 0.9$.}
 		\end{figure}}
 	
 		\only<2>{
 			\begin{figure}
-				\centering
-				\includegraphics[scale=.6]{image/ffm.png}
+				\begin{subfigure}{0.47\textwidth}
+					\centering
+				\includegraphics[scale=.42]{image/ffm.png}
+				\caption{Gaussienne.}
+				\end{subfigure}
+				\begin{subfigure}{0.45\textwidth}
+					\centering
+					\includegraphics[scale=.42]{image/ffm_plateau.png}
+					\caption{Fonction plateau.}
+				\end{subfigure}
 				\caption{Maillage de Delaunay.}
 		\end{figure}}
 	
 		\only<5>{
 			\centering
 			
-			Ordre de convergence :
-			
-			\vspace{.5cm}
-			
-		\begin{NiceTabular}{cccc}
-			\CodeBefore
-				\rowcolor{red!15}{1-2}
-				\rowcolor{blue!15}{4,6}
-			\Body
-			\Block[C]{2-1}{Maillage} & \Block[C]{2-1}{$\mathrm L^1$} & \Block[C]{2-1}{$\mathrm L^2$} & \Block[C]{2-1}{$\mathrm L^\infty$} \\
-			& & & \\
-			\hline
-			$\varphi=0$ & 1.917 & 1.855 & 1.744 \\
-			Delaunay & 1.266 & 1.205 & 0.804 \\
-			$\varphi=0.5$ & 1.029 & 0.951 & 0.632 \\
-			$\varphi=0.9$ & 0.971 & 0.508 & -1.454
-		\end{NiceTabular}
+		\begin{table}
+			\begin{subtable}{0.5cm}
+				$ $
+			\end{subtable}
+			\begin{subtable}{0.47\textwidth}
+				\begin{NiceTabular}{cccc}
+					\CodeBefore
+						\rowcolor{red!15}{1-2}
+						\rowcolor{blue!15}{4,6}
+					\Body
+					\Block[C]{2-1}{Maillage} & \Block[C]{2-1}{$\mathrm L^1$} & \Block[C]{2-1}{$\mathrm L^2$} & \Block[C]{2-1}{$\mathrm L^\infty$} \\
+					& & & \\
+					\hline
+					$\varphi=0$ & 1.996 & 1.996 & 2.008 \\
+					Delaunay & 1.232 & 1.216 & 1.102 \\
+					$\varphi=0.5$ & 1.034 & 0.937 & 0.621 \\
+					$\varphi=0.9$ & 1.032 & 0.871 & -0.365
+				\end{NiceTabular}
+				\caption{Gaussienne.}
+			\end{subtable}
+			\begin{subtable}{0.45\textwidth}
+				\begin{NiceTabular}{cccc}
+					\CodeBefore
+					\rowcolor{red!15}{1-2}
+					\rowcolor{blue!15}{4,6}
+					\Body
+					\Block[C]{2-1}{Maillage} & \Block[C]{2-1}{$\mathrm L^1$} & \Block[C]{2-1}{$\mathrm L^2$} & \Block[C]{2-1}{$\mathrm L^\infty$} \\
+					& & & \\
+					\hline
+					$\varphi=0$ & 1.972 & 1.925 & 1.920 \\
+					Delaunay & 1.352 & 1.143 & 0.620 \\
+					$\varphi=0.5$ & 0.891 & 0.857 & 0.595 \\
+					$\varphi=0.9$ & 0.982 & 0.882 & -0.537
+				\end{NiceTabular}
+				\caption{Fonction plateau.}
+			\end{subtable}
+			\caption{Ordre de convergence.}
+		\end{table}
 		}
 	\end{frame}	
-	
-	
-	\begin{frame}{Résultats : fonction plateau}
-		\only<1>{
-			\begin{figure}
-				\centering
-				\includegraphics[scale=.6]{image/carre_plateau.png}
-				\caption{Maillage cartésien ($\varphi = 0$).}
-		\end{figure}}
-		
-		\only<3>{
-			\begin{figure}
-				\centering
-				\includegraphics[scale=.6]{image/deforme_05_plateau.png}
-				\caption{Maillage cartésien déformé de déformation $\varphi = 0.5$.}
-		\end{figure}}
-		
-		\only<4>{
-			\begin{figure}
-				\centering
-				\includegraphics[scale=.6]{image/deforme_09_plateau.png}
-				\caption{Maillage cartésien déformé de déformation $\varphi = 0.9$.}
-		\end{figure}}
-		
-		\only<2>{
-			\begin{figure}
-				\centering
-				\includegraphics[scale=.6]{image/ffm_plateau.png}
-				\caption{Maillage de Delaunay.}
-		\end{figure}}
-		
-		\only<5>{
-		\centering
-		
-		Ordre de convergence :
-		
-		\vspace{.5cm}
-		
-		\begin{NiceTabular}{cccc}
-			\CodeBefore
-				\rowcolor{red!15}{1-2}
-				\rowcolor{blue!15}{4,6}
-			\Body
-			\Block[C]{2-1}{Maillage} & \Block[C]{2-1}{$\mathrm L^1$} & \Block[C]{2-1}{$\mathrm L^2$} & \Block[C]{2-1}{$\mathrm L^\infty$} \\
-			& & & \\
-			\hline
-			$\varphi=0$ & 1.972 & 1.925 & 1.920 \\
-			Delaunay & 1.247 &1.205 & 0.804 \\
-			$\varphi=0.5$ & 0.939 & 0.905 & 0.640 \\
-			$\varphi=0.9$ & 0.983 & 0.882 & -0.537 
-		\end{NiceTabular}
-	}
-	\end{frame}
+	\restoregeometry
 	
 	\begin{frame}
 		\begin{center}
