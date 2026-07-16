@@ -73,18 +73,18 @@
 	
 	\section{Remerciements}
 	
-	En premier lieu, je tiens à remercier Le Centre Henri Lebesgue, qui a financé ce stage. En second lieu, je tiens tout particulièrement à remercier Ludovic Martaud, le tuteur de ce stage, qui a été d'une grande aide et m'a guidé tout au long de se stage. Il a su mettre en lumière les points importants de ce stage et les mettre en valeurs. Je tiens aussi à remercier Loïc Le Marrec, sans qui, cette offre de stage ne me serait pas parvenue et pour son accompagnement, et son regard extérieur au stage très utile. Et bien sûr je tiens à remercier ma compagne qui m'a fournis un deuxième regard extérieur au stage.
+	En premier lieu, je tiens à remercier Le Centre Henri Lebesgue, qui a financé ce stage. En second lieu, je tiens tout particulièrement à remercier Ludovic Martaud, le tuteur de ce stage, qui a été d'une grande aide et m'a guidé tout au long de se stage. Il a su mettre en lumière les points importants de ce stage et les mettre en valeurs. Je tiens aussi à remercier Loïc Le Marrec, sans qui, cette offre de stage ne me serait pas parvenue et pour son accompagnement, et ses critiques très constructive sur mon travail. Et bien sûr je tiens à remercier ma compagne qui m'a fournis un deuxième regard, extérieur au stage.
 	
 	\newpage
 	\section{Contexte}
 	
 	Ce stage s'est déroulé au sein de l'Institut de Recherche Mathématique de Rennes (IRMAR), un
 	laboratoire de recherche fondamentale et appliquée en mathématiques, rattaché à l'Université de Rennes et au CNRS. L'IRMAR couvre un large spectre de thématiques, allant de l'analyse et la géométrie à la modélisation numérique et aux statistiques. Le stage a bénéficié du soutien financier du Centre Henri Lebesgue, un centre de recherche mathématique interrégional qui vise à promouvoir l'excellence scientifique, à renforcer la collaboration entre chercheurs et à soutenir la formation par la recherche dans le domaine des mathématiques.
-	\par Le sujet de ce stage porte sur l'étude de la consistance d'un gradient discret local défini dans l'article \cite{ludo} sur des maillages non structuré en deux dimensions d'espace. Le terme non-structuré fait référence au fait qu'il n'y a pas d'expression simple pour les positions relatives des cellules. Les maillages non structurés s'adaptent aux géométries quelconques, ce qui permet de mailler des formes réalistes. Cependant cette généralité entraîne des complexités, telles que la façon de définir un gradient discret ou encore de définir un pas d'espace. Cette dernière considération est importante, car c'est le pas qui va permettre de quantifier l'erreur lors des approximations commises. Une telle proposition a été faite dans \cite{ludo} pour définir un ensemble de gradients discrets local, auquel a été associé une première suggestion d'un pas d'espace qui pourrait quantifier l'erreur de consistance associé à ce gradient. L'objectif de ce stage est d'examiner cette suggestion de pas d'espace et d'en fournir une meilleure si elle s'avère insuffisante
+	\par Le sujet de ce stage porte sur l'étude de la consistance d'un gradient discret local défini dans l'article \cite{ludo} sur des maillages non structuré en deux dimensions d'espace. Le terme non-structuré fait référence au fait qu'il n'y a pas d'expression simple pour les positions relatives des cellules. Les maillages non structurés s'adaptent aux géométries quelconques, ce qui permet de mailler des formes réalistes. Cependant cette généralité entraîne des complexités, telles que la façon de définir un gradient discret ou encore de définir un pas d'espace. Cette dernière considération est importante, car c'est le pas qui va permettre de quantifier l'erreur lors des approximations commises. Une telle proposition d'un ensemble de gradients discrets local a été faite dans \cite{ludo} et une première suggestion d'un pas d'espace. L'objectif de ce stage est d'examiner cette suggestion de pas d'espace et d'en fournir une meilleure si elle s'avère insuffisante
 	
 	\section{Gradients discrets local pour la méthode des volumes finis}\label{sec:notations}
 	
-	Le plan $\R^2$ est pavé à l'aide de $N$ cellules polygonales $C_i$ de surface $\abs{C_i}$, et l'ensemble des $C_i$ est noté $\mathcal T = \left\{C_i;\,i\in[\![1,N]\!]\right\}$, par abus de notation, il est noté $i \in \mathcal T$ pour $C_i \in \mathcal T$. La figure \ref{fig:EdgeWithGrandeurs} illustre l'interface orientée $\Gamma_{i,j} = C_i \cap C_j$, de longueur $\abs{\Gamma_{i,j}}$ entre deux cellules $C_i$ et $C_j$ :
+	Le plan $\R^2$ est pavé à l'aide de $N$ cellules polygonales $C_i$ de surface $\abs{C_i}$, et l'ensemble des $C_i$ est noté $\mathcal T = \left\{C_i;\,i\in[\![1,N]\!]\right\}$, par abus de notation, il est noté $i \in \mathcal T$ pour $C_i \in \mathcal T$. La Figure \ref{fig:EdgeWithGrandeurs} illustre l'interface orientée $\Gamma_{i,j} = C_i \cap C_j$, de longueur $\abs{\Gamma_{i,j}}$ entre deux cellules $C_i$ et $C_j$ :
 	
 	\begin{center}
 		\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm, scale = 0.6]
@@ -121,12 +121,12 @@
 	\[
 		d_{i,j} = d(x_i,x_j),\; d_{k,ij} = d(x_k,x_{i,j}),\; \lambda_{i,j} = \abs{\Gamma_{i,j}},
 	\]
-	pour $i \in \mathcal T$, $j \in \mathcal{N}_i$ et $k \in \{i,j\}$. Il est aussi nécessaire d'introduire la matrice identité de $\mathcal M_{2,2}(\R^2)$, $I_2$, et, pour $\otimes$ est le produit tensoriel, la matrice de $\mathcal M_{2,2}(\R^2)$ suivante :
+	pour $d$ la distance euclidienne sur $\R^2$, $i \in \mathcal T$, $j \in \mathcal{N}_i = \{j;\; \lambda_{i,j} > 0\}$ et $k \in \{i,j\}$. Il est aussi nécessaire d'introduire la matrice identité de $\mathcal M_{2,2}(\R^2)$, $I_2$, et, pour $\otimes$ le produit tensoriel, la matrice de $\mathcal M_{2,2}(\R^2)$ suivante :
 	\begin{equation}\label{eq:Mi}
 		M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j} {n_{i,j}}\otimes\left( {\bar x_{i,j}-x_{i,j}}\right).
 	\end{equation}
 	
-	Pour $u \in \mathcal C^2(\R^2,\R)$, la modélisation discrète de $u$ et du gradient de $u$ respectivement, représenté par une liste de valeur $(u_i)_{i \in \mathcal T}$ et $(\nabla u_i)_{i\in \mathcal T}$ respectivement, sont pris constants sur chaque maille $C_i$. Sous réserve d'existence de $M_i^{-1}$, le gradient discret de $u$ sur la cellule $C_i$ noté, $\overline{ {\nabla u}(x_i)}$, est défini par :
+	Pour $u \in \mathcal C^2(\R^2,\R)$, la modélisation discrète de $u$ et du gradient de $u$ sont respectivement représentés par, une liste de valeur $(u_i)_{i \in \mathcal T}$ et $(\nabla u_i)_{i\in \mathcal T}$, constants sur chaque maille $C_i$. Sous réserve d'existence de $M_i^{-1}$, le gradient discret de $u$ sur la cellule $C_i$ noté, $\overline{ {\nabla u}(x_i)}$, est défini par :
 	\begin{equation}\label{eq:grad_discret}
 		M_i \overline{ {\nabla u}(x_i)} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}.
 	\end{equation}
@@ -305,7 +305,7 @@
 	où $|\!| \cdot |\!|$ est une norme sur $\R^2$. Puis, en utilisant la définition de $h$, il suit les inégalités \eqref{eq:maj_naiv_R1_par_h}, \eqref{eq:maj_naiv_R2_par_h} et \eqref{eq:maj_naiv_R3_par_h}.
 	
 	\begin{equation}\label{eq:maj_naiv_R1_par_h}
-		\abs{R_1^{i,j}} \leq \dfrac {|\!|\nabla^2 u|\!|_\infty}{2}\;\dfrac{\underset{k\in \mathcal T}\min \abs{C_k}}{\underset{i\in\mathcal T}\max\;\underset{j\in \mathcal N_i}\max\;\mathrm{diam}\left(C_i\right)+\mathrm{diam}\left(C_j\right)}\; h,
+		\abs{R_1^{i,j}} \leq \dfrac {|\!|\nabla^2 u|\!|_\infty}4\;\dfrac{\underset{k\in \mathcal T}\min \abs{C_k}}{\underset{i\in\mathcal T}\max\;\underset{j\in \mathcal N_i}\max\;\mathrm{diam}\left(C_i\right)+\mathrm{diam}\left(C_j\right)}\; h,
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R2_par_h}
 		\abs{R_2^{i,j}} \leq \dfrac{|\!|\nabla^2 u|\!|_\infty}2\,\underset{k\in \mathcal T}\min \abs{C_k}\; h,
@@ -315,7 +315,7 @@
 	\end{equation}
 	Et finalement, à l'aide de \eqref{eq:maj_naiv_R1_par_h}, \eqref{eq:maj_naiv_R2_par_h} et \eqref{eq:maj_naiv_R3_par_h}, l'inégalité qui suit est satisfaite pour $N_{max} = \underset{i\in\mathcal T}\max \hspace{.1cm}\text{Card}\left(\mathcal N_i\right)$ :
 	\begin{equation}\label{eq:max_naiv_R4}
-		|\!| \nabla u_i - \overline{\nabla u(x_i)} |\!| = |\!| M_i^{-1}R^{(i)}|\!| \leq 2|\!|M_i^{-1}|\!|\, |\!|\nabla^2 u|\!|_\infty\, N_{\max}\;h.
+		|\!| \nabla u_i - \overline{\nabla u(x_i)} |\!| = |\!| M_i^{-1}R^{(i)}|\!| \leq \frac74|\!|M_i^{-1}|\!|\, |\!|\nabla^2 u|\!|_\infty\, N_{\max}\;h.
 	\end{equation}
 	Pour le pas $h$ définie en \cite{ludo} par $h = \underset{i \in \mathcal T}\max\,\underset{j \in \mathcal N_i}\max\, d(x_i,x_j)$, son contrôle de l'erreur $M_i^{-1}R^{(i)}$ est mis en défaut pour l'exemple qui suit. Pour $\mathcal T$ un maillage contenant deux cellules rectangulaires $C_1$ et $C_2$ illustrés par la figure \ref{fig:contre_exemple_1}.
 	
@@ -408,7 +408,9 @@
 		$M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\delta_{i,j} {n_{i,j}}\otimes n_{i,j}^\perp$.
 	\end{center}
 	
-	En adoptant la notation suivante : toute matrice $M_i$ associées au maillage $\mathcal T$ et à la cellule $C_i$ est notée $M_i(\mathcal T)$, il est possible d'obtenir la propriété précédemment évoqué de l'invariance par homothétie de $M_i$ :
+	En adoptant la notation suivante : toute matrice $M_i$ associées au maillage $\mathcal T$ et à la cellule $C_i$ est notée $M_i(\mathcal T)$, il est possible d'obtenir la propriété précédemment évoqué de l'invariance par homothétie de $M_i$.
+	
+	\newpage
 	
 	\begin{lm}\label{lm:invariance_Mi}
 		Étant donné $\mathcal T_1$ et $\mathcal T_2$ deux maillages du plan $\R^2$ et $f_k$ une homothétie de rapport $k > 0$  tels que $f_k(\mathcal T_1)=\mathcal T_2$. Alors, pour toute cellule $\overline{C_{i_1}} \in \mathcal T_1$ et $C_{i_2} = f_k^{-1}(\overline{C_{i_1}}) \in \mathcal T_2$, l'égalité suivante est vérifiée : 
@@ -567,6 +569,9 @@
 	Ainsi, d'après le lemme \ref{lm:maj_det}, $|\!|M_1^{-1}|\!|_2 \geq \dfrac34 \sqrt{1+\alpha_1^2}$. Donc $|\!|M_1^{-1}|\!|_2 \underset{h \to 0}{\longrightarrow} + \infty$.
 	
 	L'objectif va ici être de montrer que si le maillage est triangulaire, toute union de deux triangles voisins est convexe et ne contient pas de triangle plat, alors : $\det(M_i) \geq \frac23$. Pour obtenir ce résultat il faut pouvoir estimer précisément la valeur de $\alpha_{i,j} = \dfrac{\delta_{i,j}\lambda_{i,j}}{\abs{C_i}}$. Puisque $\lambda_{i,j}$ et $\abs{C_i}$ sont des données du maillages, il reste à déterminer $\delta_{i,j}$. Pour deux cellules triangulaires non plates $T_i = ABC_1$ et $T_j = ABC_2$ illustré par la figure \ref{fig:cellule_triangulaire}.
+	
+	\vspace{-.5cm}
+	
 	\begin{center}
 		\begin{tikzpicture}[thick]
 			\coordinate (A) at (0,0);
@@ -606,26 +611,20 @@
 			\draw[fill=black] (G1) circle (0.05cm);
 			\draw[fill=black] (G2) circle (0.05cm);
 		\end{tikzpicture}
-		\captionof{figure}{Deux triangles $ABC_1$ et $ABC_2$ de centre de gravité $G_1$ et $G_2$ respectivement. Et $\alpha_i,\beta_i \in ]0,\pi[$.}
+		\captionof{figure}{Deux triangles $ABC_1$ et $ABC_2$ de centre de gravité $G_1$ et $G_2$ respectivement, et $\alpha_i,\beta_i \in ]0,\pi[$.}
 		\label{fig:cellule_triangulaire}
 	\end{center}
 	En notant $G_1$ et $G_2$ les centres de gravités respectifs de $ABC_1$ et $ABC_2$, et $I$ le point d'intersection entre $[G_1G_2]$ et $[AB]$, l'égalité suivante est justifiée : $\abs{\delta_{i,j}} = |\!|x_{i,j}-\bar x_{i,j}|\!| = \abs{AB/2 - AI} = \abs{AB/2 - BI}$. Dans un premier temps il est nécessaire d'obtenir une expression de $\abs{\frac{AB}2-AI} = \max\{\frac{AB}2-AI,\,\frac{AB}2-BI\}$ qui est obtenu en choisissant judicieusement le repère dans lequel est placé le quadrilatère $AC_1BC_2$. C'est ce qui est fait dans le lemme \ref{lm:equation_delta} dans lequel la notation suivante est adoptée : pour tout $k \in \N$ et $z_1,z_2$ deux réels, $z_k := z_{r+1}$, où $r$ est le reste de la division euclidienne de $k$ par 2. L'entier $k$ permettra par la suite de choisir la bonne configuration pour obtenir l'inégalité $\abs{\frac{AB}2-AI} \leq \frac{AB}6$ du lemme \ref{lm:maj_delta_triangle}.
 	
 	\begin{lm}\label{lm:equation_delta}
-		En ce plaçant dans le contexte précédent, pour $k \in \{1,2\}$ :
-		
-		\noindent\begin{minipage}{15.5cm}
-			\begin{equation}\label{eq:delta_angle_gauche}
-			\frac{AB}2 - AI = \dfrac{AB-AC_k\cos(\alpha_k)}6 - \dfrac{AC_k\sin(\alpha_k)}3\dfrac{\cos(\alpha_{k+1})AC_{k+1} - \cos(\alpha_k)AC_k}{\sin(\alpha_k)AC_k+\sin(\alpha_{k+1})AC_{k+1}},
+		En ce plaçant dans le contexte précédent, pour $k \in \{1,2\}$ et $K \in \{A,\,B\}$ :
+	
+		\begin{equation}\label{eq:delta_angle_gauche}
+			\frac{AB}2 - KI = \dfrac{AB-KC_k\cos(\alpha_k)}6 - \dfrac{KC_k\sin(\alpha_k)}3\dfrac{\cos(\alpha_{k+1})KC_{k+1} - \cos(\alpha_k)KC_k}{\sin(\alpha_{k+1})KC_{k+1}\sin(\alpha_k)KC_k}.
 		\end{equation}
-		et :
-		\begin{equation}\label{eq:delta_angle_droit}
-			\frac{AB}2 - BI = \dfrac{AB-BC_k\cos(\beta_k)}6 - \dfrac{BC_k\sin(\beta_k)}3\dfrac{\cos(\beta_{k+1})BC_{k+1} - \cos(\beta_k)BC_k}{\sin(\beta_k)BC_k+\sin(\beta_{k+1})BC_{k+1}}.
-		\end{equation}
-		\end{minipage}
 	\end{lm}
 	\begin{proof}
-			Il sera d'abord traité le cas : $k=1$ pour l'équation (\ref{eq:delta_angle_gauche}), les autres suivants par symétrie. Il est possible de décrire les deux triangles à l'aide de coordonnées cartésienne. En effectuant une rotation et translation il est possible de supposer que $A=(0,0)$, $y_B = 0$ et $x_B >0$. Et à l'aide d'une symétrie axiale, il est possible de supposer sans restriction que $y_{C_1} > 0 > y_{C_2}$. Dans ce repère il possible d'écrire $G_1$ et $G_2$ en fonction de $A,B,C_1$ et $C_2$ :\\ $G_k = \dfrac13\left(A+B+C_k\right) = \left(\frac{x_B+x_{C_k}}3,\frac{y_{C_k}}3\right)$. Pour déterminer les coordonnées de $I$, il suffit de paramétrer le segment $[G_1,G_2]$ de la manière suivante : $l(t) = (l_x(t),l_y(t)) = (1-t)G_1 + tG_2$ et de chercher $t_0$ de sorte que $l_y(t_0) = 0$.
+			Il sera d'abord traité le cas : $k=1$ et $K=A$, les autres suivants par symétrie. Il est possible de décrire les deux triangles à l'aide de coordonnées cartésienne. En effectuant une rotation et translation il est possible de supposer que $A=(0,0)$, $y_B = 0$ et $x_B >0$. Et à l'aide d'une symétrie axiale, il est possible de supposer sans restriction que $y_{C_1} > 0 > y_{C_2}$. Dans ce repère il possible d'écrire $G_1$ et $G_2$ en fonction de $A,B,C_1$ et $C_2$ :\\ $G_k = \dfrac13\left(A+B+C_k\right) = \left(\frac{x_B+x_{C_k}}3,\frac{y_{C_k}}3\right)$. Pour déterminer les coordonnées de $I$, il suffit de paramétrer le segment $[G_1,G_2]$ de la manière suivante : $l(t) = (l_x(t),l_y(t)) = (1-t)G_1 + tG_2$ et de chercher $t_0$ de sorte que $l_y(t_0) = 0$.
 			\[\begin{aligned}
 					 && l_y(t_0) &=0,\\
 				\iff && (1-t_0)y_{G_1} + t_0 y_{G_2} &= 0,\\
@@ -643,37 +642,49 @@
 			Par symétrie il suit les 3 autres équations.
 	\end{proof}
 	
-	 En supposant la convexité du quadrilatère $AC_1BC_2$, la quantité $\abs{\delta_{i,j}} = \abs{AB/2-AI}$ est alors majoré par $\lambda_{i,j}/6 = AB/6$, c'est ce qui est démontré ci-dessous.
+	 En supposant la convexité du quadrilatère $AC_1BC_2$, la quantité $\abs{\delta_{i,j}} = \underset{K\in\{A,\,B\}}\min\abs{AB/2-KI}$ est alors majoré par $AB/6 = \lambda_{i,j}/6$, c'est ce qui est démontré ci-dessous.
 	
 	\begin{lm}\label{lm:maj_delta_triangle}
 		Si le quadrilatère $AC_1BC_2$ est convexe alors :
 		\begin{equation}
-			\abs{\frac{AB}2-AI} \leq \frac{AB}6.
+			\underset{K\in\{A,\,B\}}\min\,\abs{\frac{AB}2-KI} \leq \frac{AB}6.
 		\end{equation}
 	\end{lm} 
 	\begin{proof}
-		Dans cette preuve, il sera traité le cas où $AB/2 \geq AI$, l'autre cas se traitant strictement de la même manière en considérant : $BI = AB-AI$ à la place de $AI$. Puisque $AC_1BC_2$ est convexe, il vient que $\alpha_1+\alpha_2 \leq \pi$ (sinon $[C_1C_2]$ n'est pas dans $AC_1BC_2$). Pour $k \in\{1,2\}$, il suit :
-		\[
-			\abs{\frac{AB}2-AI} = \dfrac{AB-2AC_k\cos(\alpha_k)}6 - \dfrac{AC_k\sin(\alpha_k)}3\dfrac{AC_{k+1}\cos(\alpha_{k+1})-AC_k\cos(\alpha_k)}{AC_{k+1}\sin(\alpha_{k+1})+AC_k\sin(\alpha_k)}.
-		\]
-		
-		Ainsi pour trouver un majorant $\abs{AB/2-AI}$ il convient de minimiser $\dfrac{AC_{k+1}\cos(\alpha_{k+1})-AC_k\cos(\alpha_k)}{AC_{k+1}\sin(\alpha_{k+1})+AC_k\sin(\alpha_k)}$ en la variable $\alpha_{k+1}$ car $\sin(\alpha_k)\geq 0$. La fonction $f$ est continue et dérivable,
+		Puisque $AC_1BC_2$ est convexe, il vient que $\alpha_1+\alpha_2 \leq \pi$ (sinon $[C_1C_2]$ n'est pas dans $AC_1BC_2$), et puisque $I \in [G_1G_2]\cap(AB)$, il suit : $I \in [AB]$. Ainsi, il existe $K \in \{A,\,B\}$ tel que $AB/2 - KI \geq 0$ car $AB/2-AI = -(AB/2-BI)$. L'égalité suivante est donc vérifiée : $\underset{K \in \{A,\,B\}}\min\abs{AB/2-KI} = AB/2 - K_0I$. Pour $k \in\{1,2\}$, il suit :
 		\[
 			\begin{aligned}
-				&f'(x) \geq 0 \\
-				\iff& -AC_2\sin(x)\left(AC_{k+1}\sin(x)+AC_k\sin(\alpha_k)\right) - AC_{k+1}\cos(x)\left(AC_{k+1}\cos(x)-AC_k\cos(\alpha_k)\right) \geq 0\\
-				\iff &-AC_{k+1}^2\left(\cos(x)^2+\sin(x)^2\right) + AC_kAC_{k+1}\left(\cos(\alpha_k)\cos(\alpha_{k+1})-\sin(\alpha_k)\sin(\alpha_{k+1})\right) \geq 0\\
-				\iff&-AC_{k+1}^2 + AC_kAC_{k+1}\cos(\alpha_k+\alpha_{k+1}) \geq 0\\
-				\iff&AC_k\cos(\alpha_k+\alpha_{k+1})-AC_{k+1} \geq 0
+				\frac{AB}2-K_0I =& \dfrac{AB-2K_0C_k\cos(\alpha_k)}6 - \dfrac{K_0C_k\sin(\alpha_k)}3\dfrac{K_0C_{k+1}\cos(\alpha_{k+1})-K_0C_k\cos(\alpha_k)}{K_0C_{k+1}\sin(\alpha_{k+1})+K_0C_k\sin(\alpha_k)}\\
+				=& \dfrac{AB}6 - \dfrac{K_0C_k}3\left(\cos(\alpha_k)+\sin(\alpha_k)\dfrac{K_0C_{k+1}\cos(\alpha_{k+1})-K_0C_k\cos(\alpha_k)}{K_0C_{k+1}\sin(\alpha_{k+1})+K_0C_k\sin(\alpha_k)}\right).
 			\end{aligned}
 		\]
-		Il est possible de choisir $k$ de sorte que $AC_k\cos(\alpha_k+\alpha_{k+1})-AC_{k+1} \leq 0$, car si $AC_1\cos(\alpha_1+\alpha_2)-AC_2 > 0$ et $AC_2\cos(\alpha_1+\alpha_2)-AC_1 > 0$, alors $AC_1\cos(\alpha_1+\alpha_2)^2 \geq AC_2\cos(\alpha_1+\alpha_2) > AC_1$, ce qui implique : $AC_1\cos(\alpha_1+\alpha_2) > AC_1$, ce qui est absurde. Il est ainsi possible de choisir un tel $k \in \{1,2\}$. Ainsi :
+		Ainsi pour trouver un majorant $\underset{K \in \{A,\,B\}}\min\abs{AB/2-KI}$ il convient de minorer :
 		\[
-		\begin{aligned}
-			\abs{\frac{AB}2 - AI} &\leq \dfrac{AB-2AC_1\cos(\alpha_1)}6 - \dfrac{AC_1\sin(\alpha_1)}3f(\pi-\alpha_1),\\
-			&\leq \dfrac{AB-2AC_1\cos(\alpha_1)}6 + \dfrac{AC_1\sin(\alpha_1)}3\dfrac{AC_2\cos(\alpha_1)+AC_1\cos(\alpha_1)}{AC_2\sin(\alpha_1)+AC_1\sin(\alpha_1)},\\
-			&\leq \dfrac{AB-2AC_1\cos(\alpha_1)}6 + \dfrac{AC_1\cos(\alpha_1)}3 \leq \dfrac{AB}6.
-		\end{aligned}
+		f(\alpha_{k+1}) = \cos(\alpha_k)+\sin(\alpha_k)\dfrac{K_0C_{k+1}\cos(\alpha_{k+1})-K_0C_k\cos(\alpha_k)}{K_0C_{k+1}\sin(\alpha_{k+1})+K_0C_k\sin(\alpha_k)},
+		\]
+		car $\sin(\alpha_k)\geq 0$. La fonction $f$ est continue et dérivable et puisque $\sin(\alpha_k) \geq 0$, il suit :
+		\[
+			\begin{aligned}
+				&f'(\alpha_{k+1}) \leq 0 \\
+				\iff& -K_0C_{k+1}\sin(\alpha_{k+1})\left(K_0C_{k+1}\sin(\alpha_{k+1})+K_0C_k\sin(\alpha_k)\right)\\
+				&- K_0C_{k+1}\cos(\alpha_{k+1})\left(KC_{k+1}\cos(\alpha_{k+1})-K_0C_k\cos(\alpha_k)\right) \leq 0\\
+				\iff &-K_0C_{k+1}^2\left(\cos(\alpha_{k+1})^2+\sin(\alpha_{k+1})^2\right)\\
+				& + K_0C_k.\,K_0C_{k+1}\left(\cos(\alpha_k)\cos(\alpha_{k+1})-\sin(\alpha_k)\sin(\alpha_{k+1})\right) \leq 0\\
+				\iff&-K_0C_{k+1}^2 + KC_k.\,K_0C_{k+1}\cos(\alpha_k+\alpha_{k+1}) \leq 0\\
+				\iff&K_0C_k\cos(\alpha_k+\alpha_{k+1})-K_0C_{k+1} \leq 0
+			\end{aligned}
+		\]
+		Il est possible de choisir $k$ de sorte que $K_0C_k\cos(\alpha_k+\alpha_{k+1})-K_0C_{k+1} \leq 0$, car si $K_0C_k\cos(\alpha_k+\alpha_{k+1})-K_0C_{k+1} > 0$ et $K_0C_{k+1}\cos(\alpha_k+\alpha_{k+1})-K_0C_k > 0$, alors $K_0C_k\cos(\alpha_k+\alpha_{k+1})^2 \geq K_0C_{k+1}\cos(\alpha_k+\alpha_{k+1}) > K_0C_k$, ce qui implique : $K_0C_k\cos(\alpha_k+\alpha_{k+1}) > K_0C_k$, ce qui est absurde. Il est ainsi possible de choisir un tel $k \in \{1,2\}$. Ainsi les inégalités suivantes sont satisfaites :
+		\[
+			\begin{aligned}
+				f(\alpha_{k+1}) &\geq f(\pi-\alpha_k),\\
+				 f(\alpha_{k+1}) &\geq \cos(\alpha_k)-\sin(\alpha_k)\dfrac{K_0C_{k+1}\cos(\alpha_k)+K_0C_k\cos(\alpha_k)}{K_0C_{k+1}\sin(\alpha_k)+K_0C_k\sin(\alpha_k)},\\
+				f_K(\alpha_{k+1}) &\geq 0.
+			\end{aligned}
+		\]
+		Finalement, l'inégalité demandée est vérifiée :
+		\[
+			\underset{K\in\{A,\,B\}}\min\,\abs{\frac{AB}2-KI} = \dfrac{AB}2 - K_0I \leq \dfrac{AB}6.
 		\]
 	\end{proof}
 	
@@ -867,7 +878,7 @@
 		\begin{equation}
 			\frac23 = 1-\frac13 \leq \det(M_i) \leq 1+\frac13 = \frac43.
 		\end{equation}
-	\end{proof}content
+	\end{proof}
 	
 	Pour pouvoir donner une majoration de $|\!|M_i^{-1}|\!|_2$, il reste à majorer les quantités $\abs{\alpha_{i,j}}$ pour pouvoir majorer $\abs{\alpha_i}$, ce qui va dépendre fortement de l'angle minimum atteint.
 	
@@ -908,7 +919,7 @@
 		Pour $\mathcal T$ un maillage triangulaire.\\
 		Si toute union de deux triangles voisins est convexe et qu'il existe $\mu_{\min} > 0$, tel que pour tout $i \in \mathcal T$, $j \not = k \in \mathcal N_i$, $\mu_{i,jk} \geq \mu_{\min}$. Alors pour tout $i \in \mathcal T$,
 		\begin{equation}
-			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!|_2 \leq 6\sqrt{1.5+\frac{2.25}{\sin^4(\mu_{\min})}}|\!|\nabla^2 u|\!|_\infty\, h.
+			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!|_2 \leq \frac72\sqrt{1.5+\frac{2.25}{\sin^4(\mu_{\min})}}|\!|\nabla^2 u|\!|_\infty\, h.
 		\end{equation}
 	\end{thm}
 	\begin{proof}
@@ -917,13 +928,86 @@
 	
 	Il est possible pour certains types de maillages, de fournir la valeur d'une borne, notamment pour les maillage de Delaunay raffinés, il est possible suivant plus ou moins de contrainte d'imposer un angle minimum, quelque soit le nombre de cellules, globalement cette angle vaut $\mu_{\min} = 26.5^{\circ}$ (voir l'abstract de \cite{mesh}). Pour cette valeur il suit :	
 	\[
-		|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!| \leq 45.8 |\!|\nabla^2 u|\!|_\infty\, h.
+		|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!| \leq 27 |\!|\nabla^2 u|\!|_\infty\, h.
 	\]	
 	
 	Le cas des triangles ayant été traités, il est possible de faire de même sur des maillages quadrangulaires en s'appuyant sur le cas des maillages triangulaires. L'idée est la suivante, pour une cellule quadrangulaire convexe, la quantité $\abs{\delta_{i,j}}$ est la plus grande lorsque ce quadrangle forme un triangle. La figure \ref{fig:deux_cellules_quadrangulaire} illustre deux cellules $Q_1 = ABD_1C_1$ et $Q_2 = ABD_2C_2$ d'un un maillage $\mathcal T$ quadrangulaire tel que $C_2D_2BD_1C_1A$ est convexe.
 	
+	\begin{center}
+		\begin{tikzpicture}[thick]
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (5,0);
+			\coordinate (C1) at (1,3);
+			\coordinate (C2) at (3,-2);
+			\coordinate (D1) at (4,4);
+			\coordinate (D2) at (5.5,-3);
+			\coordinate (T1) at (barycentric cs:A=1,B=1,C1=1);
+			\coordinate (T1bar) at (barycentric cs:C1=1,B=1,D1=1);
+			\coordinate (T2) at (barycentric cs:A=1,B=1,C2=1);
+			\coordinate (T2bar) at (barycentric cs:C2=1,B=1,D2=1);
+			\coordinate (G1) at (barycentric cs:A=1,B=1,C1=1,D1=1);
+			\coordinate (G2) at (barycentric cs:A=1,B=1,C2=1,D2=1);
+			\coordinate (C1x) at (7,3);
+			\coordinate (C2x) at (8,-2);
+			
+			\draw (A)--(B)--(D1)--(C1)--cycle;
+			\draw (A)--(B)--(D2)--(C2)--cycle;
+			\draw[dotted] (B)--(C1);
+			\draw[dotted] (B)--(C2);
+			\draw[dash dot] (C1)--(C1x);
+			\draw[dash dot] (C2)--(C2x);
+			\draw[name path=ligne 1] (A)--(B);
+			\draw[name path=ligne 2] (G1)--(G2);
+			\fill[red,name intersections={of=ligne 1 and ligne 2,total=\t}]
+			\foreach \s in {1,...,\t}{(intersection-\s) circle (2pt) node [above right] {$I$}};
+			
+			\tkzMarkAngle[fill= orange,size=1.5cm,opacity=.4](B,C1,D1)
+			\tkzMarkAngle[fill= orange,size=1.35cm,opacity=.4](D2,C2,B)
+			\tkzLabelAngle[pos = 1.8](B,C1,D1){$\alpha_1$}
+			\tkzLabelAngle[pos = 1.7](D2,C2,C2x){$\alpha_2$}
+			
+			\tkzMarkAngle[fill= orange,size=0.7cm,opacity=.4](B,C1,C1x)
+			\tkzMarkAngle[fill= orange,size=0.65cm,opacity=.4](C2x,C2,B)
+			\tkzLabelAngle[pos = 1.1](B,C1,C1x){$\beta_1$}
+			\tkzLabelAngle[pos = 1](C2x,C2,B){$\beta_2$}
+			
+			\node [below] at (A) {$A$};
+			\node [right] at (B) {$B$};
+			\node [above] at (C1) {$C_1$};
+			\node [below] at (C2) {$C_2$};
+			\node [above] at (D1) {$D_1$};
+			\node [below] at (D2) {$D_2$};
+			\node [below] at (T1) {$T_1$};
+			\node [left] at (T2) {$T_2$};
+			\node [right] at (T1bar) {$\overline{T_1}$};
+			\node [right] at (T2bar) {$\overline{T_2}$};
+			\node [left] at (G1) {$G_1$};
+			\node [left] at (G2) {$G_2$};
+			\node [right] at (C1x) {$(d_1)$};
+			\node [right] at (C2x) {$(d_2)$};
+			
+			\draw[fill=black] (A) circle (0.05cm);
+			\draw[fill=black] (B) circle (0.05cm);
+			\draw[fill=black] (C1) circle (0.05cm);
+			\draw[fill=black] (C2) circle (0.05cm);
+			\draw[fill=black] (D1) circle (0.05cm);
+			\draw[fill=black] (D2) circle (0.05cm);
+			\draw[fill=black] (T1) circle (0.05cm);
+			\draw[fill=black] (T2) circle (0.05cm);
+			\draw[fill=black] (T1bar) circle (0.05cm);
+			\draw[fill=black] (T2bar) circle (0.05cm);
+			\draw[fill=black] (G1) circle (0.05cm);
+			\draw[fill=black] (G2) circle (0.05cm);
+		\end{tikzpicture}
+		\captionof{figure}{Deux quadrangle $ABD_1C_1$ et $ABD_2C_2$ de centre de gravité $G_1$ et $G_2$ respectivement. Les points $T_k$ et $\overline{T_k}$ sont les centres de gravités de $ABC_k$ et $BC_kD_k$, et $\alpha_k,\beta_k \in ]0,\pi[$.}
+		\label{fig:deux_cellules_quadrangulaire}
+	\end{center}
+	
 	\begin{lm}\label{lm:majorer_delta_quadrangle}
-		content
+		Si $C_2D_2BD_1C_1A$ est convexe alors :
+		\begin{equation}
+			\abs{AB/2-AI} \leq \dfrac{AB}6
+		\end{equation}
 	\end{lm}
 	
 	
