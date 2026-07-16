@@ -5,6 +5,7 @@
 \usepackage{tkz-euclide}
 \usepackage{subcaption}
 \usepackage{nicematrix}
+\usepackage{cancel}
 \usepackage{geometry}
 \setbeamertemplate{caption}[numbered]
 \usetikzlibrary{intersections}
@@ -12,14 +13,14 @@
 \newcommand*\abs[1]{\left\lvert #1 \right\rvert}
 
 %Information to be included in the title page:
-\title[Oral de stage]{Consistance de gradients discrets sur des maillages non-structurés 2D}
+\title[Soutenance de stage]{Consistance de gradients discrets sur des maillages non-structurés 2D}
 \author{N. Hascoët}
 \institute[] % (optional)
 {
 	Université de Rennes
 }
 \date[2026] % (optional)
-{Oral de stage 2026}
+{Soutenance de stage 2026}
 
 
 \newcommand{\mycomment}[1]{}
@@ -38,24 +39,24 @@
 	%Slide 1
 	\section{Introduction}
 	\begin{frame}{Introduction}
-		\begin{itemize}
-			\item Maillages non-structurés ?\pause \hspace{.2cm} $\to$ \begin{minipage}[t]{6cm}
-				s'adaptent à des formes réalistes.\pause
-			\end{minipage}
-			\item Difficultés :\pause
-			\begin{itemize}
-				\item Gradient\textbf{s} discret\textbf{s}.\pause\\ 
-				$\to$ proposition de gradient discret locaux.\pause
-				\item Pas d'espace du maillage \pause $\to$ Quantifier l'erreur.\pause\\
-				$\to$ proposition de pas $h$\pause
-			\end{itemize}
-		\end{itemize}
+		Simulation \pause $\to$ \begin{minipage}[t]{4cm}
+			Méthode aux volumes finis\only<7-8>{\\
+			$\hookrightarrow$ Gradients discrets}
+			\only<9>{\\
+			\alert{$\hookrightarrow$ Gradients discrets}}
+		\end{minipage} \pause $\to$ utilisation d'un maillage
 		
-		\vspace{.8cm}
-		
-		\begin{center}
-			\underline{\textbf{Objectif :}} Examiner cette proposition de pas
-		\end{center}
+		\begin{figure}[h!]
+			\includegraphics[scale=.2]{image/maillage_aile_avion.png}
+			\caption{Maillage d'une aile d'avion.}
+		\end{figure}\pause
+		\centering
+		\begin{NiceTabular}{c|c}
+			Forme & Taille\\
+			\hline
+			\only<4->{Maillage cartésien} & \only<5-8>{Pas du maillage}\only<9>{\alert{Pas du maillage}}\\
+			\only<6->{Maillage triangulaire} & \only<8->{Temps de calcul}
+		\end{NiceTabular}
 	\end{frame}
 	
 	%Slide 2
@@ -288,19 +289,50 @@
 		\end{center}
 	\end{frame}
 	
-	%Slide 3
+	
 	\section{Gradients discrets locaux pour la méthode des volumes finis}
+	\begin{frame}
+		\begin{center}
+			Étant donné $u \in \mathcal C^2(\mathbb R^2,\mathbb R)$\pause
+			
+			\vspace{.5cm}
+			
+			$\big\downarrow$
+			
+			\vspace{.5cm}
+			
+			Méthode aux volumes finis\pause
+			
+			\vspace{.5cm}
+			
+			$\big\downarrow$
+			
+			\vspace{.5cm}
+			
+			$u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i} u(x)\,\mathrm dx$, \hspace{.2cm} et,\hspace{.2cm} $\nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u(x)\, \mathrm dx$
+		\end{center}
+	\end{frame}
+	
+	%Slide 3
 	\begin{frame}{Gradients discrets locaux pour la méthode des volumes finis}
 		
-		Pour $u \in \mathcal C^2(\mathbb R^2,\mathbb R)$ \pause $\to$ une liste $(u_i)$\pause\\
 		Sous la condition que $M_i$ soit inversible, $\overline{\nabla u(x_i)}$ est défini par :
+		
+		\vspace{.2cm}
+		
 		\begin{equation}\label{eq:grad_discret}
 			M_i \overline{ {\nabla u}(x_i)} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}},
 		\end{equation}\pause
 		
 		\vspace{.5cm}
 		
-		où $M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j} {n_{i,j}}\otimes\left( {\bar x_{i,j}-x_{i,j}}\right).$
+		où $M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j} {n_{i,j}}\otimes\left( {\bar x_{i,j}-x_{i,j}}\right).$\pause
+		
+		\vspace{.5cm}
+		
+		\begin{center}
+			Erreur de consistance = $\nabla u_i - \overline{\nabla u(x_i)}$
+		\end{center}
 	\end{frame}
 	
 	%Slide 4
@@ -357,64 +389,54 @@
 	\newcommand{\dx}{\mathrm dx}
 	\section{Majoration de l'erreur}
 	\begin{frame}{Majoration de l'erreur}
-		\only<1>{\begin{center}
-				La modélisation respective de $u$ et du gradient de $u$, est définie par :
-				\vspace{.5cm}
-				
-				$u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i} u(x)\, \dx$
-				
-				\vspace{.5cm}
-				
-				$\nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u(x)\, \mathrm dx$
-		\end{center}}
-		\only<2>{
+		\only<1>{
 			\begin{center}
 				L'erreur $R^{(i)} = M_i\nabla u_i - M_i\overline{\nabla u(x_i)}$, est égale à :
 				
 				\vspace{.5cm}
 				
 				\begin{equation}
-					\dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \left[R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}\right] n_{i,j},
+					\dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \left[- \lambda_{i,j}R_1^{ij} + R_2^{ij} - R_3^{ij}\right] n_{ij},
 				\end{equation}
 			\end{center}
 		}
 		
-		\only<3->{
+		\only<2->{
 		\textbf{\underline{Hypothèses :}} $u$ est de classe $\mathcal{C}^2$ et sa hessienne est majorée.
 		
 		\vspace{.2cm}
 		
-		Majorations des erreurs pour \only<3-4>{$h = \max_i \max_{j \in \mathcal N_i} d(x_i,x_j)$}\only<5>{$\textcolor{red}{h = \max_i \max_{j \in \mathcal N_i} d(x_i,x_j)}$}\only<6>{$\textcolor{blue}{h = \dfrac{\left(\max_i \max_{j \in \mathcal N_i} \mathrm{diam}(C_i)+\mathrm{diam}(C_j)\right)^3}{\min_i \abs{C_i}}}$}\only<7->{$h = \dfrac{\left(\max_i \max_{j \in \mathcal N_i} \mathrm{diam}(C_i)+\mathrm{diam}(C_j)\right)^3}{\min_i \abs{C_i}}$} :
+		Majorations des erreurs pour \only<2-3>{$h = \max_i \max_{j \in \mathcal N_i} d(x_i,x_j)$}\only<4>{$\textcolor{red}{h = \max_i \max_{j \in \mathcal N_i} d(x_i,x_j)}$}\only<5>{$\textcolor{blue}{h = \dfrac{\left(\max_i \max_{j \in \mathcal N_i} \mathrm{diam}(C_i)+\mathrm{diam}(C_j)\right)^3}{\min_i \abs{C_i}}}$}\only<6->{$h = \dfrac{\left(\max_i \max_{j \in \mathcal N_i} \mathrm{diam}(C_i)+\mathrm{diam}(C_j)\right)^3}{\min_i \abs{C_i}}$} :
 		
-		\only<3-7>{
+		\only<2-6>{
 		\begin{equation}\label{eq:maj_naiv_R1}
-			\abs{R_1^{i,j}} \leq \frac {|\!|\nabla^2 u|\!|_\infty}{4d_{i,j}}\left[\frac{d_{j,ij}}{\abs{C_i}}\displaystyle\int_{C_i} |\!| {x-x_{i,j}}|\!|^2\mathrm d  x + \frac{d_{i,ij}}{\abs{C_j}}\displaystyle\int_{C_j} |\!| {x-x_{i,j}}|\!|^2\mathrm d  x\right],
+			\abs{R_1^{ij}} \leq \frac {|\!|\nabla^2 u|\!|_\infty}{4d_{ij}}\left[\frac{d_{j,ij}}{\abs{C_i}}\displaystyle\int_{C_i} |\!| {x-x_{ij}}|\!|^2\mathrm d  x + \frac{d_{i,ij}}{\abs{C_j}}\displaystyle\int_{C_j} |\!| {x-x_{ij}}|\!|^2\mathrm d  x\right],
 		\end{equation}\pause
 		
 		\vspace{.2cm}
 		
-		\only<4,6->{\begin{equation}\label{eq:maj_naiv_R2}
-			\abs{R_2^{i,j}} \leq \frac {|\!|\nabla^2 u|\!|_\infty}2\displaystyle\int_{\Gamma_{i,j}} |\!| { \xi-x_{i,j}}|\!|^2\mathrm d \xi,
+		\only<3,5->{\begin{equation}\label{eq:maj_naiv_R2}
+			\abs{R_2^{ij}} \leq \frac {|\!|\nabla^2 u|\!|_\infty}2\displaystyle\int_{\Gamma_{ij}} |\!| { \xi-x_{ij}}|\!|^2\mathrm d \xi,
 		\end{equation}}
-		\only<5>{\begin{equation}\label{eq:maj_naiv_R2}
-				\textcolor{red}{\abs{R_2^{i,j}} \leq \frac {|\!|\nabla^2 u|\!|_\infty}2\displaystyle\int_{\Gamma_{i,j}} |\!| { \xi-x_{i,j}}|\!|^2\mathrm d \xi},
+		\only<4>{\begin{equation}\label{eq:maj_naiv_R2}
+				\textcolor{red}{\abs{R_2^{ij}} \leq \frac {|\!|\nabla^2 u|\!|_\infty}2\displaystyle\int_{\Gamma_{i,j}} |\!| { \xi-x_{i,j}}|\!|^2\mathrm d \xi},
 		\end{equation}}
-		\uncover<7->{
+		\uncover<6->{
 		
 		 \vspace{.2cm}
 	
 		\begin{equation}\label{eq:maj_naiv_R3}
-			\abs{R_3^{i,j}} \leq \lambda_{i,j}{|\!|\nabla^2 u|\!|_\infty}|\!| {\bar x_{i,j}-x_{i,j}}|\!|\cdot \frac1{\abs{C_i}}\int_{C_i}|\!| {x-  x_{i,j}} |\!|\dx.
+			\abs{R_3^{i,j}} \leq \lambda_{ij}{|\!|\nabla^2 u|\!|_\infty}|\!| {\bar x_{i,j}-x_{i,j}}|\!| \frac1{\abs{C_i}}\int_{C_i}|\!| {x- x_{ij}} |\!|\dx.
 		\end{equation}}}
 	
 	
-		\only<8>{
+		\only<7>{
 			\vspace{1cm}
 			\begin{equation}\label{eq:max_naiv_R4}
 				|\!| {R^{(i)}}|\!| \leq 2{|\!|\nabla^2 u|\!|_\infty}N_{max}h
 			\end{equation}
 		}
-		\only<9-10>{
+		\only<8-9>{
 		\vspace{1cm}
 		
 		\begin{center}
@@ -422,14 +444,19 @@
 			
 			\vspace{.2cm}
 			
-			\only<10>{
+			\only<9>{
 			$\big\Downarrow$
 			}
 		\end{center}
-		\only<10>{
+		\only<9>{
 		\begin{equation}
 			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!| \leq 2|\!|M_i^{-1}|\!| {|\!|\nabla^2 u|\!|_\infty}N_{\max}\, h
-		\end{equation}}
+		\end{equation}
+		
+		\hspace{.5cm}
+		
+		,où $|\!|M_i^{-1}|\!| = \underset{|\!|v|\!| = 1}\sup |\!|M_i^{-1}v|\!|$.
+		}
 		}}
 	\end{frame}
 	
@@ -534,7 +561,7 @@
 		
 		\vspace{1cm}
 		
-		Maillage de Delaunay $\implies$ $\mu_{\min} \geq 26.5^\circ$
+		Maillage de Delaunay $\implies$ $\mu_{\min} \geq \arcsin\left(\dfrac1{\sqrt{5}}\right)$.
 	\end{frame}
 	
 	%Slide 9
@@ -593,7 +620,7 @@
 		\vspace{2cm}
 		
 		\begin{equation}
-			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!|_2 \leq 6\sqrt{1.5+\frac{2.25}{\sin^4(\mu_{\min})}}{|\!|\nabla^2 u|\!|_\infty}\, h.
+			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!|_2 \leq 6\sqrt{\frac32+\left(\frac{3}{2\sin^2(\mu_{\min})}\right)^2}{|\!|\nabla^2 u|\!|_\infty}\, h.
 		\end{equation}
 	\end{frame}
 	
@@ -615,19 +642,13 @@
 				\includegraphics[scale=.15]{image/maillage_deforme_09.png}
 				\caption{Maillage cartésien déformé}
 			\end{subfigure}
-		\end{figure}\pause
-		
-		\vspace{.5cm}
-		
-		\underline{Condition de bord :} périodique\pause $\implies$ \begin{minipage}[t]{6cm}
-			même valeur en haut et en bas, à gauche et à droite.
-		\end{minipage}
+		\end{figure}
 	\end{frame}
 	
 	
 	\begin{frame}{Tests numériques : Fonctions tests}
 		\begin{itemize}
-			\only<1,2>{\item Gaussienne : $\mathrm{gauss}(x,y) = \exp\left(\dfrac{(x-x_c)^2+(y-y_c)^2}{2\sigma^2}\right)$\\
+			\only<1,2>{\item Gaussienne : $u^{(1)}(x,y) = \exp\left(\dfrac{(x-x_c)^2+(y-y_c)^2}{2\sigma^2}\right)$\\
 			\only<1>{
 				\vspace{.5cm}
 				\centering
@@ -640,7 +661,7 @@
 			 
 			 \vspace{.2cm}
 			 
-			 $u_2(x,y) = \begin{cases}
+			 $u^{(2)}(x,y) = \begin{cases}
 			 	\exp\left(\frac1{\frac{(x-x_c)^2 + (y-y_c)^2}{r^2} - 1}\right) & \text{si } (x-x_c)^2+(y-y_c)^2 < r^2\\
 			 	0 & \text{sinon}
 			 \end{cases}$
@@ -662,109 +683,134 @@
 		\begin{subfigure}{0.47\textwidth}
 			\centering
 			\includegraphics[scale=.42]{image/carre.png}
-			\caption{Gaussienne}
+			\caption{Gaussienne $u^{(1)}$.}
 		\end{subfigure}
 		\begin{subfigure}{0.45\textwidth}
 			\centering
 			\includegraphics[scale=.42]{image/carre_plateau.png}
-			\caption{Fonction plateau}
+			\caption{Fonction plateau $u^{(2)}$.}
 		\end{subfigure}
-		\caption{Maillage cartésien ($\varphi = 0$).}
-		\end{figure}}
+		\end{figure}
+		
+		\begin{table}
+			\begin{NiceTabular}{cccc}
+				\CodeBefore
+				\rowcolor{red!15}{1-2}
+				\rowcolor{blue!15}{4}
+				\Body
+				\Block[C]{2-1}{Fonction} & \Block[C]{2-1}{$\mathrm L^1$} & \Block[C]{2-1}{$\mathrm L^2$} & \Block[C]{2-1}{$\mathrm L^\infty$} \\
+				& & & \\
+				\hline
+				$u^{(1)}$ & 1.996 & 1.996 & 2.008 \\
+				$u^{(2)}$ & 1.972 & 1.925 & 1.920
+			\end{NiceTabular}
+			\caption{Ordre de convergence pour des maillages cartésiens.}
+		\end{table}}
 	
 		\only<3>{
 		\begin{figure}
 			\begin{subfigure}{0.47\textwidth}
 				\centering
 				\includegraphics[scale=.42]{image/deforme_05.png}
-				\caption{Gaussienne}
+				\caption{Gaussienne $u^{(1)}$.}
 			\end{subfigure}
 			\begin{subfigure}{0.45\textwidth}
 				\centering
 				\includegraphics[scale=.42]{image/deforme_05_plateau.png}
-				\caption{Fonction plateau}
+				\caption{Fonction plateau $u^{(2)}$.}
 			\end{subfigure}
-		\caption{Maillage cartésien déformé de déformation $\varphi = 0.5$.}
-		\end{figure}}
+		\end{figure}
+		
+		\begin{table}
+			\begin{NiceTabular}{cccc}
+				\CodeBefore
+				\rowcolor{red!15}{1-2}
+				\rowcolor{blue!15}{4}
+				\Body 
+				\Block[C]{2-1}{Fonction} & \Block[C]{2-1}{$\mathrm L^1$} & \Block[C]{2-1}{$\mathrm L^2$} & \Block[C]{2-1}{$\mathrm L^\infty$} \\
+				& & & \\
+				\hline
+				$u^{(1)}$ & 1.034 & 0.937 & 0.621\\
+				$u^{(2)}$ & 0.891 & 0.857 & 0.595
+			\end{NiceTabular}
+			\caption{Maillages cartésiens déformés de déformation $0.5$.}
+		\end{table}}
 	
 		\only<4>{
 			\begin{figure}
 				\begin{subfigure}{0.47\textwidth}
 					\centering
 				\includegraphics[scale=.42]{image/deforme_09.png}
-				\caption{Gaussienne.}
+				\caption{Gaussienne $u^{(1)}$.}
 				\end{subfigure}
 				\begin{subfigure}{0.45\textwidth}
 					\centering
 					\includegraphics[scale=.42]{image/deforme_09_plateau.png}
-					\caption{Fonction plateau.}
+					\caption{Fonction plateau $u^{(2)}$.}
 				\end{subfigure}
-				\caption{Maillage cartésien déformé de déformation $\varphi = 0.9$.}
-		\end{figure}}
+		\end{figure}
+		
+		\begin{table}
+			\begin{NiceTabular}{cccc}
+				\CodeBefore
+				\rowcolor{red!15}{1-2}
+				\rowcolor{blue!15}{4}
+				\Body 
+				\Block[C]{2-1}{Fonction} & \Block[C]{2-1}{$\mathrm L^1$} & \Block[C]{2-1}{$\mathrm L^2$} & \Block[C]{2-1}{$\mathrm L^\infty$} \\
+				& & & \\
+				\hline
+				$u^{(1)}$ & 1.032 & 0.871 & -0.365 \\
+				$u^{(2)}$ & 0.982 & 0.882 & -0.537
+			\end{NiceTabular}
+			\caption{Maillage cartésien déformé de déformation $\varphi = 0.9$.}
+		\end{table}}
 	
 		\only<2>{
 			\begin{figure}
 				\begin{subfigure}{0.47\textwidth}
 					\centering
 				\includegraphics[scale=.42]{image/ffm.png}
-				\caption{Gaussienne.}
+				\caption{Gaussienne $u^{(1)}$.}
 				\end{subfigure}
 				\begin{subfigure}{0.45\textwidth}
 					\centering
 					\includegraphics[scale=.42]{image/ffm_plateau.png}
-					\caption{Fonction plateau.}
+					\caption{Fonction plateau $u^{(2)}$.}
 				\end{subfigure}
-				\caption{Maillage de Delaunay.}
-		\end{figure}}
-	
-		\only<5>{
-			\centering
-			
+		\end{figure}
+		
 		\begin{table}
-			\begin{subtable}{0.5cm}
-				$ $
-			\end{subtable}
-			\begin{subtable}{0.47\textwidth}
-				\begin{NiceTabular}{cccc}
-					\CodeBefore
-						\rowcolor{red!15}{1-2}
-						\rowcolor{blue!15}{4,6}
-					\Body
-					\Block[C]{2-1}{Maillage} & \Block[C]{2-1}{$\mathrm L^1$} & \Block[C]{2-1}{$\mathrm L^2$} & \Block[C]{2-1}{$\mathrm L^\infty$} \\
-					& & & \\
-					\hline
-					$\varphi=0$ & 1.996 & 1.996 & 2.008 \\
-					Delaunay & 1.232 & 1.216 & 1.102 \\
-					$\varphi=0.5$ & 1.034 & 0.937 & 0.621 \\
-					$\varphi=0.9$ & 1.032 & 0.871 & -0.365
-				\end{NiceTabular}
-				\caption{Gaussienne.}
-			\end{subtable}
-			\begin{subtable}{0.45\textwidth}
-				\begin{NiceTabular}{cccc}
-					\CodeBefore
-					\rowcolor{red!15}{1-2}
-					\rowcolor{blue!15}{4,6}
-					\Body
-					\Block[C]{2-1}{Maillage} & \Block[C]{2-1}{$\mathrm L^1$} & \Block[C]{2-1}{$\mathrm L^2$} & \Block[C]{2-1}{$\mathrm L^\infty$} \\
-					& & & \\
-					\hline
-					$\varphi=0$ & 1.972 & 1.925 & 1.920 \\
-					Delaunay & 1.352 & 1.143 & 0.620 \\
-					$\varphi=0.5$ & 0.891 & 0.857 & 0.595 \\
-					$\varphi=0.9$ & 0.982 & 0.882 & -0.537
-				\end{NiceTabular}
-				\caption{Fonction plateau.}
-			\end{subtable}
-			\caption{Ordre de convergence.}
-		\end{table}
-		}
+			\begin{NiceTabular}{cccc}
+				\CodeBefore
+				\rowcolor{red!15}{1-2}
+				\rowcolor{blue!15}{4}
+				\Body 
+				\Block[C]{2-1}{Fonction} & \Block[C]{2-1}{$\mathrm L^1$} & \Block[C]{2-1}{$\mathrm L^2$} & \Block[C]{2-1}{$\mathrm L^\infty$} \\
+				& & & \\
+				\hline
+				$u^{(1)}$ & 1.232 & 1.216 & 1.102 \\
+				$u^{(2)}$ & 1.352 & 1.143 & 0.620
+			\end{NiceTabular}
+			\caption{Maillages de Delaunay.}
+		\end{table}}
 	\end{frame}	
 	\restoregeometry
 	
 	\begin{frame}
 		\begin{center}
-			Conclusion
+			Conclusions\pause
+			
+			\vspace{.2cm}
+			
+			\begin{itemize}
+				\item Nouveau pas $h$ \pause $\to$ quantifie l'erreur de consistance.\pause
+				\item Erreur de consistance d'ordre 1 : \pause \begin{minipage}[t]{5cm}
+					pour les maillages triangulaires et quadrangulaires.
+				\end{minipage}\pause
+				\item Convergence confirmée : \pause maillage vérifiant les conditions énoncées.\pause
+				\item Convergence mise en défaut : \pause maillage ne respectant pas les conditions.\pause
+				\item Pas $h$ difficile à diminuer : \pause Nombre de cellule $\nearrow$ $\cancel\implies$ $h\searrow$.
+			\end{itemize}
 		\end{center}
 	\end{frame}
 	

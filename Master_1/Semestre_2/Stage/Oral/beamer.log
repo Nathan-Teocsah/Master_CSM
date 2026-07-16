@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  14 JUL 2026 10:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  16 JUL 2026 22:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1175,28 +1175,30 @@ Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \l__nicematrix_position_int=\count409
 \l__nicematrix_multiplicity_int=\count410
 \l__nicematrix_brace_yshift_dim=\dimen394
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cancel/cancel.sty
+Package: cancel 2013/04/12 v2.2 Cancel math terms
 ) (./beamer.aux)
 \openout1 = `beamer.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1253,64 +1255,64 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 26.
+Package hyperref Info: Link coloring OFF on input line 27.
 
 (./beamer.out) (./beamer.out)
 \@outlinefile=\write5
 \openout5 = `beamer.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 26.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 27.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 26.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 27.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 26.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 27.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 26.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 27.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 26.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 26.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 27.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 27.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 26.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 27.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 26.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 26.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 27.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 27.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 26.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 27.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 26.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 26.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 27.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 27.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 26.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 27.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 26.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 27.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 26.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 27.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 26.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 27.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 26.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 27.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 26.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 27.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 26.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 27.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 26.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 27.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 26.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 26.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 27.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 27.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
 (Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 2
-6.
+7.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 2
-6.
+7.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 26.
+ut line 27.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-basic-dicti
 onary-English.dict
@@ -1346,43 +1348,96 @@ Package caption Info: End \AtBeginDocument code.
 er.toc) [2
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 59.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 60.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 59.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 60.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 59.
+ut line 60.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
-) [3
+)
+<image/maillage_aile_avion.png, id=118, 842.14626pt x 502.87875pt>
+File: image/maillage_aile_avion.png Graphic file (type png)
+<use image/maillage_aile_avion.png>
+Package pdftex.def Info: image/maillage_aile_avion.png  used on input line 60.
+(pdftex.def)             Requested size: 168.42627pt x 100.57396pt.
+\g__nicematrix_max_cell_width_dim=\dimen399
+\c@iRow=\count417
+\c@jCol=\count418
+\l__nicematrix_cell_box=\box92
+\l__nicematrix_left_delim_dim=\dimen400
+\l__nicematrix_right_delim_dim=\dimen401
+ [3
 
-] [4
+ <./image/maillage_aile_avion.png>]
+File: image/maillage_aile_avion.png Graphic file (type png)
+<use image/maillage_aile_avion.png>
+Package pdftex.def Info: image/maillage_aile_avion.png  used on input line 60.
+(pdftex.def)             Requested size: 168.42627pt x 100.57396pt.
+ [4
 
-] [5
+]
+File: image/maillage_aile_avion.png Graphic file (type png)
+<use image/maillage_aile_avion.png>
+Package pdftex.def Info: image/maillage_aile_avion.png  used on input line 60.
+(pdftex.def)             Requested size: 168.42627pt x 100.57396pt.
+ [5
 
-] [6
+]
+File: image/maillage_aile_avion.png Graphic file (type png)
+<use image/maillage_aile_avion.png>
+Package pdftex.def Info: image/maillage_aile_avion.png  used on input line 60.
+(pdftex.def)             Requested size: 168.42627pt x 100.57396pt.
+ [6
 
-] [7
+]
+File: image/maillage_aile_avion.png Graphic file (type png)
+<use image/maillage_aile_avion.png>
+Package pdftex.def Info: image/maillage_aile_avion.png  used on input line 60.
+(pdftex.def)             Requested size: 168.42627pt x 100.57396pt.
+ [7
 
-] [8
+]
+File: image/maillage_aile_avion.png Graphic file (type png)
+<use image/maillage_aile_avion.png>
+Package pdftex.def Info: image/maillage_aile_avion.png  used on input line 60.
+(pdftex.def)             Requested size: 168.42627pt x 100.57396pt.
+ [8
 
-] [9
+]
+File: image/maillage_aile_avion.png Graphic file (type png)
+<use image/maillage_aile_avion.png>
+Package pdftex.def Info: image/maillage_aile_avion.png  used on input line 60.
+(pdftex.def)             Requested size: 168.42627pt x 100.57396pt.
+ [9
 
-] [10
+]
+File: image/maillage_aile_avion.png Graphic file (type png)
+<use image/maillage_aile_avion.png>
+Package pdftex.def Info: image/maillage_aile_avion.png  used on input line 60.
+(pdftex.def)             Requested size: 168.42627pt x 100.57396pt.
+ [10
 
-] [11
+]
+File: image/maillage_aile_avion.png Graphic file (type png)
+<use image/maillage_aile_avion.png>
+Package pdftex.def Info: image/maillage_aile_avion.png  used on input line 60.
+(pdftex.def)             Requested size: 168.42627pt x 100.57396pt.
+ [11
 
-] [12
+]
+[12
 
 ] [13
 
@@ -1396,8 +1451,7 @@ thkerncmss.
 
 ] [18
 
-]
-[19
+] [19
 
 ] [20
 
@@ -1413,7 +1467,8 @@ thkerncmss.
 
 ] [26
 
-] [27
+]
+[27
 
 ] [28
 
@@ -1427,8 +1482,7 @@ thkerncmss.
 
 ] [33
 
-]
-[34
+] [34
 
 ] [35
 
@@ -1438,41 +1492,41 @@ thkerncmss.
 
 ] [38
 
-]
-Overfull \hbox (29.54897pt too wide) in paragraph at lines 538--538
-[][] 
- []
-
-[39
+] [39
 
 ]
-Overfull \hbox (29.54897pt too wide) in paragraph at lines 538--538
+Overfull \hbox (29.54897pt too wide) in paragraph at lines 565--565
 [][] 
  []
 
 [40
 
 ]
-Overfull \hbox (29.54897pt too wide) in paragraph at lines 538--538
+Overfull \hbox (29.54897pt too wide) in paragraph at lines 565--565
 [][] 
  []
 
 [41
 
-] [42
+]
+Overfull \hbox (29.54897pt too wide) in paragraph at lines 565--565
+[][] 
+ []
+
+[42
 
 ] [43
 
 ] [44
 
+] [45
+
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 585--585
+Underfull \hbox (badness 10000) in paragraph at lines 612--612
 
  []
 
-[45
-
-] [46
+[46
 
 ] [47
 
@@ -1482,84 +1536,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 585--585
 
 ] [50
 
+] [51
+
 ]
-<image/maillage_carre.png, id=1415, 710.655pt x 710.655pt>
+<image/maillage_carre.png, id=1442, 710.655pt x 710.655pt>
 File: image/maillage_carre.png Graphic file (type png)
 <use image/maillage_carre.png>
-Package pdftex.def Info: image/maillage_carre.png  used on input line 625.
+Package pdftex.def Info: image/maillage_carre.png  used on input line 646.
 (pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
 
-Overfull \hbox (3.334pt too wide) in paragraph at lines 625--625
+Overfull \hbox (3.334pt too wide) in paragraph at lines 646--646
  [][] 
  []
 
-<image/maillage_ffm.png, id=1417, 710.655pt x 710.655pt>
+<image/maillage_ffm.png, id=1443, 710.655pt x 710.655pt>
 File: image/maillage_ffm.png Graphic file (type png)
 <use image/maillage_ffm.png>
-Package pdftex.def Info: image/maillage_ffm.png  used on input line 625.
+Package pdftex.def Info: image/maillage_ffm.png  used on input line 646.
 (pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
 
-Overfull \hbox (3.334pt too wide) in paragraph at lines 625--625
+Overfull \hbox (3.334pt too wide) in paragraph at lines 646--646
  [][] 
  []
 
-<image/maillage_deforme_09.png, id=1418, 710.655pt x 710.655pt>
+<image/maillage_deforme_09.png, id=1444, 710.655pt x 710.655pt>
 File: image/maillage_deforme_09.png Graphic file (type png)
 <use image/maillage_deforme_09.png>
-Package pdftex.def Info: image/maillage_deforme_09.png  used on input line 625.
+Package pdftex.def Info: image/maillage_deforme_09.png  used on input line 646.
 
 (pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
-[51
+[52
 
  <./image/maillage_carre.png> <./image/maillage_ffm.png> <./image/maillage_defo
 rme_09.png>]
 File: image/maillage_carre.png Graphic file (type png)
 <use image/maillage_carre.png>
-Package pdftex.def Info: image/maillage_carre.png  used on input line 625.
+Package pdftex.def Info: image/maillage_carre.png  used on input line 646.
 (pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
 
-Overfull \hbox (3.334pt too wide) in paragraph at lines 625--625
+Overfull \hbox (3.334pt too wide) in paragraph at lines 646--646
  [][] 
  []
 
 File: image/maillage_ffm.png Graphic file (type png)
 <use image/maillage_ffm.png>
-Package pdftex.def Info: image/maillage_ffm.png  used on input line 625.
+Package pdftex.def Info: image/maillage_ffm.png  used on input line 646.
 (pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
 
-Overfull \hbox (3.334pt too wide) in paragraph at lines 625--625
+Overfull \hbox (3.334pt too wide) in paragraph at lines 646--646
  [][] 
  []
 
 File: image/maillage_deforme_09.png Graphic file (type png)
 <use image/maillage_deforme_09.png>
-Package pdftex.def Info: image/maillage_deforme_09.png  used on input line 625.
-
-(pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
-[52
-
-]
-File: image/maillage_carre.png Graphic file (type png)
-<use image/maillage_carre.png>
-Package pdftex.def Info: image/maillage_carre.png  used on input line 625.
-(pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
-
-Overfull \hbox (3.334pt too wide) in paragraph at lines 625--625
- [][] 
- []
-
-File: image/maillage_ffm.png Graphic file (type png)
-<use image/maillage_ffm.png>
-Package pdftex.def Info: image/maillage_ffm.png  used on input line 625.
-(pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
-
-Overfull \hbox (3.334pt too wide) in paragraph at lines 625--625
- [][] 
- []
-
-File: image/maillage_deforme_09.png Graphic file (type png)
-<use image/maillage_deforme_09.png>
-Package pdftex.def Info: image/maillage_deforme_09.png  used on input line 625.
+Package pdftex.def Info: image/maillage_deforme_09.png  used on input line 646.
 
 (pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
 [53
@@ -1567,80 +1597,54 @@ Package pdftex.def Info: image/maillage_deforme_09.png  used on input line 625.
 ]
 File: image/maillage_carre.png Graphic file (type png)
 <use image/maillage_carre.png>
-Package pdftex.def Info: image/maillage_carre.png  used on input line 625.
+Package pdftex.def Info: image/maillage_carre.png  used on input line 646.
 (pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
 
-Overfull \hbox (3.334pt too wide) in paragraph at lines 625--625
+Overfull \hbox (3.334pt too wide) in paragraph at lines 646--646
  [][] 
  []
 
 File: image/maillage_ffm.png Graphic file (type png)
 <use image/maillage_ffm.png>
-Package pdftex.def Info: image/maillage_ffm.png  used on input line 625.
+Package pdftex.def Info: image/maillage_ffm.png  used on input line 646.
 (pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
 
-Overfull \hbox (3.334pt too wide) in paragraph at lines 625--625
+Overfull \hbox (3.334pt too wide) in paragraph at lines 646--646
  [][] 
  []
 
 File: image/maillage_deforme_09.png Graphic file (type png)
 <use image/maillage_deforme_09.png>
-Package pdftex.def Info: image/maillage_deforme_09.png  used on input line 625.
+Package pdftex.def Info: image/maillage_deforme_09.png  used on input line 646.
 
 (pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
 [54
 
 ]
-File: image/maillage_carre.png Graphic file (type png)
-<use image/maillage_carre.png>
-Package pdftex.def Info: image/maillage_carre.png  used on input line 625.
-(pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
-
-Overfull \hbox (3.334pt too wide) in paragraph at lines 625--625
- [][] 
- []
-
-File: image/maillage_ffm.png Graphic file (type png)
-<use image/maillage_ffm.png>
-Package pdftex.def Info: image/maillage_ffm.png  used on input line 625.
-(pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
-
-Overfull \hbox (3.334pt too wide) in paragraph at lines 625--625
- [][] 
- []
-
-File: image/maillage_deforme_09.png Graphic file (type png)
-<use image/maillage_deforme_09.png>
-Package pdftex.def Info: image/maillage_deforme_09.png  used on input line 625.
-
-(pdftex.def)             Requested size: 106.59364pt x 106.59364pt.
-[55
-
-]
-<image/gradient.png, id=1556, 2884.7775pt x 2089.8075pt>
+<image/gradient.png, id=1529, 2884.7775pt x 2089.8075pt>
 File: image/gradient.png Graphic file (type png)
 <use image/gradient.png>
-Package pdftex.def Info: image/gradient.png  used on input line 655.
+Package pdftex.def Info: image/gradient.png  used on input line 676.
 (pdftex.def)             Requested size: 230.78691pt x 167.18802pt.
 
-Overfull \vbox (16.37608pt too high) detected at line 655
+Overfull \vbox (16.37608pt too high) detected at line 676
  []
 
-[56
+[55
 
- <./image/gradient.png (PNG copy)>] [57
+ <./image/gradient.png (PNG copy)>] [56
 
 ]
-<image/plateau.png, id=1611, 1134.2375pt x 759.83875pt>
+<image/plateau.png, id=1586, 1134.2375pt x 759.83875pt>
 File: image/plateau.png Graphic file (type png)
 <use image/plateau.png>
-Package pdftex.def Info: image/plateau.png  used on input line 655.
+Package pdftex.def Info: image/plateau.png  used on input line 676.
 (pdftex.def)             Requested size: 204.15395pt x 136.76506pt.
 
-Overfull \vbox (5.65074pt too high) detected at line 655
+Overfull \vbox (5.65074pt too high) detected at line 676
  []
 
-[58
+[57
 
  <./image/plateau.png>]
 *geometry* verbose mode - [ newgeometry ] result:
@@ -1675,110 +1679,132 @@ Overfull \vbox (5.65074pt too high) detected at line 655
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<image/carre.png, id=1639, 462.528pt x 310.761pt>
+<image/carre.png, id=1614, 462.528pt x 310.761pt>
 File: image/carre.png Graphic file (type png)
 <use image/carre.png>
-Package pdftex.def Info: image/carre.png  used on input line 762.
+Package pdftex.def Info: image/carre.png  used on input line 796.
 (pdftex.def)             Requested size: 194.26042pt x 130.51872pt.
 
-Overfull \hbox (16.40176pt too wide) in paragraph at lines 762--762
+Overfull \hbox (16.40176pt too wide) in paragraph at lines 796--796
  [][] 
  []
 
-<image/carre_plateau.png, id=1640, 462.528pt x 310.761pt>
+<image/carre_plateau.png, id=1615, 462.528pt x 310.761pt>
 File: image/carre_plateau.png Graphic file (type png)
 <use image/carre_plateau.png>
-Package pdftex.def Info: image/carre_plateau.png  used on input line 762.
+Package pdftex.def Info: image/carre_plateau.png  used on input line 796.
 (pdftex.def)             Requested size: 194.26042pt x 130.51872pt.
 
-Overfull \hbox (23.9718pt too wide) in paragraph at lines 762--762
+Overfull \hbox (23.9718pt too wide) in paragraph at lines 796--796
  [][] 
  []
 
-[59
-
-
- <./image/carre.png> <./image/carre_plateau.png>]
-<image/ffm.png, id=1671, 462.528pt x 310.761pt>
-File: image/ffm.png Graphic file (type png)
-<use image/ffm.png>
-Package pdftex.def Info: image/ffm.png  used on input line 762.
-(pdftex.def)             Requested size: 194.26042pt x 130.51872pt.
-
-Overfull \hbox (16.40176pt too wide) in paragraph at lines 762--762
- [][] 
- []
-
-<image/ffm_plateau.png, id=1672, 462.528pt x 310.761pt>
-File: image/ffm_plateau.png Graphic file (type png)
-<use image/ffm_plateau.png>
-Package pdftex.def Info: image/ffm_plateau.png  used on input line 762.
-(pdftex.def)             Requested size: 194.26042pt x 130.51872pt.
-
-Overfull \hbox (23.9718pt too wide) in paragraph at lines 762--762
- [][] 
- []
-
-[60
-
- <./image/ffm.png> <./image/ffm_plateau.png>]
-<image/deforme_05.png, id=1701, 462.528pt x 310.761pt>
-File: image/deforme_05.png Graphic file (type png)
-<use image/deforme_05.png>
-Package pdftex.def Info: image/deforme_05.png  used on input line 762.
-(pdftex.def)             Requested size: 194.26042pt x 130.51872pt.
-
-Overfull \hbox (16.40176pt too wide) in paragraph at lines 762--762
- [][] 
- []
-
-<image/deforme_05_plateau.png, id=1702, 462.528pt x 310.761pt>
-File: image/deforme_05_plateau.png Graphic file (type png)
-<use image/deforme_05_plateau.png>
-Package pdftex.def Info: image/deforme_05_plateau.png  used on input line 762.
-(pdftex.def)             Requested size: 194.26042pt x 130.51872pt.
-
-Overfull \hbox (23.9718pt too wide) in paragraph at lines 762--762
- [][] 
- []
-
-[61
-
- <./image/deforme_05.png> <./image/deforme_05_plateau.png>]
-<image/deforme_09.png, id=1732, 462.528pt x 310.761pt>
-File: image/deforme_09.png Graphic file (type png)
-<use image/deforme_09.png>
-Package pdftex.def Info: image/deforme_09.png  used on input line 762.
-(pdftex.def)             Requested size: 194.26042pt x 130.51872pt.
-
-Overfull \hbox (16.40176pt too wide) in paragraph at lines 762--762
- [][] 
- []
-
-<image/deforme_09_plateau.png, id=1733, 462.528pt x 310.761pt>
-File: image/deforme_09_plateau.png Graphic file (type png)
-<use image/deforme_09_plateau.png>
-Package pdftex.def Info: image/deforme_09_plateau.png  used on input line 762.
-(pdftex.def)             Requested size: 194.26042pt x 130.51872pt.
-
-Overfull \hbox (23.9718pt too wide) in paragraph at lines 762--762
- [][] 
- []
-
-[62
-
- <./image/deforme_09.png> <./image/deforme_09_plateau.png>]
-\g__nicematrix_max_cell_width_dim=\dimen399
-\c@iRow=\count417
-\c@jCol=\count418
-\l__nicematrix_cell_box=\box92
-\l__nicematrix_left_delim_dim=\dimen400
-\l__nicematrix_right_delim_dim=\dimen401
 \g__nicematrix_block_box_1_box=\box93
 \g__nicematrix_block_box_2_box=\box94
 \g__nicematrix_block_box_3_box=\box95
 \g__nicematrix_block_box_4_box=\box96
- [63
+
+Overfull \vbox (14.29742pt too high) detected at line 796
+ []
+
+[58
+
+
+ <./image/carre.png> <./image/carre_plateau.png>]
+<image/ffm.png, id=1646, 462.528pt x 310.761pt>
+File: image/ffm.png Graphic file (type png)
+<use image/ffm.png>
+Package pdftex.def Info: image/ffm.png  used on input line 796.
+(pdftex.def)             Requested size: 194.26042pt x 130.51872pt.
+
+Overfull \hbox (16.40176pt too wide) in paragraph at lines 796--796
+ [][] 
+ []
+
+<image/ffm_plateau.png, id=1647, 462.528pt x 310.761pt>
+File: image/ffm_plateau.png Graphic file (type png)
+<use image/ffm_plateau.png>
+Package pdftex.def Info: image/ffm_plateau.png  used on input line 796.
+(pdftex.def)             Requested size: 194.26042pt x 130.51872pt.
+
+Overfull \hbox (23.9718pt too wide) in paragraph at lines 796--796
+ [][] 
+ []
+
+
+Overfull \vbox (14.29742pt too high) detected at line 796
+ []
+
+[59
+
+ <./image/ffm.png> <./image/ffm_plateau.png>]
+<image/deforme_05.png, id=1677, 462.528pt x 310.761pt>
+File: image/deforme_05.png Graphic file (type png)
+<use image/deforme_05.png>
+Package pdftex.def Info: image/deforme_05.png  used on input line 796.
+(pdftex.def)             Requested size: 194.26042pt x 130.51872pt.
+
+Overfull \hbox (16.40176pt too wide) in paragraph at lines 796--796
+ [][] 
+ []
+
+<image/deforme_05_plateau.png, id=1678, 462.528pt x 310.761pt>
+File: image/deforme_05_plateau.png Graphic file (type png)
+<use image/deforme_05_plateau.png>
+Package pdftex.def Info: image/deforme_05_plateau.png  used on input line 796.
+(pdftex.def)             Requested size: 194.26042pt x 130.51872pt.
+
+Overfull \hbox (23.9718pt too wide) in paragraph at lines 796--796
+ [][] 
+ []
+
+
+Overfull \vbox (14.29742pt too high) detected at line 796
+ []
+
+[60
+
+ <./image/deforme_05.png> <./image/deforme_05_plateau.png>]
+<image/deforme_09.png, id=1706, 462.528pt x 310.761pt>
+File: image/deforme_09.png Graphic file (type png)
+<use image/deforme_09.png>
+Package pdftex.def Info: image/deforme_09.png  used on input line 796.
+(pdftex.def)             Requested size: 194.26042pt x 130.51872pt.
+
+Overfull \hbox (16.40176pt too wide) in paragraph at lines 796--796
+ [][] 
+ []
+
+<image/deforme_09_plateau.png, id=1707, 462.528pt x 310.761pt>
+File: image/deforme_09_plateau.png Graphic file (type png)
+<use image/deforme_09_plateau.png>
+Package pdftex.def Info: image/deforme_09_plateau.png  used on input line 796.
+(pdftex.def)             Requested size: 194.26042pt x 130.51872pt.
+
+Overfull \hbox (23.9718pt too wide) in paragraph at lines 796--796
+ [][] 
+ []
+
+
+Overfull \vbox (14.29742pt too high) detected at line 796
+ []
+
+[61
+
+ <./image/deforme_09.png> <./image/deforme_09_plateau.png>]
+Overfull \hbox (34.2264pt too wide) has occurred while \output is active
+[] 
+ []
+
+[62
+
+
+]
+Overfull \hbox (34.2264pt too wide) has occurred while \output is active
+[] 
+ []
+
+[63
 
 ]
 Overfull \hbox (34.2264pt too wide) has occurred while \output is active
@@ -1787,6 +1813,61 @@ Overfull \hbox (34.2264pt too wide) has occurred while \output is active
 
 [64
 
+]
+Overfull \hbox (34.2264pt too wide) has occurred while \output is active
+[] 
+ []
+
+[65
+
+]
+Overfull \hbox (34.2264pt too wide) has occurred while \output is active
+[] 
+ []
+
+[66
+
+]
+Overfull \hbox (34.2264pt too wide) has occurred while \output is active
+[] 
+ []
+
+[67
+
+]
+Overfull \hbox (34.2264pt too wide) has occurred while \output is active
+[] 
+ []
+
+[68
+
+]
+Overfull \hbox (34.2264pt too wide) has occurred while \output is active
+[] 
+ []
+
+[69
+
+]
+Overfull \hbox (34.2264pt too wide) has occurred while \output is active
+[] 
+ []
+
+[70
+
+]
+Overfull \hbox (34.2264pt too wide) has occurred while \output is active
+[] 
+ []
+
+[71
+
+]
+Overfull \hbox (34.2264pt too wide) has occurred while \output is active
+[] 
+ []
+
+[72
 
 ]
 \tf@nav=\write6
@@ -1807,13 +1888,13 @@ Package rerunfilecheck Info: File `beamer.out' has not changed.
 (rerunfilecheck)             Checksum: E1498D680D0509978CF2926BFD2C39D2;847.
  ) 
 Here is how much of TeX's memory you used:
- 35511 strings out of 467538
- 780780 string characters out of 5419551
- 1231481 words of memory out of 5000000
- 63548 multiletter control sequences out of 15000+600000
- 639462 words of font info for 82 fonts, out of 8000000 for 9000
+ 37601 strings out of 467538
+ 823987 string characters out of 5419551
+ 1220501 words of memory out of 5000000
+ 65614 multiletter control sequences out of 15000+600000
+ 641106 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,19n,132p,1176b,1236s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,17n,132p,1176b,1236s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
@@ -1835,11 +1916,12 @@ e/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/
 2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/20
 25/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/t
-exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on beamer.pdf (64 pages, 803036 bytes).
+exmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2
+025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on beamer.pdf (72 pages, 1009727 bytes).
 PDF statistics:
- 1937 PDF objects out of 2073 (max. 8388607)
- 1753 compressed objects within 18 object streams
- 136 named destinations out of 1000 (max. 500000)
- 202 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2158 PDF objects out of 2487 (max. 8388607)
+ 1960 compressed objects within 20 object streams
+ 152 named destinations out of 1000 (max. 500000)
+ 201 words of extra memory for PDF output out of 10000 (max. 10000000)
 
