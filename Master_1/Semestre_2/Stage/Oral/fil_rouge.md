@@ -8,7 +8,7 @@ __présentation de mon sujet de stage__ : consistance de gradients discrets sur 
 1. Présentation du plan :
 __introduction__ : présente le contexte et motive l'étude du gradients discrets que l'on introduit à la section 3
 __prérequis__ : présente les notations nécessaire à la définition du schéma numérique du gradient discrets étudiés
-__Gradients discrets locaux__ : présente le gradients discrets
+__Gradients discrets locaux__ : présente le gradients discretsfiego vincent
 __Majoration de l'erreur__ : justifie la définition du pas _h_ proposée et justifie dans un cas particulier que le gradient converge
 __Tests numériques__ : éprouve numériquement les résultat qui ont étés obtenus et tester la convergence pour des cas qui ne respectent pas les conditions énoncés.
 
