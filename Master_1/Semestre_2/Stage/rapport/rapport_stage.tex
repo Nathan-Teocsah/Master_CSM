@@ -84,7 +84,7 @@
 	
 	\section{Gradients discrets local pour la méthode des volumes finis}\label{sec:notations}
 	
-	Le plan $\R^2$ est pavé à l'aide de $N$ cellules polygonales $C_i$ de surface $\abs{C_i}$, et l'ensemble des $C_i$ est noté $\mathcal T = \left\{C_i;\,i\in[\![1,N]\!]\right\}$, par abus de notation, il est noté $i \in \mathcal T$ pour $C_i \in \mathcal T$. La Figure \ref{fig:EdgeWithGrandeurs} illustre l'interface orientée $\Gamma_{i,j} = C_i \cap C_j$, de longueur $\abs{\Gamma_{i,j}}$ entre deux cellules $C_i$ et $C_j$ :
+	Le plan $\R^2$ est pavé à l'aide de $N$ cellules polygonales $C_i$ de surface $\abs{C_i}$, et l'ensemble des $C_i$ est noté $\mathcal T = \left\{C_i;\,i\in[\![1,N]\!]\right\}$, par abus de notation, il est noté $i \in \mathcal T$ pour $C_i \in \mathcal T$. La Figure \ref{fig:EdgeWithGrandeurs} illustre l'interface orientée $\Gamma_{ij} = C_i \cap C_j$, de longueur $\abs{\Gamma_{ij}}$ entre deux cellules $C_i$ et $C_j$ :
 	
 	\begin{center}
 		\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm, scale = 0.6]
@@ -113,24 +113,24 @@
 			%% \draw [fill=xdxdff] (8.778392298328422,5.318228205273862) circle (2.5pt);
 			\draw[color=black] (8.863325183374085,5.53357142857143) node[right] {$\Gamma_{ij}$};
 		\end{tikzpicture}
-		\captionof{figure}{Interface orientée $\Gamma_{i,j}$ entre deux cellules $C_i$ et $C_j$ de centre de gravité respectifs $x_i$ et $x_j$. L'orientation est donnée par $n_{i,j}$, le vecteur normal à $\Gamma_{i,j}$, orienté de $C_i$ vers $C_j$. Les points $x_{i,j}$ et $\bar x_{i,j}$ sont respectivement l'intersection $\Gamma_{i,j}\cap [x_i,\,x_j]$ et le milieu de $\Gamma_{i,j}$.}
+		\captionof{figure}{Interface orientée $\Gamma_{ij}$ entre deux cellules $C_i$ et $C_j$ de centre de gravité respectifs $x_i$ et $x_j$. L'orientation est donnée par $n_{ij}$, le vecteur normal à $\Gamma_{ij}$, orienté de $C_i$ vers $C_j$. Les points $x_{ij}$ et $\bar x_{ij}$ sont respectivement l'intersection $\Gamma_{ij}\cap [x_i,\,x_j]$ et le milieu de $\Gamma_{ij}$.}
 		\label{fig:EdgeWithGrandeurs}
 	\end{center}
 	
 	Pour la suite il est nécessaire d'introduire les trois quantités suivantes :
 	\[
-		d_{i,j} = d(x_i,x_j),\; d_{k,ij} = d(x_k,x_{i,j}),\; \lambda_{i,j} = \abs{\Gamma_{i,j}},
+		d_{ij} = d(x_i,x_j),\; d_{k,ij} = d(x_k,x_{ij}),\; \lambda_{ij} = \abs{\Gamma_{ij}},
 	\]
-	pour $d$ la distance euclidienne sur $\R^2$, $i \in \mathcal T$, $j \in \mathcal{N}_i = \{j;\; \lambda_{i,j} > 0\}$ et $k \in \{i,j\}$. Il est aussi nécessaire d'introduire la matrice identité de $\mathcal M_{2,2}(\R^2)$, $I_2$, et, pour $\otimes$ le produit tensoriel, la matrice de $\mathcal M_{2,2}(\R^2)$ suivante :
+	pour $d$ la distance euclidienne sur $\R^2$, $i \in \mathcal T$, $j \in \mathcal{N}_i = \{j;\; \lambda_{ij} > 0\}$ et $k \in \{i,j\}$. Il est aussi nécessaire d'introduire la matrice identité de $\mathcal M_{2,2}(\R^2)$, $I_2$, et, pour $\otimes$ le produit tensoriel, la matrice de $\mathcal M_{2,2}(\R^2)$ suivante :
 	\begin{equation}\label{eq:Mi}
-		M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j} {n_{i,j}}\otimes\left( {\bar x_{i,j}-x_{i,j}}\right).
+		M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{ij} {n_{ij}}\otimes\left( {\bar x_{ij}-x_{ij}}\right).
 	\end{equation}
 	
 	Pour $u \in \mathcal C^2(\R^2,\R)$, la modélisation discrète de $u$ et du gradient de $u$ sont respectivement représentés par, une liste de valeur $(u_i)_{i \in \mathcal T}$ et $(\nabla u_i)_{i\in \mathcal T}$, constants sur chaque maille $C_i$. Sous réserve d'existence de $M_i^{-1}$, le gradient discret de $u$ sur la cellule $C_i$ noté, $\overline{ {\nabla u}(x_i)}$, est défini par :
 	\begin{equation}\label{eq:grad_discret}
-		M_i \overline{ {\nabla u}(x_i)} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}.
+		M_i \overline{ {\nabla u}(x_i)} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{ij}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{ij}} {n_{ij}}.
 	\end{equation}
-	L'objectif de ce stage est d'étudier la consistance spatial de ces gradients discrets, $\overline{ {\nabla u}(x_i)}$, pour un pas d'espace $h$ à définir. La section \ref{sec:err_consistance} va exprimer l'écart entre les valeurs moyennes du gradient, $\nabla u_i$, et de son approximation donnée en \eqref{eq:grad_discret}. La section \ref{sec:def_pas} fournira une définition d'un pas $h$ permettant de quantifier l'erreur de consistance. Cette quantification fera apparaître le pas $h$, la hessienne de $u$ et la norme de $M_i^{-1}$. Enfin, il sera exprimé une majoration de $|\!|M_i^{-1}|\!|_2$ dans le cas des maillages triangulaires sous certaines conditions sur la géométrie du maillage.
+	L'objectif de ce stage est d'étudier la consistance spatial de ces gradients discrets, $\overline{ {\nabla u}(x_i)}$, pour un pas d'espace $h$ à définir. La section \ref{sec:err_consistance} va exprimer l'écart entre les valeurs moyennes du gradient, $\nabla u_i$, et de son approximation donnée en \eqref{eq:grad_discret}. La section \ref{sec:def_pas} fournira une définition d'un pas $h$ permettant de quantifier l'erreur de consistance. Cette quantification fera apparaître le pas $h$, la hessienne de $u$ et la norme de $M_i^{-1}$. Enfin, il sera exprimé une majoration de $|\!|M_i^{-1}|\!|_F$ dans le cas des maillages triangulaires sous certaines conditions sur la géométrie du maillage.
 	
 	\section{Erreur de consistance du gradient discret}\label{sec:err_consistance}
 	
@@ -141,35 +141,35 @@
 		u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i} u(x)\dx,\;\; \text{et},\;\; \nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i} \nabla u(x)\dx.
 	\end{equation}
 	
-	L'objectif de cette section est de fournir un estimation de l'erreur Dans un premier temps l'objectif est d'exprimer explicitement l'erreur $R^{(i)} = M_i  {\nabla u}_i - M_i  {\overline{ {\nabla u}(x_i)}}$. Pour pouvoir donner une expression de l'erreur, il faut exprimer $M_i\nabla u_i$ en fonctions des mêmes données définissant $\overline{\nabla u(x_i)}$ : $u_i$, $n_{i,j}$ le vecteur normal à $\Gamma_{i,j}$, et les distance $d_{k,ij}$ et $d_{i,j}$ et $\lambda_{i,j}$. La séquence $(u_i)_{i\in\mathcal T}$ étant issue de $u$ et $\nabla u_i$ étant la moyenne de $\nabla u$ sur $C_i$, cela motive à appliquer le théorème de Green-Ostrogradski pour passer de $\nabla u$ à $u$. Puisque le vecteur normale à $\Gamma_{i,j}$ est constant, l'expression suivante est vérifiée :
+	L'objectif de cette section est de fournir un estimation de l'erreur Dans un premier temps l'objectif est d'exprimer explicitement l'erreur $R^{(i)} = M_i  {\nabla u}_i - M_i  {\overline{ {\nabla u}(x_i)}}$. Pour pouvoir donner une expression de l'erreur, il faut exprimer $M_i\nabla u_i$ en fonctions des mêmes données définissant $\overline{\nabla u(x_i)}$ : $u_i$, $n_{ij}$ le vecteur normal à $\Gamma_{ij}$, et les distance $d_{k,ij}$ et $d_{ij}$ et $\lambda_{ij}$. La séquence $(u_i)_{i\in\mathcal T}$ étant issue de $u$ et $\nabla u_i$ étant la moyenne de $\nabla u$ sur $C_i$, cela motive à appliquer le théorème de Green-Ostrogradski pour passer de $\nabla u$ à $u$. Puisque le vecteur normale à $\Gamma_{ij}$ est constant, l'expression suivante est vérifiée :
 	
 	\begin{equation}\label{eq:objectif}
-		\nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  \nabla u(x) \dx = \dfrac1{\abs{C_i}}\int_{\partial C_i} u(x)n\,\mathrm d  x = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi\right]  {n_{i,j}}.
+		\nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  \nabla u(x) \dx = \dfrac1{\abs{C_i}}\int_{\partial C_i} u(x)n\,\mathrm d  x = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[\int_{\Gamma_{ij}} u( \xi)\mathrm d \xi\right]  {n_{ij}}.
 	\end{equation}
 	
-	Il reste à estimer le terme à l'intérieur de la somme, $\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi$ en fonction des données. En utilisant un développement de Taylor avec reste intégrale entre $x_{i,j}$ et $x \in C_i\cup C_j$, il vient :
+	Il reste à estimer le terme à l'intérieur de la somme, $\displaystyle\int_{\Gamma_{ij}} u( \xi)\mathrm d \xi$ en fonction des données. En utilisant un développement de Taylor avec reste intégrale entre $x_{ij}$ et $x \in C_i\cup C_j$, il vient :
 	\begin{equation}\label{eq:premier_dl}
-		u(  x) = u(  x_{i,j}) + \left[ {x-x_{i,j}}\right]\cdot {\nabla u}(x_{i,j}) + \displaystyle\int_0^1 (1-t)( {x-x_{i,j}})^T\nabla^2 u(\gamma_x(t))u ( {x-x_{i,j}}) \dt,
+		u(  x) = u(  x_{ij}) + \left[ {x-x_{ij}}\right]\cdot {\nabla u}(x_{ij}) + \displaystyle\int_0^1 (1-t)( {x-x_{ij}})^T\nabla^2 u(\gamma_x(t))u ( {x-x_{ij}}) \dt,
 	\end{equation}
-	où $j$ désigne un élément de $\mathcal N_i$, $\gamma_x(t) = tx_{i,j} + (1-t)x$, $\cdot$ désigne le produit scalaire canonique sur $\R^2$ et $\nabla^2 u$ la hessienne de $u$.\\	
-	Puis en injectant \eqref{eq:premier_dl} dans $\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi$, la formulation \eqref{eq:terme_de_bord} est satisfaite :
+	où $j$ désigne un élément de $\mathcal N_i$, $\gamma_x(t) = tx_{ij} + (1-t)x$, $\cdot$ désigne le produit scalaire canonique sur $\R^2$ et $\nabla^2 u$ la hessienne de $u$.\\	
+	Puis en injectant \eqref{eq:premier_dl} dans $\displaystyle\int_{\Gamma_{ij}} u( \xi)\mathrm d \xi$, la formulation \eqref{eq:terme_de_bord} est satisfaite :
 	\begin{equation}\label{eq:terme_de_bord}
-		\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi = \lambda_{i,j}u(x_{i,j}) + \lambda_{i,j}\left( {\bar x_{i,j}-  x_{i,j}}\right)\cdot {\nabla u}(  x_{i,j}) + \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} ( \xi-x_{i,j})^T\nabla^2 u(\gamma_{ \xi}(t)) ( \xi-  x_{i,j})\mathrm d \xi \dt.
+		\displaystyle\int_{\Gamma_{ij}} u( \xi)\mathrm d \xi = \lambda_{ij}u(x_{ij}) + \lambda_{ij}\left( {\bar x_{ij}-  x_{ij}}\right)\cdot {\nabla u}(  x_{ij}) + \displaystyle\int_0^1 (1-t)\int_{\Gamma_{ij}} ( \xi-x_{ij})^T\nabla^2 u(\gamma_{ \xi}(t)) ( \xi-  x_{ij})\mathrm d \xi \dt.
    \end{equation}
    
-   Il reste maintenant à ré-exprimer $u(x_{i,j})$ et $\nabla u(x_{i,j})$. Le lemme \ref{lm:determination_u_xij} permet de ré-exprimer la première quantité, $u(x_{i,j})$ : 
+   Il reste maintenant à ré-exprimer $u(x_{ij})$ et $\nabla u(x_{ij})$. Le lemme \ref{lm:determination_u_xij} permet de ré-exprimer la première quantité, $u(x_{ij})$ : 
    
    
-   \begin{lm}[Détermination de $u(x_{i,j})$]$ $\label{lm:determination_u_xij}\\
+   \begin{lm}[Détermination de $u(x_{ij})$]$ $\label{lm:determination_u_xij}\\
    		En utilisant les notations introduites dans la Section \ref{sec:notations}, la formule \eqref{eq:xij} est vérifiée :
 	   	\begin{equation}\label{eq:xij}
-	   		\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} = u(  x_{i,j}) + R_1^{i,j},
+	   		\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{ij}} = u(  x_{ij}) + R_1^{ij},
 	   	\end{equation}
 	   	avec : 
    		\begin{equation}\label{eq:R1}
    			\begin{aligned}
-   				R_1^{i,j} =\displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\bigg[\;&\dfrac{d_{j,ij}}{\abs{C_i}}\int_{C_i}( {x-x_{i,j}})^T\nabla^2 u(\gamma_x(t)) ( {x-x_{i,j}})\mathrm d  x+\\
-   				&\dfrac{d_{i,ij}}{\abs{C_j}}\int_{C_j}( {x-x_{i,j}})^T\nabla^2 u(\gamma_x(t)) ( {x-x_{i,j}})\mathrm d  x \;\bigg] \dt .
+   				R_1^{ij} =\displaystyle\int_0^1 \dfrac{(1-t)}{d_{ij}}\bigg[\;&\dfrac{d_{j,ij}}{\abs{C_i}}\int_{C_i}( {x-x_{ij}})^T\nabla^2 u(\gamma_x(t)) ( {x-x_{ij}})\mathrm d  x+\\
+   				&\dfrac{d_{i,ij}}{\abs{C_j}}\int_{C_j}( {x-x_{ij}})^T\nabla^2 u(\gamma_x(t)) ( {x-x_{ij}})\mathrm d  x \;\bigg] \dt .
    			\end{aligned}
 	   	\end{equation}
    \end{lm}
@@ -177,31 +177,31 @@
    \begin{proof}
    		En intégrant l'expression donné en (\ref{eq:premier_dl}) sur $C_k$ pour $k \in\{i,j\}$, l'équation suivante est vérifiée :
    	
-	   	$u_k = \dfrac1{\abs{C_k}}\displaystyle\int_{C_k} u = u(  x_{i,j}) + \left[  x_k-  x_{i,j}\right]\cdot {\nabla u}(x_{i,j}) + \int_0^1 \dfrac{(1-t)}{C_k}\int_{C_k}( {x-x_{i,j}})^T\nabla^2 u(\gamma_x(t)) ( {x-x_{i,j}})\mathrm d  x \dt.$\\
+	   	$u_k = \dfrac1{\abs{C_k}}\displaystyle\int_{C_k} u = u(  x_{ij}) + \left[  x_k-  x_{ij}\right]\cdot {\nabla u}(x_{ij}) + \int_0^1 \dfrac{(1-t)}{C_k}\int_{C_k}( {x-x_{ij}})^T\nabla^2 u(\gamma_x(t)) ( {x-x_{ij}})\mathrm d  x \dt.$\\
 		
-		Ainsi en utilisant le fait que $x_i-x_{i,j}$ et $x_j-x_{i,j}$ sont colinéaires : 
+		Ainsi en utilisant le fait que $x_i-x_{ij}$ et $x_j-x_{ij}$ sont colinéaires : 
 		\begin{equation}\label{eq:ponderation}
 			\begin{aligned}
-			\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} = u(  x_{i,j}) + \displaystyle\int_0^1 \dfrac{(1-t)}{d_{i,j}}\bigg[&\dfrac{d_{j,ij}}{C_i}\int_{C_i}( {x-x_{i,j}})^T\nabla^2 u(\gamma_x(t)) ( {x-x_{i,j}})\mathrm d  x\\
-			& + \dfrac{d_{i,ij}}{C_j}\int_{C_j}( {x-x_{i,j}})^T\nabla^2 u(\gamma_x(t)) ( {x-x_{i,j}})\mathrm d  x\bigg] \dt,
+			\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{ij}} = u(  x_{ij}) + \displaystyle\int_0^1 \dfrac{(1-t)}{d_{ij}}\bigg[&\dfrac{d_{j,ij}}{C_i}\int_{C_i}( {x-x_{ij}})^T\nabla^2 u(\gamma_x(t)) ( {x-x_{ij}})\mathrm d  x\\
+			& + \dfrac{d_{i,ij}}{C_j}\int_{C_j}( {x-x_{ij}})^T\nabla^2 u(\gamma_x(t)) ( {x-x_{ij}})\mathrm d  x\bigg] \dt,
 		\end{aligned}
 		\end{equation}
 		
 		En injectant \eqref{eq:R1} dans \eqref{eq:ponderation}, il suit le résultat attendu.
 	 \end{proof}
 	 
-	 Il est maintenant possible d'obtenir une première expression de $\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi$ à l'aide des $u_k$, de la matrice hessienne de $u$ et du gradient $\overline{\nabla u(x_{i,j})}$ :
+	 Il est maintenant possible d'obtenir une première expression de $\displaystyle\int_{\Gamma_{ij}} u( \xi)\mathrm d \xi$ à l'aide des $u_k$, de la matrice hessienne de $u$ et du gradient $\overline{\nabla u(x_{ij})}$ :
 	 
-	 \begin{lm}[Expression intermédiaire de $\displaystyle\int_{ \Gamma_{i,j}} u( \xi)\mathrm d \xi$]\label{lm:expression_int_u_xi}	$ $\\
+	 \begin{lm}[Expression intermédiaire de $\displaystyle\int_{ \Gamma_{ij}} u( \xi)\mathrm d \xi$]\label{lm:expression_int_u_xi}	$ $\\
 	 	En utilisant les notations introduites dans la Section \ref{sec:notations} et du lemme \ref{lm:determination_u_xij}, la formule suivante est satisfaite :
  		\begin{equation}\label{eq:somme}
- 			\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left( {\bar x_{i,j}-  x_{i,j}}\right)\cdot {\nabla u}(  x_{i,j}) + R_2^{i,j} - \lambda_{i,j}R_1^{i,j}.
+ 			\displaystyle\int_{\Gamma_{ij}} u( \xi)\mathrm d \xi = \lambda_{ij}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{ij}} + \lambda_{ij}\left( {\bar x_{ij}-  x_{ij}}\right)\cdot {\nabla u}(  x_{ij}) + R_2^{ij} - \lambda_{ij}R_1^{ij}.
  		\end{equation}
 	 	
 	 	\begin{minipage}{15.5cm}
 	 	où :
 	 	\begin{equation}\label{eq:R2}
-	 		R_2^{i,j} = \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} ( \xi-  x_{i,j})^T\nabla^2 u(\gamma_{ \xi}(t)) ( \xi-  x_{i,j})\,\mathrm d \xi \dt.
+	 		R_2^{ij} = \displaystyle\int_0^1 (1-t)\int_{\Gamma_{ij}} ( \xi-  x_{ij})^T\nabla^2 u(\gamma_{ \xi}(t)) ( \xi-  x_{ij})\,\mathrm d \xi \dt.
 	 	\end{equation}
 	 	
 	 	\end{minipage}
@@ -210,8 +210,8 @@
 	\begin{proof} En injectant (\ref{eq:xij}) dans \eqref{eq:premier_dl}, l'égalité suivante est vérifiée :			
 		\[
 			\begin{aligned}
-				\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} &+ \lambda_{i,j}\left( {\bar x_{i,j}-  x_{i,j}}\right)\cdot {\nabla u}(  x_{i,j}) \\
-				&+ \displaystyle\int_0^1 (1-t)\int_{\Gamma_{i,j}} ( \xi-x_{i,j})^T\nabla^2u(\gamma_{ \xi}(t)) ( \xi-  x_{i,j})\mathrm d \xi \dt - \lambda_{i,j}R_1^{i,j},
+				\displaystyle\int_{\Gamma_{ij}} u( \xi)\mathrm d \xi = \lambda_{ij}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{ij}} &+ \lambda_{ij}\left( {\bar x_{ij}-  x_{ij}}\right)\cdot {\nabla u}(  x_{ij}) \\
+				&+ \displaystyle\int_0^1 (1-t)\int_{\Gamma_{ij}} ( \xi-x_{ij})^T\nabla^2u(\gamma_{ \xi}(t)) ( \xi-  x_{ij})\mathrm d \xi \dt - \lambda_{ij}R_1^{ij},
 			\end{aligned}
 		\]
 		puis en injectant \eqref{eq:R2} dans l'expression précédente il vient le résultat attendu.
@@ -219,31 +219,31 @@
 	\end{proof}
 	
 	
-	Le problème restant pour déterminer $\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi$ est d'exprimer $\nabla u(x_{i,j})$ en fonctions des données $u_k$, de la matrice hessienne de $u$ et du gradient $\nabla u_i$.
+	Le problème restant pour déterminer $\displaystyle\int_{\Gamma_{ij}} u( \xi)\mathrm d \xi$ est d'exprimer $\nabla u(x_{ij})$ en fonctions des données $u_k$, de la matrice hessienne de $u$ et du gradient $\nabla u_i$.
 	
-	\begin{lm}[Expression de $\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi$]\label{lm:expression_terme_finale}$ $\\
+	\begin{lm}[Expression de $\displaystyle\int_{\Gamma_{ij}} u( \xi)\mathrm d \xi$]\label{lm:expression_terme_finale}$ $\\
 		En utilisant les notations introduite dans la Section \ref{sec:notations} et les lemmes \ref{lm:expression_int_u_xi} et \ref{lm:determination_u_xij} il suit l'expression suivante :
 		\begin{equation}\label{eq:somme_reecrite}
-			\displaystyle\int_{\Gamma_{i,j}} u( \xi)\mathrm d \xi = \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} + \lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\nabla u_i + R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j},
+			\displaystyle\int_{\Gamma_{ij}} u( \xi)\mathrm d \xi = \lambda_{ij}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{ij}} + \lambda_{ij}\left( {\bar x_{ij}-x_{ij}}\right)\cdot\nabla u_i + R_2^{ij} - \lambda_{ij}R_1^{ij} - R_3^{ij},
 		\end{equation}
 			où :
 			\begin{equation}\label{eq:R3}
-				R_3^{i,j} = \lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\displaystyle\int_0^1 \dfrac{1}{\abs{C_i}}\int_{C_i} \nabla^2 u(\gamma_x(t))({x-x_{i,j}})\mathrm d  x \mathrm d t
+				R_3^{ij} = \lambda_{ij}\left( {\bar x_{ij}-x_{ij}}\right)\cdot\displaystyle\int_0^1 \dfrac{1}{\abs{C_i}}\int_{C_i} \nabla^2 u(\gamma_x(t))({x-x_{ij}})\mathrm d  x \mathrm d t
 			\end{equation}
 	\end{lm}
 	\begin{proof} 
 			En utilisant un développement limité avec reste intégral, il est possible de déterminer une expression de $\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u}$ de la manière suivante :
 		\begin{equation}\label{eq:grad}
 			\begin{aligned}[b]
-				\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} &= \dfrac1{\abs{C_i}}\int_{C_i} \bigg[{\nabla u}(x_{i,j}) + \int_0^1 \nabla^2 u(\gamma_x(t)) (x-x_{i,j})\, \dt\bigg]\mathrm d  x\\
-				& = {\nabla u}(  x_{i,j}) + \int_0^1 \dfrac{1}{\abs{C_i}}\int_{C_i} \nabla^2u(\gamma_x(t))( x-x_{i,j})\mathrm d  x.
+				\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} &= \dfrac1{\abs{C_i}}\int_{C_i} \bigg[{\nabla u}(x_{ij}) + \int_0^1 \nabla^2 u(\gamma_x(t)) (x-x_{ij})\, \dt\bigg]\mathrm d  x\\
+				& = {\nabla u}(  x_{ij}) + \int_0^1 \dfrac{1}{\abs{C_i}}\int_{C_i} \nabla^2u(\gamma_x(t))( x-x_{ij})\mathrm d  x.
 			\end{aligned}
 		\end{equation}
 		
 		Et en injectant (\ref{eq:grad}) dans (\ref{eq:somme}) il vient le résultat attendu.
 	\end{proof}
 	
-	Le premier objectif, qui est de déterminer une expression exacte de $R^{(i)} = M_i\nabla u_i - \overline{\nabla u(x_i)}$, est maintenant presque atteint. En effet, il a été obtenu dans le lemme \ref{lm:expression_terme_finale} une expression de $\displaystyle \int_{\Gamma_{i,j}} u(\xi)\,\mathrm d\xi$ en fonction des données du problèmes. Pour finaliser cet objectif il reste à exprimer $\nabla u_i$ en fonction des données du problème : les distances $d_{i,j},\, d_{i,ij},\, d_{j,ij}$ et les valeurs moyennées de $u$ sur les cellules $C_i$.
+	Le premier objectif, qui est de déterminer une expression exacte de $R^{(i)} = M_i\nabla u_i - \overline{\nabla u(x_i)}$, est maintenant presque atteint. En effet, il a été obtenu dans le lemme \ref{lm:expression_terme_finale} une expression de $\displaystyle \int_{\Gamma_{ij}} u(\xi)\,\mathrm d\xi$ en fonction des données du problèmes. Pour finaliser cet objectif il reste à exprimer $\nabla u_i$ en fonction des données du problème : les distances $d_{ij},\, d_{i,ij},\, d_{j,ij}$ et les valeurs moyennées de $u$ sur les cellules $C_i$.
 	
 	\begin{lm}[Expression de l'erreur]$ $\\
 		En utilisant les notations introduites dans la Section \ref{sec:notations} et des lemmes \ref{lm:determination_u_xij}, \ref{lm:expression_int_u_xi} et \ref{lm:expression_terme_finale}, si $M_i$ est inversible, alors :
@@ -252,15 +252,15 @@
 		\end{equation}
 		avec :
 		\begin{equation}\label{eq:R4}
-			{ {R^{(i)}}} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}\right]  { {n_{i,j}}},
+			{ {R^{(i)}}} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \left[R_2^{ij} - \lambda_{ij}R_1^{ij} - R_3^{ij}\right]  { {n_{ij}}},
 		\end{equation}
 	\end{lm}
 	\begin{proof}
 		En injectant (\ref{eq:somme_reecrite}) dans (\ref{eq:objectif}), il vient :
 		\begin{equation}\label{eq:preque_final}
 			\begin{aligned}
-				\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}} &+ \left[\lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u}\right]  {n_{i,j}}\\
-				& + \left[R_2^{i,j} - \lambda_{i,j}R_1^{i,j} - R_3^{i,j}\right]  {n_{i,j}}.
+				\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u} = \dfrac1{\abs{C_i}}\sum_{j \in \mathcal N_i} \lambda_{ij}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{ij}} {n_{ij}} &+ \left[\lambda_{ij}\left( {\bar x_{ij}-x_{ij}}\right)\cdot\dfrac1{\abs{C_i}}\displaystyle\int_{C_i}  {\nabla u}\right]  {n_{ij}}\\
+				& + \left[R_2^{ij} - \lambda_{ij}R_1^{ij} - R_3^{ij}\right]  {n_{ij}}.
 			\end{aligned}
 		\end{equation}
 		
@@ -268,19 +268,19 @@
 		En ré-exprimant (\ref{eq:preque_final}) à l'aide de \eqref{eq:R4}, la relation qui suit est vérifiée : 
 		
 		\begin{equation}\label{eq:final}
-			 \nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \left[\lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}} + \left[\lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot \nabla u_i\right]  {n_{i,j}}\right] +  {R^{(i)}}.
+			 \nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \left[\lambda_{ij}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{ij}} {n_{ij}} + \left[\lambda_{ij}\left( {\bar x_{ij}-x_{ij}}\right)\cdot \nabla u_i\right]  {n_{ij}}\right] +  {R^{(i)}}.
 		\end{equation}
 		
 		En utilisant \eqref{eq:Mi} dans l'expression précédente, il vient l'égalité suivante :
 		\[
 			\begin{aligned}
-				&\nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \left[\lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}} + \left[\lambda_{i,j}\left( {\bar x_{i,j}-x_{i,j}}\right)\cdot \nabla u_i\right]  {n_{i,j}}\right] +  {R^{(i)}}\\
-				\iff& \nabla u_i - \dfrac1{\abs{C_i}}\displaystyle\sum_{j\in\mathcal N_i} \lambda_{i,j}\left[(\bar x_{i,j}-x_{i,j})\cdot\nabla u_i\right] n_{i,j} = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} n_{i,j}\\
-				\iff & M_i \nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} n_{i,j}.
+				&\nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \left[\lambda_{ij}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{ij}} {n_{ij}} + \left[\lambda_{ij}\left( {\bar x_{ij}-x_{ij}}\right)\cdot \nabla u_i\right]  {n_{ij}}\right] +  {R^{(i)}}\\
+				\iff& \nabla u_i - \dfrac1{\abs{C_i}}\displaystyle\sum_{j\in\mathcal N_i} \lambda_{ij}\left[(\bar x_{ij}-x_{ij})\cdot\nabla u_i\right] n_{ij} = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{ij}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{ij}} n_{ij}\\
+				\iff & M_i \nabla u_i = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{ij}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{ij}} n_{ij}.
 			\end{aligned}
 		\]
 		
-		Puisque $M_i  {\overline{\nabla u(x_i)}} = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{i,j}} {n_{i,j}}$, en injectant cette expression dans l'expression précédente, il suit le résultat attendu.
+		Puisque $M_i  {\overline{\nabla u(x_i)}} = \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{ij}\dfrac{d_{j,ij}u_i + d_{i,ij}u_j}{d_{ij}} {n_{ij}}$, en injectant cette expression dans l'expression précédente, il suit le résultat attendu.
 	\end{proof}
 	
 	La section suivante va maintenant définir un pas $h$ qui permettra d'obtenir une majoration de $|\!|M_i^{-1}R^{(i)}|\!|$, pour une norme $|\!|\cdot|\!|$, en fonction de ce pas $h$ et de la norme subordonnée de $M_i^{-1}$ dont il sera déterminé un majorant dans le cas des maillages triangulaire.
@@ -291,29 +291,29 @@
 	\begin{equation}\label{eq:def_pas}
 			h := \dfrac{\left(\underset{i\in\mathcal T}\max\,\underset{j \in \mathcal N_i}\max\,\mathrm{diam}(C_i)+\mathrm{diam}(C_j)\right)^3}{\underset{i \in \mathcal T}\min\, \abs{C_i}},
 	\end{equation}
-	où $\mathrm{diam}(A) = \sup\left\{d(x,y); (x,y)\in A^2\right\}$. Ce nouveau pas permet de contrôler l'erreur $\nabla u_i - \overline{\nabla u(x_i)} = M_i^{-1}R^{(i)}$. Pour majorer cette erreur, $R_1^{i,j}$, $R_2^{i,j}$ et $R_3^{i,j}$ doivent être majorés à l'aide de $h$. D'après (\ref{eq:R1}), (\ref{eq:R2}) et (\ref{eq:R3}), les trois inégalités suivantes sont vérifiées :
+	où $\mathrm{diam}(A) = \sup\left\{d(x,y); (x,y)\in A^2\right\}$. Ce nouveau pas permet de contrôler l'erreur $\nabla u_i - \overline{\nabla u(x_i)} = M_i^{-1}R^{(i)}$. Pour majorer cette erreur, $R_1^{ij}$, $R_2^{ij}$ et $R_3^{ij}$ doivent être majorés à l'aide de $h$. D'après (\ref{eq:R1}), (\ref{eq:R2}) et (\ref{eq:R3}), les trois inégalités suivantes sont vérifiées :
 	
 	\begin{equation}\label{eq:maj_naiv_R1}
-		\abs{R_1^{i,j}} \leq \frac {|\!|\nabla^2 u|\!|_\infty}{4d_{i,j}}\left[\frac{d_{j,ij}}{\abs{C_i}}\displaystyle\int_{C_i} |\!| {x-x_{i,j}}|\!|^2\mathrm d  x + \frac{d_{i,ij}}{\abs{C_j}}\displaystyle\int_{C_j} |\!| {x-x_{i,j}}|\!|^2\mathrm d  x\right],
+		\abs{R_1^{ij}} \leq \frac {|\!|\nabla^2 u|\!|_\infty}{4d_{ij}}\left[\frac{d_{j,ij}}{\abs{C_i}}\displaystyle\int_{C_i} |\!| {x-x_{ij}}|\!|^2\mathrm d  x + \frac{d_{i,ij}}{\abs{C_j}}\displaystyle\int_{C_j} |\!| {x-x_{ij}}|\!|^2\mathrm d  x\right],
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R2}
-		\abs{R_2^{i,j}} \leq \frac {|\!|\nabla^2 u|\!|_\infty}2\displaystyle\int_{\Gamma_{i,j}} |\!| { \xi-x_{i,j}}|\!|^2\mathrm d \xi,
+		\abs{R_2^{ij}} \leq \frac {|\!|\nabla^2 u|\!|_\infty}2\displaystyle\int_{\Gamma_{ij}} |\!| { \xi-x_{ij}}|\!|^2\mathrm d \xi,
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R3}
-		\abs{R_3^{i,j}} \leq \lambda_{i,j}{|\!|\nabla^2 u|\!|_\infty}\, |\!| {\bar x_{i,j}-x_{i,j}}|\!|\cdot \frac1{\abs{C_i}}\int_{C_i}|\!| {x-  x_{i,j}} |\!|\dx,
+		\abs{R_3^{ij}} \leq \lambda_{ij}{|\!|\nabla^2 u|\!|_\infty}\, |\!| {\bar x_{ij}-x_{ij}}|\!|\cdot \frac1{\abs{C_i}}\int_{C_i}|\!| {x-  x_{ij}} |\!|\dx,
 	\end{equation}
 	où $|\!| \cdot |\!|$ est une norme sur $\R^2$. Puis, en utilisant la définition de $h$, il suit les inégalités \eqref{eq:maj_naiv_R1_par_h}, \eqref{eq:maj_naiv_R2_par_h} et \eqref{eq:maj_naiv_R3_par_h}.
 	
 	\begin{equation}\label{eq:maj_naiv_R1_par_h}
-		\abs{R_1^{i,j}} \leq \dfrac {|\!|\nabla^2 u|\!|_\infty}4\;\dfrac{\underset{k\in \mathcal T}\min \abs{C_k}}{\underset{i\in\mathcal T}\max\;\underset{j\in \mathcal N_i}\max\;\mathrm{diam}\left(C_i\right)+\mathrm{diam}\left(C_j\right)}\; h,
+		\abs{R_1^{ij}} \leq \dfrac {|\!|\nabla^2 u|\!|_\infty}4\;\dfrac{\underset{k\in \mathcal T}\min \abs{C_k}}{\underset{i\in\mathcal T}\max\;\underset{j\in \mathcal N_i}\max\;\mathrm{diam}\left(C_i\right)+\mathrm{diam}\left(C_j\right)}\; h,
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R2_par_h}
-		\abs{R_2^{i,j}} \leq \dfrac{|\!|\nabla^2 u|\!|_\infty}2\,\underset{k\in \mathcal T}\min \abs{C_k}\; h,
+		\abs{R_2^{ij}} \leq \dfrac{|\!|\nabla^2 u|\!|_\infty}2\,\underset{k\in \mathcal T}\min \abs{C_k}\; h,
 	\end{equation}
 	\begin{equation}\label{eq:maj_naiv_R3_par_h}
-		\abs{R_3^{i,j}} \leq {|\!|\nabla^2 u|\!|_\infty}\;\underset{k\in \mathcal T}\min \abs{C_k}\; h.
+		\abs{R_3^{ij}} \leq {|\!|\nabla^2 u|\!|_\infty}\;\underset{k\in \mathcal T}\min \abs{C_k}\; h.
 	\end{equation}
-	Et finalement, à l'aide de \eqref{eq:maj_naiv_R1_par_h}, \eqref{eq:maj_naiv_R2_par_h} et \eqref{eq:maj_naiv_R3_par_h}, l'inégalité qui suit est satisfaite pour $N_{max} = \underset{i\in\mathcal T}\max \hspace{.1cm}\text{Card}\left(\mathcal N_i\right)$ :
+	Et finalement, à l'aide de \eqref{eq:maj_naiv_R1_par_h}, \eqref{eq:maj_naiv_R2_par_h} et \eqref{eq:maj_naiv_R3_par_h}, l'inégalité qui suit est satisfaite pour $N_{\max} = \underset{i\in\mathcal T}\max \hspace{.1cm}\text{Card}\left(\mathcal N_i\right)$ :
 	\begin{equation}\label{eq:max_naiv_R4}
 		|\!| \nabla u_i - \overline{\nabla u(x_i)} |\!| = |\!| M_i^{-1}R^{(i)}|\!| \leq \frac74|\!|M_i^{-1}|\!|\, |\!|\nabla^2 u|\!|_\infty\, N_{\max}\;h.
 	\end{equation}
@@ -351,20 +351,20 @@
 		\captionof{figure}{Maillage $\mathcal{T}$ constitué de deux rectangles de taille $h \times e^{\frac1h}$.}
 		\label{fig:contre_exemple_1}
 	\end{center}
-	Le majorant de $\abs{R_2^{i,j}}$ dans l'inégalité \eqref{eq:maj_naiv_R2} tends vers $+\infty$ lorsque $h$ tends vers 0. En effet :
+	Le majorant de $\abs{R_2^{ij}}$ dans l'inégalité \eqref{eq:maj_naiv_R2} tends vers $+\infty$ lorsque $h$ tends vers 0. En effet :
 	\[
 		\begin{aligned}
-			& \frac {|\!|\nabla^2 u|\!|_\infty}2\displaystyle\int_{\Gamma_{i,j}} |\!|\xi-x_{i,j}|\!|^2\mathrm d \xi\\
+			& \frac {|\!|\nabla^2 u|\!|_\infty}2\displaystyle\int_{\Gamma_{ij}} |\!|\xi-x_{ij}|\!|^2\mathrm d \xi\\
 			=& \frac {|\!|\nabla^2 u|\!|_\infty}2\displaystyle\int_0^{e^{1/h}} \left(t-\frac{e^{1/h}}2\right)^2\dt\\
 			=& |\!|\nabla^2 u|\!|_\infty\, \left[\frac13\left(t-\frac{e^{1/h}}2\right)^3\right]_0^{e^{1/h}/2}\\
 			=& \frac{|\!|\nabla^2 u|\!|_\infty}{24}\,e^{3/h},
 		\end{aligned}
 	\]
-	ainsi $\dfrac {|\!|\nabla^2 u|\!|_\infty}2\displaystyle\int_{\Gamma_{i,j}} |\!|\xi-x_{i,j}|\!|^2\mathrm d \xi \underset{h \to 0}\longrightarrow + \infty$. Ce qui justifie que la définition du pas proposé en \cite{ludo} ne convient pas pour majorer les erreurs. Pour la suite la définition du pas $h$ sera celle donnée par \eqref{eq:def_pas}.
+	ainsi $\dfrac {|\!|\nabla^2 u|\!|_\infty}2\displaystyle\int_{\Gamma_{ij}} |\!|\xi-x_{ij}|\!|^2\mathrm d \xi \underset{h \to 0}\longrightarrow + \infty$. Ce qui justifie que la définition du pas proposé en \cite{ludo} ne convient pas pour majorer les erreurs. Pour la suite la définition du pas $h$ sera celle donnée par \eqref{eq:def_pas}.
 	
 	
 	\label{sec:inversion_Mi}
-	Il est à remarquer qu'une homothétie de rapport $0< k < 1$ diminue le pas $h$ d'un rapport $k$, mais ce n'est pas le cas de $M_i$. L'objectif de ce qui suit est de justifier l'affirmation précédente. Pour cela, il faut fournir une reformulation de $M_i$, et plus précisément du terme $\bar x_{i,j} - x_{i,j}$. Le schéma \ref{fig:EdgeWithGrandeurs_VecNormal} illustre la situation.
+	Il est à remarquer qu'une homothétie de rapport $0< k < 1$ diminue le pas $h$ d'un rapport $k$, mais ce n'est pas le cas de $M_i$. L'objectif de ce qui suit est de justifier l'affirmation précédente. Pour cela, il faut fournir une reformulation de $M_i$, et plus précisément du terme $\bar x_{ij} - x_{ij}$. Le schéma \ref{fig:EdgeWithGrandeurs_VecNormal} illustre la situation.
 	
 	\begin{center}
 		\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm, scale = 0.6]
@@ -398,14 +398,14 @@
 			\draw[color=black] (-3,-4) node[ right] {$e_x$};
 			\draw[color=black] (-4,-3) node[ left] {$e_y$};
 		\end{tikzpicture}
-		\captionof{figure}{Interface $\Gamma_{i,j}$ entre les cellules $C_i$ et $C_j$. Le vecteur $n_{i,j}^\perp$ est un vecteur unitaire normal à $n_{i,j}$. La quantité signé $\delta_{i,j}$ représente le produit scalaire entre $\bar x_{i,j}-x_{i,j}$ et $n_{i,j}^\perp$.}
+		\captionof{figure}{Interface $\Gamma_{ij}$ entre les cellules $C_i$ et $C_j$. Le vecteur $n_{ij}^\perp$ est un vecteur unitaire normal à $n_{ij}$. La quantité signé $\delta_{ij}$ représente le produit scalaire entre $\bar x_{ij}-x_{ij}$ et $n_{ij}^\perp$.}
 		\label{fig:EdgeWithGrandeurs_VecNormal}
 	\end{center}
 	
-	Il est important de remarquer que puisque $n_{i,j}$ est orthogonal à $\Gamma_{i,j}$, $\bar x_{i,j} - x_{i,j}$ est colinéaire à $n_{i,j}^\perp$. Ainsi il existe un unique réel $\delta_{i,j}$ qui vérifie $\bar x_{i,j}-x_{i,j} = \delta_{i,j}n_{i,j}^\perp$.\\
+	Il est important de remarquer que puisque $n_{ij}$ est orthogonal à $\Gamma_{ij}$, $\bar x_{ij} - x_{ij}$ est colinéaire à $n_{ij}^\perp$. Ainsi il existe un unique réel $\delta_{ij}$ qui vérifie $\bar x_{ij}-x_{ij} = \delta_{ij}n_{ij}^\perp$.\\
 	Ainsi $M_i$ se reformule de la manière suivante :
 	\begin{center}
-		$M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{i,j}\delta_{i,j} {n_{i,j}}\otimes n_{i,j}^\perp$.
+		$M_i = I_2 - \dfrac1{\abs{C_i}}\displaystyle\sum_{j \in \mathcal N_i} \lambda_{ij}\delta_{ij} {n_{ij}}\otimes n_{ij}^\perp$.
 	\end{center}
 	
 	En adoptant la notation suivante : toute matrice $M_i$ associées au maillage $\mathcal T$ et à la cellule $C_i$ est notée $M_i(\mathcal T)$, il est possible d'obtenir la propriété précédemment évoqué de l'invariance par homothétie de $M_i$.
@@ -422,81 +422,80 @@
 	\begin{proof}
 		Dans la suite tout élément géométrique, $geo$, relatif à la cellule $\overline{C_{i_1}}$ est noté $\overline{geo}$. Puisque toute homothétie conserve les angles et pour tout segment $I$ et toute surface $S$, il suit les égalités suivantes : $\abs{f_k(I)} = k\abs{I}$ et $\abs{f_k(S)} = k^2\abs{S}$. Puisque $k > 0$, $f_k$ conserve aussi le sens des vecteurs, il suit la relation suivante :
 		\[
-				\delta_{i_2,j} = k\,\overline{\delta_{i_1,j}}.
+				\delta_{i_2,j} = k\,\overline{\delta_{i_1j}}.
 		\]
 				
-		Ainsi : $\dfrac{\lambda_{i_2,j}\,\delta_{i_2,j}}{C_{i_2}} = \dfrac{\abs{f_k(\overline{\Gamma_{i_1,j}})}\,k\overline{\delta_{i_1,j}}}{\abs{f_k(\overline{C_{i_1}})}} = \dfrac{k^2\overline{\lambda_{i_1,j}}\,\overline{\delta_{i_1,j}}}{k^2\overline{\abs{C_{i_1}}}} = \dfrac{\overline{\lambda_{i_1,j}}\,\overline{\delta_{i_1,j}}}{\overline{\abs{C_{i_1}}}}$. Puisque $f_k$ conserve le sens et la direction, $\overline{n_{i_1,j}} = n_{i_2,j}$. Finalement :
+		Ainsi : $\dfrac{\lambda_{ij}\,\delta_{ij}}{C_{i_2}} = \dfrac{\abs{f_k(\overline{\Gamma_{i_1j}})}\,k\overline{\delta_{i_1j}}}{\abs{f_k(\overline{C_{i_1}})}} = \dfrac{k^2\overline{\lambda_{i_1j}}\,\overline{\delta_{i_1j}}}{k^2\overline{\abs{C_{i_1}}}} = \dfrac{\overline{\lambda_{i_1j}}\,\overline{\delta_{i_1j}}}{\overline{\abs{C_{i_1}}}}$. Puisque $f_k$ conserve le sens et la direction, $\overline{n_{i_1j}} = n_{ij}$. Finalement :
 		\[\begin{aligned}
-			M_{i_2} &= I_2 - \dfrac1{\abs{C_{i_2}}}\displaystyle\sum_{j \in \mathcal N_{i_2}} \lambda_{i_2,j}\delta_{i_2,j} n_{i_2,j}\otimes n_{i_2,j}^\perp\\
-			&= I_2 - \displaystyle\sum_{j \in \mathcal N_{i_2}} \dfrac{\lambda_{i_2,j}\delta_{i_2,j}}{\abs{C_{i_2}}} n_{i_2,j}\otimes n_{i_2,j}^\perp\\
-			&= I_2 - \displaystyle\sum_{j \in \mathcal \overline{N_{i_1}}} \dfrac{\overline{\lambda_{i_1,j}}\,\overline{\delta_{i_1,j}}}{\abs{\overline{C_{i_1}}}}\; \overline{n_{i_1,j}}\otimes \overline{n_{i_1,j}}^\perp\\
+			M_{i_2} &= I_2 - \dfrac1{\abs{C_{i_2}}}\displaystyle\sum_{j \in \mathcal N_{i_2}} \lambda_{ij}\delta_{ij} n_{ij}\otimes n_{ij}^\perp\\
+			&= I_2 - \displaystyle\sum_{j \in \mathcal N_{i_2}} \dfrac{\lambda_{ij}\delta_{ij}}{\abs{C_{i_2}}} n_{ij}\otimes n_{ij}^\perp\\
+			&= I_2 - \displaystyle\sum_{j \in \mathcal \overline{N_{i_1}}} \dfrac{\overline{\lambda_{i_1j}}\,\overline{\delta_{i_1j}}}{\abs{\overline{C_{i_1}}}}\; \overline{n_{i_1j}}\otimes \overline{n_{i_1j}}^\perp\\
 			&=\overline{M_{i_1}}
 		\end{aligned}\]
 	\end{proof}
 	
 	Ainsi, en appliquant une homothétie $f_k$ de rapport $k \in ]0;\,1[$ à un maillage $\mathcal T_0$ du plan il vient une suite de maillage $(\mathcal T_n)_{n \in \N}$ telle que, $f_k(\mathcal T_n) = \mathcal T_{n+1}$ et $h(\mathcal{T}_n) = k^n h(\mathcal T_0)$. Par suite $\left(h(\mathcal T_n)\right)_{n\in \N}$ est une suite strictement décroissante et tends vers 0 et, pour $M_i$ la matrice associée à la cellule $C_i \in h(\mathcal T_0)$, $M_i$ est aussi la matrice associée à $f_k^{(n)}(C_i)$ d'après le lemme \ref{lm:invariance_Mi}, où $f_k^{(n)}$ est définie par récurrence : $f_k^{(n+1)} = f_k \circ f_k^{(n)}$ et $f_k^{(0)} = f_k$. Ainsi, si pour tout $i \in \mathcal T_0$, $M_i$ est inversible, alors en notant $\nabla u_{i,n}$ le gradient de $u$ et $\overline{\nabla u(x_i)}_n$ le gradient discret pour le maillage $\mathcal T_n$, d'après \eqref{eq:max_naiv_R4} l’inégalité suivante est satisfaite :
 	\[
-		|\!|\nabla u_{i,n} - \overline{\nabla u(x_i)}_n|\!| \leq 2|\!|M_i^{-1}|\!|\, |\!|\nabla^2 u|\!|_\infty\, N_{\max}h(\mathcal T_0)\; k^n.
+		|\!|\nabla u_{i,n} - \overline{\nabla u(x_i)}_n|\!| \leq \frac74|\!|M_i^{-1}|\!|\, |\!|\nabla^2 u|\!|_\infty\, N_{\max}h(\mathcal T_0)\; k^n.
 	\]
-	De plus, à l'aide de la formule (29) donné par \cite{florent}, en notant $\theta_{i,j} \in [-\pi,\,\pi]$ l'unique angle tel que $n_{i,j} = \cos(\theta_{i,j}) e_x + \sin(\theta_{i,j})e_y$ et $\alpha_{i,j} = \frac{\lambda_{i,j}\delta_{i,j}}{\abs{C_i}}$ et $\alpha_i = \displaystyle\sum_{j \in \mathcal N_i} \alpha_{i,j}$ :
+	De plus, à l'aide de la formule (29) donné par \cite{florent}, en notant $\theta_{ij} \in [-\pi,\,\pi]$ l'unique angle tel que $n_{ij} = \cos(\theta_{ij}) e_x + \sin(\theta_{ij})e_y$ et $\alpha_{ij} = \frac{\lambda_{ij}\delta_{ij}}{\abs{C_i}}$ et $\alpha_i = \displaystyle\sum_{j \in \mathcal N_i} \alpha_{ij}$ :
 	\begin{equation}\label{eq:det_Mi}
-		\det(M_i) = 1 + \displaystyle\sum_{1\leq j < k \leq \abs{\mathcal N_i}} \alpha_{i,j}\alpha_{i,k}\sin^2(\theta_{i,j}-\theta_{i,k}),
+		\det(M_i) = 1 + \displaystyle\sum_{1\leq j < k \leq \abs{\mathcal N_i}} \alpha_{ij}\alpha_{i,k}\sin^2(\theta_{ij}-\theta_{i,k}),
 	\end{equation}
 	\begin{equation}\label{eq:matrice_Mi}
 		M_i = \begin{bmatrix}\displaystyle
-			1+\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\sin(2\theta_{i,j}) &\displaystyle -\frac{\alpha_i}2-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\cos(2\theta_{i,j})\\
-			\displaystyle\frac{\alpha_i}2-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\cos(2\theta_{i,j}) & \displaystyle 1-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\sin(2\theta_{i,j})
+			1+\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\sin(2\theta_{ij}) &\displaystyle -\frac{\alpha_i}2-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\cos(2\theta_{ij})\\
+			\displaystyle\frac{\alpha_i}2-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\cos(2\theta_{ij}) & \displaystyle 1-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\sin(2\theta_{ij})
 		\end{bmatrix},
 	\end{equation}
-	où $\abs{\mathcal N_i}$ est le cardinal de $\mathcal N_i$, il est justifié de dire que la matrice $M_i$ n'est influencé que par la forme du maillage qui est donné par les angles $\theta_{i,j}$. L'objectif du reste de cette Section est d'estimer la quantité $|\!|M_i^{-1}|\!|$ pour pouvoir donner une majoration de l'erreur de consistance à l'aide du pas $h$ et des données du problème, une première étape consiste à réduire le problème à celui de minorer $\det(M_i)$ et de majorer $\alpha_i$ :
+	où $\abs{\mathcal N_i}$ est le cardinal de $\mathcal N_i$, il est justifié de dire que la matrice $M_i$ n'est influencé que par la forme du maillage qui est donné par les angles $\theta_{ij}$. L'objectif du reste de cette Section est d'estimer la quantité $|\!|M_i^{-1}|\!|$ pour pouvoir donner une majoration de l'erreur de consistance à l'aide du pas $h$ et des données du problème, une première étape consiste à réduire le problème à celui de minorer $\det(M_i)$ et de majorer $\alpha_i$ :
 	
 	\begin{lm}\label{lm:maj_gen_Mi}
-		Pour $\mathcal T$ un maillage, $i \in \mathcal T$ et $\alpha_i = \underset{j \in \mathcal N_i}\sum \alpha_{i,j}$. Si $M_i$ est inversible, alors :
+		Pour $\mathcal T$ un maillage, $i \in \mathcal T$ et $\alpha_i = \underset{j \in \mathcal N_i}\sum \alpha_{ij}$. Si $M_i$ est inversible, alors :
 		
 		\begin{equation}
-			|\!|M_i^{-1}|\!|_2 \leq \underset{i \in \mathcal T}\max \sqrt{\dfrac{4+\alpha_i^2 -2 \det(M_i) }{\det(M_i)^2}}.
+			|\!|M_i^{-1}|\!|_F =\sqrt{\dfrac{4+\alpha_i^2 -2 \det(M_i) }{\det(M_i)^2}}.
 		\end{equation}
 	\end{lm}
 	\begin{proof}
-		Puisque $M_i$ est inversible, d'après le lemme \ref{lm:rayon_spec}, l'inégalité qui suit est satisfaite :
-		\[
-			|\!|M_i^{-1}|\!|_2 \leq \sqrt{\dfrac{\mathrm{tr}(M_iM_i^T)}{\det(M_i)^2}}.
-		\]
 		Si la matrice $M_i$ est de la forme $M_i = \begin{bmatrix}
 			a & b\\
 			c & d
 		\end{bmatrix}$, alors par un calcul direct il suit :
 		\begin{equation}\label{eq:tr_A}
-			\mathrm{tr}(M_iM_i^T) = a^2 + b^2 + c^2 + d^2.
+			|\!|M_i|\!|_F^2 = \mathrm{tr}\left(M_i^{-1}\left(M_i^{-1}\right)^T\right) = \dfrac{a^2 + b^2 + c^2 + d^2}{\det(M_i)^2}.
 		\end{equation}
-		Pour appliquer l'inégalité \eqref{eq:maj_rayon} à $M_i$, il est nécessaire de calculer les quantités suivante :
+		Pour appliquer l'égalité \eqref{eq:tr_A}, il est nécessaire de calculer les quantités suivante :
 		\begin{equation}
-			a^2 = \left(1+\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\sin(2\theta_{i,j})\right)^2 = 1 + \sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\sin(2\theta_{i,j}) + \frac14\left(\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\sin(2\theta_{i,j})\right)^2,
-		\end{equation}
-		\begin{equation}
-			b^2 = \left(-\frac{\alpha_i}2-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\cos(2\theta_{i,j})\right)^2 = \frac{\alpha_i^2}4 + \frac{\alpha_i}2\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\cos(2\theta_{i,j}) + \frac14 \left(\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\cos(2\theta_{i,j})\right)^2,
+			a^2 = \left(1+\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\sin(2\theta_{ij})\right)^2 = 1 + \sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\sin(2\theta_{ij}) + \frac14\left(\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\sin(2\theta_{ij})\right)^2,
 		\end{equation}
 		\begin{equation}
-			c^2 = \left(\frac{\alpha_i}2 - \frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\cos(2\theta_{i,j})\right)^2 = \frac{\alpha_i^2}4 - \frac{\alpha_i}2\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\cos(2\theta_{i,j}) + \frac14\left(\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\cos(2\theta_{i,j})\right)^2,
+			b^2 = \left(-\frac{\alpha_i}2-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\cos(2\theta_{ij})\right)^2 = \frac{\alpha_i^2}4 + \frac{\alpha_i}2\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\cos(2\theta_{ij}) + \frac14 \left(\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\cos(2\theta_{ij})\right)^2,
 		\end{equation}
 		\begin{equation}
-			d^2 = \left(1-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\sin(2\theta_{i,j})\right)^2 = 1- \sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\sin(2\theta_{i,j}) + \frac14\left(\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}\sin(2\theta_{i,j})\right)^2.
+			c^2 = \left(\frac{\alpha_i}2 - \frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\cos(2\theta_{ij})\right)^2 = \frac{\alpha_i^2}4 - \frac{\alpha_i}2\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\cos(2\theta_{ij}) + \frac14\left(\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\cos(2\theta_{ij})\right)^2,
+		\end{equation}
+		\begin{equation}
+			d^2 = \left(1-\frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\sin(2\theta_{ij})\right)^2 = 1- \sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\sin(2\theta_{ij}) + \frac14\left(\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}\sin(2\theta_{ij})\right)^2.
 		\end{equation}
 		
 		Par conséquent la somme $a^2+b^2+c^2+d^2$ s'écrit :\\
-		$\begin{aligned}
+		\[
+		\begin{aligned}
 			& a^2 + b^2 + c^2 + d^2 \\
-			=& 2 + \frac{\alpha_i^2}{2} + \frac12\left(\left(\sum_{j=1}^{\abs{\mathcal N_i}}\alpha_{i,j}\cos(\alpha_{i,j})\right)^2 +\left(\sum_{j=1}^{\abs{\mathcal N_i}}\alpha_{i,j}\sin(2\theta_{i,j})\right)^2 \right)\\
-			=&2+\frac{\alpha_i^2}2 + \frac12\left(\sum_{j=1}^{\abs{\mathcal N_i}}\alpha_{i,j}^2(\cos^2(2\alpha_{i,j})+\sin^2(2\alpha_{i,j})) +2\sum_{\underset{k<j}{j,k=1}}^{\abs{\mathcal N_i}} \alpha_{i,j}\alpha_{i,k}(\cos(2\alpha_{i,j})\cos(2\alpha_{i,k})+\sin(2\alpha_{i,j})\sin(2\alpha_{i,k})) \right)\\
-			=&2+\frac{\alpha_i^2}2 + \frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}^2 + \sum_{\underset{k<j}{j,k=1}}^{\abs{\mathcal N_i}} \alpha_{i,j}\alpha_{i,k}\cos(2(\alpha_{i,j}-\alpha_{i,k}))\\
-			=&2+\frac{\alpha_i^2}2 + \frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{i,j}^2+ \frac12\sum_{\underset{k<j}{j,k=1}}^{\abs{\mathcal N_i}} \alpha_{i,j}\alpha_{i,k}(1-2\sin^2(\theta_{i,j}-\theta_{i,k}))\\
-			=&2+\alpha_i^2 - \sum_{\underset{k<j}{j,k=1}}^{\abs{\mathcal N_i}} \alpha_{i,j}\alpha_{i,k}\sin^2(\theta_{i,j}-\theta_{i,k}).
-		\end{aligned}$
-		Or d'après l'expression du déterminant explicité en \eqref{eq:det_Mi}, l'égalité suivante est vérifiée :
-		\begin{equation}
-			\mathrm{tr}(M_iM_i^T) = 2+\alpha_i^2 + \det(M_i).
-		\end{equation}
-		Ainsi, en injectant la relation précédente dans \eqref{eq:maj_rayon} (avec $A=M_i$), il vient le résultat attendu.
+			=& 2 + \frac{\alpha_i^2}{2} + \frac12\left(\left(\sum_{j=1}^{\abs{\mathcal N_i}}\alpha_{ij}\cos(\alpha_{ij})\right)^2 +\left(\sum_{j=1}^{\abs{\mathcal N_i}}\alpha_{ij}\sin(2\theta_{ij})\right)^2 \right)\\
+			=&2+\frac{\alpha_i^2}2 + \frac12\bigg(\sum_{j=1}^{\abs{\mathcal N_i}}\alpha_{ij}^2(\cos^2(2\alpha_{ij})+\sin^2(2\alpha_{ij}))\\
+			&\hspace{2.5cm} +2\sum_{\underset{k<j}{j,k=1}}^{\abs{\mathcal N_i}} \alpha_{ij}\alpha_{i,k}(\cos(2\alpha_{ij})\cos(2\alpha_{i,k})+\sin(2\alpha_{ij})\sin(2\alpha_{i,k})) \bigg)
+		\end{aligned}
+		\]
+		\[
+		\begin{aligned}
+			a^2 + b^2 + c^2 + d^2 = & 2+\frac{\alpha_i^2}2 + \frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}^2 + \sum_{\underset{k<j}{j,k=1}}^{\abs{\mathcal N_i}} \alpha_{ij}\alpha_{i,k}\cos(2(\alpha_{ij}-\alpha_{i,k}))\\
+			= & 2+\frac{\alpha_i^2}2 + \frac12\sum_{j=1}^{\abs{\mathcal N_i}} \alpha_{ij}^2+ \frac12\sum_{\underset{k<j}{j,k=1}}^{\abs{\mathcal N_i}} \alpha_{ij}\alpha_{i,k}(1-2\sin^2(\theta_{ij}-\theta_{i,k}))\\
+			= & 2+\alpha_i^2 - \sum_{\underset{k<j}{j,k=1}}^{\abs{\mathcal N_i}} \alpha_{ij}\alpha_{i,k}\sin^2(\theta_{ij}-\theta_{i,k}).
+		\end{aligned}
+		\]
+		Or d'après l'expression du déterminant explicité en \eqref{eq:det_Mi}, il suit l'égalité recherchée.
 	\end{proof}
 
 	\label{sec:contre-exemple}
@@ -541,12 +540,11 @@
 	Cependant $\abs{\alpha_1} = \abs{\displaystyle\sum_{j \in \mathcal N_1} \alpha_{1,j}} = \abs{\alpha_{1,1}}$, donc :
 	\[
 	\begin{aligned}
-		\abs{\alpha_{1}} = \dfrac{\abs{\delta_{1,1}}\lambda_{1,1}}{\abs{ABC_1}} & = \dfrac{2\abs{AB/2 - Ax_{1,2}}\varepsilon}{\varepsilon^{2.5}}\\
-		& = \dfrac{2\abs{\varepsilon/2 - \varepsilon/3}}{\varepsilon^{1.5}}\\
+		\abs{\alpha_{1}} &= \dfrac{\abs{\delta_{1,1}}\lambda_{1,1}}{\abs{ABC_1}} = \dfrac{2\abs{AB/2 - Ax_{1,2}}\varepsilon}{\varepsilon^{2.5}} = \dfrac{2\abs{\varepsilon/2 - \varepsilon/3}}{\varepsilon^{1.5}}\\
 		& = \dfrac{2\varepsilon}{6\varepsilon^{1.5}} = \dfrac1{3\sqrt{\varepsilon}},
 	\end{aligned}
 	\]
-	or, pour $f(\varepsilon) = \dfrac{16\,\varepsilon^{1.5}\left(\sqrt{\varepsilon^2 + \varepsilon}\right)^3 }{\varepsilon^{2.5}}$, $f'(\varepsilon) = \dfrac{32\varepsilon\sqrt{\varepsilon^2+\varepsilon}+8\sqrt{\varepsilon^2+\varepsilon}}{\varepsilon} > 0$. Ainsi $\varepsilon \underset{h \to 0}\longrightarrow 0$, donc $\abs{\alpha_1} \underset{h \to 0}\longrightarrow +\infty$. Ce qui justifie l'affirmation : en général il n'est pas possible de majorer $\alpha_i$. Avec cet exemple il est également possible de montrer que en général il n'est pas possible de majorer $|\!|M_i^{-1}|\!|_2$. En effet, pour cet exemple $\theta_{1,1} = \pi/2$, et ainsi $M_1^{-1}$ est de la forme :
+	or, pour $f(\varepsilon) = \dfrac{16\,\varepsilon^{1.5}\left(\sqrt{\varepsilon^2 + \varepsilon}\right)^3 }{\varepsilon^{2.5}}$, $f'(\varepsilon) = \dfrac{32\varepsilon\sqrt{\varepsilon^2+\varepsilon}+8\sqrt{\varepsilon^2+\varepsilon}}{\varepsilon} > 0$. Ainsi $\varepsilon \underset{h \to 0}\longrightarrow 0$, donc $\abs{\alpha_1} \underset{h \to 0}\longrightarrow +\infty$. Ce qui justifie l'affirmation : en général il n'est pas possible de majorer $\alpha_i$. Avec cet exemple il est également possible de montrer que en général il n'est pas possible de majorer $|\!|M_i^{-1}|\!|_F$. En effet, pour cet exemple $\theta_{1,1} = \pi/2$, et ainsi $M_1^{-1}$ est de la forme :
 	\[
 		\begin{aligned}
 			M_1^{-1} &= 
@@ -568,7 +566,7 @@
 	\]
 	Ainsi, d'après le lemme \ref{lm:maj_det}, $|\!|M_1^{-1}|\!|_2 \geq \dfrac34 \sqrt{1+\alpha_1^2}$. Donc $|\!|M_1^{-1}|\!|_2 \underset{h \to 0}{\longrightarrow} + \infty$.
 	
-	L'objectif va ici être de montrer que si le maillage est triangulaire, toute union de deux triangles voisins est convexe et ne contient pas de triangle plat, alors : $\det(M_i) \geq \frac23$. Pour obtenir ce résultat il faut pouvoir estimer précisément la valeur de $\alpha_{i,j} = \dfrac{\delta_{i,j}\lambda_{i,j}}{\abs{C_i}}$. Puisque $\lambda_{i,j}$ et $\abs{C_i}$ sont des données du maillages, il reste à déterminer $\delta_{i,j}$. Pour deux cellules triangulaires non plates $T_i = ABC_1$ et $T_j = ABC_2$ illustré par la figure \ref{fig:cellule_triangulaire}.
+	L'objectif va ici être de montrer que si le maillage est triangulaire, toute union de deux triangles voisins est convexe et ne contient pas de triangle plat, alors : $\det(M_i) \geq \frac23$. Pour obtenir ce résultat il faut pouvoir estimer précisément la valeur de $\alpha_{ij} = \dfrac{\delta_{ij}\lambda_{ij}}{\abs{C_i}}$. Puisque $\lambda_{ij}$ et $\abs{C_i}$ sont des données du maillages, il reste à déterminer $\delta_{ij}$. Pour deux cellules triangulaires non plates $T_i = ABC_1$ et $T_j = ABC_2$ illustré par la figure \ref{fig:cellule_triangulaire}.
 	
 	\vspace{-.5cm}
 	
@@ -614,7 +612,7 @@
 		\captionof{figure}{Deux triangles $ABC_1$ et $ABC_2$ de centre de gravité $G_1$ et $G_2$ respectivement, et $\alpha_i,\beta_i \in ]0,\pi[$.}
 		\label{fig:cellule_triangulaire}
 	\end{center}
-	En notant $G_1$ et $G_2$ les centres de gravités respectifs de $ABC_1$ et $ABC_2$, et $I$ le point d'intersection entre $[G_1G_2]$ et $[AB]$, l'égalité suivante est justifiée : $\abs{\delta_{i,j}} = |\!|x_{i,j}-\bar x_{i,j}|\!| = \abs{AB/2 - AI} = \abs{AB/2 - BI}$. Dans un premier temps il est nécessaire d'obtenir une expression de $\abs{\frac{AB}2-AI} = \max\{\frac{AB}2-AI,\,\frac{AB}2-BI\}$ qui est obtenu en choisissant judicieusement le repère dans lequel est placé le quadrilatère $AC_1BC_2$. C'est ce qui est fait dans le lemme \ref{lm:equation_delta} dans lequel la notation suivante est adoptée : pour tout $k \in \N$ et $z_1,z_2$ deux réels, $z_k := z_{r+1}$, où $r$ est le reste de la division euclidienne de $k$ par 2. L'entier $k$ permettra par la suite de choisir la bonne configuration pour obtenir l'inégalité $\abs{\frac{AB}2-AI} \leq \frac{AB}6$ du lemme \ref{lm:maj_delta_triangle}.
+	En notant $G_1$ et $G_2$ les centres de gravités respectifs de $ABC_1$ et $ABC_2$, et $I$ le point d'intersection entre $[G_1G_2]$ et $[AB]$, l'égalité suivante est justifiée : $\abs{\delta_{ij}} = |\!|x_{ij}-\bar x_{ij}|\!| = \abs{AB/2 - AI} = \abs{AB/2 - BI}$. Dans un premier temps il est nécessaire d'obtenir une expression de $\abs{\frac{AB}2-AI} = \max\{\frac{AB}2-AI,\,\frac{AB}2-BI\}$ qui est obtenu en choisissant judicieusement le repère dans lequel est placé le quadrilatère $AC_1BC_2$. C'est ce qui est fait dans le lemme \ref{lm:equation_delta} dans lequel la notation suivante est adoptée : pour tout $k \in \N$ et $z_1,z_2$ deux réels, $z_k := z_{r+1}$, où $r$ est le reste de la division euclidienne de $k$ par 2. L'entier $k$ permettra par la suite de choisir la bonne configuration pour obtenir l'inégalité $\abs{\frac{AB}2-AI} \leq \frac{AB}6$ du lemme \ref{lm:maj_delta_triangle}.
 	
 	\begin{lm}\label{lm:equation_delta}
 		En ce plaçant dans le contexte précédent, pour $k \in \{1,2\}$ et $K \in \{A,\,B\}$ :
@@ -642,16 +640,16 @@
 			Par symétrie il suit les 3 autres équations.
 	\end{proof}
 	
-	 En supposant la convexité du quadrilatère $AC_1BC_2$, la quantité $\abs{\delta_{i,j}} = \underset{K\in\{A,\,B\}}\min\abs{AB/2-KI}$ est alors majoré par $AB/6 = \lambda_{i,j}/6$, c'est ce qui est démontré ci-dessous.
+	 En supposant la convexité du quadrilatère $AC_1BC_2$, la quantité $\abs{\delta_{ij}}$ est égale à $\min\abs{AB/2-AI}$ et est alors majoré par $AB/6 = \lambda_{ij}/6$, c'est ce qui est démontré ci-dessous.
 	
 	\begin{lm}\label{lm:maj_delta_triangle}
 		Si le quadrilatère $AC_1BC_2$ est convexe alors :
 		\begin{equation}
-			\underset{K\in\{A,\,B\}}\min\,\abs{\frac{AB}2-KI} \leq \frac{AB}6.
+			\abs{\frac{AB}2-AI} \leq \frac{AB}6.
 		\end{equation}
 	\end{lm} 
 	\begin{proof}
-		Puisque $AC_1BC_2$ est convexe, il vient que $\alpha_1+\alpha_2 \leq \pi$ (sinon $[C_1C_2]$ n'est pas dans $AC_1BC_2$), et puisque $I \in [G_1G_2]\cap(AB)$, il suit : $I \in [AB]$. Ainsi, il existe $K \in \{A,\,B\}$ tel que $AB/2 - KI \geq 0$ car $AB/2-AI = -(AB/2-BI)$. L'égalité suivante est donc vérifiée : $\underset{K \in \{A,\,B\}}\min\abs{AB/2-KI} = AB/2 - K_0I$. Pour $k \in\{1,2\}$, il suit :
+		Puisque $AC_1BC_2$ est convexe, il vient que $\alpha_1+\alpha_2 \leq \pi$ (sinon $[C_1C_2]$ n'est pas dans $AC_1BC_2$), et puisque $I \in [G_1G_2]\cap(AB)$, il suit : $I \in [AB]$. Ainsi, il existe $K_0 \in \{A,\,B\}$ tel que $AB/2 - K_0I \geq 0$ car $AB/2-AI = -(AB/2-BI)$. L'égalité suivante est donc vérifiée : $\abs{AB/2-AI} = AB/2 - K_0I$. Pour $k \in\{1,2\}$, il suit :
 		\[
 			\begin{aligned}
 				\frac{AB}2-K_0I =& \dfrac{AB-2K_0C_k\cos(\alpha_k)}6 - \dfrac{K_0C_k\sin(\alpha_k)}3\dfrac{K_0C_{k+1}\cos(\alpha_{k+1})-K_0C_k\cos(\alpha_k)}{K_0C_{k+1}\sin(\alpha_{k+1})+K_0C_k\sin(\alpha_k)}\\
@@ -684,13 +682,13 @@
 		\]
 		Finalement, l'inégalité demandée est vérifiée :
 		\[
-			\underset{K\in\{A,\,B\}}\min\,\abs{\frac{AB}2-KI} = \dfrac{AB}2 - K_0I \leq \dfrac{AB}6.
+			\abs{\frac{AB}2-AI} = \dfrac{AB}2 - K_0I \leq \dfrac{AB}6.
 		\]
 	\end{proof}
 	
 	
 	
-	En traduisant le lemme \ref{lm:maj_delta_triangle} à 2 cellules voisines, $T_i$ et $T_j$, il est alors possible d'appliquer ce lemme à $\delta_{i,j}$. La figure \ref{fig:cellule_triangulaire_applique} illustre la situation.
+	En traduisant le lemme \ref{lm:maj_delta_triangle} à 2 cellules voisines, $T_i$ et $T_j$, il est alors possible d'appliquer ce lemme à $\delta_{ij}$. La figure \ref{fig:cellule_triangulaire_applique} illustre la situation.
 	
 	\begin{center}
 		\begin{tikzpicture}[thick]
@@ -704,10 +702,10 @@
 			\coordinate (Cell1) at (barycentric cs:A=1,B=1,C1=1);
 			\coordinate (Cell2) at (barycentric cs:A=1,B=1,C2=1.5);
 			\draw (A)--(B)--(C1)--cycle;
-			\draw[dotted] (A)--(B)--(C2)--cycle;
-			\draw[dotted] (C1)--(B)--(C3)--cycle;
-			\draw[dotted] (C4)--(A)--(C1)--cycle;
-			\draw (M1) node [above] {$\Gamma_{i,j}$};
+			\draw[dotted,fill opacity=.2,fill=gray] (A)--(B)--(C2)--cycle;
+			\draw[dotted,fill opacity=.2,fill=gray] (C1)--(B)--(C3)--cycle;
+			\draw[dotted,fill opacity=.2,fill=gray] (C4)--(A)--(C1)--cycle;
+			\draw (M1) node [above] {$\Gamma_{ij}$};
 			
 			\node [below left] at (A) {$A$};
 			\node [right] at (B) {$B$};
@@ -716,7 +714,7 @@
 			\node [above left] at (Cell1) {$T_i$};
 			\node [left] at (Cell2) {$T_j$};	
 		\end{tikzpicture}
-		\captionof{figure}{Illustration de l'interface $\Gamma_{i,j}$ entre deux cellules $T_i$ et $T_j$.}
+		\captionof{figure}{Illustration de l'interface $\Gamma_{ij}$ entre deux cellules $T_i$ et $T_j$.}
 		\label{fig:cellule_triangulaire_applique}
 	\end{center}
 	
@@ -725,14 +723,14 @@
 			Pour $\mathcal T$ une triangulation telle que toute union de deux triangles voisins est convexe, alors pour tout $i \in \mathcal T$ et $j \in \mathcal N_i$ :
 		\end{minipage}
 		\begin{equation}
-			\abs{\delta_{i,j}} \leq \frac{\lambda_{i,j}}6.
+			\abs{\delta_{ij}} \leq \frac{\lambda_{ij}}6.
 		\end{equation}
 	\end{lm}
 	\begin{proof}
-			 En notant $A$ et $B$ les sommets de $\Gamma_{i,j}$, $C_1$ le sommet opposé à $\Gamma_{i,j}$ de $T_i$, $C_2$ le sommet opposé à $\Gamma_{i,j}$ de $T_j$, il vient alors : $\abs{\delta_{i,j}} = |\!|x_{i,j} -\bar x_{i,j}|\!| = |\!| x_{i,j}-A - (\bar x_{i,j}-A)|\!| = \abs{Ax_{i,j}-A\bar x_{i,j}}$, car $A$, $x_{i,j}$ et $\bar x_{i,j}$ sont alignés. Cependant $A\bar x_{i,j} = AB/2$. Donc $|\!|x_{i,j} -\bar x_{i,j}|\!| = \abs{AB/2-A\bar x_{i,j}}$. Ainsi d'après le lemme \ref{lm:maj_delta_triangle} : $\abs{AB/2-A\bar x_{i,j}}\leq \frac{AB}6 = \frac{\lambda_{i,j}}6 $ . Finalement, $\abs{\delta_{i,j}} \leq \frac{\lambda_{i,j}}6$.
+			 En notant $A$ et $B$ les sommets de $\Gamma_{ij}$, $C_1$ le sommet opposé à $\Gamma_{ij}$ de $T_i$, $C_2$ le sommet opposé à $\Gamma_{ij}$ de $T_j$, il vient alors : $\abs{\delta_{ij}} = |\!|x_{ij} -\bar x_{ij}|\!| = |\!| x_{ij}-A - (\bar x_{ij}-A)|\!| = \abs{Ax_{ij}-A\bar x_{ij}}$, car $A$, $x_{ij}$ et $\bar x_{ij}$ sont alignés. Cependant $A\bar x_{ij} = AB/2$. Donc $|\!|x_{ij} -\bar x_{ij}|\!| = \abs{AB/2-A\bar x_{ij}}$. Ainsi d'après le lemme \ref{lm:maj_delta_triangle} : $\abs{AB/2-A\bar x_{ij}}\leq \frac{AB}6 = \frac{\lambda_{ij}}6 $ . Finalement, $\abs{\delta_{ij}} \leq \frac{\lambda_{ij}}6$.
 	\end{proof}
 	
-	L'objectif de minorer $\det(M_i)$ est presque atteint, pour cela, il faut s'aider de la formule du déterminant donné par l'équation \eqref{eq:det_Mi}, ce qui permet d'obtenir : $\abs{\det(M_i)-1} \leq \displaystyle\sum_{1\leq j < k \leq \abs{\mathcal N_i}} \abs{\alpha_{i,j}\alpha_{i,k}}\sin^2(\theta_{i,j}-\theta_{i,k})$. Il reste donc à majorer $\abs{\alpha_{i,j}\alpha_{i,k}}$, ce qui est fait à l'aide du lemme \ref{lm:maj_delta} et à l'aide de la notation : $\mu_{i,jk}$, explicité par la figure \ref{fig:definition_angle_mu}.
+	L'objectif de minorer $\det(M_i)$ est presque atteint, pour cela, il faut s'aider de la formule du déterminant donné par l'équation \eqref{eq:det_Mi}, ce qui permet d'obtenir : $\abs{\det(M_i)-1} \leq \displaystyle\sum_{1\leq j < k \leq \abs{\mathcal N_i}} \abs{\alpha_{ij}\alpha_{i,k}}\sin^2(\theta_{ij}-\theta_{i,k})$. Il reste donc à majorer $\abs{\alpha_{ij}\alpha_{i,k}}$, ce qui est fait à l'aide du lemme \ref{lm:maj_delta} et à l'aide de la notation : $\mu_{i,jk}$, explicité par la figure \ref{fig:definition_angle_mu}.
 	
 	\begin{center}
 		\begin{tikzpicture}[thick]
@@ -747,9 +745,9 @@
 			\coordinate (Cell2) at (barycentric cs:A=1,B=1,C2=1);
 			\coordinate (Cell3) at (barycentric cs:A=1,C1=1,C3=1);
 			\draw (A)--(B)--(C1)--cycle;
-			\draw[dotted] (A)--(B)--(C2)--cycle;
-			\draw[dotted] (A)--(C1)--(C3)--cycle;
-			\draw (M1) node [above right] {$\Gamma_{i,j}$};
+			\draw[dotted,fill opacity=.2,fill=gray] (A)--(B)--(C2)--cycle;
+			\draw[dotted,fill opacity=.2,fill=gray] (A)--(C1)--(C3)--cycle;
+			\draw (M1) node [above right] {$\Gamma_{ij}$};
 			\draw (M2) node [right] {$\Gamma_{i,k}$};
 			
 			\node at (Cell1) {$C_i$};
@@ -757,43 +755,43 @@
 			\node at (Cell3) {$C_k$};
 			
 			\tkzMarkAngle[fill= orange,size=1.1cm,opacity=.4](B,A,C1)
-			\tkzLabelAngle[pos = 0.65](B,A,C1){$\mu_{i,jk}$}
+			\tkzLabelAngle[pos = 0.7](B,A,C1){$\mu_{i,jk}$}
 
 		\end{tikzpicture}
-		\captionof{figure}{Illustration d'une cellule $C_i$, avec $\mu_{i,jk} \in ]0,\pi[$ l'angle formé par $\Gamma_{i,j}$ et $\Gamma_{i,k}$.}
+		\captionof{figure}{Illustration d'une cellule $C_i$, avec $\mu_{i,jk} \in ]0,\pi[$ l'angle formé par $\Gamma_{ij}$ et $\Gamma_{i,k}$.}
 		\label{fig:definition_angle_mu}
 	\end{center}
 
 	\begin{lm}\label{lm:majoration_produit_alpha}
 			Pour $\mathcal T$ un maillage triangulaire telle que toute union de deux triangles voisins est convexe. Pour tout $k,j \in \mathcal N_i$ tel que $k \not = j$,
 		\begin{equation}
-			\abs{\alpha_{i,j}\alpha_{i,k}} \leq \dfrac{1}{9\sin^2(\mu_{i,jk})}.
+			\abs{\alpha_{ij}\alpha_{i,k}} \leq \dfrac{1}{9\sin^2(\mu_{i,jk})}.
 		\end{equation}
 	\end{lm}
 	\begin{proof}
 		Dans un premier temps il est nécessaire de montrer l'inégalité suivante :
 		\begin{equation}
-			\abs{\alpha_{i,j}} \leq \dfrac{\lambda_{i,j}}{3\lambda_{i,k}\sin(\mu_{i,jk})}.
+			\abs{\alpha_{ij}} \leq \dfrac{\lambda_{ij}}{3\lambda_{i,k}\sin(\mu_{i,jk})}.
 		\end{equation}
-		Pour tout $k \in \mathcal N_i$ tel que $k \not = j$, il vient en utilisant la formule de l'aire d'un triangle : $\abs{C_i} = \frac{\lambda_{i,j}\lambda_{i,k}\sin(\mu_{i,jk})}2$. D'après le lemme \ref{lm:maj_delta}, il suit le résultat voulu.\\
-		D'après cette nouvelle inégalité, l'inégalité suivante est vérifiée : $\abs{\alpha_{i,j}\alpha_{i,k}} \leq \dfrac{\lambda_{i,j}\lambda_{i,k}}{9\lambda_{i,j}\lambda_{i,k}\sin^2(\mu_{i,jk})} = \dfrac1{9\sin^2(\mu_{i,jk})}$. Le résultat est donc obtenu.
+		Pour tout $k \in \mathcal N_i$ tel que $k \not = j$, il vient en utilisant la formule de l'aire d'un triangle : $\abs{C_i} = \frac{\lambda_{ij}\lambda_{i,k}\sin(\mu_{i,jk})}2$. D'après le lemme \ref{lm:maj_delta}, il suit le résultat voulu.\\
+		D'après cette nouvelle inégalité, l'inégalité suivante est vérifiée : $\abs{\alpha_{ij}\alpha_{i,k}} \leq \dfrac{\lambda_{ij}\lambda_{i,k}}{9\lambda_{ij}\lambda_{i,k}\sin^2(\mu_{i,jk})} = \dfrac1{9\sin^2(\mu_{i,jk})}$. Le résultat est donc obtenu.
 	\end{proof}
 	
 	\newcommand{\Ap}{\mathrm{Angle}^+}
 	\newcommand{\Am}{\mathrm{Angle}^-}
 	
-	Avant passer à la minoration du déterminant, il est nécessaire de faire le lien entre $\sin^2(\mu_{j,k})$ et $\sin^2(\theta_{i,j}-\theta_{i,k})$.
+	Avant passer à la minoration du déterminant, il est nécessaire de faire le lien entre $\sin^2(\mu_{j,k})$ et $\sin^2(\theta_{ij}-\theta_{i,k})$.
 	
 	\begin{lm}\label{lm:egalite_angle}
 			Si $\mathcal T$ un maillage, alors pour tout $j, k \in \mathcal T$, tel que $j \not= k$ :
 		\begin{equation}
-			\sin^2(\mu_{i,jk}) = \sin^2(\theta_{i,j}-\theta_{i,k}).
+			\sin^2(\mu_{i,jk}) = \sin^2(\theta_{ij}-\theta_{i,k}).
 		\end{equation}
 	\end{lm}
 	\begin{proof}
-		Il ne sera traité que le cas où $\theta_{i,j}\theta_{i,k} < 0$, le cas où $\theta_{i,j}\theta_{i,k} \geq 0$ se traitant de la même manière.\\
+		Il ne sera traité que le cas où $\theta_{ij}\theta_{i,k} < 0$, le cas où $\theta_{ij}\theta_{i,k} \geq 0$ se traitant de la même manière.\\
 		Il est nécessaire d'introduire les deux notations suivantes : $\Ap(\vec u, \vec v) \in [0,\,2\pi]$ (resp. $\Am(\vec u, \vec v) \in [-2\pi,\,0]$) l'angle entre $u$ et $v$ dans le sens trigonométrique et respectivement dans le sens horaire.
-		Il est noté $\theta_{\min} = \min(\theta_{i,j},\theta_{i,k}) < 0$ et $\theta_{\max} = \max(\theta_{i,j},\theta_{i,k}) > 0$. Le schéma \ref{fig;angle} représente la situation.
+		Il est noté $\theta_{\min} = \min(\theta_{ij},\theta_{i,k}) < 0$ et $\theta_{\max} = \max(\theta_{ij},\theta_{i,k}) > 0$. Le schéma \ref{fig;angle} représente la situation.
 		\begin{center}
 			\begin{tikzpicture}[thick]
 				\coordinate (A) at (0,0);
@@ -809,7 +807,7 @@
 				\draw [dashed,->] (A)--(X);
 				\draw [->] (A)--(pB);
 				\draw [->] (A)--(pC1);
-				\draw (M1) node [above right] {$\Gamma_{i,j}$};
+				\draw (M1) node [above right] {$\Gamma_{ij}$};
 				\draw (M2) node [below] {$\Gamma_{i,k}$};
 				
 				
@@ -833,10 +831,10 @@
 				\draw[fill=black] (pC1) circle (0.05cm);	
 				\draw[fill=black] (pB) circle (0.05cm);	
 			\end{tikzpicture}
-			\captionof{figure}{Cellule $C_i$ représenté avec les interfaces $\Gamma_{i,j} = [AB]$ et $\Gamma_{i,k}=[AC]$. Le vecteur $\overrightarrow{AD}$ (resp. $\overrightarrow{AE}$) est le vecteur $n_{i,j}$ (resp. $n_{i,k}$). De plus $I$ est un point placé sur l'abscisse avec une abscisse positive, où $A$ est le centre du repère.}
+			\captionof{figure}{Cellule $C_i$ représenté avec les interfaces $\Gamma_{ij} = [AB]$ et $\Gamma_{i,k}=[AC]$. Le vecteur $\overrightarrow{AD}$ (resp. $\overrightarrow{AE}$) est le vecteur $n_{ij}$ (resp. $n_{i,k}$). De plus $I$ est un point placé sur l'abscisse avec une abscisse positive, où $A$ est le centre du repère.}
 			\label{fig:angle}
 		\end{center}
-		Ainsi, d'après les notations définies ci-dessus, il vient : $\Ap(\overrightarrow{AI},\overrightarrow{AD}) = \theta_{i,j}$ et $\Am(\overrightarrow{AI},\overrightarrow{AE}) = \theta_{i,k}$.
+		Ainsi, d'après les notations définies ci-dessus, il vient : $\Ap(\overrightarrow{AI},\overrightarrow{AD}) = \theta_{ij}$ et $\Am(\overrightarrow{AI},\overrightarrow{AE}) = \theta_{i,k}$.
 		
 		Il vient, $\begin{aligned}[t]
 			\Ap(\overrightarrow{AE},\overrightarrow{AB}) &= \Ap(\overrightarrow{AE},\overrightarrow{AI}) + \Ap(\overrightarrow{AI},\overrightarrow{AD}) + \Ap(\overrightarrow{AD},\overrightarrow{AB})\\
@@ -855,7 +853,7 @@
 			\sin^2(\mu_{i,jk}) &= \sin^2(\Ap(\overrightarrow{AB},\overrightarrow{AC}))\\
 			& = \sin^2(\pi+\theta_{\min}-\theta_{\max})\\
 			& = \sin^2(\theta_{\max}-\theta_{\min})\\
-			& = \sin^2(\theta_{i,j}-\theta_{i,k}).
+			& = \sin^2(\theta_{ij}-\theta_{i,k}).
 		\end{aligned}$
 		
 		\vspace*{-1cm}
@@ -872,7 +870,7 @@
 	\begin{proof}
 		D'après l'expression du déterminant de $M_i$ fournis par \cite{florent}, du lemme \ref{lm:majoration_produit_alpha} et du lemme \ref{lm:egalite_angle}, les inégalités suivantes sont vérifiées :
 		\begin{equation}\label{eq:abs_det}
-			\abs{\det(M_i)-1} \leq \sum_{1\leq j < k \leq 3} \dfrac1{9\sin^2(\mu_{i,jk})}\sin^2(\mu_{i,jk}) \leq  \frac13.
+			\abs{\det(M_i)-1} \leq \sum_{1\leq j < k \leq \mathcal N_i} \dfrac1{9\sin^2(\mu_{i,jk})}\sin^2(\mu_{i,jk}) \leq \frac{\abs{\mathcal N_i}}{9} \leq \frac13.
 		\end{equation}
 		De plus, si $\abs{x} \leq y$, alors $-y\leq x \leq y$. Ainsi, en utilisant \eqref{eq:abs_det}, il vient :
 		\begin{equation}
@@ -880,36 +878,36 @@
 		\end{equation}
 	\end{proof}
 	
-	Pour pouvoir donner une majoration de $|\!|M_i^{-1}|\!|_2$, il reste à majorer les quantités $\abs{\alpha_{i,j}}$ pour pouvoir majorer $\abs{\alpha_i}$, ce qui va dépendre fortement de l'angle minimum atteint.
+	Pour pouvoir donner une majoration de $|\!|M_i^{-1}|\!|_F$, il reste à majorer les quantités $\abs{\alpha_{ij}}$ pour pouvoir majorer $\abs{\alpha_i}$, ce qui va dépendre fortement de l'angle minimum atteint.
 	
 	\begin{lm}\label{lm:angle_min}
 		Pour $\mathcal T$ un maillage triangulaire.	S'il existe $\mu_{\min} > 0$ tel que pour tout $i \in \mathcal T$ et $j \not = k \in \mathcal T$, $\mu_{i,jk} \geq \mu_{\min}$ :
 			
 			\[
-				\abs{\alpha_{i,j}} \leq \dfrac1{3\sin^2(\mu_{\min})}.
+				\abs{\alpha_{ij}} \leq \dfrac1{3\sin^2(\mu_{\min})}.
 			\]
 	\end{lm}
 	\begin{proof}
 		Pour $\{j,k,r\} = \{1,2,3\}$ une numérotation locale des voisins de $C_i$, d'après la loi des sinus l'égalité suivante est satisfaite :
 		\begin{equation}
-			\frac{\sin(\mu_{i,kr})}{\lambda_{i,j}} = \frac{\sin(\mu_{i,jr})}{\lambda_{i,k}}.
+			\frac{\sin(\mu_{i,kr})}{\lambda_{ij}} = \frac{\sin(\mu_{i,jr})}{\lambda_{i,k}}.
 		\end{equation}
-		Et ainsi, d'après la preuve du lemme \ref{lm:majoration_produit_alpha}, il vient : $\abs{\alpha_{i,j}} \leq \frac{\lambda_{i,j}}{3\lambda_{i,k}\sin(\mu_{i,jk})} \leq \frac{\sin(\mu_{i,kr})}{3\sin(\mu_{i,jr})\sin(\mu_{i,jk})} \leq \frac1{3\sin^2(\mu_{\min})}$
+		Et ainsi, d'après la preuve du lemme \ref{lm:majoration_produit_alpha}, il vient : $\abs{\alpha_{ij}} \leq \frac{\lambda_{ij}}{3\lambda_{i,k}\sin(\mu_{i,jk})} \leq \frac{\sin(\mu_{i,kr})}{3\sin(\mu_{i,jr})\sin(\mu_{i,jk})} \leq \frac1{3\sin^2(\mu_{\min})}$
 	\end{proof}
 	
-	Pour une suite de maillage $(\mathcal T_n)$ telle que le pas $h(\mathcal T_n)$ tends vers 0, ce lemme montre que si aucune suite de triangles, $T_n \in \mathcal T_n$, ne tend vers un triangle plat, alors $\alpha_{i,j}$ est borné et donc $\alpha_i$ l'est aussi. Il est maintenant possible de fournir une majoration de $|\!|M_i^{-1}|\!|_2$ sous certaines conditions qui sont détaillés dans le lemme \ref{lm:maj_Mi_opti}.
+	Pour une suite de maillage $(\mathcal T_n)$ telle que le pas $h(\mathcal T_n)$ tends vers 0, ce lemme montre que si aucune suite de triangles, $T_n \in \mathcal T_n$, ne tend vers un triangle plat, alors $\alpha_{ij}$ est borné et donc $\alpha_i$ l'est aussi. Il est maintenant possible de fournir une majoration de $|\!|M_i^{-1}|\!|_F$ sous certaines conditions qui sont détaillés dans le lemme \ref{lm:maj_Mi_opti}.
 	
 	\begin{lm}\label{lm:maj_Mi_opti}
 		Pour $\mathcal T$ un maillage triangulaire.\\
 		Si toute union de deux triangles voisins est convexe et qu'il existe $\mu_{\min} > 0$, tel que pour tout $i \in \mathcal T$, $j \not = k \in \mathcal N_i$, $\mu_{i,jk} \geq \mu_{\min}$. Alors pour tout $i \in \mathcal T$,
 		\begin{equation}
-			|\!|M_i^{-1}|\!|_2 \leq \sqrt{1.5+\frac{2.25}{\sin^4(\mu_{\min})}}.
+			|\!|M_i^{-1}|\!|_F \leq \sqrt{\frac32+\left(\frac{3}{2\sin^2(\mu_{\min})}\right)^2}.
 		\end{equation}
 	\end{lm}
 	\begin{proof}
 		D'après les lemmes \ref{lm:maj_gen_Mi}, \ref{lm:maj_det} et \ref{lm:angle_min}, il vient :
 		\[
-			|\!|M_i^{-1}|\!|_2 \leq \sqrt{\dfrac{2+\left(\frac{3}{3\sin^2(\mu_{\min})}\right)^2 - \frac43}{\frac49}} = \sqrt{1.5+\frac{2.25}{\sin^4(\mu_{\min})}}.
+			|\!|M_i^{-1}|\!|_F \leq \sqrt{\dfrac{2+\left(\frac{3}{3\sin^2(\mu_{\min})}\right)^2 - \frac43}{\frac49}} = \sqrt{\frac32+\left(\frac{3}{2\sin^2(\mu_{\min})}\right)^2}.
 		\]
 	\end{proof}
 	
@@ -919,19 +917,19 @@
 		Pour $\mathcal T$ un maillage triangulaire.\\
 		Si toute union de deux triangles voisins est convexe et qu'il existe $\mu_{\min} > 0$, tel que pour tout $i \in \mathcal T$, $j \not = k \in \mathcal N_i$, $\mu_{i,jk} \geq \mu_{\min}$. Alors pour tout $i \in \mathcal T$,
 		\begin{equation}
-			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!|_2 \leq \frac72\sqrt{1.5+\frac{2.25}{\sin^4(\mu_{\min})}}|\!|\nabla^2 u|\!|_\infty\, h.
+			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!|_2 \leq \frac{21}4\sqrt{\frac32+\left(\frac{3}{2\sin^2(\mu_{\min})}\right)^2}|\!|\nabla^2 u|\!|_\infty\, h.
 		\end{equation}
 	\end{thm}
 	\begin{proof}
 		En appliquant le lemme \ref{lm:maj_Mi_opti} à \eqref{eq:max_naiv_R4}, il vient le résultat attendu.
 	\end{proof}
 	
-	Il est possible pour certains types de maillages, de fournir la valeur d'une borne, notamment pour les maillage de Delaunay raffinés, il est possible suivant plus ou moins de contrainte d'imposer un angle minimum, quelque soit le nombre de cellules, globalement cette angle vaut $\mu_{\min} = 26.5^{\circ}$ (voir l'abstract de \cite{mesh}). Pour cette valeur il suit :	
+	Il est possible pour certains types de maillages, de fournir la valeur d'une borne, notamment pour les maillage de Delaunay raffinés, il est possible suivant plus ou moins de contrainte d'imposer un angle minimum, quelque soit le nombre de cellules, globalement cette angle vaut $\mu_{\min} = \arcsin\left(\frac1{\sqrt{5}}\right)$ (voir en bas de la page 65 de \cite{mesh}). Pour cette valeur il suit :	
 	\[
-		|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!| \leq 27 |\!|\nabla^2 u|\!|_\infty\, h.
+		|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!| \leq \dfrac{7\sqrt{231}}2 |\!|\nabla^2 u|\!|_\infty\, h.
 	\]	
 	
-	Le cas des triangles ayant été traités, il est possible de faire de même sur des maillages quadrangulaires en s'appuyant sur le cas des maillages triangulaires. L'idée est la suivante, pour une cellule quadrangulaire convexe, la quantité $\abs{\delta_{i,j}}$ est la plus grande lorsque ce quadrangle forme un triangle. La figure \ref{fig:deux_cellules_quadrangulaire} illustre deux cellules $Q_1 = ABD_1C_1$ et $Q_2 = ABD_2C_2$ d'un un maillage $\mathcal T$ quadrangulaire tel que $C_2D_2BD_1C_1A$ est convexe.
+	Le cas des triangles ayant été traité, il est possible de faire de même sur des maillages quadrangulaires en s'appuyant sur le cas des maillages triangulaires. L'idée est la suivante, pour une cellule quadrangulaire convexe, la quantité $\abs{\delta_{ij}}$ est la plus grande lorsque ce quadrangle forme un triangle. La figure \ref{fig:deux_cellules_quadrangulaire} illustre deux cellules $Q_1 = ABD_1C_1$ et $Q_2 = ABD_2C_2$ d'un un maillage $\mathcal T$ quadrangulaire tel que l'hexagone $C_2D_2BD_1C_1A$ est convexe.
 	
 	\begin{center}
 		\begin{tikzpicture}[thick]
@@ -951,7 +949,7 @@
 			\coordinate (C2x) at (8,-2);
 			
 			\draw (A)--(B)--(D1)--(C1)--cycle;
-			\draw (A)--(B)--(D2)--(C2)--cycle;
+			\draw[fill opacity=.1,fill=gray] (A)--(B)--(D2)--(C2)--cycle;
 			\draw[dotted] (B)--(C1);
 			\draw[dotted] (B)--(C2);
 			\draw[dash dot] (C1)--(C1x);
@@ -1004,17 +1002,310 @@
 	\end{center}
 	
 	\begin{lm}\label{lm:majorer_delta_quadrangle}
-		Si $C_2D_2BD_1C_1A$ est convexe alors :
+		Si l'hexagone $C_2D_2BD_1C_1A$ est convexe alors pour tout $K \in \{A,\,B\}$:
 		\begin{equation}
-			\abs{AB/2-AI} \leq \dfrac{AB}6
+			\min \abs{AB/2-KI} \leq \dfrac{AB}6
 		\end{equation}
 	\end{lm}
+	\begin{proof}
+		Puisque l'hexagone $AC_2D_2BD_1C_1$ est convexe, $I \in [AB]$. Donc $\abs{AB/2-AI} = \abs{AB/2-BI}$, quitte à échanger $A$ et $B$, il est possible de supposer que $AB/2-AI \geq 0$.	En effectuant une rotation est translation, il est possible de supposer que $A = (0,\,0)$, $y_B =0$ et $x_B > 0$. De plus, puisque $AC_1D_1B_D2C_2$ est convexe et en appliquant une symétrie axiale, quitte à effectuer une permutation des indices, il est possible de supposer que $y_{D_1},y_{C_1} > 0$ et $x_{G_2} > x_{G_1}$. Puisque $G_k$ est le centre de gravité de $ABD_kC_k$, il est le centre de gravité de $[T_k\overline{T_k}]$, il suit : $G_k = \dfrac{\abs{T_k}}{\abs{T_k}+\abs{\overline{T_k}}}T_k + \dfrac{\abs{\overline{T_k}}}{\abs{T_k}+\abs{\overline{T_k}}}\overline{T_k}$. De plus,  de la même manière que dans la preuve du lemme \ref{lm:equation_delta}, il vient l'égalité suivante :
+		\[
+			x_I(G_1,G_2) = y_{G_1}\dfrac{x_{G_2}-x_{G_1}}{\abs{y_{G_2}}+y_{G_1}} + x_{G_1}.
+		\]
+		Puisque $AB/2 - AI \geq 0$, majorer $\abs{AB/2-AI}$ revient à minorer $AI = x_I$, or en dérivant $x_I$ par rapport à ses composantes il vient : $\partial_{x_{G_k}} x_I \geq 0$ et $\partial_{y_{G_k}} y_I \geq 0$. Ainsi pour minimiser $x_I$, il suffit de minimiser $x_{G_1},x_{G_2},y_{G_1}$ et $y_{G_2}$.\\
+		Si $x_{\overline{T_1}} - x_{T_1} \geq 0$, alors pour $f_T(A) = \dfrac{\abs{T_1}}{\abs{T_1}+A}x_{T_1} + \dfrac{A}{\abs{T_1}+A}x_{\overline{T_1}}$, il suit : 
+		\[
+		\begin{aligned}
+			f_T'(A) &= \dfrac{x_{\overline{T_1}}(\abs{T_1}+A)-(\abs{T_1}x_{T_1}+Ax_{\overline{T_1}})}{(\abs{T_1}+A)^2},\\
+			&= (x_{\overline{T_1}}-x_{T_1})\dfrac{\abs{T_1}}{(\abs{T_1}+A)^2},\\
+			f_T'(A)&\geq 0.
+		\end{aligned}
+		\]
+		Ainsi $x_{G_1} = f_T(\abs{T_1}) \geq f_T(0) = x_{T_1}$. De plus il est possible d'appliquer le même raisonnement sur $y_{T_1}$ et $y_{\overline{T_1}}$, car $y_{\overline{T_1}} = \dfrac{y_B+y_{C_1}+y_{D_1}}3 \geq \dfrac{y_B+y_{C_1}}3 = \dfrac{y_A+y_B+y_{C_1}}3 = y_{T_1}$, ainsi il suit l'inégalité suivante : $y_{G_1} \geq y_{T_1}$. Ainsi, l'inégalité suivante est vérifiée : $x_I \geq y_{T_1}\dfrac{x_{G_2}-x_{T_1}}{\abs{y_{G_2}}+y_{T_1}}+x_{T_1}$. La figure \ref{fig:angle_min} correspond à ce cas.\\
+		Si $x_{\overline{T_1}}-x_{T_1} < 0$, alors il n'est plus possible d'appliquer le raisonnement précédent. Un raisonnement similaire va être appliqué sur $\alpha_1$ et $l = C_1D_1$ :
+		\[
+			\begin{cases}
+				x_{G_1} = \dfrac{\abs{T_1}}{\abs{T_1}+\abs{\overline{T_1}}}x_{T_1}+ \dfrac{\abs{\overline{T_1}}}{\abs{T_1}+\abs{\overline{T_1}}}x_{\overline{T_1}},\\
+				y_{G_1} = \dfrac{\abs{T_1}}{\abs{T_1}+\abs{\overline{T_1}}}y_{T_1}+ \dfrac{\abs{\overline{T_1}}}{\abs{T_1}+\abs{\overline{T_1}}}y_{\overline{T_1}},
+			\end{cases}
+		\]
+		où $x_{\overline{T_1}}$ et $\abs{\overline{T_1}} = \frac12\abs{x_B(y_{C_1}-y_{D_1})+x_{C_1}(y_{D_1}-y_B)+x_{D_2}(y_B-y_{C_1})}$. Puisque $\partial_{x_{D_1}} x_{\overline{T_1}} = \dfrac13$, il suit l'égalité suivante :
+		\begin{equation}\label{eq:xG}
+			\partial_{x_{D_1}}x_{G_1}  = \dfrac{\abs{T_1}\partial_{x_{D_1}}\abs{\overline{T_1}}}{\left(\abs{T_1}+\abs{\overline{T_1}}\right)^2}\,(x_{\overline{T_1}}-x_{T_1}) +\dfrac13 \dfrac{\abs{\overline{T_1}}}{\abs{T_1}+\abs{\overline{T_1}}},
+		\end{equation}
+		de même, l'égalité suivante est vérifiée :
+		
+		\begin{equation}\label{eq:yG}
+				\partial_{x_{D_1}}y_{G_1} = \dfrac{\abs{T_1}\partial_{x_{D_1}}\abs{\overline{T_1}}}{\left(\abs{T_1}+\abs{\overline{T_1}}\right)^2}\,(y_{\overline{T_1}}-y_{T_1}).
+		\end{equation}
+		
+		Il est possible d'exprimer l'aire du triangle $\overline{T_1} = BC_1D_1$ à l'aide des coordonnées de ses sommets : $\abs{\overline{T_1}} = \frac12\abs{x_B(y_{D_1}-y_{C_1})+x_{C_1}(y_{D_1}-y_B)+x_{D_1}(y_B-y_{C_1})}$, or, pour la fonction définie par : $f(x_{D_1}) = x_B(y_{D_1}-y_{C_1})+x_{C_1}(y_{D_1}-y_B)+x_{D_1}(y_B-y_{C_1})$, il suit l'inégalité suivante : $f'(x_{D_1}) = y_B - y_{C_1} = -y_{C_1} < 0$. Donc l'inégalité suivante est vérifiée : $f(x_{D_1}) \leq f(0)$, or $ f(0) = x_B(y_{D_1}-y_{C_1})+x_{C_1}(y_{D_1}-y_B) = x_B(y_{D_1}-y_{C_1})+x_{C_1}y_{D_1}$, de plus $x_{C_1} < 0$ et $y_{D_1} < 0$ car sinon $x_{T_1} \geq x_{\overline{T_1}}$, ainsi $f(0) < 0$. Ce qui permet de conclure que l'aire de $\overline{T_1}$ est égale à : $\abs{\overline{T_1}} = \frac12 \left(x_B(y_{C_1}-y_{D_1})-x_{C_1}y_{D_1}+x_{D_1}y_{C_1}\right)$, ainsi : $\partial_{x_{D_1}} \abs{\overline{T_1}} = \frac{y_{C_1}}2 > 0$ et $\partial_{y_{D_1}} \abs{\overline{T_1}} = -\frac{x_B+x_{C_1}}2$. De plus l'inégalité suivante est vérifiée :
+		\[
+			\partial_{x_{D_1}}^2 x_{G_1} = -\dfrac{2\abs{T_1}\left(\partial_{x_{D_1}} T_1\right)^2}{(\abs{\overline{T_1}}+\abs{\overline{T_1}})^2}(x_{\overline{T_1}}-x_{T_1}) + \dfrac23 \dfrac{\abs{T_1}\partial_{x_{D_1}} \abs{\overline{T_1}}}{(\abs{T_1}+\abs{\overline{T_1}})^2} \geq 0,
+		\]
+		ainsi $\partial_{x_{D_1}}x_{G_1} \geq \underset{x_{D_1} \to -\infty}\lim \partial_{x_{D_1}} x_{G_1}(x_{D_1})$, or $\dfrac{\abs{T_1}\partial_{x_{D_1}}\abs{\overline{T_1}}}{\left(\abs{T_1}+\abs{\overline{T_1}}\right)^2}\,(x_{\overline{T_1}}-x_{T_1}) = \dfrac{\abs{T_1}y_{C_1}x_{D_1}}{6\left(\abs{T_1}+\abs{\overline{T_1}}\right)^2}$, de plus $\left(\abs{T_1} + \abs{\overline{T_1}}\right)^2 \underset{x_{D_1}\to - \infty}\sim (x_{D_1}y_{C_1})^2$, et donc : $\dfrac{\abs{T_1}\partial_{x_{D_1}}\abs{\overline{T_1}}}{\left(\abs{T_1}+\abs{\overline{T_1}}\right)^2}\,(x_{\overline{T_1}}-x_{T_1}) \underset{x_{D_1} \to -\infty}\longrightarrow 0$. De même, $\dfrac{\abs{\overline{T_1}}}{\abs{T_1}+\abs{\overline{T_1}}} \underset{x_{D_1}\to -\infty}\longrightarrow 1$, et ainsi il vient l'inégalité suivante :
+			\[
+			\partial_{x_{D_1}}x_{G_1} \geq \underset{x_{D_1} \to -\infty}\lim \partial_{x_{D_1}} x_{G_1}(x_{D_1}) = \frac13.
+			\]
+			De plus, puisque $y_{D_1} > 0 = y_A$ il vient $y_{\overline{T_1}} > y_{T_1}$ et donc $\partial_{x_{D_1}} y_{G_1} \geq 0$ d'après \ref{eq:yG}. Ainsi lorsque $x_{D_1}$ diminue, les quantités $x_{G_1}$ et $y_{G_1}$ diminuent elles aussi. En faisant varier $\alpha_1$ il est possible de se ramener à l'étude d'un triangle : $x_{D_1} = x_{C_1} + l\cos(\alpha_1-\beta_1)$, ainsi $\partial_{\alpha_1} x_{D_1} = l\sin(\beta_1-\alpha_1)$ Si $\alpha_1 > \beta_1$, alors $\partial_{\alpha_1}x_{D_1} < 0$, ainsi $x_{G_1} \geq x_{G_1}(\pi-\widehat{AC_1B})$, ce qui correspond à la figure \ref{fig:angle_max}. Si $\alpha_1 < \beta_1$, alors $x_{G_1} \geq x_{G_1}(0)$ ce qui correspond à la figure \ref{fig:angle_min}.
+				
+			\begin{figure}[h!]
+				\begin{subfigure}{0.5\textwidth}
+					\begin{tikzpicture}[thick]
+						\coordinate (A) at (0,0);
+						\coordinate (B) at (5,0);
+						\coordinate (C2) at (3,-2);
+						\coordinate (D1) at (-1.5,4);
+						\coordinate (C1) at (barycentric cs:A=1,D1=1);
+						\coordinate (D2) at (5.5,-3);
+						\coordinate (T1) at (barycentric cs:A=1,B=1,C1=1);
+						\coordinate (T1bar) at (barycentric cs:C1=1,B=1,D1=1);
+						\coordinate (T2) at (barycentric cs:A=1,B=1,C2=1);
+						\coordinate (T2bar) at (barycentric cs:C2=1,B=1,D2=1);
+						\coordinate (G1) at (barycentric cs:A=1,B=1,D1=1);
+						\coordinate (G2) at (barycentric cs:A=1,B=1,C2=1,D2=1);
+						
+						\draw (A)--(B)--(D1)--(C1)--cycle;
+						\draw[fill opacity=.1,fill=gray] (A)--(B)--(D2)--(C2)--cycle;
+						\draw[dotted] (B)--(C1);
+						\draw[dotted] (B)--(C2);
+						\draw[name path=ligne 1] (A)--(B);
+						\draw[name path=ligne 2] (G1)--(G2);
+						\fill[red,name intersections={of=ligne 1 and ligne 2,total=\t}]
+						\foreach \s in {1,...,\t}{(intersection-\s) circle (2pt) node [above right] {$I$}};
+						
+						\node [below] at (A) {$A$};
+						\node [right] at (B) {$B$};
+						\node [left] at (C1) {$C_1$};
+						\node [below] at (C2) {$C_2$};
+						\node [above] at (D1) {$D_1$};
+						\node [below] at (D2) {$D_2$};
+						\node [below] at (T1) {$T_1$};
+						\node [left] at (T2) {$T_2$};
+						\node [right] at (T1bar) {$\overline{T_1}$};
+						\node [right] at (T2bar) {$\overline{T_2}$};
+						\node [left] at (G1) {$G_1$};
+						\node [left] at (G2) {$G_2$};
+						
+						\draw[fill=black] (A) circle (0.05cm);
+						\draw[fill=black] (B) circle (0.05cm);
+						\draw[fill=black] (C1) circle (0.05cm);
+						\draw[fill=black] (C2) circle (0.05cm);
+						\draw[fill=black] (D1) circle (0.05cm);
+						\draw[fill=black] (D2) circle (0.05cm);
+						\draw[fill=black] (T1) circle (0.05cm);
+						\draw[fill=black] (T2) circle (0.05cm);
+						\draw[fill=black] (T1bar) circle (0.05cm);
+						\draw[fill=black] (T2bar) circle (0.05cm);
+						\draw[fill=black] (G1) circle (0.05cm);
+						\draw[fill=black] (G2) circle (0.05cm);
+					\end{tikzpicture}
+					\caption{$\alpha_1 = \pi-\widehat{AC_1B}$}
+					\label{fig:angle_max}
+				\end{subfigure}
+				\begin{subfigure}{0.5\textwidth}
+					\begin{tikzpicture}[thick]
+						\coordinate (A) at (0,0);
+						\coordinate (B) at (5,0);
+						\coordinate (C1) at (-1,3);
+						\coordinate (C2) at (3,-2);
+						\coordinate (D1) at (barycentric cs:C1=3,B=1);
+						\coordinate (D2) at (5.5,-3);
+						\coordinate (T1) at (barycentric cs:A=1,B=1,C1=1);
+						\coordinate (T1bar) at (barycentric cs:C1=1,B=1,D1=1);
+						\coordinate (T2) at (barycentric cs:A=1,B=1,C2=1);
+						\coordinate (T2bar) at (barycentric cs:C2=1,B=1,D2=1);
+						\coordinate (G1) at (T1);
+						\coordinate (G2) at (barycentric cs:A=1,B=1,C2=1,D2=1);
+						
+						\draw (A)--(B)--(D1)--(C1)--cycle;
+						\draw[fill opacity=.1,fill=gray] (A)--(B)--(D2)--(C2)--cycle;
+						\draw[dotted] (B)--(C2);
+						\draw[name path=ligne 1] (A)--(B);
+						\draw[name path=ligne 2] (G1)--(G2);
+						\fill[red,name intersections={of=ligne 1 and ligne 2,total=\t}]
+						\foreach \s in {1,...,\t}{(intersection-\s) circle (2pt) node [above right] {$I$}};
+						
+						\node [below] at (A) {$A$};
+						\node [right] at (B) {$B$};
+						\node [left] at (C1) {$C_1$};
+						\node [below] at (C2) {$C_2$};
+						\node [above] at (D1) {$D_1$};
+						\node [below] at (D2) {$D_2$};
+						\node [below] at (T1) {$T_1$};
+						\node [left] at (T2) {$T_2$};
+						\node [above] at (T1bar) {$\overline{T_1}$};
+						\node [right] at (T2bar) {$\overline{T_2}$};
+						\node [above] at (G1) {$G_1$};
+						\node [left] at (G2) {$G_2$};
+						
+						\draw[fill=black] (A) circle (0.05cm);
+						\draw[fill=black] (B) circle (0.05cm);
+						\draw[fill=black] (C1) circle (0.05cm);
+						\draw[fill=black] (C2) circle (0.05cm);
+						\draw[fill=black] (D1) circle (0.05cm);
+						\draw[fill=black] (D2) circle (0.05cm);
+						\draw[fill=black] (T1) circle (0.05cm);
+						\draw[fill=black] (T2) circle (0.05cm);
+						\draw[fill=black] (T1bar) circle (0.05cm);
+						\draw[fill=black] (T2bar) circle (0.05cm);
+						\draw[fill=black] (G1) circle (0.05cm);
+						\draw[fill=black] (G2) circle (0.05cm);
+					\end{tikzpicture}
+					\caption{$\alpha_1 = 0$}
+					\label{fig:angle_min}
+				\end{subfigure}
+				\caption{Cas limites.}
+			\end{figure}
+			Ainsi, il est possible de toujours se ramener à l'étude d'un triangle $T$ qui vérifient les propriétés suivantes : $T\cup ABD_2C_2$ est convexe et $x_I(T\cup ABD_2C_2) \leq x_I(AC_1D_1BD_2C_2)$. En appliquant le même raisonnement sur $ABD_2C_2$, il est possible de se ramener à l'étude d'un triangle $\bar T$ qui vérifie les propriétés suivantes : $T\cup \bar T$ est convexe, $T \cap \bar T = [AB]$ et $x_I(T\cup\bar T) \leq x_I(AC_1D_1BD_2C_2)$. Ainsi d'après le lemme \ref{lm:maj_delta_triangle}, il suit l'inégalité demandé.
+	\end{proof}
+	
+	En effectuant la même traduction que pour le lemme \ref{lm:maj_delta}, il suit le lemme suivant.
+	
+	\begin{lm}\label{lm:maj_delta_quad}
+		\begin{minipage}[t]{15cm}
+			Pour $\mathcal T$ un maillage quadrangulaire telle que toute union de deux quadrangle voisins est convexe, alors pour tout $i \in \mathcal T$ et $j \in \mathcal N_i$ :
+		\end{minipage}
+		\begin{equation}
+			\abs{\delta_{ij}} \leq \frac{\lambda_{ij}}6.
+		\end{equation}
+	\end{lm}
+	\begin{proof}
+		En notant $A$ et $B$ les sommets de $\Gamma_{ij}$, $C_1$ et $D_1$ les sommets opposés à $\Gamma_{ij}$ de la cellule $Q_i \in \mathcal T$, $C_2$ et $D_2$ les sommets opposés à $\Gamma_{ij}$ de $Q_j$, il vient alors : $\abs{\delta_{ij}} = |\!|x_{ij} -\bar x_{ij}|\!| = |\!| x_{ij}-A - (\bar x_{ij}-A)|\!| = \abs{Ax_{ij}-A\bar x_{ij}}$, car $A$, $x_{ij}$ et $\bar x_{ij}$ sont alignés. Cependant $A\bar x_{ij} = AB/2$. Donc $|\!|x_{ij} -\bar x_{ij}|\!| = \abs{AB/2-A\bar x_{ij}}$. Ainsi d'après le lemme \ref{lm:majorer_delta_quadrangle} : $\abs{AB/2-A\bar x_{ij}}\leq \frac{AB}6 = \frac{\lambda_{ij}}6 $ . Finalement, $\abs{\delta_{ij}} \leq \frac{\lambda_{ij}}6$.
+	\end{proof}
+	
+	Comme pour le cas des cellules triangulaire, la minoration de $\det(M_i)$ est presque atteinte, mais cela nécessite l'introduction de nouveaux angles donné par la figure \ref{fig:definition_angle_mu_quad} : $\mu_{i,jk}$, $\nu_{i,jk}$ et $\nu_{i,kj}$.
+	
+	\begin{center}
+		\begin{tikzpicture}[thick]
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (5,0);
+			\coordinate (C1) at (1,3);
+			\coordinate (D1) at (4.5,3.2);
+			\coordinate (D2) at (0.2,-1);
+			\coordinate (D3) at (-1,0.5);
+			\coordinate (C2) at (3,-2);
+			\coordinate (C3) at (-2,2.5);
+			\coordinate (M1) at (barycentric cs:A=1,B=1);
+			\coordinate (M2) at (barycentric cs:A=1,C1=1);
+			\coordinate (Cell1) at (barycentric cs:A=1,B=1,C1=1,D1=1.5);
+			\coordinate (Cell2) at (barycentric cs:A=1,B=1,C2=1);
+			\coordinate (Cell3) at (barycentric cs:A=1,C1=1,C3=1);
+			\draw (A)--(B)--(D1)--(C1)--cycle;
+			\draw[dotted,fill opacity=.2,fill=gray] (A)--(B)--(C2)--(D2)--cycle;
+			\draw[dotted,fill opacity=.2,fill=gray] (A)--(C1)--(C3)--(D3)--cycle;
+			\draw[dotted] (C1)--(barycentric cs:C1=1,Cell1=8);
+			\draw[dotted] (B)--(barycentric cs:B=1,Cell1=8);
+			\draw (M1) node [above right] {$\Gamma_{ij}$};
+			\draw (M2) node [right] {$\Gamma_{ik}$};
+			
+			\node at (Cell1) {$C_i$};
+			\node at (Cell2) {$C_j$};
+			\node at (Cell3) {$C_k$};
+			
+			\tkzMarkAngle[fill= orange,size=1.1cm,opacity=.4](B,A,C1)
+			\tkzLabelAngle[pos = 0.7](B,A,C1){$\mu_{i,jk}$}
+			
+			\tkzMarkAngle[fill= orange,size=1.2cm,opacity=.4](C1,B,A)
+			\tkzLabelAngle[pos = 0.8](C1,B,A){$\nu_{i,jk}$}
+			
+			\tkzMarkAngle[fill= orange,size=1cm,opacity=.4](A,C1,B)
+			\tkzLabelAngle[pos = 0.7](A,C1,B){$\nu_{i,kj}$}
+		
+		\end{tikzpicture}
+		\captionof{figure}{Illustration d'une cellule $C_i$, avec $\mu_{i,jk},\nu_{i,jk},\nu_{i,kj} \in ]0,\pi[$.}
+		\label{fig:definition_angle_mu_quad}
+	\end{center}
+	
+	
+	\begin{lm}\label{lm:majoration_produit_alpha_quad}
+		Pour $\mathcal T$ un maillage triangulaire telle que toute union de deux triangles voisins est convexe. Pour tout $k,j \in \mathcal N_i$ tel que $k \not = j$,
+		\begin{equation}
+			\abs{\alpha_{ij}\alpha_{i,k}} \leq \dfrac{1}{9\sin^2(\mu_{i,jk})}.
+		\end{equation}
+	\end{lm}
+	\begin{proof}
+		Dans un premier temps il est nécessaire de montrer l'inégalité suivante :
+		\begin{equation}
+			\abs{\alpha_{ij}} \leq \dfrac{\lambda_{ij}}{3\lambda_{i,k}\sin(\mu_{i,jk})}.
+		\end{equation}
+		Pour tout $k \in \mathcal N_i$ tel que $k \not = j$, il vient en utilisant la formule de l'aire d'un triangle : $\abs{C_i} \geq \frac{\lambda_{ij}\lambda_{i,k}\sin(\mu_{i,jk})}2$. D'après le lemme \ref{lm:maj_delta_quad}, il suit le résultat voulu.\\
+		D'après cette nouvelle inégalité, l'inégalité suivante est vérifiée : \[\abs{\alpha_{ij}\alpha_{i,k}} \leq \dfrac{\lambda_{ij}\lambda_{i,k}}{9\lambda_{ij}\lambda_{i,k}\sin^2(\mu_{i,jk})} = \dfrac1{9\sin^2(\mu_{i,jk})}.\]
+		Le résultat est donc obtenu.
+	\end{proof}
 	
 	
 	
-	Il reste maintenant à éprouver cette quantification sur différents maillages, ne respectant pas nécessairement la condition de convexité ou celle de l'angle minimum.
-
-\newpage	
+	Il est maintenant possible de minorer le déterminant de $M_i$, $\det(M_i)$, pour les maillages quadrangulaires.
+	
+	\begin{lm}\label{lm:maj_det_quad}
+		Pour $\mathcal T$ un maillage quadrangulaire telle que toute union de deux quadrangles voisins est convexe. Pour tout $i \in\mathcal{T}$ et $j \in \mathcal N_i$ :
+		\begin{equation}
+			\frac59 \leq \det(M_i) \leq \dfrac{13}9.
+		\end{equation}
+	\end{lm}
+	\begin{proof}
+		D'après l'expression du déterminant de $M_i$ fournis par \cite{florent}, du lemme \ref{lm:majoration_produit_alpha} et du lemme \ref{lm:egalite_angle}, les inégalités suivantes sont vérifiées :
+		\begin{equation}\label{eq:abs_det_quad}
+			\abs{\det(M_i)-1} \leq \sum_{1\leq j < k \leq  \abs{\mathcal N_i}} \dfrac1{9\sin^2(\mu_{i,jk})}\sin^2(\mu_{i,jk}) \leq  \frac{\abs{\mathcal N_i}}9 \leq \frac49.
+		\end{equation}
+		De plus, si $\abs{x} \leq y$, alors $-y\leq x \leq y$. Ainsi, en utilisant \eqref{eq:abs_det_quad}, il vient l'inégalité recherchée :
+		\begin{equation}
+			\frac59 = 1-\frac49 \leq \det(M_i) \leq 1+\frac49 = \frac{13}9.
+		\end{equation}
+	\end{proof}
+	
+	De même que pour les maillages triangulaires, pour donner une majoration de $|\!|M_i^{-1}|\!|_F$, il reste à majorer les quantités $\abs{\alpha_{ij}}$ pour pouvoir majorer $\abs{\alpha_i}$, ce qui va dépendre fortement de l'angle minimum atteint, pour les maillages quadrangulaire, il va falloir prendre en compte un nouvel angle : $\nu_{i,jk}$.
+	
+	\begin{lm}\label{lm:angle_min_quad}
+		Pour $\mathcal T$ un maillage quadrangulaire. S'il existe $\nu_{\min} > 0$ tel que pour tout $i \in \mathcal T$, $j \in \mathcal N_i$ et $k \in \mathcal N_i\backslash\{i\}$, $\nu_{i,jk} \geq \nu_{\min}$ :
+		
+		\[
+		\abs{\alpha_{ij}} \leq \dfrac1{3\sin(\nu_{\min})\sin(2\nu_{\min})}.
+		\]
+	\end{lm}
+	\begin{proof}
+		D'après la loi des sinus l'égalité suivante est satisfaite :
+		\begin{equation}
+			\frac{\sin(\nu_{i,kj})}{\lambda_{ij}} = \frac{\sin(\nu_{i,jk})}{\lambda_{ik}}.
+		\end{equation}
+		De plus, puisque $\mu_{i,jk} = \nu_{i,jr}+\nu_{i,ks}$, pour $\{j,\,k,\,r,\,s\}=\{1,2,3,4\}$ une numérotation locale des voisins de $C_i$. Et ainsi, d'après la preuve du lemme \ref{lm:majoration_produit_alpha_quad}, les inégalités suivantes sont vérifiées : 
+		\[
+			\abs{\alpha_{ij}} \leq \frac{\lambda_{ij}}{3\lambda_{ik}\sin(\mu_{i,jk})} \leq \frac{\sin(\nu_{ik})}{3\sin(\nu_{ij})\sin(\mu_{i,jk})} \leq \frac1{3\sin(\mu_{\min})\sin(2\nu_{\min})}.
+		\]
+	\end{proof}
+	
+	Pour une suite de maillage $(\mathcal T_n)$ telle que le pas $h(\mathcal T_n)$ tends vers 0, ce lemme montre que si aucune suite de quadrangles, $Q_n \in \mathcal T_n$, ne tend vers un triangle, alors $\alpha_{i,j}$ est borné et donc $\alpha_i$ l'est aussi. Il est maintenant possible de fournir une majoration de $|\!|M_i^{-1}|\!|_F$ sous certaines conditions qui sont détaillés dans le lemme \ref{lm:maj_Mi_opti_quad}.
+	
+	\begin{lm}\label{lm:maj_Mi_opti_quad}
+		Pour $\mathcal T$ un maillage quadrangulaire.\\
+		Si toute union de deux quadrangles voisins est convexe et qu'il existe $\nu_{\min} > 0$, tel que pour tout $i \in \mathcal T$, $j \not = k \in \mathcal N_i$, $\nu_{i,jk} \geq \nu_{\min}$. Alors pour tout $i \in \mathcal T$,
+		\begin{equation}
+			|\!|M_i^{-1}|\!|_F \leq \sqrt{\frac32+\left(\frac{3}{2\sin(\nu_{\min})\sin(2\nu_{\min})}\right)^2}.
+		\end{equation}
+	\end{lm}
+	\begin{proof}
+		D'après les lemmes \ref{lm:maj_gen_Mi}, \ref{lm:maj_det} et \ref{lm:angle_min}, il vient :
+		\[
+		|\!|M_i^{-1}|\!|_F \leq \sqrt{\dfrac{2+\left(\frac{3}{3\sin(\mu_{\min})\sin(2\nu_{\min})}\right)^2 - \frac59}{\frac{25}{81}}} = \sqrt{\frac{117}{25}+\left(\frac{9}{5\sin(\mu_{\min})\sin(2\nu_{\min})}\right)^2}.
+		\]
+	\end{proof}
+	
+	IL est maintenant possible d'appliquer ce résultat à l'erreur de consistance :
+	
+	\begin{thm}\label{thm:maj_erreur_quad}
+		Pour $\mathcal T$ un maillage quadrangulaire.\\
+		Si toute union de deux quadrangles voisins est convexe et qu'il existe $\mu_{\min} > 0$, tel que pour tout $i \in \mathcal T$, $j \not = k \in \mathcal N_i$, $\nu_{i,jk} \geq \nu_{\min}$. Alors pour tout $i \in \mathcal T$,
+		\begin{equation}
+			|\!|\nabla u_i - \overline{\nabla u(x_i)}|\!|_2 \leq \frac{21}4\sqrt{\frac{117}{25}+\left(\frac{9}{5\sin(\mu_{\min})\sin(2\nu_{\min})}\right)^2}|\!|\nabla^2 u|\!|_\infty\, h.
+		\end{equation}
+	\end{thm}
+	\begin{proof}
+		En appliquant le lemme \ref{lm:maj_Mi_opti} à \eqref{eq:max_naiv_R4}, il vient le résultat attendu.
+	\end{proof}
+	
+	
+	Il reste maintenant à éprouver cette quantification sur différents maillages, ne respectant pas nécessairement la condition de convexité ou celle de l'angle minimum.	
 	
 \section{Tests numériques}
 
@@ -1025,7 +1316,7 @@ L'objectif est ici de confirmer sur différents maillages les ordres de converge
 Les deux fonctions test choisies pour estimer l'erreur sont des fonction de classe $\mathcal C^\infty(\R^2,\R)$: \\
 Fonction test $u_1$ :
 \[
-	u^1(x,y) = \exp\left(\dfrac{(x-x_c)^2+(y-y_c)^2}{2\sigma^2}\right),\; et,\; \nabla u^1(x,y) = u^1(x,y)\begin{bmatrix}
+	u^{(1)}(x,y) = \exp\left(\dfrac{(x-x_c)^2+(y-y_c)^2}{2\sigma^2}\right),\; et,\; \nabla u^{(1)}(x,y) = u^{(1)}(x,y)\begin{bmatrix}
 	-\frac{x-x_c}{\sigma^2}\\
 	-\frac{y-x_c}{\sigma^2}
 \end{bmatrix},
@@ -1034,15 +1325,15 @@ Fonction test $u_1$ :
 \noindent Fonction test $u_2$ :
 \[
 \begin{aligned}
-	u^2(x,y) &= \begin{cases}
+	u^{(2)}(x,y) &= \begin{cases}
 	\exp\left(\frac1{\frac{(x-x_c)^2 + (y-y_c)^2}{r^2} - 1}\right) & \text{si } (x-x_c)^2+(y-y_c)^2 < r^2\\
 	0 & \text{sinon}
 \end{cases}\\
 &,\,et,\\
-\nabla u^2(x,y) &= u^2(x,y)\begin{bmatrix}
+\nabla u^{(2)}(x,y) &= u^{(2)}(x,y)\begin{bmatrix}
 	-2\dfrac{x-x_c}{(x-x_c)^2+(y-y_c)^2-r^2}\\
 	-2\dfrac{y-x_c}{(x-x_c)^2+(y-y_c)^2-r^2}
-\end{bmatrix},
+\end{bmatrix}.
 \end{aligned}
 \]
 Ainsi les $\nabla u_i$ sont connus avec exactitude et permettent ainsi de mesurer l'erreur.
@@ -1058,30 +1349,32 @@ Pour tester ce gradient discret \eqref{eq:grad_discret}, il a été choisi de pr
 		\item construction d'un maillage cartésien comme en 1,
 		\item déformation des points à l'aide d'une variable aléatoire $r$ uniformément distribué sur $[-1,\;1]$, de $\Delta x = \frac N{10}$, de $\Delta y = \frac M{10}$ et d'un facteur de déformation $\varphi \in [0,\; 1]$ : 
 		\[
-			P^{perturbe}_{i,j} = P_{i,j} + \varphi r \left(\frac{\Delta x}2,\; \frac{\Delta y}2 \right)^T,
+			P^{perturbe}_{i,j} = P_{i,j} + \varphi r \left(\frac{\Delta x}2,\; \frac{\Delta y}2 \right)^T.
 		\]
 	\end{enumerate}
 \end{enumerate}
 
 Le domaine $\Omega$ n'étant pas ouvert, et les conditions de bord n'ayant pas été définies, ni étudiées, il a été choisi de mettre des conditions de bord périodiques. Les fonctions test ayant été choisis pour leur propriété de forte décroissance sur le bord, ce qui peut être observé sur les figures \ref{fig:rep_graph_u1} et \ref{fig:rep_graph_u2}, ces fonctions prennent au bord du domaine des valeurs très proche de 0, rendant nul les erreurs au bords du domaine.
 
+\vspace{2.5cm}
+
 \begin{figure}[h!]
 	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[scale=.08]{image/gradient.png}
-		\caption{Gaussienne $u^1$ pour $\sigma=1$.}
+		\caption{Gaussienne $u^{(1)}$ pour $\sigma=1$.}
 		\label{fig:rep_graph_u1}
 	\end{subfigure}
 	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[scale=.22]{image/plateau.png}
-		\caption{Fonction plateau $u^2$.}
+		\caption{Fonction plateau $u^{(2)}$.}
 		\label{fig:rep_graph_u2}
 	\end{subfigure}
-	\captionof{figure}{Fonctions tests sur $[0,\,10]\times[0,\,10]$.}
+	\captionof{figure}{Fonctions tests sur $\Omega = [0,\,10]\times[0,\,10]$.}
 \end{figure}
 
-\vspace{-.5cm}
+
 
 \subsection{Tests numériques}
 
@@ -1106,12 +1399,23 @@ La figure \ref{fig:cartesien} fournis deux exemples de maillages quadrangulaire 
 	\label{fig:cartesien}
 \end{figure}
 
+Ci-dessous se trouve les différents courbes pour les déformations suivantes, $\varphi$ = 0, 0.5 et 0.9. Sur l'axes des abscisses se trouve le pas de chaque maillage testé, le pas étant celui défini en \eqref{eq:def_pas}, les contributions au code C fournis ont étés de coder ce nouveau pas, au travers du codage du diamètre d'une cellule, de coder l'erreur global du gradient pour les trois normes choisies pour mesurer l'erreur de $\mathrm{err} = \left(\mathrm{err}^{(i)}\right)_{i \in \mathcal T} = \left(\nabla u_i - \overline{\nabla u(x_i)}\right)_{i\in \mathcal T}$ :
 
-Ci-dessous se trouve les différents courbes pour les déformations suivantes, $\varphi$ = 0, 0.5 et 0.9. Sur l'axes des abscisses se trouve le pas de chaque maillage testé, le pas étant celui défini en \eqref{eq:def_pas}, les contributions au code fournis ont étés de coder ce nouveau pas, au travers du codage du diamètre d'une cellule, de coder l'erreur global du gradient pour les trois normes choisies pour mesurer l'erreur, de coder d'autres fonctions tests et de coder un script vérifiant la validité de la condition de convexité énoncé par le théorème \ref{thm:maj_erreur}. Pour les maillages cartésiens, l'ordre de convergence à été calculé en prenant les 2 pas le plus fins des maillages générés et en calculant le coefficient directeur associé à ces 2 pas. Cette méthode a été choisi car les maillages sont symétrique, ainsi doubler le nombre de points revient à diviser $h$ par deux. Pour les autres types de maillage, c'est une régression linéaire qui a été utilisé.
+\begin{equation}
+	|\!|\mathrm{err}|\!|_1 = \displaystyle\sum_{i \in\mathcal T} C_i|\!|\mathrm{err}^{(i)}|\!|_1,
+\end{equation}
+\begin{equation}
+	|\!|\mathrm{err}|\!|_2 = \sqrt{\displaystyle\sum_{i \in\mathcal T} C_i^2|\!|\mathrm{err}^{(i)}|\!|_2^2},
+\end{equation}
+\begin{equation}
+	|\!|\mathrm{err}|\!|_\infty = \underset{i \in\mathcal T}\max |\!|\mathrm{err}^{(i)}|\!|_1.
+\end{equation}
+
+Les deux dernières contributions au code ont étés de coder d'autres fonctions tests et une sous-routine vérifiant la validité de la condition de convexité énoncé par les théorèmes \ref{thm:maj_erreur} et \ref{thm:maj_erreur_quad}. Pour les maillages cartésiens, l'ordre de convergence à été calculé en prenant les 2 pas les plus fins des maillages générés et en calculant le coefficient directeur associé à ces 2 pas. Cette méthode a été choisi car les maillages sont symétrique, ainsi doubler le nombre de points revient à diviser $h$ par deux. Pour les autres types de maillage, c'est une régression linéaire qui a été utilisé car il n'y a pas de telle propriété exploitable et ainsi la première méthode serait inutile.
 
 \newpage
 
-\textbf{$\to$ Fonction test $u^1$.}
+\textbf{$\to$ Fonction test $u^{(1)}$.}
 
 \vspace{-.5cm}
 
@@ -1131,14 +1435,14 @@ Ci-dessous se trouve les différents courbes pour les déformations suivantes, $
 		\includegraphics[scale=0.65]{image/deforme_09.png}
 		\caption{Maillages quadrangulaires de déformation $\varphi = 0.9$.}
 	\end{subfigure}
-	\caption{Courbes de convergence en échelle logarithmique pour $u^1$}
+	\caption{Courbes de convergence en échelle logarithmique pour $u^{(1)}$}
 \end{figure}
 
-\vspace{2cm}
+\vspace{1cm}
 
 Le tableau \ref{tab:ordre_u1} représente les ordres de convergences associés aux différents types de maillages illustrés ci-dessus pour la fonction test $u_1$.
 
-\vspace{-.5cm}
+\vspace{.5cm}
 
 \begin{table}[!h]
 	\centering
@@ -1243,9 +1547,7 @@ Le tableau \ref{tab:ordre_u1} représente les ordres de convergences associés a
 
 \textbf{Maillage de Delaunay}
 
-Pour obtenir l'ordre de convergence, il est fait de même que pour le cas des maillages cartésiens : le nombre de cellules est augmenté. Les figures \ref{fig:delaunay}, \ref{fig:conv_delaunay_u1} et \ref{fig:conv_delaunay_u2} représentent respectivement un exemple de triangulation de Delaunay, les courbes de convergences associées à ce type de maillage pour $u^1$ et $u^2$.
-
-\newpage
+Pour obtenir l'ordre de convergence, il est fait de même que pour le cas des maillages cartésiens : le nombre de cellules est augmenté. Les figures \ref{fig:delaunay}, \ref{fig:conv_delaunay_u1} et \ref{fig:conv_delaunay_u2} représentent respectivement un exemple de triangulation de Delaunay, les courbes de convergences associées à ce type de maillage pour $u^{(1)}$ et $u^2$.
 
 \begin{figure}[!h]
 	\begin{subfigure}{\textwidth}
@@ -1257,7 +1559,7 @@ Pour obtenir l'ordre de convergence, il est fait de même que pour le cas des ma
 	\begin{subfigure}{0.5\textwidth}
 		\centering
 		\includegraphics[scale=0.65]{image/ffm.png}
-		\caption{Graphique en échelle logarithmique pour $u^1$}
+		\caption{Graphique en échelle logarithmique pour $u^{(1)}$}
 		\label{fig:conv_delaunay_u1}
 	\end{subfigure}
 	\begin{subfigure}{0.5\textwidth}
@@ -1312,28 +1614,6 @@ Les conditions de convexités et d'angle minimums, l'angle minimum mesuré étai
 En conclusion, il a pu être démontré pour des maillages triangulaires avec une condition de convexité et d'angle minimum, les conditions sont détaillées dans le théorème \ref{thm:maj_erreur}, que l'erreur de consistance en norme infini converge en ordre 1. Ce résultat a de plus été vérifié, mais non démontré, pour les maillages quadrangulaire, et lorsque cette hypothèse est vérifié, pour les maillages de Delaunay et les maillages quadrangulaires de déformation inférieur à 0.5, la convergence de l'erreur de consistance a pu être mesuré numériquement. Cependant lorsque cette dernière condition n'est pas vérifiée, il a été constaté une dégradation importante de l'erreur de convergence pour la norme $|\!|\cdot|\!|_\infty$. De plus, il n'est pas assuré qu'en augmentant le nombre de cellules, le pas du maillage diminue, rien n'empêche ce dernier d'augmenter sans condition supplémentaire sur la façon de générer un maillage, voir l'annexe \ref{sec:augm_pas}. Cela conduit a suggérer d'examiner si pour un pas $h_0$ donné, il est possible de générer un maillage $\mathcal T$ ayant un pas $h(\mathcal T)$ vérifiant : $h(\mathcal T) \leq h_0$.
 
 \section{Annexe}
-
-\begin{lm}\label{lm:rayon_spec}
-	Étant donné une matrice $A \in \mathrm{GL}_(\R)$, l'inégalité suivante est vérifiée :
-	\begin{equation}
-		|\!|A^{-1}|\!|_2 \leq \sqrt{\dfrac{\mathrm{tr}(AA^T)}{\det(A)^2}}.
-	\end{equation}
-\end{lm}
-\begin{proof}
-	Pour une matrice inversible donnée $A \in \mathrm{GL}_2(\R)$ et $0<\lambda_1 \leq \lambda_2$ les valeurs propres de $AA^T$, les égalités suivantes sont vérifiées :
-	\begin{equation}\label{eq:rel_val_prop}
-		\lambda_1+\lambda_2 = \mathrm{tr}(AA^T),\; \lambda_1\lambda_2 = \det(AA^T) = \det(A)^2.
-	\end{equation}
-	Cette formulation implique $\lambda_2 \leq \mathrm{tr}(AA^T)$ et on obtient par conséquent :
-	\begin{equation}\label{eq:maj_val_prop}
-		\lambda_1 \geq \dfrac{\mathrm{tr}(AA^T)}{\det(A)^2}.
-	\end{equation}
-	Comme $1/\lambda_1$ correspond au rayon spectral $ \left(AA^T\right)^{-1} = \left(A^{-1}\right)^TA^{-1}$, il suit :
-	\begin{equation}\label{eq:maj_rayon}
-		|\!|A^{-1}|\!|_2^2 = \rho\left( A^{-1}\left(A^{-1}\right)^T  \right) \leq \dfrac{\mathrm{tr}(AA^T)}{\det(A)^2},
-	\end{equation}
-	où $\rho(A^{-1}\left(A^{-1}\right)^T)$ est le rayon spectrale de $A^{-1}\left(A^{-1}\right)^T$.
-\end{proof}
 
 \label{sec:augm_pas}\noindent\textbf{Maillage cartésien avec $N=n$ et $M = n^3$.}\\
 Ce maillage correspond à $n^4$ rectangles de taille $\frac1n$ par $\frac1{n^3}$ unité de longueur. Le schéma \ref{fig:carre_deforme} est une illustration d'un tel maillage pour $n = 3$.
