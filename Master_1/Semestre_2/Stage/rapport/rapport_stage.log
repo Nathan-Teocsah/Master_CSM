@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  16 JUL 2026 03:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  23 JUL 2026 22:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1873,21 +1873,7 @@ See the caption package documentation for explanation.
 texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
 25/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}] [3{/usr/local/texlive/2025/tex
 mf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-Overfull \hbox (9.63301pt too wide) detected at line 158
-[][][][][] \OML/lmm/m/it/12 u\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^X\OT1/lmr/m/n/
-12 )d\OML/lmm/m/it/12 ^^X \OT1/lmr/m/n/12 = \OML/lmm/m/it/12 ^^U[]u\OT1/lmr/m/n
-/12 (\OML/lmm/m/it/12 x[]\OT1/lmr/m/n/12 ) + \OML/lmm/m/it/12 ^^U[] [] \OMS/lms
-y/m/n/12 ^^A []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x[]\OT1/lmr/m/n/12 ) + [][](1 
-\OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 t\OT1/lmr/m/n/12 ) [][](\OML/lmm/m/it/12 
-^^X \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 x[]\OT1/lmr/m/n/12 )[]\OMS/lmsy/m/n/1
-2 r[]\OML/lmm/m/it/12 u\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^M[]\OT1/lmr/m/n/12 (
-\OML/lmm/m/it/12 t\OT1/lmr/m/n/12 ))(\OML/lmm/m/it/12 ^^X \OMS/lmsy/m/n/12 ^^@ 
-\OML/lmm/m/it/12 x[]\OT1/lmr/m/n/12 )d\OML/lmm/m/it/12 ^^X\OT1/lmr/m/n/12 d\OML
-/lmm/m/it/12 t:
- []
-
-
-Overfull \hbox (27.31412pt too wide) in paragraph at lines 180--181
+Overfull \hbox (15.50839pt too wide) in paragraph at lines 180--181
 []$\OML/lmm/m/it/12 u[] \OT1/lmr/m/n/12 = [] [][] \OML/lmm/m/it/12 u \OT1/lmr/m
 /n/12 = \OML/lmm/m/it/12 u\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x[]\OT1/lmr/m/n/12 
 ) + [] \OMS/lmsy/m/n/12 ^^A []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x[]\OT1/lmr/m/n
@@ -1914,55 +1900,50 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [8] [9]
-Overfull \hbox (63.03645pt too wide) in paragraph at lines 486--496
-[][]$
+Underfull \hbox (badness 10000) in paragraph at lines 482--483
+
  []
 
 [10]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 537.
+(caption)                particular \caption on input line 536.
 See the caption package documentation for explanation.
 
 [11]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 614.
+(caption)                particular \caption on input line 612.
 See the caption package documentation for explanation.
 
-[12] [13]
-Overfull \hbox (1.2612pt too wide) in paragraph at lines 645--646
+[12]
+Overfull \hbox (18.03844pt too wide) in paragraph at lines 643--644
 []\T1/lmr/m/n/12 En sup-po-sant la convexité du qua-dri-la-tère $\OML/lmm/m/it/
-12 AC[]BC[]$\T1/lmr/m/n/12 , la quan-tité $[] \OT1/lmr/m/n/12 = [] []$
+12 AC[]BC[]$\T1/lmr/m/n/12 , la quan-tité $[]$ est égale à $[] []$
  []
 
-[14]
+[13]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 719.
+(caption)                particular \caption on input line 717.
 See the caption package documentation for explanation.
 
-
-Overfull \hbox (3.52542pt too wide) in paragraph at lines 724--727
+[14]
+Overfull \hbox (3.52542pt too wide) in paragraph at lines 722--725
 [][]\T1/lmr/bx/n/12 Lemme 9. [][] 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 763.
+(caption)                particular \caption on input line 761.
 See the caption package documentation for explanation.
 
 [15]
-Overfull \hbox (0.75081pt too wide) in paragraph at lines 777--780
-\T1/lmr/m/n/12 D'après cette nou-velle in-éga-lité, l'in-éga-lité sui-vante est
- vé-ri-fiée : $[] \OMS/lmsy/m/n/12 ^^T [] \OT1/lmr/m/n/12 =
- []
+
+LaTeX Warning: Reference `fig;angle' on page 16 undefined on input line 794.
 
 
-LaTeX Warning: Reference `fig;angle' on page 16 undefined on input line 796.
-
-
-Overfull \hbox (28.64035pt too wide) in paragraph at lines 794--797
+Overfull \hbox (28.64035pt too wide) in paragraph at lines 792--795
 \T1/lmr/m/n/12 Il est né-ces-saire d'in-tro-duire les deux no-ta-tions sui-vant
 es : $[][]\OT1/lmr/m/n/12 ([]\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 ) \OMS/lmsy/m
 /n/12 2 \OT1/lmr/m/n/12 [0\OML/lmm/m/it/12 ;  \OT1/lmr/m/n/12 2\OML/lmm/m/it/12
@@ -1972,11 +1953,11 @@ es : $[][]\OT1/lmr/m/n/12 ([]\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 ) \OMS/lmsy/m
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 836.
+(caption)                particular \caption on input line 834.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (15.8668pt too wide) in paragraph at lines 839--840
+Overfull \hbox (13.50566pt too wide) in paragraph at lines 837--838
 \T1/lmr/m/n/12 Ainsi, d'après les no-ta-tions dé-fi-nies ci-dessus, il vient : 
 $[][]\OT1/lmr/m/n/12 ([]\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 ) = \OML/lmm/m/it/
 12 ^^R[]$ \T1/lmr/m/n/12 et $[][]\OT1/lmr/m/n/12 ([]\OML/lmm/m/it/12 ; []\OT1/l
@@ -1984,167 +1965,187 @@ mr/m/n/12 ) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 841--846
+Underfull \hbox (badness 10000) in paragraph at lines 839--844
 
  []
 
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 847--849
+
+Underfull \hbox (badness 10000) in paragraph at lines 845--847
 
  []
 
-[17] [18]
+[16] [17]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1002.
+(caption)                particular \caption on input line 1000.
 See the caption package documentation for explanation.
 
-[19] [20]
-<image/gradient.png, id=383, 2884.7775pt x 2089.8075pt>
+[18] [19] [20]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 1103.
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 1053--1158
+[][] [] 
+ []
+
+
+Overfull \hbox (10.27542pt too wide) in paragraph at lines 1166--1169
+[][]\T1/lmr/bx/n/12 Lemme 16. [][] 
+ []
+
+[21]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1216.
+See the caption package documentation for explanation.
+
+[22] [23] [24]
+<image/gradient.png, id=435, 2884.7775pt x 2089.8075pt>
 File: image/gradient.png Graphic file (type png)
 <use image/gradient.png>
-Package pdftex.def Info: image/gradient.png  used on input line 1071.
+Package pdftex.def Info: image/gradient.png  used on input line 1364.
 (pdftex.def)             Requested size: 230.78691pt x 167.18802pt.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 1072.
-<image/plateau.png, id=384, 1134.2375pt x 759.83875pt>
+<image/plateau.png, id=436, 1134.2375pt x 759.83875pt>
 File: image/plateau.png Graphic file (type png)
 <use image/plateau.png>
-Package pdftex.def Info: image/plateau.png  used on input line 1077.
+Package pdftex.def Info: image/plateau.png  used on input line 1370.
 (pdftex.def)             Requested size: 249.53302pt x 167.16504pt.
 
-Overfull \hbox (7.68459pt too wide) in paragraph at lines 1077--1078
+Overfull \hbox (7.68459pt too wide) in paragraph at lines 1370--1371
  [][] 
  []
 
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 1069--1081
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 1362--1374
 [][] [] 
  []
 
-<image/maillage_carre.png, id=387, 710.655pt x 710.655pt>
+[25 <./image/gradient.png (PNG copy)> <./image/plateau.png>]
+<image/maillage_carre.png, id=450, 710.655pt x 710.655pt>
 File: image/maillage_carre.png Graphic file (type png)
 <use image/maillage_carre.png>
-Package pdftex.def Info: image/maillage_carre.png  used on input line 1097.
+Package pdftex.def Info: image/maillage_carre.png  used on input line 1390.
 (pdftex.def)             Requested size: 142.12848pt x 142.12848pt.
-<image/maillage_deforme_09.png, id=388, 710.655pt x 710.655pt>
+<image/maillage_deforme_09.png, id=451, 710.655pt x 710.655pt>
 File: image/maillage_deforme_09.png Graphic file (type png)
 <use image/maillage_deforme_09.png>
-Package pdftex.def Info: image/maillage_deforme_09.png  used on input line 1102
+Package pdftex.def Info: image/maillage_deforme_09.png  used on input line 1395
 .
 (pdftex.def)             Requested size: 142.12848pt x 142.12848pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 1095--1105
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 1388--1398
 [][] [] 
  []
 
-[21 <./image/gradient.png (PNG copy)> <./image/plateau.png> <./image/maillage_c
-arre.png> <./image/maillage_deforme_09.png>] [22]
-<image/carre.png, id=408, 462.528pt x 310.761pt>
+[26 <./image/maillage_carre.png> <./image/maillage_deforme_09.png>]
+<image/carre.png, id=465, 462.528pt x 310.761pt>
 File: image/carre.png Graphic file (type png)
 <use image/carre.png>
-Package pdftex.def Info: image/carre.png  used on input line 1121.
+Package pdftex.def Info: image/carre.png  used on input line 1425.
 (pdftex.def)             Requested size: 300.63962pt x 201.99225pt.
-<image/deforme_05.png, id=409, 462.528pt x 310.761pt>
+<image/deforme_05.png, id=466, 462.528pt x 310.761pt>
 File: image/deforme_05.png Graphic file (type png)
 <use image/deforme_05.png>
-Package pdftex.def Info: image/deforme_05.png  used on input line 1126.
+Package pdftex.def Info: image/deforme_05.png  used on input line 1430.
 (pdftex.def)             Requested size: 300.63962pt x 201.99225pt.
 
-Overfull \hbox (58.79118pt too wide) in paragraph at lines 1126--1127
+Overfull \hbox (58.79118pt too wide) in paragraph at lines 1430--1431
  [][] 
  []
 
-<image/deforme_09.png, id=410, 462.528pt x 310.761pt>
+<image/deforme_09.png, id=467, 462.528pt x 310.761pt>
 File: image/deforme_09.png Graphic file (type png)
 <use image/deforme_09.png>
-Package pdftex.def Info: image/deforme_09.png  used on input line 1131.
+Package pdftex.def Info: image/deforme_09.png  used on input line 1435.
 (pdftex.def)             Requested size: 300.63962pt x 201.99225pt.
 
-Overfull \hbox (58.79118pt too wide) in paragraph at lines 1131--1132
+Overfull \hbox (58.79118pt too wide) in paragraph at lines 1435--1436
  [][] 
  []
 
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 1119--1134
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 1423--1438
 [] [] 
  []
 
-[23 <./image/carre.png> <./image/deforme_05.png> <./image/deforme_09.png>]
-<image/carre_plateau.png, id=422, 462.528pt x 310.761pt>
+[27 <./image/carre.png> <./image/deforme_05.png> <./image/deforme_09.png>]
+<image/carre_plateau.png, id=478, 462.528pt x 310.761pt>
 File: image/carre_plateau.png Graphic file (type png)
 <use image/carre_plateau.png>
-Package pdftex.def Info: image/carre_plateau.png  used on input line 1187.
+Package pdftex.def Info: image/carre_plateau.png  used on input line 1491.
 (pdftex.def)             Requested size: 300.63962pt x 201.99225pt.
-<image/deforme_05_plateau.png, id=423, 462.528pt x 310.761pt>
+<image/deforme_05_plateau.png, id=479, 462.528pt x 310.761pt>
 File: image/deforme_05_plateau.png Graphic file (type png)
 <use image/deforme_05_plateau.png>
-Package pdftex.def Info: image/deforme_05_plateau.png  used on input line 1192.
+Package pdftex.def Info: image/deforme_05_plateau.png  used on input line 1496.
 
 (pdftex.def)             Requested size: 300.63962pt x 201.99225pt.
 
-Overfull \hbox (58.79118pt too wide) in paragraph at lines 1192--1193
+Overfull \hbox (58.79118pt too wide) in paragraph at lines 1496--1497
  [][] 
  []
 
-<image/deforme_09_plateau.png, id=424, 462.528pt x 310.761pt>
+<image/deforme_09_plateau.png, id=480, 462.528pt x 310.761pt>
 File: image/deforme_09_plateau.png Graphic file (type png)
 <use image/deforme_09_plateau.png>
-Package pdftex.def Info: image/deforme_09_plateau.png  used on input line 1197.
+Package pdftex.def Info: image/deforme_09_plateau.png  used on input line 1501.
 
 (pdftex.def)             Requested size: 300.63962pt x 201.99225pt.
 
-Overfull \hbox (58.79118pt too wide) in paragraph at lines 1197--1198
+Overfull \hbox (58.79118pt too wide) in paragraph at lines 1501--1502
  [][] 
  []
 
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 1185--1200
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 1489--1504
 [] [] 
  []
 
-[24 <./image/carre_plateau.png> <./image/deforme_05_plateau.png> <./image/defor
-me_09_plateau.png>] [25]
-<image/maillage_ffm.png, id=442, 710.655pt x 710.655pt>
+[28 <./image/carre_plateau.png> <./image/deforme_05_plateau.png> <./image/defor
+me_09_plateau.png>]
+<image/maillage_ffm.png, id=493, 710.655pt x 710.655pt>
 File: image/maillage_ffm.png Graphic file (type png)
 <use image/maillage_ffm.png>
-Package pdftex.def Info: image/maillage_ffm.png  used on input line 1253.
+Package pdftex.def Info: image/maillage_ffm.png  used on input line 1555.
 (pdftex.def)             Requested size: 213.19814pt x 213.19814pt.
-<image/ffm.png, id=443, 462.528pt x 310.761pt>
+<image/ffm.png, id=494, 462.528pt x 310.761pt>
 File: image/ffm.png Graphic file (type png)
 <use image/ffm.png>
-Package pdftex.def Info: image/ffm.png  used on input line 1259.
+Package pdftex.def Info: image/ffm.png  used on input line 1561.
 (pdftex.def)             Requested size: 300.63962pt x 201.99225pt.
 
-Overfull \hbox (58.79118pt too wide) in paragraph at lines 1259--1260
+Overfull \hbox (58.79118pt too wide) in paragraph at lines 1561--1562
  [][] 
  []
 
-<image/ffm_plateau.png, id=444, 462.528pt x 310.761pt>
+<image/ffm_plateau.png, id=495, 462.528pt x 310.761pt>
 File: image/ffm_plateau.png Graphic file (type png)
 <use image/ffm_plateau.png>
-Package pdftex.def Info: image/ffm_plateau.png  used on input line 1265.
+Package pdftex.def Info: image/ffm_plateau.png  used on input line 1567.
 (pdftex.def)             Requested size: 300.63962pt x 201.99225pt.
 
-Overfull \hbox (58.79118pt too wide) in paragraph at lines 1265--1266
+Overfull \hbox (58.79118pt too wide) in paragraph at lines 1567--1568
  [][] 
  []
 
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 1251--1269
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 1553--1571
 [] [] 
  []
 
-[26 <./image/maillage_ffm.png> <./image/ffm.png> <./image/ffm_plateau.png>]
-[27]
-<image/carre_non_uniforme.png, id=464, 710.655pt x 710.655pt>
+[29 <./image/maillage_ffm.png> <./image/ffm.png> <./image/ffm_plateau.png>]
+<image/carre_non_uniforme.png, id=510, 710.655pt x 710.655pt>
 File: image/carre_non_uniforme.png Graphic file (type png)
 <use image/carre_non_uniforme.png>
-Package pdftex.def Info: image/carre_non_uniforme.png  used on input line 1343.
+Package pdftex.def Info: image/carre_non_uniforme.png  used on input line 1623.
 
 (pdftex.def)             Requested size: 213.19814pt x 213.19814pt.
- [28 <./image/carre_non_uniforme.png>] [29]
-runsystem(latexminted cleantemp  --timestamp 20260716031345 70EB0860D85E06B3372
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[30] [31 <./image/carre_non_uniforme.png>]
+runsystem(latexminted cleantemp  --timestamp 20260723223502 70EB0860D85E06B3372
 592403C3FF571)...executed safely (allowed).
 
  (./rapport_stage.aux)
@@ -2160,10 +2161,10 @@ Package rerunfilecheck Info: File `rapport_stage.out' has not changed.
 (rerunfilecheck)             Checksum: C470AE60731A02CC0862A29B713FC83A;1712.
  ) 
 Here is how much of TeX's memory you used:
- 57133 strings out of 467538
- 1381718 string characters out of 5419551
- 2069071 words of memory out of 5000000
- 84869 multiletter control sequences out of 15000+600000
+ 57180 strings out of 467538
+ 1382425 string characters out of 5419551
+ 2073072 words of memory out of 5000000
+ 84898 multiletter control sequences out of 15000+600000
  703045 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  125i,20n,138p,1227b,1264s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2182,11 +2183,12 @@ exlive/2025/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2025
 fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
 public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/
 lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy6.pfb>
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on rapport_stage.pdf (31 pages, 826370 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local
+/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on rapport_stage.pdf (33 pages, 854948 bytes).
 PDF statistics:
- 592 PDF objects out of 1000 (max. 8388607)
- 463 compressed objects within 5 object streams
- 138 named destinations out of 1000 (max. 500000)
+ 646 PDF objects out of 1000 (max. 8388607)
+ 512 compressed objects within 6 object streams
+ 156 named destinations out of 1000 (max. 500000)
  320 words of extra memory for PDF output out of 10000 (max. 10000000)
 
