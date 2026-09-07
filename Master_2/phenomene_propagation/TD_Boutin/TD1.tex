@@ -1,0 +1,135 @@
+\documentclass[12pt,a4paper]{article}
+
+\makeatletter
+\def\input@path{{/home/maenwe/Master_CSM/modèle_cours_latex}}
+\makeatother
+
+\usepackage{prise_de_note}
+\graphicspath{{images}}
+\begin{document}
+	\pagenumbering{gobble}
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{/home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Phénomène de propagation} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large \textbf{Fiche de TD 1}}
+		
+		\vfill
+		
+		% Bloc Informations
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft} \large
+				\textbf{Enseignant :} \\
+				M. Benjamin \textsc{BOUTIN}
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\newpage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	
+	\begin{sol}$ $\\
+		\begin{enumerate}
+			\item \begin{equation}
+			u_1(t,x) = e^{(-x-2t)^2} = u_1(0,x-2t)
+		\end{equation}
+		$\partial_t u_1(t,x) = -2\partial_x u_1(0,x-2t) = -2\partial_x u_1(t,x).$
+		\begin{equation}
+			\partial_t u_1+2\partial u_1 = 0
+		\end{equation}
+		\textcolor{red}{équation de transport à vitesse 2.}\\
+		
+		$u_2(t,x) = e^{-(x+3t)^2}$ transport pur à vitesse -3 (sur l'axe $\R$).\\
+		
+		$u_3(t,x,y) = e^{-(x+y-t)^2} = u_3(0,?)$\\
+		$\partial_t u_3 + \underbrace{\mathrm{div}_{(x,y)}(\vec c u_3)}_{\text{avec } \vec c = (c_x, c_y)}$ $  \underset{?}{\textcolor{red}{\longrightarrow}} $ $\partial_t u_3 + c_x\partial_xu_3 + c_y\partial_yu_3 = 0$.\\
+		$\vec c = \vec n \times\norme{\vec c}$ avec $\vec n = \dfrac{\vec c}{\norme{\vec c}}$.\\
+		$\partial_t u_3(t,x,y) = 2(x+y-t)u_3(t,x,y)$\\
+		$\partial_xu_3(t,x,y)=-2(x+y-t)u_3(t,x,y)$\\
+		$\hookleftarrow 2\partial_tu_3(t,x,y)+\partial_xu_x+\partial_yu_3 = 0$.\\
+		$\begin{cases}
+			c_x = 1/2\\
+			c_y = 1/2
+		\end{cases}$ avec $\norme{\vec c} = 1/\sqrt 2$ et $\vec n = \frac1{\sqrt{2}}\begin{bmatrix}
+		1\\ 1
+		\end{bmatrix}$.
+		
+		\item $u_3(t,x,y) = F\underbrace{\left(\vec n\cdot \begin{bmatrix}
+			x\\ y
+		\end{bmatrix}-\norme{\vec c}t\right)}_{\frac1{\sqrt 2}(x+y-t)}$\\
+	
+	avec $F(z) = \exp(-2z^2)$\\
+	
+	\begin{minipage}[t]{20cm}
+		$\partial_{tt}u_3 = \partial_t\left(-\norme{\vec c}F'\left(\vec n\cdot \begin{bmatrix}
+		x\\ y
+	\end{bmatrix}-\norme{\vec c}t\right)\right) = \norme{\vec c}^2F''\left(\vec n\cdot \begin{bmatrix}
+	x\\ y
+	\end{bmatrix}-\norme{\vec c}t\right)$.\\
+	$\partial_{xx}u_3 = \frac12F''\left(\vec n\cdot \begin{bmatrix}
+		x\\ y
+	\end{bmatrix}-\norme{\vec c}t\right)$\\
+	$\partial_{t} u_3 - \frac12 \Delta u_3 = 0 \iff \partial_{t} u_3 - \left(\frac1{\sqrt{2}}\Delta u_3\right) = 0$
+	\end{minipage}
+	
+	\item A suivre ..
+		\end{enumerate}
+	\end{sol}
+	
+	\begin{sol}$ $\\
+		\begin{enumerate}
+			\item Pour $f \in \mathcal C^2(\R_+^\star)$, on vérifie que : $\Delta F(x,y,z) = f_{rr} + \frac2r f_r$, où $F(x,y,z) = f(r)$.\\
+			\begin{minipage}[t]{15cm}
+				On a : $\partial_x F = \dfrac{\partial r}{\partial x}\dfrac{\partial f}{\partial r} = \dfrac xr f_r$ et ainsi : $\partial_{xx} F = \left(\dfrac1r - \dfrac {x^2}{r^3}\right)f_r + \left(\frac{x}{r}\right)^2f_{rr}$.
+			\end{minipage}\\
+			Il suite l'équation suivante : $\Delta F = \left(\frac 3r - \frac{r^2}{r^3}\right)f_r + \frac{r^2}{r^2} f_{rr} = f_{rr} + \frac2rf_r$.
+		\end{enumerate}
+	\end{sol}
+	
+	\begin{exo}$ $
+		\begin{enumerate}
+			\item 
+			\item A chercher
+			\item A  chercher
+			\item A chercher
+			\item 
+			\item A chercher
+		\end{enumerate}
+	\end{exo}
+	
+	
+	
+\end{document}

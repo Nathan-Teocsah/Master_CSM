@@ -5,9 +5,9 @@
 \makeatother
 
 \usepackage{prise_de_note}
-
+\graphicspath{{images}}
 \begin{document}
-	
+	\pagenumbering{gobble}
 	\begin{titlepage}
 		\centering
 		
@@ -15,7 +15,7 @@
 		\begin{figure}[h]
 			\centering
 			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
-			\includegraphics[width=0.5\textwidth]{logo.jpg} 
+			\includegraphics[width=0.5\textwidth]{/home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg} 
 		\end{figure}
 		
 		\vspace{2cm}
@@ -24,14 +24,14 @@
 		\rule{\linewidth}{0.5mm} \\[0.4cm]
 		
 		% Titre
-		{\color{bleuTitre} \Huge \bfseries Cours} \\[0.4cm]
+		{\color{bleuTitre} \Huge \bfseries Phénomène de propagation} \\[0.4cm]
 		
 		% Filet horizontal du bas
 		\rule{\linewidth}{0.5mm}
 		
 		\vspace{1.5cm}
 		
-		{\Large \textbf{Éléments finis}}
+		{\Large \textbf{Cours}}
 		
 		\vfill
 		
@@ -39,7 +39,8 @@
 		\begin{minipage}{0.45\textwidth}
 			\begin{flushleft} \large
 				\textbf{Enseignant :} \\
-				M. Eric \textsc{DARRIGAND}
+				M. Benjamin \textsc{BOUTIN}\\
+				M. François \textsc{CASTELLA}
 			\end{flushleft}
 		\end{minipage}
 		\hfill
@@ -60,6 +61,7 @@
 	\tableofcontents
 	
 	\newpage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
 	
-
 \end{document}

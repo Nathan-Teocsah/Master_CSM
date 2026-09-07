@@ -1,7 +1,7 @@
 # Présentation
 Ceci est l'ensemble des cours que j'ai suivi lors de mes deux années en Master CSM
 
-# 📅 Calendrier du Master 1 CSM 2026
+# 📅 Calendrier du Master 1 CSM 2025-2026
 
 ## Février 2026
 - Lundi 16 : Contrôle de _MODA_
@@ -23,3 +23,11 @@ _Vacances_ 11 -> 26
 - Mardi 12 : soutenance _projet tutoré_
 - Mercredi 13 : Rendu _ELFI_
 - Dimanche 17 : Rendu Etude 3 _APST_
+
+# 📅 Calendrier du Master 2 CSM 2026-2027
+
+## Septembre 2026
+- Lundi 28 : CC1 phénomène de propagation
+
+## Octobre 2026
+- Lundi 19 : CC2 phénomène de propagation
