@@ -1,0 +1,26 @@
+\begin{thebibliography}{1}
+
+\bibitem{cleghorn_finite_1992}
+W.~Cleghorn and B.~Tabarrok.
+\newblock Finite element formulation of a tapered {Timoshenko} beam for free
+  lateral vibration analysis.
+\newblock {\em Journal of Sound and Vibration}, 152(3):461--470, Feb. 1992.
+
+\bibitem{cornaggia_enriched_2018}
+R.~Cornaggia, E.~Darrigrand, L.~Le~Marrec, and F.~Mahé.
+\newblock Enriched finite elements for time-harmonic {Webster}’s equation.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  341:985--1007, Nov. 2018.
+
+\bibitem{gopalakrishnan_matrix_1992}
+S.~Gopalakrishnan, M.~Martin, and J.~Doyle.
+\newblock A matrix methodology for spectral analysis of wave propagation in
+  multiple connected {Timoshenko} beams.
+\newblock {\em Journal of Sound and Vibration}, 158(1):11--24, Oct. 1992.
+
+\bibitem{katsikadelis_regulating_2006}
+J.~Katsikadelis and G.~Tsiatas.
+\newblock Regulating the vibratory motion of beams using shape optimization.
+\newblock {\em Journal of Sound and Vibration}, 292(1-2):390--401, Apr. 2006.
+
+\end{thebibliography}

@@ -1,0 +1,159 @@
+\documentclass[12pt,a4paper]{article}
+
+\makeatletter
+\def\input@path{{/home/maenwe/Master_CSM/modèle_cours_latex}}
+\makeatother
+
+\usepackage{prise_de_note}
+
+\begin{document}
+	\pagenumbering{gobble}
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Programmation orienté objet en C++} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large \textbf{Cours}}
+		
+		\vfill
+		
+		% Bloc Informations
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft} \large
+				\textbf{Enseignant :} \\
+				M. Eric \textsc{DARRIGAND}
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\tableofcontents
+	
+	\newpage
+	
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	
+	\section{Introduction au C++}
+	
+	\subsection{Langage compilé}
+	
+	g++ \begin{minipage}[t]{15cm}
+		-C compilation\\
+		-std=c++11\\
+		-Wall\\
+		-fsanitize=address
+	\end{minipage}
+	
+	\underline{Organisation du code}
+	\begin{enumerate}[label=-]
+		\item type et variables.
+		\item fonctions.
+		\item \underline{classes}.
+		\item espaces de noms (\textit{namespace}).
+	\end{enumerate}
+	(std::)sqrt\\
+	$\uparrow$\\
+	namespace de la lib standard (STL).\\
+	
+	La STL contient : \begin{minipage}[t]{15cm}
+		\textit{\#include} \begin{minipage}[t]{15cm}
+			\textit{<cmath>}\\
+			\textit{<cstdlib>}
+		\end{minipage}
+		
+		using std::sqrt;
+	\end{minipage}
+	
+	\subsection{Entrée/Sorties standard}
+	En C++, on passe par les flots : "\textit{cin}", "\textit{cout}", "$>>$" et "$<<$".
+	
+
+	\begin{lstlisting}[language=C++, caption=Python example]
+		#include <iostream>
+		using namespace std;
+		int main(){
+			int num_annee;
+			cout << "Donner le num de l annee"" << endl;
+			cin >> num_annee;
+			cout<<"Bonjour e bonne rentreee" << num_annee << endl;
+		}
+	\end{lstlisting}
+	
+	\newpage
+
+	\subsection{Notion de classe en C++}
+	
+	Définition de base d'une classe :
+	
+	class MaClasse$\Big\{$\\
+	\hspace*{4cm}\begin{minipage}[t]{.3\textwidth}
+		private :\\
+		\hspace*{.2cm} \begin{minipage}{.7\textwidth}
+			// donnees membres\\
+			int donnee 1;\\
+			int donnee 2;
+		\end{minipage}
+	\end{minipage}\begin{minipage}[t]{.5\textwidth}
+	public :\\
+	\hspace*{.2cm}\begin{minipage}{.7\textwidth}
+		//constructeurs (optionnels).\\
+		MaClasse(...);\\
+		//fonctions membres ou méthode\\
+		int fonc1();\\
+		double fonc2(int);
+	\end{minipage}
+	\end{minipage}
+	\hspace*{4cm}$\Big\};$\\
+	
+	Les fonctions membres peuvent être définies ailleurs.\\
+	MaClasse::MaClasse($\ldots$)\{$\ldots$\}\\
+	int MaClasse::fonc1()\{$\ldots$\}\\
+	double MaClasse::fonc2(int i)\{$\ldots$\}
+	
+	\noindent\underline{Usage :} dans un programme appelant.\\
+	\hspace*{1.5cm}\begin{minipage}{15cm}
+		MaClasse obj1; \hspace{1cm} cout $<<$obj1\\
+		MaClasse* obj1\_p; \hspace{1cm} cout $<<$obj
+	\end{minipage}
+	
+	\subsection{Structuration d'un code en fichiers}
+	
+	\begin{enumerate}[label=$\to$]
+		\item Des fichiers .hpp (ou .h++ ou .h)\\
+		Ce sont des header
+		\item 
+	\end{enumerate}
+
+	
+\end{document}

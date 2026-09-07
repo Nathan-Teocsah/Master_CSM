@@ -1,0 +1,97 @@
+%\documentclass[a4paper,10pt]{article}
+\documentclass[3p]{elsarticle}
+%\usepackage[utf8]{inputenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{xspace} 
+\usepackage{hyperref}
+%\usepackage{hyperref,todonotes}
+
+\newcommand{\myleft}{left}
+\newcommand{\myright}{right}
+
+\graphicspath{{Figures/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Enriched finite elements and local rescaling for vibrations of axially inhomogeneous {Timoshenko} beams}
+
+\author[irmar]{R.~Cornaggia\corref{cor1}}
+\ead{remi.cornaggia@univ-rennes1.fr}
+
+\author[irmar]{E.~Darrigrand}
+\ead{eric.darrigrand@univ-rennes1.fr}
+
+\author[irmar]{L.~Le~Marrec }
+\ead{loic.lemarrec@univ-rennes1.fr}
+
+\author[irmar]{F.~Mah\'e}
+\ead{fabrice.mahe@univ-rennes1.fr}
+
+\cortext[cor1]{Corresponding author \\ \emph{Email address}: remi.cornaggia@univ-rennes1.fr}
+
+\address[irmar]{Universit\'e de Rennes, CNRS, IRMAR - UMR 6625, F-35000 Rennes, France}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+This work presents a new enriched finite element method dedicated to the vibrations of axi- ally inhomogeneous Timoshenko beams. This method relies on the “half-hat” partition of unity and on an enrichment by solutions of the Timoshenko system corresponding to simple beams with a homogeneous or an exponentially-varying geometry. Moreover, the efficiency of the enrichment is considerably increased by introducing a new formulation based on a local rescaling of the Timoshenko problem, that accounts for the inhomogeneity of the beam. Val- idations using analytical solutions and comparisons with the classical high-order polynomial FEM, conduced for several inhomogeneous beams, show the efficiency of this approach in the time-harmonic domain. In particular low error levels are obtained over ranges of frequencies varying from a factor of one to thirty using fixed coarse meshes. Possible extensions to the research of natural frequencies of beams and to simulations of transient wave propagation are highlighted.
+\end{abstract}
+
+\begin{keyword}
+  Wave-based finite element method \sep Timoshenko beams \sep vibrations \sep high frequency
+\end{keyword}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\maketitle
+
+
+%
+\section{Introduction}
+
+
+Test de bibliographie :
+ 
+
+%
+\section{Notations and available exact solutions to the Timoshenko system}
+
+
+\section{Enriched finite elements}
+ 
+
+
+\section{A new formulation based on a local rescaling}
+
+\vglue 2mm
+...  /  ...
+\vglue 2mm
+
+%*********************************************
+\section{Conclusions}
+
+
+
+\section*{Acknowledgement}
+
+
+%*********************************************
+%*********************************************
+\appendix
+
+\section{Other enriched spaces}
+
+
+
+%%%%%%%%%% BIBLIO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{abbrv}
+\bibliography{Exercice_zotero2}
+
+
+\end{document}
