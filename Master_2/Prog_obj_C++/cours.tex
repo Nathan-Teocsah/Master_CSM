@@ -99,14 +99,14 @@
 	En C++, on passe par les flots : "\textit{cin}", "\textit{cout}", "$>>$" et "$<<$".
 	
 
-	\begin{lstlisting}[language=C++, caption=Python example]
+	\begin{lstlisting}[language=C++, caption=Exemple de code en C++]
 		#include <iostream>
 		using namespace std;
 		int main(){
 			int num_annee;
 			cout << "Donner le num de l annee"" << endl;
 			cin >> num_annee;
-			cout<<"Bonjour e bonne rentreee" << num_annee << endl;
+			cout<<"Bonjour et bonne rentreee" << num_annee << endl;
 		}
 	\end{lstlisting}
 	
@@ -151,9 +151,46 @@
 	
 	\begin{enumerate}[label=$\to$]
 		\item Des fichiers .hpp (ou .h++ ou .h)\\
-		Ce sont des header
-		\item 
+		Ce sont des headers (essentiellement des déclarations)\\
+		$\hookrightarrow$ définitions de classes \begin{minipage}[t]{7cm}
+			\begin{lstlisting}[language=C++,caption=Exemple de header]
+				#ifndef MACLASSE_H
+				#define MACLASSE_H
+				class MaClass{
+					...
+				}
+				#endif //MACLASSE_H
+			\end{lstlisting}
+		\end{minipage}
+		\item Des fichiers .cpp (en .c++)\\
+		$\hookrightarrow$ programmation des foncions déclarées et non définies dans les hpp.
 	\end{enumerate}
+	
+	\subsection{Premières lignes d'un .cpp}
+	
+	\begin{lstlisting}[language=C++,caption=Début d'un .cpp]
+		#include "MesClasses.hpp"
+		#include <iostream>
+		#include <cmath>
+		using std::cin;
+		using std::sqrt;
+	\end{lstlisting}
+	
+	\subsection{Exemple de classe}
+	
+	La classe complexe.\\
+	"Complexe".
+	\begin{enumerate}[label=$\to$]
+		\item 2 données membres\\
+		partie réelle (double)\\
+		partie imaginaire (double)
+		
+		\item construction avec 2 arguments d'entrées de type double pour définir les données membres
+	\end{enumerate}
+	
+	
+	
+	
 
 	
 \end{document}

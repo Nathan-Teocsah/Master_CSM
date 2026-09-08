@@ -1,5 +1,8 @@
 #!/bin/bash
-wget -O adecal1.ics https://planning.univ-rennes.fr/jsp/custom/modules/plannings/83DMglYx.shu
+Master1="/home/maenwe/Master_CSM/Master_2"
+FILE=$Master1/adecal.ics
+
+wget -O $Master1/adecal1.ics https://planning.univ-rennes.fr/jsp/custom/modules/plannings/83DMglYx.shu 
 if [ $? != 4 ]
 then
 	rm -rf adecal.ics
@@ -8,9 +11,6 @@ else
 	rm -rf adecal1.ics
 fi
 echo "-------------------------------------------------------------"
-
-Master1="/home/maenwe/Master_CSM/Master_2"
-FILE=$Master1/adecal.ics
 
 # Vérification
 if [ ! -f "$FILE" ]; then
