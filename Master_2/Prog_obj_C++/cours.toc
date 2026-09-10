@@ -6,3 +6,6 @@
 \contentsline {subsection}{\numberline {1.4}Structuration d'un code en fichiers}{2}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Premières lignes d'un .cpp}{2}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}Exemple de classe}{3}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Arguments avec valeur par défaut dans une fonction}{4}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Surcharge de fonctions}{5}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.9}Transmission par valeurs, par pointeurs ou par références}{5}{subsection.1.9}%

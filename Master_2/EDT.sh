@@ -2,7 +2,8 @@
 Master1="/home/maenwe/Master_CSM/Master_2"
 FILE=$Master1/adecal.ics
 
-wget -O $Master1/adecal1.ics https://planning.univ-rennes.fr/jsp/custom/modules/plannings/83DMglYx.shu 
+cd $Master1
+wget -O adecal1.ics https://planning.univ-rennes.fr/jsp/custom/modules/plannings/83DMglYx.shu 
 if [ $? != 4 ]
 then
 	rm -rf adecal.ics
@@ -43,15 +44,48 @@ cd $Master1
 echo $valeur
 if [[ $valeur = *"Prog Objet C++ bases CM"* ]]
 then
-   texstudio Prog_obj_C++/cours.tex
+	name="Prog_obj_C++"
+	if [ ! -d $name ]
+	then
+		echo $name|adresse.sh
+	fi
+   texstudio $name/cours.tex
 elif [[ $valeur = "Phénomènes de Propagation CM"* || $valeur = "Phénomènes de Propagation TD"* ]]
 then
-	if [ ! -d phenomene_propagation ]
+	name=phenomene_propagation
+	if [ ! -d $name ]
 	then
-		echo "--- Création du cours ---"
-		make
+		echo $name|adresse.sh
 	fi
- 	texstudio phenomene_propagation/cours.tex
+ 	texstudio $name/cours.tex
+elif [[ $valeur = "Machine learning for biology CM"* ]]
+then
+	name="machine_learning_for_biology"
+	if [ ! -d $name ]
+	then
+		echo $name|adresse.sh
+	fi
+	fichier_recent=$(find $name -type f -name "*.pdf" -printf "%T@ %p\n" | sort -n | tail -n 1 | cut -d' ' -f2-)
+ 	firefox $fichier_recent
+elif [[ $valeur = "Pratique Logiciels EF CM"* ]]
+then
+	name="pratique_logiciel_EF"
+	if [ ! -d $name ]
+	then
+		echo $name|adresse.sh
+	fi
+	fichier_recent=$(find $name -type f -name "*.pdf" -printf "%T@ %p\n" | sort -n | tail -n 1 | cut -d' ' -f2-)
+ 	firefox $fichier_recent
+elif [[ $valeur = "Programmation parallèle et sur GPU"* ]]
+then
+	name="programmation_parallèle"
+	if [ ! -d $name ]
+	then
+		echo $name|adresse.sh
+	fi
+	fichier_recent=$(find $name -type f -name "*.pdf" -printf "%T@ %p\n" | sort -n | tail -n 1 | cut -d' ' -f2-)
+ 	firefox $fichier_recent
+ 	code $name/
 elif [[ -z "$valeur" ]] 
 then
    echo "Aucun cours"

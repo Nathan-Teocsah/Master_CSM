@@ -1,11 +1,10 @@
 #!/bin/bash
+ADRESSE=$HOME/Master_CSM/modèle_cours_latex
+ADRESSE_COURS=$HOME/Master_CSM/Master_2
 
-FILE=$PATH/Master_CSM/Master_2
+read nom
 
-read -p "Écrire le nom du cours : " nom
+mkdir -p $ADRESSE_COURS/$nom
 
-mkdir -p $FILE"/$nom"
-
-# On renvoie le chemin pour make
-echo $FILE"/$nom"
+cp $ADRESSE/cours.tex $ADRESSE_COURS/$nom
 

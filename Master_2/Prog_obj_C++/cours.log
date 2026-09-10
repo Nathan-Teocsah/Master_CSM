@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  8 SEP 2026 13:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  10 SEP 2026 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1656,7 +1656,7 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<logo.jpg, id=71, 1204.5pt x 612.2875pt>
+<logo.jpg, id=83, 1204.5pt x 612.2875pt>
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
 Package pdftex.def Info: logo.jpg  used on input line 18.
@@ -1773,23 +1773,17 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
 Package marginnote Info: Using workaround for absolute page number on input lin
 e 113.
-
-Overfull \hbox (5.69218pt too wide) in paragraph at lines 119--138
-| [][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 119--138
+ [2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
 
  []
 
-[2{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/lo
-cal/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+[4]
 \tf@thm=\write7
 \openout7 = `cours.thm'.
 
- [3]
-runsystem(latexminted cleantemp  --timestamp 20260908135609 456C7996E5729627FDD
+ [5]
+runsystem(latexminted cleantemp  --timestamp 20260910180604 456C7996E5729627FDD
 F96470E5E0948)...executed safely (allowed).
 
  (./cours.aux)
@@ -1798,28 +1792,28 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `cours.out' has not changed.
-(rerunfilecheck)             Checksum: 94D8324C97EFAB2FAFC3F104776EEC44;1235.
+(rerunfilecheck)             Checksum: 52C2F1E4E1B283AD76EA731C515057F9;2109.
  ) 
 Here is how much of TeX's memory you used:
- 54463 strings out of 467538
- 1280185 string characters out of 5419551
- 2156627 words of memory out of 5000000
- 82444 multiletter control sequences out of 15000+600000
+ 54643 strings out of 467538
+ 1282249 string characters out of 5419551
+ 2294627 words of memory out of 5000000
+ 82509 multiletter control sequences out of 15000+600000
  689961 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,6n,131p,866b,1462s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,6n,131p,866b,2127s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
 cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/te
-xmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/f
-onts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
-public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lm
-ri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><
-/usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on cours.pdf (5 pages, 218046 bytes).
+ve/2025/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fo
+nts/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pu
+blic/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lm
+sy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><
+/usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
+Output written on cours.pdf (7 pages, 248919 bytes).
 PDF statistics:
- 202 PDF objects out of 1000 (max. 8388607)
- 149 compressed objects within 2 object streams
- 46 named destinations out of 1000 (max. 500000)
- 218 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 360 PDF objects out of 1000 (max. 8388607)
+ 304 compressed objects within 4 object streams
+ 163 named destinations out of 1000 (max. 500000)
+ 242 words of extra memory for PDF output out of 10000 (max. 10000000)
 

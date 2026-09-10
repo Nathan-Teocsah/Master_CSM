@@ -116,35 +116,34 @@
 	
 	Définition de base d'une classe :
 	
-	class MaClasse$\Big\{$\\
-	\hspace*{4cm}\begin{minipage}[t]{.3\textwidth}
-		private :\\
-		\hspace*{.2cm} \begin{minipage}{.7\textwidth}
-			// donnees membres\\
-			int donnee 1;\\
-			int donnee 2;
-		\end{minipage}
-	\end{minipage}\begin{minipage}[t]{.5\textwidth}
-	public :\\
-	\hspace*{.2cm}\begin{minipage}{.7\textwidth}
-		//constructeurs (optionnels).\\
-		MaClasse(...);\\
-		//fonctions membres ou méthode\\
-		int fonc1();\\
-		double fonc2(int);
-	\end{minipage}
-	\end{minipage}
-	\hspace*{4cm}$\Big\};$\\
+	\begin{lstlisting}[language=C++, caption=Définition d'une classe]
+		class MaClasse{
+			private :
+				// donnees membres
+				int donnee 1;
+				int donnee 2;
+			public :
+				//constructeurs (optionnels).
+				MaClasse(...);
+				// fonctions membres ou methodes
+				int fonc1();
+				double fonc2(int);
+			}
+	\end{lstlisting}
 	
-	Les fonctions membres peuvent être définies ailleurs.\\
-	MaClasse::MaClasse($\ldots$)\{$\ldots$\}\\
-	int MaClasse::fonc1()\{$\ldots$\}\\
-	double MaClasse::fonc2(int i)\{$\ldots$\}
+	Les fonctions membres peuvent être définies ailleurs.
+	
+	\begin{lstlisting}[language=C++, caption=Définition d'une classe]
+		MaClasse::MaClasse(...){...}
+		int MaClasse::fonc1(){...}
+		double MaClasse::fonc2(int i){...}
+	\end{lstlisting}
 	
 	\noindent\underline{Usage :} dans un programme appelant.\\
 	\hspace*{1.5cm}\begin{minipage}{15cm}
 		MaClasse obj1; \hspace{1cm} cout $<<$obj1\\
 		MaClasse* obj1\_p; \hspace{1cm} cout $<<$obj
+	
 	\end{minipage}
 	
 	\subsection{Structuration d'un code en fichiers}
@@ -188,9 +187,132 @@
 		\item construction avec 2 arguments d'entrées de type double pour définir les données membres
 	\end{enumerate}
 	
+	\begin{lstlisting}[language=C++,caption=complexe.hpp]
+		#ifndef COMPLEXE_H
+		#define COMPLEXE_H
+		class Complexe{
+			private:
+				double re, im;
+			public :
+				Complexe(double a, double b);
+		};
+		#endif // COMPLEXE_H
+	\end{lstlisting}
+	\begin{lstlisting}[language=C++,caption=complexe.cpp]
+		#include "complexe.hpp"
+		
+		Complexe::Complexe(double a,double b){
+			re = a;
+			im = b;
+		}
+	\end{lstlisting}
 	
+	\noindent Ces exemples et d'autre se trouve dans le livre que l'on peut récupérer à l'adresse suivante :
+	\begin{center}
+		\url{https://www.stroustrup.com/}
+	\end{center}
 	
+	Des classe à metre de préférence dans le .hpp :
+	\begin{enumerate}[label=$\star$]
+		\item Définitions de types, classes, déclarations de classes.
+		\item Déclarations de fonctions.
+		\item Déclarations de variables globales
+		\item Définitions de variables consantes.
+		\item Définitions des fonctions "inline" (à réserver aux fonctions courtes).
+	\end{enumerate}
+	\begin{lstlisting}[language=C++,caption=Exemple de fonction "inline" (complexe.hpp)]
+		#ifndef COMPLEXE_H
+		#define COMPLEXE_H
+		class Complexe{
+			private:
+			double re, im;
+			public :
+			Complexe(double a, double b){
+				re = a;
+				im = b;
+			} // fonction "inline"
+		};
+		#endif // COMPLEXE_H
+	\end{lstlisting}
 	
+	Le pré-processeur va remplacer à chaque occurrence la fonction Complexe par le script qui est donné. Ce qui peut rendre le code très lourd à exécuter.\\ 
+	
+	Dans une .hpp, on évitera :
+	\begin{enumerate}[label=$\star$]
+		\item Définition d'une variable non constante.
+		\item Usage de la directive "using" (interdit : \textit{stroustrup} [2014] p.424).
+	\end{enumerate}
+	
+	\begin{lstlisting}[language=C++,caption=Exemple d'un main.cpp]
+		#include "complexe.hpp"
+		int main(){
+			Complexe z1(1.5,2.5);
+			Complexe z2;
+		}
+	\end{lstlisting}
+	
+	\subsection{Arguments avec valeur par défaut dans une fonction}
+	
+	\begin{lstlisting}[language=C++,caption=Exemple 1]
+		int sum(int a, int b = 1){return a+b;}
+		int a=2,b=4,c,d,e;
+		c = som(a); //  c=3
+		d = sum(b); // d=5
+		e = sum(a,b); // e=6
+	\end{lstlisting}
+	
+	\begin{lstlisting}[language=C++,caption=Exemple 2]
+		int sum(int a=0, int b = 1){return a+b;}
+		int a=2,b=4,c,d,e,f;
+		c = som(a); //  c=3
+		d = sum(b); // d=5
+		e = sum(a,b); // e=6
+		f = sum(); // f=1
+	\end{lstlisting}
+	
+	\subsection{Surcharge de fonctions}
+	
+	\begin{lstlisting}[language=C++,caption=Exemple de surcharge de fonctions]
+		int add(int a, int b){return a+b};
+		double add(double a,double b){return a+b};
+		int a=0,b=1,e;
+		double c=0.5,d=1.5,f,g;
+		e = add(a,b); // e=1
+		f = add(c,d); // f=2
+		g = add(c,b); // crash : refus par le compilateur (ambigu)
+	\end{lstlisting}
+	
+	\subsection{Transmission par valeurs, par pointeurs ou par références}
+	
+	\begin{lstlisting}[language=C++,caption=Transmission par pointeur]
+		int a=2;
+		int* a_p = &a;
+		carre(a_p);
+	\end{lstlisting}
+	
+	Une référence est un "alias" vers une variable déjà déclaré : 
+	\begin{enumerate}[label=$\to$]
+		\item L'accès à la référence est semblable à l'accès à la variable elle-même.
+		\item Une référence réfère toujours à l'objet auquel elle a été initialisée.
+		\item Une référence est nécessairement rattachée à un objet.
+	\end{enumerate}
+	
+	\begin{lstlisting}[language=C++,caption=Exemple d'une référence]
+		int var=1;
+		int& r(var); //r est une reference sur la variable "var".
+		int x=r; // x prend la valeur 1.
+		r=2; // la valeur de var devient 2 mais x ne change pas.
+		r++; // la valeur de var devient 3.
+		int* p = &r; // p pointe sur la variable var.
+	\end{lstlisting}
+	\begin{lstlisting}[language=C++,caption=Transmission par référence]
+		int add(int a, int b){return a+b};
+		int add(int* a_p,int* b_p){return *a_p+*b_p};
+		int add(int& a, int& b){return a+b};
+		int carre(int& a, int& b){return a*=a};
+	\end{lstlisting}
+	
+	La première et la troisième fonction ne peuvent pas cohabiter dans le même script, car le programme ne saura pas dire lequel utiliser puisque la référence peut-être utilisée par les deux fonctions.
 
 	
 \end{document}
