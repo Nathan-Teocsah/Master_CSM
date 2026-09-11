@@ -86,6 +86,14 @@ then
 	fichier_recent=$(find $name -type f -name "*.pdf" -printf "%T@ %p\n" | sort -n | tail -n 1 | cut -d' ' -f2-)
  	firefox $fichier_recent
  	code $name/
+elif [[ $valeur = "Estimation de paramètres et optimisation CM"* ]]
+then
+	name="estimation_parametre_optimisation"
+	if [ ! -d $name ]
+	then
+		echo $name|adresse.sh
+	fi
+	texstudio $name/cours.tex
 elif [[ -z "$valeur" ]] 
 then
    echo "Aucun cours"

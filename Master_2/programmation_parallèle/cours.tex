@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper]{article}
+
+\makeatletter
+\def\input@path{{/home/maenwe/Master_CSM/modèle_cours_latex}}
+\makeatother
+
+\usepackage{prise_de_note}
+\graphicspath{{images}}
+\begin{document}
+	\pagenumbering{gobble}
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{/home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Phénomène de propagation} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large \textbf{Cours}}
+		
+		\vfill
+		
+		% Bloc Informations
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft} \large
+				\textbf{Enseignant :} \\
+				M. Benjamin \textsc{BOUTIN}\\
+				M. François \textsc{CASTELLA}
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\tableofcontents
+	
+	\newpage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	
+\end{document}

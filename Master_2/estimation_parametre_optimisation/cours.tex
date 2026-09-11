@@ -1,0 +1,423 @@
+\documentclass[12pt,a4paper]{article}
+
+\makeatletter
+\def\input@path{{/home/maenwe/Master_CSM/modèle_cours_latex}}
+\makeatother
+
+\usepackage{prise_de_note}
+\graphicspath{{images}}
+\begin{document}
+	\pagenumbering{gobble}
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{/home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Estimation de paramètres et optimisations} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large \textbf{Cours}}
+		
+		\vfill
+		
+		% Bloc Informations
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft} \large
+				\textbf{Enseignant :} \\
+				M. Abdelaziz \textsc{BELMILOUDI}
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\tableofcontents
+	
+	\newpage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	
+	\section{Motivation}
+	
+	$\begin{cases}
+		\dfrac{\partial u}{\partial t}-\Delta u + F(\alpha_1,\ldots,\alpha_n,u)=f & \text{sur } \Omega\\
+		\gamma\dfrac{\partial u}{\partial n}+\beta u = g & \text{sur } \Gamma=\partial\Omega \hspace{.2cm} (\gamma\beta\not=0)\\
+		u(t=t_0)=u_0 & \text{sur } \Omega
+	\end{cases}$
+	
+	$\alpha=(\alpha_i)_i,f,g$ et $u_0\implies u=F(\alpha,f,g,u_0)$.
+	
+	\textcolor{red}{Existe t'il $\alpha$ tel que $u=u_{obs}$ ?}\\
+	$\begin{cases}
+		\dfrac{\partial u}{\partial t}-\Delta u + \alpha(x,t)=f & \text{sur } \Omega\\
+		\gamma\dfrac{\partial u}{\partial n}+\beta u = g & \text{sur } \Gamma=\partial\Omega \hspace{.2cm} (\gamma\beta\not=0)\\
+		u(t=t_0)=u_0 & \text{sur } \Omega
+	\end{cases}$
+	
+	$J(\alpha) = \frac12\norme{u-u_{obs}}^2+\frac{\delta}2\norme{\alpha}^2$\\
+	Trouver $\alpha^\star \in K \subset \mathrm{L}^2(\Omega\times[0,T_f])$ tel que : $J(\alpha^\star) = \underset{\underset{s.c \hspace{.2cm} (\Gamma)}{\alpha \in K}}{\inf} J(\alpha)$.
+	
+	\vspace{-.5cm}
+	
+	\section{Ensemble convexe}
+	
+	Soit $f : \R^n \to \R\cup\{+\infty\}$. On va chercher à résoudre le problème suivan :
+	\begin{equation}\label{eq:pb1}
+		\underset{x\in K\subset\R^n}\inf f(z)
+	\end{equation}
+	
+	\begin{defi}[domaine d'une foncion]$ $\\
+		\[
+			\mathrm{dom}\,f = \left\{x \in \R^n| f(x)<+\infty\right\}
+		\]
+	\end{defi}
+	
+	On a : \eqref{eq:pb1}$\iff \underset{x \in K \cap \mathrm{dom}(f)}\inf f(x)$.
+	
+	\begin{defi}
+		$\forall x_1,\ldots,x_p \in \R^n$, $\forall (\lambda_1,\ldots,\lambda_p)\in(\R^+)^p$\\
+		\begin{minipage}[t]{18cm}
+			avec $\displaystyle\sum_{i=1}^p \lambda_i = 1$, le point $\displaystyle\sum_{i=1}^p \lambda_ix_i$ est dit C.L convexe de points $(x_1,\ldots,x_n)$.
+		\end{minipage}
+	\end{defi}
+	
+	\vspace{-.8cm}
+	
+	\begin{prop}
+		Soit $C$ un convexe de $\R^n$, $\forall (x_1,\ldots,x_p) \in C^p$, $\forall (\lambda_1,\ldots,\lambda_n) \in (\R^+)^p$ avec  $\displaystyle\sum_{i=1}^n \lambda_i = 1$. On a :
+		\[
+			\sum_{i=1}^n \lambda_ix_i \in C
+		\]
+	\end{prop}
+	
+	\begin{prop}
+		Si $(C_i)_i$ est une famille de convexe alors $\bigcap C_i$ est un convexe.
+	\end{prop}
+	
+	\begin{prop}[Enveloppe convexe]$ $\\
+		Soit $A$ une  partie convexe de $\R^n$. L'enveloppe convexe de $A$ noté $co(A)$ ou $conv(A)$ est l'intersection de tous les convexes contenant $A$.
+	\end{prop}	
+	
+	\begin{rmq}
+		Si $C$ est un convexe contenant $A$, il contient $conv(A)$.
+	\end{rmq}
+	
+	\begin{prop}
+		L'enveloppe convexe d'un ensemble convexe d'un ensemble $A$ est l'ensemble des combinaisons convexes finis d'éléments de $A$ :
+		\[
+			co(A) = \left\{\sum_{i=1}^p \lambda_ix_i\Big|p\geq 1, x_i\in A, \lambda_i \geq 0, \sum_{i=1}^p \lambda_i = 1\right\}.
+		\]
+		En particulier :\\
+		\begin{minipage}{18cm}
+			\begin{enumerate}
+			\item  Si $A = (a_1,\ldots,a_p)$ alors $conv(A) = \left\{\displaystyle\sum_{i=1}^p \lambda_i a_i\Big|\lambda_i \geq 0,\, \sum_{i=1}^p \lambda_i = 1\right\}$.
+			
+			\item  Si $A_i$, pour $i=1,\ldots,p$, son des convexes  de $\R^n$, alors :
+			\[
+				conv(A_1\cup A_2\cup\cdots\cup A_p) = \left\{\sum_{i=1}^p \lambda_i x_i\Big| x_i \in A_i, \lambda_i \geq 0, \sum_{i=1}^p \lambda_ix_i = 1\right\}.
+			\]
+		\end{enumerate}
+		\end{minipage}
+	\end{prop}
+	
+	\subsection{Cônes convexe}
+	
+	\begin{defi}
+		\begin{minipage}[t]{15cm}
+			Une partie $\mathcal C$ de $\R^n$ est un cône de sommet $x_0$ si $\forall x \in \mathcal C$ et $\lambda > 0$, on a :
+		\end{minipage}
+		\[
+			x_0 + \lambda(x-x_0) \in \mathcal C.
+		\]
+	\end{defi}
+	
+	\begin{rmq}
+		\begin{minipage}[t]{15cm}
+			\begin{enumerate}[label=$\textbullet$]
+				\item  Si $\mathcal C$ est une partie convexe, alors $\mathcal C$ est dit cône convexe.
+				
+				\item \underline{si $x_0=0$}, alors $\mathcal C$ est un cône si $\lambda\mathcal C \subset \mathcal C$.
+			\end{enumerate}
+		\end{minipage}
+	\end{rmq}
+	
+	\begin{prop}
+		L'intersection d'une famille de cônes convexes de même sommet $x_0$ est un cône convexe.
+	\end{prop}
+	
+	\begin{defi}
+		Soit $A \subset \R^n$, l'ensemble :
+		\[cone(A) = \left\{\displaystyle\sum_{i=1}^p \lambda_ix_i\Big|\, p \geq 1, x_i \in A, \lambda_i \geq 0\right\},\]
+		est dit cône convexe engendré par $A$.
+	\end{defi}
+	
+	\begin{rmq}
+		Si $A$ est un convexe, alors $conv(A) = \bigcup_{\lambda\geq 0} \lambda A$.
+	\end{rmq}
+	
+	\begin{defi}
+		\begin{minipage}[t]{15cm}
+			Soit $C \not= \emptyset$ un convexe fermé de $\R^n$. Un cône asymptote $C_\infty$ est donné par :
+		\end{minipage}
+		\[
+			C_\infty = \left\{d\in \R^n \Big|\, C+d \R^+ \subset C\right\},
+		\]
+		$d$ = direction asymptotique.
+	\end{defi}
+	
+	\begin{rmq}
+		$C_\infty = \left\{d \in \R^n\Big|\, \exists(x_k) \in C^\N, \exists (t_k) \in \R^\N, t_k \to + \infty, \dfrac{x_k}{t_k} \to d\right\}$
+	\end{rmq}	
+	
+	\subsection{Sous-espace affines}
+	
+	\begin{defi}
+		\begin{minipage}{15cm}
+			$A \subset \R^n$ est un sous-espace affine de $\R^n$, si $\forall x,y \in A$, $\forall \theta \in \R$, $\theta x+(1-\theta)y \in A$.
+		\end{minipage}
+	\end{defi}
+	
+	\begin{prop}
+		Si $A$ est 
+	\end{prop}
+	
+	\begin{defi}
+		Soit $A$ une partie de $\R^n$.
+		
+		\begin{minipage}{18cm}
+			Le sous-espace affine engendré par $A$ est le plus petit sous-espace affine contenant $A$: on le note $\mathrm{Aff}(A)$.
+		\end{minipage}
+	\end{defi}
+	
+	\begin{prop}
+		Soit $A$ une partie de $\R^n$.\\
+		\begin{minipage}{15cm}
+			\begin{enumerate}
+				\item $\mathrm{Aff}(A) = \left\{\displaystyle\sum_{i=1}^p \lambda_i x_i\Big|\, p\geq 1, x_i \in A, \lambda_i \in \R, \, \sum_{i=1}^p \lambda_i = 1\right\}$.
+				\item Si $x \in A$, alors $\mathrm{Aff}(A) = a+V$ avec $V$ un espace vectoriel engendré par $A-a$.
+				\item  Si $A$ est convexe, $\mathrm{Aff}(A) = \left\{\theta x + (1-\theta)y\Big| \theta \in \R, (x,y) \in A^2\right\}.$
+			\end{enumerate}
+		\end{minipage}
+	\end{prop}
+	
+	\begin{defi}
+		\begin{minipage}[t]{15cm}
+			Soit $C$ une partie convexe de $\R^n$, l'intérieur relatif de $C$ est donnée par $\mathrm{ir}(C)$ ($\mathrm{ri}(C)$ ou $\mathrm{Inr}(c)$) est défini par :
+			\[\left\{x \in C\Big|\,\text{il existe un voisinnage } V \text{ de } x \text{ tq } \mathrm{Aff}(C) \subset C\right\}.\]
+		\end{minipage}
+	\end{defi}
+	
+	Soit $f : \R^n \to \R\cup\{+\infty\}$. La fonction $f$ est convexe si : $\forall x,y \in \mathrm{dom}(f)$, $\forall \theta \in [0,\,1]$, 
+	\[f(\theta x+(1-\theta)y) \leq \theta f(x)+(1-\theta)f(x).\]
+	
+	\begin{lm}
+		[inégalité de Jensen]$ $\\
+		\begin{minipage}{18cm}
+			Si $f : \R^n \to \R \cup\{+\infty\}$ une fonction convexe, $(x_i)_{i \in [\![1,p]\!]}\in \mathrm{dom}(f)^p$ et $(\alpha_i)_i \in  \left(\R^+\right)^p$ avec $\displaystyle\sum_{i=1}^p\alpha_i = 1$. Alors :
+			\[
+				f\left(\sum_{i=1}^p\alpha_i x_i\right) \leq \sum_{i=1}^p \alpha_i f(x_i).
+			\]
+		\end{minipage}
+	\end{lm}
+	
+	\begin{thm}
+		Soit $f : \R^n \to \R \cup\{+\infty\}$. 
+		
+		\begin{minipage}{15cm}
+			La fonction $f$ est convexe, si et seulement si, son épigraphe \textcolor{blue}{(strict)}\\ $\mathrm{epi}(f) = \left\{(x,t)\in \mathrm{dom}(f)\times\R\Big|\,\underset{\textcolor{blue}{(>)}}{\geq} f(x)\right\}$ est convexe.
+		\end{minipage}
+	\end{thm}
+	\begin{dem}
+		$(\implies)$ Si $f$ est convexe.\
+		
+		\begin{minipage}{17cm}
+		Soient $(x,t),(y,u)$ deux éléments de l'épigraphe de $f$ et $\theta \in [0,1]$. On a alors :
+		\begin{equation}
+			f(\theta x + (1-\theta) y) \leq \theta f(x) + (1-\theta)f(y) \overset{epi}{\leq} \theta t + (1-\theta) u.
+		\end{equation}
+		D'où $\left(\theta x + (1-\theta)y,\theta t+(1-\theta) u\right) \in \mathrm{epi}(f)$.\\
+		
+		$(\Longleftarrow)$ Si $\mathrm{epi}(f)$ est convexe. Soit $x,y \in \R^n$ et $\theta \in [0,1]$. On a alors :
+		\[
+			(x,f(x)) \in \mathrm{epi}(f),
+		\]
+		et,
+		\[
+			(y,f(y)) \in \mathrm{epi}(f).
+		\]
+		Il vient alors :
+		\[
+			(\theta x + (1-\theta)y,\theta f(x) + (1-\theta) f(y) ) \in \mathrm{epi}(f),
+		\]
+		et ainsi : $f(\theta x + (1-\theta) y) \leq \theta f(x) + (1-\theta) f(y)$.
+		\end{minipage}
+	\end{dem}
+	
+	\begin{prop}
+		\begin{minipage}[t]{15cm}
+			Soit $f : K \longrightarrow \R$ avec $K$ convexe, une fonction convexe.
+		\end{minipage}
+		
+		On peut étendre la fonction $f$ à $\R^n$ en une fonction convexe $\tilde{f}$ par  :
+		\[
+			\tilde f(x) = \begin{cases}
+				f(x) & \text{ si } x \in K \\
+				+\infty & \text{ sinon}
+			\end{cases}.
+		\]
+	\end{prop}
+	
+	En particulier : \begin{minipage}[t]{15cm}
+		Soit $A$ une partie de $\R^n$. On définit la fonction caractéristique :
+		\[
+			\chi_A(x) = \begin{cases}
+				0 & \text{ si } x \in A \\
+				+\infty & \text{ si } x \not\in A
+			\end{cases}.
+		\]
+	\end{minipage}
+	
+	\begin{rmq}
+		\begin{minipage}[t]{18cm}
+			$\chi_A$ est convexe, si et seulement si, $A$ est convexe. Et dans ce cas :
+		\end{minipage}
+		\begin{equation}
+			\tilde f = f + \chi_K
+		\end{equation}
+	\end{rmq}
+	
+	\begin{prop}
+		Soit $(f_i)_i$ une famille de fonctions convexe. Alors, $f = \sup \, f_i$ est convexe.
+	\end{prop}
+	
+	\begin{defi}
+		Une fonction $f$ est dite propre si $f$ ne prend de valeur $-\infty$ et n'est pas la constante $+\infty$.
+	\end{defi}
+	
+	\begin{rmq}
+		\begin{minipage}[t]{15cm}
+			$-\infty + t = -  \infty$, $a(-\infty) = -\infty$ et $0(-\infty) = 0$ pour tout $t < +\infty$ et $a > 0$.
+		\end{minipage}
+	\end{rmq}
+	
+	\begin{prop}
+		Soi $f$ une fonction convexe.
+		
+		\begin{minipage}{17cm}
+			Les ensemble $\mathrm{L}_f(\gamma) = \left\{x \in \mathrm{dom}(f)\Big| f(x) \leq \gamma\right\}$ (de niveau) sont soit vide, soit convexe.
+		\end{minipage}
+	\end{prop}
+	
+	\begin{rmq}
+		La réciproque est fausse, voir : $\sqrt x$.
+	\end{rmq}
+	
+	\subsection{Cas des fonctions différentiables.}
+	
+	\begin{thm}
+		Soit $f : \R^n \to \R$ une fonction différentiable.
+		
+		\begin{minipage}{17cm}
+			Les propositions suivane sont équivalentes : 
+			\begin{enumerate}
+				\item  $f$ est convexe
+				\item  $\forall (x,y) \in \R^n \times \R^n$, $f(y) \geq f(x) + \left<\nabla f(x),y-x\right>$
+				\item $\forall (x,y) \in \R^n\times\R^n$, $\left<\nabla f(x) - \nabla f(y), x-y\right> \geq 0$
+			\end{enumerate}
+		\end{minipage}
+	\end{thm}
+	
+	\begin{thm}[preuve en exercice]$ $
+		
+		\begin{minipage}{17cm}
+			Soit $f : \R^n \to \R$ de classe $C^2$. La fonction  $f$ est convexe, si et seulement si, pour tout $x \in \R^n$, $H(f)(x) \geq 0$ (ie. la matrice hessienne $H(f)$ de $f$ est semi-défini positive pour tous points de $\R^n$).
+		\end{minipage}
+	\end{thm}
+	
+	\begin{ex}
+		$ $
+		
+		\begin{minipage}{17cm}
+			\begin{enumerate}[label=\textbullet]
+				\item Cas linéaire\\
+				$f(x) = \underset{i = 1,\ldots,p}\max\left(\left< a_i,x\right>+b_i\right)$ est convexe.
+				
+				\item Soit $C$ un convexe :
+				\begin{enumerate}[label=-]
+					\item $S_c(x) = \underset{y \in C}\sup \left< y,x\right>$ est convexe (support d'une fonction).
+					\item $f(x) = \underset{y\in C}\sup \norme{x-y}$ est convexe.
+				\end{enumerate}
+				
+				\item Soit $A$ une matrice symétrique. La fonction $\lambda_{\max}(A) = \underset{\norme{x} = 1}{\sup} Y^t A Y$ est convexe.
+			\end{enumerate}
+		\end{minipage}
+	\end{ex}
+	
+	\begin{defi}
+		\begin{minipage}[t]{15cm}
+			\begin{enumerate}[label=\textbullet]
+				\item  $f$ est quasi-concave sur $\R^n$, si :
+				\begin{equation}
+					f(\theta x+(1-\theta)y) \geq \max(f(x),f(y))
+				\end{equation}
+				
+				\item  $f$ est quasi-convexe sur $\R^n$ si $\forall x,y\in \R^n$, $\forall \theta \in [0,1]$,
+				\begin{equation}
+					f(\theta x + (1-_thea) y) \leq \max(f(),f(y))
+				\end{equation}
+			\end{enumerate}
+		\end{minipage}
+	\end{defi}
+	
+	\begin{rmq}
+		\begin{minipage}[t]{15cm}
+			Si $f$ est concave (resp. convexe), alors $f$ est quasi-concave (resp. quasi-convexe). (Exercice)
+		\end{minipage}
+	\end{rmq}
+	
+	\begin{lm}
+		Soient $f,g : \R^n \to \R$ deux fonctions quasi-concaves. Alors :
+		
+		\begin{minipage}{17cm}
+			\begin{enumerate}
+				\item $\alpha f$ est quasi-concave, $\forall \alpha \in \R^+$.
+				
+				\item  $\min(f,g)$ est quasi-concave.
+				
+				\item Soit $h : \R \to \R$ une foncion croissante, alors $h\circ f$ est quasi-concave.
+			\end{enumerate}
+		\end{minipage}
+	\end{lm}
+	
+	\begin{thm}
+		\begin{minipage}[t]{15cm}
+			Soit $f$ une fonction de classe $\mathcal C^1$ sur $\R^n$. La fonction $f$ est quasi-concave, si et seulement si, $\forall x,y \in \R^n$, si $f(y) \geq f(x)$, alors $\left<\nabla f(x),\nabla f(y)\right> \geq 0$.
+		\end{minipage}
+	\end{thm}
+\end{document}
