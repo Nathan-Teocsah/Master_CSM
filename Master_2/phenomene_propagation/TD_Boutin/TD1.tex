@@ -63,10 +63,13 @@
 	
 	\begin{sol}$ $\\
 		\begin{enumerate}
-			\item \begin{equation}
+			\item 			
+		\begin{equation}
 			u_1(t,x) = e^{(-x-2t)^2} = u_1(0,x-2t)
 		\end{equation}
-		$\partial_t u_1(t,x) = -2\partial_x u_1(0,x-2t) = -2\partial_x u_1(t,x).$
+		\begin{minipage}{16cm}
+			On en déduit : $\partial_t u_1(t,x) = -2\partial_x u_1(0,x-2t) = -2\partial_x u_1(t,x),$ et ainsi :
+		\end{minipage}
 		\begin{equation}
 			\partial_t u_1+2\partial u_1 = 0
 		\end{equation}
@@ -104,8 +107,55 @@
 	\end{bmatrix}-\norme{\vec c}t\right)$\\
 	$\partial_{t} u_3 - \frac12 \Delta u_3 = 0 \iff \partial_{t} u_3 - \left(\frac1{\sqrt{2}}\Delta u_3\right) = 0$
 	\end{minipage}
+	\item $u_3(t,x,y) = \exp(-(x+y-t)^2) = 1$ ssi $x+y=t$.\\
+	$u_2(t,x,y) = \alpha$, nécessairement $ \alpha \in ]0,\, 1]$, $\alpha = 1$ déjà traité. Et ainsi $u_2 = \alpha \iff x+y=t\pm \sqrt{\ln \alpha}$.\\
+	Lorsque le temps avance de $t$ à $t+T$, la distance entre les deux droites $x+y=t$ et $x+y=t+T$ est, d'après Pythagore, $\frac1{\sqrt 2}T$.
 	
-	\item A suivre ..
+	\item $u(t,x,y) = F(ax+by-\gamma t)$ avec $F \in \mathcal C^2(\R^2,\R)$.\\
+	Le vecteur normale est : $\vec n = \dfrac{(a,\, b)}{\sqrt{a^2+b^2}}$. Ainsi :
+	\[
+		ax+by-\gamma t = \sqrt{a^2+b^2}\left[\vec n \cdot (x,\, y) - \dfrac{\gamma}{\sqrt{a^2+b^2}} t\right]
+	\]
+	
+	\begin{minipage}[t]{16cm}
+		Propagation du profil dans la direction $\vec n$ à la vitesse $\dfrac{\gamma}{\sqrt{a^2+b^2}} = c$.\\
+	$\partial_t u + \dfrac{\gamma}{\sqrt{a^2 + b^2}}\vec n \cdot \nabla_{(x,y)} = 0$ est vérfiée par le calcul des dérivée composées $F\left(\sqrt{a^2+b^2}\left[\vec n \cdot (x,\, y)-ct\right]\right)$,\\ $\partial_t u(t,x,y) = -c\sqrt{a^2+b^2}F'(\cdots)$\\ et $\nabla_{(x,y)} u(t,x,y) = \sqrt{a^2+b^2}\vec n F'(\cdots)$.
+	\end{minipage}
+	
+	\item $u$ est-elle solution de :
+	\[
+		u_{t} - c^2(u_{xx}+u_{yy}) = 0
+	\]
+	\begin{minipage}{16cm}
+		$\gamma^2F''(ax+by)\gamma t) - c^2(a^2 + b^2)F''(ax+by-\gamma t) = 0$ indép. de $F$. Cette équation est équivalente à :
+		
+		\[
+			\begin{aligned}
+				& \gamma^2 = c^2(a^2+b^2) \\
+				\iff & \gamma^2 = c^2(a^2+b^2)\\
+				\iff & c = \pm \dfrac{\gamma}{\sqrt{a^2+b^2}}
+			\end{aligned}
+		\]
+	\end{minipage}
+	
+	
+	\item  $v(t,x,y) = e^{-(x-2t)^2}e^{-y^2} = F(x-2t)F(y)$.\\
+	Cette équation est satisfaite par $v$ : $\partial_t v + 2 \partial_x v = 0$\\
+	$v(0,x,y) = e^{-(x^2+y^2)}$, et : $\begin{cases}
+		\partial_t v + \vec c \cdot \nabla v = 0\\
+		\text{avec } \vec c = \begin{bmatrix}
+			2 \\ 0
+		\end{bmatrix} = 2\underbrace{\begin{bmatrix}
+		1 \\
+		0
+		\end{bmatrix}}_{unitare}
+	\end{cases}$\\
+	$v$ est-elle solution de l'équation des ondes 2D : $v_{tt} - c^2 \Delta v = 0$ ?\\
+	$\partial_ t v = -2F'(x-2t)F(y)$, $\partial_{tt} v = 4F''(x-2t)F(y)$.\\
+	$\partial_{xx} v = F''(x-2t)F(y)$, $\partial_yy v = F(x-2t)F''(y)$.\\
+	De plus $F''(z) = (4z^2-2)F(z)$.\\
+	$\partial_{tt} v - c^2 \Delta v = \left(4\left[4(x-2t)^2-2\right]-c^2\left[(4(x-2t)^2-2)+(4y^2-2)\right]\right)F(x-2t)F(y)$.\\
+	C'est un polynôme (ce qu'il y a entre les parenthèses) en $t,x,y$ \underline{non-identiquement nul}. $v$ ne résout aucune équation des ondes 2D.
 		\end{enumerate}
 	\end{sol}
 	
@@ -119,16 +169,72 @@
 		\end{enumerate}
 	\end{sol}
 	
-	\begin{exo}$ $
+	\begin{sol}
+		content
+	\end{sol}
+	
+	\begin{sol}
+		$ $\\
 		\begin{enumerate}
-			\item 
-			\item A chercher
-			\item A  chercher
-			\item A chercher
-			\item 
-			\item A chercher
+			\item \begin{minipage}{17cm}
+				$q = \rho u$, $U = \begin{bmatrix}
+					p \\
+					q
+				\end{bmatrix}$, $v = p/q$, $\begin{bmatrix}
+				p \\
+				v
+				\end{bmatrix} \mapsto \begin{bmatrix}
+				p \\
+				\rho u = q
+				\end{bmatrix}$ et $\varphi(p,q) = \rho u^2 + P(\rho)$,\\
+				or $\rho u^2 + P(\rho) = \rho(q/\rho)^2 + P(\rho) = q^2/\rho + P(\rho) = (\rho u)^2/\rho + P(\rho) $.\\
+				
+				$f'(U) = \begin{bmatrix}
+					\dfrac{\partial (\rho u)}{\partial\rho} & \dfrac{(\rho u)}{\partial (\rho u)}\\
+					\dfrac{\partial\left((\rho u)^2/\rho + P(\rho)\right)}{\partial\rho} & \dfrac{\left((\rho u)^2/\rho + P(\rho)\right)}{\partial (\rho u)}
+				\end{bmatrix}$ \hspace{1.5cm} $\dfrac{(\rho u^2)}{\partial \rho}\Big|_{\rho u = cst} = $ ?
+				
+				$f'(U) = \begin{bmatrix}
+					0 & 1 \\
+					-\dfrac{(\rho u)^2}{\rho^2} + P'(\rho) & 2\rho u /\rho
+				\end{bmatrix} = \begin{bmatrix}
+				0 & 1 \\
+				-u^2 + P'(\rho) & 2u
+				\end{bmatrix}$\\
+				
+				$\begin{cases}
+					\partial_t\rho + 1\times\partial_x(\rho u) = 0 \\
+					\partial_t (\rho u) + (P'(\rho)-u^2) \partial_x\rho + 2u\partial_x(\rho u) = 0
+				\end{cases}$
+			\end{minipage}
+			
+			\item \begin{minipage}[t]{17cm}
+				$\rho(t,x) \simeq \rho_{eq}$ et $u(t,x) \simeq 0$, $p = P(\rho) \simeq P(\rho_{eq}) + P'(\rho_{eq})(\rho-\rho_{eq})$.\\
+				
+			$\rho = \rho_{eq} + \underbrace{(\rho-\rho_{eq})}_{\delta_{eq}}$, $\partial_t \rho + \partial_x (\rho u) = \partial_t(\delta \rho) + \partial_x(\rho_{eq} u) + \underbrace{\partial_x(\delta\rho\times u)}_{\text{ordre 2}} = \partial_x (\delta \rho) + \rho_{eq} \partial_x u$\\
+			$\partial_t(\rho_eq u)+\left(P'(\rho_{eq})+P''(\rho_{eq})\cancel{(\rho-\rho_{eq})} - \cancel{u^2} \right)\partial_x(\delta \rho) + 2u\cancel{\partial_x(\rho_{eq} u )} + 2u\cancel{\partial_x(\delta \rho u)} = 0$\\
+			
+			$\begin{cases}
+				\partial_t(\delta \rho)+\rho_{eq}\partial_x u = 0\\
+				\rho_{eq}\partial_t u + P'(\rho_{eq})\partial_x( \delta \rho) = 0
+			\end{cases}$\\
+			avec $\delta\rho = \dfrac{\rho - P(\rho_{eq})}{P'(\rho_{eq})}$, d'où : $\begin{cases}
+				\dfrac1{P'(\rho_{eq})}\partial_t\rho + \rho_{eq}\partial_t u = 0\\
+				\rho_{eq} \partial_t u + \partial_x \rho = 0
+			\end{cases}$\\
+			$\partial_t \begin{bmatrix}
+				\rho\\
+				u
+			\end{bmatrix} + A\partial_x \begin{bmatrix}
+			\rho \\
+			u
+			\end{bmatrix} = 0$ avec $A= \begin{bmatrix}
+			0 & \rho_{eq}P'(\rho_{eq}) \\
+			\dfrac1{\rho_{eq}} & 0
+			\end{bmatrix}$ dont les vp sont : $\pm \sqrt{P'(\rho_{eq})}$.
+			\end{minipage}
 		\end{enumerate}
-	\end{exo}
+	\end{sol}
 	
 	
 	

@@ -233,4 +233,162 @@
 		\end{enumerate}
 		tandis que les véhicules ont toujours la vitesse $V(\rho) >0$.
 	\end{rmq}
+	
+	\section{Équation des ondes 1D à vitesse $C$.}
+	
+	$\begin{cases}
+		\partial_{tt} u - c^2 \partial_{xx} u = 0\\
+		u(0,x) = u_0(x) & \text{position initiale}\\
+		\partial_t u (0,x) = u_1(x) & \text{vitesse initiale}
+	\end{cases}$\\
+	approche formelle : $\partial_{tt} -c^2 \partial_{xx}  = (\partial_t+c\partial_x)\circ(\partial_t-c\partial_x)$. Deux transport à vitesse $c$ et $-c$.\\
+	\underline{Approche "alg. linéaire"}\\
+	$v = \partial_t u$, $w = c\partial_x u$.\\
+	$\partial_t v = \partial_{tt} u$, $\partial_x w = c\partial_{xx} u \to \partial_t v-c\partial_x w = 0$\\
+	$\partial_x v = \partial_{tx} u$, $\partial_t w = c\partial_{xt} u \to \partial_t w - c \partial_x v = 0$.\\
+	
+	Ainsi : $\partial_t\begin{bmatrix}
+		v \\ w
+	\end{bmatrix} + A\partial_x\begin{bmatrix}
+	v \\ w
+	\end{bmatrix} = 0$, avec $A = \begin{bmatrix}
+	0 & - c \\-c & 0
+	\end{bmatrix} \in \mathcal S_2(\R)$ diagonalisable sur $\R$.\\
+	$A = PDP^{-1}$, $D = \begin{bmatrix}
+		c & 0 \\0 & -c
+	\end{bmatrix}$, $P = \begin{bmatrix}
+	1 & 1 \\
+	-1 & 1
+	\end{bmatrix}$, $P ^{-1} = \dfrac12\begin{bmatrix}
+	1 & -1\\
+	1 & 1
+	\end{bmatrix}$.\\
+	
+	Posons $\varphi = \begin{bmatrix}
+		\varphi_+\\
+		\varphi_-
+	\end{bmatrix} = P^{-1}\begin{bmatrix}
+	v \\
+	w
+\end{bmatrix}$ \hspace{2cm} $\left(\begin{aligned}
+\vec{r_+} = \begin{bmatrix}
+	1 \\
+	-1
+\end{bmatrix} & \text{par} & \lambda_+ = c \\
+\vec{r_-} = \begin{bmatrix}
+	1\\
+	1
+\end{bmatrix} & \text{par} & \lambda_- = -c
+\end{aligned}\right)$\\
+
+qui vérifie : \fbox{$\partial_t \varphi + D\partial_x \varphi = 0$} : découplage $\begin{cases}
+	\partial_t \varphi_+ + c \partial_x \varphi_+ = 0 \\
+	\partial_t \varphi_- - c \partial_x \varphi_- = 0
+\end{cases}$\\
+
+$\varphi_+(t,x) = \varphi_+(0,x-ct) $, $\varphi(t,x) = \varphi_-(0,x-ct)$.\\
+alors $\begin{bmatrix}
+	v \\
+	w
+\end{bmatrix} = P\begin{bmatrix}
+\varphi_+\\
+\varphi_-
+\end{bmatrix} = \varphi_+ \vec{r_+} + \varphi_-\vec{r_-}$, et $w(t,x) = x\partial_x u(t,x) = \varphi_-(0,x+ct)-\varphi_-(0,x-ct) = \dfrac12\left[u_1(x+ct) - u_1(x-ct)\right]+\dfrac{c}2\left[v_0'(x+ct)+v0'(x-ct)\right]$.\\
+Par intégration : $u(t,x) = \dfrac12\left[u_0(x+ct)-u_1(x-ct)\right] + \dfrac1{2c}\displaystyle\int_{x-ct}^{x+ct} u_1(y) \dy$.\\
+$u(t,x) = \left[\dfrac12 u_0(x+ct)+\dfrac1{2c}\displaystyle\int_0^{x+ct} u_1(y)\dy\right] + \left[\dfrac12u_0(x-ct)-\dfrac1{2c}\displaystyle\int_{x-ct}^{x+ct} u_1(y) \dy\right]$
+
+\begin{minipage}{7cm}
+	\includegraphics[scale=.1]{im7.jpeg}
+\end{minipage}\begin{minipage}{7cm}
+\includegraphics[scale=.1]{im8.jpeg}
+\end{minipage}
+
+\begin{minipage}{7cm}
+	\includegraphics[scale=.1]{im9.jpeg}
+\end{minipage}\begin{minipage}{7cm}
+	\includegraphics[scale=.1]{im10.jpeg}
+\end{minipage}
+
+\newpage
+
+\section{Systèmes hyperboliques}
+
+$U(t,x) \in \R^n$, $x \in \R$, dimension 1 d'espace.\\
+$\begin{cases}
+	\partial_t U + A \partial_x U = 0\\
+	U(0,x) = U_0(x) \in \R^n, \forall x \in \R
+\end{cases}$, avec $A \in \mathcal M_n(\R)$.\\
+
+\begin{defi}
+	\begin{minipage}[t]{15cm}
+		Un système est dit hyperbolique si $A$ est diagonalisable sur $\R$.
+	\end{minipage}
+\end{defi}
+
+\begin{prop}
+	\begin{minipage}[t]{15cm}
+		Le problème es ben posé, ie. admet une unique solution qui dépend "continuement" de $U_0$, si et seulement si, il est hyperbolique. 
+	\end{minipage}
+\end{prop}
+
+\begin{ex}
+	\begin{minipage}[t]{15cm}
+		$\star$ $A$ symétrique réelle $ \implies$ EDP hyperbolique (dit symétrique). $A \in \mathcal M_n(\R)$ avec $n$ valeur propre réelles distinctes 2 à 2 (dit hyperbolique stricte).\\
+		
+		$\star$ $A = \begin{bmatrix}
+			0 & 1 \\
+			1 & 0
+		\end{bmatrix}$, $\mathrm{spec}(A) = \{i,-i\}$, $U = \begin{bmatrix}
+		u \\
+		v
+		\end{bmatrix}\begin{cases}
+		\partial_t u -\partial_x v= 0\\
+		\partial_t v + \partial_x u = 0
+		\end{cases}$\\
+		$\implies$ \fbox{$\partial_{tt} u + \partial_{xx} u = 0$} elliptique en $(t,x)$ $ \not =$ pb d'évolution, et mal posé.
+	\end{minipage}
+\end{ex}
+	
+	
+	Supposons l'EDP hyperbolique.\\
+	$A = PDP^{-1}$, $D = \mathrm{diag}(\lambda_1,\ldots,\lambda_n)$, $P = (\vec{r_1},\ldots,\vec{r_n})$.\\
+	$P^{-1} = \begin{bmatrix}
+		l_1^T\\
+		\vdots\\
+		l_n^T
+	\end{bmatrix}$, $V=P^{-1}U = \begin{bmatrix}
+	l_1^TU \\
+	\vdots\\
+	l_n^T U
+	\end{bmatrix} \in \R^n$ vérifie : $\partial_t V+ D \partial_x V = 0$, \begin{minipage}[t]{6cm}
+	$ n$ équation de transport scalaires découplées.
+	\end{minipage}
+	
+	On résoud donc : $U(t,x) = \displaystyle \sum_{j=1}^n \underbrace{l_j^T U(0,x-\lambda_j t)}_{scalaire}\vec{r_j}$.
+	
+	\begin{ex}[physique]$ $\\
+		\begin{minipage}[t]{17cm}
+			Les équation d'Euler pour l'acoustique fluide.\\
+			$\rho(x,t) \ in \R$ densité d'un fluide compressible\\
+			$u(x,t) \in \R$ vitesse eulérienne du fluide au point $x$ à l'instant $t$.\\
+			Équation de bilan de masse et de quantité de mouvement sur un volume $[a,b]$ en espace :
+			\[
+				\int_a^b \rho(t+\dt,x)\dx - \int_a^b \rho(t,x)\dx = \left[(\rho u)(t,a)-(\rho u)(t,b)\right]\dt
+			\]
+			le fluide avance de $u\dt$ pendant le temps $\dt$.\\
+			($\dt \to 0$) \fbox{$\partial_t\rho + \partial_x(\rho u) = 0$} \textcolor{red}{\underline{masse}}
+		\end{minipage}
+		
+		\begin{minipage}{17cm}
+			Pour la qdm, les efforts de pressions interviennent dans le bilan :
+			\[
+			\begin{aligned}
+				\int_a^b (\rho u)(t+\dt,x) \dx - \int_a^b (\rho u)(t,x)\dx =& (\rho u)u(t,a)\dt\\
+				&-(\rho u)u(t,b)\dt\\
+				&+(P(a)-P(b))\dt
+			\end{aligned}
+			\]
+			d'où l'EDP \fbox{$\partial_t (\rho u) + \partial_x(\rho u^2 + P) = 0$}.
+		\end{minipage}
+	\end{ex}
 \end{document}

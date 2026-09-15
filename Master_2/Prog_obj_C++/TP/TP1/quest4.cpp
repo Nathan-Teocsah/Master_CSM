@@ -7,4 +7,10 @@ int main(){
   P.affiche();
   Point Q;
   Q.affiche();
+  Point::affichePointRef();
+  Point::modPointRef();
+  Point::affichePointRef();
+  double v[2] = {2,3};
+  P.translate(v);
+  P.affiche();
 }

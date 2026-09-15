@@ -6,3 +6,5 @@
 \contentsline {subsubsection}{\numberline {1.2.1}Advection d'un polluant}{1}{subsubsection.1.2.1}%
 \contentsline {subsubsection}{\numberline {1.2.2}Modèles d'équations d'ondes}{2}{subsubsection.1.2.2}%
 \contentsline {subsubsection}{\numberline {1.2.3}Modèle de trafic routier (LWR)}{3}{subsubsection.1.2.3}%
+\contentsline {section}{\numberline {2}Équation des ondes 1D à vitesse $C$.}{4}{section.2}%
+\contentsline {section}{\numberline {3}Systèmes hyperboliques}{6}{section.3}%

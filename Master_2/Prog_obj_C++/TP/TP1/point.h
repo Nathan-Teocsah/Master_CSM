@@ -8,6 +8,11 @@ public:
   Point();
   Point(double xP,double yP);
   void affiche();
-  void affichePointRef()
+  double montre_x();
+  double montre_y();
+  void modif(double,double);
+  static void affichePointRef();
+  static void modPointRef();
+  void translate(double v[2]);
 };
 #endif

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  7 SEP 2026 16:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  15 SEP 2026 11:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1742,40 +1742,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 64--66
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--74
+Overfull \hbox (127.46877pt too wide) in paragraph at lines 69--73
+$[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 7
-5.
+8.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd)
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--93
+Underfull \hbox (badness 10000) in paragraph at lines 93--96
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
 
-Overfull \hbox (241.2798pt too wide) in paragraph at lines 96--107
+Overfull \hbox (241.2798pt too wide) in paragraph at lines 99--110
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--114
-
+Underfull \hbox (badness 2181) in paragraph at lines 121--123
+\OML/lmm/m/it/12 @[]u \OT1/lmr/m/n/12 + [][] \OMS/lmsy/m/n/12 ^^A r[] \OT1/lmr/
+m/n/12 = 0$ \T1/lmr/m/it/12 est vér-fiée par le cal-cul des dé-ri-vée com-po-sé
+es
  []
 
 
-Overfull \hbox (99.01602pt too wide) in paragraph at lines 114--119
-[] 
+Overfull \hbox (127.46877pt too wide) in paragraph at lines 120--124
+[][] 
+ []
+
+
+Overfull \hbox (127.46877pt too wide) in paragraph at lines 128--140
+$[]$ 
+ []
+
+
+Overfull \hbox (44.1354pt too wide) in paragraph at lines 142--159
+\OML/lmm/m/it/12 @[]v \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 c[]\OT1/lmr/m/n/12 
+^^A\OML/lmm/m/it/12 v \OT1/lmr/m/n/12 = [] \OML/lmm/m/it/12 F\OT1/lmr/m/n/12 (\
+OML/lmm/m/it/12 x \OMS/lmsy/m/n/12 ^^@
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 160
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 160
  []
 
 [1{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/lo
@@ -1783,14 +1810,57 @@ cal/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/20
 25/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2025/texmf-d
 ist/fonts/enc/dvips/lm/lm-mathex.enc}]
 Package marginnote Info: Using workaround for absolute page number on input lin
-e 120.
-Package hyperref Info: bookmark level for unknown exo defaults to 0 on input li
-ne 122.
+e 160.
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--164
+
+ []
+
+
+Overfull \hbox (99.01602pt too wide) in paragraph at lines 164--169
+[] 
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 177--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--191
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--204
+
+ []
+
+
+Overfull \hbox (155.92152pt too wide) in paragraph at lines 179--210
+[]$[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--216
+
+ []
+
+
+Overfull \hbox (155.92152pt too wide) in paragraph at lines 211--236
+[][] 
+ []
+
 \tf@thm=\write6
 \openout6 = `TD1.thm'.
 
- [2]
-runsystem(latexminted cleantemp  --timestamp 20260907162903 019E99AB15C19536002
+[3]
+runsystem(latexminted cleantemp  --timestamp 20260915114143 019E99AB15C19536002
 C180ED2F31245)...executed safely (allowed).
 
  (./TD1.aux)
@@ -1802,31 +1872,32 @@ Package rerunfilecheck Info: File `TD1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 54015 strings out of 467538
- 1276753 string characters out of 5419551
- 1977858 words of memory out of 5000000
- 82030 multiletter control sequences out of 15000+600000
+ 54025 strings out of 467538
+ 1276968 string characters out of 5419551
+ 1986858 words of memory out of 5000000
+ 82039 multiletter control sequences out of 15000+600000
  692429 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,17n,131p,864b,697s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,23n,131p,864b,708s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
-b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
-cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/te
-xmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/f
-onts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
-public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/l
-mr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></u
-sr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/tex
-live/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/
-texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-dist/
-fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type
-1/public/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm
-/lmsy8.pfb>
-Output written on TD1.pdf (3 pages, 239927 bytes).
+b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line
+10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/
+texlive/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/20
+25/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-d
+ist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
+ype1/public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public
+/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pf
+b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/
+2025/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-
+dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts
+/type1/public/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publ
+ic/lm/lmsy8.pfb>
+Output written on TD1.pdf (4 pages, 260339 bytes).
 PDF statistics:
- 165 PDF objects out of 1000 (max. 8388607)
- 102 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
+ 174 PDF objects out of 1000 (max. 8388607)
+ 108 compressed objects within 2 object streams
+ 21 named destinations out of 1000 (max. 500000)
  162 words of extra memory for PDF output out of 10000 (max. 10000000)
 
