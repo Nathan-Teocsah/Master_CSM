@@ -1,6 +1,6 @@
-PROGRAM=$1
-NPROC=$2
-OPTION=$3
+PROGRAM=ping_pong
+NPROC=2
+OPTION=$1
 if [ ! $PROGRAM ]; then
     echo please enter name of program
     exit

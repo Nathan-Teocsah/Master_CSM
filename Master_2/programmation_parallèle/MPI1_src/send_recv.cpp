@@ -6,7 +6,7 @@
 int main(int argc, char *argv[]) {
 
   int nprocs,rank;
-  int M;
+  int* M = (int*) calloc(2,sizeof(int));
   double x;
   MPI_Status status;
   
@@ -16,22 +16,24 @@ int main(int argc, char *argv[]) {
   
   if (rank==0)
     {          
-      M=42;
+      M[0]=42;
       x=2.5;
-      MPI_Send(&M,1,MPI_INT,1,0,MPI_COMM_WORLD);
-      MPI_Send(&x,1,MPI_DOUBLE,1,1,MPI_COMM_WORLD);
+      double y = 4;
+      MPI_Send(&y,1,MPI_DOUBLE,1,1,MPI_COMM_WORLD);
     }
-  else if (rank==1)
+
+
+    MPI_Bcast(&(M[0]),1,MPI_INT,0,MPI_COMM_WORLD);
+
+  if (rank==1)
     {
-      MPI_Recv(&M,1,MPI_INT,0,0,MPI_COMM_WORLD,&status);
-      std::cout << "status send : " << status.MPI_SOURCE <<  " receive : " << rank << std::endl;
       MPI_Recv(&x,1,MPI_DOUBLE,0,1,MPI_COMM_WORLD,&status);
-      std::cout << "status send : " << status.MPI_SOURCE <<  " receive : " << rank << std::endl;
-      M+=1;
+      M[0]+=1;
+      M[1] = 2;
       x=0.5*x;
     }
   
-  std::cout << "Process " << rank << " M=" << M << " x=" << x << "\n";
+  std::cout << "Process " << rank << " M=" << M[0] << " x=" << x << "\n";
     
   MPI_Finalize();
 
