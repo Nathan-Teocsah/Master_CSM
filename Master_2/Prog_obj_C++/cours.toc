@@ -4,8 +4,14 @@
 \contentsline {subsection}{\numberline {1.2}Entrée/Sorties standard}{1}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Notion de classe en C++}{2}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}Structuration d'un code en fichiers}{2}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Premières lignes d'un .cpp}{2}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.5}Premières lignes d'un .cpp}{3}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}Exemple de classe}{3}{subsection.1.6}%
 \contentsline {subsection}{\numberline {1.7}Arguments avec valeur par défaut dans une fonction}{4}{subsection.1.7}%
 \contentsline {subsection}{\numberline {1.8}Surcharge de fonctions}{5}{subsection.1.8}%
 \contentsline {subsection}{\numberline {1.9}Transmission par valeurs, par pointeurs ou par références}{5}{subsection.1.9}%
+\contentsline {subsection}{\numberline {1.10}Allocation dynamique}{6}{subsection.1.10}%
+\contentsline {subsection}{\numberline {1.11}Constructeurs avec valeurs d'initialisation par défaut, liste d'initialisation}{6}{subsection.1.11}%
+\contentsline {subsection}{\numberline {1.12}Constructeurs par défaut, par copie}{6}{subsection.1.12}%
+\contentsline {subsection}{\numberline {1.13}Destructeur}{7}{subsection.1.13}%
+\contentsline {subsection}{\numberline {1.14}Pointeur this}{7}{subsection.1.14}%
+\contentsline {subsection}{\numberline {1.15}Données membres et fonctions membres statique}{7}{subsection.1.15}%

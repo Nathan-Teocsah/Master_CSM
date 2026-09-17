@@ -165,6 +165,8 @@
 		$\hookrightarrow$ programmation des foncions déclarées et non définies dans les hpp.
 	\end{enumerate}
 	
+	\newpage
+	
 	\subsection{Premières lignes d'un .cpp}
 	
 	\begin{lstlisting}[language=C++,caption=Début d'un .cpp]
@@ -251,6 +253,8 @@
 		}
 	\end{lstlisting}
 	
+	\vspace{-.5cm}
+	
 	\subsection{Arguments avec valeur par défaut dans une fonction}
 	
 	\begin{lstlisting}[language=C++,caption=Exemple 1]
@@ -313,6 +317,94 @@
 	\end{lstlisting}
 	
 	La première et la troisième fonction ne peuvent pas cohabiter dans le même script, car le programme ne saura pas dire lequel utiliser puisque la référence peut-être utilisée par les deux fonctions.
+	
+	\newpage
+	
+	\subsection{Allocation dynamique}
+	
+	\textit{new} et \textit{delete}
+	
+	\begin{lstlisting}[language=C++,caption=Syntaxe]
+		double* d = new double(5.1);
+		delete d;
+	\end{lstlisting}
+	
+	$d$ est un pointeur sur un double.
+	
+	\subsection{Constructeurs avec valeurs d'initialisation par défaut, liste d'initialisation}
+	
+	\begin{lstlisting}[language=C++,caption=Exemple]
+		class Point{
+			private:
+				double xP, yP;
+			public:
+				Point(double x, double y):xP(x),yP(y){
+					cout << "construction double double" << endl;
+					cout << "Objet " << this << endl;
+				}
+		}
+	\end{lstlisting}
 
+	\subsection{Constructeurs par défaut, par copie}
+	
+	Par exemple poir la classe Complexe.
+		
+	\begin{lstlisting}[language=C++,caption=Constructeur par defaut et par copie.]
+		class Complexe{
+			public :
+				Complexe(); // constructeur par defaut
+				Complexe(const Complexe& z){re = z.re; im = z.im}
+		}
+	\end{lstlisting}
+	
+	\begin{lstlisting}[language=C++,caption=Exemple d'utilisation.]
+		Complexe z; // constructeur par defaut de complexe
+		Complexe z1(z), // consructeur par copie
+		Complexe z2(0,1.5); //constructeur d'un complexe par "double,double" avec copies des 2 "double"
+		Complexe z3=z2; //Constructeur par copie, equivalent a Complexe z3(z2)
+		Complexe z4; z4 = z3; // constructeur par defaut puis affectation.
+	\end{lstlisting}
+	
+	\subsection{Destructeur}
+	
+	Le prototype destructeur de MaClasse est :
+	\begin{lstlisting}[language=C++,caption=Prototype du destructeur.]
+		~MaClasse();
+	\end{lstlisting}
+	Il est possible de le redéfinir :
+	\begin{lstlisting}[language=C++,caption=Exemple d'utilisation.]
+		class Point{
+			public:
+				Point(){...}
+				Point(...,...);
+				~Point(){cout<<"destruction d'un point : "<<this<<endl;}
+		}
+	\end{lstlisting}
+	
+	\subsection{Pointeur this}
+	Accessible au sens des foncions memnres de la classe, c'est un pointeur vers l'objet instancié.
+	
+	\subsection{Données membres et fonctions membres statique}
+	
+	
+	\begin{lstlisting}[language=C++,caption=Exemple d'utilisation.]
+		class Point{
+			static Point PointRef;
+			
+			static void afficheRef();
+		}
+	\end{lstlisting}
+	
+	\begin{lstlisting}[language=C++,caption=Illustration.]
+		Point P1(1,0);
+		Point P2(0,1);
+		
+		P1.afficheRef(); //Ce qui suit est la meme chose que cette ligne
+		P2.afficheRef();
+		Point::afficheRef();
+	\end{lstlisting}
+	
+	\textcolor{red}{\fbox{\textbf{!}}} Le pointeur "this" n'est pas accesssible dans une fonction membre déclarée static.
+	
 	
 \end{document}
