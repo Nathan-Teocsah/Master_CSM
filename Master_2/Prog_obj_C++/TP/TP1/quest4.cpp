@@ -1,5 +1,6 @@
 #include <iostream>
 #include "point.h"
+#include <cassert>
 
 using namespace std;
 int main(){
@@ -13,4 +14,6 @@ int main(){
   double v[2] = {2,3};
   P.translate(v);
   P.affiche();
+  cout << Q.distance() << endl;
+  Bipoint(P,Q);
 }

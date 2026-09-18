@@ -1,0 +1,90 @@
+\documentclass[12pt,a4paper]{article}
+
+\makeatletter
+\def\input@path{{/home/maenwe/Master_CSM/modèle_cours_latex}}
+\makeatother
+
+\usepackage{prise_de_note}
+\graphicspath{{images}}
+\begin{document}
+	\pagenumbering{gobble}
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{/home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Estimation de paramètres et optimisations} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large \textbf{TD1}}
+		
+		\vfill
+		
+		% Bloc Informations
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft} \large
+				\textbf{Enseignants :} \\
+				M. Abdelaziz \textsc{BELMILOUDI}
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\newpage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	
+
+	\begin{sol}
+		$ $\\
+		\begin{minipage}[t]{17cm}
+			Soit $x \not = y \in X$ deux solutions du problème suivant : $\underset{x \in X}\min f(x)$. On a :\\
+			\[
+				f(x+\lambda (y-x)) < f(x) + \lambda(f(y)-f(x)),
+			\]
+			of $x+\lambda(y-x) \in X$, donc $f(x+\lambda(y-x)) \geq f(x),f(y)$.\\
+			Ainsi $ f(x+\lambda(y-x)) < f(x) + \lambda(f(y)-f(x)) \leq f(x) + \lambda(f(x)-f(x)) = f(x)$, ce qui est absurde.
+		\end{minipage}
+	\end{sol}
+	
+	\begin{sol}
+		$ $\\
+		\begin{minipage}[t]{17cm}
+			\begin{enumerate}
+				\item (théorème de projection d'Hilbert)\\
+				Soit $(u_n)_n$ une suite telle que $\norme{x-u_n} \longrightarrow \inf_u \norme{x-u}$. Ainsi la suite $(u_n)$ est bornée, en effet $\norme{u_n} \leq \norme{x}+\norme{x-u_n}$. Donc il existe une sous-suite convergente $(v_n)$ convergente, notons $u$ cette limite. De plus puisque la norme au carré est strictement convexe, $u$ est unique.
+				
+				\item Supposons que $v^\star = \mathrm{Proj}_X(x)$. On a alors : $ \frac12\norme{x-v^\star}^2 \leq \frac12\norme{x-v}^2 $. Donc $\left< \nabla g(v^\star),v-v^\star\right> \geq 0$, ainsi $\left<v^\star - x, v-v^\star\right> \geq 0$.
+				
+				\item Soit $x_i \not\in X$, on a : $\left<v_i^\star - x_i, v-v_i^\star\right> \geq 0$. Ainsi $\left<v_1^\star - v_2^\star + x_2 - x_1, v_2^\star-v_1^\star\right> \geq 0$. Ainsi avec Cauchy-Schwartz : $\norme{v_1^\star-v_2^\star} \leq \norme{x_2-x_1}\norme{v_1^\star-v_2^\star}$
+			\end{enumerate}
+		\end{minipage}
+	\end{sol}
+\end{document}

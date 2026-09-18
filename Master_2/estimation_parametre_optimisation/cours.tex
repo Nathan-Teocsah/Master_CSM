@@ -420,4 +420,19 @@
 			Soit $f$ une fonction de classe $\mathcal C^1$ sur $\R^n$. La fonction $f$ est quasi-concave, si et seulement si, $\forall x,y \in \R^n$, si $f(y) \geq f(x)$, alors $\left<\nabla f(x),\nabla f(y)\right> \geq 0$.
 		\end{minipage}
 	\end{thm}
+	
+	\begin{prop}[conjugaison]$ $\\
+		\[z\in \partial f(x) \iff x \in \partial f*(z) \]
+	\end{prop}
+	\begin{dem}
+		$ $\\
+		$\begin{aligned}
+			z \in \partial f(x) & \iff \forall y & f(y) \geq f(x) +\left<z,y-x\right>\\
+			&\iff \forall y & f(y)-\left<z,y\right> \geq f(x) -\left<x,y\right>\\
+			&\iff \forall y&  \left<z,y\right> -f(y) \leq \left<z,x\right>-f(x) \\
+			&\iff& f^\star(z) =  \left<z,x\right>-f(x) \\
+			&\iff& f^{\star\star}(x) = \left<x,z\right>-f^\star(z)\\
+			&\iff& x \in \partial f^\star(z)
+		\end{aligned}$
+	\end{dem}
 \end{document}

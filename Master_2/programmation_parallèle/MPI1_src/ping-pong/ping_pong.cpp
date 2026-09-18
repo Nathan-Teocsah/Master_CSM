@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
             start_time = MPI_Wtime();
             MPI_Send(tab,N,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
         }
-        if (rank==0){
+        else{
             MPI_Recv(tab,N,MPI_DOUBLE,1,0,MPI_COMM_WORLD,&status);
             cout << "rang " << rank << " reçu info du rang " << 1 << " byte/time = " << N*sizeof(double)/(MPI_Wtime()-start_time) << endl;
             start_time = MPI_Wtime();
