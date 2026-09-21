@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  14 SEP 2026 15:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  21 SEP 2026 16:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1533,14 +1533,21 @@ Package caption Info: listings package is loaded.
 \c@Brouillon=\count515
 \c@Solution=\count516
 )
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count517
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count518
+)
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 9.
+(french3.ldf)             reported on input line 10.
 Package french3.ldf Info: Setting StandardEnumerateEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 9.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 9.
-
+(french3.ldf)             reported on input line 10.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 10
+.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1550,38 +1557,38 @@ Package babel Info: 'french' activates 'french' shorthands.
 )
 \openout1 = `cours.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Info: Redefining \degres on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Info: Redefining \degres on input line 10.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count517
+\scratchcounter=\count519
 \scratchdimen=\dimen446
 \scratchbox=\box102
-\nofMPsegments=\count518
-\nofMParguments=\count519
+\nofMPsegments=\count520
+\nofMParguments=\count521
 \everyMPshowfont=\toks87
-\MPscratchCnt=\count520
+\MPscratchCnt=\count522
 \MPscratchDim=\dimen447
-\MPnumerator=\count521
-\makeMPintoPDFobject=\count522
+\MPnumerator=\count523
+\makeMPintoPDFobject=\count524
 \everyMPtoPDFconversion=\toks88
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1638,83 +1645,83 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count523
-Package hyperref Info: Link coloring OFF on input line 9.
+\c@lstlisting=\count525
+Package hyperref Info: Link coloring OFF on input line 10.
 (./cours.out) (./cours.out)
 \@outlinefile=\write5
 \openout5 = `cours.out'.
 
 \c__nicematrix_shift_Ldots_last_row_dim=\dimen448
 \c__nicematrix_innersep_middle_dim=\dimen449
-\c@tabularnotesi=\count524
-\enitdp@tabularnotes=\count525
-\c@tabularnotes*i=\count526
-\enitdp@tabularnotes*=\count527
+\c@tabularnotesi=\count526
+\enitdp@tabularnotes=\count527
+\c@tabularnotes*i=\count528
+\enitdp@tabularnotes*=\count529
 
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-</home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg, id=79, 1204.5pt x 612.28
+</home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg, id=99, 1204.5pt x 612.28
 75pt>
 File: /home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg Graphic file (type j
 pg)
 <use /home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg>
 Package pdftex.def Info: /home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg  
-used on input line 18.
+used on input line 19.
 (pdftex.def)             Requested size: 270.3012pt x 137.40372pt.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
-5.
+6.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
-5.
+6.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-45.
+46.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-45.
+46.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 45.
+(Font)              <12> on input line 46.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 45.
+(Font)              <8> on input line 46.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 45.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
+(Font)              <6> on input line 46.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 45
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 46
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 45.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 46.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 45.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 46.
  [1
 Non-PDF special ignored!
 <special> header=pstricks.pro
@@ -1742,86 +1749,87 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.63 	\newpage
+l.64 	\newpage
                [1{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-math
 it.enc}]
 Package marginnote Info: Using workaround for absolute page number on input lin
-e 63.
+e 64.
 Package hyperref Info: bookmark level for unknown ex defaults to 0 on input lin
-e 75.
+e 76.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 7
-7.
+8.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (137.57222pt too wide) in paragraph at lines 75--90
+Overfull \hbox (137.57222pt too wide) in paragraph at lines 76--91
 [][][] 
  []
 
-<images/im1.png, id=102, 594.22pt x 285.065pt>
+<images/im1.png, id=127, 594.22pt x 285.065pt>
 File: images/im1.png Graphic file (type png)
 <use images/im1.png>
-Package pdftex.def Info: images/im1.png  used on input line 103.
+Package pdftex.def Info: images/im1.png  used on input line 106.
 (pdftex.def)             Requested size: 178.26736pt x 85.52016pt.
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 1
-10.
+15.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd)
-<images/im2.png, id=104, 465.74pt x 161.60374pt>
+<images/im2.png, id=129, 465.74pt x 161.60374pt>
 File: images/im2.png Graphic file (type png)
 <use images/im2.png>
-Package pdftex.def Info: images/im2.png  used on input line 113.
+Package pdftex.def Info: images/im2.png  used on input line 119.
 (pdftex.def)             Requested size: 139.72307pt x 48.48149pt.
 
-Overfull \hbox (21.57108pt too wide) in paragraph at lines 110--116
-\T1/lmr/m/n/12 bilan lo-cal de $[]$|  $[]$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 110--116
+Underfull \hbox (badness 10000) in paragraph at lines 115--123
 
  []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [1{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/lo
 cal/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/20
 25/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./images/im1.png>]
 Package marginnote Info: Using workaround for absolute page number on input lin
-e 116.
-<images/im3.png, id=126, 465.74pt x 262.9825pt>
+e 123.
+<images/im3.png, id=152, 465.74pt x 262.9825pt>
 File: images/im3.png Graphic file (type png)
 <use images/im3.png>
-Package pdftex.def Info: images/im3.png  used on input line 127.
+Package pdftex.def Info: images/im3.png  used on input line 135.
 (pdftex.def)             Requested size: 139.72307pt x 78.89534pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--144
+Underfull \hbox (badness 10000) in paragraph at lines 151--153
 
  []
 
-<images/im4.png, id=127, 1007.765pt x 191.71625pt>
+<images/im4.png, id=153, 1007.765pt x 191.71625pt>
 File: images/im4.png Graphic file (type png)
 <use images/im4.png>
-Package pdftex.def Info: images/im4.png  used on input line 152.
+Package pdftex.def Info: images/im4.png  used on input line 162.
 (pdftex.def)             Requested size: 302.33183pt x 57.5153pt.
 [2{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <./imag
-es/im2.png> <./images/im3.png> <./images/im4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 158--160
+es/im2.png> <./images/im3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 169--171
 
  []
 
-<images/im5.png, id=144, 678.535pt x 151.56625pt>
+<images/im5.png, id=171, 678.535pt x 151.56625pt>
 File: images/im5.png Graphic file (type png)
 <use images/im5.png>
-Package pdftex.def Info: images/im5.png  used on input line 196.
+Package pdftex.def Info: images/im5.png  used on input line 209.
 (pdftex.def)             Requested size: 339.26666pt x 75.78293pt.
-[3 <./images/im5.png>]
-<images/im6.png, id=153, 639.38875pt x 378.41376pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3 <./images/im4.png>]
+<images/im6.png, id=181, 639.38875pt x 378.41376pt>
 File: images/im6.png Graphic file (type png)
 <use images/im6.png>
-Package pdftex.def Info: images/im6.png  used on input line 219.
+Package pdftex.def Info: images/im6.png  used on input line 235.
 (pdftex.def)             Requested size: 191.8181pt x 113.525pt.
 Package hyperref Info: bookmark level for unknown rmq defaults to 0 on input li
-ne 223.
+ne 240.
 
-Overfull \hbox (7.66946pt too wide) detected at line 228
+Overfull \hbox (7.66946pt too wide) detected at line 245
 \OML/lmm/m/it/12 Q[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^Z\OT1/lmr/m/n/12 ) = \O
 ML/lmm/m/it/12 V\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^Z\OT1/lmr/m/n/12 ) + \OML/l
 mm/m/it/12 ^^ZV[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^Z\OT1/lmr/m/n/12 ) = \OML/
@@ -1829,25 +1837,22 @@ lmm/m/it/12 V[] [] \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 ^^Z[] \OT1/lmr/m/n/12
 = \OML/lmm/m/it/12 V[] []
  []
 
+[4 <./images/im5.png> <./images/im6.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 237.
+(Font)              <17.28> on input line 254.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 237.
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 237.
+(Font)              <10> on input line 254.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 237.
+(hyperref)                removing `math shift' on input line 254.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--249
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 254.
 
- []
 
-[4 <./images/im6.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 250--266
+Underfull \hbox (badness 10000) in paragraph at lines 256--266
 
  []
 
@@ -1857,138 +1862,247 @@ Underfull \hbox (badness 10000) in paragraph at lines 267--283
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--288
+Underfull \hbox (badness 10000) in paragraph at lines 284--300
 
  []
 
-<images/im7.jpeg, id=166, 2007.5pt x 1505.625pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 301--305
+
+ []
+
+<images/im7.jpeg, id=197, 2007.5pt x 1505.625pt>
 File: images/im7.jpeg Graphic file (type jpg)
 <use images/im7.jpeg>
-Package pdftex.def Info: images/im7.jpeg  used on input line 301.
+Package pdftex.def Info: images/im7.jpeg  used on input line 320.
 (pdftex.def)             Requested size: 200.76175pt x 150.57132pt.
 
-Overfull \hbox (1.59247pt too wide) in paragraph at lines 301--302
+Overfull \hbox (1.59247pt too wide) in paragraph at lines 320--321
 [][] 
  []
 
-<images/im8.jpeg, id=167, 2007.5pt x 1505.625pt>
+<images/im8.jpeg, id=198, 2007.5pt x 1505.625pt>
 File: images/im8.jpeg Graphic file (type jpg)
 <use images/im8.jpeg>
-Package pdftex.def Info: images/im8.jpeg  used on input line 303.
+Package pdftex.def Info: images/im8.jpeg  used on input line 322.
 (pdftex.def)             Requested size: 200.76175pt x 150.57132pt.
 
-Overfull \hbox (1.59247pt too wide) in paragraph at lines 303--304
+Overfull \hbox (1.59247pt too wide) in paragraph at lines 322--323
 [][] 
  []
 
-<images/im9.jpeg, id=168, 2007.5pt x 1505.625pt>
+<images/im9.jpeg, id=199, 2007.5pt x 1505.625pt>
 File: images/im9.jpeg Graphic file (type jpg)
 <use images/im9.jpeg>
-Package pdftex.def Info: images/im9.jpeg  used on input line 307.
+Package pdftex.def Info: images/im9.jpeg  used on input line 326.
 (pdftex.def)             Requested size: 200.76175pt x 150.57132pt.
 
-Overfull \hbox (1.59247pt too wide) in paragraph at lines 307--308
+Overfull \hbox (1.59247pt too wide) in paragraph at lines 326--327
 [][] 
  []
 
-<images/im10.jpeg, id=169, 2007.5pt x 1505.625pt>
+<images/im10.jpeg, id=200, 2007.5pt x 1505.625pt>
 File: images/im10.jpeg Graphic file (type jpg)
 <use images/im10.jpeg>
-Package pdftex.def Info: images/im10.jpeg  used on input line 309.
+Package pdftex.def Info: images/im10.jpeg  used on input line 328.
 (pdftex.def)             Requested size: 200.76175pt x 150.57132pt.
 
-Overfull \hbox (1.59247pt too wide) in paragraph at lines 309--310
+Overfull \hbox (1.59247pt too wide) in paragraph at lines 328--329
 [][] 
  []
 
-[5 <./images/im7.jpeg> <./images/im8.jpeg> <./images/im9.jpeg> <./images/im10.j
-peg>]
-Underfull \hbox (badness 10000) in paragraph at lines 316--321
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 342--347
 
  []
 
 Package hyperref Info: bookmark level for unknown defi defaults to 0 on input l
-ine 323.
+ine 349.
 
-Overfull \hbox (145.27325pt too wide) in paragraph at lines 323--326
+Overfull \hbox (145.27325pt too wide) in paragraph at lines 349--352
 [][][] 
  []
 
 Package hyperref Info: bookmark level for unknown prop defaults to 0 on input l
-ine 329.
+ine 355.
 
-Overfull \hbox (155.20224pt too wide) in paragraph at lines 329--332
+Overfull \hbox (155.20224pt too wide) in paragraph at lines 355--358
 [][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
 
  []
 
 
-Overfull \hbox (137.57222pt too wide) in paragraph at lines 335--350
+Overfull \hbox (137.57222pt too wide) in paragraph at lines 361--376
 [][][] 
  []
 
 
-Overfull \hbox (126.54683pt too wide) in paragraph at lines 369--381
+Underfull \vbox (badness 1248) detected at line 376
+ []
+
+
+Overfull \vbox (7.6181pt too high) detected at line 376
+ []
+
+[6 <./images/im7.jpeg> <./images/im8.jpeg> <./images/im9.jpeg> <./images/im10.j
+peg>]
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 395--406
 [] 
  []
 
 
-Overfull \hbox (144.17165pt too wide) in paragraph at lines 382--397
+Overfull \hbox (144.17165pt too wide) in paragraph at lines 407--420
 []$[]$ 
  []
 
-
-Underfull \vbox (badness 1997) detected at line 397
+[7]
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 449--504
+[]$
  []
 
 
-Overfull \vbox (1.74675pt too high) detected at line 397
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 449--504
+[]$ 
  []
 
-[6]
+
+Underfull \vbox (badness 10000) detected at line 504
+ []
+
+
+Overfull \vbox (47.98837pt too high) detected at line 504
+ []
+
+[8]
+<images/im11.png, id=227, 590.205pt x 428.60126pt>
+File: images/im11.png Graphic file (type png)
+<use images/im11.png>
+Package pdftex.def Info: images/im11.png  used on input line 518.
+(pdftex.def)             Requested size: 295.10178pt x 214.3001pt.
+ [9 <./images/im11.png>]
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 538.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 538.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 539.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 539.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 540.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 540.
+
+
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 534--543
+[]$ 
+ []
+
+
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 555--560
+[]$ 
+ []
+
+
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 562--569
+[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
+
+ []
+
+
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 571--605
+[]$ 
+ []
+
+
+Overfull \vbox (122.85402pt too high) detected at line 605
+ []
+
+[10]
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 607--623
+[]$
+ []
+
+
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 607--623
+[]$ 
+ []
+
+<images/im12.jpeg, id=254, 1505.625pt x 2007.5pt>
+File: images/im12.jpeg Graphic file (type jpg)
+<use images/im12.jpeg>
+Package pdftex.def Info: images/im12.jpeg  used on input line 626.
+(pdftex.def)             Requested size: 301.11966pt x 401.49289pt.
+[11 <./images/im12.jpeg>]
+<images/im13.png, id=266, 538.01pt x 262.9825pt>
+File: images/im13.png Graphic file (type png)
+<use images/im13.png>
+Package pdftex.def Info: images/im13.png  used on input line 641.
+(pdftex.def)             Requested size: 376.60443pt x 184.08649pt.
+<images/im14.png, id=267, 458.71375pt x 369.38pt>
+File: images/im14.png Graphic file (type png)
+<use images/im14.png>
+Package pdftex.def Info: images/im14.png  used on input line 650.
+(pdftex.def)             Requested size: 321.09743pt x 258.56422pt.
 \tf@thm=\write7
 \openout7 = `cours.thm'.
 
- [7]
-runsystem(latexminted cleantemp  --timestamp 20260914155433 456C7996E5729627FDD
+ [12 <./images/im13.png> <./images/im14.png>]
+runsystem(latexminted cleantemp  --timestamp 20260921163520 456C7996E5729627FDD
 F96470E5E0948)...executed safely (allowed).
 
- (./cours.aux)
+
+(./cours.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `cours.out' has not changed.
-(rerunfilecheck)             Checksum: DDA298F6B734630A3D3DC1760CB98C34;1653.
+(rerunfilecheck)             Checksum: A5386BB06B53E52929AD66FC7788D87C;2818.
  ) 
 Here is how much of TeX's memory you used:
- 54252 strings out of 467538
- 1281062 string characters out of 5419551
- 1982864 words of memory out of 5000000
- 82227 multiletter control sequences out of 15000+600000
- 714728 words of font info for 112 fonts, out of 8000000 for 9000
+ 54483 strings out of 467538
+ 1285082 string characters out of 5419551
+ 1987124 words of memory out of 5000000
+ 82415 multiletter control sequences out of 15000+600000
+ 723260 words of font info for 114 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,15n,131p,866b,704s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,17n,131p,866b,706s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
-cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/te
-xmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/f
-onts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
-public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/l
-mr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></u
-sr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/tex
-live/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/
-texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist
-/fonts/type1/public/lm/lmsy8.pfb>
-Output written on cours.pdf (9 pages, 2029927 bytes).
+cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive
+/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fo
+nts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/l
+mmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></
+usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/te
+xlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/t
+exmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/
+fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
+/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm
+/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
+
+Output written on cours.pdf (14 pages, 3007180 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 185 compressed objects within 2 object streams
- 46 named destinations out of 1000 (max. 500000)
- 284 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 377 PDF objects out of 1000 (max. 8388607)
+ 274 compressed objects within 3 object streams
+ 85 named destinations out of 1000 (max. 500000)
+ 344 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,6 +1,12 @@
 #include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
+
+ typedef struct {
+      double x, y;
+      int On_Boundaries;
+  } Sommet;
 
 int main(int argc, char **argv) {
     MPI_Init(&argc, &argv);
@@ -9,64 +15,82 @@ int main(int argc, char **argv) {
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
 
-    // --- Étape 1 : Chaque processus génère ses données locales ---
-    int local_data[] = {0, 1};          // rank 0
-    int local_count = 2;
-    if (rank == 1) {
-        local_data[0] = 10; local_data[1] = 11; local_data[2] = 12;
-        local_count = 3;
-    } else if (rank == 2) {
-        local_data[0] = 20;
-        local_count = 1;
+    // Chaque processus génère des sommets locaux
+    int N = 8,M=6;
+    Sommet* local_sommet = (Sommet*) malloc((M+1)*((N-rank)/nprocs+1)*sizeof(Sommet));
+    int local_count = 0;
+    for(int i = rank; i < N+1; i=i+nprocs){//Boucle noeud en x
+        for (int j = 0; j < M+1; j++)//Bouvle n noued en y
+        {
+            local_sommet[local_count].x = rank+(double) i/10;
+            local_sommet[local_count].y = rank+(double) j/10;
+            local_sommet[local_count].On_Boundaries = i*(M+1)+j;
+            local_count++;
+        }
     }
 
-    // --- Étape 2 : Préparer les tableaux pour MPI_Allgatherv ---
-    // Tableau des tailles envoyées par chaque processus
-    int *sendcounts = (int*) malloc(nprocs * sizeof(int));
-    // Tableau des déplacements (en nombre d'éléments, pas en octets !)
-    int *displs = (int*) malloc(nprocs * sizeof(int));
+    // --- Préparer sendcounts et displs en OCTETS ---
+    int *sendcounts =(int*) malloc(nprocs * sizeof(int)); // sendcounts en octets
+    int *displs =(int*) malloc(nprocs * sizeof(int));     // displs en octets
 
-    // Rassembler les tailles locales (sendcounts)
-    MPI_Allgather(
-        &local_count, 1, MPI_INT,  // Chaque processus envoie sa taille locale
-        sendcounts, 1, MPI_INT,     // Tous reçoivent les tailles dans sendcounts
-        MPI_COMM_WORLD
-    );
+    // Rassembler les tailles locales (en nombre de Sommet)
+    int *local_counts =(int*) malloc(nprocs * sizeof(int));
+    MPI_Allgather(&local_count, 1, MPI_INT, local_counts, 1, MPI_INT, MPI_COMM_WORLD);
 
-    // Calculer les déplacements (displs)
+    // Calculer sendcounts et displs en octets
+    sendcounts[0] = local_counts[0] * sizeof(Sommet);
     displs[0] = 0;
     for (int i = 1; i < nprocs; i++) {
+        sendcounts[i] = local_counts[i] * sizeof(Sommet);
         displs[i] = displs[i - 1] + sendcounts[i - 1];
     }
 
-    // --- Étape 3 : Calculer la taille totale ---
-    int total_count = 0;
+    // Calculer la taille totale en octets
+    int total_bytes = 0;
     for (int i = 0; i < nprocs; i++) {
-        total_count += sendcounts[i];
+        total_bytes += sendcounts[i];
     }
 
-    // --- Étape 4 : Allouer le buffer de réception ---
-    int *global_data = (int*) malloc(total_count * sizeof(int));
+    // Allouer global_sommets en octets
+    Sommet *global_sommets =(Sommet*) malloc(total_bytes);
 
-    // --- Étape 5 : Appeler MPI_Allgatherv ---
+    // --- Appel à MPI_Allgatherv avec MPI_BYTE ---
     MPI_Allgatherv(
-        local_data, local_count, MPI_INT,  // Données locales à envoyer
-        global_data, sendcounts, displs, MPI_INT, // Buffer global pour recevoir
+        local_sommet, local_count * sizeof(Sommet), MPI_BYTE, // sendcount en octets
+        global_sommets, sendcounts, displs, MPI_BYTE,           // recvcounts et displs en octets
         MPI_COMM_WORLD
     );
 
-    // --- Étape 6 : Afficher les résultats sur chaque processus ---
-    printf("Process %d: global_data = [", rank);
-    for (int i = 0; i < total_count; i++) {
-        printf("%d", global_data[i]);
-        if (i < total_count - 1) printf(", ");
+    // --- Afficher les résultats ---
+    printf("Process %d: %d sommets\n", rank,local_count);
+    if (rank==0){
+    printf("---------------\n");
+    for (int s = 0; s < total_bytes / sizeof(Sommet); s++) {
+        int J = s%(M+1);
+        int I = (s-J)/(M+1);
+        int np = I%nprocs;
+        int k = I/nprocs;
+        int iter_Sommet = k*(M+1)+J;
+        //Sommet loc_som = global_sommets[displs[np]/sizeof(Sommet)-1+iter_Sommet];
+        Sommet loc_som = global_sommets[s];
+        int i = ((int) 10*loc_som.x) - 10*((int) loc_som.x);
+        int S = loc_som.On_Boundaries;
+        J = S%(M+1);
+        I = (S-J)/(M+1);
+        np = I%nprocs;
+        k = (I-np)/nprocs;
+        printf("i = %d, j = %d et k = %d et s = %d\n",I,J,k,k*(M+1)+J);
+        printf("rank %d Sommet %d = (%.1f, %.1f, %d)\n",
+              np, s, iter_Sommet, loc_som.x, loc_som.y, loc_som.On_Boundaries);
     }
-    printf("]\n");
+    printf("---------------\n");
+    }
 
-    // --- Libérer la mémoire ---
+    // Libérer la mémoire
+    free(local_counts);
     free(sendcounts);
     free(displs);
-    free(global_data);
+    free(global_sommets);
 
     MPI_Finalize();
     return 0;

@@ -176,13 +176,13 @@
 	\begin{sol}
 		$ $\\
 		\begin{enumerate}
-			\item \begin{minipage}{17cm}
-				$q = \rho u$, $U = \begin{bmatrix}
+			\begin{minipage}{17cm}
+			\item $q = \rho u$, $U = \begin{bmatrix}
 					p \\
 					q
-				\end{bmatrix}$, $v = p/q$, $\begin{bmatrix}
+				\end{bmatrix}$, $u = q/\rho$, $\begin{bmatrix}
 				p \\
-				v
+				u
 				\end{bmatrix} \mapsto \begin{bmatrix}
 				p \\
 				\rho u = q
@@ -223,16 +223,118 @@
 				\rho_{eq} \partial_t u + \partial_x \rho = 0
 			\end{cases}$\\
 			$\partial_t \begin{bmatrix}
-				\rho\\
+				p\\
 				u
 			\end{bmatrix} + A\partial_x \begin{bmatrix}
-			\rho \\
+			p \\
 			u
 			\end{bmatrix} = 0$ avec $A= \begin{bmatrix}
 			0 & \rho_{eq}P'(\rho_{eq}) \\
 			\dfrac1{\rho_{eq}} & 0
-			\end{bmatrix}$ dont les vp sont : $\pm \sqrt{P'(\rho_{eq})}$.
-			\end{minipage}
+			\end{bmatrix}$ dont les vp sont : $\pm \sqrt{P'(\rho_{eq})} =: \pm c$.
+			
+			\vspace{.5cm}
+			
+			\item Le vecteur propre associé à $c$ est $\begin{bmatrix}
+				\rho_{eq}\\
+				1
+			\end{bmatrix}$ et celui associé à $-c$ est $\begin{bmatrix}
+			-\rho_{eq}c\\
+			1
+			\end{bmatrix}$. Ainsi :
+			\[
+				A = P_AD_AP_A^{-1}\hspace{.5cm} ,\text{avec } D_A = \begin{bmatrix}
+					c & 0\\
+					0 & -c
+				\end{bmatrix} \text{ et } \begin{bmatrix}
+				\rho_{eq} c & -\rho_{eq}c \\
+				1 & 1
+				\end{bmatrix}.
+			\]
+		\end{minipage}
+		\begin{minipage}{17cm}
+			Ainsi, puisque $P_A^{-1} = \dfrac{1}{2\rho_{eq}c}\begin{bmatrix}
+				1 & \rho_{eq} c \\
+				-1 & \rho_{eq} c
+			\end{bmatrix}$, pour $W = P_A^{-1} \begin{bmatrix}
+			P \\
+			u
+			\end{bmatrix} = \begin{bmatrix}
+			W_+\\
+			W_-
+			\end{bmatrix}$, il suit :
+			\[
+				\partial_t W + D_A \partial_x W =0.
+			\]
+			Ainsi $W_+ = \dfrac1{2\rho_{eq}c}\underbrace{\left(P+\rho_{eq}cu\right)}_{z_+}$ et $W_- = \dfrac{-1}{2\rho_{eq}c}\underbrace{\left(P-\rho_{eq}cu\right)}_{z_-}$ vérifient respectivement :
+			\[
+				\partial_t W_+ + c \partial_x W_+ = 0\;;\; \partial_t W_- - c \partial_xW_- = 0
+			\]
+			
+			\item $z_+(t,x) = z_+^0(x-ct)$ et $z_-(x,t) = z_-^0(x+ct)$. On a donc :
+			\[
+				p(t,x) = \frac12 \left(z_+ + z_-\right) = \frac12 \left[p_0(x-ct)+p_0(x+ct)\right]+\dfrac{\rho_{eq}}2\left[u_0(x-ct)-u_0(x+ct)\right]
+			\]
+			ainsi : $u(t,x) = \dfrac1{2\rho_{eq}c}(z_+-z_-) = \frac12\left[u_0(x-ct)-u_0(x+ct)\right] + \dfrac{1}{2\rho_{eq}c}\left[p_0(x-ct) - p_0(x+ct)\right]$.
+			
+			\vspace{.5cm}
+			
+			\item Linéarisation au voisinage d'un équilibre ($\rho_{eq},u_{eq}$) uniforme avec $u_{eq} \not = 0$.\\
+			D'après la question 1 : $\begin{cases}
+				\partial_t \rho + \partial_x(\rho u) = 0\\
+				\partial_t(\rho u) + (c^2-u^2)\partial_x\rho + 2u\partial_x(\rho u) = 0
+			\end{cases}$\\
+			Ainsi : $\begin{cases}
+				\partial_t \rho + u \partial_t \rho + \rho \partial_x u = 0\\
+				u \partial_t \rho + \rho \partial_tu + (x^2-u^2)\partial_x \rho + 2u^2\partial_x \rho + 2\rho u \partial_x u = 0
+			\end{cases}$\\
+			Donc $\dfrac{(2)-u\times(1)}{\rho} = \partial_t u + \dfrac{c^2}{\rho} \partial_x\rho+u\partial_x u = 0$
+			
+			Ce qui nous donne : $\partial_t \begin{bmatrix}
+				\rho \\
+				u
+			\end{bmatrix} + B \partial_x \begin{bmatrix}
+			\rho\\
+			u
+			\end{bmatrix} = 0$ avec $B = \begin{bmatrix}
+			u & \rho \\
+			\dfrac{c^2}{\rho} & u
+			\end{bmatrix}$\\
+			
+			\begin{equation}\label{eq:1lin}
+				\partial_t\rho + (u_{eq}+\cancel{\delta u})\partial_x(\delta p) + (\rho_{eq} + \cancel{\delta p})\partial_x(\delta u) = 0
+			\end{equation}
+			, et :\\
+			$\partial_t u + \dfrac{c^2}{\rho_{eq}+\delta\rho}\partial_x(\delta\rho) + (u_{eq}+\delta u)\partial_x (\delta u) = 0$.\\
+			Ce qui donne : $\partial_t u + \dfrac{c^2}{\rho_{eq}}\partial_x\rho + u_{eq}\partial_x u = 0$ linéarisé pour $\begin{bmatrix}
+				\rho \\
+				u
+			\end{bmatrix}$ : $\partial_t \begin{bmatrix}
+			\rho \\
+			u
+			\end{bmatrix} + B(\rho_{eq},u_{eq})\partial_x\begin{bmatrix}
+			\rho\\
+			u
+			\end{bmatrix}=0$\\
+			$P'(\rho_{eq})\ref{eq:1lin} :$ $\begin{cases}
+				\partial_t p = u_{eq} \partial_x p + \rho_{eq}c^2 \partial_x u =0\\
+				\partial_t u = \dfrac{c^2}{c^2\rho_{eq}}\partial_x p + u_{eq}\partial_x u = 0
+			\end{cases}$\\
+			$\partial_t \begin{bmatrix}
+				p \\
+				u
+			\end{bmatrix} + (A+u_{eq}I)\partial_x \begin{bmatrix}
+			p \\
+			u
+			\end{bmatrix} = 0$ avec $A = \begin{bmatrix}
+			0 & \rho_{eq}c^2\\
+			\dfrac1{\rho_{eq}} & 0
+			\end{bmatrix}$\\
+			$A+u_{eq} I = P_A\begin{bmatrix}
+				u_{eq}+c & 0 \\
+				0 & u_{eq}-c
+			\end{bmatrix}P_A^{-1}$ avec $p(t,x) = \dfrac12\left[p_0(x-(u_{eq}+c)t)+p_0(x-(u_{eq}-c)t)\right]++\dfrac{1}{2\rho_{eq}c}\left[u_0(x-(u_{eq}+c)t)-u_0(x-(u_{eq}-c)t)\right]$.
+		\end{minipage}
 		\end{enumerate}
 	\end{sol}
 	

@@ -5,6 +5,7 @@
 \makeatother
 
 \usepackage{prise_de_note}
+\usepackage{subcaption}
 \graphicspath{{images}}
 \begin{document}
 	\pagenumbering{gobble}
@@ -100,7 +101,11 @@
 		
 		\item  amortissement ou amplification de l'onde.
 	\end{enumerate}
-	 \includegraphics[scale=.3]{im1.png}
+	 \begin{figure}[h!]
+	 	\centering
+	 	\includegraphics[scale=.3]{im1.png}
+	 	\caption{Visualisation de la propagation d'une onde.}
+	 \end{figure}
 
 
 	\subsection{Modèles}
@@ -109,9 +114,11 @@
 	
 	Concentration $c(t,x)>0$ de polluant dans un champ de vitesse $u(t,x \in \R$, $x \in \R$ la position dans l'espace.\\
 	$\to$ \underline{flux d'advection} du polluant $F(t,x) = u(t,x)c(t,x)$.\\
-	bilan local de \underline{particules}\hspace*{.5cm} \begin{minipage}{15cm}
+	\begin{figure}[h!]
+		\centering
 		\includegraphics[scale=.3]{im2.png}
-	\end{minipage}\\
+		\caption{Bilan local de \underline{particules}}
+	\end{figure}\\
 	$c(t+\dt)\dx = c(t)\dx+F(t,x)\dt-D(x+\dx)\dt \underset{\text{sol. reg.}}\to \fbox{$\partial_t c + \partial_x D = 0.$}$\\
 	
 	Si on tient compte d'un éventuel flux de diffusion : \underline{loi de Fick :} $D_{diff} = -D\partial_x c$ ($D$ est une constante de diffusion moléculaire \fbox{$D>0$}).L'équation d'advecion diffusion est alors : 
@@ -123,9 +130,11 @@
 		\partial_t c + \mathrm{div}_{\underbrace{(x,y,z)}_{\vec x}} (uc) = \underbrace{\mathrm{div}_{\vec x}\left(D\nabla_{\vec x} c\right)}_{D\text{ indep. de } (\vec x, t) : D\Delta c}
 	\end{equation}
 	
-	\begin{minipage}{5cm}
+	\begin{figure}[h!]
+		\centering
 		\includegraphics[scale=.3]{im3.png}
-	\end{minipage} $\Omega$ élément de volume dans $\R^3$.
+		\caption{$\Omega$ élément de volume dans $\R^3$.}
+	\end{figure} 
 	
 	\[
 		c(t+\mathrm d\vec x)\mathrm{Vol}(\Omega) = c(t,\vec x)\textsc{Vol}(\Omega) - \underbrace{\int_{\partial\Omega} \left(\vec D(t,\vec y)\cdot\vec n (\vec y)\right) \mathrm d\sigma(\vec y)\dt}_{=\int_\Omega \mathrm{div}\vec D\mathrm d\vec x}
@@ -148,9 +157,11 @@
 	
 	$\to$ \underline{Corde endue de masse linéique $\rho$, tension $T$.}
 	
-	\begin{center}
+	\begin{figure}[h!]
+		\centering
 		\includegraphics[scale=.3]{im4.png}
-	\end{center}
+		\caption{Illustration d'une corde.}
+	\end{figure}
 	
 	sous hypothèse de petits déplacements et PFD (bilan de forces) :
 	\begin{equation}
@@ -193,7 +204,11 @@
 	\subsubsection{Modèle de trafic routier (LWR)}
 	LWR = Lightill, Whitham, Richards.\\
 	Route unidimensionelle $x \in \R$, temps $t>0$.\\
-	\includegraphics[scale=.5]{im5.png}\\
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=.5]{im5.png}
+		\caption{Illustration d'un trafic routier.}
+	\end{figure}
 	véhicule en file indienne le long de l'axe (sans dépassements ni jonctions).\\
 	modèle fluide : \begin{minipage}[t]{15cm}
 		$\rho(tnx)$ densité de véhicule autour de $x$,\\
@@ -215,9 +230,11 @@
 	équation de transport conservative mais non-linéaire.
 	
 	
-	\begin{center}
+	\begin{figure}[h!]
+		\centering
 		\includegraphics[scale=.3]{im6.png}
-	\end{center}
+		\caption{Illustrations.}
+	\end{figure}
 	
 	\begin{rmq}
 		si $\rho$ est solution régulière :
@@ -297,21 +314,30 @@ alors $\begin{bmatrix}
 Par intégration : $u(t,x) = \dfrac12\left[u_0(x+ct)-u_1(x-ct)\right] + \dfrac1{2c}\displaystyle\int_{x-ct}^{x+ct} u_1(y) \dy$.\\
 $u(t,x) = \left[\dfrac12 u_0(x+ct)+\dfrac1{2c}\displaystyle\int_0^{x+ct} u_1(y)\dy\right] + \left[\dfrac12u_0(x-ct)-\dfrac1{2c}\displaystyle\int_{x-ct}^{x+ct} u_1(y) \dy\right]$
 
-\begin{minipage}{7cm}
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{7cm}
 	\includegraphics[scale=.1]{im7.jpeg}
-\end{minipage}\begin{minipage}{7cm}
+\end{subfigure}\begin{subfigure}{7cm}
 \includegraphics[scale=.1]{im8.jpeg}
-\end{minipage}
+\end{subfigure}
 
-\begin{minipage}{7cm}
+\begin{subfigure}{7cm}
 	\includegraphics[scale=.1]{im9.jpeg}
-\end{minipage}\begin{minipage}{7cm}
+\end{subfigure}\begin{subfigure}{7cm}
 	\includegraphics[scale=.1]{im10.jpeg}
-\end{minipage}
+\end{subfigure}
+
+\caption{Illustrations}
+\end{figure}
+
+
 
 \newpage
 
 \section{Systèmes hyperboliques}
+
+\subsection{En dimension 1 d'espace}
 
 $U(t,x) \in \R^n$, $x \in \R$, dimension 1 d'espace.\\
 $\begin{cases}
@@ -375,11 +401,12 @@ $\begin{cases}
 			\[
 				\int_a^b \rho(t+\dt,x)\dx - \int_a^b \rho(t,x)\dx = \left[(\rho u)(t,a)-(\rho u)(t,b)\right]\dt
 			\]
-			le fluide avance de $u\dt$ pendant le temps $\dt$.\\
-			($\dt \to 0$) \fbox{$\partial_t\rho + \partial_x(\rho u) = 0$} \textcolor{red}{\underline{masse}}
+			
 		\end{minipage}
 		
 		\begin{minipage}{17cm}
+			le fluide avance de $u\dt$ pendant le temps $\dt$.\\
+			($\dt \to 0$) \fbox{$\partial_t\rho + \partial_x(\rho u) = 0$} \textcolor{red}{\underline{masse}}\\
 			Pour la qdm, les efforts de pressions interviennent dans le bilan :
 			\[
 			\begin{aligned}
@@ -391,4 +418,236 @@ $\begin{cases}
 			d'où l'EDP \fbox{$\partial_t (\rho u) + \partial_x(\rho u^2 + P) = 0$}.
 		\end{minipage}
 	\end{ex}
+	
+	\subsection{En dimension supérieure d'espace}
+	
+	$\partial_t U + \displaystyle\sum_{j=1}^d A_j \partial_{x_j} U = 0$ avec $A_j \in \R^{N \times N}$ e $x \in \R^d$ et $U(t,x) \in \R^N$.\\
+	Soit $\vec n \in \R^d$ tel que $\norme{\vec n} = 1$.
+	\[
+			U(t,x) = F(x\cdot \vec n - \lambda t) \vec R
+	\]
+	$\vec n = $ direction de propagation dans $\R^d$\\
+	$\lambda = $ vitesse réelle
+	$U$ est solution "onde plane" si  :
+	\[
+		\left(-\lambda I_n + \displaystyle\sum_{j=1}^d n_j A_j\right)F'(x\cdot \vec n - \lambda t)\vec R = \vec 0.
+	\]
+	Notons $\vec A(\vec n) = \displaystyle\sum_{j=1}^d n_j A_j$, l'équation revient à avoir : \fbox{$\vec A(\vec n) \vec R = \lambda \vec R$}.\\
+	$\lambda :$ vp de $\vec A(\vec n)$ associée au $\vec{\mathrm{vp}}$ $\vec R$.\\
+	Dans la direction $\vec n$, $\vec A(\vec n)$ admet au plus $N$ vp qui peuvent dépendre de $\vec n$ (cas d'un milieu anisotrope).\\
+	Le problème est dit hyperbolique dans la direction $\vec n \in \mathbb{S}^{d-1}$ si
+	\[
+		\vec A(\vec n) \text{ est diagonalisable sur } \R.
+	\]
+	Il est dit hyperbolique s'il l'est dans toutes les directions $\vec n \in \mathbb{S}^{d-1}$.\\
+	Si pour tout $\\vec n \in \mathbb{S}^{d-1}$ et $\vec A(\vec n) = P_0 D_0P_0^{-1} \in \mathcal M_n(\R)$, alors des solutions de l'EDP sont de la forme :
+	\[
+		\sum_{j= 1}^N F_j (x\cdot\vec n - \lambda_j t) \vec R_j,
+	\]
+	si $\vec A(\vec n) \vec R_j \lambda_j \vec R_j$ pour tout $j$.
+	
+	\begin{ex}[de l'eq. des ondes anisotropes dans $\R^2$]$ $\\
+		\begin{minipage}{17cm}
+			$\partial_t^2u-\mathrm{div}_{x,y)}\left(D\nabla_{(x,y)}u\right) = 0$, $D= \begin{bmatrix}
+				c_x^2 & 0 \\
+				0 & c_y^2
+			\end{bmatrix}$ et :
+		\end{minipage}
+		\begin{minipage}{17cm}
+			\[
+				\partial_t^2 u - \underbrace{(c_x^2\partial_x^2u+c_y^2\partial_y^2 u)}_{\text{Laplacien diagonal anisotrope}} = 0
+			\]
+			réécriture sous forme EDP d'ordre 1.\\
+			$U = \begin{bmatrix}
+				p \\
+				q \\
+				r
+			\end{bmatrix}$, $p = \partial_t u$, $q = c_x \partial_x u$ et $r = c_y \partial_y u$. Ce qui donne : $\begin{cases}
+			\partial_t p = \partial_t^2 u\\
+			c_x \partial_x q = c_x^2 \partial_x^2 u\\
+			c_y\partial_y r = c_y^2 \partial_y^2 u
+			\end{cases}$\\
+			Ainsi : $\begin{cases}
+				\partial_t p - c_x \partial_x q - c_y \partial_y r = 0\\
+				\partial_t q = c_x \partial_{tx} u = c_x \partial_x p\\
+				\partial_t r = c_y \partial_{ty} u = c_y \partial_y p
+			\end{cases}$, d'où :
+			\[
+				\partial_t U + \underbrace{\begin{bmatrix}
+					0 & -c_x & 0 \\
+					-c_x & 0 & 0 \\
+					0 & 0 & 0
+				\end{bmatrix}}_{A_1}\partial_x U + \underbrace{\begin{bmatrix}
+				0 & 0 & -c_y \\
+				0 & 0 & 0 \\
+				-c_y & 0 & 0
+			\end{bmatrix}}_{A_2}\partial_y U = 0.
+			\]
+			$\vec n \in \mathbb{S}^1$, $\vec n = (\cos \theta,\sin\theta)$, $\vec A(\vec n) = A_1\cos\theta+A_2\sin\theta$ avec :
+			\[
+				\vec A(\vec n) = \begin{bmatrix}
+					0 &-c_x \cos\theta & -c_y \sin\theta \\
+					-c_x \cos\theta & 0 & 0\\
+					-c_y\sin \theta & 0& 0
+				\end{bmatrix}
+			\]
+			$\vec A(\vec n)$ est sym. réelle don diagonalisable sur $\R$.\\
+			Pol. caractéristique :
+			\[
+				-X(X^2-\lambda^2)
+			\]
+			avec $\lambda = \pm\sqrt{c_x^2 \cos^2\theta+c_y^2 \sin^2\theta} = \lambda(\theta)$ et $\vec n = \begin{bmatrix}
+				1 \\
+				0
+			\end{bmatrix}$
+		\end{minipage}
+	\end{ex}
+	
+	\subsection{Relation de dispersion}
+	
+	\underline{Introduction :} Pour les EDP linéaires à coefficients constants, on peut déduire des solutions sous la forme :
+	($d=1$ en espace) $ u(t,x) = ae^{i(kx-\omega t)}$, avec :
+	$a$ : amplitude ($a \in \R^N$ si système de taille $N$).\\
+	$k$ : nombre d'onde (en espace)\\
+	$\omega$ : pulsation en temps.\\
+	Si $k \not= 0, \omega \not = 0$ sont réel, on a : $\lambda = \dfrac{2\pi}{\abs{k}}$ longueur d'ondes en espace, $T = 2\pi/\abs{\omega}$ période en temps.\\
+	On écrit : $i(kx-\omega t) = ik(x-v_\varphi t)$ avec $v_\varphi = \omega/k$ est ka vitesse de phase = la vitesse de propagation des oscillations en espace.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=.5]{im11.png}
+		\caption{Illustration}
+	\end{figure}
+	On a un lien algébrique à trouver \textcolor{red}{(rel. de dispertion)} entre $k$ et $\omega$, vitesse de phase $\varphi$ peut dépendre de $k$ et $\omega$ et ne pas êre la même pour les modes en espace (de $k$, de $a$ ?).
+	
+	\subsubsection{Relation de dispersion d'un système hyperbolique}
+	
+	\begin{equation}\label{eq:hyp}
+		\partial_t U + A \partial_x U = 0,
+	\end{equation}
+	avec $A$ diagonalisable sur $\R$.\\
+	$U(t,x) = e^{i(kx-\omega t)}R$, $R \in \R^N \backslash\{0\}$.\\
+	solution, si et seulement si, $-i\omega e^{i(kx-\omega t)}R + Aike^{i(kx-\omega t)} = 0$.\\
+	$(\omega I + kA) R = 0$ admet une solution no-nulle, si et seulement si, \fbox{$\mathrm{det}(-\omega I+kA) = 0$} \textcolor{red}{relation de dispersion de \eqref{eq:hyp}}.\\
+	Si $A$ admet les vp. $(\lambda_j)_{j=1,\ldots,N}$ on obtient alors ici $\omega \in \{k \lambda_j;\;j\in[\![1,N]\!]\}$. On a pour chaque solution $\omega_j=k\lambda_j$ : $v_\varphi = \dfrac{\omega_j}{k} = \lambda_j$, la vitesse caractéristique déjà rencontré. ($\lambda_j$, indép. de $k$ pour tout $j$).
+	
+	\begin{defi}$ $\\
+		\begin{minipage}{17cm}
+			L'équation $D(\omega,k) = 0$ rekuabt $\omega$ et $k$ est la relation de dispersion. Lorsqu'elle peut être résoudre sous la forme : $\omega = \omega_j(k)$, on appelle :
+			\begin{enumerate}[label=$\textbullet$]
+				\item branche de dispersion des fonction $\omega_j$
+				\item polarisation du mode $k$ est le vecteur $R_j(k)$ (ici (-$\omega_j I+k A)R_j)$
+				\item vitesse de phase du mode $k$ : $v_\varphi = \dfrac{\omega_j(k)}{k}$
+			\end{enumerate}
+		\end{minipage}
+	\end{defi}
+	De façon générale, l'EDP scalaire :
+	\begin{equation}
+		\sum_{j=1}^s \sum_{l=1}^r a_{jl}\partial_t^j \partial_x^l u = 0,
+	\end{equation}
+	admet une solution $ae^{i(kx-\omega t)}$ non-nulle, si et seulement si : $\partial_t \longrightarrow -\omega$ et $\partial_x \longrightarrow ik$.
+	\[
+		\sum_{j=1}^s\sum_{l=1}^r a_{je} (-i\omega)^j (ik)^l = 0,
+	\]
+	c'est la relation de dispersion et $\omega_j(k) , j \in [\![1,s]\!]$ branche de dispersion.
+	
+	\begin{rmq}
+		$ $\\
+		\begin{minipage}{17cm}
+			Si $\mathrm{Im}(\omega_j(k)) = \alpha \not = 0$, alors $ae^{i(kx-\mathrm{Re}\omega t)}e^{\alpha t}$\\
+			explosion si $\alpha >0$ et amortissement si $\alpha <0$ pour le terme de gauche et transport a vitesse $v_\varphi = \mathrm{Re}\omega/k$.
+		\end{minipage}
+	\end{rmq}
+	\begin{rmq}
+		$ $\\
+		\begin{minipage}{17cm}
+			\begin{enumerate}[label=\textbullet]
+				\item avec la relation de dispersion, on peut "algébriser la physique de l'équation.
+				\item  hiérarchiser des modèles de la physique à partir de développement asymptotique de leur relations ou branches de dispersion.
+			\end{enumerate}
+		\end{minipage}
+	\end{rmq}
+	
+	\begin{ex}[non-dispersif]$ $\\
+		\begin{minipage}{17cm}
+			le modèle est dit non-dispersif si $v_\varphi$ est indépendant sur chaque bande du nombre d'onde $k$.\\
+			\begin{enumerate}[label=\textbullet]
+				\item $\partial_t u + a\partial_x u = 0 \longrightarrow -i\omega + iak = 0 \iff \omega = ak :$ $v_\varphi = \dfrac{\omega}k = a$ (1 seule bande indépendante de $k$).
+				
+				\item acoustique linéarisée : $\partial_t \begin{bmatrix}
+					p\\
+					u
+				\end{bmatrix}+\begin{bmatrix}
+				u_{eq} & \rho_{eq}c^2 \\
+				1/\rho_{eq} & u_{eq}
+				\end{bmatrix}\partial_x \begin{bmatrix}
+				p \\
+				u
+				\end{bmatrix} = 0$ avec $c = \sqrt{P'(\rho_{eq})}$.
+				
+				\[
+					(-i\omega I + ik(u_{eq} I + A))R = 0, R \in \C^2
+				\]
+				\fbox{$(-\omega+ku_{eq})I+kA)=0$}, donc $\mathrm{spec}(A) = \{\pm c\}$ et on trouve donc deux branches : $\omega_+(k) = k(u_{eq}+c)$, $u_-(k) = k (u_{eq}-c)$. avec $R_+ = \begin{bmatrix}
+					\rho_{eq}\\
+					1
+				\end{bmatrix}$ et $R_- = \begin{bmatrix}
+				-\rho_{eq}c \\
+				1
+				\end{bmatrix}$.\\
+				$v_{\varphi_+} = \dfrac{\omega_+}{k} = u_{eq}+c$ et $v_{\varphi_-} = \dfrac{\omega_-}k = u_{eq}-c$, ainsi $R_+$ et $R_-$ sont indépendants de $k$.
+				
+				\item ondes 1D : $\partial_t^2 u - c^2 \partial_x^2 u = 0$.\\
+				$\rightarrow (-i\omega)^2-c^2(ik)^2 = 0$, et ainsi $-\omega^2 + c^2 k^2 = 0 \iff \omega = \omega_{\pm} (k) = \pm ck$.\\
+				On a :$v_{\varphi_+} = \dfrac{ck}{k} = c$ et $v_{\varphi_-} = \dfrac{-ck}k = -c$.
+			\end{enumerate}
+		\end{minipage}
+	\end{ex}
+	
+	\begin{ex}[Modèle dispersif de Klein-Gordon]\label{ex:klein}$ $\\
+		\begin{minipage}{17cm}
+			$\partial_t^2 u - c^2 \partial_x^2 u + \alpha^2 u = 0 $ avec $\alpha \not = 0$ et $\alpha^2 u$ est un terme dispersif.\\
+		$\omega^2 = c^2k^2+\alpha^2$, $\omega_{\pm=}(k) = \pm\sqrt{c^2k^2+\alpha^2}$ (deux branches).\\
+		Pour $\omega_+(k)$, on trouve la vitesse de phase $v_\varphi(k) = \dfrac{\sqrt{c^2k^2+\alpha^2}}{k} = \sqrt{c_0^2 + \dfrac{\alpha^2}{k^2}}$. Ainsi $v_\varphi$ dépend de $k$ $\longrightarrow$ modèle dispersif.
+		\[
+			v_{\varphi}(k) \underset{k \to + \infty}{\longrightarrow} c_0.
+		\]
+		\end{minipage}
+		\begin{minipage}{17cm}
+			\underline{Fréquence de coupure :} fixons $\omega \in \R$, le nombre d'onde $k$ vérifie : $k^2 = \dfrac{\omega^2-\alpha^2}{c^2}$, donc deux situations surviennent :
+		\begin{enumerate}[label=\textbullet]
+			\item $\abs{\omega} >\abs{\alpha}$, on a deux modes propagatifs $e^{i(kx-\omega t)}$ avec $v_\varphi = \dfrac{\omega}k \in \R$.
+			\item $\abs{\omega}  \abs{\alpha}$, $k = \pm i \sqrt{\dfrac{\alpha^2-\omega^2}{c^2}}$, on obtient un mode évanescent en espace $e^{-i\omega t}e^{ikx} = e^{-i\omega t}e^{\mp\sqrt{\frac{\alpha^2-\omega^2}{c^2}}x}$.
+		\end{enumerate}
+		\end{minipage}
+	\end{ex}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=.2]{im12.jpeg}
+		\caption{Visualisation des solutions de l'exemple \ref{ex:klein}.}
+	\end{figure}
+	
+	\subsubsection{Apparition de la vitesse de groupe}
+	
+	Considérons deux modes pour les nombres d'ondes $k_1$ et $k_2$ distincts.\\
+	$\begin{aligned}
+		u(t,x) &= \cos\left(k_1 x - \omega_1 t\right) + \cos(k_2x-\omega_2 t)\\
+		&= 2\cos\left(\dfrac{k_1-k_2}2 x - \dfrac{\omega_1-\omega_2}2 t\right)\cos\left(\dfrac{k_1+k_2}2 x - \dfrac{\omega_1+ \omega_2}2 t\right)
+	\end{aligned}$\\
+	avec $\omega_1 = \omega_j(k_1)$ et $\omega_2 = _omega_j(k_2)$ avec $j$ fixé.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=.7]{im13.png}
+		\caption{Illustration.}
+	\end{figure}
+	\underline{Viesse de goupe :} $v_g(k)$ est la vitesse de propagation de l'enveloppe de longueur d'onde $\dfrac{4\pi}{k_2-k_1}$ grande.\\
+	\underline{Vitesse de phase :} $v_{\varphi}(k)$ est la vitesse de porteuse $\cos(kx)$.\\
+	Pour une branche (ou une modèle) non dispersif, $v_\varphi = v_g$.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=.7]{im14.png}
+		\caption{Illustrations.}
+	\end{figure}
 \end{document}

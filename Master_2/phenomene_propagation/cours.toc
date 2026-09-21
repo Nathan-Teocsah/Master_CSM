@@ -4,7 +4,12 @@
 \contentsline {subsection}{\numberline {1.1}Discussion}{1}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Modèles}{1}{subsection.1.2}%
 \contentsline {subsubsection}{\numberline {1.2.1}Advection d'un polluant}{1}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Modèles d'équations d'ondes}{2}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.2}Modèles d'équations d'ondes}{3}{subsubsection.1.2.2}%
 \contentsline {subsubsection}{\numberline {1.2.3}Modèle de trafic routier (LWR)}{3}{subsubsection.1.2.3}%
-\contentsline {section}{\numberline {2}Équation des ondes 1D à vitesse $C$.}{4}{section.2}%
+\contentsline {section}{\numberline {2}Équation des ondes 1D à vitesse $C$.}{5}{section.2}%
 \contentsline {section}{\numberline {3}Systèmes hyperboliques}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}En dimension 1 d'espace}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}En dimension supérieure d'espace}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Relation de dispersion}{9}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Relation de dispersion d'un système hyperbolique}{9}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Apparition de la vitesse de groupe}{12}{subsubsection.3.3.2}%
