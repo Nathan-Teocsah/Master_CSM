@@ -119,7 +119,7 @@
 		\includegraphics[scale=.3]{im2.png}
 		\caption{Bilan local de \underline{particules}}
 	\end{figure}\\
-	$c(t+\dt)\dx = c(t)\dx+F(t,x)\dt-D(x+\dx)\dt \underset{\text{sol. reg.}}\to \fbox{$\partial_t c + \partial_x D = 0.$}$\\
+	$c(t+\dt)\dx = c(t)\dx+F(t,x)\dt-F(t,x+\dx)\dt \underset{\text{sol. reg.}}\to \fbox{$\partial_t c + \partial_x F = 0.$}$\\
 	
 	Si on tient compte d'un éventuel flux de diffusion : \underline{loi de Fick :} $D_{diff} = -D\partial_x c$ ($D$ est une constante de diffusion moléculaire \fbox{$D>0$}).L'équation d'advecion diffusion est alors : 
 	\begin{equation}
@@ -303,14 +303,14 @@ qui vérifie : \fbox{$\partial_t \varphi + D\partial_x \varphi = 0$} : découpla
 	\partial_t \varphi_- - c \partial_x \varphi_- = 0
 \end{cases}$\\
 
-$\varphi_+(t,x) = \varphi_+(0,x-ct) $, $\varphi(t,x) = \varphi_-(0,x-ct)$.\\
+$\varphi_+(t,x) = \varphi_+(0,x-ct) $, $\varphi_-(t,x) = \varphi_-(0,x-ct)$.\\
 alors $\begin{bmatrix}
 	v \\
 	w
 \end{bmatrix} = P\begin{bmatrix}
 \varphi_+\\
 \varphi_-
-\end{bmatrix} = \varphi_+ \vec{r_+} + \varphi_-\vec{r_-}$, et $w(t,x) = x\partial_x u(t,x) = \varphi_-(0,x+ct)-\varphi_-(0,x-ct) = \dfrac12\left[u_1(x+ct) - u_1(x-ct)\right]+\dfrac{c}2\left[v_0'(x+ct)+v0'(x-ct)\right]$.\\
+\end{bmatrix} = \varphi_+ \vec{r_+} + \varphi_-\vec{r_-}$, et $w(t,x) = x\partial_x u(t,x) = \varphi_-(0,x+ct)-\varphi_-(0,x-ct) = \dfrac12\left[u_1(x+ct) - u_1(x-ct)\right]+\dfrac{c}2\left[v_0'(x+ct)+v_0'(x-ct)\right]$.\\
 Par intégration : $u(t,x) = \dfrac12\left[u_0(x+ct)-u_1(x-ct)\right] + \dfrac1{2c}\displaystyle\int_{x-ct}^{x+ct} u_1(y) \dy$.\\
 $u(t,x) = \left[\dfrac12 u_0(x+ct)+\dfrac1{2c}\displaystyle\int_0^{x+ct} u_1(y)\dy\right] + \left[\dfrac12u_0(x-ct)-\dfrac1{2c}\displaystyle\int_{x-ct}^{x+ct} u_1(y) \dy\right]$
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  21 SEP 2026 16:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  22 SEP 2026 12:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2064,7 +2064,7 @@ Package pdftex.def Info: images/im14.png  used on input line 650.
 \openout7 = `cours.thm'.
 
  [12 <./images/im13.png> <./images/im14.png>]
-runsystem(latexminted cleantemp  --timestamp 20260921163520 456C7996E5729627FDD
+runsystem(latexminted cleantemp  --timestamp 20260922124454 456C7996E5729627FDD
 F96470E5E0948)...executed safely (allowed).
 
 
@@ -2099,7 +2099,7 @@ fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
 /public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm
 /lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
 
-Output written on cours.pdf (14 pages, 3007180 bytes).
+Output written on cours.pdf (14 pages, 3007172 bytes).
 PDF statistics:
  377 PDF objects out of 1000 (max. 8388607)
  274 compressed objects within 3 object streams

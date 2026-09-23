@@ -19,27 +19,35 @@ int main(int argc, char *argv[]) {
     double start_time;
 
     if (rank==0){ 
-        cout << "Nombre d'échanges : ";
+        cout << "--------- PING-PONG ---------\n";
+        cout << "Nombre d'échanges : \n" ;
         cin >> M;
-        cout << "\nNombre de d'élément dans le tableau : ";
+        cout << "Nombre d'élément dans le tableau :\n";
         cin >> N;
-        tab = (double*) malloc(N*sizeof(double));
-        MPI_Send(tab,N,MPI_DOUBLE,1,0,MPI_COMM_WORLD);
+        MPI_Send(&N,1,MPI_INT,1,0,MPI_COMM_WORLD);
+        MPI_Send(&M,1,MPI_INT,1,0,MPI_COMM_WORLD);
+    }
+    else{
+        MPI_Recv(&N,1,MPI_INT,0,0,MPI_COMM_WORLD,&status);
+        MPI_Recv(&M,1,MPI_INT,0,0,MPI_COMM_WORLD,&status);
     }
 
-    for (int i=0; i<N;i++){
-        if (rank==1){ 
+    tab = (double*) malloc(N*sizeof(double));
+
+    for (int i=0; i<M;i++){
+        if (rank==0){ 
+            start_time = MPI_Wtime();
+            MPI_Send(tab,N,MPI_DOUBLE,1,0,MPI_COMM_WORLD);
+            MPI_Recv(tab,N,MPI_DOUBLE,1,0,MPI_COMM_WORLD,&status);
+        }
+        else{
             MPI_Recv(tab,N,MPI_DOUBLE,0,0,MPI_COMM_WORLD,&status);
-            cout << "rang " << rank << " reçu info du rang " << 1 << " byte/time = " << N*sizeof(double)/(MPI_Wtime()-start_time) << endl;
             start_time = MPI_Wtime();
             MPI_Send(tab,N,MPI_DOUBLE,0,0,MPI_COMM_WORLD);
         }
-        else{
-            MPI_Recv(tab,N,MPI_DOUBLE,1,0,MPI_COMM_WORLD,&status);
-            cout << "rang " << rank << " reçu info du rang " << 1 << " byte/time = " << N*sizeof(double)/(MPI_Wtime()-start_time) << endl;
-            start_time = MPI_Wtime();
-            MPI_Send(tab,N,MPI_DOUBLE,1,0,MPI_COMM_WORLD);
-        }
+        
+        cout << "rang " << rank << " : aller-retour " << i
+             << " = " << N*sizeof(double)/(MPI_Wtime()-start_time) << " octets/s" << endl;
     }
 
     MPI_Finalize();
