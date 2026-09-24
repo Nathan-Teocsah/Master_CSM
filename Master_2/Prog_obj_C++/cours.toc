@@ -15,3 +15,5 @@
 \contentsline {subsection}{\numberline {1.13}Destructeur}{7}{subsection.1.13}%
 \contentsline {subsection}{\numberline {1.14}Pointeur this}{7}{subsection.1.14}%
 \contentsline {subsection}{\numberline {1.15}Données membres et fonctions membres statique}{7}{subsection.1.15}%
+\contentsline {subsection}{\numberline {1.16}A completer}{8}{subsection.1.16}%
+\contentsline {subsection}{\numberline {1.17}Opérateur comme fonction membre d'une classe}{8}{subsection.1.17}%

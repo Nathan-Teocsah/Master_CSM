@@ -406,5 +406,63 @@
 	
 	\textcolor{red}{\fbox{\textbf{!}}} Le pointeur "this" n'est pas accesssible dans une fonction membre déclarée static.
 	
+	\newpage
+	
+	\subsection{A completer}
+	
+	\subsection{Opérateur comme fonction membre d'une classe}
+	
+	\begin{lstlisting}[language=C++,caption=Prototype générique.]
+		type operateur op(); //unaire
+		type1 operateur1 op(type2); // binaire
+	\end{lstlisting}
+	
+	L'opérande de gauche est l'objet qu invoque l'opérateur, et l'opérande de droite est l'opérateur reçu en argument.
+	
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{c|c|c}
+		opérateur & fonction externe & fonction d'une classe \\
+		\hline
+		\hline
+		op A (unaire) & opertor op(A) & A.opertor op()\\
+		\hline
+		A op B & operator op(A,B) & A.operator op(B)
+	\end{tabular}
+	\caption{Résumé.}
+	\end{table}
+	
+	Dans une classe $C$ :
+	\begin{lstlisting}[language=C++]
+		type1 operator +(type2);
+	\end{lstlisting}
+	on a : $\overbrace{A+B}^{\text{type1}}$ et $\mathrm{type}(A) = C$, $\mathrm{type}(B) = type2$
+	
+	\begin{exo}
+		Réécrire la classe Complexe.
+		
+		\begin{minipage}{17cm}
+			\begin{enumerate}[label=$\to$]
+				\item liste d'initialisation pour les constructeurs 
+				\item tracer les constructeurs (y compris par copie) et destructeur et par défaut.
+				\item Fonction \textit{get} pour parties réelle et imaginaire
+				\item Déclaration \textit{const} des fonctions 
+				\item opérateur + et +=.
+			\end{enumerate}
+		\end{minipage}		
+	\end{exo}
+	\begin{sol}
+		$ $\\
+		\begin{minipage}{17cm}
+			\begin{lstlisting}[language=C++]
+				class Complexe{
+					private:
+						double re, im;
+				}
+			\end{lstlisting}
+		\end{minipage}
+	\end{sol}
+	
+	
 	
 \end{document}
