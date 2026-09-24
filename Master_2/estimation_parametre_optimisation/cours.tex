@@ -384,12 +384,12 @@
 			\begin{enumerate}[label=\textbullet]
 				\item  $f$ est quasi-concave sur $\R^n$, si :
 				\begin{equation}
-					f(\theta x+(1-\theta)y) \geq \max(f(x),f(y))
+					f(\theta x+(1-\theta)y) \geq \min(f(x),f(y))
 				\end{equation}
 				
 				\item  $f$ est quasi-convexe sur $\R^n$ si $\forall x,y\in \R^n$, $\forall \theta \in [0,1]$,
 				\begin{equation}
-					f(\theta x + (1-_thea) y) \leq \max(f(),f(y))
+					f(\theta x + (1-\theta) y) \leq \max(f(x),f(y))
 				\end{equation}
 			\end{enumerate}
 		\end{minipage}
@@ -417,12 +417,12 @@
 	
 	\begin{thm}
 		\begin{minipage}[t]{15cm}
-			Soit $f$ une fonction de classe $\mathcal C^1$ sur $\R^n$. La fonction $f$ est quasi-concave, si et seulement si, $\forall x,y \in \R^n$, si $f(y) \geq f(x)$, alors $\left<\nabla f(x),\nabla f(y)\right> \geq 0$.
+			Soit $f$ une fonction de classe $\mathcal C^1$ sur $\R^n$. La fonction $f$ est quasi-concave, si et seulement si, $\forall x,y \in \R^n$, si $f(y) \geq f(x)$, alors $\left<\nabla f(x),y-x\right> \geq 0$.
 		\end{minipage}
 	\end{thm}
 	
 	\begin{prop}[conjugaison]$ $\\
-		\[z\in \partial f(x) \iff x \in \partial f*(z) \]
+		\[z\in \partial f(x) \iff x \in \partial f^\star(z) \]
 	\end{prop}
 	\begin{dem}
 		$ $\\

@@ -110,15 +110,25 @@
 				\newpage
 				\begin{minipage}{17cm}
 				\item Pour tout $p \in 2\N^\star$, $f$ est convexe et n'est pas concave ni quasi-concave. Soit $p \in 2\N+1$. $f_p$ est donc strictement croissante, donc quasi-concave, elle n'est ni concave ni convexe ni quasi convexe.
-				
+				\item 
+				\item $\nabla f(x,y) = \begin{bmatrix}
+					y\\
+					x
+				\end{bmatrix}$ et ainsi $\nabla^2 f(x,y) = \begin{bmatrix}
+				0 & 1 \\
+				1 & 0
+				\end{bmatrix}$, donc $f$ n'est ni convexe ni concave car les valeurs propres de la hessienne sont 1 et -1 indépendamment de $x$ et $y$.
 				\end{minipage}
 			\end{enumerate}
 	\end{sol}
 	
 	\begin{sol}
 		$ $\\
+		
 		\begin{minipage}{17cm}
-			Supposons par l'absurde que $\mathcal S =  \emptyset$ et $g \not \in C$. 
+			On remarque que $C$ est un convexe fermé (c'est même un cône fermé).\\
+			Supposons que $g \not\in C$ et montrons que $\mathcal{S}$ est non vide.
+			D'après l'exo 3 il existe $y$ tel que $C \subset H_y^+$ et $g \in \mathrm{int}(H_y^-)$. 
 		\end{minipage} 
 	\end{sol}
 \end{document}

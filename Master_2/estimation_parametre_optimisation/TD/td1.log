@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  18 SEP 2026 14:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  24 SEP 2026 09:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1778,7 +1778,7 @@ Overfull \hbox (155.92152pt too wide) in paragraph at lines 105--110
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 1
 12.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd)
-Overfull \hbox (155.92152pt too wide) in paragraph at lines 111--115
+Overfull \hbox (155.92152pt too wide) in paragraph at lines 111--122
 []$[]$ 
  []
 
@@ -1787,17 +1787,22 @@ cal/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texliv
 e/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2025/texmf-d
 ist/fonts/enc/dvips/lm/lm-mathex.enc}]
 Package marginnote Info: Using workaround for absolute page number on input lin
-e 116.
+e 123.
 
-Overfull \hbox (126.54683pt too wide) in paragraph at lines 119--123
-[]$ 
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
+
+ []
+
+
+Overfull \hbox (144.17165pt too wide) in paragraph at lines 128--133
+[]$[]$ 
  []
 
 \tf@thm=\write6
 \openout6 = `td1.thm'.
 
 [2]
-runsystem(latexminted cleantemp  --timestamp 20260918144850 76F1FDB0F9406D59248
+runsystem(latexminted cleantemp  --timestamp 20260924092951 76F1FDB0F9406D59248
 4015F467D1941)...executed safely (allowed).
 
  (./td1.aux)
@@ -1809,13 +1814,13 @@ Package rerunfilecheck Info: File `td1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 54007 strings out of 467538
- 1276605 string characters out of 5419551
- 1972858 words of memory out of 5000000
- 82025 multiletter control sequences out of 15000+600000
+ 54008 strings out of 467538
+ 1276606 string characters out of 5419551
+ 1974858 words of memory out of 5000000
+ 82024 multiletter control sequences out of 15000+600000
  683897 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,9n,131p,864b,697s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,11n,131p,864b,697s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
 cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texli
@@ -1828,10 +1833,10 @@ r/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/te
 xlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025
 /texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist
 /fonts/type1/public/lm/lmsy8.pfb>
-Output written on td1.pdf (3 pages, 223837 bytes).
+Output written on td1.pdf (3 pages, 225369 bytes).
 PDF statistics:
- 153 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
+ 155 PDF objects out of 1000 (max. 8388607)
+ 97 compressed objects within 1 object stream
+ 21 named destinations out of 1000 (max. 500000)
  162 words of extra memory for PDF output out of 10000 (max. 10000000)
 
