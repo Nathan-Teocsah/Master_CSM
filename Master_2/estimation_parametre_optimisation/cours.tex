@@ -435,4 +435,125 @@
 			&\iff& x \in \partial f^\star(z)
 		\end{aligned}$
 	\end{dem}
+	
+	\section{Complément de cours}
+	
+	Soit $H$ un espace de Hilbert et $J : H \to \R \cup\{+\infty\}$.
+	
+	\begin{thm}
+		$ $\\
+		\begin{minipage}{17cm}
+			Supposons que $J$ est une fonction convexe. Les deux propositions suivantes sont équivalentes :
+			\begin{enumerate}
+				\item $\overset{\circ}{\mathrm{dom}(J)} \not = \emptyset$ et $J$ est continue sur $\overset{\circ}{\mathrm{dom}(J)}$.
+				\item Il existe un ouvert $\Omega \not= \emptyset$ tel que la fonction $J$ est majorée par une constante finie (dans le domaine $\Omega$) et $J$ ne vaut pas $-\infty$.
+			\end{enumerate}
+		\end{minipage}
+	\end{thm}
+	
+	\begin{cor}
+		$ $\\
+		\begin{minipage}{17cm}
+			Si $H$ est de dimension finie et $J$ est un convexe. Alors $J$ est continue dans $\overset{\circ}{\mathrm{dom}(J)}$.
+		\end{minipage}
+	\end{cor}
+	
+	\begin{prop}
+		$ $\\
+		
+		\begin{minipage}{17cm}
+		Soient $J$ une fonction convexe et $x \in \mathrm{dom}(J)$.\\ Alors $\lim_{\varepsilon\to 0^+} \dfrac{J(x+\varepsilon y)-J(x)}\varepsilon$ existe pour tout $y \in H$.
+		\end{minipage}
+	\end{prop}
+	
+	\begin{defi}
+		$ $
+		
+		\begin{minipage}{17cm}
+			On dit que la fonction $J$ est Gâteau-différentiable (G-diff) en un point $x \in \mathrm{dom}(J)$ si la dérivée direct $J'(x).y = \lim_{\varepsilon\to 0^+}  \dfrac{J(x+\varepsilon y)-J(x)}\varepsilon$ existe pour tout $y \in H$ et si l'application $J'(x)  H \longrightarrow\R$ est linéaire continue sur $H$.
+		\end{minipage}
+	\end{defi}
+	
+	\begin{rmq}
+		$ $
+		
+		\begin{minipage}[t]{17cm}
+			\begin{enumerate}
+				\item G-diff $\not\implies$ continuité (par ex : $J(x,y) = \begin{cases}
+					1 & \text{si } y=x^2\\
+					0 & \text{sinon}
+				\end{cases}$)
+				
+				\item F-diff $\implies$ G-diff
+				
+				\item D'après la représentation de Riesz-Frechet on a : $J'(x).y = \left<\nabla J(x),y\right>$ (gradient de $J$ en $x$).
+				
+				\item Si $J$ est G-diff en un point $x$ et $D J(x) \not=\emptyset$ alors $D J(x) = \{\nabla J(x)\}$
+			\end{enumerate}
+		\end{minipage}
+	\end{rmq}
+	
+	\begin{ex}
+		$H = \mathrm{L}^2(\Omega)$.
+		
+		\begin{minipage}{17cm}
+			$J(f) = \frac12\displaystyle\int_\Omega \abs{f(x)}^2\dx$\\
+			$\dfrac{J(f+\varepsilon g)-J(f)}{\varepsilon} =\displaystyle \frac1{2\varepsilon}\left(2\varepsilon\int_\Omega f(x)g(x)\dx +\varepsilon^2\int_\Omega\abs{g(x)}^2\dx\right) \underset{\varepsilon \to 0}\longrightarrow \int_\Omega f(x)g(x)\dx = \left<f,g\right>_{\mathrm{L^2(\Omega)}}$\\
+			$\nabla J(f) = f$.\\
+			
+		\end{minipage}
+	\end{ex}
+	
+	\begin{defi}
+		\begin{minipage}[t]{15cm}
+			Soit $J : H \longrightarrow \R\cup\{+\infty\}$.\\
+			$J$ est semi-continue inf. (sci.), si et seulement si, pour tout $x \in H$,\\ $J(x) \leq \liminf_{y \to x} J(y)$ (avec $\liminf = \sup_{\varepsilon>0}\inf_{\abs{y-x} < \varepsilon} $). ce qui est équivalent à : pour tout $(x_k)$ qui converge vers $x$ on a $J(x) \leq \lim_{k \to + \infty}\inf_{i \geq k} J(x_i)$.
+		\end{minipage}
+	\end{defi}
+	
+	\begin{prop}
+		\begin{minipage}[t]{15cm}
+			$J$ est sci., si et seulement si, $\mathrm{epi}(J)$ est fermé.
+		\end{minipage}
+	\end{prop}
+	
+	\section{Problème d'optimisation}
+	
+	Soient $F: H \longrightarrow\R\cup\{+\infty\}$.\\
+	
+	$(P_0) \begin{cases}
+		F(u^\alpha) = \inf_{u \in K}F(u)
+	\end{cases}$
+	
+	\begin{thm}
+		\begin{minipage}[t]{15.5cm}
+			Supposons que $F$ est convexe sci. et $K=H$. Alors $u^\star$ est une solution de $P_0$, si et seulement si, $0 \in DF(u^\star)$.
+		\end{minipage}
+	\end{thm}
+	
+	\begin{thm}
+		\begin{minipage}[t]{15.5cm}
+			Supposons que $F$ est sci. et $K$ un ensemble compact. Alors $(P_0)$ admet au moins une solution dans $K$.\\
+			Supposons $H$ de dimension finie, $K$ un sous-ensemble convexe fermé et $F$ propre, convexe et sci. Alors si $\overset{\circ}{K}\cap\overset{\circ}{\mathrm{dom}(F)} \not=\emptyset$, on a : $0 \in DF(u^\star)+N_K(u^\star)$, si et seulement si $u^\star$ est une solution de $(P_0)$.\\
+			Autrement il existe $\tilde{u} \in H$ tel que $-\tilde u \in DF(u^\star)$, $\left<\tilde u, v-u^\star\right> \leq 0$ pour tout $v \in K$.
+		\end{minipage}
+	\end{thm}
+	
+	Par conséquent si $F$ est G-diffalors $0 \in DF(u^\star) \iff \nabla F(u^\star) = 0$ et $0 \in DF(u^\star) + N_K(u^\star) \iff 0 \in \nabla F(u^\star)-N_K(u^\star) \iff \left< -\nabla F(u^\star),v-u^\star\right> \leq 0$ pour tout $v \in K$.
+	
+	\begin{thm}
+		\begin{minipage}[t]{15.5cm}
+			Supposons que $H$ soit de dimension finie, $K$ un convexe fermé et $F$ (resp. strictement) convexe sci., coercive avec $\mathrm{dom}(F)\cap K \not = \emptyset$. Alors $(P_0)$ admet au moins une solution (resp. unique).
+		\end{minipage}
+	\end{thm}
+	
+	\begin{thm}
+		\begin{minipage}[t]{15.5cm}
+			Supposons $K$ est convexe et que $F$ est G-diff en un point$u^\star$solution de $(P_0)$, alors $\left<\nabla F(u^\star),v-u^\star\right> \geq 0$ pour tout $v \in H$. Et inversement si $F$ est de plus convexe sur le convexe $K$ et l'inégalité précédente est vérifiée en un point $u^\star$, alors $u^\star$ est solution du problème $(P_0)$.
+		\end{minipage}
+	\end{thm}
+	
+	\section{Problème avec contrainte d'inégalité et d'égalité}
+	
+	On considère le problème $\inf_{x\in K} f_0(x)$ (di primal) avec $K = K_1\cap K_2$ où $K_1 = \left\{x \in \bigcap_{i=0}^m \mathrm{dom}(f_i),\;f_i(x) \leq 0\right\}$ et $K_2 = \left\{x\in \bigcap_{j=1}^{p}\mathrm{dom}(h_j),\; h_j(x) = 0\right\}$.
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  22 SEP 2026 12:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  28 SEP 2026 15:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1663,8 +1663,8 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-</home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg, id=99, 1204.5pt x 612.28
-75pt>
+</home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg, id=103, 1204.5pt x 612.2
+875pt>
 File: /home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg Graphic file (type j
 pg)
 <use /home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg>
@@ -1765,7 +1765,7 @@ Overfull \hbox (137.57222pt too wide) in paragraph at lines 76--91
 [][][] 
  []
 
-<images/im1.png, id=127, 594.22pt x 285.065pt>
+<images/im1.png, id=132, 594.22pt x 285.065pt>
 File: images/im1.png Graphic file (type png)
 <use images/im1.png>
 Package pdftex.def Info: images/im1.png  used on input line 106.
@@ -1773,7 +1773,7 @@ Package pdftex.def Info: images/im1.png  used on input line 106.
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 1
 15.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd)
-<images/im2.png, id=129, 465.74pt x 161.60374pt>
+<images/im2.png, id=134, 465.74pt x 161.60374pt>
 File: images/im2.png Graphic file (type png)
 <use images/im2.png>
 Package pdftex.def Info: images/im2.png  used on input line 119.
@@ -1791,7 +1791,7 @@ cal/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/20
 25/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./images/im1.png>]
 Package marginnote Info: Using workaround for absolute page number on input lin
 e 123.
-<images/im3.png, id=152, 465.74pt x 262.9825pt>
+<images/im3.png, id=157, 465.74pt x 262.9825pt>
 File: images/im3.png Graphic file (type png)
 <use images/im3.png>
 Package pdftex.def Info: images/im3.png  used on input line 135.
@@ -1801,7 +1801,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--153
 
  []
 
-<images/im4.png, id=153, 1007.765pt x 191.71625pt>
+<images/im4.png, id=158, 1007.765pt x 191.71625pt>
 File: images/im4.png Graphic file (type png)
 <use images/im4.png>
 Package pdftex.def Info: images/im4.png  used on input line 162.
@@ -1812,7 +1812,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 169--171
 
  []
 
-<images/im5.png, id=171, 678.535pt x 151.56625pt>
+<images/im5.png, id=176, 678.535pt x 151.56625pt>
 File: images/im5.png Graphic file (type png)
 <use images/im5.png>
 Package pdftex.def Info: images/im5.png  used on input line 209.
@@ -1821,7 +1821,7 @@ Package pdftex.def Info: images/im5.png  used on input line 209.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3 <./images/im4.png>]
-<images/im6.png, id=181, 639.38875pt x 378.41376pt>
+<images/im6.png, id=187, 639.38875pt x 378.41376pt>
 File: images/im6.png Graphic file (type png)
 <use images/im6.png>
 Package pdftex.def Info: images/im6.png  used on input line 235.
@@ -1871,7 +1871,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 301--305
 
  []
 
-<images/im7.jpeg, id=197, 2007.5pt x 1505.625pt>
+<images/im7.jpeg, id=202, 2007.5pt x 1505.625pt>
 File: images/im7.jpeg Graphic file (type jpg)
 <use images/im7.jpeg>
 Package pdftex.def Info: images/im7.jpeg  used on input line 320.
@@ -1881,7 +1881,7 @@ Overfull \hbox (1.59247pt too wide) in paragraph at lines 320--321
 [][] 
  []
 
-<images/im8.jpeg, id=198, 2007.5pt x 1505.625pt>
+<images/im8.jpeg, id=203, 2007.5pt x 1505.625pt>
 File: images/im8.jpeg Graphic file (type jpg)
 <use images/im8.jpeg>
 Package pdftex.def Info: images/im8.jpeg  used on input line 322.
@@ -1891,7 +1891,7 @@ Overfull \hbox (1.59247pt too wide) in paragraph at lines 322--323
 [][] 
  []
 
-<images/im9.jpeg, id=199, 2007.5pt x 1505.625pt>
+<images/im9.jpeg, id=204, 2007.5pt x 1505.625pt>
 File: images/im9.jpeg Graphic file (type jpg)
 <use images/im9.jpeg>
 Package pdftex.def Info: images/im9.jpeg  used on input line 326.
@@ -1901,7 +1901,7 @@ Overfull \hbox (1.59247pt too wide) in paragraph at lines 326--327
 [][] 
  []
 
-<images/im10.jpeg, id=200, 2007.5pt x 1505.625pt>
+<images/im10.jpeg, id=205, 2007.5pt x 1505.625pt>
 File: images/im10.jpeg Graphic file (type jpg)
 <use images/im10.jpeg>
 Package pdftex.def Info: images/im10.jpeg  used on input line 328.
@@ -1927,182 +1927,190 @@ Overfull \hbox (145.27325pt too wide) in paragraph at lines 349--352
  []
 
 Package hyperref Info: bookmark level for unknown prop defaults to 0 on input l
-ine 355.
+ine 357.
 
-Overfull \hbox (155.20224pt too wide) in paragraph at lines 355--358
+Overfull \hbox (155.20224pt too wide) in paragraph at lines 357--360
 [][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--363
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
 
  []
 
 
-Overfull \hbox (137.57222pt too wide) in paragraph at lines 361--376
+Overfull \hbox (137.57222pt too wide) in paragraph at lines 365--380
 [][][] 
- []
-
-
-Underfull \vbox (badness 1248) detected at line 376
- []
-
-
-Overfull \vbox (7.6181pt too high) detected at line 376
  []
 
 [6 <./images/im7.jpeg> <./images/im8.jpeg> <./images/im9.jpeg> <./images/im10.j
 peg>]
-Overfull \hbox (126.54683pt too wide) in paragraph at lines 395--406
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 399--410
 [] 
  []
 
 
-Overfull \hbox (144.17165pt too wide) in paragraph at lines 407--420
+Overfull \hbox (144.17165pt too wide) in paragraph at lines 411--424
 []$[]$ 
  []
 
 [7]
-Overfull \hbox (126.54683pt too wide) in paragraph at lines 449--504
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 453--510
 []$
  []
 
 
-Overfull \hbox (126.54683pt too wide) in paragraph at lines 449--504
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 453--510
+[]$
+ []
+
+
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 453--510
 []$ 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 504
- []
-
-
-Overfull \vbox (47.98837pt too high) detected at line 504
  []
 
 [8]
-<images/im11.png, id=227, 590.205pt x 428.60126pt>
+<images/im11.png, id=232, 590.205pt x 428.60126pt>
 File: images/im11.png Graphic file (type png)
 <use images/im11.png>
-Package pdftex.def Info: images/im11.png  used on input line 518.
+Package pdftex.def Info: images/im11.png  used on input line 524.
 (pdftex.def)             Requested size: 295.10178pt x 214.3001pt.
- [9 <./images/im11.png>]
-
-LaTeX Warning: Command \textbullet invalid in math mode on input line 538.
 
 
-LaTeX Warning: Command \textbullet invalid in math mode on input line 538.
+LaTeX Warning: Command \textbullet invalid in math mode on input line 544.
 
 
-LaTeX Warning: Command \textbullet invalid in math mode on input line 539.
+LaTeX Warning: Command \textbullet invalid in math mode on input line 544.
 
 
-LaTeX Warning: Command \textbullet invalid in math mode on input line 539.
+LaTeX Warning: Command \textbullet invalid in math mode on input line 545.
 
 
-LaTeX Warning: Command \textbullet invalid in math mode on input line 540.
+LaTeX Warning: Command \textbullet invalid in math mode on input line 545.
 
 
-LaTeX Warning: Command \textbullet invalid in math mode on input line 540.
+LaTeX Warning: Command \textbullet invalid in math mode on input line 546.
 
 
-Overfull \hbox (126.54683pt too wide) in paragraph at lines 534--543
+LaTeX Warning: Command \textbullet invalid in math mode on input line 546.
+
+
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 540--549
 []$ 
  []
 
 
-Overfull \hbox (126.54683pt too wide) in paragraph at lines 555--560
+Overfull \vbox (37.427pt too high) detected at line 549
+ []
+
+[9 <./images/im11.png>]
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 561--566
 []$ 
  []
 
 
-Overfull \hbox (126.54683pt too wide) in paragraph at lines 562--569
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 568--575
 []$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 573--574
-
- []
-
-
-Overfull \hbox (126.54683pt too wide) in paragraph at lines 571--605
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 577--581
 []$ 
  []
 
 
-Overfull \vbox (122.85402pt too high) detected at line 605
+Overfull \hbox (155.92152pt too wide) in paragraph at lines 583--602
+[]$[]$ 
+ []
+
+
+Overfull \hbox (155.92152pt too wide) in paragraph at lines 603--619
+[]$[]$ 
  []
 
 [10]
-Overfull \hbox (126.54683pt too wide) in paragraph at lines 607--623
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 623--639
 []$
  []
 
 
-Overfull \hbox (126.54683pt too wide) in paragraph at lines 607--623
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 623--639
 []$ 
  []
 
-<images/im12.jpeg, id=254, 1505.625pt x 2007.5pt>
+<images/im12.jpeg, id=259, 1505.625pt x 2007.5pt>
 File: images/im12.jpeg Graphic file (type jpg)
 <use images/im12.jpeg>
-Package pdftex.def Info: images/im12.jpeg  used on input line 626.
-(pdftex.def)             Requested size: 301.11966pt x 401.49289pt.
-[11 <./images/im12.jpeg>]
-<images/im13.png, id=266, 538.01pt x 262.9825pt>
+Package pdftex.def Info: images/im12.jpeg  used on input line 642.
+(pdftex.def)             Requested size: 195.73811pt x 260.98416pt.
+<images/im13.png, id=262, 538.01pt x 262.9825pt>
 File: images/im13.png Graphic file (type png)
 <use images/im13.png>
-Package pdftex.def Info: images/im13.png  used on input line 641.
+Package pdftex.def Info: images/im13.png  used on input line 658.
 (pdftex.def)             Requested size: 376.60443pt x 184.08649pt.
-<images/im14.png, id=267, 458.71375pt x 369.38pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/im14.png, id=263, 458.71375pt x 369.38pt>
 File: images/im14.png Graphic file (type png)
 <use images/im14.png>
-Package pdftex.def Info: images/im14.png  used on input line 650.
+Package pdftex.def Info: images/im14.png  used on input line 667.
 (pdftex.def)             Requested size: 321.09743pt x 258.56422pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11 <./images/im12.jpeg>]
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 680--692
+[]$ 
+ []
+
+
+Overfull \vbox (60.31825pt too high) detected at line 692
+ []
+
+[12 <./images/im13.png> <./images/im14.png>]
 \tf@thm=\write7
 \openout7 = `cours.thm'.
 
- [12 <./images/im13.png> <./images/im14.png>]
-runsystem(latexminted cleantemp  --timestamp 20260922124454 456C7996E5729627FDD
+ [13]
+runsystem(latexminted cleantemp  --timestamp 20260928150541 456C7996E5729627FDD
 F96470E5E0948)...executed safely (allowed).
 
-
-(./cours.aux)
+ (./cours.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `cours.out' has not changed.
-(rerunfilecheck)             Checksum: A5386BB06B53E52929AD66FC7788D87C;2818.
+(rerunfilecheck)             Checksum: FB757AC73458E389FACCF9BBBF029F17;2929.
  ) 
 Here is how much of TeX's memory you used:
- 54483 strings out of 467538
- 1285082 string characters out of 5419551
+ 54489 strings out of 467538
+ 1285160 string characters out of 5419551
  1987124 words of memory out of 5000000
- 82415 multiletter control sequences out of 15000+600000
+ 82418 multiletter control sequences out of 15000+600000
  723260 words of font info for 114 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,17n,131p,866b,706s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
-b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
-cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive
-/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/tex
-mf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fo
-nts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
-public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/l
-mmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></
-usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/te
-xlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/t
-exmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/
-fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
-/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm
-/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-
-Output written on cours.pdf (14 pages, 3007172 bytes).
+b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb
+></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/loc
+al/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/
+2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/texm
+f-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fon
+ts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/p
+ublic/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lm
+mi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/tex
+live/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/f
+onts/type1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/
+lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
+Output written on cours.pdf (15 pages, 3014796 bytes).
 PDF statistics:
- 377 PDF objects out of 1000 (max. 8388607)
- 274 compressed objects within 3 object streams
- 85 named destinations out of 1000 (max. 500000)
- 344 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 392 PDF objects out of 1000 (max. 8388607)
+ 286 compressed objects within 3 object streams
+ 88 named destinations out of 1000 (max. 500000)
+ 352 words of extra memory for PDF output out of 10000 (max. 10000000)
 

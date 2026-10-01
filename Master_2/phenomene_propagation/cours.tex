@@ -351,11 +351,15 @@ $\begin{cases}
 	\end{minipage}
 \end{defi}
 
+\vspace{-.5cm}
+
 \begin{prop}
 	\begin{minipage}[t]{15cm}
 		Le problème es ben posé, ie. admet une unique solution qui dépend "continuement" de $U_0$, si et seulement si, il est hyperbolique. 
 	\end{minipage}
 \end{prop}
+
+\vspace{-.5cm}
 
 \begin{ex}
 	\begin{minipage}[t]{15cm}
@@ -496,6 +500,8 @@ $\begin{cases}
 			\[
 				-X(X^2-\lambda^2)
 			\]
+		\end{minipage}
+		\begin{minipage}{17cm}
 			avec $\lambda = \pm\sqrt{c_x^2 \cos^2\theta+c_y^2 \sin^2\theta} = \lambda(\theta)$ et $\vec n = \begin{bmatrix}
 				1 \\
 				0
@@ -570,8 +576,11 @@ $\begin{cases}
 	
 	\begin{ex}[non-dispersif]$ $\\
 		\begin{minipage}{17cm}
-			le modèle est dit non-dispersif si $v_\varphi$ est indépendant sur chaque bande du nombre d'onde $k$.\\
+			le modèle est dit non-dispersif si $v_\varphi$ est indépendant sur chaque bande du nombre d'onde $k$.
+		\end{minipage}
+		
 			\begin{enumerate}[label=\textbullet]
+				\begin{minipage}{17cm}
 				\item $\partial_t u + a\partial_x u = 0 \longrightarrow -i\omega + iak = 0 \iff \omega = ak :$ $v_\varphi = \dfrac{\omega}k = a$ (1 seule bande indépendante de $k$).
 				
 				\item acoustique linéarisée : $\partial_t \begin{bmatrix}
@@ -588,7 +597,12 @@ $\begin{cases}
 				\[
 					(-i\omega I + ik(u_{eq} I + A))R = 0, R \in \C^2
 				\]
-				\fbox{$(-\omega+ku_{eq})I+kA)=0$}, donc $\mathrm{spec}(A) = \{\pm c\}$ et on trouve donc deux branches : $\omega_+(k) = k(u_{eq}+c)$, $u_-(k) = k (u_{eq}-c)$. avec $R_+ = \begin{bmatrix}
+				\fbox{$(-\omega+ku_{eq})I+kA)=0$}, donc $\mathrm{spec}(A) = \{\pm c\}$ et on trouve donc deux branches : 
+			\end{minipage}
+			
+			\begin{minipage}{17cm}
+				
+				$\omega_+(k) = k(u_{eq}+c)$, $u_-(k) = k (u_{eq}-c)$. avec $R_+ = \begin{bmatrix}
 					\rho_{eq}\\
 					1
 				\end{bmatrix}$ et $R_- = \begin{bmatrix}
@@ -600,8 +614,10 @@ $\begin{cases}
 				\item ondes 1D : $\partial_t^2 u - c^2 \partial_x^2 u = 0$.\\
 				$\rightarrow (-i\omega)^2-c^2(ik)^2 = 0$, et ainsi $-\omega^2 + c^2 k^2 = 0 \iff \omega = \omega_{\pm} (k) = \pm ck$.\\
 				On a :$v_{\varphi_+} = \dfrac{ck}{k} = c$ et $v_{\varphi_-} = \dfrac{-ck}k = -c$.
+				
+			\end{minipage}
 			\end{enumerate}
-		\end{minipage}
+		
 	\end{ex}
 	
 	\begin{ex}[Modèle dispersif de Klein-Gordon]\label{ex:klein}$ $\\
@@ -623,9 +639,10 @@ $\begin{cases}
 	\end{ex}
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[scale=.2]{im12.jpeg}
+		\includegraphics[scale=.13]{im12.jpeg}
 		\caption{Visualisation des solutions de l'exemple \ref{ex:klein}.}
 	\end{figure}
+
 	
 	\subsubsection{Apparition de la vitesse de groupe}
 	
@@ -650,4 +667,27 @@ $\begin{cases}
 		\includegraphics[scale=.7]{im14.png}
 		\caption{Illustrations.}
 	\end{figure}
+	
+	\subsection{Complément}
+	
+	Ansatz onde harmonique $e^{i(kx-\omega t)}\mathcal R$ : objet théorique, non-localisé en $x$.\\
+	Réalité : donnée, localisées en espace.\\
+	$x\mapsto U_0(x)$ donnée initiale $\underset{Fourier}\longrightarrow \hat{U}_0(k) = \dfrac1{2\pi}\displaystyle\int_\R e^{-ikx} U_0(x)\dx$.
+	
+	Solution de l'EDP : $\hat u(t,k) = \dfrac1{2\pi}\int_\R e^{-ikx}u(t,x)\dx$.
+	
+	\begin{ex}
+		$ $\\
+		\begin{minipage}{17cm}
+			$\partial_t u + A\partial_x u = 0$\\
+			$\partial_t \hat u (t,k) + ik A\hat u(t,k) = 0$\\
+			$\hookrightarrow$ $\hat u(t,k) = \exp(-ikA)\hat u_0(k) \underset{Fourier}\longrightarrow u(t,x) = \displaystyle\int_\R e^{ikx} e^{-ikA}\hat u_0(k) \mathrm{d}k$.
+			
+			\underline{\underline{Si $\omega(k) = kc$ :}} $\displaystyle\int_\R \hat u_0 (k)e^{ik(x-ct)}\mathrm dk = u_0(x-ct)$.\\
+			\underline{\underline{Sinon :}} (cas dispersif) Soit $k_0 \in \R$ un nombre d'onde duquel $\hat u_0$ est localisé.\\
+			$\omega(k_0+k) = \omega(k_0) + k\omega'(k_0) +\dfrac{k^2}2 \omega''(k_0) +\cdots$. (Taylor)\\
+			$u(t,x) = \dfrac1{2\pi}\displaystyle\int_\R \hat u_0(k_0+k)e^{i(k_0 x - \omega(k_0)t)}e^{ikx-ik\omega_0't}e^{-\frac{i}2\omega_0'' k^2t +\cdots}\mathrm{d}k$\\
+			$u(t,x) = e^{ik_0(x-v_\varphi(k_0)t)}\displaystyle\int_\R\hat u_0(k_0+k) e^{ik(x-\omega_0' t)}e^{-\frac{i}2\omega_0'' k^2\cdots}$
+		\end{minipage}
+	\end{ex}
 \end{document}

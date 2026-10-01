@@ -12,4 +12,5 @@
 \contentsline {subsection}{\numberline {3.2}En dimension supérieure d'espace}{7}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Relation de dispersion}{9}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Relation de dispersion d'un système hyperbolique}{9}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Apparition de la vitesse de groupe}{12}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.2}Apparition de la vitesse de groupe}{11}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.4}Complément}{12}{subsection.3.4}%

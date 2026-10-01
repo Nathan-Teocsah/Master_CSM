@@ -94,6 +94,14 @@ then
 		echo $name|adresse.sh
 	fi
 	texstudio $name/cours.tex
+elif [[ $valeur = "Estimation de paramètres et optimisation TD"* ]]
+then
+	name="estimation_parametre_optimisation"
+	if [ ! -d $name ]
+	then
+		echo $name|adresse.sh
+	fi
+	texstudio $name/cours.tex
 elif [[ -z "$valeur" ]] 
 then
    echo "Aucun cours"

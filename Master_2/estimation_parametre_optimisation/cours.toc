@@ -4,3 +4,6 @@
 \contentsline {subsection}{\numberline {2.1}Cônes convexe}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Sous-espace affines}{3}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Cas des fonctions différentiables.}{6}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Complément de cours}{8}{section.3}%
+\contentsline {section}{\numberline {4}Problème d'optimisation}{10}{section.4}%
+\contentsline {section}{\numberline {5}Problème avec contrainte d'inégalité et d'égalité}{10}{section.5}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  24 SEP 2026 09:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  25 SEP 2026 14:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1656,7 +1656,7 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-</home/maenwe/Master_CSM/modÃ¨le_cours_latex/logo.jpg, id=63, 1204.5pt x 612.28
+</home/maenwe/Master_CSM/modÃ¨le_cours_latex/logo.jpg, id=75, 1204.5pt x 612.28
 75pt>
 File: /home/maenwe/Master_CSM/modÃ¨le_cours_latex/logo.jpg Graphic file (type j
 pg)
@@ -1931,30 +1931,114 @@ Underfull \hbox (badness 10000) in paragraph at lines 424--425
  []
 
 [7{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 444--452
+[]$ 
+ []
+
+Package hyperref Info: bookmark level for unknown cor defaults to 0 on input li
+ne 455.
+
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 455--459
+[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
+
+ []
+
+
+Overfull \hbox (144.17165pt too wide) in paragraph at lines 464--467
+[]$[]$ 
+ []
+
+[8]
+Overfull \hbox (144.17165pt too wide) in paragraph at lines 472--475
+[]$[]$ 
+ []
+
+
+Overfull \hbox (144.17165pt too wide) in paragraph at lines 480--494
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--503
+
+ []
+
+
+Overfull \hbox (144.17165pt too wide) in paragraph at lines 499--505
+[]$[]$ 
+ []
+
+
+Overfull \hbox (152.02325pt too wide) in paragraph at lines 508--512
+[][][] 
+ []
+
+
+Overfull \hbox (161.95224pt too wide) in paragraph at lines 515--518
+[][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 522--523
+
+ []
+
+[9]
+Overfull \hbox (159.87561pt too wide) in paragraph at lines 529--532
+[][][] 
+ []
+
+
+Overfull \hbox (159.87561pt too wide) in paragraph at lines 535--540
+[][][] 
+ []
+
+
+Overfull \hbox (159.87561pt too wide) in paragraph at lines 545--548
+[][][] 
+ []
+
+
+Overfull \hbox (159.87561pt too wide) in paragraph at lines 551--554
+[][][] 
+ []
+
+
+Overfull \hbox (17.80692pt too wide) in paragraph at lines 558--559
+[]\T1/lmr/m/n/12 On consi-dère le pro-blème $[][] \OML/lmm/m/it/12 f[]\OT1/lmr/
+m/n/12 (\OML/lmm/m/it/12 x\OT1/lmr/m/n/12 )$ \T1/lmr/m/n/12 (di pri-mal) avec $
+\OML/lmm/m/it/12 K \OT1/lmr/m/n/12 = \OML/lmm/m/it/12 K[] \OMS/lmsy/m/n/12 \ \O
+ML/lmm/m/it/12 K[]$ \T1/lmr/m/n/12 où $\OML/lmm/m/it/12 K[] \OT1/lmr/m/n/12 = [
+]$
+ []
+
 \tf@thm=\write7
 \openout7 = `cours.thm'.
 
- [8]
-runsystem(latexminted cleantemp  --timestamp 20260924091810 456C7996E5729627FDD
+[10]
+runsystem(latexminted cleantemp  --timestamp 20260925142831 456C7996E5729627FDD
 F96470E5E0948)...executed safely (allowed).
 
-
-(./cours.aux)
+ (./cours.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `cours.out' has not changed.
-(rerunfilecheck)             Checksum: 141778F82EEC65F960F17D307CD6FCAB;741.
+(rerunfilecheck)             Checksum: E089F53437857F35F1FBA5EB02F88C43;1370.
  ) 
 Here is how much of TeX's memory you used:
- 54301 strings out of 467538
- 1281501 string characters out of 5419551
+ 54366 strings out of 467538
+ 1282417 string characters out of 5419551
  1969864 words of memory out of 5000000
- 82247 multiletter control sequences out of 15000+600000
+ 82289 multiletter control sequences out of 15000+600000
  698824 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,12n,131p,866b,957s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,14n,131p,866b,957s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/loc
@@ -1968,10 +2052,10 @@ r/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texl
 ive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/t
 exmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/
 fonts/type1/public/lm/lmsy8.pfb>
-Output written on cours.pdf (10 pages, 272851 bytes).
+Output written on cours.pdf (12 pages, 288751 bytes).
 PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 212 compressed objects within 3 object streams
- 79 named destinations out of 1000 (max. 500000)
- 202 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 326 PDF objects out of 1000 (max. 8388607)
+ 254 compressed objects within 3 object streams
+ 102 named destinations out of 1000 (max. 500000)
+ 226 words of extra memory for PDF output out of 10000 (max. 10000000)
 
