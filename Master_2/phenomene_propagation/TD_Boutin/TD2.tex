@@ -1,0 +1,94 @@
+\documentclass[12pt,a4paper]{article}
+
+\makeatletter
+\def\input@path{{/home/maenwe/Master_CSM/modèle_cours_latex}}
+\makeatother
+
+\usepackage{prise_de_note}
+\graphicspath{{images}}
+\begin{document}
+	\pagenumbering{gobble}
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{/home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Phénomène de propagation} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large \textbf{Fiche de TD 2}}
+		
+		\vfill
+		
+		% Bloc Informations
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft} \large
+				\textbf{Enseignant :} \\
+				M. Benjamin \textsc{BOUTIN}
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\newpage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+
+	\begin{sol}
+		$ $\\
+		 \begin{enumerate}
+		 	\begin{minipage}{17cm}
+		 		\item La matrice $A$ est de la forme : $A = \begin{bmatrix}
+		 			0 & h_0\\
+		 			g & 0
+		 		\end{bmatrix}$. Les valeurs propres de $A$ sont les racines du polynôme $\det(XI-A) = X^2-gh_0$. Ainsi $\mathrm{sp}(A) = \{-c,c\}$.  Ainsi les deux vitesses caractéristiques sont $c$ et $-c$.
+		 		
+		 		\item On a : $\partial_t U = -i\omega r U$ et $\partial_x U = ikr U$. Ainsi l'équation caractéristique est $\det(-\omega I + kA) = 0$. Ce qui nous donne $\omega^2 = (kc)^2$. Ainsi $\omega_\pm = \pm kc$.
+		 		
+		 		\item Il n'est pas dispersif car $\frac{\omega_\pm}k$ ne dépend pas de $k$. De plus $\partial_tt \eta = -h0\partial_{xt} u = c^2 \partial_{xx} \eta$.
+		 		Ainsi $\eta_{tt} - c^2 \nabla \eta = 0$. Donc $\eta$ vérifie l'équation des ondes.
+		 		
+		 		\item On pose $B = \begin{bmatrix}
+		 			0 & 0\\
+		 			0 & -\dfrac{h_0^2}3
+		 		\end{bmatrix}$, et (BBM) se réécrit alors $\partial_t U + A\partial_x U+B\partial_{xxt} U = 0$. Ainsi pour $U = re^{i(kx-\omega t)}$, il suit : $-ir\omega U + ikr AU-ik^2 \omega r BU = 0$. Ainsi l'équation de dispersion est $\det(-\omega I + kA-k^2\omega B) = 0$. Ce qui revient à écrire :\\ $0 = \left|\begin{matrix}
+		 		-\omega & kh_0\\
+		 		kg & -\omega+\dfrac{h_0^2k^2\omega}3
+		 		\end{matrix}\right| =\omega^2\left(1+\dfrac{h_0^2k^2}3\right) - k^2c^2$.
+		 		
+		 		\vspace{.5cm}
+		 		
+		 		\item $v_\varphi = \dfrac{\omega(k)}k = \dfrac{ck}{\sqrt{1+\dfrac{k^2h_0^2}3}} $, donc le modèle est dispersif.\\
+		 		La vitesse de groupe est : $v_g(k) = \omega'(k) = \dfrac{c\sqrt{1+\dfrac{h_0^2k^2}3} -\dfrac{ch_0^2k^2}{3\sqrt{1+\dfrac{k^2h_0^2}3}}}{\left(1+\dfrac{k^2h_0^2}3\right)} = \dfrac{c}{\left(1+\dfrac{k^2h_0^2}3\right)^{3/2}}$
+		 	\end{minipage}
+		 \end{enumerate}
+	\end{sol}
+
+\end{document}

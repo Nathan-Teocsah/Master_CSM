@@ -1,0 +1,79 @@
+\documentclass[12pt,a4paper]{article}
+
+\makeatletter
+\def\input@path{{/home/maenwe/Master_CSM/modèle_cours_latex}}
+\makeatother
+
+\usepackage{prise_de_note}
+\graphicspath{{images}}
+\begin{document}
+	\pagenumbering{gobble}
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{/home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Estimation de paramètres et optimisations} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large \textbf{TD2}}
+		
+		\vfill
+		
+		% Bloc Informations
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft} \large
+				\textbf{Enseignants :} \\
+				M. Abdelaziz \textsc{BELMILOUDI}
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\newpage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	
+	
+	\begin{sol}
+		$ $\\
+		\begin{minipage}[t]{17cm}
+			\begin{enumerate}
+				\item l'application $\varphi : v \mapsto \norme{Av-b}$ est continue, de plus, en choisissant $v_0 \in \R^n$, il suit $\inf_v \norme{Av-b} \leq \norme{Av_0-b}$. Ainsi $\inf_v \norme{Av-b} \in \varphi^{-1}([0,\,\norme{Av_0-b}])$, de plus $\varphi^{-1}([0,\,\norme{Av_0-b}])$ est compact. Donc il existe $v \in \R^n$ tel que $\varphi(v) = \inf_v \norme{Av-b}$. De plus un tel $v$ est unique si le rang de $A$ est maximal : $\mathrm{rang}(A) = m$.
+				
+				\item Puisque $\varphi^2$ est convexe et différentiable : $v \in \mathrm{Argmin} \varphi(v)^2 \iff 0 = \nabla \varphi^2(v) = 2A^T(Av-b)$.\\
+				Ainsi le problème admet une unique solution si et seulement si $A^TA$ est inversible, ce qui revient à demander à ce que $A^TA$ est définie positive car elle est symétrique réelle. Or pour tout $v \in \R^n$, $\left<A^TAv,v\right> = 0 \iff \left<Av,Av\right> = 0 \iff Av = 0$. Ainsi $A^TA$ est définie positive ssi $A$ est injective, ie. $\mathrm{rang}(A) = m$.
+				
+				\item 
+			\end{enumerate}
+		\end{minipage}
+	\end{sol}
+	
+\end{document}
