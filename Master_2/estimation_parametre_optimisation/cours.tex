@@ -556,4 +556,97 @@
 	\section{Problème avec contrainte d'inégalité et d'égalité}
 	
 	On considère le problème $\inf_{x\in K} f_0(x)$ (di primal) avec $K = K_1\cap K_2$ où $K_1 = \left\{x \in \bigcap_{i=0}^m \mathrm{dom}(f_i),\;f_i(x) \leq 0\right\}$ et $K_2 = \left\{x\in \bigcap_{j=1}^{p}\mathrm{dom}(h_j),\; h_j(x) = 0\right\}$.
+	
+	\section{Méthode des gradients}
+	
+	$\inf_x f(x)$ avec $x \in \mathrm{dom}(f) = \R^n$. On suppose $f$ convexe.
+	
+	\subsection{Méthode de sous-gradient}
+	
+	$x^{(k+1)}=x^{(k)} - \alpha_kg^{(k)}$.\\
+	$x^{(k)}$ est l'approximation de $x$ à l'étape $k$. De plus $g^{(k)}$ est un élément du sous-gradient de $f$ au point $x^{(k)}$ (ie. $g^{(k)} \in \partial f(x^{(k)})$), et $\alpha^{(k)}>0$ le pas.
+	
+	\underline{Rappel :} $f(y) \geq f(x^{(k)})+\left<y,y-x\right>$ pour tout $y$.
+	
+	\begin{rmq}
+		Si $f$ est différentiable, $\partial f(x^{(k)}) = \{\nabla f(x^{(k)})\}$.
+	\end{rmq}
+	
+	On note par : $f^{(k)}_{best} = \min(f_{best}^{(k-1)},f(x^{(k)})$. Ainsi : $f_{best}^{(k)} = \min(f(x^{(1)},\cdots,f(x^{(k)})))$.
+	
+	\subsection{Analyse de la convergence}
+	
+	$x^{(k+1)} = x^{(k)} - \alpha^{(k)}g^{(k)}$.
+	
+	$x^{(k+1)} - x^{\star} = (x^{(k)}-x^{\star}) -\alpha^{(k)}g^{(k)}$\\
+	$\begin{aligned}
+		\norme{x^{(k+1)}-x^\star} &= \norme{(x^{(k)}-x^\star) - \alpha^{(k)}g^{(k)}}\\
+		&= \norme{x^{(k)}-x^\star} + (\alpha^{(k)})^2\norme{g^{(k)}}^2 - 2 \alpha^{(k)}\left<x^{(k)}-x^\star\right>
+	\end{aligned}$
+	
+	or $f(x^\star) \geq f(x^{(k)}+\left<g^{(k)},x^\star-x^{(k)}\right>$ (car $g^{(k)} \in \partial f(x^{(k)})$).
+	
+	D'où $\norme{x^{(k+1)}-x^{\star}} \leq\norme{x^{(k)}-x^\star} + (\alpha^{(k)})^2\norme{g^{(k)}}^2 - 2 \alpha^{(k)}(f(x^{(k)})-f(x^\star))$
+	
+	Posons $e^{(k)} = x^{(k)} - x^{\star}$.\\
+	$\displaystyle\sum_{i=0}^{N-1} (e^{(k+1)}-e^{(k)}) \leq \sum_{k=0}^{N-1} (\alpha^{(k)})^2 \norme{g^{(k)}}^2-2\sum_{k=0}^{N-1} \alpha^{(k)}(f(x^{(k)})-f(x^\star))$\\
+	$e^{(N)}\leq e^{(0)} + \displaystyle\sum_{k=0}^{N-1} (\alpha^{(k)})^2 \norme{g^{(k)}}^2 - 2\sum_{k=0}^{N-1} \alpha^{(k)}(f(x^{(k)}-f(x^\star)))$
+	
+	\begin{rmq}
+		Supposons que $e^{(0)} \leq R$.
+	\end{rmq}
+	
+	D'où $0 \leq R^2 - 2 \displaystyle\sum_{k=0}^{N-1} \alpha^{(k)} (f(x^{(k)})-f(x^\star)) + (\alpha^{(k)})^2\norme{g^{(k)}}^2$.\\
+	On en déduit que $2\displaystyle\sum_{k=0}^{N-1} \alpha^{(k)}(f(x^{(k)})-f(x^\star)) \leq R^2 + \sum_{k=0}^{N-1} (\alpha^{(k)})^2\norme{g^{(k)}}^2$.\\
+	Or $f(x^{(k)}) \geq \underset{0\leq l \leq N-1} f(x^{(l)})$.\\
+	D'où :
+	$2\displaystyle\sum_{k=1}^{N-1} \alpha^{(k)}(\underset{0\leq l\leq N-1}\min (f(x^{(l)})-f(x^\star)) \leq R^2 + (\alpha^{(k)})^2\norme{g^{(k)}}^2$\\
+	$2\left(\displaystyle\sum_{k=1}^{N-1} \alpha^{(k)}\right)\left(\underset{0\leq l \leq N-1}\min f(x^{(l)})-f(x^\star)\right) \leq R^2 + \displaystyle\sum_{k=0}^{N-1} (\alpha^{(k)})^2 \norme{g^{(k)}}^2$.\\
+	$\forall N \geq 1$.\\
+	$f_{best}^{(N+1)} - \overbrace{f(x^{\star})}^{f^\star} \leq \dfrac{R^2 + \displaystyle\sum_{k=0}^{N-1} (\alpha^{(k)})^2\norme{g^{(k)}}^2}{2\displaystyle\sum_{k=1}^{N-1} \alpha^{(k)}}$
+	
+	\begin{rmq}
+		$f_{best}$ et $f_{min}$ sont les mêmes fonctions.
+	\end{rmq}
+	
+	cas (1) $\alpha^{(k)}=\alpha$ pour tout $k$. L'inéquation précédente devient :
+	
+	$f_ {min}^{(N-1)} - f(x^\star) \leq \dfrac{R^2 + \alpha^2\displaystyle\sum_{k=0}^{N-1} \norme{g^{(k)}}^2}{2N\alpha}$\\
+	
+	cas (2) $\alpha^{(k)} = \dfrac{\alpha}{\norme{g^{(k)}}}$.
+	
+	La même inéquation devient cette fois :
+	
+	$f_ {min}^{N-1} - f(x^\star) \leq \dfrac{R^2+\alpha^2 N}{2N}$\\
+	Supposons de plus que $\norme{g^{(k)}} \leq G$. On a alors : 
+	$0 \leq \underbrace{f_ {min}^{(N-1)} - f(x^\star)}_{F_\star^{(N-1)}} \leq \dfrac{R^2 + G\displaystyle\sum_{k=0}^{N-1} (\alpha^{(k)})^2}{2\displaystyle\sum_{k=0}^{N-1}\alpha^{(k)}}$
+	
+	cas (1), on a :
+	$F_ {\star}^{(N-1)} \leq \dfrac{R^2 + G^2 N \alpha^2}{2N \alpha} \to \dfrac{G^2\alpha}{2}$
+	
+	cas (2) on a :
+	$F_ \star^{(N-1)} \leq \dfrac{R^2 + N\gamma^2}{2\gamma\displaystyle\sum_{k=0}^{N-1} \dfrac1{\norme{g^{(k)}}}} \leq \dfrac{R^2+N\gamma^2}{\dfrac{2\gamma}\sigma N}$\\
+	$F_ \star^{(N-1)} \leq \dfrac{R^2 + N\gamma^2)G}{2\gamma N} \to \dfrac{\gamma G}2$.\\
+	D'où $F_ {\star}^{(N-1)} \leq \dfrac{\gamma G}2$ pour tout $N \geq 1$.\\
+	
+	cas (3) $s_\alpha^2 = \displaystyle\sum_{i=0}^{\infty} (\alpha^{(k)})^2 < \infty$.
+	
+	$0 \leq F_\star^{(N-1)} \leq \dfrac{R^2+G^2s_\alpha^2}{2\displaystyle\sum_{k=0}^{N-1} \alpha^{(k)}} \to 0$.
+	
+	Ainsi $\underset{N \to \infty}\lim f_{min}^{(N-1)} = f^{\star}$\\
+	
+	On pose $J(\alpha) = \dfrac{R^2 + G^2 \displaystyle\sum_{k=0}^{N-1} (\alpha^{(k)})^2}{2\displaystyle\sum_{k=0}^{N-1} \alpha^{(k)}}$ avec $\alpha = (\alpha^{(0)},\ldots,\alpha^{(N-1)})$.
+	
+	La fonction $J$ es convexe. Pour l'étude du minimum de la fonction $J$ le minimum est atteint quand $\alpha^{(0)} = \alpha^{(1)} = \cdots = \alpha^{(N-1)}$ avec $\gamma = \left(\dfrac RG\right)\dfrac1{\sqrt{N-1}}$ on a :
+	$f_ {min}^{(N-1)} - f^\star \leq \dfrac{RG}{\sqrt k}$.
+	
+	\begin{rmq}
+		\begin{minipage}{17cm}
+			Si $f$ est lipschitzienne tout élément de $\partial f$ est majoré par la constante de lipschitz.
+		\end{minipage}
+	\end{rmq}
+	
+	\subsection{Méthode de Polyak}
+	
+	$\alpha^{(k)} \leq \dfrac{f(x^{(k)})-f^\star}{\norme{g^\star}^2}$.
 \end{document}

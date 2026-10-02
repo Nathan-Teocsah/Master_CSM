@@ -7,3 +7,7 @@
 \contentsline {section}{\numberline {3}Complément de cours}{8}{section.3}%
 \contentsline {section}{\numberline {4}Problème d'optimisation}{10}{section.4}%
 \contentsline {section}{\numberline {5}Problème avec contrainte d'inégalité et d'égalité}{10}{section.5}%
+\contentsline {section}{\numberline {6}Méthode des gradients}{11}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Méthode de sous-gradient}{11}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Analyse de la convergence}{11}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Méthode de Polyak}{13}{subsection.6.3}%
