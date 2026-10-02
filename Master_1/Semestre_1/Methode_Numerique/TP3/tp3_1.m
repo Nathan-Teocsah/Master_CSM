@@ -13,3 +13,4 @@ for j=1:nbn
 end
 legend('f','2','4','10','12');
 hold off
+input("")
