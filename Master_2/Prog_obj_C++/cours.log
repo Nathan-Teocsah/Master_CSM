@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  24 SEP 2026 18:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  1 OCT 2026 17:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1656,7 +1656,7 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<logo.jpg, id=115, 1204.5pt x 612.2875pt>
+<logo.jpg, id=119, 1204.5pt x 612.2875pt>
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
 Package pdftex.def Info: logo.jpg  used on input line 18.
@@ -1794,49 +1794,66 @@ Overfull \hbox (144.17165pt too wide) in paragraph at lines 444--453
 Package hyperref Info: bookmark level for unknown sol defaults to 0 on input li
 ne 455.
 
-Overfull \hbox (126.54683pt too wide) in paragraph at lines 455--464
+Overfull \hbox (126.54683pt too wide) in paragraph at lines 455--470
 []$ 
  []
 
+
+Overfull \hbox (144.17165pt too wide) in paragraph at lines 471--489
+[]$[]$ 
+ []
+
+
+Overfull \hbox (144.17165pt too wide) in paragraph at lines 490--506
+[]$[]$ 
+ []
+
+
+Overfull \vbox (0.27057pt too high) detected at line 506
+ []
+
+[8{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/lo
+cal/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}] [9]
 \tf@thm=\write7
 \openout7 = `cours.thm'.
 
-[8{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/lo
-cal/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
-runsystem(latexminted cleantemp  --timestamp 20260924181535 456C7996E5729627FDD
+ [10]
+runsystem(latexminted cleantemp  --timestamp 20261001175724 456C7996E5729627FDD
 F96470E5E0948)...executed safely (allowed).
 
- (./cours.aux)
+
+(./cours.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `cours.out' has not changed.
-(rerunfilecheck)             Checksum: 708DF08938CEE8ED87BD9EB80E7EDEAA;3950.
+(rerunfilecheck)             Checksum: 2DB44F475AFA6346EBD5690768CF9182;4183.
  ) 
 Here is how much of TeX's memory you used:
- 54904 strings out of 467538
- 1286506 string characters out of 5419551
- 2294631 words of memory out of 5000000
- 82673 multiletter control sequences out of 15000+600000
- 696691 words of font info for 90 fonts, out of 8000000 for 9000
+ 54999 strings out of 467538
+ 1287790 string characters out of 5419551
+ 2304609 words of memory out of 5000000
+ 82698 multiletter control sequences out of 15000+600000
+ 699688 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,11n,131p,866b,1501s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,11n,131p,866b,2125s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
 cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texli
 ve/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/te
 xmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/f
 onts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
 public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lm
-r8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></u
-sr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/t
-exlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/202
-5/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2025/texmf-di
-st/fonts/type1/public/lm/lmtti10.pfb>
-Output written on cours.pdf (10 pages, 310115 bytes).
+r8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr
+/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/tex
+live/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/
+texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025/texmf-dist
+/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/typ
+e1/public/lm/lmtti10.pfb>
+Output written on cours.pdf (12 pages, 341131 bytes).
 PDF statistics:
- 531 PDF objects out of 1000 (max. 8388607)
- 463 compressed objects within 5 object streams
- 250 named destinations out of 1000 (max. 500000)
- 306 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 630 PDF objects out of 1000 (max. 8388607)
+ 557 compressed objects within 6 object streams
+ 319 named destinations out of 1000 (max. 500000)
+ 314 words of extra memory for PDF output out of 10000 (max. 10000000)
 

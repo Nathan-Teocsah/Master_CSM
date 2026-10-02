@@ -454,14 +454,100 @@
 	\begin{sol}
 		$ $\\
 		\begin{minipage}{17cm}
-			\begin{lstlisting}[language=C++]
+			\begin{lstlisting}[language=C++,caption=Complexe.h]
 				class Complexe{
 					private:
 						double re, im;
+					public:
+						Complexe():re(0),im(0){} // constructeur inline (implicitement)
+						Complexe(double a, double b=0);
+						void affiche();
+						Complexe operator +(const Complexe& z);
+						Complexe& operator +=(const Complexe& z);
 				}
 			\end{lstlisting}
 		\end{minipage}
+		
+		\begin{minipage}{17cm}
+			\begin{lstlisting}[language=C++,caption=Complexe.cpp]
+				#include "Complexe.h"
+				#include <iostream>
+				using namespace std;
+				
+				Complexe::Complexe(double a, double b):re(a),im(b){}
+				void Complexe::affiche(){...}
+				Complexe Complexe::operator +(const Complexe z){
+					Complexe zz(re+z.re,im+z.im); 
+					return zz;
+				};
+				Complexe Complexe::operator +=(const Complexe z){
+					re+=z.re; im+=z.im;
+					return *this;
+				};
+			\end{lstlisting}
+		\end{minipage}
+		
+		\begin{minipage}{17cm}
+			\begin{lstlisting}[language=C++]
+				class Complexe{
+					private:
+					double re, im;
+					public:
+					Complexe():re(0),im(0){} // constructeur inline (implicitement)
+					explicit Complexe(double a, double b=0);
+					void affiche();
+					Complexe operator +(const Complexe& z);
+					Complexe& operator +=(const Complexe& z);
+				}
+			\end{lstlisting}
+			
+			le mot clef \underline{\textit{explicit}} permet de ne pas faire de conversion implicite (par exemple si on veut calculer z+0.5).
+		\end{minipage}
 	\end{sol}
+	
+	\subsection{Classes et allocations dynamiques}
+	
+	\begin{lstlisting}[language=C++,caption=MaClasse.h]
+		class MaClasse{
+			private:
+				int lg;
+				double* val;
+			public :
+				MaClasse(int);
+				~MaClasse();
+				
+		}
+	\end{lstlisting}
+	
+	et,
+	
+	\begin{lstlisting}[language=C++,caption=MaClasse.cpp]
+		MaClasse::MaClasse(int l0):lg(l0){
+			val = new double[lg];
+		}
+		MaClasse::~MaClasse(){
+			delete[] val;
+		}
+	\end{lstlisting}
+	
+	Solution au problème de gestion mémoire, soit on neutralise le constructeur par copie : on rajoute dans la défnition de la classe : 
+	
+	\begin{lstlisting}[language=C++]
+		MaClasse(const MaClasse&)=delete;
+		MaClasse(MaClasse&&)=delete;
+		MaClasse& operator=(const MaClasse&)=delete;
+		MaClasse& operator=(MaClasse&&)=delete;
+	\end{lstlisting}
+	
+	,soit on redéfinit le constructeur ar copie et l'affectation pour faire des copies en profondeur (et non superficielles) :
+	
+	\begin{lstlisting}[language=C++]
+		MaClasse::MaClasse(const MaClasse& M):lg(M.lg),val(new double[lg]){
+			for (int i=0; i<lg; i++){
+				val[i] = M.val[i];
+			}
+		}
+	\end{lstlisting}
 	
 	
 	
