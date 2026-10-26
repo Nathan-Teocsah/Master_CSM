@@ -685,9 +685,280 @@ $\begin{cases}
 			
 			\underline{\underline{Si $\omega(k) = kc$ :}} $\displaystyle\int_\R \hat u_0 (k)e^{ik(x-ct)}\mathrm dk = u_0(x-ct)$.\\
 			\underline{\underline{Sinon :}} (cas dispersif) Soit $k_0 \in \R$ un nombre d'onde duquel $\hat u_0$ est localisé.\\
-			$\omega(k_0+k) = \omega(k_0) + k\omega'(k_0) +\dfrac{k^2}2 \omega''(k_0) +\cdots$. (Taylor)\\
+			$\omega(k_0+k) = \omega(k_0) + k\omega'(k_0) +\dfrac{k^2}2 \omega''(k_0) +\cdots$. (Taylor)
+		\end{minipage}\\
+		\begin{minipage}{17cm}
 			$u(t,x) = \dfrac1{2\pi}\displaystyle\int_\R \hat u_0(k_0+k)e^{i(k_0 x - \omega(k_0)t)}e^{ikx-ik\omega_0't}e^{-\frac{i}2\omega_0'' k^2t +\cdots}\mathrm{d}k$\\
 			$u(t,x) = e^{ik_0(x-v_\varphi(k_0)t)}\displaystyle\int_\R\hat u_0(k_0+k) e^{ik(x-\omega_0' t)}e^{-\frac{i}2\omega_0'' k^2\cdots}$
 		\end{minipage}
 	\end{ex}
+	
+	
+	\section{Repropagation en présence de bords, guides d'ondes}
+	\subsection{Condition de bord en hyperbolique}
+	
+	a) $\partial_t u + a \partial_x u = 0$, sur $[0,L]$.
+	
+	\fbox{$u(0,x) = u_0(x)$} pour $x \in [0,L]$.
+	
+	$\left.\begin{aligned}
+		u(t,0)\\
+		u(t,L)
+	\end{aligned}\right\} $ ? condition de bord
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=.2]{im15.jpeg}
+		\caption{}
+	\end{figure}
+	
+	\fbox{$a > 0$} \begin{minipage}[t]{18cm}
+		coord. en $x=0$ nécessaire = \fbox{$u(t,0) = g(t)$}
+	cond. en $x=L$ et redondante avec $u_0$ et la donnée de gauche (incompatibilité entre les données gauche, droite et initiale).
+	\end{minipage}
+	
+	
+	$u(t,x) = \begin{cases}
+		u_0(x-ct) &, at < x < L\\
+		g(t-\frac xa) &, \frac xa < t,\; x < L
+	\end{cases}$
+	
+	\fbox{$a < 0$}, il fau une cb en $x=L$ et rien en $x=0$.
+	
+	conclusion : $a>0$, $\forall (u_0,g) \in \mathcal C^1([0,L])\times\mathcal C^1([0,+\infty[)$
+	le problème $\begin{cases}
+		\partial_t u + a\partial_x u = 0 \\
+		u(0,x) = u_0(x) \\
+		u(t,0) = g(t)
+	\end{cases}$
+	
+	admet une unique solution $u \in \mathcal C^1(\R\times[0,L])$ sous les hypothèses de compatibilité entre $u_0$ et $g$ en 0 à l'ordre 1 :
+	\begin{enumerate}[label=\textbullet]
+		\item  $u_0(0) = g(0)$
+		\item $u_0'(0) = -\frac1a g'(0)$
+	\end{enumerate}
+	
+	\begin{rmq}
+		\begin{minipage}[t]{15cm}
+			à la traversée de la droite $x = at$ on demande un raccord $\mathcal C^1$ des deux formules d'où $\begin{cases}
+				u(t,at_-) = g(t-\frac {at_-}{a}) = g(0_+)\\
+				u(t,at_+) = u_0(at_+ - at) = u_0(0_+)
+			\end{cases}$\\
+			,et $\begin{cases}
+			\partial_x u(t,at_-) = -\frac1a g'(t-\frac {at_-}{a}) = -\frac 1a g'(0_+)\\
+			\partial_x u(t,at_+) = u_0'(at_+ - at) = u_0(0_+)
+			\end{cases}$\\
+			on pourrait montrer les conditions de compatibilité en ordre pour avoir $u \in \mathcal C^p$ : $u^{(k)} (0) = \left(-\frac 1a\right)^k g^{(k)}(0)$, $\forall k \leq p$.
+		\end{minipage}
+	\end{rmq}
+	
+	b) $\partial_t u + \vec a \cdot  \nabla_x u = 0$, $u(t,x) \in \R$, $x \in \Omega \subset \R^d$ avec $a \in \R^d$ vitesse.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=.7]{im16.png}
+		\caption{}
+	\end{figure}
+	
+	$u(0,x) = u_0(x)$, $x \in \Omega$
+	
+	\fbox{$u(t,y) = ?$, $y \in \partial\Omega$ ?} en milieu ouvert : $u(t,x) = u_0(x-\vec a t$).
+	
+	$\vec o(y)$ le vecteur normal sortant à $ \Omega$ en $y \in \partial\Omega$.
+	
+	$\partial\Omega_{in} = \left\{y \in \partial\Omega, \vec a  \cdot \vec v(y) < 0\right\}$\\
+	$\partial\Omega_{out} = \left\{y \in \partial\Omega, \vec a  \cdot \vec v(y) > 0\right\}$\\
+	$\partial\Omega_{car} = \left\{y \in \partial\Omega, \vec a  \cdot \vec v(y) = 0\right\}$\\
+	(bord caractéristique)
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=.1]{im17.jpeg}
+		\caption{}
+	\end{figure}
+	
+	Le problème suivant admet une unique solution : $\begin{cases}
+		\partial_t u + \vec a \cdot \nabla_x u = 0\\
+		u(0,x) = u_0(x) \\
+		u(t,y) = g(t,y) & t> 0, y \in \partial\Omega_{in}
+	\end{cases}$
+	
+	c) Le cas des systèmes en dimension 1 d'espace
+	
+	$\partial_t U+A\partial_x U = 0$, $x \in [0,+\infty[$, $U(t,x) \in \R^N$\\
+	$A = PDP^{-1}$ avec $D = \begin{bmatrix}
+		D_- & 0 \\ 
+		0 & D_+
+	\end{bmatrix}$\\
+	On pose $N = N_++N_-$ où :\\
+	$N_-$ dimension correspondante  $to$ $D_-$ : vp négatives
+	$N_+$ $\to$ $D_+$ : vp positives
+	
+	$P = \begin{bmatrix}
+		P_- & P_+
+	\end{bmatrix}$
+	
+	On décompose $U = U_-+U_+$.\\
+	$W = P^{-1} U = \begin{bmatrix}
+		W_-\\
+		W_+
+	\end{bmatrix}$ avec $W_-$ = $N_-$ lignes et de même pour $W_+$.\\
+	$U = \begin{bmatrix}
+		P_- & P_+
+	\end{bmatrix}\begin{bmatrix}
+	W_- \\
+	W_+
+	\end{bmatrix} = P_- W_- + P_+W_+$, avec $P_-W_- = $ composantes qui se propagent vers $x=0$ vers la gauche. De plus, $P_+W_+$ = depuis $x=0$ vers la droite.
+	
+	\fbox{La condition de bord en $x=0$}\\
+	doit permettre de trouver $W_+$ à partir d'une donnée de bord et des quantités sortantes $W_-$.
+	
+	Par exemple, une condition linéaire d'ordre 0 de la forme : $\underbrace{BU(t,0) = g(t)}_{\text{$p$ équation de bord qui doivent déterminer de façon unique }W_+}$ où $B \in \mathcal{Mat}_{p,N}(\R)$.
+	
+	\underline{Reformuler :} $W_+(t,0)$ est solutio de  : \fbox{$BP_+W_+(t,20) = g(t) - BP_-W_-(t,0)$} admet t'elle une unique solution $W_+$ ?
+	
+	Condition d'inversibilité de ce système, (appelées conditions de Kreiss-Lapatrinskii) :
+	\[
+		\begin{aligned}
+			\mathrm{rg}(B) = p\\
+			\mathrm{Im} P_+ \cap \ker B = \{0\} \implies N_+ \leq p\\
+			N_+ = p
+		\end{aligned}
+	\]
+	
+	\begin{ex}
+		\begin{minipage}[t]{15.5cm}
+			pour le système (ex. 4) $U = \begin{bmatrix}
+				p \\
+				u
+			\end{bmatrix}$ et $P = \begin{bmatrix}
+			\rho c & - \rho c \\
+			1 & 1
+			\end{bmatrix}$, $P_+ = \begin{bmatrix}
+			\rho c \\
+			1
+			\end{bmatrix}$ et $P_- = \begin{bmatrix}
+			-\rho c \\
+			1
+			\end{bmatrix}$.\\
+			Si la condition de bord s'écrit $\alpha p(t,0) + \beta u(t,0) = g(t)$ (une équation $p=1$, pour un degré de liberté). Le système est équivalent à : $B\begin{bmatrix}
+				p(t,0) \\
+				u(t,0)
+			\end{bmatrix} = g(t)$ avec $B = \begin{bmatrix}
+			\alpha & \beta
+			\end{bmatrix}$ de rayon 1 si $\abs{\alpha}+\abs{\beta} \not = 0$.\\
+			a-t-on  inversibilité de $BP_+W_+ = \cdots$\\
+			$\begin{bmatrix}
+				\rho c\\
+				1
+			\end{bmatrix}$ est il colinéaire à $\begin{bmatrix}
+			*\beta \\
+			\alpha
+			\end{bmatrix}$ ?
+			Ce qui est équivalent à l'égalité : $\alpha\rho  c = \beta$. Si $\beta = -\alpha\rho c$, alors le problème au bord $B\begin{bmatrix}
+				p(t,0) \\
+				u(t,0)
+			\end{bmatrix} = g(t)$ est mal-posé.
+			
+			Si $\beta \not = -\alpha\rho c$, il est bien posé et on obtient $W_+ = \dfrac1{\alpha_rho c + \beta} (g-BP_-W_-)$.
+			
+			\underline{Conclusion :} toutes les combinaisons $\alpha p + \beta u$ sont possibles au bord sauf celle $\frac \beta\alpha = - \rho c$
+		\end{minipage}
+	\end{ex}
+	
+	d) $\partial_{tt} u - c^2 \partial_{xx}u = 0$, sur $[0,+\infty[$ ou sur $[0,L]$.\\
+	$u(t,x) = u_+(x-ct)+u_-(x+ct)$.\\
+	Si on impose Dirichlet homogène en $x=0$ (extrémité fixée).
+	$\begin{aligned}
+		& u_+(-ct) + u_-(ct) = 0\\
+		\iff & u_+(-ct) = -u_-(ct)
+	\end{aligned}$
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=.7]{im18.png}
+		\caption{}
+	\end{figure}
+	
+	avec Neumann homogène en $x=0$ (extrémité libre) : $\partial_x u(,0) = 0$. \\
+	$u_+'(-ct) + u_-'(ct) = 0$, donc $u_+(-ct) = u_-(-ct) + cste$
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=.7]{im19.png}
+		\caption{}
+	\end{figure}
+	
+	\underline{en régime harmonique} $\omega = kc$, nombre d'onde et pulsion. $u(t,x) = Ae^{i(kx-\omega t)} + Be^{i(kx-\omega t)}$.
+	En Dirichlet : $B=-A$ donc  : $\mathrm{Re}(u(t,x)) = A\left(\cos(kx-\omega t)-\cos(kx+\omega t)\right) = 
+	A\sin(kx) \sin(\omega t)$.\\
+	En Neumann : $\mathrm{Re}(u(t,x)) = A\cos(kx)\cos(\omega t)$.\\
+Les directions de propagation sont couplées au bord, expression en variables séparées ($u(t,x) = U(x) \varphi(t)$)
+
+En présence de deux bords sur $[0,L]$, on va sélectionner des modes propres.
+
+\underline{Calcul sur $[0,L]$ avec Dirichlet.}
+
+$u(t,x) = U(x)\varphi(t)$ solution de $\partial_{tt} u - c^2\partial_{xx} u = 0$, $u(t,0) = u(t,L) = 0$.
+
+
+solution $\iff$ $\varphi''(t)U(x) = c^2 \varphi(t)U''(x) \iff$ $ \dfrac{\varphi''(t)}{c^2\varphi(t)} = \dfrac{U''(x)}{U(x)} = \lambda \in \R$, d'où 
+\[\begin{cases}
+	-U'' = \lambda U  & U(0) = U(L) = 0\\
+	\varphi'' + \lambda c^2 \varphi = 0
+\end{cases}\]
+
+nécessairement on a $U(x) = \sin(k_n x)$ avec $k_n \dfrac{n\pi}{L}$\\
+$\lambda = k_n^2$ pour un certain $n$.\\
+$\varphi(t) = \alpha e^{-i\omega_n t}+\beta e^{i\omega_n t} = 2\beta \sin(\omega_n t)$ si réel, où $\omega_n = ck_n$.
+
+\subsection{Guide d'onde et confinement}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=.7]{im20.png}
+	\caption{}
+\end{figure}
+
+$\begin{cases}
+	\partial_{tt} u -c^2\nabla u = 0\\
+	u(t,0,z) = u(t,h,z) = 0 & \text{Dirichlet homogène en } y=0 \text{ et } y=h
+\end{cases}$ 
+
+Recherche des solutions harmoniques selon $z$ : $u(t,y,z) = e^{i(\beta z - \omega t)}V(y)$ avec $\omega $ pulsation, $\beta$ le nombre d'onde longitudinal, $V$ profil transverse.
+
+Nécessairement $\begin{cases}
+	-\omega^2 V(\omega) = c^2 \left(-\beta^2 V(y) + V''(y)\right) = 0&, 0<y<h\\
+	V(0) = V(h) = 0
+\end{cases}$
+réécriture : $\begin{cases}
+	-V'' = \left(\frac{\omega^2}{c^2} - \beta^2\right)V\\
+	V(0) = V(h) = 0
+\end{cases}$
+
+Résolution : $\begin{cases}
+	k_n = \frac{n\pi}{h}& , n \in \N^\star,\; V(y) = \sin(k_n y) \\
+	\lambda = k_n^2 = \frac{\omega^2}{c^2} - \beta^2
+\end{cases}$\\
+on a exactement : $\omega_n^2(\beta) = c^2(\beta^2+\frac{n^2 \pi^2}{k^2})$\\
+
+Pour chaque $n \in \N^\star$, on a une bande de dispersion différente (modèle non dispersif en l'absence de confinement), $k_n = \frac{n\pi}{h}$, $V_n(y) = \sin(k_ny)$, $u(0,y,z) = \sin(k_n y) e^{î\beta z}$ $\underset{t\uparrow}\longrightarrow$ $u(t,y,z) = e^{\pm i\omega_n(\beta)t}u(0,y,z)$, $\frac{\omega_n(\beta)}{\beta} = c\sqrt{1+\frac{n^2 \pi^2}{h^2\beta^2}}$ dépende de $\beta$.
+
+$v_\varphi(\beta,n) = \underset{n \to +\infty}\longrightarrow c$ 
+
+Réciproquement, si $\omega$ et $n$ sont fixés., $\beta_n^2 = \frac{\omega^2}{c^2} - \frac{n^2 \pi^2}{h^2} = \frac1{c^2} (\omega^2-\omega_{n,c}^2)$ avec $\omega_{n,c}^2 = \frac{n\pi c}{h}$ la pulsation de coupure de la branche $n$.
+
+\underline{Deux cas} \begin{minipage}[t]{17cm}
+	$\omega > \omega_{n,c}$, alors $\beta$ réel : mode propagatif (dit guidé) dans la direction $z$.\\
+	$\omega < \omega_{n,c}$, alors $\beta  = i \alpha$, $\alpha > 0$ (ou $\alpha < 0$), $e^{i\beta z} = e^{-\alpha z}$.
+\end{minipage}
+
+On part du mode évanescent (pas de propagation).
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=.25]{im21.jpeg}
+	\caption{}
+\end{figure}
+
 \end{document}

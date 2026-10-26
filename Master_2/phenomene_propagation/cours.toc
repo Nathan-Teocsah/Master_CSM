@@ -14,3 +14,6 @@
 \contentsline {subsubsection}{\numberline {3.3.1}Relation de dispersion d'un système hyperbolique}{9}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {3.3.2}Apparition de la vitesse de groupe}{11}{subsubsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.4}Complément}{12}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Repropagation en présence de bords, guides d'ondes}{13}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Condition de bord en hyperbolique}{13}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Guide d'onde et confinement}{17}{subsection.4.2}%

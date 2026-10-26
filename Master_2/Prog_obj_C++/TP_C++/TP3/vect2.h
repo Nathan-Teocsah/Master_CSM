@@ -1,5 +1,5 @@
-#ifndef H_VECT1
-#define H_VECT1
+#ifndef H_VECT2
+#define H_VECT2
 
 class Vect{
     private:
@@ -12,6 +12,8 @@ class Vect{
         double& operator [](int i){return val[i];};
         Vect(const Vect&);
         Vect& operator =(const Vect& );
+        //friend int getlg(const Vect& );
+        int getlg();
 };
 
 #endif
