@@ -7,6 +7,8 @@
 \usepackage{prise_de_note}
 \usepackage{subcaption}
 \graphicspath{{images}}
+
+\newcommand\diff[2]{\dfrac{\partial #1}{\partial #2}}
 \begin{document}
 	\pagenumbering{gobble}
 	\begin{titlepage}
@@ -960,5 +962,191 @@ On part du mode évanescent (pas de propagation).
 	\includegraphics[scale=.25]{im21.jpeg}
 	\caption{}
 \end{figure}
+
+
+\setcounter{section}{0}
+\setcounter{equation}{0}
+\part{François Castella}
+
+
+\underline{But :} Résoudre (numériquement) $\dfrac{\partial f}{\partial t}(t,x) + a(t,x) \cdot \nabla_x f(t,x) = 0$, $x \in \R^d$, $a(t,x) \in \R^d$.
+
+\section{Exemples}
+
+\large{\textbf{\underline{Exemple 1.}}}\\
+
+$\begin{cases}
+	x \in \R\\
+	a(t,x) = c \in \R
+\end{cases}$ ($c$ comme célérité)\\
+
+,et on cherche à résoudre :
+
+\vspace{.2cm}
+
+\begin{equation}\label{eq:ex_1}
+	\begin{cases}
+	\diff{f}{t}(t,x) + c\diff{f}{x}(t,x) = 0 \\
+	f(t,x) \in \R\\
+	f(t=0,x) = f^0(x).
+\end{cases},
+\end{equation}
+$f^0$ est une fonction connue.
+
+A cette EDP on associe canoniquement l'EDO 
+\begin{equation}
+	\begin{cases}
+	X'(t) = c\\
+	X(0) = X_0
+\end{cases},
+\end{equation}
+cette EDO a pour solution 
+\begin{equation}\label{eq:sol_1}
+	X(t) = X_0 + ct.
+\end{equation}
+Au lieu de résoudre \eqref{eq:ex_1} pour l'inconnue $f(t,x)$, on change d'inconnue et on s'intéresse à la nouvelle inconnue :
+\[
+	g(t,x) = f(t,x+ct).
+\]
+On a :
+\[\begin{aligned}
+	\diff{}{t}\left[g(t,x)\right] & = \diff{}{t}\left[f(t,x-ct)\right]\\
+	&= \left(\diff{f}{t}\right)(t,x+ct) + \diff{}{t}(x+ct)\left(\diff{f}{x}\right) (t,x+ct)\\
+	&= \left(\diff{f}{t}\right)(t,x+ct) + c \left(\diff{f}{x}\right)(t,x+ct)\\
+	&= \left(\diff{f}{t}+c\diff{f}{x}\right)(t,x+ct) = 0
+\end{aligned}\]
+
+Ainsi : $\diff gt (t,x) = 0$. Donc $g(t,x) = g(0,x) = f(t=0,x) = f^0(x)$. Donc 
+\begin{equation}
+	f(t,x+ct) = f^0(x),
+\end{equation} 
+$f$ est constante le long des caractéristiques.\\
+De plus, on a :
+\begin{equation}
+	f(t,x) = f^0(x-ct).
+\end{equation}
+$x \mapsto x+ct$ est la solution de l'EDO $X'(t) = c$ à l'instant $t$ pour la Donnée Initiale (DI) $X_0 = x$.\\
+
+\large{\textbf{\underline{Exemple 2.}}}\\
+
+\fbox{$a(t,x) = x$}, $\forall t,x \in \R$.\\
+Soit à résoudre 
+\begin{equation}
+	\begin{cases}
+		\diff ft(t,x) + x\diff fx(t,x) = 0\\
+	f(=0,x) = f^0(x)
+	\end{cases},
+\end{equation}
+$f^0$ es connue.\\
+
+J'introduis l'EDO caractéristique associée :
+\begin{equation}
+	\begin{cases}
+		X'(t) = X(t)\\
+		X(0) = X_0
+	\end{cases}.
+\end{equation}
+Solution : \fbox{$X(t) = X_0e^t$}. J'introduis manuellement la nouvelle inconnue : \fbox{$g(t,x) = f(t,xe^t)$}. On a :
+\[
+	\begin{aligned}
+		\diff gt(t,x) &= \left(\diff ft\right)(t,xe^t) + \diff{}t(xe^t)\left(\diff fx\right)(t,xe^t),\\
+		&= \left(\diff ft\right)(t,xe^t) + xe^t \left(\diff fx\right)(t,.xe^t),\\
+		&= \underbrace{\left(\diff ft + x\diff fx\right)}_{=0}(t,xe^t)
+	\end{aligned}
+\]
+Ainsi $\begin{aligned}[t]
+	g(t,x) &= g(t=0,x), \\
+	&=f(t=0,xe^0),\\
+	&=f^0(x).
+\end{aligned}$\\
+Soit :
+\begin{equation}
+	f(t,xe^t) = f^0(x),
+\end{equation}
+$f$ est constante le long des caractéristiques. Donc :
+\begin{equation}
+	f(t,x) = f^0(xe^{-1}).
+\end{equation}
+
+\large{\textbf{\underline{Exemple 3.}}}\\
+
+$\begin{cases}
+	\diff ft(t,x) + x(1-x)\diff fx(t,x) = 0\\
+	f(t=0,x) = f^0(x).
+\end{cases}$ et l'EDO associée $\begin{cases}
+X'(t) = X(t)(1-X(t))\\
+X(0) = X_0
+\end{cases}$.\\
+
+On résoud l'EDO : $\dfrac{X'(t)}{X(t)(1-X(t))} = 1$.\\
+Or $\dfrac1{a(1-a)} = \dfrac1a+\dfrac1{1-a}$ : $\dfrac{X'(t)}{X(t)} + \dfrac{X'(t)}{1-X(t)} = 1$. Soit : $\ln(X(t))' - \ln(1-X(t))' = 1$.\\
+Soit, en intégrant de 0 à $t$ : 
+\[
+	\left[\ln(X(t)) - \ln(1-X(t))\right] - \left[\ln X_0 - \ln (1-X_0)\right] = t
+\] 
+$\begin{aligned}
+	\implies \ln\left(\dfrac{X(t)}{1-X(t)}\right) = t + \ln\left(\dfrac{X_0}{1-X_0}\right)\\
+	\implies X() = \dfrac{X_0}{1-X_0} e^t - \dfrac{X_0}{1-X_0} e^t X(t)\\
+	\implies X(t) = \dfrac{\dfrac{X_0}{1-X_0}e^t}{1+\dfrac{X_0}{1-X_0}e^t}
+\end{aligned}$
+
+$\begin{aligned}
+	\diff g(t,x) &= \left(\diff ft\right)\left(t,\dfrac{\dfrac x{1-x}e^t}{1+\dfrac x{1-x}e^t}\right) + \diff{}t\left(\dfrac{\dfrac x{1-x}e^t}{1+\dfrac x{1-x}e^t}\right)\left(\diff fx\right)\left(t,\dfrac{\dfrac x{1-x}e^t}{1+\dfrac x{1-x}e^t}\right)\\
+	&= \left(\diff ft + x(1-x)\diff fx\right)\left(t,\dfrac{\dfrac x{1-x}e^t}{1+\dfrac x{1-x}e^t}\right) = 0.
+\end{aligned}$
+
+\large{\textbf{\underline{Cas général}}}\\
+
+Soit $a(t,x) \in \mathcal C^\infty(\R^+,\R)$, $f^0 \in \mathcal C^\infty(\R)$.\\
+Soit à résoudre :
+\begin{equation}\label{eq:cas_general}
+	\begin{cases}
+	\diff ft (t,x) + a(t,x) \diff fx(t,x) = 0\\
+	f(t=0,x) = f^0(x)
+\end{cases},
+\end{equation} 
+$t\geq 0$ et $x \in \R$. L'EDO caractéristique associée à \eqref{eq:cas_general} est : 
+\begin{equation}
+	\begin{cases}
+		X'(t) = a(t,X(t))\\
+		X(t_0) = X_0
+	\end{cases}.
+\end{equation}
+Notons $X(t;t_0,X_0) = $ la sol. de $X'(t) = a(t,X(t))$ associée à la donnée initiale $X_0$ à l'instant $t_0$. Autrement dit : $\begin{cases}
+	\diff{}t X(t;t_0,X_0) = a(t,X(t;t_0,X_0))\\
+	X(t_0;t_0,X_0) = X_0
+\end{cases}$.\\ L'application $(t,t_0,X_0) \mapsto X(t;t_0,X_0)$ s'appelle le \underline{\underline{float}} de l'EDO $y' = a(t,y)$.
+
+\begin{thm}[Propriété de groupe du flot]
+	\begin{equation}
+		X(t_2;t_1, X(t_1;t_0,x_0)) = X(t_2;t_0,x_0).
+	\end{equation}
+\end{thm}
+
+\begin{enumerate}[label=\textbullet]
+	\item  OK tant que $t_0,t_1,t_2$ sont dans l'ensemble de définition de définition du flot.
+	\item Le flot es défini pour tout $t,t_0$ à la condition suffisante qu'il existe $C(t)$ tel que pour tout $x$, $\abs{a(t,x)} \leq C(t) \left(1+\abs{x}\right)$.\\
+	On dit que $a$ est à croissance au plus linéaire en $x$.
+\end{enumerate}
+
+
+Avec ces solutions, résolvons : $\begin{cases}
+	\diff ft(t,x) + a(t,x) \diff fx (t,x) = 0\\
+	f(t=0,x) = f^0(x) .
+\end{cases}$.\\
+On pose \fbox{$g(t,x) = f(t,X(t,0,x))$}. On a :
+	\[
+		\begin{aligned}
+			\diff{}t g(t,x) &= \left(\diff ft\right)(t,X(t;0,x)) + \left(\diff{}t X(t;0,x)\right)\left(\diff fx\right)(t,X(t;0,x))\\
+			&= \left(\diff ft + a\diff fx\right)(t,X(t;0,x))\\
+			&\implies g(t,x) = g(0,x) = f(0,X(0;0,x)) = f(0,x)\\
+			&\implies f(t,X(t,0,x)) = f^0(x)
+		\end{aligned}
+	\]
+	On pose $y = X(t;0,x)$. Ainsi $x = X(0;t,y)$. D'où :
+	\begin{equation}
+		f(t,y) = f^0(X(0;t,y)).
+	\end{equation}
+	
 
 \end{document}

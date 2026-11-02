@@ -1,0 +1,83 @@
+\documentclass[12pt,a4paper]{article}
+
+\makeatletter
+\def\input@path{{/home/maenwe/Master_CSM/modèle_cours_latex}}
+\makeatother
+
+\usepackage{prise_de_note}
+\graphicspath{{images}}
+\begin{document}
+	\pagenumbering{gobble}
+	\begin{titlepage}
+		\centering
+		
+		% Logo
+		\begin{figure}[h]
+			\centering
+			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
+			\includegraphics[width=0.5\textwidth]{/home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg} 
+		\end{figure}
+		
+		\vspace{2cm}
+		
+		% Filet horizontal du haut
+		\rule{\linewidth}{0.5mm} \\[0.4cm]
+		
+		% Titre
+		{\color{bleuTitre} \Huge \bfseries Phénomène de propagation} \\[0.4cm]
+		
+		% Filet horizontal du bas
+		\rule{\linewidth}{0.5mm}
+		
+		\vspace{1.5cm}
+		
+		{\Large \textbf{Fiche de TD 3}}
+		
+		\vfill
+		
+		% Bloc Informations
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft} \large
+				\textbf{Enseignant :} \\
+				M. Benjamin \textsc{BOUTIN}
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright} \large
+				\textbf{Étudiant :} \\
+				Nathan \textsc{HASCOET}
+			\end{flushright}
+		\end{minipage}
+		
+		\vspace{2cm}
+		
+		% Date
+		{\large \today}
+		
+	\end{titlepage}
+	
+	\newpage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	
+	\begin{sol}
+		$ $\\
+		\begin{enumerate}
+			\begin{minipage}{17cm}
+				\item $\Delta u = w(\theta)\frac1r\frac{\partial}{\partial r}\left(rv'(r)\right) + v(r)\frac1{r^2}w''(\theta) = w(\theta)(v''(r)+\frac1r v'(r)) + v(r)\frac1{r^2}w''(\theta)$\\
+				
+				Ainsi $w(\theta)(v''(r)+\frac1r v'(r)) + v(r)\frac1{r^2}w''(\theta) + (\omega^2-\beta^2)u = 0$.\\
+				
+				Et finalement : $\frac1{v(r)}(v''(r)+\frac1r v'(r)) = (\beta^2-\omega^2) - \frac1{r^2}\frac{w''(\theta)}{w(\theta)}$.
+				
+				Ainsi il existe $\lambda \in \R$ tel que : $r^2v''(r)+r v'(r) + (r^2(\omega^2-\lambda^2)-\lambda) v(r) = 0$ et $w''(\theta) = \lambda w(\theta)$.
+				
+				\item $w(0) = w(2\pi)$, par périodicité, et $w'(0) = w'(2\pi)$. Pour la condition de Dirichlet, $u(R,\theta) = 0$ donc $v(R) = 0$.
+				
+				Et pour Neumann, $\partial_v u(R,\theta) = 0 = v'(R) w(\theta)$ donc $v'(R) = 0$.
+			\end{minipage}
+		\end{enumerate}
+	\end{sol}
+	
+\end{document}

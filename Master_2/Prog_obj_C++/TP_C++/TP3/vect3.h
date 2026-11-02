@@ -11,7 +11,7 @@ class Vect{
         void affiche();
         double& operator [](int i){return val[i];};
         Vect(const Vect&);
-        Vect& operator =(const Vect);
+        Vect& operator=(const Vect);
         //friend int getlg(const Vect& );
         int getlg();
         ~Vect();

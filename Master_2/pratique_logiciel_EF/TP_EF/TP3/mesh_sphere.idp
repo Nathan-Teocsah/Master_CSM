@@ -1,0 +1,35 @@
+func meshS Sphere(real R, real h, int L, int orient)
+{
+// Réalise un maillage surfacique de la sphère centrée à l’origine et de rayon R
+// Paramètres d’entrée :
+// R = rayon de la sphère
+// h = [réel] pas du maillage de la sphère
+// L = [entier] no de réference des triangles de la surface de la sphère
+// orient = [entier] 1 ou -1 selon l’orientation souhaitée
+//
+// Paramètre de sortie :
+// le maillage de la sphère
+    int n = 20; // nb de sommets sur chaque coté du domaine 2D de paramétrisation
+    mesh Th=square(n/2,n,[x*pi,2*y*pi]);// [0,pi]\times[O,2\pi]
+    // Fonction de paramétrisation
+    func f1=R*sin(x)*cos(y);
+    func f2=R*sin(x)*sin(y);
+    func f3=R*cos(x);
+    // dérivées partielles de la fonction de paramétrisation
+    func f1x=R*cos(x)*cos(y);
+    func f1y=-R*sin(x)*sin(y);
+    func f2x=R*cos(x)*sin(y);
+    func f2y=R*sin(x)*cos(y);
+    func f3x=-R*sin(x);
+    func f3y=0;
+    // définition du tenseur métrique
+    func m11=f1x^2+f2x^2+f3x^2;
+    func m21=f1x*f1y+f2x*f2y+f3x*f3y;
+    func m22=f1y^2+f2y^2+f3y^2;
+    func perio=[[4,y],[2,y],[1,x],[3,x]];// permet de générer un maillage symétrique
+    real vv= 1/square(h);
+    Th=adaptmesh(Th,m11*vv,m21*vv,m22*vv,IsMetric=1,periodic=perio);
+    int[int] ref=[0,L]; // modification des réferences 0 --> L
+    meshS ThS= movemesh23(Th,transfo=[f1,f2,f3],reftri=ref,orientation=orient);
+    return ThS;
+}

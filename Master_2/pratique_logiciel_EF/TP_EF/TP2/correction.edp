@@ -1,0 +1,72 @@
+// Calcul des modes TE et TM dans un guide d'onde ferm'e à section rectangulaire
+//
+// S. Balac - UFR de Mathématiques - Universit'e de Rennes 1 - nov 2014
+
+real a=5, b=10;                   // dimension du guide rectangulaire 
+                                  // en unit'es adimensionnalis'ees
+int nx=50, ny=50;                 // nb de noeuds sur chaque cote
+mesh Th=square(nx,ny,[a*x,b*y]);  // generation du maillage de  [0,a] x [0,b]
+
+fespace Vh(Th,P2); // approximation EF de degre 2
+Vh u1,u2;
+
+// On calcule nev valeurs propres autour de la valeur sigma
+real sigma = 0;
+int nev = 5;         // nombre de v.p. calculees
+real[int] evte(nev);  // tableau pour les valeurs propres des modes TE
+Vh[int] evecte(nev);  // tableau pour les vecteurs propres des modes TE
+real[int] evtm(nev);  // tableau pour les valeurs propres des modes TM
+Vh[int] evectm(nev);  // tableau pour les vecteurs propres des modes TM
+
+
+varf opte(u1,u2)=int2d(Th)(dx(u1)*dx(u2)+dy(u1)*dy(u2) -sigma*u1*u2); 
+                                      // CL Neumann pour mode TE
+varf optm(u1,u2)=int2d(Th)(dx(u1)*dx(u2)+dy(u1)*dy(u2) -sigma*u1*u2)
+                 +on(1,2,3,4,u1=0);  // CL Dirichlet pour mode TM
+varf bv(u1,u2)= int2d(Th)(u1*u2);
+
+matrix OPTE=opte(Vh,Vh,solver=Crout,factorize=1);
+matrix OPTM=optm(Vh,Vh,solver=Crout,factorize=1);
+matrix B=bv(Vh,Vh,solver=CG,eps=1E-20);
+
+int kte=EigenValue(OPTE,B,sym=true,sigma=sigma,value=evte,vector=evecte,
+                   tol=1e-10,maxit=0,ncv=0);
+int ktm=EigenValue(OPTM,B,sym=true,sigma=sigma,value=evtm,vector=evectm,
+                   tol=1e-10,maxit=0,ncv=0);
+
+cout << "============================================"<< endl;
+cout << "Modes TE " << endl;
+cout << "============================================"<< endl;
+for (int i=0;i<nev;i++)
+{
+u1=evecte[i];
+real err=int2d(Th)(dx(u1)*dx(u1)+dy(u1)*dy(u1) - evte[i]*u1*u1);
+cout << "---" << i << " constante de propagation : " << evte[i] << "---" <<
+ " erreur =  " << err << "---" << endl;
+// repr'esentation graphique du mode
+plot(evecte[i],cmm=" Mode TE eigenvector "+i+" for eigenvalue "+evte[i]);
+} ;
+cout << " "<< endl;
+
+cout << "============================================"<< endl;
+cout << "Modes TM " << endl;
+cout << "============================================"<< endl;
+for (int i=0;i<nev;i++)
+{
+u1=evectm[i];
+real err=int2d(Th)(dx(u1)*dx(u1)+dy(u1)*dy(u1) - evtm[i]*u1*u1);
+cout << "---" << i << " constante de propagation : " << evtm[i] << "---" <<
+ " erreur =  " << err << "---" << endl;
+// repr'esentation graphique du mode
+plot(evectm[i],cmm=" Mode TM eigenvector "+i+" for eigenvalue "+evtm[i]);
+} ;
+
+cout << "Solution exacte" << endl;
+cout << "---------------"<< endl;
+for (int i=0;i<10;i++)
+{
+for (int j=0;j<10;j++)
+{
+cout << "---" << i << j << " constante de propagation : " << ((i*pi)/a)^2+((j*pi/b))^2 << "---" << endl;
+};
+};

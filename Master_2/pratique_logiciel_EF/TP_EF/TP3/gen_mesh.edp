@@ -1,0 +1,14 @@
+load "msh3"
+load "medit"
+load "tetgen"
+include "mesh_sphere.idp" // inclusion de la fonction mesh_sphere
+real Ri=1, Re=3; // rayons intérieur et extérieur
+real hi=0.1, he=0.5; // pas du maillages sur les sphères int. et ext.
+meshS ThSi=Sphere(Ri,hi,11,1); // maillage de la sphère intérieure
+meshS ThSe=Sphere(Re,he,12,1); // maillage de la sphère extérieure
+meshS ThS=ThSi+ThSe; // On réunit les 2 maillages surfaciques
+real volteti=hi^3/6, voltete=he^3/6; // volume maximal autorisés pour les tétraèdres
+real[int] Pi=[0,0,0], Pe=[0,0,(Re+Ri)/2]; // Points du domaine intérieur et du domaine extérieur
+real[int] domaine=[Pi,1,volteti,Pe,2,voltete]; // Propriétés des 2 domaines
+mesh3 Th=tetg(ThS,switch="paAAYYQ",nbofregions=2,regionlist=domaine);
+medit("2 boules concentriques",Th);

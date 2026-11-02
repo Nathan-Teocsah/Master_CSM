@@ -1,0 +1,15 @@
+load "msh3" // bibliothèque pour les maillages 3D
+load "medit" // bibliothèque medit de visualisation des maillages 3D
+load "tetgen" // mailleur TetGen
+real R=1; // rayon de la sphère
+int n=20; // nombre de sommets par coté
+// maillage du domaine de paramétrisation [0,\pi]\times[0,2\pi]
+mesh Th1=square(n,n,[pi*x,2*pi*y]);
+//plot(Th1);
+// On génère le maillage de la surface de la sphère comme l’image du maillage
+// du domaine 2D par la fonction de paramétrisation
+meshS ThS=movemesh23(Th1,transfo=[R*sin(x)*cos(y),R*sin(x)*sin(y),R*cos(x)]);
+mesh3 ThB=tetg(ThS);
+medit("Maillage de la sphere",ThS); // affichage du maillage
+
+medit("Maillage de la sphere",ThB); // affichage du maillage
