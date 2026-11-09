@@ -30,4 +30,10 @@ _Vacances_ 11 -> 26
 - Lundi 28 : CC1 phénomène de propagation
 
 ## Octobre 2026
-- Lundi 19 : CC2 phénomène de propagation
+- Lundi 19 : CC2 phénomène de propagation (Annulé)
+
+## Novembre 2026
+- Jeudi 19 : CC programmation de base C++
+- Mercre 25 : TP programmation de base C++
+
+

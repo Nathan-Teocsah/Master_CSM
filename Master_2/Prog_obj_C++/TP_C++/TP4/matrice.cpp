@@ -52,7 +52,9 @@ Matrice& Matrice::operator=(const Matrice& B){
         for (int i=0; i<nbl;i++){
             delete [] val[i];
         }
-        delete [] val;
+        if (nbl!=0){
+            delete [] val;
+        }
         nbl = B.nbl;
         nbc = B.nbc;
         val = new double*[nbl];
@@ -73,10 +75,17 @@ Matrice& Matrice::operator=(const Matrice& B){
     return *this;
 }
 
-Matrice::Matrice(Matrice& A):nbl(0),nbc(0),val(nullptr){
-    *this=A;
+Matrice::Matrice(Matrice& A):nbl(A.nbl),nbc(A.nbc),val(new double*[nbl]){
+    for (int i=0; i<nbl;i++){
+        val[i] = new double[nbc];
+        for (int j=0;j<nbc;j++){
+            val[i][j] = A.val[i][j];
+        }
+    }
 }
 
+
+/*------- MATFULL -------*/
 
 MatFull::MatFull():Matrice(){}
 
@@ -84,18 +93,18 @@ MatFull::MatFull(int nbl, int nbc):Matrice(nbl,nbc){}
 
 MatFull::MatFull(MatFull& A):Matrice(A){};
 
-MatFull MatFull::operator+(const MatFull& B) {
-    Matrice A = Matrice::operator+(B);
-    return MatFull(A);
-};
-
 MatFull::~MatFull(){
     delete this;
 };
 
-MatFull::MatFull(Matrice& A):Matrice(A){};
-
-MatFull& MatFull::operator=(MatFull& B){
-        Matrice A(B);
-        return MatFull(A);
+/*
+MatFull MatFull::operator+(const MatFull& B) {
+    Matrice A = Matrice(*this).Matrice::operator+(B);
+    return MatFull(A);
 };
+
+MatFull& MatFull::operator=(const MatFull& B){
+        Matrice(*this).Matrice::operator=(B);
+        return *this;
+};
+*/

@@ -12,9 +12,9 @@ class Matrice{
         Matrice(Matrice&);
         void affiche() const;
         void init(double);
-        Matrice operator+(const Matrice&);
+        virtual Matrice operator+(const Matrice&);
         ~Matrice();
-        Matrice& operator=(const Matrice&);
+        virtual Matrice& operator=(const Matrice&);
 };
 
 class MatFull:public Matrice{
@@ -22,11 +22,11 @@ class MatFull:public Matrice{
         MatFull();
         MatFull(int,int);
         MatFull(MatFull&);
-        MatFull(Matrice&);
-        MatFull operator+(const MatFull&);
         ~MatFull();
-        MatFull& operator=(MatFull&);
-
+        /*
+        MatFull& operator=(const MatFull&);
+        MatFull operator+(const MatFull&);
+        */
 };
 
 #endif

@@ -1,0 +1,26 @@
+// --- Domaine géométrique et maillage ---
+real L=100;
+mesh Th=square(10,10,[L*x,L*y]);
+plot(Th);
+// --- Données ---
+real E = 0.13E12, nu = 0.25; // module d’Young en dyne/cm et coef. de Poisson
+real mu= E/(2*(1+nu)); // coeff. de Lamé
+real lambda = E*nu/((1+nu)*(1-2*nu)); // coeff. de Lamé
+real f2=-42E7; // force linéique en dyne/cm
+// --- Espace élément fini et formulation variationnelle ---
+fespace Vh(Th,P1);
+Vh u1,u2,v1,v2;
+real sqrt2=sqrt(2.);
+macro epsilon(u1,u2) [dx(u1),dy(u2),(dy(u1)+dx(u2))/sqrt2] //fin de macro
+macro div(u1,u2) (dx(u1)+dy(u2)) //fin de macro
+
+solve lame([u1,u2],[v1,v2])= int2d(Th)(lambda*div(u1,u2)*div(v1,v2)
+                                        +2.*mu*(epsilon(u1,u2)'*epsilon(v1,v2)))
+                                        - int1d(Th,3)(f2*v2)
+                                        + on(1,u1=0,u2=0)+ on(4,u1=0,u2=0);
+// --- Exploitation des résultats ---
+real coef=100; // coefficient d’amplification
+plot([u1,u2],coef=coef); // affichage du champ de déplacement
+// affichage du maillage déformé
+mesh Thd = movemesh(Th, [x+u1*coef, y+u2*coef]);
+plot(Thd);

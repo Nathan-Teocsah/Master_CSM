@@ -3,6 +3,9 @@
 int main(){
     MatFull A(2,3);
     MatFull B(2,3);
-    MatFull C;
-    C = A+B;
+
+    Matrice D(2,3);
+    Matrice F(D);
+    
+    MatFull C(A+B);
 }
