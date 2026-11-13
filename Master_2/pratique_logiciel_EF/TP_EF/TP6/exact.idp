@@ -1,0 +1,44 @@
+// Computation of the exact solution
+// From L.D. Landau, E.M. Lifshitz (1960).
+// Electrodynamics of Continuous Media. Vol. 8, p. 193
+real mue=mu0;
+real mui=mu0;
+real delta=sqrt(2./(omega*mu0*sigmac));
+
+cout << "epaisseur de peau = "<< delta << endl;
+complex k=(1+1i)/delta;
+complex D=mue*(k*R)*cos(k*R)-mue*sin(k*R)+mue*(k*R)^2*sin(k*R)
+          -mui*(k*R)*cos(k*R)+mui*sin(k*R);
+complex beta=3*mue*R^3/(2*D);
+complex alpha=(-3/(8*pi*D))*( mue*(k*R)*cos(k*R)-mue*sin(k*R)+mue*(k*R)^2*sin(k*R)
+          +2*mui*(k*R)*cos(k*R)-2*mui*sin(k*R) );
+
+func complex Hxexa (real x, real y,  real z)
+	{complex f,df,val;
+     real r;
+     r=sqrt(x^2+y^2+z^2);
+     f=sin(k*r)/r;
+     df=(k*r*cos(k*r)-sin(k*r))/r^2;
+	 if (r<R){val=-beta*H1*(z/r)*(3*df/r+k^2*f)*(x/r) ;}
+	 else {val=4*pi*R^3*alpha*H1*x*z/r^5;}
+     return val;}
+
+func complex Hyexa (real x, real y, real z)
+	{complex f,df,val;
+     real r;
+     r=sqrt(x^2+y^2+z^2);
+     f=sin(k*r)/r;
+     df=(k*r*cos(k*r)-sin(k*r))/r^2;
+	 if (r<R){val=-beta*H1*(z/r)*(3*df/r+k^2*f)*(y/r) ;}
+	 else {val=4*pi*R^3*alpha*H1*y*z/r^5;}
+     return val;}
+
+func complex Hzexa (real x, real y, real z)
+	{complex f,df,val;
+     real r;
+     r=sqrt(x^2+y^2+z^2);
+     f=sin(k*r)/r;
+     df=(k*r*cos(k*r)-sin(k*r))/r^2;
+	 if (r<R){val=-beta*H1*(z/r)^2*(3*df/r+k^2*f) + H1*beta*(df/r+k^2*f);}
+	 else {val=(4*pi*R^3*alpha/(3*r^3))*(3*H1*z^2/r^2-H1)+H1;}
+     return val;}
