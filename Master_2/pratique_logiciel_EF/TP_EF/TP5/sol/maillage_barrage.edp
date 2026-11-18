@@ -1,0 +1,37 @@
+// Maillage du barrage de retenue
+// S. Balac - UFR de Mathématiques, Université de Rennes 1 (2014)
+
+load "msh3";
+load "medit"
+load "tetgen"
+
+real R1=150, R2=180;
+// Création du maillage 2D de la base
+border gamma1(t=0,2*pi/3){x=R1*cos(t);y=R1*sin(t);label=1;}; // paroi sèche
+border gamma2(t=-75,-90){x=t;y=-t/tan(pi/6);label=2;}; 
+border gamma3(t=0,2*pi/3){x=R2*cos(t);y=R2*sin(t);label=3;}; // paroi mouillée
+border gamma4(t=R1,R2){x=t;y=0;label=4;}
+
+mesh Th2d=buildmesh(gamma1(-8)+gamma2(-1)+gamma3(8)+gamma4(1));
+plot(Th2d,wait=true,ps="maillage_base_barrage.eps");
+
+// ---- Maillage 3D du maillage par élévation du maillage 2D ----
+
+int nbcouches=10;      // nb de couches d'éléments
+real zmin=0, zmax=100; // altitude min et max
+func fx=x*(1+6*z/(5*sqrt(x^2+y^2))-z/150); // Composantes de la fonction 
+func fy=y*(1+6*z/(5*sqrt(x^2+y^2))-z/150); // d'élévation
+func fz=z;    
+                    
+// Définition de la manière dont les numéros de références des bords du
+// maillage 2D sont transmis au maillage 3D
+int[int] refmi=[1,1,2,2,3,3];   // faces latérales 1->1 , 2-> 2 et 3->3
+int[int] refbas=[0,2];          // bas du barrage 0->2
+int[int] refhau=[0,1];          // haut du barrage 0->1
+// Génération du maillage 3D
+mesh3 Th3d=buildlayers(Th2d,nbcouches,zbound=[zmin,zmax],transfo=[fx,fy,fz],
+                       labelmid=refmi,labeldown=refbas,labelup=refhau);
+// Sauvegarde et affichage du maillage
+savemesh(Th3d,"barrage.msh");
+//medit("barrage",Th3d);
+plot(Th3d,wait=true,ps="maillage_3d_barrage.eps");

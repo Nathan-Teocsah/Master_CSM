@@ -1,0 +1,116 @@
+// Compute the RF field induced by a metallic conducting ball using
+// Nedelec Edge03d Finite Element
+// Author : Stéphane Balac, Mathematics Institute, University of Rennes 1
+// Date : 14 november 2018
+
+load "msh3"
+load "tetgen"
+load "medit"
+load "Element_Mixte3d"
+//load "MUMPS_FreeFem" //  run with MPI:  ff-mpirun -np 4 script.edp
+//load "gsl"
+include "mesh_sphere.idp"  // file containing the function for generating the mesh of a sphere
+include "solexa.idp"
+
+//defaulttoMUMPS();
+//verbosity=0;
+
+real mu0=4*pi*1E-7; // vacuum magnetic permeability [H/m]
+real eps0=8.854E-12; // electric permittivity of vacuum [F/m]
+real Z0=sqrt(mu0/eps0); // impedance of vacuum
+real sigmac=59E6; // electric conductivity of copper [S/m]
+real eps1=eps0; //Permittivity of conductors is equal to the permittivity of free space
+real B1=1E-4;  // RF field strength [Tesla]
+real H1=B1/mu0;
+/*
+real gamma=42.58E6; // gyromagnetic ratio of protons [Hz/T]
+real B0=1; // static field strength [Tesla]
+real omega=gamma*B0; 
+*/
+real omega=42.58E6; // frequency in [Hz]
+
+real unit=1E-2; // normalization : distances are given in cm (1cm=1E-2 m)
+real R=1*unit, Re=4*unit; // inner and outer radius of the hollow ball
+real hi=0.2*unit, he=0.4*unit; // mesh step-size on the inner and outer spheres
+//
+// FE MESH GENERATION
+//
+cout << "**** FE Mesh in progress ****" << endl;
+meshS ThSi=Sphere(R,hi,11,1); // meshes the inner sphere
+meshS ThSe=Sphere(Re,he,12,1); // meshes the outer sphere
+
+meshS ThS=ThSi+ThSe; // the 2 surfacic meshes are gather together
+
+real volteti=hi^3/6, voltete=he^3/6; // max allowed volume for tetrahedrons
+real[int] Pi=[0,0,0], Pe=[0,0,(Re+R)/2]; // point belonging to the inner domain
+real[int] domaine=[Pi,1,volteti,Pe,2,voltete]; //  point belonging to the outer domain
+mesh3 Th=tetg(ThS,switch="paAAYYQ",nbofregions=2,regionlist=domaine);
+//medit("maillage",Th);
+//plot(Th);
+//savemesh(Th,"maillage.mesh"); 
+cout << "**** FE Mesh done ****" << endl;
+//
+// FE COMPUTATIONS
+//
+cout << "**** FE computations in progress ****" << endl;
+complex ki= sqrt(omega^2*mu0*eps1+ 1i*omega*mu0*sigmac);
+complex ke= sqrt(omega^2*mu0*eps0);
+fespace Vh(Th,Edge03d);
+
+Vh<complex> [Hx,Hy,Hz],[Vx,Vy,Vz];
+macro Curl(Hx,Hy,Hz) [dy(Hz)-dz(Hy),dz(Hx)-dx(Hz),dx(Hy)-dy(Hx)] // EOM
+macro Div(Hx,Hy,Hz) (dx(Hx)+dy(Hy)+dz(Hz)) //EOM
+solve rfmag([Hx,Hy,Hz],[Vx,Vy,Vz])=
+      int3d(Th,1)( (1/(1i*eps1*omega-sigmac))*Curl(Hx,Hy,Hz)'*Curl(Vx,Vy,Vz))
+    + int3d(Th,2)( (1/(1i*eps0*omega))*Curl(Hx,Hy,Hz)'*Curl(Vx,Vy,Vz))
+     + int3d(Th)(1i*omega*mu0*[Hx,Hy,Hz]'*[Vx,Vy,Vz])
+//    + int2d(Th,12)(Z0*[Hx,Hy,Hz]'*[Vx,Vy,Vz])
+//	- int2d(Th,12)(Z0*H1*Vz);
++ on(12,Hx=0,Hy=0,Hz=H1);
+cout << "**** FE computations done ****" << endl;
+
+//
+// RESULTS ANALYSIS
+//
+cout << "**** Results analysis in progress ****" << endl;
+// Computation of the 2 norm of the approximate solution H
+fespace Wh(Th,P0);
+Wh normHtot, normHind;
+normHtot= sqrt(abs(Hx)^2+abs(Hy)^2+abs(Hz)^2);
+normHind =  sqrt(abs(Hx)^2+abs(Hy)^2+abs(Hz-H1)^2);
+//medit("Total magnetic field strength",Th,normHtot,order=1,save="norm_Htot_lagr_div.solb");
+real norml2 = sqrt(int3d(Th)(normHtot^2));
+cout << "The L2 norm of the total magnetic field is = "<< norml2 <<endl;
+norml2 = sqrt(int3d(Th)(normHind^2));
+cout << "The L2 norm of the induced magnetic field is = "<< norml2 <<endl;
+//medit("Induced magnetic field strength",Th,normHind,order=1,save="norm_Hind_lagr_div.solb");
+
+// Computation of the divergence of H
+fespace Uh(Th,P0);
+Uh<complex> divh;
+divh =dx(Hx)+dy(Hy)+dz(Hz);
+//medit("Divergence of H",Th,abs(divh),order=1,save="div_Htot_lagr_div.solb");
+real normdiv = sqrt(int3d(Th)(abs(divh)^2));
+cout << "The L2 norm of the divergence of the magnetic field is = "<< normdiv <<endl;
+cout << " The max of the the divergence of the magnetic field is = "<< divh[].max <<endl;
+
+// Computation of the 2 norm of the exact solution H
+func complex[int] Hexa (real x, real y,  real z){
+	     return solexa(x,y,z,R,Re,eps1,eps0,sigmac,omega,H1);}
+func normeHtotex= sqrt(abs(Hexa(x,y,z)[0])^2+abs(Hexa(x,y,z)[1])^2+abs(Hexa(x,y,z)[2])^2);
+func normeHindex= sqrt(abs(Hexa(x,y,z)[0])^2+abs(Hexa(x,y,z)[1])^2+abs(Hexa(x,y,z)[2]-H1)^2);
+//medit("Exact_total_magnetic_field_strength",Th,normeHtotex,order=1,save="norm_Htot_ex.solb");
+//medit("Exact_induced_magnetic_field_strength",Th,normeHtotex,order=1,save="norm_Hind_ex.solb");
+
+real normL2tot, normL2ind, L2error; 
+normL2tot = sqrt(int3d(Th)(normeHtotex^2));
+normL2ind = sqrt(int3d(Th)(normeHindex^2));
+cout << " L2 norm of the exact magnetic field = " << sqrt(normL2tot) << endl;
+cout << " L2 norm of the induced magnetic field = " << sqrt(normL2ind) << endl;
+L2error=sqrt(int3d(Th)(abs(Hx-Hexa(x,y,z)[0])^2+abs(Hy-Hexa(x,y,z)[1])^2+abs(Hz-Hexa(x,y,z)[2])^2)) ;
+cout << "Absolute L2 error on the total magnetic field (%) = " << L2error << endl;
+cout << "Relative L2 error on the total magnetic field (%) = " << (L2error/normL2tot)*100 << endl; 
+cout << "Relative L2 error on the induced magnetic field (%) = " << (L2error/normL2ind)*100 << endl; 
+cout << "**** Results analysis done ****" << endl;
+
+

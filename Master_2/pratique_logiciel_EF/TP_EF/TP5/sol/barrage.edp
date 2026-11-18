@@ -1,0 +1,62 @@
+load "msh3";
+load "medit"
+load "tetgen"
+
+real R1=150, R2=180;
+border gamma1(t=0,2*pi/3){x=R1*cos(t);y=R1*sin(t);label=1;}; // paroi sèche
+border gamma2(t=-R1*sin(pi/6),-R2*sin(pi/6)){x=t;y=-t/tan(pi/6);label=2;}; 
+border gamma3(t=0,2*pi/3){x=R2*cos(t);y=R2*sin(t);label=3;}; // paroi mouillée
+border gamma4(t=R1,R2){x=t;y=0;label=4;}
+
+mesh Th2d=buildmesh(gamma1(-8)+gamma2(-1)+gamma3(8)+gamma4(1));
+plot(Th2d,wait=true,ps="maillage_base_barrage.eps");
+
+int nbcouches=10;
+real zmin=0, zmax=100;
+func fx=x*(1+6*z/(5*sqrt(x^2+y^2))-z/150);
+func fy=y*(1+6*z/(5*sqrt(x^2+y^2))-z/150);
+func fz=z;
+int[int] refmi=[1,1,2,2,3,3];
+int[int] refbas=[0,2];
+int[int] refhau=[0,1];
+mesh3 Th3d=buildlayers(Th2d,nbcouches,zbound=[zmin,zmax],transfo=[fx,fy,fz],
+                       labelmid=refmi,labeldown=refbas,labelup=refhau);
+savemesh(Th3d,"barrage.msh");
+//medit("barrage",Th3d);
+plot(Th3d,wait=true,ps="maillage_3d_barrage.eps");
+
+// ---- Données physiques du problème ----
+real E = 12.E9, nu = 0.15; // Module de Young [Pascal] et coefficient de Poisson [s.u.]
+real lambda = E*nu/((1+nu)*(1-2*nu)), mu= E/(2*(1+nu)); //
+real rhob=2100; // densité volumique du béton [kg/m^3]
+real g=9.81; // accelération de la pseanteur [m/s^2]
+func fvz=-rhob*g; // densité volumique de force (selon z)
+real rhoe=1000; // densité volumique de l'eau [kg/m^3]
+func fsx=-rhoe*g*(100-z)*x/sqrt(x^2+y^2);
+func fsy=-rhoe*g*(100-z)*y/sqrt(x^2+y^2);
+
+// ---- Formulation variationnelle ----
+fespace Vh(Th3d,P1);
+Vh u1,u2,u3,v1,v2,v3;
+real sqrt2=sqrt(2.);
+macro epsilon(u1,u2,u3)  [dx(u1),dy(u2),dz(u3),(dy(u1)+dx(u2))/sqrt2,
+                         (dy(u3)+dz(u2))/sqrt2,(dx(u3)+dz(u1))/sqrt2] //fin de macro
+macro div(u1,u2,u3) (dx(u1)+dy(u2)+dz(u3)) //fin de macro
+
+solve lame([u1,u2,u3],[v1,v2,v3])= int3d(Th3d)(  
+        lambda*div(u1,u2,u3)*div(v1,v2,v3)
+        +2.*mu*(epsilon(u1,u2,u3)'*epsilon(v1,v2,v3)) )	
+        - int3d(Th3d)(fvz*v3) - int2d(Th3d,3)(fsx*v1+fsy*v2) 
+        + on(2,u1=0,u2=0,u3=0);
+
+//verbosity=2;
+real coef=2000;
+plot([u1,u2,u3],wait=true,ps="barrage_depl.eps",coef=coef);
+func phi1=x+u1*coef;
+func phi2=y+u2*coef;
+func phi3=z+u3*coef;
+mesh3 Th = movemesh3(Th3d, transfo=[phi1,phi2,phi3]);
+savemesh(Th,"barrage_deform.meshb");
+plot(Th,wait=true,ps="barrage_deform.eps");
+//medit("barrage_deform",Th);
+
