@@ -3,20 +3,32 @@
 
 #include <vector>
 
+class Complexe_error{
+    private :
+        int cas=0;
+    public :
+        const char* what() const;
+};
+
 class Complexe{
     private:
         double re,im;
     public:
         Complexe();
-        Complexe(const double,const double);
+        Complexe(const double,const double i=0);
         Complexe(const Complexe&);
+
         double real() const;
         double imag() const;
+        void affiche() const;
+
         Complexe conjugate() const;
+
         Complexe operator+(const Complexe&) const;
         Complexe operator-(const Complexe&) const;
         Complexe operator*(const Complexe&) const;
         Complexe operator/(const Complexe&) const;
+
         Complexe operator+=(const Complexe&);
         Complexe operator-=(const Complexe&);
         Complexe operator*=(const Complexe&);
