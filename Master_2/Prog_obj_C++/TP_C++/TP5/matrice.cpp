@@ -3,17 +3,79 @@
 #include "matrice3.h"
 using namespace std;
 
+#define MAX(a, b){a>b?a:b};
+
+/*-------------- VEC ----------------*/
+
+Vec::Vec(const int n):vector<double>(n){};
+
+void Vec::init(const double d){
+    int n = (*this).size();
+    for (int i=0;i<n;i++){
+        (*this)[i] = d;
+    }
+}
+
+void Vec::affiche() const{
+    cout << "Vec = [";
+    int n = (*this).size();
+    for (int i=0;i<n;i++){
+        cout << (*this)[i] ;
+        if (i < n-1)
+            cout << ", ";
+        else
+            cout << "]" <<endl;
+    }
+}
+
+Vec Vec::operator+(const Vec& V) const{
+    int a=V.size();
+    int b=(*this).size();
+    int c = MAX(a,b);
+    Vec X(c);
+    for (int i=0;i<c;i++){
+        if (i>= a)
+            X[i] = (*this)[i];
+        else if(i>=b)
+            X[i] = V[i];
+        else
+            X[i] = (*this)[i]+V[i];
+    }
+    return X;
+}
+
+/*--------------- ERREUR -------------*/
+const char* Mat_err::what() const{
+    if (cas==0)
+        return "Nombre de ligne négative";
+    if (cas==1)
+        return "Nombre de colonne négative";
+    return "Nombre de ligne et de colonne négative";
+}
+
+
+
+/*-------------- MATRICE -------------*/
 
 Matrice::Matrice():nbl(0),nbc(0),val(nullptr){}
 
-Matrice::Matrice(int nbl, int nbc):nbl(nbl),nbc(nbc){
+Matrice::Matrice(const int nbl, const int nbc):nbl(nbl),nbc(nbc){
+    if (nbl < 0 && nbc < 0){
+        throw Mat_err(2);
+    }
+    else if (nbc < 0){
+        throw Mat_err(1);
+    }
+    else if (nbl < 0){
+        throw Mat_err(0);
+    }
     val = new double*[nbl];
     for (int i=0; i<nbl;i++)
         val[i] = new double[nbc];
 }
 
 
-Matrice::Matrice(Matrice& A):nbl(A.nbl),nbc(A.nbc),val(new double*[nbl]){
+Matrice::Matrice(const Matrice& A):nbl(A.nbl),nbc(A.nbc),val(new double*[nbl]){
     for (int i=0; i<nbl;i++){
         val[i] = new double[nbc];
         for (int j=0;j<nbc;j++){
@@ -31,7 +93,7 @@ void Matrice::affiche() const{
     }
 }
 
-void Matrice::init(double r){
+void Matrice::init(const double r){
     for (int i=0; i<nbl; i++){
         for (int j=0; j<nbc; j++){
             val[i][j] = r;
@@ -75,11 +137,11 @@ Matrice& Matrice::operator=(const Matrice& B){
     return *this;
 }
 
-double*& Matrice::operator[](int i){
+double*& Matrice::operator[](const int i){
     return val[i];
 }
 
-double& Matrice::operator()(int i,int j){
+double& Matrice::operator()(const int i,const int j){
     if ((nbc != 0) || (j<= i))
         return val[i][j];
     return val[j][i];
@@ -91,7 +153,7 @@ double& Matrice::operator()(int i,int j){
 
 MatFull::MatFull():Matrice(){}
 
-MatFull::MatFull(int nbl, int nbc):Matrice(nbl,nbc){}
+MatFull::MatFull(const int nbl, const int nbc):Matrice(nbl,nbc){}
 
 MatFull::MatFull(const MatFull& A):Matrice(A.nbl,A.nbc){
     for (int i = 0; i<nbl; i++){
@@ -117,7 +179,7 @@ MatFull MatFull::operator+(const MatFull& B){
 
 MatSym::MatSym():Matrice(){}
 
-MatSym::MatSym(int n):Matrice(n,0){}
+MatSym::MatSym(const int n):Matrice(n,0){}
 
 MatSym::MatSym(const MatSym& A):Matrice(A.nbl,0){
     for (int i=0;i<nbl;i++){
@@ -146,7 +208,7 @@ void MatSym::affiche() const{
     }
 }
 
-void MatSym::init(double r){
+void MatSym::init(const double r){
     for (int i=0; i<nbl; i++){
         for (int j=0; j<=i; j++){
             val[i][j] = r;

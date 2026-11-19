@@ -1,0 +1,34 @@
+#include "matrice3.h"
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+int main(){
+    double n,m;
+    try{
+        ifstream fic("toto.txt", ios::in);
+        if (!fic.is_open()) throw ios_base::failure("Ouverture impossible");
+        if (!(fic >> n)) throw ios_base::failure("Lecture ligne impossible");
+        if (!(fic >> m)) m = 0; // Matrice Symétrique
+        else if (int(n) != n && int(m) != m) throw ios_base::failure("Taille de ligne et colonne non entière");
+        else if (int(n) != n) throw ios_base::failure("Taille de ligne non entière");
+        else if (int(m) != m) throw ios_base::failure("Taille de colonne non entière");
+
+        cout << "Matrice ";
+        if (m!=0){
+            MatFull A(n,m);
+            cout << "Full créée avec succès !"<<endl;
+        } 
+        else{
+            MatSym B(n);
+            cout << "Sym créée avec succès !"<<endl;
+        }  
+    }
+    catch (const ios_base::failure& of){
+        cerr << of.what() << endl;
+    }
+    catch (const Mat_err& e){
+        cerr << "Erreur ! --"<<e.what()<<"--"<<endl;
+    }
+    
+}
