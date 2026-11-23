@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  23 NOV 2026 13:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.18)  23 NOV 2026 14:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2537,19 +2537,31 @@ pdfTeX warning (ext4): destination with the same identifier (name{subsection.3.
                    \relax 
 l.1347 	\subsection{Méthode particulaire}
                                            [27]
+Overfull \hbox (74.58672pt too wide) in paragraph at lines 1364--1368
+[]\T1/lmr/m/n/14.4 Or : $\U/bbold/m/n/14.4 1[]\OT1/lmr/m/n/14.4 (\OML/lmm/m/it/
+14.4 X\OT1/lmr/m/n/14.4 (0; \OML/lmm/m/it/14.4 t; x\OT1/lmr/m/n/14.4 )) = 1$\T1
+/lmr/m/n/14.4 ,[] 
+ []
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{section.4}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1366 	\section{TD}
+l.1371 	\section{TD}
                     
 Package hyperref Info: bookmark level for unknown exo defaults to 0 on input li
-ne 1369.
+ne 1373.
+
+Overfull \hbox (145.01164pt too wide) in paragraph at lines 1375--1386
+[]$[]$ 
+ []
+
 \tf@thm=\write7
 \openout7 = `cours.thm'.
 
- [28]
-runsystem(latexminted cleantemp  --timestamp 20261123134420 456C7996E5729627FDD
+[28]
+runsystem(latexminted cleantemp  --timestamp 20261123140503 456C7996E5729627FDD
 F96470E5E0948)...executed safely (allowed).
 
  (./cours.aux)
@@ -2561,10 +2573,10 @@ Package rerunfilecheck Info: File `cours.out' has not changed.
 (rerunfilecheck)             Checksum: 4BDDD86785C26D555512F1F267410C7C;4494.
  ) 
 Here is how much of TeX's memory you used:
- 54739 strings out of 467538
- 1289016 string characters out of 5419551
+ 54743 strings out of 467538
+ 1289053 string characters out of 5419551
  1987067 words of memory out of 5000000
- 82597 multiletter control sequences out of 15000+600000
+ 82598 multiletter control sequences out of 15000+600000
  752076 words of font info for 148 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,17n,131p,866b,962s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2588,10 +2600,10 @@ exlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/202
 5/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dis
 t/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/typ
 e1/public/lm/lmsy8.pfb>
-Output written on cours.pdf (30 pages, 4257989 bytes).
+Output written on cours.pdf (30 pages, 4260015 bytes).
 PDF statistics:
- 586 PDF objects out of 1000 (max. 8388607)
- 440 compressed objects within 5 object streams
- 142 named destinations out of 1000 (max. 500000)
+ 591 PDF objects out of 1000 (max. 8388607)
+ 445 compressed objects within 5 object streams
+ 145 named destinations out of 1000 (max. 500000)
  459 words of extra memory for PDF output out of 10000 (max. 10000000)
 

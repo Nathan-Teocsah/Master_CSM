@@ -1348,7 +1348,7 @@
 	
 	Méthode pour résoudre $\diff ft(t,x) - a(t,x) \cdot\nabla_x f = 0$, avec $x \in \R^d$.\\
 	On a $f^0(x)$.\\
-	\large{\textbf{\underline{Idée :}}} On fait l'approximation (mettons en dimension 1) : 
+	\large{\textbf{\underline{Idée :}}} On fait l'approximation (mettons en dimension 1 la méthode des rectangles à gauche) : 
 	\[
 		f^0(x) \simeq \displaystyle\sum_{i=0}^{N-1} f^0(x_i)\mathbb{1}_{[x_i,\,x_{i+1}[]}(x) = f_{\delta x}(x).
 	\]
@@ -1361,11 +1361,27 @@
 		\end{aligned}
 	\]
 	
-	Or : $\mathbb1_{[x_i,\,x_{i+1}[}(X(0;t,x)) = 1$, si et seulement si, $x_i \leq X(0;t,x) < x_{i+1}$.
+	Or : $\mathbb1_{[x_i,\,x_{i+1}[}(X(0;t,x)) = 1$,\begin{minipage}[t]{15cm}
+		 si et seulement si, $x_i \leq X(0;t,x) < x_{i+1}$,\\
+		 si et seulement si, $X(t;0,x_i) \leq x \leq X(t;0,x_{i+1})$.
+	\end{minipage}
+	
+	Donc notre approximation est $f(t,x) \simeq \displaystyle\sum_{i=0}^{N-1} f^0(x_i)\mathbb1_{[X(t;0,x_i),\,X(t;0,x_{i+1})[}(x)$. Et en vérité $X(;0,x)$ est lui-même approché par $X_{\delta t}(t_n;0,x_i)$ valeurs approchées aux instants discrétisés $t_n = n \delta t$ du vrai flot, données par le schéma numérique retenu pour la résolution numérique de $\deriv Xt = a(t,X)$. Ce schéma est d'ordre $p$, ie. es associé ) une erreur $\delta t^p$. La précision de la méthode ainsi créée 
 	
 	\section{TD}
 	
-	\begin{exo}
-		content
+	\begin{exo}$ $
+		
+		\begin{minipage}{17cm}
+			Résoudre, expliciter le flot associé, écrire l'EDO pour la jacobienne du flot, écrire l'EDO pour le déterminant de la jacobienne du flot.
+		\begin{enumerate}
+			\item $\begin{cases}
+				\diff ft(t,x,y) + x\diff fx + y\diff fy = S(t,x,y)\\
+				f(t=0,x,y) = f^0(x,y)
+			\end{cases}.$
+			\item $\diff ft - x\diff fx - y\diff fy = S$.
+			\item $\diff fx + y \diff fx +  \diff fy = S$.
+		\end{enumerate}
+		\end{minipage}
 	\end{exo}
 \end{document}
