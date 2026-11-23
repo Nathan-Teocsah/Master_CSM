@@ -23,6 +23,7 @@ class Complexe{
         void affiche() const;
 
         Complexe conjugate() const;
+        Complexe exp() const;
 
         Complexe operator+(const Complexe&) const;
         Complexe operator-(const Complexe&) const;
@@ -37,10 +38,14 @@ class Complexe{
         bool operator!=(const Complexe&) const;
 };
 
-/*
-class FTVector:public std::vector<double>{
 
-}
-*/
+class FTVector:public std::vector<Complexe>{
+    private:
+        vector<Complexe> Poly;
+    public:
+        
+
+};
+
 
 #endif

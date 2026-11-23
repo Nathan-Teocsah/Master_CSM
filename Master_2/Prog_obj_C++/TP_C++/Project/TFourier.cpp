@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 #include "TFourier.h"
 using namespace std;
 
@@ -25,6 +26,11 @@ void Complexe::affiche() const{cout << re <<"+i"<<im<<endl;};
 
 /*---- conjugué ----*/
 Complexe Complexe::conjugate() const{return Complexe(re,-im);};
+Complexe Complexe::exp() const{
+    double norme = std::exp(re);
+
+    return Complexe(norme*std::cos(im),norme*std::sin(im));
+};
 
 /*--- surcharge d'opérateur ----*/
 Complexe Complexe::operator+(const Complexe& z) const{

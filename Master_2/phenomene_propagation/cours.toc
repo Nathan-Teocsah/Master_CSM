@@ -20,3 +20,6 @@
 \contentsline {part}{II\hspace {1em}François Castella}{18}{part.2}%
 \contentsline {section}{\numberline {1}Exemples}{19}{section.1}%
 \contentsline {section}{\numberline {2}Extension en toute dimension}{23}{section.2}%
+\contentsline {section}{\numberline {3}Méthode Numérique}{28}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Méthode particulaire}{28}{subsection.3.1}%
+\contentsline {section}{\numberline {4}TD}{28}{section.4}%

@@ -20,7 +20,7 @@
 		\begin{figure}[h]
 			\centering
 			% Ajustez la largeur si besoin (ex: 0.4 ou 0.6)
-			\includegraphics[width=0.5\textwidth]{logo.jpg} 
+			\includegraphics[width=0.5\textwidth]{/home/maenwe/Master_CSM/modèle_cours_latex/logo.jpg} 
 		\end{figure}
 		
 		\vspace{2cm}
@@ -1341,4 +1341,31 @@
 	\[
 	f(t,y) = f^0(X(0;t,y)) + \int_0^t S(s,X(s;t,y))\mathrm ds.
 	\]
+	
+	\section{Méthode Numérique}
+	
+	\subsection{Méthode particulaire}
+	
+	Méthode pour résoudre $\diff ft(t,x) - a(t,x) \cdot\nabla_x f = 0$, avec $x \in \R^d$.\\
+	On a $f^0(x)$.\\
+	\large{\textbf{\underline{Idée :}}} On fait l'approximation (mettons en dimension 1) : 
+	\[
+		f^0(x) \simeq \displaystyle\sum_{i=0}^{N-1} f^0(x_i)\mathbb{1}_{[x_i,\,x_{i+1}[]}(x) = f_{\delta x}(x).
+	\]
+	
+	On suit : $f(t,x) = f^0(X(0;t,x))$, avec $X = $ le flot de $a$. On fait donc l'approximation :
+	\[
+		\begin{aligned}
+			f(t,x) &\simeq f_{\delta x}^0(X(0;t,x)) \\
+			&\simeq \sum_{i=0}^N f^0(x_i) \mathbb1_{[x_i,\,x_{i+1}[}(X(0;t,x)).
+		\end{aligned}
+	\]
+	
+	Or : $\mathbb1_{[x_i,\,x_{i+1}[}(X(0;t,x)) = 1$, si et seulement si, $x_i \leq X(0;t,x) < x_{i+1}$.
+	
+	\section{TD}
+	
+	\begin{exo}
+		content
+	\end{exo}
 \end{document}
