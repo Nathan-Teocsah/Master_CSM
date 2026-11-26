@@ -1366,7 +1366,56 @@
 		 si et seulement si, $X(t;0,x_i) \leq x \leq X(t;0,x_{i+1})$.
 	\end{minipage}
 	
-	Donc notre approximation est $f(t,x) \simeq \displaystyle\sum_{i=0}^{N-1} f^0(x_i)\mathbb1_{[X(t;0,x_i),\,X(t;0,x_{i+1})[}(x)$. Et en vérité $X(;0,x)$ est lui-même approché par $X_{\delta t}(t_n;0,x_i)$ valeurs approchées aux instants discrétisés $t_n = n \delta t$ du vrai flot, données par le schéma numérique retenu pour la résolution numérique de $\deriv Xt = a(t,X)$. Ce schéma est d'ordre $p$, ie. es associé ) une erreur $\delta t^p$. La précision de la méthode ainsi créée 
+	Donc notre approximation est $f(t,x) \simeq \displaystyle\sum_{i=0}^{N-1} f^0(x_i)\mathbb1_{[X(t;0,x_i),\,X(t;0,x_{i+1})[}(x)$. Et en vérité $X(;0,x)$ est lui-même approché par $X_{\delta t}(t_n;0,x_i)$ valeurs approchées aux instants discrétisés $t_n = n \delta t$ du vrai flot, données par le schéma numérique retenu pour la résolution numérique de $\deriv Xt = a(t,X)$. Ce schéma est d'ordre $p$, ie. es associé ) une erreur $\delta t^p$. La précision de la méthode ainsi créée est de l'ordre  de $\delta t^p + \max_i \abs{X(t_n;0,x_{i+1})-X(t_n;0,x_{i+1})}$ à l'instant $t_n$. On pourrait remplacer l'approximation par le rectangles à gauche. $f^0 \simeq f_{\delta x}^0$, d'ordre $\delta x$, par une autre approximation, d'ordre $\delta x^q$. Ceci donnerait, à l'instant $t_n$, une erreur d'ordre $\delta t^p + \left(\max_i \abs{X(t_n; 0 , x_{i+1}) - X(t_n;0,x_i)}\right)^q$.\\
+	\textcolor{red}{!} Problème si même $\abs{X(t_n;0,x_{i+1})-X(t_n;0,x_i)}$ commence à être de l'ordre de 1.
+	
+	\subsection{Méthode aux différences finies}
+	
+	Sur un exemple : soit à résoudre $\diff ft(t,x) + \diff fx(t,x) = 0$, avec $x \in \R$.
+	
+	(ici $a(t,x) = Cste = 1$). On se donne $\delta t$, $\delta x$, je pose $t_n = n \delta t$ et $x_j = j \delta x$ et on introduit les trois schémas suivants, pour l'approximation $f_j^n$ de $f(t_n,x_j)$.
+	
+	\begin{enumerate}[label=\textbullet]
+		\item $\dfrac{f_j^{n+1}-f_j^n}{\delta t} + \dfrac{f_{j+1}^n - f_{j}^n}{\delta x} = 0$ $\implies$ $f_j^{n+1} = f_j^n - \delta t \dfrac{f_{j+1}^n-f_j^n}{\delta x}$
+		\item $\dfrac{f_j^{n+1}-f_j^n}{\delta t} + \dfrac{f_j^n-f_{j-1}^n}{\delta x} = 0$ (schéma upwind)
+		\item $\dfrac{f_j^{n+1}-f_j^n}{\delta t} + \dfrac{f_{j+1}^n-f_{j-1}^n}{2\delta x}$
+	\end{enumerate}
+	
+	Les schémas 1. et 3. ne sont pas adaptés pour cette équation de transport (une forte oscillation apparaît qui s'amplifie plus $t$ est grand). Le schéma 2 en revanche n'introduit pas ce genre d'oscillation.
+	
+	\large{\textbf{\underline{Pourquoi tout cela ?}}}
+	
+	$f(t,x) = f^0(x-t) \rightsquigarrow$ l'information se déplace de la gauche vers la droite. Cette propriété qualitative importante donnée par la théorie, est violée par le schéma centré et par le schéma décentré aval avec : $f_j^{n+1} = f_j^n - \dfrac{\delta t}{\delta x}(f_{j+1}^n - f_j^n)$ et $f_j^{n+1} = f_j^n - \dfrac{\delta t}{2\delta x}(f_{j+1}^n - f_{j-1}^n)$.\\
+	
+	\textbf{\fbox{\large{2ième élément d'explication}}}
+	
+	\begin{enumerate}
+		\item Schéma aval : $f_j^{n+1} = \left(1+\dfrac{\delta t}{\delta x}\right)f_j^n - \dfrac{\delta t}{\delta x}f_{j+1}^n$. Moyenne non convexe de $f_{j+1}^n$ e $f_j^n$. Dans notre cas : $f^0(x) = \mathbb1_{[-1,\, 1]}$.
+		\begin{center}
+			\begin{tikzpicture}
+					\begin{axis} 
+						\addplot coordinates {(-1.5,0) (-1.25,0) (-1,0)};		
+						\addplot[mark=none] coordinates {(-1,0) (-1,1) (1,1) (1,0)};
+						\addplot coordinates {(1.5,0) (1.25,0) (1,0)};							
+						\addplot coordinates {(-0.75,0)};			
+						\addplot coordinates {(0.75,0)};
+					\end{axis}
+			\end{tikzpicture}
+			\captionof{figure}{Illustration de la situation}
+		\end{center}
+		
+		$f_j^1 = \left(1+\dfrac{\delta t}{\delta x}\right)$, et à la fin $f_j^n$ fait apparaitre des facteurs $\left(1+\dfrac{\delta t}{\delta x}\right)^n$. Cela fait apparaître des oscillations.
+		
+		\item $f_j^{n+1} = f_j^n - \dfrac{\delta t}{2\delta x} f_{j+1}^n + \dfrac{\delta t}{2\delta x} f_{j-1}^n$.\\
+		$\hookrightarrow$ combinaison non convexe  de $f_j^n, f_{j+1}^n, f_{j-1}^n$.\\
+		$\hookrightarrow$ oscillations de grande amplitude.
+		
+		\item  \underline{Schéma upwind} $f_j^{n+1} = \left(1-\dfrac{\delta t}{\delta x}\right)f_j^n + \dfrac{\delta t}{\delta x}f_{j-1}^n$\\
+		$\hookrightarrow$ combinaison convexe de $f_j^n$ et $f_{j-1}^n$ à la condition que \fbox{$\dfrac{\delta t}{\delta x} \leq 1$} \textcolor{red}{!}\textcolor{red}{!}\textcolor{red}{!}\\
+		$\longrightarrow$ Condition CFL (Courant-Fredrichs - Leroy)
+		
+		On peut aussi écrire la condition CFL $\dfrac{\delta x}{\delta t} \geq 1$ (plus généralement $\dfrac{\delta x}{\delta t} \geq a(t,x)$).
+	\end{enumerate}
 	
 	\section{TD}
 	

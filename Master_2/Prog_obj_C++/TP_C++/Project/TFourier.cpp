@@ -84,3 +84,33 @@ bool Complexe::operator!=(const Complexe& z) const{
     if (re!=z.re || im!=z.im) return true;
     return false;
 };
+
+
+/*============ CLASSE TFOURIER ============*/
+
+FTVector::FTVector():f(nullptr),poly(vector<Complexe>(0)){};
+FTVector::FTVector(Complexe (**p_f)(double)):f(p_f),poly(vector<Complexe>(0)){};
+FTVector::FTVector(const vector<Complexe>& poly):f(nullptr),poly(poly){};  
+FTVector::FTVector(const FTVector& V):f(V.f){
+    if (f==nullptr){
+        poly = vector<Complexe>(V.poly.size());
+        for (int i=0; i<poly.size();i++)
+            poly[i] = V.poly[i];
+    }
+    else
+        poly = vector<Complexe>(0);
+}; 
+
+void FTVector::FourierDiscrete(int n){
+    if (poly.size()!=0)
+        n = poly.size();
+    else if (n!=0 && f){
+        poly = vector<Complexe>(n);
+        for (int i=0;i<n;i++)
+            poly[i] = *f(i/n);
+    }
+    else{
+        cout << "rien a transformer !!" << endl;
+    }
+};
+void FTVector::FourierInverse(){};

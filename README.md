@@ -37,4 +37,6 @@ _Vacances_ 11 -> 26
 - Mercredi 25 : CC pratique logiciel EF
 - Jeudi 26 : CC programmation de base C++
 
+## Janvier 2027
+- Mercredi 6 : Oral GPU
 

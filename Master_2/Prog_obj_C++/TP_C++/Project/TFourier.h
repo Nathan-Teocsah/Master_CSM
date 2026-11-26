@@ -41,10 +41,16 @@ class Complexe{
 
 class FTVector:public std::vector<Complexe>{
     private:
-        vector<Complexe> Poly;
+        vector<Complexe> poly;
+        Complexe (**f)(double); //fonction sur laquelle on va appliquer la transformée de fourier
     public:
+        FTVector(); // Vecteur vide
+        FTVector(Complexe (**)(double)); //Affectation à une fonction pour effectuer la transformée de fourier
+        FTVector(const vector<Complexe>&); //Vecteur sur lequel appliquer la transformée de fourier (inverse ou non)
+        FTVector(const FTVector&);  //par copie
         
-
+        void FourierDiscrete(int n=0);
+        void FourierInverse();
 };
 
 
